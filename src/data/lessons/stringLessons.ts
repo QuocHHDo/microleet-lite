@@ -1,0 +1,53 @@
+import { Lesson, createLesson } from '../../common/commonLesson';
+
+export const stringLessons: Lesson[] = [
+  createLesson(
+    'Creating and Accessing Strings',
+    'Learn how to create strings in Python and access characters by index.',
+    `my_string = "Hello, World!"\nprint(my_string[0])`,
+    'Create a string and access the second character.',
+    `my_string = "Hello, World!"\n# Access the second character here`,
+    `my_string = "Hello, World!"\nsecond_char = my_string[1]`,
+    'How do you access the first character in a Python string?',
+    ['my_string[0]', 'my_string[1]', 'my_string.first()', 'my_string[-1]'],
+    0,
+  ),
+  createLesson(
+    'Basic Operations on Strings',
+    'Master basic string operations like concatenation, slicing, and more.',
+    `my_string = "Hello"\nnew_string = my_string + " World!"\nprint(new_string)`,
+    'Concatenate two strings and then slice the result.',
+    `my_string1 = "Hello"\nmy_string2 = "World"\n# Concatenate and slice the strings`,
+    `my_string1 = "Hello"\nmy_string2 = "World"\nconcatenated = my_string1 + " " + my_string2\nsliced = concatenated[0:5]`,
+    'Which method is used to concatenate two strings?',
+    ['concat', 'join', 'add', 'plus'],
+    3,
+  ),
+  createLesson(
+    'String Methods',
+    'Learn about common string methods like upper, lower, replace, and more.',
+    `my_string = "Hello, World!"\nprint(my_string.upper())`,
+    'Convert a string to lowercase and then replace a substring.',
+    `my_string = "Hello, World!"\n# Convert to lowercase and replace a substring`,
+    `my_string = "Hello, World!"\nlower_string = my_string.lower()\nreplaced_string = lower_string.replace("world", "universe")`,
+    'Which method is used to convert a string to lowercase?',
+    ['upper()', 'lower()', 'capitalize()', 'swapcase()'],
+    1,
+  ),
+  createLesson(
+    'String Formatting',
+    'Understand different ways to format strings in Python.',
+    `name = "Alice"\nage = 30\nformatted_string = f"My name is {name} and I am {age} years old."\nprint(formatted_string)`,
+    'Format a string using the format method.',
+    `name = "Alice"\nage = 30\n# Format the string here`,
+    `name = "Alice"\nage = 30\nformatted_string = "My name is {} and I am {} years old.".format(name, age)`,
+    'Which of the following is a correct way to format a string?',
+    [
+      `"My name is {name} and I am {age} years old."`,
+      `f"My name is {name} and I am {age} years old."`,
+      `"My name is %s and I am %d years old." % (name, age)`,
+      `"My name is {0} and I am {1} years old.".format(name, age)`,
+    ],
+    3,
+  ),
+];
