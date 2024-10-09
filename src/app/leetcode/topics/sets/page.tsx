@@ -9,7 +9,7 @@ import { arrayLessons } from '@/data/lessons/arrayLessons';
 const SetsPage: React.FC = () => {
   return (
     <ModulePage
-      title="Stacks"
+      title="Sets"
       description="Master the fundamentals of sets and their operations"
       lessons={arrayLessons}
       problems={setProblems}

@@ -9,7 +9,7 @@ import { arrayLessons } from '@/data/lessons/arrayLessons';
 const TuplesPage: React.FC = () => {
   return (
     <ModulePage
-      title="Stacks"
+      title="Tuples"
       description="Master the fundamentals of tuples and their operations"
       lessons={arrayLessons}
       problems={tupleProblems}
