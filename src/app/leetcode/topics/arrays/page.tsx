@@ -10,7 +10,7 @@ const ArraysPage: React.FC = () => {
     <ModulePage
       title="Arrays"
       description="Master the fundamentals of arrays and their operations"
-      lessons={arrayLessons}
+      // lessons={arrayLessons}
       problems={arrayProblems}
       cheatSheetItems={arrayCheatSheet}
       concepts={arrayConcepts}

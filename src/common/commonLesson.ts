@@ -1,16 +1,16 @@
 export interface Lesson {
-  title: string;
-  content: string;
-  codeExample: string;
-  exercise: {
-    prompt: string;
-    initialCode: string;
-    solution: string;
+  title?: string;
+  content?: string;
+  codeExample?: string;
+  exercise?: {
+    prompt?: string;
+    initialCode?: string;
+    solution?: string;
   };
-  quiz: {
-    question: string;
-    options: string[];
-    correctAnswer: number;
+  quiz?: {
+    question?: string;
+    options?: string[];
+    correctAnswer?: number;
   };
 }
 

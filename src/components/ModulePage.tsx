@@ -13,7 +13,7 @@ import {
   TooltipProvider,
 } from '@/components/ui/tooltip';
 import ModuleOverview from '@/components/ModuleOverview';
-import Navigation from '@/components/Navigation';
+// import Navigation from '@/components/Navigation';
 import MicroLesson from '@/components/MicroLesson';
 import LeetCodeProblems from '@/components/LeetCodeProblems';
 import ProgressTracker from '@/components/ProgressTracker';
@@ -29,7 +29,7 @@ import CheatSheet from './CheatSheet';
 interface ModulePageProps {
   title: string;
   description: string;
-  lessons: Lesson[];
+  lessons?: Lesson[];
   problems: Problem[];
   cheatSheetItems: CheatSheetItem[];
   concepts: Concept[];
@@ -151,24 +151,9 @@ const ModulePage: React.FC<ModulePageProps> = ({
           <TabsContent value="lessons">
             <Card className="mt-4">
               <CardContent className="pt-6">
-                <Navigation
-                  lessons={lessons}
-                  activeLesson={activeLesson}
-                  setActiveLesson={setActiveLesson}
-                />
-                <MicroLesson
-                  lesson={lessons[activeLesson]}
-                  onComplete={() => handleLessonComplete(activeLesson)}
-                  isCompleted={completedLessons.includes(activeLesson)}
-                />
-                {activeLesson < lessons.length - 1 && (
-                  <Button
-                    onClick={() => setActiveLesson((prev) => prev + 1)}
-                    className="mt-4"
-                  >
-                    Next Lesson <ArrowRight className="ml-2" />
-                  </Button>
-                )}
+                <MicroLesson>
+                </MicroLesson>
+
               </CardContent>
             </Card>
           </TabsContent>
@@ -208,10 +193,10 @@ const ModulePage: React.FC<ModulePageProps> = ({
           </TabsContent>
         </Tabs>
 
-        <ProgressTracker
+        {/* <ProgressTracker
           completed={completedLessons.length}
           total={lessons.length}
-        />
+        /> */}
 
         <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700 mt-4">
           <div
