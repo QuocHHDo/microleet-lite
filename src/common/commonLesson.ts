@@ -1,43 +1,41 @@
 export interface Lesson {
-  title?: string;
-  content?: string;
-  codeExample?: string;
-  exercise?: {
-    prompt?: string;
-    initialCode?: string;
-    solution?: string;
+  title: string;
+  content: string;
+  codeExample: string;
+  exercise: {
+    prompt: string;
+    initialCode: string;
+    solution: string;
   };
-  quiz?: {
-    question?: string;
-    options?: string[];
-    correctAnswer?: number;
+  quiz: {
+    question: string;
+    options: string[];
+    correctAnswer: number;
   };
+  tags?: string[];
+  category?: 'concept' | 'implementation' | 'algorithm';
+  relatedTopcis?: string[];
+  difficulty?: 'beginner' | 'intermediate' | 'advanced';
 }
 
-export const createLesson = (
-  title: string,
-  content: string,
-  codeExample: string,
-  exercisePrompt: string,
-  exerciseInitialCode: string,
-  exerciseSolution: string,
-  quizQuestion: string,
-  quizOptions: string[],
-  correctAnswerIndex: number,
-): Lesson => {
-  return {
-    title,
-    content,
-    codeExample,
-    exercise: {
-      prompt: exercisePrompt,
-      initialCode: exerciseInitialCode,
-      solution: exerciseSolution,
-    },
-    quiz: {
-      question: quizQuestion,
-      options: quizOptions,
-      correctAnswer: correctAnswerIndex,
-    },
-  };
-};
+export interface Topic {
+  id: string;
+  title: string;
+  lessons: Lesson[];
+  requiredForCompletion: boolean;
+  dependsOn?: string[]; // IDs of prerequisite topics
+}
+
+export interface Section {
+  id: string;
+  title: string;
+  topics: Topic[];
+  icon?: React.ReactNode;
+}
+
+export interface DataStructureMetadata {
+  description: string;
+  prerequisites: string[];
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
+  estimatedTime: string;
+}

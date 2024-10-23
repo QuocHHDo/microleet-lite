@@ -4,14 +4,14 @@ import { setConcepts } from '@/data/concepts/setConcepts';
 import { setProblems } from '@/data/problems/setProblems';
 import { TopicName } from '../interfaces';
 import { setCheatSheet } from '@/data/cheatsheets/setCheatSheet';
-import { arrayLessons } from '@/data/lessons/arrayLessons';
+// import { arrayLessons } from '@/data/lessons/arrayLessons';
 
 const SetsPage: React.FC = () => {
   return (
     <ModulePage
       title="Sets"
       description="Master the fundamentals of sets and their operations"
-      lessons={arrayLessons}
+      // lessons={arrayLessons}
       problems={setProblems}
       cheatSheetItems={setCheatSheet}
       concepts={setConcepts}

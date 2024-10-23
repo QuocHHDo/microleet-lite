@@ -4,14 +4,14 @@ import { treeCheatSheet } from '@/data/cheatsheets/treeCheatSheet';
 // import { treeLessons } from '@/data/lessons/treeLessons';
 import { treeProblems } from '@/data/problems/treeProblems';
 import { treeConcepts } from '@/data/concepts/treeConcepts';
-import { arrayLessons } from '@/data/lessons/arrayLessons';
+// import { arrayLessons } from '@/data/lessons/arrayLessons';
 
 const TreesPage: React.FC = () => {
   return (
     <ModulePage
       title="Trees"
       description="Deep dive into trees and their usage"
-      lessons={arrayLessons}
+      // lessons={arrayLessons}
       problems={treeProblems}
       cheatSheetItems={treeCheatSheet}
       concepts={treeConcepts}

@@ -151,9 +151,7 @@ const ModulePage: React.FC<ModulePageProps> = ({
           <TabsContent value="lessons">
             <Card className="mt-4">
               <CardContent className="pt-6">
-                <MicroLesson>
-                </MicroLesson>
-
+                <MicroLesson></MicroLesson>
               </CardContent>
             </Card>
           </TabsContent>

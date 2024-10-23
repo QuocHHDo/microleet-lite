@@ -1,6 +1,6 @@
 import ModulePage from '@/components/ModulePage';
 import { arrayConcepts } from '@/data/concepts/arrayConcepts';
-import { arrayLessons } from '@/data/lessons/arrayLessons';
+// import { arrayLessons } from '@/data/lessons/arrayLessons';
 import { arrayProblems } from '@/data/problems/arrayProblems';
 import { TopicName } from '../interfaces';
 import { arrayCheatSheet } from '@/data/cheatsheets/arrayCheatSheet';
