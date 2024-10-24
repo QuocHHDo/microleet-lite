@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button';
 import CodeMirror from '@uiw/react-codemirror';
 import { python } from '@codemirror/lang-python';
 import { LessonContent, LessonsTab, Section } from '@/common/commonLesson';
+import { renderContent } from '@/utils/renderContent';
 
 interface MicroLessonProps {
   lessonsTab?: LessonsTab
@@ -221,8 +222,8 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
                           {selectedLesson?.title}
                         </h3>
                         <div className="prose">
-                          <p className="whitespace-pre-line">
-                            {selectedLesson?.content}
+                          <p className="text-base whitespace-pre-line">
+                            {renderContent(selectedLesson?.content)}
                           </p>
                         </div>
                       </div>
@@ -234,7 +235,7 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
                           value={selectedLesson?.codeExample}
                           extensions={[python()]}
                           editable={false}
-                          className="border rounded-lg overflow-hidden"
+                          className="border rounded-lg text-base overflow-hidden"
                           theme="light"
                         />
                       </div>

@@ -1,7 +1,7 @@
 import { Curriculum, LessonContent, LessonsTab } from "@/common/commonLesson";
 
 const arrayCurriculum: Curriculum = {
-  title: 'Array Lessons Curriculum',
+  title: 'Array Curriculum',
   description:
     'A comprehensive guide to mastering array operations and algorithms',
   sections: [
@@ -184,20 +184,22 @@ const arrayCurriculum: Curriculum = {
   ],
 } as const;
 
-
-
-// Map to store lesson content
 const arrayLessons: Record<string, LessonContent> = {
   'array-initialization': {
     title: 'Defining and Initializing Arrays',
-    content: `
-Arrays are fundamental data structures that store collections of elements in contiguous memory locations. In Python, arrays are typically implemented using lists, which can hold elements of different types and dynamically resize. There are several ways to initialize arrays, depending on your needs:
+    content: `<p>
+  Arrays are fundamental data structures that store collections of elements in contiguous memory locations. 
+  In Python, arrays are typically implemented using <strong>lists</strong>, which can hold elements of different types and dynamically resize. 
+  There are several ways to initialize arrays, depending on your needs:
+</p>
 
-1. <h1>Empty array initialization</h1>: Used when you plan to populate the array later.
-2. Array initialization with values: Useful when you know the elements beforehand.
-3. Array initialization with repeated elements: Handy for creating arrays filled with default values.
-4. List comprehension: A powerful tool for generating arrays based on logic or transformations.
-5. Array initialization from other sequences: Convert tuples, ranges, or other iterable sequences to arrays.`,
+<ul>
+  <li><strong>Empty array initialization:</strong> Used when you plan to populate the array later.</li>
+  <li><strong>Array initialization with values:</strong> Useful when you know the elements beforehand.</li>
+  <li><strong>Array initialization with repeated elements:</strong> Handy for creating arrays filled with default values.</li>
+  <li><strong>List comprehension:</strong> A powerful tool for generating arrays based on logic or transformations.</li>
+  <li><strong>Array initialization from other sequences:</strong> Convert tuples, ranges, or other iterable sequences to arrays.</li>
+</ul>`,
     codeExample: `# Empty array
 empty_array = []
 
