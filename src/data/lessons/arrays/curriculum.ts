@@ -1,10 +1,12 @@
-export const arrayCurriculum = {
+import { Curriculum, LessonContent, LessonsTab } from "@/common/commonLesson";
+
+const arrayCurriculum: Curriculum = {
   title: 'Array Lessons Curriculum',
   description:
     'A comprehensive guide to mastering array operations and algorithms',
   sections: [
     {
-      id: '1',
+      id: 1,
       title: 'Array Basics',
       topics: [
         {
@@ -26,7 +28,7 @@ export const arrayCurriculum = {
       ],
     },
     {
-      id: '2',
+      id: 2,
       title: 'Array Operations',
       topics: [
         {
@@ -52,7 +54,7 @@ export const arrayCurriculum = {
       ],
     },
     {
-      id: '3',
+      id: 3,
       title: 'Array Sorting',
       topics: [
         {
@@ -73,7 +75,7 @@ export const arrayCurriculum = {
       ],
     },
     {
-      id: '4',
+      id: 4,
       title: 'Two-pointer Technique',
       topics: [
         {
@@ -89,7 +91,7 @@ export const arrayCurriculum = {
       ],
     },
     {
-      id: '5',
+      id: 5,
       title: 'Sliding Window',
       topics: [
         {
@@ -105,7 +107,7 @@ export const arrayCurriculum = {
       ],
     },
     {
-      id: '6',
+      id: 6,
       title: 'Prefix Sum and Difference Arrays',
       topics: [
         {
@@ -121,7 +123,7 @@ export const arrayCurriculum = {
       ],
     },
     {
-      id: '7',
+      id: 7,
       title: 'Matrix as 2D Arrays',
       topics: [
         {
@@ -137,7 +139,7 @@ export const arrayCurriculum = {
       ],
     },
     {
-      id: '8',
+      id: 8,
       title: 'Advanced Array Manipulations',
       topics: [
         {
@@ -153,7 +155,7 @@ export const arrayCurriculum = {
       ],
     },
     {
-      id: '9',
+      id: 9,
       title: 'In-place Operations',
       topics: [
         {
@@ -169,7 +171,7 @@ export const arrayCurriculum = {
       ],
     },
     {
-      id: '10',
+      id: 10,
       title: 'Multidimensional Arrays',
       topics: [
         {
@@ -182,55 +184,49 @@ export const arrayCurriculum = {
   ],
 } as const;
 
-// Type for lesson content
-export interface LessonContent {
-  title: string;
-  content: string;
-  codeExample: string;
-  exercise: {
-    prompt: string;
-    initialCode: string;
-    solution: string;
-  };
-  quiz: {
-    question: string;
-    options: string[];
-    correctAnswer: number;
-  };
-}
+
 
 // Map to store lesson content
-export const arrayLessons: Record<string, LessonContent> = {
+const arrayLessons: Record<string, LessonContent> = {
   'array-initialization': {
     title: 'Defining and Initializing Arrays',
-    content: `Arrays are fundamental data structures that store collections of elements in contiguous memory locations. In Python, arrays are typically implemented using lists. There are several ways to initialize arrays:
-  
-  1. Empty array initialization
-  2. Array initialization with values
-  3. Array initialization with repeated elements
-  4. List comprehension
-  5. Array initialization from other sequences`,
+    content: `
+Arrays are fundamental data structures that store collections of elements in contiguous memory locations. In Python, arrays are typically implemented using lists, which can hold elements of different types and dynamically resize. There are several ways to initialize arrays, depending on your needs:
+
+1. <h1>Empty array initialization</h1>: Used when you plan to populate the array later.
+2. Array initialization with values: Useful when you know the elements beforehand.
+3. Array initialization with repeated elements: Handy for creating arrays filled with default values.
+4. List comprehension: A powerful tool for generating arrays based on logic or transformations.
+5. Array initialization from other sequences: Convert tuples, ranges, or other iterable sequences to arrays.`,
     codeExample: `# Empty array
-  empty_array = []
-  
-  # Array with initial values
-  numbers = [1, 2, 3, 4, 5]
-  mixed_types = [1, "hello", 3.14, True]
-  
-  # Array with repeated elements
-  zeros = [0] * 5  # Creates [0, 0, 0, 0, 0]
-  
-  # List comprehension
-  squares = [x**2 for x in range(5)]  # Creates [0, 1, 4, 9, 16]
-  
-  # Converting other sequences
-  from_tuple = list((1, 2, 3))
-  from_range = list(range(5))  # Creates [0, 1, 2, 3, 4]`,
+empty_array = []
+
+# Array with initial values
+numbers = [1, 2, 3, 4, 5]
+mixed_types = [1, "hello", 3.14, True]
+
+# Array with repeated elements
+zeros = [0] * 5  # Creates [0, 0, 0, 0, 0]
+
+# List comprehension - useful for generating arrays dynamically
+squares = [x**2 for x in range(5)]  # Creates [0, 1, 4, 9, 16]
+
+# Converting other sequences into arrays
+from_tuple = list((1, 2, 3))
+from_range = list(range(5))  # Creates [0, 1, 2, 3, 4]
+
+# Further Examples:
+
+# Using list comprehension with conditions
+even_numbers = [x for x in range(10) if x % 2 == 0]  # Creates [0, 2, 4, 6, 8]`,
     exercise: {
       prompt:
-        'Create a list containing the first 5 even numbers (starting from 0) using list comprehension.',
-      initialCode: '# Write your solution here\neven_numbers = ',
-      solution: 'even_numbers = [x * 2 for x in range(5)]',
+        'Create an array of 10 elements, each initialized to the value None. Use list comprehension to create an array of the first 5 cube numbers.',
+      initialCode: `# Write your solution here
+none_array = 
+cube_numbers = `,
+      solution: `none_array = [None] * 10
+cube_numbers = [x**3 for x in range(1, 6)]`,
     },
     quiz: {
       question:
@@ -247,4 +243,7 @@ export const arrayLessons: Record<string, LessonContent> = {
   // Add other lessons here as needed
 };
 
-export default arrayCurriculum;
+export const arrayLessonsTab: LessonsTab = {
+  curriculum: arrayCurriculum,
+  lessons: arrayLessons
+}

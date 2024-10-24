@@ -1,8 +1,7 @@
 'use client';
 import React, { useState, useMemo } from 'react';
-import { BookOpen, Code, List, FileText, ArrowRight } from 'lucide-react';
+import { BookOpen, Code, List, FileText } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -13,14 +12,12 @@ import {
   TooltipProvider,
 } from '@/components/ui/tooltip';
 import ModuleOverview from '@/components/ModuleOverview';
-// import Navigation from '@/components/Navigation';
 import MicroLesson from '@/components/MicroLesson';
 import LeetCodeProblems from '@/components/LeetCodeProblems';
-import ProgressTracker from '@/components/ProgressTracker';
 import useLocalStorage from '@/hooks/useLocalStorage';
 import usePoints from '@/hooks/usePoints';
 import Concepts from '@/components/Concepts';
-import { Lesson } from '@/common/commonLesson';
+import { LessonsTab } from '@/common/commonLesson';
 import { Problem } from '@/common/commonProblem';
 import { Concept } from '@/common/commonConcept';
 import { CheatSheetItem } from '@/common/commonCheatSheet';
@@ -29,7 +26,7 @@ import CheatSheet from './CheatSheet';
 interface ModulePageProps {
   title: string;
   description: string;
-  lessons?: Lesson[];
+  lessonsTab?: LessonsTab;
   problems: Problem[];
   cheatSheetItems: CheatSheetItem[];
   concepts: Concept[];
@@ -39,17 +36,17 @@ interface ModulePageProps {
 const ModulePage: React.FC<ModulePageProps> = ({
   title,
   description,
-  lessons,
+  lessonsTab,
   problems,
   cheatSheetItems,
   concepts,
   progressKey,
 }) => {
-  const [activeLesson, setActiveLesson] = useState(0);
-  const [completedLessons, setCompletedLessons] = useLocalStorage<number[]>(
-    `${progressKey}LessonsProgress`,
-    [],
-  );
+  // const [activeLesson, setActiveLesson] = useState(0);
+  // const [completedLessons, setCompletedLessons] = useLocalStorage<number[]>(
+  //   `${progressKey}LessonsProgress`,
+  //   [],
+  // );
   const [expandedConcepts, setExpandedConcepts] = useLocalStorage<
     Record<number, boolean>
   >(`${progressKey}ExpandedConcepts`, {});
@@ -63,18 +60,18 @@ const ModulePage: React.FC<ModulePageProps> = ({
   const [darkMode, setDarkMode] = useLocalStorage<boolean>('darkMode', false);
   const [points, setPoints] = usePoints();
 
-  const handleLessonComplete = (lessonIndex: number) => {
-    setCompletedLessons((prev) => {
-      const isCompleted = prev.includes(lessonIndex);
-      const newCompletedLessons = isCompleted
-        ? prev.filter((index) => index !== lessonIndex)
-        : [...prev, lessonIndex];
+  // const handleLessonComplete = (lessonIndex: number) => {
+  //   setCompletedLessons((prev) => {
+  //     const isCompleted = prev.includes(lessonIndex);
+  //     const newCompletedLessons = isCompleted
+  //       ? prev.filter((index) => index !== lessonIndex)
+  //       : [...prev, lessonIndex];
 
-      setPoints((prevPoints) => prevPoints + (isCompleted ? -10 : 10));
+  //     setPoints((prevPoints) => prevPoints + (isCompleted ? -10 : 10));
 
-      return newCompletedLessons;
-    });
-  };
+  //     return newCompletedLessons;
+  //   });
+  // };
 
   const markAsCompleted = (id: number) => {
     setCompletedConcepts((prev) => {
@@ -91,13 +88,13 @@ const ModulePage: React.FC<ModulePageProps> = ({
     setExpandedConcepts((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  const progress = useMemo(() => {
-    return (
-      (Object.values(completedConcepts).filter(Boolean).length /
-        concepts.length) *
-      100
-    );
-  }, [completedConcepts]);
+  // const progress = useMemo(() => {
+  //   return (
+  //     (Object.values(completedConcepts).filter(Boolean).length /
+  //       concepts.length) *
+  //     100
+  //   );
+  // }, [completedConcepts]);
 
   return (
     <TooltipProvider>
@@ -151,7 +148,9 @@ const ModulePage: React.FC<ModulePageProps> = ({
           <TabsContent value="lessons">
             <Card className="mt-4">
               <CardContent className="pt-6">
-                <MicroLesson></MicroLesson>
+                <MicroLesson 
+                  lessonsTab={lessonsTab}
+                />
               </CardContent>
             </Card>
           </TabsContent>
@@ -190,20 +189,6 @@ const ModulePage: React.FC<ModulePageProps> = ({
             </Card>
           </TabsContent>
         </Tabs>
-
-        {/* <ProgressTracker
-          completed={completedLessons.length}
-          total={lessons.length}
-        /> */}
-
-        <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700 mt-4">
-          <div
-            className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
-            style={{ width: `${progress}%` }}
-          >
-            {Math.round(progress)}% Completed
-          </div>
-        </div>
       </div>
     </TooltipProvider>
   );

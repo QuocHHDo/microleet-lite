@@ -12,48 +12,38 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import CodeMirror from '@uiw/react-codemirror';
 import { python } from '@codemirror/lang-python';
-import {
-  arrayCurriculum,
-  arrayLessons,
-} from '@/data/lessons/arrays/curriculum';
+import { LessonContent, LessonsTab, Section } from '@/common/commonLesson';
 
 interface MicroLessonProps {
-  lesson?: {
-    title: string;
-    content: string;
-    codeExample: string;
-    exercise: {
-      prompt: string;
-      initialCode: string;
-      solution: string;
-    };
-    quiz: {
-      question: string;
-      options: string[];
-      correctAnswer: number;
-    };
-  };
+  lessonsTab?: LessonsTab
   onComplete?: () => void;
   isCompleted?: boolean;
 }
 
 const MicroLesson: React.FC<MicroLessonProps> = ({
+  lessonsTab,
   onComplete,
   isCompleted,
 }) => {
-  const [expandedSections, setExpandedSections] = useState<{
-    [key: string]: boolean;
-  }>({});
-  const [selectedTopicId, setSelectedTopicId] = useState<string | null>(null);
+  const { curriculum, lessons } = (lessonsTab || {}) as LessonsTab;
+  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
+  const firstSection: Section = curriculum?.sections?.[0] as Section;
+  const firstTopicId: string = firstSection?.topics?.[0]?.id;
+
+  const [selectedTopicId, setSelectedTopicId] = useState<string>(firstTopicId);
   const [userCode, setUserCode] = useState('');
   const [quizAnswer, setQuizAnswer] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState<'concept' | 'practice' | 'quiz'>(
     'concept',
   );
-  const selectedLesson = selectedTopicId ? arrayLessons[selectedTopicId] : null;
+  const selectedLesson: LessonContent | undefined = lessons?.[selectedTopicId];
+  const selectedSection: Section | undefined = curriculum?.sections.find(section =>
+    section.topics.some(topic => topic.id === selectedTopicId),
+  );
 
-  const toggleSection = (sectionId: string) => {
-    setExpandedSections((prev) => ({
+
+  const toggleSection = (sectionId: number) => {
+    setExpandedSections((prev: any) => ({
       ...prev,
       [sectionId]: !prev[sectionId],
     }));
@@ -61,7 +51,7 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
 
   const handleTopicSelect = (topicId: string) => {
     setSelectedTopicId(topicId);
-    const lesson = arrayLessons[topicId];
+    const lesson = lessons?.[topicId];
     if (lesson) {
       setUserCode(lesson.exercise.initialCode);
       setQuizAnswer(null);
@@ -100,9 +90,9 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
             <div className="flex items-center gap-3">
               <BookOpen className="h-8 w-8 text-blue-600" />
               <div>
-                <h1 className="text-3xl font-bold">{arrayCurriculum.title}</h1>
+                <h1 className="text-3xl font-bold">{curriculum?.title}</h1>
                 <p className="text-gray-600 mt-1">
-                  {arrayCurriculum.description}
+                  {curriculum?.description}
                 </p>
               </div>
             </div>
@@ -121,7 +111,7 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
         <div className="grid grid-cols-12 gap-8">
           {/* Sidebar */}
           <div className="col-span-4 space-y-4">
-            {arrayCurriculum.sections.map((section) => (
+            {curriculum?.sections.map((section: Section) => (
               <div
                 key={section.id}
                 className="border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
@@ -228,7 +218,7 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
                     <div className="space-y-6">
                       <div>
                         <h3 className="text-xl font-semibold mb-4">
-                          Understanding Arrays
+                          {selectedLesson?.title}
                         </h3>
                         <div className="prose">
                           <p className="whitespace-pre-line">
@@ -282,7 +272,7 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
                         </h3>
                         <p className="mb-4">{selectedLesson?.quiz.question}</p>
                         <div className="space-y-3">
-                          {selectedLesson?.quiz.options.map((option, index) => (
+                          {selectedLesson?.quiz.options.map((option: any, index: any) => (
                             <div
                               key={index}
                               onClick={() => setQuizAnswer(index)}
