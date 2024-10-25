@@ -148,9 +148,7 @@ const ModulePage: React.FC<ModulePageProps> = ({
           <TabsContent value="lessons">
             <Card className="mt-4">
               <CardContent className="pt-6">
-                <MicroLesson 
-                  lessonsTab={lessonsTab}
-                />
+                <MicroLesson lessonsTab={lessonsTab} />
               </CardContent>
             </Card>
           </TabsContent>

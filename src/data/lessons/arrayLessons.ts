@@ -1,4 +1,4 @@
-import { Curriculum, LessonContent, LessonsTab } from "@/common/commonLesson";
+import { Curriculum, LessonContent, LessonsTab } from '@/common/commonLesson';
 
 const arrayCurriculum: Curriculum = {
   title: 'Array Curriculum',
@@ -240,6 +240,12 @@ cube_numbers = [x**3 for x in range(1, 6)]`,
         'list(repeat(True, 3))',
       ],
       correctAnswer: 1,
+      explanations: [
+        'This is incorrect because the list() function expects an iterable, not individual elements.',
+        'This is correct. It creates a list with three True values.',
+        'This is incorrect because there is no repeat method in the list class.',
+        'This is incorrect because the repeat function is not a built-in Python function.',
+      ],
     },
   },
   // Add other lessons here as needed
@@ -247,5 +253,5 @@ cube_numbers = [x**3 for x in range(1, 6)]`,
 
 export const arrayLessonsTab: LessonsTab = {
   curriculum: arrayCurriculum,
-  lessons: arrayLessons
-}
+  lessons: arrayLessons,
+};

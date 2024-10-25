@@ -31,6 +31,7 @@ export interface LessonContent {
     question: string;
     options: string[];
     correctAnswer: number;
+    explanations?: string[];
   };
 }
 export interface Topic {
@@ -50,14 +51,14 @@ export interface Section {
 }
 
 export interface Curriculum {
-  title: string,
-  description: string,
-  sections: Section[],
+  title: string;
+  description: string;
+  sections: Section[];
 }
 
 export interface LessonsTab {
-  curriculum: Curriculum,
-  lessons: Record<string, LessonContent>
+  curriculum: Curriculum;
+  lessons: Record<string, LessonContent>;
 }
 export interface DataStructureMetadata {
   description: string;

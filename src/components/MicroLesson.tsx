@@ -4,9 +4,11 @@ import {
   ChevronRight,
   BookOpen,
   CheckCircle,
-  Code,
-  BrainCircuit,
+  GraduationCap,
   PenTool,
+  Circle,
+  XCircle,
+  FileCode,
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -16,7 +18,7 @@ import { LessonContent, LessonsTab, Section } from '@/common/commonLesson';
 import { renderContent } from '@/utils/renderContent';
 
 interface MicroLessonProps {
-  lessonsTab?: LessonsTab
+  lessonsTab?: LessonsTab;
   onComplete?: () => void;
   isCompleted?: boolean;
 }
@@ -27,21 +29,32 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
   isCompleted,
 }) => {
   const { curriculum, lessons } = (lessonsTab || {}) as LessonsTab;
-  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
+  const [expandedSections, setExpandedSections] = useState<
+    Record<string, boolean>
+  >({});
+
   const firstSection: Section = curriculum?.sections?.[0] as Section;
   const firstTopicId: string = firstSection?.topics?.[0]?.id;
 
   const [selectedTopicId, setSelectedTopicId] = useState<string>(firstTopicId);
   const [userCode, setUserCode] = useState('');
   const [quizAnswer, setQuizAnswer] = useState<number | null>(null);
-  const [activeTab, setActiveTab] = useState<'concept' | 'practice' | 'quiz'>(
+  const [activeTab, setActiveTab] = useState<'concept' | 'exercise' | 'quiz'>(
     'concept',
   );
-  const selectedLesson: LessonContent | undefined = lessons?.[selectedTopicId];
-  const selectedSection: Section | undefined = curriculum?.sections.find(section =>
-    section.topics.some(topic => topic.id === selectedTopicId),
-  );
+  const [solutionHeight, setSolutionHeight] = useState('auto');
 
+  const [showSolution, setShowSolution] = useState<boolean>(false);
+  const [userGotItRight, setUserGotItRight] = useState<boolean | null>(null);
+  const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
+  const [selectedExplanation, setSelectedExplanation] = useState<string | null>(
+    null,
+  );
+  const [showExplanation, setShowExplanation] = useState<boolean>(false);
+  const selectedLesson: LessonContent | undefined = lessons?.[selectedTopicId];
+  const selectedSection: Section | undefined = curriculum?.sections.find(
+    (section) => section.topics.some((topic) => topic.id === selectedTopicId),
+  );
 
   const toggleSection = (sectionId: number) => {
     setExpandedSections((prev: any) => ({
@@ -56,6 +69,8 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
     if (lesson) {
       setUserCode(lesson.exercise.initialCode);
       setQuizAnswer(null);
+      setShowSolution(false);
+      setUserGotItRight(null);
     }
   };
 
@@ -64,20 +79,32 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
   };
 
   const checkSolution = () => {
-    if (userCode.trim() === selectedLesson?.exercise.solution.trim()) {
-      alert('Correct solution!');
-    } else {
-      alert('Not quite right. Try again!');
+    setShowSolution((prevShowSolution) => !prevShowSolution);
+  };
+
+  const handleUserResponse = (isCorrect: boolean) => {
+    setUserGotItRight(isCorrect);
+    if (isCorrect && onComplete) {
+      onComplete();
     }
   };
 
+  // const handleQuizSubmit = () => {
+  //   if (quizAnswer === selectedLesson?.quiz.correctAnswer) {
+  //     alert('Correct answer!');
+  //     if (onComplete) onComplete();
+  //   } else {
+  //     alert('Incorrect. Try again!');
+  //   }
+  // };
   const handleQuizSubmit = () => {
     if (quizAnswer === selectedLesson?.quiz.correctAnswer) {
-      alert('Correct answer!');
+      setIsAnswerCorrect(true);
       if (onComplete) onComplete();
     } else {
-      alert('Incorrect. Try again!');
+      setIsAnswerCorrect(false);
     }
+    setShowExplanation(true); // Show the explanation after submitting the answer
   };
 
   const progressPercentage = 10; // Calculate based on completed topics
@@ -92,9 +119,7 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
               <BookOpen className="h-8 w-8 text-blue-600" />
               <div>
                 <h1 className="text-3xl font-bold">{curriculum?.title}</h1>
-                <p className="text-gray-600 mt-1">
-                  {curriculum?.description}
-                </p>
+                <p className="text-gray-600 mt-1">{curriculum?.description}</p>
               </div>
             </div>
             <div className="text-right">
@@ -192,16 +217,16 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
                       onClick={() => setActiveTab('concept')}
                       className="gap-2"
                     >
-                      <BrainCircuit className="h-4 w-4" />
+                      <GraduationCap className="h-4 w-4" />
                       Learn
                     </Button>
                     <Button
-                      variant={activeTab === 'practice' ? 'default' : 'ghost'}
-                      onClick={() => setActiveTab('practice')}
+                      variant={activeTab === 'exercise' ? 'default' : 'ghost'}
+                      onClick={() => setActiveTab('exercise')}
                       className="gap-2"
                     >
-                      <Code className="h-4 w-4" />
-                      Practice
+                      <FileCode className="h-4 w-4" />
+                      Exercise
                     </Button>
                     <Button
                       variant={activeTab === 'quiz' ? 'default' : 'ghost'}
@@ -227,92 +252,158 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
                           </p>
                         </div>
                       </div>
-                      <div>
-                        <h4 className="text-lg font-semibold mb-3">
-                          Example Code
-                        </h4>
-                        <CodeMirror
-                          value={selectedLesson?.codeExample}
-                          extensions={[python()]}
-                          editable={false}
-                          className="border rounded-lg text-base overflow-hidden"
-                          theme="light"
-                        />
-                      </div>
                     </div>
                   )}
 
-                  {activeTab === 'practice' && (
-                    <div className="space-y-6">
-                      <div>
-                        <h3 className="text-xl font-semibold mb-4">
-                          Practice Exercise
-                        </h3>
-                        <p className="mb-4">
-                          {selectedLesson?.exercise.prompt}
-                        </p>
-                        <CodeMirror
-                          value={userCode}
-                          extensions={[python()]}
-                          onChange={handleCodeChange}
-                          className="border rounded-lg overflow-hidden"
-                          theme="light"
-                        />
-                        <Button onClick={checkSolution} className="mt-4">
-                          Check Solution
-                        </Button>
+                  {activeTab === 'exercise' && (
+                    <div>
+                      <h3 className="mb-2">
+                        {selectedLesson?.exercise.prompt}
+                      </h3>
+                      <CodeMirror
+                        value={userCode}
+                        height="150px"
+                        theme="light"
+                        extensions={[python()]}
+                        onChange={handleCodeChange}
+                      />
+                      <div className="mt-4 flex justify-end">
+                        <Button onClick={checkSolution}>Check Solution</Button>
                       </div>
+
+                      {showSolution && (
+                        <div className="mt-6 transition-all duration-300 ease-in-out">
+                          <h4 className="font-semibold mb-2">Solution</h4>
+                          <CodeMirror
+                            value={selectedLesson?.exercise?.solution}
+                            height={solutionHeight}
+                            theme="light"
+                            extensions={[python()]}
+                            readOnly
+                            className="transition-height duration-300 ease-in-out"
+                          />
+                          {/* <div className="mt-4">
+                            <p>Did you get it right?</p>
+                            <div className="flex flex-col md:flex-row gap-4 mt-4">
+                              <Button
+                                variant="default"
+                                onClick={() => handleUserResponse(true)}
+                                className="transition-colors duration-200 hover:bg-green-500"
+                              >
+                                Yes, I got it right
+                              </Button>
+                              <Button
+                                variant="destructive"
+                                onClick={() => handleUserResponse(false)}
+                                className="transition-colors duration-200 hover:bg-red-500"
+                              >
+                                No, I got it wrong
+                              </Button>
+                            </div>
+                          </div> */}
+                        </div>
+                      )}
                     </div>
                   )}
 
                   {activeTab === 'quiz' && (
-                    <div className="space-y-6">
-                      <div>
-                        <h3 className="text-xl font-semibold mb-4">
-                          Knowledge Check
-                        </h3>
-                        <p className="mb-4">{selectedLesson?.quiz.question}</p>
-                        <div className="space-y-3">
-                          {selectedLesson?.quiz.options.map((option: any, index: any) => (
+                    <div className="bg-white p-6 rounded-lg shadow-lg">
+                      <h3 className="text-2xl font-bold mb-6 text-gray-800">
+                        Quiz
+                      </h3>
+                      <div className="space-y-6">
+                        <p className="text-lg text-gray-700">
+                          {selectedLesson?.quiz.question}
+                        </p>
+                        <div className="space-y-4">
+                          {selectedLesson?.quiz.options.map((option, index) => (
                             <div
                               key={index}
-                              onClick={() => setQuizAnswer(index)}
-                              className={`
-                                p-4 rounded-lg border-2 cursor-pointer transition-all
+                              className={`flex items-center p-4 border rounded-lg cursor-pointer transition-all duration-200
                                 ${
                                   quizAnswer === index
-                                    ? 'border-blue-500 bg-blue-50'
-                                    : 'border-gray-200 hover:border-blue-200 hover:bg-gray-50'
+                                    ? isAnswerCorrect !== null
+                                      ? isAnswerCorrect
+                                        ? 'bg-green-100 border-green-400'
+                                        : 'bg-red-100 border-red-400'
+                                      : 'bg-blue-100 border-blue-400'
+                                    : 'hover:bg-gray-100'
                                 }
                               `}
+                              onClick={() => {
+                                setQuizAnswer(index);
+                                if (selectedLesson?.quiz.explanations) {
+                                  setSelectedExplanation(
+                                    selectedLesson.quiz.explanations[index],
+                                  );
+                                }
+                              }}
                             >
-                              <div className="flex items-center gap-3">
-                                <div
-                                  className={`
-                                  w-5 h-5 rounded-full border-2 flex items-center justify-center
-                                  ${
-                                    quizAnswer === index
-                                      ? 'border-blue-500'
-                                      : 'border-gray-300'
-                                  }
-                                `}
-                                >
-                                  {quizAnswer === index && (
-                                    <div className="w-3 h-3 rounded-full bg-blue-500" />
-                                  )}
-                                </div>
-                                <span>{option}</span>
-                              </div>
+                              {quizAnswer === index ? (
+                                isAnswerCorrect !== null ? (
+                                  isAnswerCorrect ? (
+                                    <CheckCircle
+                                      className="mr-4 text-green-600"
+                                      size={24}
+                                    />
+                                  ) : (
+                                    <XCircle
+                                      className="mr-4 text-red-600"
+                                      size={24}
+                                    />
+                                  )
+                                ) : (
+                                  <CheckCircle
+                                    className="mr-4 text-blue-600"
+                                    size={24}
+                                  />
+                                )
+                              ) : (
+                                <Circle
+                                  className="mr-4 text-gray-600"
+                                  size={24}
+                                />
+                              )}
+                              <span className="text-gray-800">{option}</span>
                             </div>
                           ))}
                         </div>
-                        <Button
-                          onClick={handleQuizSubmit}
-                          className="mt-6"
-                          disabled={quizAnswer === null}
-                        >
-                          Submit Answer
-                        </Button>
+                        {showExplanation && selectedExplanation && (
+                          <div className="mt-6 p-4 bg-gray-100 rounded-lg">
+                            <p className="text-gray-700">
+                              {selectedExplanation}
+                            </p>
+                          </div>
+                        )}
+                        <div className="mt-6 flex justify-end">
+                          <Button
+                            onClick={handleQuizSubmit}
+                            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                          >
+                            Submit Answer
+                          </Button>
+                        </div>
+                        {isAnswerCorrect !== null && (
+                          <div
+                            className={`mt-6 flex items-center justify-center space-x-4 ${isAnswerCorrect ? 'text-green-600' : 'text-red-600'}`}
+                          >
+                            {isAnswerCorrect ? (
+                              <>
+                                <CheckCircle size={32} />
+                                <span className="text-lg font-semibold">
+                                  Correct answer!
+                                </span>
+                              </>
+                            ) : (
+                              <>
+                                <XCircle size={32} />
+                                <span className="text-lg font-semibold">
+                                  Incorrect. Try again!
+                                </span>
+                              </>
+                            )}
+                          </div>
+                        )}
                       </div>
                     </div>
                   )}
