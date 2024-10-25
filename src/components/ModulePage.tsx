@@ -1,8 +1,7 @@
 'use client';
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { BookOpen, Code, List, FileText } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Switch } from '@/components/ui/switch';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
@@ -104,14 +103,14 @@ const ModulePage: React.FC<ModulePageProps> = ({
         }`}
       >
         <div className="flex justify-between items-center mb-8">
-          <label className="flex items-center space-x-2">
+          {/* <label className="flex items-center space-x-2">
             <span>{darkMode ? '🌙' : '☀️'}</span>
             <Switch
               checked={darkMode}
               onCheckedChange={() => setDarkMode(!darkMode)}
               aria-label="Toggle dark mode"
             />
-          </label>
+          </label> */}
           <Tooltip>
             <TooltipTrigger>
               <Badge variant="secondary" className="text-lg">
