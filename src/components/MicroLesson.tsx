@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   ChevronDown,
   ChevronRight,
@@ -37,7 +37,7 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
   const firstTopicId: string = firstSection?.topics?.[0]?.id;
 
   const [selectedTopicId, setSelectedTopicId] = useState<string>(firstTopicId);
-const [userCode, setUserCode] = useState<string[]>([]);
+  const [userCode, setUserCode] = useState<string[]>([]);
   const [quizAnswers, setQuizAnswers] = useState<number[]>([]);
   const [activeTab, setActiveTab] = useState<'concept' | 'exercise' | 'quiz'>(
     'concept',
@@ -58,6 +58,14 @@ const [userCode, setUserCode] = useState<string[]>([]);
   const selectedSection: Section | undefined = curriculum?.sections.find(
     (section) => section.topics.some((topic) => topic.id === selectedTopicId),
   );
+
+  useEffect(() => {
+    if (selectedLesson?.exercises) {
+      const initialCodes =
+        selectedLesson.exercises.map((exercise) => exercise.initialCode) || [];
+      setUserCode(initialCodes);
+    }
+  }, [selectedLesson]);
 
   const toggleSection = (sectionId: number) => {
     setExpandedSections((prev: any) => ({
@@ -289,6 +297,20 @@ const [userCode, setUserCode] = useState<string[]>([]);
                           </p>
                         </div>
                       </div>
+
+                      {/* Display Code Example if it exists */}
+                      {selectedLesson?.codeExample && (
+                        <div className="mt-6">
+                          <h4 className="font-semibold mb-2">Code Example</h4>
+                          <CodeMirror
+                            value={selectedLesson.codeExample}
+                            height="150px"
+                            theme="light"
+                            extensions={[python()]}
+                            readOnly
+                          />
+                        </div>
+                      )}
                     </div>
                   )}
 
