@@ -22,17 +22,17 @@ export interface LessonContent {
   title: string;
   content: string;
   codeExample: string;
-  exercise: {
+  exercises: {
     prompt: string;
     initialCode: string;
     solution: string;
-  };
-  quiz: {
+  }[];
+  quizzes: {
     question: string;
     options: string[];
     correctAnswer: number;
     explanations?: string[];
-  };
+  }[];
 }
 export interface Topic {
   id: string;

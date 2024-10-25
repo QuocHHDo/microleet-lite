@@ -37,20 +37,23 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
   const firstTopicId: string = firstSection?.topics?.[0]?.id;
 
   const [selectedTopicId, setSelectedTopicId] = useState<string>(firstTopicId);
-  const [userCode, setUserCode] = useState('');
-  const [quizAnswer, setQuizAnswer] = useState<number | null>(null);
+const [userCode, setUserCode] = useState<string[]>([]);
+  const [quizAnswers, setQuizAnswers] = useState<number[]>([]);
   const [activeTab, setActiveTab] = useState<'concept' | 'exercise' | 'quiz'>(
     'concept',
   );
   const [solutionHeight, setSolutionHeight] = useState('auto');
 
-  const [showSolution, setShowSolution] = useState<boolean>(false);
+  const [showSolution, setShowSolution] = useState<boolean[]>([]);
   const [userGotItRight, setUserGotItRight] = useState<boolean | null>(null);
-  const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
-  const [selectedExplanation, setSelectedExplanation] = useState<string | null>(
-    null,
+  const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean[]>([]);
+  const [selectedExplanations, setSelectedExplanations] = useState<string[]>(
+    [],
   );
-  const [showExplanation, setShowExplanation] = useState<boolean>(false);
+  const [isSubmitted, setIsSubmitted] = useState<boolean[]>([]);
+
+  const [showExplanations, setShowExplanations] = useState<boolean[]>([]);
+
   const selectedLesson: LessonContent | undefined = lessons?.[selectedTopicId];
   const selectedSection: Section | undefined = curriculum?.sections.find(
     (section) => section.topics.some((topic) => topic.id === selectedTopicId),
@@ -65,21 +68,38 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
 
   const handleTopicSelect = (topicId: string) => {
     setSelectedTopicId(topicId);
+
     const lesson = lessons?.[topicId];
     if (lesson) {
-      setUserCode(lesson.exercise.initialCode);
-      setQuizAnswer(null);
-      setShowSolution(false);
+      setUserCode(
+        lesson.exercises?.map((exercise) => exercise.initialCode) || [],
+      );
+      setQuizAnswers(new Array(lesson.quizzes?.length || 0).fill(null));
+      setShowSolution(new Array(lesson.exercises?.length || 0).fill(false));
+      setIsAnswerCorrect(new Array(lesson.quizzes?.length || 0).fill(null));
+      setSelectedExplanations(
+        new Array(lesson.quizzes?.length || 0).fill(null),
+      );
+      setShowExplanations(new Array(lesson.quizzes?.length || 0).fill(false));
       setUserGotItRight(null);
+      setIsSubmitted(new Array(lesson.quizzes?.length || 0).fill(false));
     }
   };
 
-  const handleCodeChange = (value: string) => {
-    setUserCode(value);
+  const handleCodeChange = (index: number, value: string) => {
+    setUserCode((prevUserCode) => {
+      const newUserCode = [...prevUserCode];
+      newUserCode[index] = value;
+      return newUserCode;
+    });
   };
 
-  const checkSolution = () => {
-    setShowSolution((prevShowSolution) => !prevShowSolution);
+  const checkSolution = (exerciseIndex: number) => {
+    setShowSolution((prevShowSolution) => {
+      const newShowSolution = [...prevShowSolution];
+      newShowSolution[exerciseIndex] = !newShowSolution[exerciseIndex];
+      return newShowSolution;
+    });
   };
 
   const handleUserResponse = (isCorrect: boolean) => {
@@ -89,22 +109,39 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
     }
   };
 
-  // const handleQuizSubmit = () => {
-  //   if (quizAnswer === selectedLesson?.quiz.correctAnswer) {
-  //     alert('Correct answer!');
-  //     if (onComplete) onComplete();
-  //   } else {
-  //     alert('Incorrect. Try again!');
-  //   }
-  // };
-  const handleQuizSubmit = () => {
-    if (quizAnswer === selectedLesson?.quiz.correctAnswer) {
-      setIsAnswerCorrect(true);
-      if (onComplete) onComplete();
-    } else {
-      setIsAnswerCorrect(false);
+  const handleQuizSubmit = (quizIndex: number) => {
+    const selectedQuiz = selectedLesson?.quizzes?.[quizIndex];
+
+    // Check if the user has selected an answer
+    if (quizAnswers[quizIndex] === null) {
+      alert('Please select an answer before submitting!');
+      return;
     }
-    setShowExplanation(true); // Show the explanation after submitting the answer
+
+    // Proceed with checking the answer if one is selected
+    const isCorrect = quizAnswers[quizIndex] === selectedQuiz?.correctAnswer;
+
+    setIsAnswerCorrect((prevIsAnswerCorrect) => {
+      const newIsAnswerCorrect = [...prevIsAnswerCorrect];
+      newIsAnswerCorrect[quizIndex] = isCorrect;
+      return newIsAnswerCorrect;
+    });
+
+    setShowExplanations((prevShowExplanations) => {
+      const newShowExplanations = [...prevShowExplanations];
+      newShowExplanations[quizIndex] = true;
+      return newShowExplanations;
+    });
+
+    setIsSubmitted((prevIsSubmitted) => {
+      const newIsSubmitted = [...prevIsSubmitted];
+      newIsSubmitted[quizIndex] = true;
+      return newIsSubmitted;
+    });
+
+    if (isCorrect && onComplete) {
+      onComplete();
+    }
   };
 
   const progressPercentage = 10; // Calculate based on completed topics
@@ -257,52 +294,37 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
 
                   {activeTab === 'exercise' && (
                     <div>
-                      <h3 className="mb-2">
-                        {selectedLesson?.exercise.prompt}
-                      </h3>
-                      <CodeMirror
-                        value={userCode}
-                        height="150px"
-                        theme="light"
-                        extensions={[python()]}
-                        onChange={handleCodeChange}
-                      />
-                      <div className="mt-4 flex justify-end">
-                        <Button onClick={checkSolution}>Check Solution</Button>
-                      </div>
-
-                      {showSolution && (
-                        <div className="mt-6 transition-all duration-300 ease-in-out">
-                          <h4 className="font-semibold mb-2">Solution</h4>
+                      {selectedLesson?.exercises?.map((exercise, index) => (
+                        <div key={index} className="mb-8">
+                          <h3 className="mb-2">{exercise.prompt}</h3>
                           <CodeMirror
-                            value={selectedLesson?.exercise?.solution}
-                            height={solutionHeight}
+                            value={userCode[index]}
+                            height="150px"
                             theme="light"
                             extensions={[python()]}
-                            readOnly
-                            className="transition-height duration-300 ease-in-out"
+                            onChange={(value) => handleCodeChange(index, value)}
                           />
-                          {/* <div className="mt-4">
-                            <p>Did you get it right?</p>
-                            <div className="flex flex-col md:flex-row gap-4 mt-4">
-                              <Button
-                                variant="default"
-                                onClick={() => handleUserResponse(true)}
-                                className="transition-colors duration-200 hover:bg-green-500"
-                              >
-                                Yes, I got it right
-                              </Button>
-                              <Button
-                                variant="destructive"
-                                onClick={() => handleUserResponse(false)}
-                                className="transition-colors duration-200 hover:bg-red-500"
-                              >
-                                No, I got it wrong
-                              </Button>
+                          <div className="mt-4 flex justify-end">
+                            <Button onClick={() => checkSolution(index)}>
+                              Check Solution
+                            </Button>
+                          </div>
+
+                          {showSolution[index] && (
+                            <div className="mt-6 transition-all duration-300 ease-in-out">
+                              <h4 className="font-semibold mb-2">Solution</h4>
+                              <CodeMirror
+                                value={exercise.solution}
+                                height={solutionHeight}
+                                theme="light"
+                                extensions={[python()]}
+                                readOnly
+                                className="transition-height duration-300 ease-in-out"
+                              />
                             </div>
-                          </div> */}
+                          )}
                         </div>
-                      )}
+                      ))}
                     </div>
                   )}
 
@@ -312,98 +334,124 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
                         Quiz
                       </h3>
                       <div className="space-y-6">
-                        <p className="text-lg text-gray-700">
-                          {selectedLesson?.quiz.question}
-                        </p>
-                        <div className="space-y-4">
-                          {selectedLesson?.quiz.options.map((option, index) => (
-                            <div
-                              key={index}
-                              className={`flex items-center p-4 border rounded-lg cursor-pointer transition-all duration-200
-                                ${
-                                  quizAnswer === index
-                                    ? isAnswerCorrect !== null
-                                      ? isAnswerCorrect
-                                        ? 'bg-green-100 border-green-400'
-                                        : 'bg-red-100 border-red-400'
-                                      : 'bg-blue-100 border-blue-400'
-                                    : 'hover:bg-gray-100'
-                                }
-                              `}
-                              onClick={() => {
-                                setQuizAnswer(index);
-                                if (selectedLesson?.quiz.explanations) {
-                                  setSelectedExplanation(
-                                    selectedLesson.quiz.explanations[index],
-                                  );
-                                }
-                              }}
-                            >
-                              {quizAnswer === index ? (
-                                isAnswerCorrect !== null ? (
-                                  isAnswerCorrect ? (
-                                    <CheckCircle
-                                      className="mr-4 text-green-600"
-                                      size={24}
-                                    />
-                                  ) : (
-                                    <XCircle
-                                      className="mr-4 text-red-600"
-                                      size={24}
-                                    />
-                                  )
-                                ) : (
-                                  <CheckCircle
-                                    className="mr-4 text-blue-600"
-                                    size={24}
-                                  />
-                                )
-                              ) : (
-                                <Circle
-                                  className="mr-4 text-gray-600"
-                                  size={24}
-                                />
-                              )}
-                              <span className="text-gray-800">{option}</span>
-                            </div>
-                          ))}
-                        </div>
-                        {showExplanation && selectedExplanation && (
-                          <div className="mt-6 p-4 bg-gray-100 rounded-lg">
-                            <p className="text-gray-700">
-                              {selectedExplanation}
+                        {selectedLesson?.quizzes?.map((quiz, quizIndex) => (
+                          <div key={quizIndex} className="mb-8">
+                            <p className="text-lg text-gray-700">
+                              {quiz.question}
                             </p>
-                          </div>
-                        )}
-                        <div className="mt-6 flex justify-end">
-                          <Button
-                            onClick={handleQuizSubmit}
-                            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200"
-                          >
-                            Submit Answer
-                          </Button>
-                        </div>
-                        {isAnswerCorrect !== null && (
-                          <div
-                            className={`mt-6 flex items-center justify-center space-x-4 ${isAnswerCorrect ? 'text-green-600' : 'text-red-600'}`}
-                          >
-                            {isAnswerCorrect ? (
-                              <>
-                                <CheckCircle size={32} />
-                                <span className="text-lg font-semibold">
-                                  Correct answer!
-                                </span>
-                              </>
-                            ) : (
-                              <>
-                                <XCircle size={32} />
-                                <span className="text-lg font-semibold">
-                                  Incorrect. Try again!
-                                </span>
-                              </>
+                            <div className="space-y-4">
+                              {quiz.options.map((option, index) => (
+                                <div
+                                  key={index}
+                                  className={`flex items-center p-4 border rounded-lg cursor-pointer transition-all duration-200
+                                    ${
+                                      quizAnswers[quizIndex] === index
+                                        ? isSubmitted[quizIndex]
+                                          ? isAnswerCorrect[quizIndex]
+                                            ? 'bg-green-100 border-green-400'
+                                            : 'bg-red-100 border-red-400'
+                                          : 'bg-blue-100 border-blue-400'
+                                        : 'hover:bg-gray-100'
+                                    }
+                                  `}
+                                  onClick={() => {
+                                    setQuizAnswers((prevQuizAnswers) => {
+                                      const newQuizAnswers = [
+                                        ...prevQuizAnswers,
+                                      ];
+                                      newQuizAnswers[quizIndex] = index;
+                                      return newQuizAnswers;
+                                    });
+
+                                    if (quiz.explanations) {
+                                      setSelectedExplanations(
+                                        (prevSelectedExplanations) => {
+                                          const newSelectedExplanations = [
+                                            ...prevSelectedExplanations,
+                                          ];
+                                          newSelectedExplanations[quizIndex] =
+                                            quiz.explanations?.[index] ?? '';
+                                          return newSelectedExplanations;
+                                        },
+                                      );
+                                    }
+                                  }}
+                                >
+                                  {quizAnswers[quizIndex] === index ? (
+                                    isSubmitted[quizIndex] ? (
+                                      isAnswerCorrect[quizIndex] ? (
+                                        <CheckCircle
+                                          className="mr-4 text-green-600"
+                                          size={24}
+                                        />
+                                      ) : (
+                                        <XCircle
+                                          className="mr-4 text-red-600"
+                                          size={24}
+                                        />
+                                      )
+                                    ) : (
+                                      <CheckCircle
+                                        className="mr-4 text-blue-600"
+                                        size={24}
+                                      />
+                                    )
+                                  ) : (
+                                    <Circle
+                                      className="mr-4 text-gray-600"
+                                      size={24}
+                                    />
+                                  )}
+                                  <span className="text-gray-800">
+                                    {option}
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                            {showExplanations[quizIndex] &&
+                              selectedExplanations[quizIndex] && (
+                                <div className="mt-6 p-4 bg-gray-100 rounded-lg">
+                                  <p className="text-gray-700">
+                                    {selectedExplanations[quizIndex]}
+                                  </p>
+                                </div>
+                              )}
+                            <div className="mt-6 flex justify-end">
+                              <Button
+                                onClick={() => handleQuizSubmit(quizIndex)}
+                                className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                              >
+                                Submit Answer
+                              </Button>
+                            </div>
+                            {/* Only show feedback if submitted */}
+                            {isSubmitted[quizIndex] && (
+                              <div
+                                className={`mt-6 flex items-center justify-center space-x-4 ${
+                                  isAnswerCorrect[quizIndex]
+                                    ? 'text-green-600'
+                                    : 'text-red-600'
+                                }`}
+                              >
+                                {isAnswerCorrect[quizIndex] ? (
+                                  <>
+                                    <CheckCircle size={32} />
+                                    <span className="text-lg font-semibold">
+                                      Correct answer!
+                                    </span>
+                                  </>
+                                ) : (
+                                  <>
+                                    <XCircle size={32} />
+                                    <span className="text-lg font-semibold">
+                                      Incorrect. Try again!
+                                    </span>
+                                  </>
+                                )}
+                              </div>
                             )}
                           </div>
-                        )}
+                        ))}
                       </div>
                     </div>
                   )}
