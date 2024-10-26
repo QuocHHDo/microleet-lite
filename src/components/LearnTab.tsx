@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { LessonContent } from '@/common/commonLesson';
 import { renderContent } from '@/utils/renderContent';
-import CodeMirror from '@uiw/react-codemirror';
 import { python } from '@codemirror/lang-python';
+
+const CodeMirror = lazy(() => import('@uiw/react-codemirror'));
 
 interface LearnTabProps {
   selectedLesson: LessonContent | undefined;
@@ -23,16 +24,18 @@ const LearnTab: React.FC<LearnTabProps> = ({ selectedLesson }) => (
     {selectedLesson?.codeExample && (
       <div className="mt-6">
         <h4 className="font-semibold mb-2">Code Example</h4>
-        <CodeMirror
-          value={selectedLesson.codeExample}
-          height="150px"
-          theme="light"
-          extensions={[python()]}
-          readOnly
-        />
+        <Suspense fallback={<div>Loading code example...</div>}>
+          <CodeMirror
+            value={selectedLesson.codeExample}
+            maxHeight="600px"
+            theme="light"
+            extensions={[python()]}
+            readOnly
+          />
+        </Suspense>
       </div>
     )}
   </div>
 );
 
-export default LearnTab;
+export default React.memo(LearnTab);

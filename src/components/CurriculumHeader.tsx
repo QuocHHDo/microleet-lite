@@ -9,7 +9,10 @@ interface CurriculumHeaderProps {
   progressPercentage: number;
 }
 
-const CurriculumHeader: React.FC<CurriculumHeaderProps> = ({ curriculum, progressPercentage }) => (
+const CurriculumHeader: React.FC<CurriculumHeaderProps> = ({
+  curriculum,
+  progressPercentage,
+}) => (
   <div className="mb-8">
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-3">

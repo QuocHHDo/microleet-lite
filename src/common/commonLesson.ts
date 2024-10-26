@@ -1,39 +1,46 @@
-export interface Lesson {
-  title: string;
-  content: string;
-  codeExample: string;
-  exercise: {
-    prompt: string;
-    initialCode: string;
-    solution: string;
-  };
-  quiz: {
-    question: string;
-    options: string[];
-    correctAnswer: number;
-  };
-  tags?: string[];
-  category?: 'concept' | 'implementation' | 'algorithm';
-  relatedTopcis?: string[];
-  difficulty?: 'beginner' | 'intermediate' | 'advanced';
-}
+// export interface Lesson {
+//   title: string;
+//   content: string;
+//   codeExample: string;
+//   exercise: {
+//     prompt: string;
+//     initialCode: string;
+//     solution: string;
+//   };
+//   quiz: {
+//     question: string;
+//     options: string[];
+//     correctAnswer: number;
+//   };
+//   tags?: string[];
+//   category?: 'concept' | 'implementation' | 'algorithm';
+//   relatedTopcis?: string[];
+//   difficulty?: 'beginner' | 'intermediate' | 'advanced';
+// }
 
+import { Difficulty } from './commonConcept';
+
+export interface Exercise {
+  prompt: string;
+  initialCode: string;
+  solution: string;
+  difficulty?: Difficulty;
+}
+export interface Quiz {
+  question: string;
+  options: string[];
+  correctAnswer: number;
+  explanations?: string[];
+  difficulty?: Difficulty;
+}
 export interface LessonContent {
   title: string;
   content: string;
   codeExample: string;
-  exercises: {
-    prompt: string;
-    initialCode: string;
-    solution: string;
-  }[];
-  quizzes: {
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanations?: string[];
-  }[];
+  exercises: Exercise[];
+  quizzes: Quiz[];
 }
+
 export interface Topic {
   id: string;
   title: string;
