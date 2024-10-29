@@ -602,7 +602,7 @@ Insertion and deletion affect the array's size, and their efficiency depends on 
 </p>
 
 <ul>
-<li><strong>Insertion at the end:</strong> Fastest method using <code>append()</code>, as it operates in constant time, O(1).</li>
+<li><strong>Insertion at the end:</strong> Fastest method using <i>append()</i>, as it operates in constant time, O(1).</li>
 <li><strong>Insertion at a specific position:</strong> Requires shifting elements, making it O(n) for worst-case scenarios.</li>
 <li><strong>Deletion from the end:</strong> Fastest deletion method, similar to insertion, with a time complexity of O(1).</li>
 <li><strong>Deletion from a specific position:</strong> Involves shifting elements, thus having a time complexity of O(n) for the worst case.</li>
@@ -721,8 +721,8 @@ The efficiency of search operations often depends on the array's properties, suc
 <ul>
 <li><strong>Linear search:</strong> Works on unsorted arrays by checking each element sequentially. Time complexity is O(n).</li>
 <li><strong>Binary search:</strong> Efficient for sorted arrays by dividing the search space in half with each step. Time complexity is O(log n).</li>
-<li><strong>Using the <code>in</code> keyword:</strong> A simple way to check if an element exists in a list, typically implemented with linear search.</li>
-<li><strong>Finding indices:</strong> <code>index()</code> and list comprehension can locate elements based on their positions in the list.</li>
+<li><strong>Using the <i>in</i> keyword:</strong> A simple way to check if an element exists in a list, typically implemented with linear search.</li>
+<li><strong>Finding indices:</strong> <i>index()</i> and list comprehension can locate elements based on their positions in the list.</li>
 </ul>`,
   codeExample: `# Linear Search
 array = [10, 20, 30, 40, 50]
@@ -783,7 +783,7 @@ else:
     },
     {
       prompt:
-        'Check if the number 100 exists in the array using the <code>in</code> keyword. Print "Exists" if it’s found, otherwise "Does not exist".',
+        'Check if the number 100 exists in the array using the <i>in</i> keyword. Print "Exists" if it’s found, otherwise "Does not exist".',
       initialCode: `# Write your solution here
 array = [10, 20, 30, 40, 50]
 `,
@@ -852,7 +852,7 @@ const arraySlicingData: LessonContent = {
   content: `<p>
 Array slicing is a powerful feature in Python that allows you to access parts of an array or list by specifying a range of indices. 
 Slicing provides flexibility in working with subarrays without modifying the original array. 
-Python syntax for slicing is <code>array[start:stop:step]</code>, where:
+Python syntax for slicing is <i>array[start:stop:step]</i>, where:
 </p>
 
 <ul>
@@ -1032,7 +1032,12 @@ interleaved = `,
     {
       question:
         'What is the result of concatenating [1, 2, 3] and [4, 5, 6] using the + operator?',
-      options: ['[1, 2, 3, 4, 5, 6]', '[4, 5, 6, 1, 2, 3]', '[1, 2, 3, [4, 5, 6]]', '[1, 4, 2, 5, 3, 6]'],
+      options: [
+        '[1, 2, 3, 4, 5, 6]',
+        '[4, 5, 6, 1, 2, 3]',
+        '[1, 2, 3, [4, 5, 6]]',
+        '[1, 4, 2, 5, 3, 6]',
+      ],
       correctAnswer: 0,
       explanations: [
         'This is correct. The + operator concatenates lists in the specified order.',
@@ -1045,7 +1050,12 @@ interleaved = `,
     {
       question:
         'Which of the following methods modifies the original list when merging two lists?',
-      options: ['+', 'list.extend()', 'itertools.chain()', 'list comprehension'],
+      options: [
+        '+',
+        'list.extend()',
+        'itertools.chain()',
+        'list comprehension',
+      ],
       correctAnswer: 1,
       explanations: [
         'This is incorrect because + creates a new list.',
@@ -1190,7 +1200,12 @@ print(array)`,
     {
       question:
         'Which sorting algorithm has the best average-case time complexity among these basic algorithms?',
-      options: ['Bubble Sort', 'Selection Sort', 'Insertion Sort', 'Python’s sorted()'],
+      options: [
+        'Bubble Sort',
+        'Selection Sort',
+        'Insertion Sort',
+        'Python’s sorted()',
+      ],
       correctAnswer: 3,
       explanations: [
         'This is incorrect. Bubble Sort has O(n^2) time complexity on average.',
@@ -1203,7 +1218,12 @@ print(array)`,
     {
       question:
         'Which of these sorting algorithms is stable, meaning that it preserves the relative order of equal elements?',
-      options: ['Bubble Sort', 'Selection Sort', 'Insertion Sort', 'All of the above'],
+      options: [
+        'Bubble Sort',
+        'Selection Sort',
+        'Insertion Sort',
+        'All of the above',
+      ],
       correctAnswer: 3,
       explanations: [
         'This is incorrect because Bubble Sort does not consistently preserve order of equal elements.',
@@ -1216,7 +1236,12 @@ print(array)`,
     {
       question:
         'If an array is nearly sorted, which sorting algorithm will likely perform best?',
-      options: ['Bubble Sort', 'Selection Sort', 'Insertion Sort', 'Python’s sorted()'],
+      options: [
+        'Bubble Sort',
+        'Selection Sort',
+        'Insertion Sort',
+        'Python’s sorted()',
+      ],
       correctAnswer: 2,
       explanations: [
         'This is incorrect. Bubble Sort does not leverage the order of elements well.',
@@ -1236,7 +1261,7 @@ Python provides built-in sorting functions that are optimized and easy to use. U
 </p>
 
 <ul>
-<li><strong>sorted():</strong> Returns a new sorted list from the elements of any iterable without modifying the original. Accepts optional parameters for custom sorting, like <code>reverse</code> for descending order and <code>key</code> for sorting by specific criteria.</li>
+<li><strong>sorted():</strong> Returns a new sorted list from the elements of any iterable without modifying the original. Accepts optional parameters for custom sorting, like <i>reverse</i> for descending order and <i>key</i> for sorting by specific criteria.</li>
 <li><strong>sort():</strong> A method for lists that sorts the list in place, meaning it modifies the original list and does not return a new one. This is efficient when you don’t need to keep the original order.</li>
 </ul>`,
   codeExample: `# sorted() - creates a new sorted list
@@ -1294,8 +1319,7 @@ numbers = [12, 4, 3, 10, 15]
   ],
   quizzes: [
     {
-      question:
-        'What does sorted() return when used on a list?',
+      question: 'What does sorted() return when used on a list?',
       options: [
         'A new sorted list without modifying the original',
         'The original list sorted in place',
@@ -1312,8 +1336,7 @@ numbers = [12, 4, 3, 10, 15]
       difficulty: Difficulty.Beginner,
     },
     {
-      question:
-        'Which function or method modifies the original list in place?',
+      question: 'Which function or method modifies the original list in place?',
       options: ['sorted()', 'sort()', 'reverse()', 'reversed()'],
       correctAnswer: 1,
       explanations: [
@@ -1343,7 +1366,7 @@ numbers = [12, 4, 3, 10, 15]
 const customSortingData: LessonContent = {
   title: 'Sorting by Custom Conditions',
   content: `<p>
-Python allows sorting based on custom conditions using the <code>key</code> parameter with the <code>sorted()</code> function and the <code>sort()</code> method. By specifying a function or lambda expression as the <code>key</code>, you can sort data based on any condition or transformation. This is especially useful for sorting complex objects or non-standard criteria.
+Python allows sorting based on custom conditions using the <i>key</i> parameter with the <i>sorted()</i> function and the <i>sort()</i> method. By specifying a function or lambda expression as the <i>key</i>, you can sort data based on any condition or transformation. This is especially useful for sorting complex objects or non-standard criteria.
 </p>
 
 <ul>
@@ -1441,7 +1464,7 @@ age_sorted = `,
     },
     {
       question:
-        'What does the lambda expression <code>lambda x: (len(x), x)</code> achieve in a sorted() function?',
+        'What does the lambda expression <i>lambda x: (len(x), x)</i> achieve in a sorted() function?',
       options: [
         'Sorts by the first letter, then by length',
         'Sorts by length, then alphabetically',
@@ -1514,35 +1537,69 @@ def has_cycle(head):
     return False`,
   exercises: [
     {
-      prompt: 'Use the two-pointer technique to find if there exists a pair in the array [1, 3, 5, 7] with a sum of 10. Assign the result to pair_exists.',
+      prompt:
+        'Use the two-pointer technique to find if there exists a pair in the array [1, 3, 5, 7] with a sum of 10. Assign the result to pair_exists.',
       initialCode: `# Write your solution here
 arr = [1, 3, 5, 7]
 target_sum = 10
 pair_exists = `,
-      solution: `pair_exists = has_pair_with_sum(arr, target_sum)`,
+      solution: `# Write your solution here
+arr = [1, 3, 5, 7]
+target_sum = 10
+left, right = 0, len(arr) - 1
+pair_exists = False
+
+while left < right:
+    current_sum = arr[left] + arr[right]
+    if current_sum == target_sum:
+        pair_exists = True
+        break
+    elif current_sum < target_sum:
+        left += 1
+    else:
+        right -= 1`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Reverse the array [1, 2, 3, 4, 5] in-place using the two-pointer technique and assign the result to reversed_array.',
+      prompt:
+        'Reverse the array [1, 2, 3, 4, 5] in-place using the two-pointer technique and assign the result to reversed_array.',
       initialCode: `# Write your solution here
 arr = [1, 2, 3, 4, 5]
 reversed_array = `,
-      solution: `reversed_array = reverse_array(arr)`,
+      solution: `# Write your solution here
+arr = [1, 2, 3, 4, 5]
+left, right = 0, len(arr) - 1
+while left < right:
+    arr[left], arr[right] = arr[right], arr[left]
+    left += 1
+    right -= 1
+reversed_array = arr`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Given a linked list with nodes that could potentially form a cycle, use the slow and fast pointer technique to detect if a cycle exists. Assume the head of the list is provided.',
+      prompt:
+        'Given a linked list with nodes that could potentially form a cycle, use the slow and fast pointer technique to detect if a cycle exists. Assume the head of the list is provided.',
       initialCode: `# Write your solution here
 # Assume head is defined
 cycle_exists = `,
-      solution: `cycle_exists = has_cycle(head)`,
+      solution: `# Write your solution here
+# Assume head is defined
+slow = head
+fast = head
+cycle_exists = False
+
+while fast is not None and fast.next is not None:
+    slow = slow.next
+    fast = fast.next.next
+    if slow == fast:
+        cycle_exists = True
+        break`,
       difficulty: Difficulty.Advanced,
     },
   ],
   quizzes: [
     {
-      question:
-        'What is the primary purpose of the Two-pointers technique?',
+      question: 'What is the primary purpose of the Two-pointers technique?',
       options: [
         'To sort arrays',
         'To solve problems by optimizing comparisons between elements',
@@ -1579,12 +1636,7 @@ cycle_exists = `,
     {
       question:
         'What is the time complexity of finding a pair with a specific sum in a sorted array using the Two-pointers technique?',
-      options: [
-        'O(log n)',
-        'O(n)',
-        'O(n log n)',
-        'O(n^2)',
-      ],
+      options: ['O(log n)', 'O(n)', 'O(n log n)', 'O(n^2)'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. O(log n) is for binary search; Two-pointers for pair searching typically requires O(n).',
@@ -1659,28 +1711,65 @@ def reverse_words(sentence):
     return ' '.join(words)`,
   exercises: [
     {
-      prompt: 'Implement a function to find if a pair exists with a given sum in the sorted array [1, 2, 3, 4, 6] with a target of 8.',
+      prompt:
+        'Implement a function to find if a pair exists with a given sum in the sorted array [1, 2, 3, 4, 6] with a target of 8.',
       initialCode: `# Write your solution here
 arr = [1, 2, 3, 4, 6]
 target_sum = 8
 pair_indices = `,
-      solution: `pair_indices = two_sum_sorted(arr, target_sum)`,
+      solution: `# Write your solution here
+arr = [1, 2, 3, 4, 6]
+target_sum = 8
+left, right = 0, len(arr) - 1
+pair_indices = None
+
+while left < right:
+    current_sum = arr[left] + arr[right]
+    if current_sum == target_sum:
+        pair_indices = (left, right)
+        break
+    elif current_sum < target_sum:
+        left += 1
+    else:
+        right -= 1`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Remove duplicates in-place from the sorted array [1, 1, 2, 3, 3, 4] and get the length of the modified array.',
+      prompt:
+        'Remove duplicates in-place from the sorted array [1, 1, 2, 3, 3, 4] and get the length of the modified array.',
       initialCode: `# Write your solution here
 arr = [1, 1, 2, 3, 3, 4]
 new_length = `,
-      solution: `new_length = remove_duplicates(arr)`,
+      solution: `# Write your solution here
+arr = [1, 1, 2, 3, 3, 4]
+new_length = 0
+
+if len(arr) == 0:
+    new_length = 0
+else:
+    for i in range(1, len(arr)):
+        if arr[new_length] != arr[i]:
+            new_length += 1
+            arr[new_length] = arr[i]
+    new_length += 1`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Given the head of a linked list, use two-pointers to find the middle node. Assume a ListNode class is defined.',
+      prompt:
+        'Given the head of a linked list, use two-pointers to find the middle node. Assume a ListNode class is defined.',
       initialCode: `# Write your solution here
 # Assume head is defined
 middle_node = `,
-      solution: `middle_node = find_middle(head)`,
+      solution: `# Write your solution here
+# Assume head is defined
+slow = head
+fast = head
+
+while fast is not None and fast.next is not None:
+    slow = slow.next
+    fast = fast.next.next
+
+middle_node = slow`,
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -1688,12 +1777,7 @@ middle_node = `,
     {
       question:
         'What is the time complexity of removing duplicates from a sorted array using the Two-pointers technique?',
-      options: [
-        'O(log n)',
-        'O(n)',
-        'O(n log n)',
-        'O(n^2)',
-      ],
+      options: ['O(log n)', 'O(n)', 'O(n log n)', 'O(n^2)'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Logarithmic complexity does not apply here since we need to iterate through each element.',
@@ -1792,30 +1876,70 @@ def longest_substring_k_unique(s, k):
     return max_length`,
   exercises: [
     {
-      prompt: 'Implement a function to find the maximum sum of any subarray of size 3 in the array [1, 3, 2, 6, -1, 4, 1, 8, 2].',
+      prompt:
+        'Implement a function to find the maximum sum of any subarray of size 3 in the array [1, 3, 2, 6, -1, 4, 1, 8, 2].',
       initialCode: `# Write your solution here
 arr = [1, 3, 2, 6, -1, 4, 1, 8, 2]
 k = 3
 max_sum = `,
-      solution: `max_sum = max_sum_fixed_window(arr, k)`,
+      solution: `# Write your solution here
+arr = [1, 3, 2, 6, -1, 4, 1, 8, 2]
+k = 3
+max_sum = float('-inf')
+
+for i in range(len(arr) - k + 1):
+    current_sum = sum(arr[i:i + k])
+    if current_sum > max_sum:
+        max_sum = current_sum`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Write a function that finds the minimum length of a subarray with a sum greater than or equal to 7 in [2, 1, 5, 2, 3, 2].',
+      prompt:
+        'Write a function that finds the minimum length of a subarray with a sum greater than or equal to 7 in [2, 1, 5, 2, 3, 2].',
       initialCode: `# Write your solution here
 arr = [2, 1, 5, 2, 3, 2]
 target = 7
 min_length = `,
-      solution: `min_length = min_length_subarray(arr, target)`,
+      solution: `# Write your solution here
+arr = [2, 1, 5, 2, 3, 2]
+target = 7
+min_length = float('inf')
+current_sum = 0
+start = 0
+
+for end in range(len(arr)):
+    current_sum += arr[end]
+    while current_sum >= target:
+        min_length = min(min_length, end - start + 1)
+        current_sum -= arr[start]
+        start += 1
+
+if min_length == float('inf'):
+    min_length = 0`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Determine the length of the longest substring with at most 2 unique characters in "araaci".',
+      prompt:
+        'Determine the length of the longest substring with at most 2 unique characters in "araaci".',
       initialCode: `# Write your solution here
 s = "araaci"
 k = 2
 longest_length = `,
-      solution: `longest_length = longest_substring_k_unique(s, k)`,
+      solution: `# Write your solution here
+s = "araaci"
+k = 2
+longest_length = 0
+char_count = {}
+start = 0
+
+for end in range(len(s)):
+    char_count[s[end]] = char_count.get(s[end], 0) + 1
+    while len(char_count) > k:
+        char_count[s[start]] -= 1
+        if char_count[s[start]] == 0:
+            del char_count[s[start]]
+        start += 1
+    longest_length = max(longest_length, end - start + 1)`,
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -1947,7 +2071,8 @@ def min_length_dynamic_window(arr):`,
   ],
   quizzes: [
     {
-      question: 'Which of the following problems is best suited for the fixed sliding window technique?',
+      question:
+        'Which of the following problems is best suited for the fixed sliding window technique?',
       options: [
         'Finding the longest substring with unique characters',
         'Finding the maximum sum of any subarray of fixed size k',
@@ -1964,7 +2089,8 @@ def min_length_dynamic_window(arr):`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'In a dynamic sliding window, when should you move the left pointer?',
+      question:
+        'In a dynamic sliding window, when should you move the left pointer?',
       options: [
         'When the window size is fixed',
         'When the current window meets or exceeds the required condition',
@@ -2045,7 +2171,8 @@ def sum_first_n_elements(arr, n):`,
   ],
   quizzes: [
     {
-      question: 'Which of the following describes the primary benefit of using a prefix sum array?',
+      question:
+        'Which of the following describes the primary benefit of using a prefix sum array?',
       options: [
         'It allows for quick updates to any element in the array.',
         'It makes computing subarray sums more efficient.',
@@ -2062,13 +2189,9 @@ def sum_first_n_elements(arr, n):`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'If you have a prefix sum array, what is the time complexity to calculate the sum of a subarray from index 2 to index 5?',
-      options: [
-        'O(1)',
-        'O(n)',
-        'O(log n)',
-        'O(n^2)',
-      ],
+      question:
+        'If you have a prefix sum array, what is the time complexity to calculate the sum of a subarray from index 2 to index 5?',
+      options: ['O(1)', 'O(n)', 'O(log n)', 'O(n^2)'],
       correctAnswer: 0,
       explanations: [
         'Correct. With a prefix sum array, querying any subarray sum is done in constant time.',
@@ -2170,7 +2293,8 @@ def apply_multiple_updates(arr):`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'If you want to add 4 to the range [1, 3] in a difference array, what steps should you take?',
+      question:
+        'If you want to add 4 to the range [1, 3] in a difference array, what steps should you take?',
       options: [
         'Set the entire range to 4 in the difference array.',
         'Increment the difference array at index 1 by 4, and decrement index 4 by 4.',
@@ -2197,7 +2321,7 @@ Each element in a matrix can be accessed by its row and column indices, allowing
 
 <ul>
 <li><strong>Matrix Representation:</strong> In programming, a matrix is represented as an array of arrays, where each inner array represents a row.</li>
-<li><strong>Accessing Elements:</strong> To access an element in row <em>i</em> and column <em>j</em>, use <code>matrix[i][j]</code>.</li>
+<li><strong>Accessing Elements:</strong> To access an element in row <em>i</em> and column <em>j</em>, use <i>matrix[i][j]</i>.</li>
 <li><strong>Matrix Operations:</strong> Operations on matrices include addition, subtraction, scalar multiplication, matrix multiplication, and transposition.</li>
 <li><strong>Applications:</strong> Matrices are used in image processing, computer graphics, scientific computations, machine learning, and more.</li>
 </ul>`,
@@ -2230,7 +2354,8 @@ transposed_matrix = transpose(matrix)  # Transposes the matrix
 scaled_matrix = scalar_multiply(matrix, 3)  # Multiplies every element by 3`,
   exercises: [
     {
-      prompt: 'Create a 2x3 matrix and write a function to add 2 to every element in the matrix.',
+      prompt:
+        'Create a 2x3 matrix and write a function to add 2 to every element in the matrix.',
       initialCode: `# Write your solution here
 matrix = [
     [1, 2, 3],
@@ -2269,13 +2394,9 @@ def transpose(matrix):
   ],
   quizzes: [
     {
-      question: 'What is the term for the matrix created by swapping the rows and columns of a given matrix?',
-      options: [
-        'Inverse',
-        'Determinant',
-        'Transpose',
-        'Symmetric Matrix',
-      ],
+      question:
+        'What is the term for the matrix created by swapping the rows and columns of a given matrix?',
+      options: ['Inverse', 'Determinant', 'Transpose', 'Symmetric Matrix'],
       correctAnswer: 2,
       explanations: [
         'The inverse is a different operation and exists only for square matrices under certain conditions.',
@@ -2286,7 +2407,8 @@ def transpose(matrix):
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'If you multiply a 2x3 matrix by a scalar 5, what is the resulting matrix?',
+      question:
+        'If you multiply a 2x3 matrix by a scalar 5, what is the resulting matrix?',
       options: [
         'A 2x3 matrix where each element is multiplied by 5',
         'A 2x3 matrix with each element squared',
@@ -2345,7 +2467,8 @@ matrix = add_to_column(matrix, 2, 3)  # Adds 3 to each element in column 2
 matrix = swap_rows(matrix, 0, 2)  # Swaps row 0 and row 2`,
   exercises: [
     {
-      prompt: 'Write a function to multiply each element of a specified row by a given scalar value.',
+      prompt:
+        'Write a function to multiply each element of a specified row by a given scalar value.',
       initialCode: `# Write your solution here
 def multiply_row(matrix, row, scalar):
     `,
@@ -2355,7 +2478,8 @@ def multiply_row(matrix, row, scalar):
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Write a function to subtract 2 from each element in column 1 of a 3x3 matrix.',
+      prompt:
+        'Write a function to subtract 2 from each element in column 1 of a 3x3 matrix.',
       initialCode: `# Write your solution here
 matrix = [
     [1, 2, 3],
@@ -2376,7 +2500,8 @@ matrix = subtract_from_column(matrix, 1, 2)`,
   ],
   quizzes: [
     {
-      question: 'What will the matrix look like if you add 2 to every element in row 1?',
+      question:
+        'What will the matrix look like if you add 2 to every element in row 1?',
       options: [
         'All elements in row 1 will be incremented by 2.',
         'Each element in row 1 will be multiplied by 2.',
@@ -2455,7 +2580,8 @@ print(right_rotate(arr, 2))      # Output: [4, 5, 1, 2, 3]
 left_rotate_in_place(arr, 2)     # Modifies arr to [3, 4, 5, 1, 2]`,
   exercises: [
     {
-      prompt: 'Write a function to perform a right rotation by 3 positions on an array of 6 elements.',
+      prompt:
+        'Write a function to perform a right rotation by 3 positions on an array of 6 elements.',
       initialCode: `# Write your solution here
 arr = [10, 20, 30, 40, 50, 60]
 
@@ -2469,7 +2595,8 @@ arr = right_rotate(arr, 3)  # Output: [40, 50, 60, 10, 20, 30]`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Using the reversal algorithm, write a function to perform an in-place left rotation by 2 positions on a given array.',
+      prompt:
+        'Using the reversal algorithm, write a function to perform an in-place left rotation by 2 positions on a given array.',
       initialCode: `# Write your solution here
 arr = [7, 8, 9, 10, 11, 12]
 
@@ -2495,7 +2622,8 @@ left_rotate_in_place(arr, 2)  # Modifies arr to [9, 10, 11, 12, 7, 8]`,
   ],
   quizzes: [
     {
-      question: 'What is the result of performing a left rotation by 1 position on the array [5, 6, 7, 8, 9]?',
+      question:
+        'What is the result of performing a left rotation by 1 position on the array [5, 6, 7, 8, 9]?',
       options: [
         '[9, 5, 6, 7, 8]',
         '[6, 7, 8, 9, 5]',
@@ -2512,13 +2640,9 @@ left_rotate_in_place(arr, 2)  # Modifies arr to [9, 10, 11, 12, 7, 8]`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'If an array of 10 elements is rotated left by 12 positions, how many positions will it effectively rotate?',
-      options: [
-        '2',
-        '10',
-        '0',
-        '12',
-      ],
+      question:
+        'If an array of 10 elements is rotated left by 12 positions, how many positions will it effectively rotate?',
+      options: ['2', '10', '0', '12'],
       correctAnswer: 0,
       explanations: [
         'Correct. Since the array has 10 elements, a left rotation by 12 is equivalent to a left rotation by 2 (12 % 10).',
@@ -2568,7 +2692,8 @@ print(is_overlapping([1, 5], [4, 8]))         # Output: True
 print(is_overlapping([1, 3], [4, 5]))         # Output: False`,
   exercises: [
     {
-      prompt: 'Write a function to add an interval to a list of non-overlapping intervals and merge if necessary.',
+      prompt:
+        'Write a function to add an interval to a list of non-overlapping intervals and merge if necessary.',
       initialCode: `# Write your solution here
 intervals = [[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]]
 new_interval = [4, 8]
@@ -2590,7 +2715,8 @@ result = insert_interval(intervals, new_interval)  # Output: [[1, 2], [3, 10], [
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Write a function that takes a list of intervals and returns only the intervals that do not overlap with a specified interval.',
+      prompt:
+        'Write a function that takes a list of intervals and returns only the intervals that do not overlap with a specified interval.',
       initialCode: `# Write your solution here
 intervals = [[1, 3], [4, 6], [7, 9], [10, 12]]
 specified_interval = [5, 8]
@@ -2611,12 +2737,7 @@ non_overlapping = non_overlapping_intervals(intervals, specified_interval)  # Ou
   quizzes: [
     {
       question: 'Which of the following intervals overlaps with [2, 5]?',
-      options: [
-        '[1, 2]',
-        '[6, 8]',
-        '[4, 7]',
-        '[8, 10]',
-      ],
+      options: ['[1, 2]', '[6, 8]', '[4, 7]', '[8, 10]'],
       correctAnswer: 2,
       explanations: [
         'This interval ends right before the start of [2, 5], so they do not overlap.',
@@ -2627,7 +2748,8 @@ non_overlapping = non_overlapping_intervals(intervals, specified_interval)  # Ou
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the result of merging intervals [[1, 3], [2, 4], [5, 7], [6, 8]]?',
+      question:
+        'What is the result of merging intervals [[1, 3], [2, 4], [5, 7], [6, 8]]?',
       options: [
         '[[1, 8]]',
         '[[1, 4], [5, 8]]',
@@ -2693,7 +2815,8 @@ left_shift(arr)            # Shifts arr to [4, 3, 2, 1, 5]
 remove_element(arr, 3)     # Removes 3, resulting in [4, 2, 1, 5]`,
   exercises: [
     {
-      prompt: 'Write a function to reverse an array in-place without using slicing or extra memory.',
+      prompt:
+        'Write a function to reverse an array in-place without using slicing or extra memory.',
       initialCode: `# Write your solution here
 arr = [10, 20, 30, 40, 50]
 
@@ -2710,7 +2833,8 @@ reverse_array(arr)  # Modifies arr to [50, 40, 30, 20, 10]`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Write a function to remove all occurrences of a specific element from an array in-place, returning the new length of the modified array.',
+      prompt:
+        'Write a function to remove all occurrences of a specific element from an array in-place, returning the new length of the modified array.',
       initialCode: `# Write your solution here
 arr = [3, 1, 3, 2, 4, 3, 5]
 value = 3
@@ -2731,7 +2855,8 @@ new_length = len(remove_element(arr, 3))  # Returns 4, with arr modified in-plac
   ],
   quizzes: [
     {
-      question: 'What is the result of reversing the array [1, 2, 3, 4, 5] in-place?',
+      question:
+        'What is the result of reversing the array [1, 2, 3, 4, 5] in-place?',
       options: [
         '[5, 4, 3, 2, 1]',
         '[1, 2, 3, 4, 5]',
@@ -2748,7 +2873,8 @@ new_length = len(remove_element(arr, 3))  # Returns 4, with arr modified in-plac
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'After left-shifting the array [1, 2, 3, 4, 5] by one position, what will the array look like?',
+      question:
+        'After left-shifting the array [1, 2, 3, 4, 5] by one position, what will the array look like?',
       options: [
         '[2, 3, 4, 5, 1]',
         '[1, 3, 4, 5, 2]',
@@ -2805,7 +2931,8 @@ partition_even_odd(arr)       # Rearranges arr to place evens on left and odds o
 rotate_right(arr, 2)          # Rotates arr by 2 steps to the right`,
   exercises: [
     {
-      prompt: 'Write a function to swap the first and last elements of an array.',
+      prompt:
+        'Write a function to swap the first and last elements of an array.',
       initialCode: `# Write your solution here
 arr = [10, 20, 30, 40, 50]
 
@@ -2820,7 +2947,8 @@ swap_first_last(arr)  # Modifies arr to [50, 20, 30, 40, 10]`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Write a function to rearrange an array to place all negative numbers at the beginning, without changing the relative order of positive numbers.',
+      prompt:
+        'Write a function to rearrange an array to place all negative numbers at the beginning, without changing the relative order of positive numbers.',
       initialCode: `# Write your solution here
 arr = [3, -1, 4, -2, 5, -3]
 
@@ -2840,7 +2968,8 @@ move_negatives(arr)  # Modifies arr to [-1, -2, -3, 3, 4, 5]`,
   ],
   quizzes: [
     {
-      question: 'Which of the following swaps the elements at indices 1 and 3 in an array?',
+      question:
+        'Which of the following swaps the elements at indices 1 and 3 in an array?',
       options: [
         'arr[1] = arr[3]',
         'arr[1], arr[3] = arr[3], arr[1]',
@@ -2857,7 +2986,8 @@ move_negatives(arr)  # Modifies arr to [-1, -2, -3, 3, 4, 5]`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the result of partitioning [1, 2, 3, 4, 5, 6] by even/odd using in-place rearrangement?',
+      question:
+        'What is the result of partitioning [1, 2, 3, 4, 5, 6] by even/odd using in-place rearrangement?',
       options: [
         '[2, 4, 6, 1, 3, 5]',
         '[1, 2, 3, 4, 5, 6]',
@@ -2917,7 +3047,8 @@ arr = [1, 2, 3, 4, 5, 6]
 reshaped_matrix = reshape(arr, 2, 3)  # Creates [[1, 2, 3], [4, 5, 6]]`,
   exercises: [
     {
-      prompt: 'Write a function to compute the sum of elements in each column of a 2D matrix.',
+      prompt:
+        'Write a function to compute the sum of elements in each column of a 2D matrix.',
       initialCode: `# Write your solution here
 matrix = [
     [1, 2, 3],
@@ -2952,13 +3083,9 @@ transpose(matrix)  # Returns [[1, 4], [2, 5], [3, 6]]`,
   ],
   quizzes: [
     {
-      question: 'What is the result of accessing matrix[1][2] in the following matrix: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]?',
-      options: [
-        '3',
-        '5',
-        '6',
-        '8',
-      ],
+      question:
+        'What is the result of accessing matrix[1][2] in the following matrix: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]?',
+      options: ['3', '5', '6', '8'],
       correctAnswer: 2,
       explanations: [
         'This is incorrect; 3 is at matrix[0][2].',
@@ -2969,7 +3096,8 @@ transpose(matrix)  # Returns [[1, 4], [2, 5], [3, 6]]`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What does the transpose of the matrix [[1, 2], [3, 4], [5, 6]] look like?',
+      question:
+        'What does the transpose of the matrix [[1, 2], [3, 4], [5, 6]] look like?',
       options: [
         '[[1, 3, 5], [2, 4, 6]]',
         '[[1, 2], [3, 4], [5, 6]]',
@@ -3012,7 +3140,6 @@ const arrayLessons: Record<string, LessonContent> = {
   'in-place-modifications': inPlaceModificationsData,
   'element-rearrangement': elementRearrangementData,
   'multi-array-operations': multiArrayOperationsData,
-
 };
 
 export const arrayLessonsTab: LessonsTab = {
