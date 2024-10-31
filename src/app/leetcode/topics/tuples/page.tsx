@@ -1,17 +1,16 @@
 import ModulePage from '@/components/ModulePage';
 import { tupleConcepts } from '@/data/concepts/tupleConcepts';
-// import { tupleLessons } from '@/data/lessons/tupleLessons';
 import { tupleProblems } from '@/data/problems/tupleProblems';
 import { TopicName } from '../interfaces';
 import { tupleCheatSheet } from '@/data/cheatsheets/tupleCheatSheet';
-// import { arrayLessons } from '@/data/lessons/arrayLessons';
+import { tupleLessonsTab } from '@/data/lessons/tupleLessons';
 
 const TuplesPage: React.FC = () => {
   return (
     <ModulePage
       title="Tuples"
       description="Master the fundamentals of tuples and their operations"
-      // lessons={arrayLessons}
+      lessonsTab={tupleLessonsTab}
       problems={tupleProblems}
       cheatSheetItems={tupleCheatSheet}
       concepts={tupleConcepts}

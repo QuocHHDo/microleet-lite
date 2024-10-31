@@ -83,73 +83,73 @@ const LeetcodePage: React.FC = () => {
       ],
       progress: 0,
     },
-    {
-      title: '2. Basic Algorithms and Problem-Solving Techniques',
-      icon: faCode,
-      items: [
-        'Time and Space Complexity Analysis',
-        'Searching Algorithms',
-        'Sorting Algorithms',
-        'Two Pointers Technique',
-        'Sliding Window Technique',
-        'Frequency Counter Technique',
-      ],
-      progress: 0,
-    },
-    {
-      title: '3. Intermediate Data Structures',
-      icon: faChartBar,
-      items: [
-        'Advanced Linked List Operations',
-        'Tree Traversals and Operations',
-        'Graph Representations and Traversals',
-        'Advanced Heap Operations',
-      ],
-      progress: 0,
-    },
-    {
-      title: '4. Advanced Problem-Solving Techniques',
-      icon: faPuzzlePiece,
-      items: [
-        'Recursion',
-        'Dynamic Programming',
-        'Greedy Algorithms',
-        'Backtracking',
-      ],
-      progress: 0,
-    },
-    {
-      title: '5. Graph Algorithms',
-      icon: faChartBar,
-      items: [
-        'Depth-First Search (DFS)',
-        'Breadth-First Search (BFS)',
-        'Shortest Path Algorithms',
-        'Minimum Spanning Tree',
-      ],
-      progress: 0,
-    },
-    {
-      title: '6. Advanced Data Structures and Algorithms',
-      icon: faCogs,
-      items: [
-        'Trie',
-        'Disjoint Set (Union-Find)',
-        'Advanced Sorting and Searching',
-        'Binary Search Variations',
-      ],
-      progress: 0,
-    },
-    {
-      title: '7. System Design and Object-Oriented Design',
-      icon: faGraduationCap,
-      items: [
-        'Introduction to System Design',
-        'Object-Oriented Design',
-        'Designing Data Structures',
-      ],
-      progress: 0,
-    },
+    // {
+    //   title: '2. Basic Algorithms and Problem-Solving Techniques',
+    //   icon: faCode,
+    //   items: [
+    //     'Time and Space Complexity Analysis',
+    //     'Searching Algorithms',
+    //     'Sorting Algorithms',
+    //     'Two Pointers Technique',
+    //     'Sliding Window Technique',
+    //     'Frequency Counter Technique',
+    //   ],
+    //   progress: 0,
+    // },
+    // {
+    //   title: '3. Intermediate Data Structures',
+    //   icon: faChartBar,
+    //   items: [
+    //     'Advanced Linked List Operations',
+    //     'Tree Traversals and Operations',
+    //     'Graph Representations and Traversals',
+    //     'Advanced Heap Operations',
+    //   ],
+    //   progress: 0,
+    // },
+    // {
+    //   title: '4. Advanced Problem-Solving Techniques',
+    //   icon: faPuzzlePiece,
+    //   items: [
+    //     'Recursion',
+    //     'Dynamic Programming',
+    //     'Greedy Algorithms',
+    //     'Backtracking',
+    //   ],
+    //   progress: 0,
+    // },
+    // {
+    //   title: '5. Graph Algorithms',
+    //   icon: faChartBar,
+    //   items: [
+    //     'Depth-First Search (DFS)',
+    //     'Breadth-First Search (BFS)',
+    //     'Shortest Path Algorithms',
+    //     'Minimum Spanning Tree',
+    //   ],
+    //   progress: 0,
+    // },
+    // {
+    //   title: '6. Advanced Data Structures and Algorithms',
+    //   icon: faCogs,
+    //   items: [
+    //     'Trie',
+    //     'Disjoint Set (Union-Find)',
+    //     'Advanced Sorting and Searching',
+    //     'Binary Search Variations',
+    //   ],
+    //   progress: 0,
+    // },
+    // {
+    //   title: '7. System Design and Object-Oriented Design',
+    //   icon: faGraduationCap,
+    //   items: [
+    //     'Introduction to System Design',
+    //     'Object-Oriented Design',
+    //     'Designing Data Structures',
+    //   ],
+    //   progress: 0,
+    // },
   ];
 
   const filteredSections = roadmapSections.filter(

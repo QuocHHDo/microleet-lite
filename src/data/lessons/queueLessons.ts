@@ -1,189 +1,189 @@
-import { Difficulty } from "@/common/commonConcept";
-import { Curriculum, LessonContent, LessonsTab } from "@/common/commonLesson";
+import { Difficulty } from '@/common/commonConcept';
+import { Curriculum, LessonContent, LessonsTab } from '@/common/commonLesson';
 
 const queueCurriculum: Curriculum = {
-    title: 'Queue Curriculum',
-    description:
-      'A comprehensive guide to mastering queue data structure and its applications',
-    sections: [
-      {
-        id: 1,
-        title: 'Queue Fundamentals',
-        topics: [
-          {
-            id: 'queue-concept',
-            title: 'Queue Concept and Properties',
-            description: 'Understanding FIFO principle and basic queue behavior',
-          },
-          {
-            id: 'queue-implementation',
-            title: 'Queue Implementation',
-            description: 'Implementing queue using arrays and linked lists',
-          },
-          {
-            id: 'queue-operations',
-            title: 'Basic Queue Operations',
-            description: 'Enqueue, dequeue, peek, and isEmpty operations',
-          },
-        ],
-      },
-      {
-        id: 2,
-        title: 'Circular Queue',
-        topics: [
-          {
-            id: 'circular-concept',
-            title: 'Circular Queue Concept',
-            description: 'Understanding circular queue structure and benefits',
-          },
-          {
-            id: 'circular-implementation',
-            title: 'Circular Queue Implementation',
-            description: 'Implementing efficient circular queue with arrays',
-          },
-          {
-            id: 'circular-applications',
-            title: 'Circular Queue Applications',
-            description: 'Real-world applications and problem-solving',
-          },
-        ],
-      },
-      {
-        id: 3,
-        title: 'Double-ended Queue (Deque)',
-        topics: [
-          {
-            id: 'deque-concept',
-            title: 'Deque Concept',
-            description: 'Understanding double-ended queue operations',
-          },
-          {
-            id: 'deque-implementation',
-            title: 'Deque Implementation',
-            description: 'Implementing deque using arrays and linked lists',
-          },
-          {
-            id: 'sliding-window',
-            title: 'Sliding Window with Deque',
-            description: 'Solving sliding window problems using deque',
-          },
-        ],
-      },
-      {
-        id: 4,
-        title: 'Priority Queue',
-        topics: [
-          {
-            id: 'priority-concept',
-            title: 'Priority Queue Concept',
-            description: 'Understanding priority queue and heap implementation',
-          },
-          {
-            id: 'heap-operations',
-            title: 'Heap Operations',
-            description: 'Implementation of min-heap and max-heap operations',
-          },
-          {
-            id: 'priority-applications',
-            title: 'Priority Queue Applications',
-            description: 'Common applications and problem-solving patterns',
-          },
-        ],
-      },
-      {
-        id: 5,
-        title: 'Queue in BFS',
-        topics: [
-          {
-            id: 'bfs-concept',
-            title: 'Breadth-First Search Basics',
-            description: 'Understanding BFS and queue relationship',
-          },
-          {
-            id: 'graph-bfs',
-            title: 'Graph BFS',
-            description: 'Implementing BFS for graph traversal',
-          },
-          {
-            id: 'tree-bfs',
-            title: 'Tree Level Order Traversal',
-            description: 'Implementing level-order traversal using queue',
-          },
-        ],
-      },
-      {
-        id: 6,
-        title: 'Special Queue Variations',
-        topics: [
-          {
-            id: 'max-queue',
-            title: 'Max Queue',
-            description: 'Implementing queue with maximum element tracking',
-          },
-          {
-            id: 'limited-queue',
-            title: 'Size-Limited Queue',
-            description: 'Managing fixed-size queues and circular buffers',
-          },
-          {
-            id: 'monotonic-queue',
-            title: 'Monotonic Queue',
-            description: 'Understanding and implementing monotonic queue',
-          },
-        ],
-      },
-      {
-        id: 7,
-        title: 'Advanced Queue Operations',
-        topics: [
-          {
-            id: 'queue-reversal',
-            title: 'Queue Reversal',
-            description: 'Techniques for reversing elements in a queue',
-          },
-          {
-            id: 'queue-sorting',
-            title: 'Queue Sorting',
-            description: 'Methods for sorting elements in a queue',
-          },
-          {
-            id: 'queue-optimization',
-            title: 'Queue Optimization',
-            description: 'Space and time optimization techniques',
-          },
-        ],
-      },
-      {
-        id: 8,
-        title: 'Queue in Complex Problems',
-        topics: [
-          {
-            id: 'task-scheduling',
-            title: 'Task Scheduling',
-            description: 'Solving scheduling problems using queues',
-          },
-          {
-            id: 'stream-processing',
-            title: 'Stream Processing',
-            description: 'Processing data streams using queue structures',
-          },
-          {
-            id: 'simulation-problems',
-            title: 'Simulation Problems',
-            description: 'Using queues in simulation and modeling',
-          },
-        ],
-      },
-    ],
-  } as const;
+  title: 'Queue Curriculum',
+  description:
+    'A comprehensive guide to mastering queue data structure and its applications',
+  sections: [
+    {
+      id: 1,
+      title: 'Queue Fundamentals',
+      topics: [
+        {
+          id: 'queue-concept',
+          title: 'Queue Concept and Properties',
+          description: 'Understanding FIFO principle and basic queue behavior',
+        },
+        {
+          id: 'queue-implementation',
+          title: 'Queue Implementation',
+          description: 'Implementing queue using arrays and linked lists',
+        },
+        {
+          id: 'queue-operations',
+          title: 'Basic Queue Operations',
+          description: 'Enqueue, dequeue, peek, and isEmpty operations',
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: 'Circular Queue',
+      topics: [
+        {
+          id: 'circular-concept',
+          title: 'Circular Queue Concept',
+          description: 'Understanding circular queue structure and benefits',
+        },
+        {
+          id: 'circular-implementation',
+          title: 'Circular Queue Implementation',
+          description: 'Implementing efficient circular queue with arrays',
+        },
+        {
+          id: 'circular-applications',
+          title: 'Circular Queue Applications',
+          description: 'Real-world applications and problem-solving',
+        },
+      ],
+    },
+    {
+      id: 3,
+      title: 'Double-ended Queue (Deque)',
+      topics: [
+        {
+          id: 'deque-concept',
+          title: 'Deque Concept',
+          description: 'Understanding double-ended queue operations',
+        },
+        {
+          id: 'deque-implementation',
+          title: 'Deque Implementation',
+          description: 'Implementing deque using arrays and linked lists',
+        },
+        {
+          id: 'sliding-window',
+          title: 'Sliding Window with Deque',
+          description: 'Solving sliding window problems using deque',
+        },
+      ],
+    },
+    {
+      id: 4,
+      title: 'Priority Queue',
+      topics: [
+        {
+          id: 'priority-concept',
+          title: 'Priority Queue Concept',
+          description: 'Understanding priority queue and heap implementation',
+        },
+        {
+          id: 'heap-operations',
+          title: 'Heap Operations',
+          description: 'Implementation of min-heap and max-heap operations',
+        },
+        {
+          id: 'priority-applications',
+          title: 'Priority Queue Applications',
+          description: 'Common applications and problem-solving patterns',
+        },
+      ],
+    },
+    {
+      id: 5,
+      title: 'Queue in BFS',
+      topics: [
+        {
+          id: 'bfs-concept',
+          title: 'Breadth-First Search Basics',
+          description: 'Understanding BFS and queue relationship',
+        },
+        {
+          id: 'graph-bfs',
+          title: 'Graph BFS',
+          description: 'Implementing BFS for graph traversal',
+        },
+        {
+          id: 'tree-bfs',
+          title: 'Tree Level Order Traversal',
+          description: 'Implementing level-order traversal using queue',
+        },
+      ],
+    },
+    {
+      id: 6,
+      title: 'Special Queue Variations',
+      topics: [
+        {
+          id: 'max-queue',
+          title: 'Max Queue',
+          description: 'Implementing queue with maximum element tracking',
+        },
+        {
+          id: 'limited-queue',
+          title: 'Size-Limited Queue',
+          description: 'Managing fixed-size queues and circular buffers',
+        },
+        {
+          id: 'monotonic-queue',
+          title: 'Monotonic Queue',
+          description: 'Understanding and implementing monotonic queue',
+        },
+      ],
+    },
+    {
+      id: 7,
+      title: 'Advanced Queue Operations',
+      topics: [
+        {
+          id: 'queue-reversal',
+          title: 'Queue Reversal',
+          description: 'Techniques for reversing elements in a queue',
+        },
+        {
+          id: 'queue-sorting',
+          title: 'Queue Sorting',
+          description: 'Methods for sorting elements in a queue',
+        },
+        {
+          id: 'queue-optimization',
+          title: 'Queue Optimization',
+          description: 'Space and time optimization techniques',
+        },
+      ],
+    },
+    {
+      id: 8,
+      title: 'Queue in Complex Problems',
+      topics: [
+        {
+          id: 'task-scheduling',
+          title: 'Task Scheduling',
+          description: 'Solving scheduling problems using queues',
+        },
+        {
+          id: 'stream-processing',
+          title: 'Stream Processing',
+          description: 'Processing data streams using queue structures',
+        },
+        {
+          id: 'simulation-problems',
+          title: 'Simulation Problems',
+          description: 'Using queues in simulation and modeling',
+        },
+      ],
+    },
+  ],
+} as const;
 
-  const queueConceptData: LessonContent = {
-    title: 'Queue Concept and Properties',
-    content: `<p>
+const queueConceptData: LessonContent = {
+  title: 'Queue Concept and Properties',
+  content: `<p>
   A queue is a linear data structure that follows the First-In-First-Out (FIFO) principle, meaning elements are removed in the same order they were added.
   Queues are commonly used in scheduling algorithms, buffering, and real-time processing.
   </p>`,
-    codeExample: `# Queue Example in Python (using a list)
+  codeExample: `# Queue Example in Python (using a list)
   class Queue:
       def __init__(self):
           self.queue = []
@@ -197,39 +197,40 @@ const queueCurriculum: Curriculum = {
   
       def is_empty(self):
           return len(self.queue) == 0`,
-    exercises: [
-      {
-        prompt: 'Demonstrate the FIFO property by enqueuing [1, 2, 3] and dequeuing one element.',
-        initialCode: `# Create a queue and perform enqueue and dequeue operations`,
-        solution: `# Expected output should show [1] is removed, and [2, 3] remain in the queue`,
-        difficulty: Difficulty.Beginner,
-      },
-    ],
-    quizzes: [
-      {
-        question: 'Which principle does a queue follow?',
-        options: [
-          'Last-In-First-Out (LIFO)',
-          'First-In-First-Out (FIFO)',
-          'Depth-First',
-          'Breadth-First',
-        ],
-        correctAnswer: 1,
-        explanations: [
-          'Correct. Queue follows the FIFO principle, removing elements in the order they were added.',
-        ],
-        difficulty: Difficulty.Beginner,
-      },
-    ],
-  };
-  
-  const queueImplementationData: LessonContent = {
-    title: 'Queue Implementation',
-    content: `<p>
+  exercises: [
+    {
+      prompt:
+        'Demonstrate the FIFO property by enqueuing [1, 2, 3] and dequeuing one element.',
+      initialCode: `# Create a queue and perform enqueue and dequeue operations`,
+      solution: `# Expected output should show [1] is removed, and [2, 3] remain in the queue`,
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'Which principle does a queue follow?',
+      options: [
+        'Last-In-First-Out (LIFO)',
+        'First-In-First-Out (FIFO)',
+        'Depth-First',
+        'Breadth-First',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Correct. Queue follows the FIFO principle, removing elements in the order they were added.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const queueImplementationData: LessonContent = {
+  title: 'Queue Implementation',
+  content: `<p>
   Queues can be implemented using various structures like arrays and linked lists. 
   Array-based queues provide quick access but may need resizing, while linked list queues offer dynamic sizing without reallocation.
   </p>`,
-    codeExample: `# Queue Implementation using Linked List
+  codeExample: `# Queue Implementation using Linked List
   class Node:
       def __init__(self, value):
           self.value = value
@@ -254,41 +255,43 @@ const queueCurriculum: Curriculum = {
               if self.front is None:
                   self.rear = None
               return value`,
-    exercises: [
-      {
-        prompt: 'Implement a linked list queue and enqueue the values [10, 20, 30].',
-        initialCode: `# Write your solution here
+  exercises: [
+    {
+      prompt:
+        'Implement a linked list queue and enqueue the values [10, 20, 30].',
+      initialCode: `# Write your solution here
   queue = LinkedListQueue()
   # Enqueue values, then test dequeue`,
-        solution: `# Expected order for dequeue is 10, 20, 30`,
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-    quizzes: [
-      {
-        question: 'Which advantage does a linked list queue offer over an array-based queue?',
-        options: [
-          'Faster access time',
-          'Dynamic sizing without reallocation',
-          'More memory-efficient for large data',
-          'Simpler to implement',
-        ],
-        correctAnswer: 1,
-        explanations: [
-          'Correct. Linked list queues can grow dynamically, avoiding the need for resizing.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-  };
-  
-  const queueOperationsData: LessonContent = {
-    title: 'Basic Queue Operations',
-    content: `<p>
+      solution: `# Expected order for dequeue is 10, 20, 30`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which advantage does a linked list queue offer over an array-based queue?',
+      options: [
+        'Faster access time',
+        'Dynamic sizing without reallocation',
+        'More memory-efficient for large data',
+        'Simpler to implement',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Correct. Linked list queues can grow dynamically, avoiding the need for resizing.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const queueOperationsData: LessonContent = {
+  title: 'Basic Queue Operations',
+  content: `<p>
   Queues support basic operations: enqueue (add an element to the end), dequeue (remove from the front), peek (view the front element),
   and isEmpty (check if the queue is empty). These operations ensure efficient, controlled access.
   </p>`,
-    codeExample: `# Queue Operations Example
+  codeExample: `# Queue Operations Example
   class QueueOperations:
       def __init__(self):
           self.queue = []
@@ -304,38 +307,39 @@ const queueCurriculum: Curriculum = {
   
       def is_empty(self):
           return len(self.queue) == 0`,
-    exercises: [
-      {
-        prompt: 'Using the QueueOperations class, enqueue values [5, 15, 25], then dequeue one and peek.',
-        initialCode: `# Implement enqueue, dequeue, and peek on a queue`,
-        solution: `# Expected output: Dequeued value: 5, Peek value: 15`,
-        difficulty: Difficulty.Beginner,
-      },
-    ],
-    quizzes: [
-      {
-        question: 'What is the result of the peek operation on an empty queue?',
-        options: [
-          'Returns None or equivalent',
-          'Throws an error',
-          'Returns the last element',
-          'Adds a default value',
-        ],
-        correctAnswer: 0,
-        explanations: [
-          'Correct. Peek returns None (or equivalent) on an empty queue.',
-        ],
-        difficulty: Difficulty.Beginner,
-      },
-    ],
-  };
-  const circularConceptData: LessonContent = {
-    title: 'Circular Queue Concept',
-    content: `<p>
+  exercises: [
+    {
+      prompt:
+        'Using the QueueOperations class, enqueue values [5, 15, 25], then dequeue one and peek.',
+      initialCode: `# Implement enqueue, dequeue, and peek on a queue`,
+      solution: `# Expected output: Dequeued value: 5, Peek value: 15`,
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'What is the result of the peek operation on an empty queue?',
+      options: [
+        'Returns None or equivalent',
+        'Throws an error',
+        'Returns the last element',
+        'Adds a default value',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'Correct. Peek returns None (or equivalent) on an empty queue.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+const circularConceptData: LessonContent = {
+  title: 'Circular Queue Concept',
+  content: `<p>
   A circular queue is a linear data structure that follows the FIFO principle but wraps around to reuse space when it reaches the end of the array.
   It is useful in situations where a fixed amount of memory is required, avoiding wasted space from shifting elements as in regular queues.
   </p>`,
-    codeExample: `# Circular Queue Example (concept demonstration)
+  codeExample: `# Circular Queue Example (concept demonstration)
   class CircularQueue:
       def __init__(self, size):
           self.queue = [None] * size
@@ -363,39 +367,41 @@ const queueCurriculum: Curriculum = {
               temp = self.queue[self.front]
               self.front = (self.front + 1) % self.size
               return temp`,
-    exercises: [
-      {
-        prompt: 'Explain why a circular queue is more efficient for memory usage compared to a standard queue.',
-        initialCode: `# Write a brief explanation here`,
-        solution: `A circular queue uses the same memory repeatedly by wrapping around, reducing the need to shift elements.`,
-        difficulty: Difficulty.Beginner,
-      },
-    ],
-    quizzes: [
-      {
-        question: 'What happens if an element is enqueued in a circular queue that is full?',
-        options: [
-          'The first element is overwritten',
-          'An error occurs or the operation is prevented',
-          'The queue expands',
-          'The last element is removed first',
-        ],
-        correctAnswer: 1,
-        explanations: [
-          'Correct. Enqueuing to a full circular queue is typically not allowed to prevent data loss.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-  };
-  
-  const circularImplementationData: LessonContent = {
-    title: 'Circular Queue Implementation',
-    content: `<p>
+  exercises: [
+    {
+      prompt:
+        'Explain why a circular queue is more efficient for memory usage compared to a standard queue.',
+      initialCode: `# Write a brief explanation here`,
+      solution: `A circular queue uses the same memory repeatedly by wrapping around, reducing the need to shift elements.`,
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'What happens if an element is enqueued in a circular queue that is full?',
+      options: [
+        'The first element is overwritten',
+        'An error occurs or the operation is prevented',
+        'The queue expands',
+        'The last element is removed first',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Correct. Enqueuing to a full circular queue is typically not allowed to prevent data loss.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const circularImplementationData: LessonContent = {
+  title: 'Circular Queue Implementation',
+  content: `<p>
   Implementing a circular queue in arrays optimizes memory by allowing re-use of array space when elements are dequeued. 
   Circular queue implementations use modulo operations to manage front and rear pointers.
   </p>`,
-    codeExample: `# Circular Queue with Array-based Implementation
+  codeExample: `# Circular Queue with Array-based Implementation
   class CircularQueueArray:
       def __init__(self, size):
           self.queue = [None] * size
@@ -422,39 +428,36 @@ const queueCurriculum: Curriculum = {
           else:
               self.front = (self.front + 1) % self.size
           return result`,
-    exercises: [
-      {
-        prompt: 'Implement enqueue and dequeue operations for a circular queue with size 5.',
-        initialCode: `# Define a CircularQueueArray class and add methods here`,
-        solution: `# Expected order of operations and outcomes based on size and FIFO logic`,
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-    quizzes: [
-      {
-        question: 'Which operation uses modulo arithmetic in circular queue implementation?',
-        options: [
-          'Enqueue',
-          'Dequeue',
-          'Both enqueue and dequeue',
-          'Neither',
-        ],
-        correctAnswer: 2,
-        explanations: [
-          'Correct. Both enqueue and dequeue operations use modulo to wrap around in a circular queue.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-  };
-  
-  const circularApplicationsData: LessonContent = {
-    title: 'Circular Queue Applications',
-    content: `<p>
+  exercises: [
+    {
+      prompt:
+        'Implement enqueue and dequeue operations for a circular queue with size 5.',
+      initialCode: `# Define a CircularQueueArray class and add methods here`,
+      solution: `# Expected order of operations and outcomes based on size and FIFO logic`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which operation uses modulo arithmetic in circular queue implementation?',
+      options: ['Enqueue', 'Dequeue', 'Both enqueue and dequeue', 'Neither'],
+      correctAnswer: 2,
+      explanations: [
+        'Correct. Both enqueue and dequeue operations use modulo to wrap around in a circular queue.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const circularApplicationsData: LessonContent = {
+  title: 'Circular Queue Applications',
+  content: `<p>
   Circular queues are commonly used in situations where a fixed-size buffer is needed. 
   They are widely applied in real-world scenarios like task scheduling, resource sharing (like CPU scheduling), and network buffers.
   </p>`,
-    codeExample: `# Application of Circular Queue in CPU Scheduling
+  codeExample: `# Application of Circular Queue in CPU Scheduling
   def cpu_scheduler(jobs, time_slice):
       queue = CircularQueueArray(len(jobs))
       for job in jobs:
@@ -463,38 +466,39 @@ const queueCurriculum: Curriculum = {
           current_job = queue.dequeue()
           print(f"Processing job: {current_job}")
           # Simulate time slice processing here`,
-    exercises: [
-      {
-        prompt: 'Demonstrate using a circular queue to manage resource sharing in a network buffer.',
-        initialCode: `# Use a circular queue implementation to buffer packets`,
-        solution: `# Expected solution should buffer packets and show proper resource management`,
-        difficulty: Difficulty.Advanced,
-      },
-    ],
-    quizzes: [
-      {
-        question: 'Which is a real-world example of circular queue usage?',
-        options: [
-          'Binary Search',
-          'Network Packet Buffering',
-          'Sorting Algorithms',
-          'Database Transactions',
-        ],
-        correctAnswer: 1,
-        explanations: [
-          'Correct. Circular queues are often used in network packet buffering to manage data flow efficiently.',
-        ],
-        difficulty: Difficulty.Advanced,
-      },
-    ],
-  };
-  const dequeConceptData: LessonContent = {
-    title: 'Deque Concept',
-    content: `<p>
+  exercises: [
+    {
+      prompt:
+        'Demonstrate using a circular queue to manage resource sharing in a network buffer.',
+      initialCode: `# Use a circular queue implementation to buffer packets`,
+      solution: `# Expected solution should buffer packets and show proper resource management`,
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'Which is a real-world example of circular queue usage?',
+      options: [
+        'Binary Search',
+        'Network Packet Buffering',
+        'Sorting Algorithms',
+        'Database Transactions',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Correct. Circular queues are often used in network packet buffering to manage data flow efficiently.',
+      ],
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+};
+const dequeConceptData: LessonContent = {
+  title: 'Deque Concept',
+  content: `<p>
   A double-ended queue, or deque, is a data structure that allows insertion and deletion of elements from both ends.
   Unlike regular queues, deques support both FIFO and LIFO principles, making them highly flexible for various operations.
   </p>`,
-    codeExample: `# Basic Deque Example (conceptual code)
+  codeExample: `# Basic Deque Example (conceptual code)
   from collections import deque
   
   dq = deque()
@@ -503,39 +507,40 @@ const queueCurriculum: Curriculum = {
   print(dq)         # deque([1, 2])
   dq.pop()          # Removes from the back
   dq.popleft()      # Removes from the front`,
-    exercises: [
-      {
-        prompt: 'List two real-world scenarios where using a deque is more advantageous than a simple queue.',
-        initialCode: `# Provide brief examples`,
-        solution: `Deques are useful in caching (e.g., LRU Cache) and maintaining history (e.g., browser history).`,
-        difficulty: Difficulty.Beginner,
-      },
-    ],
-    quizzes: [
-      {
-        question: 'Which operation is not allowed in a double-ended queue?',
-        options: [
-          'Insertion at the front',
-          'Removal from the back',
-          'Insertion in the middle',
-          'Removal from the front',
-        ],
-        correctAnswer: 2,
-        explanations: [
-          'Correct. Insertion in the middle is not typically supported in a deque.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-  };
-  
-  const dequeImplementationData: LessonContent = {
-    title: 'Deque Implementation',
-    content: `<p>
+  exercises: [
+    {
+      prompt:
+        'List two real-world scenarios where using a deque is more advantageous than a simple queue.',
+      initialCode: `# Provide brief examples`,
+      solution: `Deques are useful in caching (e.g., LRU Cache) and maintaining history (e.g., browser history).`,
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'Which operation is not allowed in a double-ended queue?',
+      options: [
+        'Insertion at the front',
+        'Removal from the back',
+        'Insertion in the middle',
+        'Removal from the front',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'Correct. Insertion in the middle is not typically supported in a deque.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const dequeImplementationData: LessonContent = {
+  title: 'Deque Implementation',
+  content: `<p>
   Implementing a deque can be done using arrays or linked lists. Array-based deques may involve dynamic resizing for efficient memory usage, 
   while linked-list implementations provide constant time insertion and deletion at both ends.
   </p>`,
-    codeExample: `# Array-based Deque Example
+  codeExample: `# Array-based Deque Example
   class ArrayDeque:
       def __init__(self):
           self.deque = []
@@ -556,39 +561,40 @@ const queueCurriculum: Curriculum = {
   
       def is_empty(self):
           return len(self.deque) == 0`,
-    exercises: [
-      {
-        prompt: 'Implement a deque using a doubly linked list.',
-        initialCode: `# Define nodes and doubly linked list for deque functionality`,
-        solution: `# Expected solution should show both front and rear insertion/removal operations`,
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-    quizzes: [
-      {
-        question: 'Which implementation offers the most efficient way to manage a deque with frequent additions and removals?',
-        options: [
-          'Array-based deque',
-          'Linked-list-based deque',
-          'Hash map',
-          'Binary search tree',
-        ],
-        correctAnswer: 1,
-        explanations: [
-          'Correct. Linked-list deques are optimal for frequent insertions and deletions at both ends.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-  };
-  
-  const slidingWindowData: LessonContent = {
-    title: 'Sliding Window with Deque',
-    content: `<p>
+  exercises: [
+    {
+      prompt: 'Implement a deque using a doubly linked list.',
+      initialCode: `# Define nodes and doubly linked list for deque functionality`,
+      solution: `# Expected solution should show both front and rear insertion/removal operations`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which implementation offers the most efficient way to manage a deque with frequent additions and removals?',
+      options: [
+        'Array-based deque',
+        'Linked-list-based deque',
+        'Hash map',
+        'Binary search tree',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Correct. Linked-list deques are optimal for frequent insertions and deletions at both ends.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const slidingWindowData: LessonContent = {
+  title: 'Sliding Window with Deque',
+  content: `<p>
   The deque is particularly powerful for sliding window problems, where it can efficiently track maximum or minimum values in a dynamic window size.
   By maintaining a deque with indices of elements in a specific order, sliding windows can be optimized to O(n) time complexity.
   </p>`,
-    codeExample: `# Sliding Window Maximum with Deque
+  codeExample: `# Sliding Window Maximum with Deque
   from collections import deque
   
   def max_sliding_window(nums, k):
@@ -612,38 +618,35 @@ const queueCurriculum: Curriculum = {
               max_window.append(nums[dq[0]])
       
       return max_window`,
-    exercises: [
-      {
-        prompt: 'Implement a function to find the minimum of each sliding window using a deque.',
-        initialCode: `# Modify the sliding window maximum function to track minimum values`,
-        solution: `# Expected output should give minimums based on the sliding window size`,
-        difficulty: Difficulty.Advanced,
-      },
-    ],
-    quizzes: [
-      {
-        question: 'What is the time complexity of a sliding window maximum problem using a deque?',
-        options: [
-          'O(n^2)',
-          'O(n log n)',
-          'O(n)',
-          'O(1)',
-        ],
-        correctAnswer: 2,
-        explanations: [
-          'Correct. Sliding window maximum with a deque achieves O(n) time complexity by maintaining indices.',
-        ],
-        difficulty: Difficulty.Advanced,
-      },
-    ],
-  };
-  const bfsConceptData: LessonContent = {
-    title: 'Breadth-First Search Basics',
-    content: `<p>
+  exercises: [
+    {
+      prompt:
+        'Implement a function to find the minimum of each sliding window using a deque.',
+      initialCode: `# Modify the sliding window maximum function to track minimum values`,
+      solution: `# Expected output should give minimums based on the sliding window size`,
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'What is the time complexity of a sliding window maximum problem using a deque?',
+      options: ['O(n^2)', 'O(n log n)', 'O(n)', 'O(1)'],
+      correctAnswer: 2,
+      explanations: [
+        'Correct. Sliding window maximum with a deque achieves O(n) time complexity by maintaining indices.',
+      ],
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+};
+const bfsConceptData: LessonContent = {
+  title: 'Breadth-First Search Basics',
+  content: `<p>
   Breadth-First Search (BFS) is an algorithm for traversing or searching graph structures layer by layer. BFS relies on a queue to manage the nodes
   being explored, ensuring nodes are processed in the order they are discovered.
   </p>`,
-    codeExample: `# BFS Concept Example
+  codeExample: `# BFS Concept Example
   from collections import deque
   
   def bfs(start_node):
@@ -658,39 +661,40 @@ const queueCurriculum: Curriculum = {
               if neighbor not in visited:
                   visited.add(neighbor)
                   queue.append(neighbor)`,
-    exercises: [
-      {
-        prompt: 'Explain why BFS cannot be implemented using a stack instead of a queue.',
-        initialCode: `# Describe how BFS relies on FIFO order for correct traversal`,
-        solution: `BFS requires a FIFO structure to explore nodes layer by layer. A stack would result in a depth-first traversal.`,
-        difficulty: Difficulty.Beginner,
-      },
-    ],
-    quizzes: [
-      {
-        question: 'What is the primary purpose of a queue in BFS?',
-        options: [
-          'To prioritize the most recently discovered nodes',
-          'To manage nodes in a last-in, first-out order',
-          'To ensure nodes are processed in the order they are discovered',
-          'To sort nodes by value',
-        ],
-        correctAnswer: 2,
-        explanations: [
-          'Correct. The queue in BFS ensures a first-in, first-out processing order, supporting layer-wise exploration.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-  };
-  
-  const graphBfsData: LessonContent = {
-    title: 'Graph BFS',
-    content: `<p>
+  exercises: [
+    {
+      prompt:
+        'Explain why BFS cannot be implemented using a stack instead of a queue.',
+      initialCode: `# Describe how BFS relies on FIFO order for correct traversal`,
+      solution: `BFS requires a FIFO structure to explore nodes layer by layer. A stack would result in a depth-first traversal.`,
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'What is the primary purpose of a queue in BFS?',
+      options: [
+        'To prioritize the most recently discovered nodes',
+        'To manage nodes in a last-in, first-out order',
+        'To ensure nodes are processed in the order they are discovered',
+        'To sort nodes by value',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'Correct. The queue in BFS ensures a first-in, first-out processing order, supporting layer-wise exploration.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const graphBfsData: LessonContent = {
+  title: 'Graph BFS',
+  content: `<p>
   When applied to graphs, BFS efficiently explores all reachable nodes starting from a specified node, handling each node and its neighbors sequentially.
   This approach is useful for finding the shortest path in unweighted graphs.
   </p>`,
-    codeExample: `# BFS Implementation for Graph Traversal
+  codeExample: `# BFS Implementation for Graph Traversal
   def bfs_graph(graph, start):
       visited = set()
       queue = deque([start])
@@ -704,39 +708,41 @@ const queueCurriculum: Curriculum = {
               if neighbor not in visited:
                   visited.add(neighbor)
                   queue.append(neighbor)`,
-    exercises: [
-      {
-        prompt: 'Modify the BFS graph traversal to keep track of the shortest path from the start node to each node.',
-        initialCode: `# Store path lengths or predecessors during BFS`,
-        solution: `# Expected solution stores distances or predecessor nodes to reconstruct shortest paths`,
-        difficulty: Difficulty.Advanced,
-      },
-    ],
-    quizzes: [
-      {
-        question: 'In an unweighted graph, what property does BFS guarantee if we start from a specific node?',
-        options: [
-          'It finds the shortest path to each reachable node',
-          'It finds the longest path to each reachable node',
-          'It visits nodes based on edge weights',
-          'It only visits nodes once',
-        ],
-        correctAnswer: 0,
-        explanations: [
-          'Correct. BFS ensures the shortest path in terms of the number of edges in an unweighted graph.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-  };
-  
-  const treeBfsData: LessonContent = {
-    title: 'Tree Level Order Traversal',
-    content: `<p>
+  exercises: [
+    {
+      prompt:
+        'Modify the BFS graph traversal to keep track of the shortest path from the start node to each node.',
+      initialCode: `# Store path lengths or predecessors during BFS`,
+      solution: `# Expected solution stores distances or predecessor nodes to reconstruct shortest paths`,
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'In an unweighted graph, what property does BFS guarantee if we start from a specific node?',
+      options: [
+        'It finds the shortest path to each reachable node',
+        'It finds the longest path to each reachable node',
+        'It visits nodes based on edge weights',
+        'It only visits nodes once',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'Correct. BFS ensures the shortest path in terms of the number of edges in an unweighted graph.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const treeBfsData: LessonContent = {
+  title: 'Tree Level Order Traversal',
+  content: `<p>
   In trees, BFS is commonly used for level-order traversal, processing each level of the tree from top to bottom.
   Using a queue to maintain nodes at each level, BFS visits each node layer by layer, making it ideal for tree-based operations.
   </p>`,
-    codeExample: `# Level Order Traversal for a Binary Tree
+  codeExample: `# Level Order Traversal for a Binary Tree
   from collections import deque
   
   def level_order_traversal(root):
@@ -758,38 +764,35 @@ const queueCurriculum: Curriculum = {
           result.append(level)
       
       return result`,
-    exercises: [
-      {
-        prompt: 'Write a function to print each level of a binary tree in reverse order using BFS.',
-        initialCode: `# Use a queue to traverse levels in BFS and a stack to reverse levels`,
-        solution: `# Expected solution should use a stack to hold levels for reversed output`,
-        difficulty: Difficulty.Advanced,
-      },
-    ],
-    quizzes: [
-      {
-        question: 'Which structure ensures that BFS in trees processes nodes level by level?',
-        options: [
-          'Stack',
-          'Priority queue',
-          'Queue',
-          'Linked list',
-        ],
-        correctAnswer: 2,
-        explanations: [
-          'Correct. A queue enables BFS to explore nodes level by level, which is essential for level-order traversal.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-  };
-  const maxQueueData: LessonContent = {
-    title: 'Max Queue',
-    content: `<p>
+  exercises: [
+    {
+      prompt:
+        'Write a function to print each level of a binary tree in reverse order using BFS.',
+      initialCode: `# Use a queue to traverse levels in BFS and a stack to reverse levels`,
+      solution: `# Expected solution should use a stack to hold levels for reversed output`,
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which structure ensures that BFS in trees processes nodes level by level?',
+      options: ['Stack', 'Priority queue', 'Queue', 'Linked list'],
+      correctAnswer: 2,
+      explanations: [
+        'Correct. A queue enables BFS to explore nodes level by level, which is essential for level-order traversal.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+const maxQueueData: LessonContent = {
+  title: 'Max Queue',
+  content: `<p>
   The Max Queue variation allows efficient tracking of the maximum element in the queue at any given time. 
   This is especially useful for applications requiring quick access to maximum values while performing enqueue and dequeue operations.
   </p>`,
-    codeExample: `# Max Queue Implementation
+  codeExample: `# Max Queue Implementation
   from collections import deque
   
   class MaxQueue:
@@ -811,39 +814,40 @@ const queueCurriculum: Curriculum = {
   
       def get_max(self):
           return self.max_deque[0] if self.max_deque else None`,
-    exercises: [
-      {
-        prompt: 'Modify the Max Queue implementation to support constant-time min element tracking alongside the max.',
-        initialCode: `# Implement additional deque to track min elements in the queue`,
-        solution: `# Expected solution should use another deque similar to max_deque for minimum elements`,
-        difficulty: Difficulty.Advanced,
-      },
-    ],
-    quizzes: [
-      {
-        question: 'What is the primary purpose of the max_deque in a Max Queue?',
-        options: [
-          'To keep track of minimum elements',
-          'To maintain elements in the order they were added',
-          'To ensure quick access to the maximum element',
-          'To sort the elements in the queue',
-        ],
-        correctAnswer: 2,
-        explanations: [
-          'Correct. The max_deque allows constant-time access to the maximum element in the queue.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-  };
-  
-  const limitedQueueData: LessonContent = {
-    title: 'Size-Limited Queue',
-    content: `<p>
+  exercises: [
+    {
+      prompt:
+        'Modify the Max Queue implementation to support constant-time min element tracking alongside the max.',
+      initialCode: `# Implement additional deque to track min elements in the queue`,
+      solution: `# Expected solution should use another deque similar to max_deque for minimum elements`,
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'What is the primary purpose of the max_deque in a Max Queue?',
+      options: [
+        'To keep track of minimum elements',
+        'To maintain elements in the order they were added',
+        'To ensure quick access to the maximum element',
+        'To sort the elements in the queue',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'Correct. The max_deque allows constant-time access to the maximum element in the queue.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const limitedQueueData: LessonContent = {
+  title: 'Size-Limited Queue',
+  content: `<p>
   A Size-Limited Queue restricts the number of elements it can hold at any given time. This structure is widely used in applications requiring 
   a circular buffer or fixed memory allocation, where older elements are discarded when the limit is reached.
   </p>`,
-    codeExample: `# Size-Limited Queue Implementation
+  codeExample: `# Size-Limited Queue Implementation
   class LimitedQueue:
       def __init__(self, max_size):
           self.queue = deque()
@@ -856,39 +860,40 @@ const queueCurriculum: Curriculum = {
   
       def dequeue(self):
           return self.queue.popleft() if self.queue else None`,
-    exercises: [
-      {
-        prompt: 'Modify the Size-Limited Queue to implement a circular buffer.',
-        initialCode: `# Adapt enqueue operation to wrap around when max size is reached`,
-        solution: `# Expected solution manages a pointer or index to wrap around elements`,
-        difficulty: Difficulty.Advanced,
-      },
-    ],
-    quizzes: [
-      {
-        question: 'What happens when the queue reaches its maximum size in a Size-Limited Queue?',
-        options: [
-          'New elements are ignored',
-          'The queue stops accepting elements',
-          'The oldest element is removed to make space',
-          'The newest element is discarded',
-        ],
-        correctAnswer: 2,
-        explanations: [
-          'Correct. When the limit is reached, the oldest element is dequeued to make space for new elements.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-  };
-  
-  const monotonicQueueData: LessonContent = {
-    title: 'Monotonic Queue',
-    content: `<p>
+  exercises: [
+    {
+      prompt: 'Modify the Size-Limited Queue to implement a circular buffer.',
+      initialCode: `# Adapt enqueue operation to wrap around when max size is reached`,
+      solution: `# Expected solution manages a pointer or index to wrap around elements`,
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'What happens when the queue reaches its maximum size in a Size-Limited Queue?',
+      options: [
+        'New elements are ignored',
+        'The queue stops accepting elements',
+        'The oldest element is removed to make space',
+        'The newest element is discarded',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'Correct. When the limit is reached, the oldest element is dequeued to make space for new elements.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const monotonicQueueData: LessonContent = {
+  title: 'Monotonic Queue',
+  content: `<p>
   A Monotonic Queue maintains elements in a specific non-increasing or non-decreasing order. This makes it ideal for 
   solving problems like finding the maximum or minimum in a sliding window, where elements in the queue follow a fixed order.
   </p>`,
-    codeExample: `# Monotonic Queue Implementation (Non-Increasing)
+  codeExample: `# Monotonic Queue Implementation (Non-Increasing)
   class MonotonicQueue:
       def __init__(self):
           self.queue = deque()
@@ -904,38 +909,40 @@ const queueCurriculum: Curriculum = {
   
       def get_max(self):
           return self.queue[0] if self.queue else None`,
-    exercises: [
-      {
-        prompt: 'Modify the Monotonic Queue to maintain a non-decreasing order instead of a non-increasing order.',
-        initialCode: `# Adjust enqueue method to pop elements greater than the incoming value`,
-        solution: `# Expected solution maintains a non-decreasing order by removing greater elements`,
-        difficulty: Difficulty.Advanced,
-      },
-    ],
-    quizzes: [
-      {
-        question: 'What is the primary advantage of using a Monotonic Queue for sliding window problems?',
-        options: [
-          'It simplifies adding elements to the queue',
-          'It ensures the queue remains sorted',
-          'It allows efficient retrieval of the maximum or minimum in the window',
-          'It maintains all elements in the original order',
-        ],
-        correctAnswer: 2,
-        explanations: [
-          'Correct. Monotonic Queue allows efficient maximum/minimum tracking in sliding windows due to its order constraint.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-  };
-  const queueReversalData: LessonContent = {
-    title: 'Queue Reversal',
-    content: `<p>
+  exercises: [
+    {
+      prompt:
+        'Modify the Monotonic Queue to maintain a non-decreasing order instead of a non-increasing order.',
+      initialCode: `# Adjust enqueue method to pop elements greater than the incoming value`,
+      solution: `# Expected solution maintains a non-decreasing order by removing greater elements`,
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'What is the primary advantage of using a Monotonic Queue for sliding window problems?',
+      options: [
+        'It simplifies adding elements to the queue',
+        'It ensures the queue remains sorted',
+        'It allows efficient retrieval of the maximum or minimum in the window',
+        'It maintains all elements in the original order',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'Correct. Monotonic Queue allows efficient maximum/minimum tracking in sliding windows due to its order constraint.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+const queueReversalData: LessonContent = {
+  title: 'Queue Reversal',
+  content: `<p>
   Queue Reversal involves reversing the order of elements in a queue. This operation can be done iteratively or recursively 
   and is useful for applications where elements need to be processed in reverse order.
   </p>`,
-    codeExample: `# Queue Reversal Implementation
+  codeExample: `# Queue Reversal Implementation
   from collections import deque
   
   def reverse_queue(queue):
@@ -948,39 +955,40 @@ const queueCurriculum: Curriculum = {
   # Example usage:
   queue = deque([1, 2, 3, 4, 5])
   reverse_queue(queue)  # queue becomes [5, 4, 3, 2, 1]`,
-    exercises: [
-      {
-        prompt: 'Implement a recursive solution for reversing a queue.',
-        initialCode: `# Use a recursive function that dequeues elements and re-enqueues them in reverse order`,
-        solution: `# Expected solution uses recursive calls to reverse elements without a stack`,
-        difficulty: Difficulty.Advanced,
-      },
-    ],
-    quizzes: [
-      {
-        question: 'What is the primary purpose of using a stack in the iterative queue reversal?',
-        options: [
-          'To store elements temporarily while reversing order',
-          'To sort elements before enqueuing back',
-          'To remove duplicates in the queue',
-          'To check for maximum elements in the queue',
-        ],
-        correctAnswer: 0,
-        explanations: [
-          'Correct. A stack holds elements temporarily to reverse their order before placing them back in the queue.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-  };
-  
-  const queueSortingData: LessonContent = {
-    title: 'Queue Sorting',
-    content: `<p>
+  exercises: [
+    {
+      prompt: 'Implement a recursive solution for reversing a queue.',
+      initialCode: `# Use a recursive function that dequeues elements and re-enqueues them in reverse order`,
+      solution: `# Expected solution uses recursive calls to reverse elements without a stack`,
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'What is the primary purpose of using a stack in the iterative queue reversal?',
+      options: [
+        'To store elements temporarily while reversing order',
+        'To sort elements before enqueuing back',
+        'To remove duplicates in the queue',
+        'To check for maximum elements in the queue',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'Correct. A stack holds elements temporarily to reverse their order before placing them back in the queue.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const queueSortingData: LessonContent = {
+  title: 'Queue Sorting',
+  content: `<p>
   Queue Sorting involves arranging the elements in the queue in ascending or descending order. Sorting a queue 
   can be achieved using additional data structures like priority queues or stacks.
   </p>`,
-    codeExample: `# Queue Sorting Implementation using a Priority Queue
+  codeExample: `# Queue Sorting Implementation using a Priority Queue
   import heapq
   
   def sort_queue(queue):
@@ -993,39 +1001,41 @@ const queueCurriculum: Curriculum = {
   # Example usage:
   queue = deque([4, 2, 5, 1, 3])
   sort_queue(queue)  # queue becomes [1, 2, 3, 4, 5]`,
-    exercises: [
-      {
-        prompt: 'Modify the sorting function to sort the queue in descending order.',
-        initialCode: `# Use heapq with negative values or sort with max heap`,
-        solution: `# Expected solution adapts heapq or reverse sorting for descending order`,
-        difficulty: Difficulty.Advanced,
-      },
-    ],
-    quizzes: [
-      {
-        question: 'What data structure is primarily used to help sort the queue in ascending order?',
-        options: [
-          'Stack',
-          'Binary Search Tree',
-          'Priority Queue (Min-Heap)',
-          'Linked List',
-        ],
-        correctAnswer: 2,
-        explanations: [
-          'Correct. A Priority Queue (Min-Heap) allows efficient sorting by continually dequeuing the smallest element.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-  };
-  
-  const queueOptimizationData: LessonContent = {
-    title: 'Queue Optimization',
-    content: `<p>
+  exercises: [
+    {
+      prompt:
+        'Modify the sorting function to sort the queue in descending order.',
+      initialCode: `# Use heapq with negative values or sort with max heap`,
+      solution: `# Expected solution adapts heapq or reverse sorting for descending order`,
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'What data structure is primarily used to help sort the queue in ascending order?',
+      options: [
+        'Stack',
+        'Binary Search Tree',
+        'Priority Queue (Min-Heap)',
+        'Linked List',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'Correct. A Priority Queue (Min-Heap) allows efficient sorting by continually dequeuing the smallest element.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const queueOptimizationData: LessonContent = {
+  title: 'Queue Optimization',
+  content: `<p>
   Queue Optimization focuses on improving space and time efficiency for queue operations. Techniques like reducing memory 
   overhead and optimizing enqueue/dequeue operations are essential for handling large-scale data.
   </p>`,
-    codeExample: `# Queue Optimization Example: Implementing a Fixed-Size Circular Queue
+  codeExample: `# Queue Optimization Example: Implementing a Fixed-Size Circular Queue
   class CircularQueue:
       def __init__(self, max_size):
           self.queue = [None] * max_size
@@ -1049,34 +1059,35 @@ const queueCurriculum: Curriculum = {
               self.head = self.tail = -1  # Reset when last element is dequeued
           else:
               self.head = (self.head + 1) % self.max_size`,
-    exercises: [
-      {
-        prompt: 'Implement a circular queue that tracks the minimum element in constant time.',
-        initialCode: `# Integrate min-tracking by modifying enqueue and dequeue logic`,
-        solution: `# Expected solution uses an additional array or queue to track minimum values`,
-        difficulty: Difficulty.Advanced,
-      },
-    ],
-    quizzes: [
-      {
-        question: 'Which of the following best describes a circular queue?',
-        options: [
-          'A queue where elements are reversed',
-          'A queue where elements are sorted',
-          'A queue where the rear connects back to the front',
-          'A queue with priority-based elements',
-        ],
-        correctAnswer: 2,
-        explanations: [
-          'Correct. A circular queue wraps around, connecting the tail back to the head when reaching its capacity.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-  };
-  const taskSchedulingData: LessonContent = {
-    title: 'Task Scheduling',
-    content: `<p>
+  exercises: [
+    {
+      prompt:
+        'Implement a circular queue that tracks the minimum element in constant time.',
+      initialCode: `# Integrate min-tracking by modifying enqueue and dequeue logic`,
+      solution: `# Expected solution uses an additional array or queue to track minimum values`,
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'Which of the following best describes a circular queue?',
+      options: [
+        'A queue where elements are reversed',
+        'A queue where elements are sorted',
+        'A queue where the rear connects back to the front',
+        'A queue with priority-based elements',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'Correct. A circular queue wraps around, connecting the tail back to the head when reaching its capacity.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+const taskSchedulingData: LessonContent = {
+  title: 'Task Scheduling',
+  content: `<p>
   Task scheduling is a common problem in computer science where tasks need to be executed in a specific order or at specific times. 
   Queues are often used to manage and schedule tasks efficiently. 
   In this lesson, we will explore how to use queues for task scheduling, including priority queues for tasks with different priorities.
@@ -1087,7 +1098,7 @@ const queueCurriculum: Curriculum = {
   <li><strong>Priority Scheduling:</strong> Tasks are executed based on their priority, with higher priority tasks being processed first.</li>
   <li><strong>Round Robin Scheduling:</strong> Tasks are executed in a cyclic order, giving each task a fixed time slice.</li>
   </ul>`,
-    codeExample: `# FIFO Scheduling
+  codeExample: `# FIFO Scheduling
   from collections import deque
   
   tasks = deque()
@@ -1119,15 +1130,15 @@ const queueCurriculum: Curriculum = {
       print("Processing:", task)
       if len(rr_tasks) > 0:
           rr_tasks.append(task)`,
-    exercises: [
-      {
-        prompt:
-          'Implement a FIFO task scheduler that processes tasks in the order they are added.',
-        initialCode: `# Write your solution here
+  exercises: [
+    {
+      prompt:
+        'Implement a FIFO task scheduler that processes tasks in the order they are added.',
+      initialCode: `# Write your solution here
   tasks = deque()
   # Add tasks to the queue
   # Process tasks in FIFO order`,
-        solution: `from collections import deque
+      solution: `from collections import deque
   
   tasks = deque()
   tasks.append("Task 1")
@@ -1136,16 +1147,16 @@ const queueCurriculum: Curriculum = {
   
   while tasks:
       print("Processing:", tasks.popleft())`,
-        difficulty: Difficulty.Intermediate,
-      },
-      {
-        prompt:
-          'Implement a priority task scheduler that processes tasks based on their priority.',
-        initialCode: `# Write your solution here
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Implement a priority task scheduler that processes tasks based on their priority.',
+      initialCode: `# Write your solution here
   priority_tasks = []
   # Add tasks with priorities to the queue
   # Process tasks in priority order`,
-        solution: `import heapq
+      solution: `import heapq
   
   priority_tasks = []
   heapq.heappush(priority_tasks, (3, "High Priority Task"))
@@ -1155,16 +1166,16 @@ const queueCurriculum: Curriculum = {
   while priority_tasks:
       priority, task = heapq.heappop(priority_tasks)
       print("Processing:", task, "with priority", priority)`,
-        difficulty: Difficulty.Intermediate,
-      },
-      {
-        prompt:
-          'Implement a round-robin task scheduler that processes tasks in a cyclic order.',
-        initialCode: `# Write your solution here
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Implement a round-robin task scheduler that processes tasks in a cyclic order.',
+      initialCode: `# Write your solution here
   rr_tasks = deque()
   # Add tasks to the queue
   # Process tasks in round-robin order`,
-        solution: `from collections import deque
+      solution: `from collections import deque
   
   rr_tasks = deque(["Task 1", "Task 2", "Task 3"])
   time_slice = 2
@@ -1174,69 +1185,69 @@ const queueCurriculum: Curriculum = {
       print("Processing:", task)
       if len(rr_tasks) > 0:
           rr_tasks.append(task)`,
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-    quizzes: [
-      {
-        question:
-          'Which of the following is the correct way to implement a FIFO task scheduler in Python?',
-        options: [
-          'Using a stack',
-          'Using a queue',
-          'Using a priority queue',
-          'Using a deque',
-        ],
-        correctAnswer: 1,
-        explanations: [
-          'This is incorrect because stacks use LIFO (Last In, First Out) order.',
-          'This is correct. Queues use FIFO (First In, First Out) order.',
-          'This is incorrect because priority queues use priority-based order.',
-          'This is incorrect because deques can be used for FIFO, but the term "queue" is more specific.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-      {
-        question:
-          'Which of the following is the correct way to implement a priority task scheduler in Python?',
-        options: [
-          'Using a stack',
-          'Using a queue',
-          'Using a priority queue',
-          'Using a deque',
-        ],
-        correctAnswer: 2,
-        explanations: [
-          'This is incorrect because stacks use LIFO (Last In, First Out) order.',
-          'This is incorrect because queues use FIFO (First In, First Out) order.',
-          'This is correct. Priority queues use priority-based order.',
-          'This is incorrect because deques can be used for FIFO, but the term "priority queue" is more specific.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-      {
-        question:
-          'Which of the following is the correct way to implement a round-robin task scheduler in Python?',
-        options: [
-          'Using a stack',
-          'Using a queue',
-          'Using a priority queue',
-          'Using a deque',
-        ],
-        correctAnswer: 3,
-        explanations: [
-          'This is incorrect because stacks use LIFO (Last In, First Out) order.',
-          'This is incorrect because queues use FIFO (First In, First Out) order.',
-          'This is incorrect because priority queues use priority-based order.',
-          'This is correct. Deques can be used for round-robin scheduling by appending and popping elements cyclically.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-  };
-  const streamProcessingData: LessonContent = {
-    title: 'Stream Processing',
-    content: `<p>
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following is the correct way to implement a FIFO task scheduler in Python?',
+      options: [
+        'Using a stack',
+        'Using a queue',
+        'Using a priority queue',
+        'Using a deque',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'This is incorrect because stacks use LIFO (Last In, First Out) order.',
+        'This is correct. Queues use FIFO (First In, First Out) order.',
+        'This is incorrect because priority queues use priority-based order.',
+        'This is incorrect because deques can be used for FIFO, but the term "queue" is more specific.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question:
+        'Which of the following is the correct way to implement a priority task scheduler in Python?',
+      options: [
+        'Using a stack',
+        'Using a queue',
+        'Using a priority queue',
+        'Using a deque',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'This is incorrect because stacks use LIFO (Last In, First Out) order.',
+        'This is incorrect because queues use FIFO (First In, First Out) order.',
+        'This is correct. Priority queues use priority-based order.',
+        'This is incorrect because deques can be used for FIFO, but the term "priority queue" is more specific.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question:
+        'Which of the following is the correct way to implement a round-robin task scheduler in Python?',
+      options: [
+        'Using a stack',
+        'Using a queue',
+        'Using a priority queue',
+        'Using a deque',
+      ],
+      correctAnswer: 3,
+      explanations: [
+        'This is incorrect because stacks use LIFO (Last In, First Out) order.',
+        'This is incorrect because queues use FIFO (First In, First Out) order.',
+        'This is incorrect because priority queues use priority-based order.',
+        'This is correct. Deques can be used for round-robin scheduling by appending and popping elements cyclically.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+const streamProcessingData: LessonContent = {
+  title: 'Stream Processing',
+  content: `<p>
   Stream processing involves handling continuous data streams, such as real-time data from sensors, logs, or user interactions. 
   Queues are often used to manage and process these data streams efficiently. 
   In this lesson, we will explore how to use queues for stream processing, including handling real-time data and processing events in order.
@@ -1247,7 +1258,7 @@ const queueCurriculum: Curriculum = {
   <li><strong>Event Ordering:</strong> Ensuring events are processed in the correct order.</li>
   <li><strong>Buffering:</strong> Using queues to buffer data when processing speed is slower than data arrival.</li>
   </ul>`,
-    codeExample: `# Real-time Data Handling
+  codeExample: `# Real-time Data Handling
   from collections import deque
   
   data_stream = deque()
@@ -1297,11 +1308,11 @@ const queueCurriculum: Curriculum = {
           time.sleep(0.5)
   
   simulate_buffering()`,
-    exercises: [
-      {
-        prompt:
-          'Implement a real-time data handler that processes data as it arrives.',
-        initialCode: `# Write your solution here
+  exercises: [
+    {
+      prompt:
+        'Implement a real-time data handler that processes data as it arrives.',
+      initialCode: `# Write your solution here
   data_stream = deque()
   
   def process_data(data):
@@ -1315,7 +1326,7 @@ const queueCurriculum: Curriculum = {
           data_stream.append(data)
           process_data(data_stream.popleft())
           time.sleep(1)`,
-        solution: `from collections import deque
+      solution: `from collections import deque
   
   data_stream = deque()
   
@@ -1332,12 +1343,12 @@ const queueCurriculum: Curriculum = {
           time.sleep(1)
   
   simulate_data_stream()`,
-        difficulty: Difficulty.Intermediate,
-      },
-      {
-        prompt:
-          'Implement an event handler that processes events in the order they are received.',
-        initialCode: `# Write your solution here
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Implement an event handler that processes events in the order they are received.',
+      initialCode: `# Write your solution here
   event_queue = deque()
   
   def process_event(event):
@@ -1349,7 +1360,7 @@ const queueCurriculum: Curriculum = {
           event_queue.append(event)
       while event_queue:
           process_event(event_queue.popleft())`,
-        solution: `from collections import deque
+      solution: `from collections import deque
   
   event_queue = deque()
   
@@ -1364,12 +1375,12 @@ const queueCurriculum: Curriculum = {
           process_event(event_queue.popleft())
   
   simulate_events()`,
-        difficulty: Difficulty.Intermediate,
-      },
-      {
-        prompt:
-          'Implement a buffering system that processes data when the buffer reaches a certain size.',
-        initialCode: `# Write your solution here
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Implement a buffering system that processes data when the buffer reaches a certain size.',
+      initialCode: `# Write your solution here
   buffer_queue = deque()
   
   def process_buffer():
@@ -1382,7 +1393,7 @@ const queueCurriculum: Curriculum = {
           if len(buffer_queue) > 5:
               process_buffer()
           time.sleep(0.5)`,
-        solution: `from collections import deque
+      solution: `from collections import deque
   
   buffer_queue = deque()
   
@@ -1399,69 +1410,69 @@ const queueCurriculum: Curriculum = {
           time.sleep(0.5)
   
   simulate_buffering()`,
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-    quizzes: [
-      {
-        question:
-          'Which of the following is the correct way to handle real-time data using a queue in Python?',
-        options: [
-          'Using a stack',
-          'Using a queue',
-          'Using a priority queue',
-          'Using a deque',
-        ],
-        correctAnswer: 3,
-        explanations: [
-          'This is incorrect because stacks use LIFO (Last In, First Out) order.',
-          'This is incorrect because queues use FIFO (First In, First Out) order.',
-          'This is incorrect because priority queues use priority-based order.',
-          'This is correct. Deques can be used for real-time data handling by appending and popping elements efficiently.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-      {
-        question:
-          'Which of the following is the correct way to ensure events are processed in the correct order using a queue in Python?',
-        options: [
-          'Using a stack',
-          'Using a queue',
-          'Using a priority queue',
-          'Using a deque',
-        ],
-        correctAnswer: 1,
-        explanations: [
-          'This is incorrect because stacks use LIFO (Last In, First Out) order.',
-          'This is correct. Queues use FIFO (First In, First Out) order, ensuring events are processed in the correct order.',
-          'This is incorrect because priority queues use priority-based order.',
-          'This is incorrect because deques can be used for FIFO, but the term "queue" is more specific.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-      {
-        question:
-          'Which of the following is the correct way to implement a buffering system using a queue in Python?',
-        options: [
-          'Using a stack',
-          'Using a queue',
-          'Using a priority queue',
-          'Using a deque',
-        ],
-        correctAnswer: 3,
-        explanations: [
-          'This is incorrect because stacks use LIFO (Last In, First Out) order.',
-          'This is incorrect because queues use FIFO (First In, First Out) order.',
-          'This is incorrect because priority queues use priority-based order.',
-          'This is correct. Deques can be used for buffering by appending and popping elements efficiently.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-  };
-  const simulationProblemsData: LessonContent = {
-    title: 'Simulation Problems',
-    content: `<p>
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following is the correct way to handle real-time data using a queue in Python?',
+      options: [
+        'Using a stack',
+        'Using a queue',
+        'Using a priority queue',
+        'Using a deque',
+      ],
+      correctAnswer: 3,
+      explanations: [
+        'This is incorrect because stacks use LIFO (Last In, First Out) order.',
+        'This is incorrect because queues use FIFO (First In, First Out) order.',
+        'This is incorrect because priority queues use priority-based order.',
+        'This is correct. Deques can be used for real-time data handling by appending and popping elements efficiently.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question:
+        'Which of the following is the correct way to ensure events are processed in the correct order using a queue in Python?',
+      options: [
+        'Using a stack',
+        'Using a queue',
+        'Using a priority queue',
+        'Using a deque',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'This is incorrect because stacks use LIFO (Last In, First Out) order.',
+        'This is correct. Queues use FIFO (First In, First Out) order, ensuring events are processed in the correct order.',
+        'This is incorrect because priority queues use priority-based order.',
+        'This is incorrect because deques can be used for FIFO, but the term "queue" is more specific.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question:
+        'Which of the following is the correct way to implement a buffering system using a queue in Python?',
+      options: [
+        'Using a stack',
+        'Using a queue',
+        'Using a priority queue',
+        'Using a deque',
+      ],
+      correctAnswer: 3,
+      explanations: [
+        'This is incorrect because stacks use LIFO (Last In, First Out) order.',
+        'This is incorrect because queues use FIFO (First In, First Out) order.',
+        'This is incorrect because priority queues use priority-based order.',
+        'This is correct. Deques can be used for buffering by appending and popping elements efficiently.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+const simulationProblemsData: LessonContent = {
+  title: 'Simulation Problems',
+  content: `<p>
   Simulation problems involve modeling real-world scenarios using computational methods. 
   Queues are often used in simulations to manage and process events or entities in a specific order. 
   In this lesson, we will explore how to use queues for simulation problems, including event-driven simulations and discrete event simulations.
@@ -1472,7 +1483,7 @@ const queueCurriculum: Curriculum = {
   <li><strong>Discrete Event Simulations:</strong> Simulating systems where the state changes at discrete points in time.</li>
   <li><strong>Entity Queues:</strong> Managing entities in a simulation using queues.</li>
   </ul>`,
-    codeExample: `# Event-Driven Simulation
+  codeExample: `# Event-Driven Simulation
   from collections import deque
   
   event_queue = deque()
@@ -1528,11 +1539,11 @@ const queueCurriculum: Curriculum = {
           process_entity(entity_queue.popleft())
   
   simulate_entities()`,
-    exercises: [
-      {
-        prompt:
-          'Implement an event-driven simulation that processes events in the order they are added.',
-        initialCode: `# Write your solution here
+  exercises: [
+    {
+      prompt:
+        'Implement an event-driven simulation that processes events in the order they are added.',
+      initialCode: `# Write your solution here
   event_queue = deque()
   
   def process_event(event):
@@ -1544,7 +1555,7 @@ const queueCurriculum: Curriculum = {
           event_queue.append(event)
       while event_queue:
           process_event(event_queue.popleft())`,
-        solution: `from collections import deque
+      solution: `from collections import deque
   
   event_queue = deque()
   
@@ -1559,12 +1570,12 @@ const queueCurriculum: Curriculum = {
           process_event(event_queue.popleft())
   
   simulate_events()`,
-        difficulty: Difficulty.Intermediate,
-      },
-      {
-        prompt:
-          'Implement a discrete event simulation that processes events based on their scheduled time.',
-        initialCode: `# Write your solution here
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Implement a discrete event simulation that processes events based on their scheduled time.',
+      initialCode: `# Write your solution here
   class Event:
       def __init__(self, name, time):
           self.name = name
@@ -1586,7 +1597,7 @@ const queueCurriculum: Curriculum = {
   schedule_event(Event("Event 3", 2))
   
   process_events()`,
-        solution: `import heapq
+      solution: `import heapq
   
   class Event:
       def __init__(self, name, time):
@@ -1611,12 +1622,12 @@ const queueCurriculum: Curriculum = {
   schedule_event(Event("Event 3", 2))
   
   process_events()`,
-        difficulty: Difficulty.Intermediate,
-      },
-      {
-        prompt:
-          'Implement an entity queue simulation that processes entities in the order they are added.',
-        initialCode: `# Write your solution here
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Implement an entity queue simulation that processes entities in the order they are added.',
+      initialCode: `# Write your solution here
   entity_queue = deque()
   
   def process_entity(entity):
@@ -1628,7 +1639,7 @@ const queueCurriculum: Curriculum = {
           entity_queue.append(entity)
       while entity_queue:
           process_entity(entity_queue.popleft())`,
-        solution: `from collections import deque
+      solution: `from collections import deque
   
   entity_queue = deque()
   
@@ -1643,90 +1654,90 @@ const queueCurriculum: Curriculum = {
           process_entity(entity_queue.popleft())
   
   simulate_entities()`,
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-    quizzes: [
-      {
-        question:
-          'Which of the following is the correct way to implement an event-driven simulation using a queue in Python?',
-        options: [
-          'Using a stack',
-          'Using a queue',
-          'Using a priority queue',
-          'Using a deque',
-        ],
-        correctAnswer: 3,
-        explanations: [
-          'This is incorrect because stacks use LIFO (Last In, First Out) order.',
-          'This is incorrect because queues use FIFO (First In, First Out) order.',
-          'This is incorrect because priority queues use priority-based order.',
-          'This is correct. Deques can be used for event-driven simulations by appending and popping elements efficiently.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-      {
-        question:
-          'Which of the following is the correct way to implement a discrete event simulation using a queue in Python?',
-        options: [
-          'Using a stack',
-          'Using a queue',
-          'Using a priority queue',
-          'Using a deque',
-        ],
-        correctAnswer: 2,
-        explanations: [
-          'This is incorrect because stacks use LIFO (Last In, First Out) order.',
-          'This is incorrect because queues use FIFO (First In, First Out) order.',
-          'This is correct. Priority queues can be used for discrete event simulations by scheduling events based on their time.',
-          'This is incorrect because deques can be used for FIFO, but the term "priority queue" is more specific.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-      {
-        question:
-          'Which of the following is the correct way to implement an entity queue simulation using a queue in Python?',
-        options: [
-          'Using a stack',
-          'Using a queue',
-          'Using a priority queue',
-          'Using a deque',
-        ],
-        correctAnswer: 3,
-        explanations: [
-          'This is incorrect because stacks use LIFO (Last In, First Out) order.',
-          'This is incorrect because queues use FIFO (First In, First Out) order.',
-          'This is incorrect because priority queues use priority-based order.',
-          'This is correct. Deques can be used for entity queue simulations by appending and popping elements efficiently.',
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-    ],
-  };
-  const queueLessons: Record<string, LessonContent> = {
-    'queue-concept': queueConceptData,
-    'queue-implementation': queueImplementationData,
-    'queue-operations': queueOperationsData,
-    'circular-concept': circularConceptData,
-    'circular-implementation': circularImplementationData,
-    'circular-applications': circularApplicationsData,
-    'deque-concept': dequeConceptData,
-    'deque-implementation': dequeImplementationData,
-    'sliding-window': slidingWindowData,
-    'bfs-concept': bfsConceptData,
-    'graph-bfs': graphBfsData,
-    'tree-bfs': treeBfsData,
-    'max-queue': maxQueueData,
-    'limited-queue': limitedQueueData,
-    'monotonic-queue': monotonicQueueData, 
-    'queue-reversal': queueReversalData,
-    'queue-sorting': queueSortingData,
-    'queue-optimization': queueOptimizationData,
-    'task-scheduling': taskSchedulingData,
-    'stream-processing': streamProcessingData,
-    'simulation-problems': simulationProblemsData 
-  }
-  export const queueLessonsTab: LessonsTab = {
-    curriculum: queueCurriculum,
-    lessons: queueLessons
-  }
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following is the correct way to implement an event-driven simulation using a queue in Python?',
+      options: [
+        'Using a stack',
+        'Using a queue',
+        'Using a priority queue',
+        'Using a deque',
+      ],
+      correctAnswer: 3,
+      explanations: [
+        'This is incorrect because stacks use LIFO (Last In, First Out) order.',
+        'This is incorrect because queues use FIFO (First In, First Out) order.',
+        'This is incorrect because priority queues use priority-based order.',
+        'This is correct. Deques can be used for event-driven simulations by appending and popping elements efficiently.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question:
+        'Which of the following is the correct way to implement a discrete event simulation using a queue in Python?',
+      options: [
+        'Using a stack',
+        'Using a queue',
+        'Using a priority queue',
+        'Using a deque',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'This is incorrect because stacks use LIFO (Last In, First Out) order.',
+        'This is incorrect because queues use FIFO (First In, First Out) order.',
+        'This is correct. Priority queues can be used for discrete event simulations by scheduling events based on their time.',
+        'This is incorrect because deques can be used for FIFO, but the term "priority queue" is more specific.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question:
+        'Which of the following is the correct way to implement an entity queue simulation using a queue in Python?',
+      options: [
+        'Using a stack',
+        'Using a queue',
+        'Using a priority queue',
+        'Using a deque',
+      ],
+      correctAnswer: 3,
+      explanations: [
+        'This is incorrect because stacks use LIFO (Last In, First Out) order.',
+        'This is incorrect because queues use FIFO (First In, First Out) order.',
+        'This is incorrect because priority queues use priority-based order.',
+        'This is correct. Deques can be used for entity queue simulations by appending and popping elements efficiently.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+const queueLessons: Record<string, LessonContent> = {
+  'queue-concept': queueConceptData,
+  'queue-implementation': queueImplementationData,
+  'queue-operations': queueOperationsData,
+  'circular-concept': circularConceptData,
+  'circular-implementation': circularImplementationData,
+  'circular-applications': circularApplicationsData,
+  'deque-concept': dequeConceptData,
+  'deque-implementation': dequeImplementationData,
+  'sliding-window': slidingWindowData,
+  'bfs-concept': bfsConceptData,
+  'graph-bfs': graphBfsData,
+  'tree-bfs': treeBfsData,
+  'max-queue': maxQueueData,
+  'limited-queue': limitedQueueData,
+  'monotonic-queue': monotonicQueueData,
+  'queue-reversal': queueReversalData,
+  'queue-sorting': queueSortingData,
+  'queue-optimization': queueOptimizationData,
+  'task-scheduling': taskSchedulingData,
+  'stream-processing': streamProcessingData,
+  'simulation-problems': simulationProblemsData,
+};
+export const queueLessonsTab: LessonsTab = {
+  curriculum: queueCurriculum,
+  lessons: queueLessons,
+};
