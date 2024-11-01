@@ -1,17 +1,16 @@
 import ModulePage from '@/components/ModulePage';
 import { TopicName } from '../interfaces';
 import { treeCheatSheet } from '@/data/cheatsheets/treeCheatSheet';
-// import { treeLessons } from '@/data/lessons/treeLessons';
 import { treeProblems } from '@/data/problems/treeProblems';
 import { treeConcepts } from '@/data/concepts/treeConcepts';
-import { arrayLessons } from '@/data/lessons/arrayLessons';
+import { treeLessonsTab } from '@/data/lessons/treeLessons';
 
 const TreesPage: React.FC = () => {
   return (
     <ModulePage
       title="Trees"
       description="Deep dive into trees and their usage"
-      lessons={arrayLessons}
+      lessonsTab={treeLessonsTab}
       problems={treeProblems}
       cheatSheetItems={treeCheatSheet}
       concepts={treeConcepts}
