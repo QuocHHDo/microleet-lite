@@ -2,250 +2,108 @@ import { createProblem, Problem } from '@/common/commonProblem';
 
 export const tupleProblems: Problem[] = [
   createProblem(
-    'Two Sum (Leetcode 1)',
+    'Max Tuple Pair (Custom Problem)',
     'Easy',
-    'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.',
+    'Given a list of tuples where each tuple contains two integers, return the tuple with the maximum sum of its elements.',
     [
       {
-        code: `def two_sum(nums, target):
-    # Create a dictionary to store the complement of each number
-    num_dict = {}
-    # Iterate through the list of numbers with their indices
-    for i, num in enumerate(nums):
-        # Calculate the complement of the current number
-        complement = target - num
-        # Check if the complement is already in the dictionary
-        if complement in num_dict:
-            # If found, return the indices of the complement and the current number
-            return [num_dict[complement], i]
-        # Otherwise, store the current number and its index in the dictionary
-        num_dict[num] = i
-    # If no solution is found, return an empty list
-    return []`,
-        timeComplexity: 'O(n)',
-        spaceComplexity: 'O(n)',
-        explanation:
-          'This solution uses a dictionary to store the complement of each number. It checks for the complement in a single pass, making the solution efficient.',
-      },
-    ],
-    'Use a dictionary to store the complement of each number.',
-    'https://leetcode.com/problems/two-sum/',
-  ),
-  createProblem(
-    'Valid Anagram (Leetcode 242)',
-    'Easy',
-    'Given two strings s and t, return true if t is an anagram of s, and false otherwise.',
-    [
-      {
-        code: `def is_anagram(s, t):
-    # If the lengths of the strings are different, they cannot be anagrams
-    if len(s) != len(t):
-        return False
-    # Initialize a dictionary to count the frequency of each character in s
-    char_count = {}
-    # Count the frequency of each character in s
-    for char in s:
-        char_count[char] = char_count.get(char, 0) + 1
-    # Decrease the count for each character in t
-    for char in t:
-        # If the character is not in the dictionary or its count is zero, return False
-        if char_count.get(char, 0) == 0:
-            return False
-        char_count[char] -= 1
-    # If all characters have the same frequency, return True
-    return True`,
+        code: `def max_tuple_pair(tuples):
+    # Initialize variables to store the maximum sum and the corresponding tuple
+    max_sum = float('-inf')
+    max_tuple = None
+    # Iterate through the list of tuples
+    for t in tuples:
+        # Calculate the sum of the current tuple
+        current_sum = sum(t)
+        # Update the maximum sum and the corresponding tuple if the current sum is greater
+        if current_sum > max_sum:
+            max_sum = current_sum
+            max_tuple = t
+    return max_tuple`,
         timeComplexity: 'O(n)',
         spaceComplexity: 'O(1)',
         explanation:
-          'This solution uses a dictionary to count the frequency of each character in the first string and then checks the second string against this count.',
+          'This solution iterates through each tuple, calculates the sum of each tuple’s elements, and keeps track of the maximum sum and corresponding tuple.',
       },
     ],
-    'Count the frequency of each character in both strings.',
-    'https://leetcode.com/problems/valid-anagram/',
+    'Calculate the sum of each tuple and track the maximum sum.',
+    'https://custom-url.com/max-tuple-pair',
   ),
   createProblem(
-    'Contains Duplicate (Leetcode 217)',
+    'Sort Tuples by First Element (Custom Problem)',
     'Easy',
-    'Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.',
+    'Given a list of tuples, sort them by the first element in each tuple.',
     [
       {
-        code: `def contains_duplicate(nums):
-    # Create an empty set to store unique numbers
-    num_set = set()
-    # Iterate through each number in the array
-    for num in nums:
-        # If the number is already in the set, return True
-        if num in num_set:
-            return True
-        # Otherwise, add the number to the set
-        num_set.add(num)
-    # If no duplicates are found, return False
-    return False`,
-        timeComplexity: 'O(n)',
-        spaceComplexity: 'O(n)',
-        explanation:
-          'This solution uses a set to store unique numbers and checks for duplicates in a single pass.',
-      },
-    ],
-    'Use a set to track seen numbers.',
-    'https://leetcode.com/problems/contains-duplicate/',
-  ),
-  createProblem(
-    'Group Anagrams (Leetcode 49)',
-    'Medium',
-    'Given an array of strings strs, group the anagrams together. You can return the answer in any order.',
-    [
-      {
-        code: `def group_anagrams(strs):
-    # Initialize a dictionary to store groups of anagrams
-    anagram_groups = {}
-    # Iterate through each string in the input list
-    for s in strs:
-        # Sort the string and use it as the key in the dictionary
-        sorted_str = ''.join(sorted(s))
-        # Append the original string to the list corresponding to the sorted string key
-        if sorted_str in anagram_groups:
-            anagram_groups[sorted_str].append(s)
-        else:
-            anagram_groups[sorted_str] = [s]
-    # Return the list of anagram groups
-    return list(anagram_groups.values())`,
-        timeComplexity: 'O(n * k log k)',
-        spaceComplexity: 'O(n * k)',
-        explanation:
-          'This solution uses a dictionary to group anagrams by their sorted characters.',
-      },
-    ],
-    'Use a dictionary to group strings by their sorted characters.',
-    'https://leetcode.com/problems/group-anagrams/',
-  ),
-  createProblem(
-    'Top K Frequent Elements (Leetcode 347)',
-    'Medium',
-    'Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.',
-    [
-      {
-        code: `def top_k_frequent(nums, k):
-    # Count the frequency of each number
-    frequency = {}
-    for num in nums:
-        frequency[num] = frequency.get(num, 0) + 1
-    # Use a list of tuples to store the numbers and their frequencies
-    freq_list = [(freq, num) for num, freq in frequency.items()]
-    # Sort the list by frequency in descending order
-    freq_list.sort(reverse=True)
-    # Extract the top k frequent elements
-    result = [num for freq, num in freq_list[:k]]
-    return result`,
+        code: `def sort_by_first(tuples):
+    # Sort the list of tuples by the first element in each tuple
+    return sorted(tuples, key=lambda x: x[0])`,
         timeComplexity: 'O(n log n)',
         spaceComplexity: 'O(n)',
         explanation:
-          'This solution uses a dictionary to count frequencies and a list of tuples to sort the numbers by their frequencies.',
+          'This solution uses the built-in sorted function, which sorts the tuples by the first element in each tuple using a lambda function.',
       },
     ],
-    'Use a dictionary to count frequencies and a list of tuples to sort the numbers by their frequencies.',
-    'https://leetcode.com/problems/top-k-frequent-elements/',
+    'Use Python’s built-in sorted function with a lambda key to sort by the first element.',
+    'https://custom-url.com/sort-tuples-by-first-element',
   ),
   createProblem(
-    'Encode and Decode Strings (Leetcode 271)',
-    'Medium',
-    'Design an algorithm to encode a list of strings to a string and decode the string back to the original list of strings. The encoded string should be as compact as possible.',
+    'Tuple Swap (Custom Problem)',
+    'Easy',
+    'Given a tuple of two elements, swap them and return the new tuple.',
     [
       {
-        code: `class Codec:
-    def encode(self, strs):
-        # Encode the list of strings into a single string
-        encoded_str = ''
-        for s in strs:
-            # Append the length of the string followed by a delimiter and the string itself
-            encoded_str += str(len(s)) + '#' + s
-        return encoded_str
-
-    def decode(self, s):
-        # Decode the encoded string back to the original list of strings
-        decoded_strs = []
-        i = 0
-        while i < len(s):
-            # Find the delimiter
-            delimiter_index = s.find('#', i)
-            # Get the length of the string
-            length = int(s[i:delimiter_index])
-            # Get the string
-            decoded_strs.append(s[delimiter_index + 1:delimiter_index + 1 + length])
-            # Move the index to the next string
-            i = delimiter_index + 1 + length
-        return decoded_strs`,
+        code: `def swap_tuple(t):
+    # Swap the elements of the tuple
+    return (t[1], t[0])`,
+        timeComplexity: 'O(1)',
+        spaceComplexity: 'O(1)',
+        explanation:
+          'This solution swaps the two elements of the tuple in constant time since tuples have a fixed size.',
+      },
+    ],
+    'Swap the two elements of the tuple.',
+    'https://custom-url.com/tuple-swap',
+  ),
+  createProblem(
+    'Tuple to Dictionary (Custom Problem)',
+    'Medium',
+    'Given a list of tuples where each tuple contains two elements, convert them into a dictionary where the first element of the tuple is the key and the second element is the value.',
+    [
+      {
+        code: `def tuple_to_dict(tuples):
+    # Convert the list of tuples into a dictionary
+    return dict(tuples)`,
         timeComplexity: 'O(n)',
         spaceComplexity: 'O(n)',
         explanation:
-          'This solution encodes the list of strings into a single string by appending the length of each string followed by a delimiter and the string itself.',
+          'This solution converts the list of tuples into a dictionary by using Python’s built-in dict constructor, which takes a list of key-value pairs.',
       },
     ],
-    'Use a delimiter to separate the length of each string from the string itself.',
-    'https://leetcode.com/problems/encode-and-decode-strings/',
+    'Use Python’s dict constructor to convert the tuples into key-value pairs.',
+    'https://custom-url.com/tuple-to-dict',
   ),
   createProblem(
-    'Product of Array Except Self (Leetcode 238)',
+    'Find Tuple with Specific Value (Custom Problem)',
     'Medium',
-    'Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i]. The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer. You must write an algorithm that runs in O(n) time and without using the division operation.',
+    'Given a list of tuples and an integer x, find the first tuple where the second element is equal to x.',
     [
       {
-        code: `def product_except_self(nums):
-    n = len(nums)
-    # Initialize the result array with 1s
-    answer = [1] * n
-    # Calculate the prefix products
-    prefix_product = 1
-    for i in range(n):
-        answer[i] *= prefix_product
-        prefix_product *= nums[i]
-    # Calculate the suffix products
-    suffix_product = 1
-    for i in range(n - 1, -1, -1):
-        answer[i] *= suffix_product
-        suffix_product *= nums[i]
-    return answer`,
+        code: `def find_tuple_with_value(tuples, x):
+    # Iterate through the list of tuples
+    for t in tuples:
+        # Check if the second element equals x
+        if t[1] == x:
+            return t
+    # Return None if no such tuple is found
+    return None`,
         timeComplexity: 'O(n)',
         spaceComplexity: 'O(1)',
         explanation:
-          'This solution uses two passes to calculate the product of all elements except the current one by using prefix and suffix products.',
+          'This solution iterates through the tuples and returns the first tuple where the second element equals the target value.',
       },
     ],
-    'Use prefix and suffix products to avoid using the division operation.',
-    'https://leetcode.com/problems/product-of-array-except-self/',
-  ),
-  createProblem(
-    'Longest Consecutive Sequence (Leetcode 128)',
-    'Medium',
-    'Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence. You must write an algorithm that runs in O(n) time.',
-    [
-      {
-        code: `def longest_consecutive(nums):
-    if not nums:
-        return 0
-    # Convert the array to a set for O(1) lookups
-    num_set = set(nums)
-    longest_streak = 0
-    # Iterate through each number in the set
-    for num in num_set:
-        # Only start counting if the number is the start of a sequence
-        if num - 1 not in num_set:
-            current_num = num
-            current_streak = 1
-            # Count the length of the consecutive sequence
-            while current_num + 1 in num_set:
-                current_num += 1
-                current_streak += 1
-            # Update the longest streak
-            longest_streak = max(longest_streak, current_streak)
-    return longest_streak`,
-        timeComplexity: 'O(n)',
-        spaceComplexity: 'O(n)',
-        explanation:
-          'This solution uses a set to store the numbers for O(1) lookups and only starts counting the length of a consecutive sequence if the current number is the start of a sequence.',
-      },
-    ],
-    'Use a set to achieve O(1) lookups and only start counting sequences from the smallest number in each sequence.',
-    'https://leetcode.com/problems/longest-consecutive-sequence/',
+    'Iterate through the tuples and check the second element against the target value.',
+    'https://custom-url.com/find-tuple-with-specific-value',
   ),
 ];
