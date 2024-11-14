@@ -640,6 +640,345 @@ const slidingWindowData: LessonContent = {
     },
   ],
 };
+
+const priorityConceptData: LessonContent = {
+  title: 'Priority Queue Concept',
+  content: `<p>
+A priority queue is an abstract data type that operates similar to a regular queue but with each element having a priority. 
+Elements with higher priority are served before elements with lower priority. 
+Priority queues are often implemented using heaps, which are complete binary trees that satisfy the heap property.
+</p>
+
+<ul>
+<li><strong>Heap property:</strong> For a min-heap, the parent node is always less than or equal to its children. For a max-heap, the parent node is always greater than or equal to its children.</li>
+<li><strong>Complete binary tree:</strong> A binary tree where all levels are completely filled except possibly the last level, which is filled from left to right.</li>
+<li><strong>Operations:</strong> Common operations include inserting an element, extracting the minimum/maximum element, and decreasing/increasing the priority of an element.</li>
+</ul>`,
+  codeExample: `# Priority Queue using heapq (min-heap)
+import heapq
+
+# Initializing a priority queue
+priority_queue = []
+
+# Inserting elements with priorities
+heapq.heappush(priority_queue, (5, 'Task 1'))
+heapq.heappush(priority_queue, (1, 'Task 2'))
+heapq.heappush(priority_queue, (3, 'Task 3'))
+
+# Extracting the element with the highest priority (minimum value)
+highest_priority_task = heapq.heappop(priority_queue)
+print(highest_priority_task)  # Output: (1, 'Task 2')`,
+  exercises: [
+    {
+      prompt:
+        'Create a priority queue using the heapq module. Insert three tasks with different priorities and extract the task with the highest priority.',
+      initialCode: `# Write your solution here
+import heapq
+
+priority_queue = `,
+      solution: `import heapq
+
+priority_queue = []
+heapq.heappush(priority_queue, (5, 'Task 1'))
+heapq.heappush(priority_queue, (1, 'Task 2'))
+heapq.heappush(priority_queue, (3, 'Task 3'))
+
+highest_priority_task = heapq.heappop(priority_queue)
+print(highest_priority_task)`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Create a function that takes a list of tasks with priorities and returns the task with the highest priority using the heapq module.',
+      initialCode: `# Write your solution here
+import heapq
+
+def get_highest_priority_task(tasks):
+    return `,
+      solution: `import heapq
+
+def get_highest_priority_task(tasks):
+    priority_queue = []
+    for task in tasks:
+        heapq.heappush(priority_queue, task)
+    return heapq.heappop(priority_queue)
+
+tasks = [(5, 'Task 1'), (1, 'Task 2'), (3, 'Task 3')]
+print(get_highest_priority_task(tasks))`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following statements is true about a min-heap?',
+      options: [
+        'The parent node is always greater than its children',
+        'The parent node is always less than or equal to its children',
+        'The parent node is always equal to its children',
+        'None of the above',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'This is incorrect. This describes a max-heap.',
+        'This is correct. This describes a min-heap.',
+        'This is incorrect. This is not a property of a heap.',
+        'This is incorrect. The correct answer is that the parent node is always less than or equal to its children.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'Which of the following operations can be performed on a priority queue implemented using a heap?',
+      options: [
+        'Inserting an element',
+        'Extracting the minimum/maximum element',
+        'Decreasing/increasing the priority of an element',
+        'All of the above',
+      ],
+      correctAnswer: 3,
+      explanations: [
+        'This is correct. Inserting an element is a common operation.',
+        'This is correct. Extracting the minimum/maximum element is a common operation.',
+        'This is correct. Decreasing/increasing the priority of an element is a common operation.',
+        'This is correct. All of the above operations can be performed on a priority queue.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const heapOperationsData: LessonContent = {
+  title: 'Heap Operations',
+  content: `<p>
+Heap operations are fundamental to working with priority queues. 
+Understanding how to implement and use these operations is crucial for effectively managing and manipulating heap data structures.
+</p>
+
+<ul>
+<li><strong>Insertion:</strong> Adding an element to the heap while maintaining the heap property.</li>
+<li><strong>Extraction:</strong> Removing the root element (minimum or maximum) from the heap while maintaining the heap property.</li>
+<li><strong>Heapify:</strong> Converting a list into a heap in linear time.</li>
+<li><strong>Decrease/Increase Key:</strong> Changing the priority of an element in the heap while maintaining the heap property.</li>
+</ul>`,
+  codeExample: `# Heap operations using heapq (min-heap)
+import heapq
+
+# Initializing a heap
+heap = []
+
+# Inserting elements
+heapq.heappush(heap, 5)
+heapq.heappush(heap, 1)
+heapq.heappush(heap, 3)
+
+# Extracting the minimum element
+min_element = heapq.heappop(heap)
+print(min_element)  # Output: 1
+
+# Heapify a list
+data = [5, 1, 3]
+heapq.heapify(data)
+print(data)  # Output: [1, 5, 3]
+
+# Decrease key (not directly supported in heapq, but can be simulated)
+def decrease_key(heap, index, new_value):
+    heap[index] = new_value
+    while index > 0 and heap[index] < heap[(index - 1) // 2]:
+        heap[index], heap[(index - 1) // 2] = heap[(index - 1) // 2], heap[index]
+        index = (index - 1) // 2
+
+decrease_key(data, 1, 0)
+print(data)  # Output: [0, 1, 3]`,
+  exercises: [
+    {
+      prompt:
+        'Create a heap using the heapq module. Insert three elements and extract the minimum element.',
+      initialCode: `# Write your solution here
+import heapq
+
+heap = `,
+      solution: `import heapq
+
+heap = []
+heapq.heappush(heap, 5)
+heapq.heappush(heap, 1)
+heapq.heappush(heap, 3)
+
+min_element = heapq.heappop(heap)
+print(min_element)`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Create a function that takes a list of integers and converts it into a heap using the heapq module. Then, extract the minimum element from the heap.',
+      initialCode: `# Write your solution here
+import heapq
+
+def heapify_and_extract_min(data):
+    return `,
+      solution: `import heapq
+
+def heapify_and_extract_min(data):
+    heapq.heapify(data)
+    return heapq.heappop(data)
+
+data = [5, 1, 3]
+print(heapify_and_extract_min(data))`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following is the correct way to insert an element into a heap in Python?',
+      options: [
+        'heapq.heappush(heap, element)',
+        'heapq.heappop(heap, element)',
+        'heapq.heapify(heap, element)',
+        'None of the above',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. The heappush function inserts an element into the heap.',
+        'This is incorrect. The heappop function extracts the minimum element from the heap.',
+        'This is incorrect. The heapify function converts a list into a heap.',
+        'This is incorrect. The correct answer is heapq.heappush(heap, element).',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'Which of the following is the correct way to extract the minimum element from a heap in Python?',
+      options: [
+        'heapq.heappush(heap)',
+        'heapq.heappop(heap)',
+        'heapq.heapify(heap)',
+        'None of the above',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'This is incorrect. The heappush function inserts an element into the heap.',
+        'This is correct. The heappop function extracts the minimum element from the heap.',
+        'This is incorrect. The heapify function converts a list into a heap.',
+        'This is incorrect. The correct answer is heapq.heappop(heap).',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const priorityApplicationsData: LessonContent = {
+  title: 'Priority Queue Applications',
+  content: `<p>
+Priority queues have a wide range of applications in various fields, including computer science, operations research, and real-time systems. 
+Understanding these applications can help you recognize when and how to use priority queues to solve specific problems.
+</p>
+
+<ul>
+<li><strong>Scheduling:</strong> Priority queues are used in scheduling algorithms to determine the order in which tasks are executed.</li>
+<li><strong>Graph algorithms:</strong> Priority queues are used in algorithms like Dijkstra's algorithm for finding the shortest path in a graph.</li>
+<li><strong>Data compression:</strong> Priority queues are used in algorithms like Huffman coding for data compression.</li>
+<li><strong>Event-driven simulations:</strong> Priority queues are used to manage events in simulations based on their occurrence time.</li>
+</ul>`,
+  codeExample: `# Priority Queue application in scheduling
+import heapq
+
+# Task scheduling example
+tasks = [(5, 'Task 1'), (1, 'Task 2'), (3, 'Task 3')]
+priority_queue = []
+
+for task in tasks:
+    heapq.heappush(priority_queue, task)
+
+while priority_queue:
+    task = heapq.heappop(priority_queue)
+    print(f"Executing task: {task[1]} with priority {task[0]}")`,
+  exercises: [
+    {
+      prompt:
+        'Create a priority queue to simulate a task scheduler. Insert three tasks with different priorities and execute them in order of priority.',
+      initialCode: `# Write your solution here
+import heapq
+
+tasks = `,
+      solution: `import heapq
+
+tasks = [(5, 'Task 1'), (1, 'Task 2'), (3, 'Task 3')]
+priority_queue = []
+
+for task in tasks:
+    heapq.heappush(priority_queue, task)
+
+while priority_queue:
+    task = heapq.heappop(priority_queue)
+    print(f"Executing task: {task[1]} with priority {task[0]}")`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Create a function that simulates a task scheduler using a priority queue. The function should take a list of tasks with priorities and execute them in order of priority.',
+      initialCode: `# Write your solution here
+import heapq
+
+def task_scheduler(tasks):
+    return `,
+      solution: `import heapq
+
+def task_scheduler(tasks):
+    priority_queue = []
+    for task in tasks:
+        heapq.heappush(priority_queue, task)
+    
+    while priority_queue:
+        task = heapq.heappop(priority_queue)
+        print(f"Executing task: {task[1]} with priority {task[0]}")
+
+tasks = [(5, 'Task 1'), (1, 'Task 2'), (3, 'Task 3')]
+task_scheduler(tasks)`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following is a common application of priority queues?',
+      options: [
+        'Scheduling tasks',
+        'Graph algorithms',
+        'Data compression',
+        'All of the above',
+      ],
+      correctAnswer: 3,
+      explanations: [
+        'This is correct. Priority queues are used in scheduling tasks.',
+        'This is correct. Priority queues are used in graph algorithms like Dijkstra\'s algorithm.',
+        'This is correct. Priority queues are used in data compression algorithms like Huffman coding.',
+        'This is correct. All of the above are common applications of priority queues.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'Which of the following algorithms uses a priority queue?',
+      options: [
+        'Dijkstra\'s algorithm',
+        'Huffman coding',
+        'Prim\'s algorithm',
+        'All of the above',
+      ],
+      correctAnswer: 3,
+      explanations: [
+        'This is correct. Dijkstra\'s algorithm uses a priority queue.',
+        'This is correct. Huffman coding uses a priority queue.',
+        'This is correct. Prim\'s algorithm uses a priority queue.',
+        'This is correct. All of the above algorithms use a priority queue.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
 const bfsConceptData: LessonContent = {
   title: 'Breadth-First Search Basics',
   content: `<p>
@@ -1724,6 +2063,9 @@ const queueLessons: Record<string, LessonContent> = {
   'deque-concept': dequeConceptData,
   'deque-implementation': dequeImplementationData,
   'sliding-window': slidingWindowData,
+  'priority-concept': priorityConceptData,
+  'heap-operations': heapOperationsData,
+  'priority-applications': priorityApplicationsData,
   'bfs-concept': bfsConceptData,
   'graph-bfs': graphBfsData,
   'tree-bfs': treeBfsData,

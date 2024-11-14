@@ -4071,6 +4071,407 @@ print(trie.search("app"))  # Output: True`,
   ],
 };
 
+const slidingWindowData: LessonContent = {
+  title: 'Sliding Window with Dictionaries',
+  content: `<p>
+Sliding window problems are a common pattern in algorithm design, often used to find the best or optimal solution in a sequence of elements. 
+Dictionaries can be used to efficiently manage and track the elements within the window, making these problems more manageable.
+</p>
+
+<ul>
+<li><strong>Tracking elements:</strong> Use dictionaries to keep track of the frequency of elements within the window.</li>
+<li><strong>Window movement:</strong> Adjust the window by adding new elements and removing old elements from the dictionary.</li>
+<li><strong>Optimization:</strong> Use dictionary operations to quickly check conditions and update the window.</li>
+</ul>`,
+  codeExample: `# Sliding Window with Dictionaries
+from collections import defaultdict
+
+def sliding_window(arr, k):
+    n = len(arr)
+    if n < k:
+        return []
+    
+    window = defaultdict(int)
+    result = []
+    
+    # Initialize the first window
+    for i in range(k):
+        window[arr[i]] += 1
+    
+    result.append(dict(window))
+    
+    # Slide the window
+    for i in range(k, n):
+        start_elem = arr[i - k]
+        new_elem = arr[i]
+        
+        # Remove the start element from the window
+        if window[start_elem] == 1:
+            del window[start_elem]
+        else:
+            window[start_elem] -= 1
+        
+        # Add the new element to the window
+        window[new_elem] += 1
+        
+        result.append(dict(window))
+    
+    return result`,
+  exercises: [
+    {
+      prompt:
+        'Create a function that takes an array and a window size, and returns the frequency of each element in each window.',
+      initialCode: `# Write your solution here
+from collections import defaultdict
+
+def sliding_window_frequency(arr, k):
+    return `,
+      solution: `from collections import defaultdict
+
+def sliding_window_frequency(arr, k):
+    n = len(arr)
+    if n < k:
+        return []
+    
+    window = defaultdict(int)
+    result = []
+    
+    # Initialize the first window
+    for i in range(k):
+        window[arr[i]] += 1
+    
+    result.append(dict(window))
+    
+    # Slide the window
+    for i in range(k, n):
+        start_elem = arr[i - k]
+        new_elem = arr[i]
+        
+        # Remove the start element from the window
+        if window[start_elem] == 1:
+            del window[start_elem]
+        else:
+            window[start_elem] -= 1
+        
+        # Add the new element to the window
+        window[new_elem] += 1
+        
+        result.append(dict(window))
+    
+    return result`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Create a function that takes an array and a window size, and returns the maximum element in each window.',
+      initialCode: `# Write your solution here
+def sliding_window_max(arr, k):
+    return `,
+      solution: `def sliding_window_max(arr, k):
+    n = len(arr)
+    if n < k:
+        return []
+    
+    result = []
+    
+    # Initialize the first window
+    window = arr[:k]
+    result.append(max(window))
+    
+    # Slide the window
+    for i in range(k, n):
+        window.pop(0)
+        window.append(arr[i])
+        result.append(max(window))
+    
+    return result`,
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following is a common use case for dictionaries in sliding window problems?',
+      options: [
+        'Tracking element frequency',
+        'Finding the maximum element',
+        'Both A and B',
+        'None of the above',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'This is correct. Dictionaries are often used to track the frequency of elements in the window.',
+        'This is correct. Dictionaries can be used to find the maximum element in the window.',
+        'This is correct. Both tracking element frequency and finding the maximum element are common use cases.',
+        'This is incorrect. Both A and B are valid use cases.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question:
+        'Which of the following operations is most efficient when using a dictionary in a sliding window problem?',
+      options: [
+        'Insertion',
+        'Deletion',
+        'Lookup',
+        'All of the above',
+      ],
+      correctAnswer: 3,
+      explanations: [
+        'This is correct. Insertion in a dictionary is efficient.',
+        'This is correct. Deletion in a dictionary is efficient.',
+        'This is correct. Lookup in a dictionary is efficient.',
+        'This is correct. All of the above operations are efficient in a dictionary.',
+      ],
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+};
+
+const anagramProblemsData: LessonContent = {
+  title: 'Anagram and Permutation',
+  content: `<p>
+Anagrams and permutations are common string problems that can be efficiently solved using dictionaries. 
+Dictionaries allow for quick lookups and comparisons, making these problems more manageable.
+</p>
+
+<ul>
+<li><strong>Character frequency:</strong> Use dictionaries to count the frequency of each character in the strings.</li>
+<li><strong>Comparison:</strong> Compare the character frequencies to determine if two strings are anagrams or permutations.</li>
+<li><strong>Optimization:</strong> Use dictionary operations to quickly check conditions and update the counts.</li>
+</ul>`,
+  codeExample: `# Anagram and Permutation with Dictionaries
+from collections import Counter
+
+def are_anagrams(str1, str2):
+    return Counter(str1) == Counter(str2)
+
+def find_anagrams(text, pattern):
+    n, m = len(text), len(pattern)
+    if n < m:
+        return []
+    
+    pattern_count = Counter(pattern)
+    text_count = Counter(text[:m])
+    result = []
+    
+    if text_count == pattern_count:
+        result.append(0)
+    
+    for i in range(m, n):
+        start_char = text[i - m]
+        new_char = text[i]
+        
+        # Remove the start character from the window
+        if text_count[start_char] == 1:
+            del text_count[start_char]
+        else:
+            text_count[start_char] -= 1
+        
+        # Add the new character to the window
+        text_count[new_char] += 1
+        
+        if text_count == pattern_count:
+            result.append(i - m + 1)
+    
+    return result`,
+  exercises: [
+    {
+      prompt:
+        'Create a function that takes two strings and returns True if they are anagrams, otherwise False.',
+      initialCode: `# Write your solution here
+from collections import Counter
+
+def are_anagrams(str1, str2):
+    return `,
+      solution: `from collections import Counter
+
+def are_anagrams(str1, str2):
+    return Counter(str1) == Counter(str2)`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Create a function that takes a text and a pattern, and returns the starting indices of all anagrams of the pattern in the text.',
+      initialCode: `# Write your solution here
+from collections import Counter
+
+def find_anagrams(text, pattern):
+    return `,
+      solution: `from collections import Counter
+
+def find_anagrams(text, pattern):
+    n, m = len(text), len(pattern)
+    if n < m:
+        return []
+    
+    pattern_count = Counter(pattern)
+    text_count = Counter(text[:m])
+    result = []
+    
+    if text_count == pattern_count:
+        result.append(0)
+    
+    for i in range(m, n):
+        start_char = text[i - m]
+        new_char = text[i]
+        
+        # Remove the start character from the window
+        if text_count[start_char] == 1:
+            del text_count[start_char]
+        else:
+            text_count[start_char] -= 1
+        
+        # Add the new character to the window
+        text_count[new_char] += 1
+        
+        if text_count == pattern_count:
+            result.append(i - m + 1)
+    
+    return result`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following is a common use case for dictionaries in anagram and permutation problems?',
+      options: [
+        'Counting character frequency',
+        'Comparing character frequencies',
+        'Both A and B',
+        'None of the above',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'This is correct. Dictionaries are often used to count the frequency of characters.',
+        'This is correct. Dictionaries are used to compare the frequency of characters.',
+        'This is correct. Both counting character frequency and comparing character frequencies are common use cases.',
+        'This is incorrect. Both A and B are valid use cases.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question:
+        'Which of the following operations is most efficient when using a dictionary in anagram and permutation problems?',
+      options: [
+        'Insertion',
+        'Deletion',
+        'Lookup',
+        'All of the above',
+      ],
+      correctAnswer: 3,
+      explanations: [
+        'This is correct. Insertion in a dictionary is efficient.',
+        'This is correct. Deletion in a dictionary is efficient.',
+        'This is correct. Lookup in a dictionary is efficient.',
+        'This is correct. All of the above operations are efficient in a dictionary.',
+      ],
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+};
+
+const arrayIntersectionData: LessonContent = {
+  title: 'Array Intersection/Union',
+  content: `<p>
+Finding common elements between two arrays (intersection) or combining elements from two arrays (union) is a common problem in algorithm design. 
+Dictionaries can be used to efficiently solve these problems by leveraging their fast lookup and insertion properties.
+</p>
+
+<ul>
+<li><strong>Tracking elements:</strong> Use dictionaries to keep track of elements in one array.</li>
+<li><strong>Intersection:</strong> Check for common elements by looking up elements from the second array in the dictionary.</li>
+<li><strong>Union:</strong> Combine elements from both arrays while ensuring uniqueness using dictionaries.</li>
+</ul>`,
+  codeExample: `# Array Intersection and Union with Dictionaries
+def array_intersection(arr1, arr2):
+    set1 = set(arr1)
+    set2 = set(arr2)
+    return list(set1 & set2)
+
+def array_union(arr1, arr2):
+    set1 = set(arr1)
+    set2 = set(arr2)
+    return list(set1 | set2)`,
+  exercises: [
+    {
+      prompt:
+        'Create a function that takes two arrays and returns their intersection.',
+      initialCode: `# Write your solution here
+def array_intersection(arr1, arr2):
+    return `,
+      solution: `def array_intersection(arr1, arr2):
+    set1 = set(arr1)
+    set2 = set(arr2)
+    return list(set1 & set2)`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Create a function that takes two arrays and returns their union.',
+      initialCode: `# Write your solution here
+def array_union(arr1, arr2):
+    return `,
+      solution: `def array_union(arr1, arr2):
+    set1 = set(arr1)
+    set2 = set(arr2)
+    return list(set1 | set2)`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Create a function that takes two arrays and returns their symmetric difference.',
+      initialCode: `# Write your solution here
+def array_symmetric_difference(arr1, arr2):
+    return `,
+      solution: `def array_symmetric_difference(arr1, arr2):
+    set1 = set(arr1)
+    set2 = set(arr2)
+    return list(set1 ^ set2)`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following is a common use case for dictionaries in array intersection and union problems?',
+      options: [
+        'Tracking elements',
+        'Finding common elements',
+        'Combining elements',
+        'All of the above',
+      ],
+      correctAnswer: 3,
+      explanations: [
+        'This is correct. Dictionaries are used to track elements in one array.',
+        'This is correct. Dictionaries are used to find common elements between arrays.',
+        'This is correct. Dictionaries are used to combine elements from two arrays.',
+        'This is correct. All of the above are common use cases for dictionaries in these problems.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question:
+        'Which of the following operations is most efficient when using a dictionary in array intersection and union problems?',
+      options: [
+        'Insertion',
+        'Deletion',
+        'Lookup',
+        'All of the above',
+      ],
+      correctAnswer: 3,
+      explanations: [
+        'This is correct. Insertion in a dictionary is efficient.',
+        'This is correct. Deletion in a dictionary is efficient.',
+        'This is correct. Lookup in a dictionary is efficient.',
+        'This is correct. All of the above operations are efficient in a dictionary.',
+      ],
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+};
+
 const counterClassData: LessonContent = {
   title: 'Counter Class',
   content: `<p>
@@ -4641,11 +5042,15 @@ const dictionaryLessons: Record<string, LessonContent> = {
   'two-sum-pattern': twoSumPatternData,
   'subarray-sum': subarraySumPatternData,
   'isomorphic-pattern': isomorphicPatternData,
+  'space-complexity': spaceComplexityData,
   'time-complexity': timeComplexityData,
   'memory-efficient': memoryEfficientData,
   'lru-cache': lruCacheData,
   'graph-representation': graphRepresentationData,
   'trie-implementation': trieImplementationData,
+  'sliding-window': slidingWindowData,
+  'anagram-problems': anagramProblemsData,
+  'array-intersection': arrayIntersectionData,
   'counter-class': counterClassData,
   'bidict': bidictData,
   'frozen-dict': frozenDictData,
