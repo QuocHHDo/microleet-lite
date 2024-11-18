@@ -260,6 +260,7 @@ const stringCurriculum: Curriculum = {
     },
   ],
 } as const;
+
 const stringBasicsData: LessonContent = {
   title: 'String Basics',
   content: `<p>

@@ -1,30 +1,44 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab } from '@/common/commonLesson';
+import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
 
 const arrayCurriculum: Curriculum = {
   title: 'Array Curriculum',
   description:
-    'A comprehensive guide to mastering array operations and algorithms',
+    'A comprehensive guide to mastering array operations and algorithms for coding interviews',
   sections: [
     {
       id: 1,
-      title: 'Array Basics',
+      title: 'Array Fundamentals',
       topics: [
+        {
+          id: 'array-concepts',
+          title: 'Array Concepts and Implementation',
+          description: 'Understanding static vs dynamic arrays and their implementations',
+          priority: PriorityLevel.MustKnow
+        },
+        {
+          id: 'array-complexity',
+          title: 'Time and Space Complexity',
+          description: 'Understanding complexity of basic array operations',
+          priority: PriorityLevel.MustKnow
+        },
         {
           id: 'array-initialization',
           title: 'Defining and Initializing Arrays',
-          description:
-            'Learn different ways to create and initialize arrays in Python',
+          description: 'Different ways to create and initialize arrays in Python',
+          priority: PriorityLevel.MustKnow
         },
         {
           id: 'array-access-modification',
           title: 'Accessing and Modifying Array Elements',
           description: 'Understanding array indexing and element modification',
+          priority: PriorityLevel.MustKnow
         },
         {
           id: 'array-iteration',
           title: 'Iterating Through Arrays',
           description: 'Different methods to traverse array elements',
+          priority: PriorityLevel.MustKnow
         },
       ],
     },
@@ -36,21 +50,31 @@ const arrayCurriculum: Curriculum = {
           id: 'array-insert-delete',
           title: 'Insertion and Deletion',
           description: 'Adding and removing elements from arrays',
+          priority: PriorityLevel.MustKnow
         },
         {
           id: 'array-searching',
           title: 'Searching',
           description: 'Techniques for finding elements in arrays',
+          priority: PriorityLevel.MustKnow
         },
         {
           id: 'array-slicing',
           title: 'Array Slicing',
           description: 'Working with array segments',
+          priority: PriorityLevel.Recommended
         },
         {
           id: 'array-concatenation',
           title: 'Concatenation and Merging Arrays',
           description: 'Combining multiple arrays',
+          priority: PriorityLevel.Recommended
+        },
+        {
+          id: 'array-transformations',
+          title: 'Array Transformations',
+          description: 'Functional operations like map, filter, reduce',
+          priority: PriorityLevel.HighlyRecommended
         },
       ],
     },
@@ -62,16 +86,31 @@ const arrayCurriculum: Curriculum = {
           id: 'basic-sorting',
           title: 'Basic Sorting Algorithms',
           description: 'Understanding fundamental sorting techniques',
+          priority: PriorityLevel.MustKnow
+        },
+        {
+          id: 'sorting-analysis',
+          title: 'Sorting Performance Analysis',
+          description: 'Comparing different sorting algorithms and their use cases',
+          priority: PriorityLevel.HighlyRecommended
         },
         {
           id: 'builtin-sorting',
           title: 'Built-in Sorting Functions',
           description: "Using Python's built-in sorting capabilities",
+          priority: PriorityLevel.MustKnow
         },
         {
           id: 'custom-sorting',
           title: 'Sorting by Custom Conditions',
           description: 'Implementing custom sorting logic',
+          priority: PriorityLevel.HighlyRecommended
+        },
+        {
+          id: 'partial-sorting',
+          title: 'Partially Sorted Arrays',
+          description: 'Working with and optimizing partially sorted arrays',
+          priority: PriorityLevel.Optional
         },
       ],
     },
@@ -83,11 +122,19 @@ const arrayCurriculum: Curriculum = {
           id: 'two-pointer-concept',
           title: 'Concept of Two-pointers',
           description: 'Understanding the two-pointer approach',
+          priority: PriorityLevel.MustKnow
         },
         {
           id: 'two-pointer-problems',
           title: 'Common Two-pointer Problems',
           description: 'Solving problems using two-pointer technique',
+          priority: PriorityLevel.MustKnow
+        },
+        {
+          id: 'dutch-national-flag',
+          title: 'Dutch National Flag Problem',
+          description: 'Understanding and implementing the three-way partitioning',
+          priority: PriorityLevel.HighlyRecommended
         },
       ],
     },
@@ -99,11 +146,19 @@ const arrayCurriculum: Curriculum = {
           id: 'sliding-window-concept',
           title: 'Sliding Window Concept',
           description: 'Understanding the sliding window technique',
+          priority: PriorityLevel.MustKnow
         },
         {
           id: 'sliding-window-types',
           title: 'Fixed and Dynamic Sliding Windows',
           description: 'Different types of sliding window approaches',
+          priority: PriorityLevel.HighlyRecommended
+        },
+        {
+          id: 'sliding-window-optimization',
+          title: 'Optimizing Sliding Window Solutions',
+          description: 'Advanced techniques and optimizations for sliding window problems',
+          priority: PriorityLevel.Recommended
         },
       ],
     },
@@ -115,75 +170,398 @@ const arrayCurriculum: Curriculum = {
           id: 'prefix-sum-concept',
           title: 'Prefix Sum',
           description: 'Understanding and implementing prefix sums',
+          priority: PriorityLevel.HighlyRecommended
         },
         {
           id: 'difference-array',
           title: 'Difference Array',
           description: 'Working with difference arrays',
+          priority: PriorityLevel.Recommended
+        },
+        {
+          id: 'range-queries',
+          title: 'Range Queries',
+          description: 'Efficient range-based operations using prefix sums',
+          priority: PriorityLevel.HighlyRecommended
         },
       ],
     },
     {
       id: 7,
-      title: 'Matrix as 2D Arrays',
+      title: 'Matrix Operations',
       topics: [
         {
           id: 'matrix-basics',
           title: 'Understanding Matrices',
           description: 'Basics of working with 2D arrays',
+          priority: PriorityLevel.MustKnow
         },
         {
           id: 'matrix-operations',
           title: 'Row-wise and Column-wise Operations',
           description: 'Performing operations on matrix rows and columns',
+          priority: PriorityLevel.HighlyRecommended
+        },
+        {
+          id: 'matrix-traversal',
+          title: 'Matrix Traversal Patterns',
+          description: 'Different ways to traverse matrices (spiral, diagonal)',
+          priority: PriorityLevel.HighlyRecommended
+        },
+        {
+          id: 'matrix-search',
+          title: 'Matrix Search Algorithms',
+          description: 'Efficient searching in sorted matrices',
+          priority: PriorityLevel.HighlyRecommended
         },
       ],
     },
     {
       id: 8,
+      title: 'Common Array Patterns',
+      topics: [
+        {
+          id: 'kadane-algorithm',
+          title: "Kadane's Algorithm",
+          description: 'Understanding and implementing maximum subarray solutions',
+          priority: PriorityLevel.MustKnow
+        },
+        {
+          id: 'boyer-moore',
+          title: 'Boyer-Moore Majority Vote',
+          description: 'Finding majority elements in arrays',
+          priority: PriorityLevel.HighlyRecommended
+        },
+        {
+          id: 'stock-patterns',
+          title: 'Stock Buy/Sell Patterns',
+          description: 'Solving stock price array problems',
+          priority: PriorityLevel.MustKnow
+        },
+        {
+          id: 'subarray-problems',
+          title: 'Subarray Problems',
+          description: 'Common patterns in subarray-based problems',
+          priority: PriorityLevel.HighlyRecommended
+        },
+      ],
+    },
+    {
+      id: 9,
       title: 'Advanced Array Manipulations',
       topics: [
         {
           id: 'array-rotation',
           title: 'Array Rotation',
           description: 'Techniques for rotating array elements',
+          priority: PriorityLevel.Recommended
         },
         {
           id: 'merging-intervals',
           title: 'Merging Intervals',
           description: 'Working with interval arrays',
+          priority: PriorityLevel.MustKnow
+        },
+        {
+          id: 'array-rearrangement',
+          title: 'Complex Array Rearrangements',
+          description: 'Advanced techniques for array reorganization',
+          priority: PriorityLevel.Optional
         },
       ],
     },
     {
-      id: 9,
+      id: 10,
       title: 'In-place Operations',
       topics: [
         {
           id: 'in-place-modifications',
           title: 'In-place Modifications',
           description: 'Modifying arrays without extra space',
+          priority: PriorityLevel.HighlyRecommended
         },
         {
           id: 'element-rearrangement',
           title: 'Swapping and Rearranging Elements',
           description: 'Techniques for rearranging array elements',
+          priority: PriorityLevel.Recommended
+        },
+        {
+          id: 'space-optimization',
+          title: 'Space Optimization Techniques',
+          description: 'Methods to optimize space complexity in array operations',
+          priority: PriorityLevel.HighlyRecommended
         },
       ],
     },
     {
-      id: 10,
+      id: 11,
       title: 'Multidimensional Arrays',
       topics: [
         {
           id: 'multi-array-operations',
           title: 'Working with Multidimensional Arrays',
           description: 'Operations on multi-dimensional arrays',
+          priority: PriorityLevel.Recommended
+        },
+        {
+          id: 'multi-array-patterns',
+          title: 'Common Multidimensional Patterns',
+          description: 'Solving problems involving multiple dimensions',
+          priority: PriorityLevel.Optional
         },
       ],
     },
   ],
 } as const;
+
+const arrayConceptsData: LessonContent = {
+  title: 'Array Concepts and Implementation',
+  content: `<p>
+Arrays are fundamental data structures that store collections of elements in contiguous memory locations. 
+There are two main types of arrays: <strong>static arrays</strong> and <strong>dynamic arrays</strong>.
+</p>
+
+<ul>
+<li><strong>Static Arrays:</strong> These arrays have a fixed size, meaning once they are created, their size cannot be changed. They are typically used when the number of elements is known and does not change.</li>
+<li><strong>Dynamic Arrays:</strong> These arrays can grow or shrink in size as needed. They are implemented using underlying static arrays that are resized when the capacity is reached. Python's lists are an example of dynamic arrays.</li>
+</ul>
+
+<p>
+Understanding the difference between static and dynamic arrays is crucial for choosing the right data structure for your needs. Static arrays are more memory-efficient but less flexible, while dynamic arrays offer more flexibility at the cost of additional memory overhead.
+</p>`,
+  codeExample: `# Static Array (Fixed Size)
+static_array = [None] * 5  # Creates an array of size 5 with None values
+
+# Dynamic Array (Python List)
+dynamic_array = []  # Creates an empty list (dynamic array)
+dynamic_array.append(1)  # Adds an element to the list
+dynamic_array.append(2)  # Adds another element
+dynamic_array.append(3)  # Adds yet another element
+
+# Resizing a dynamic array
+dynamic_array.extend([4, 5, 6])  # Extends the list with more elements`,
+  exercises: [
+    {
+      prompt:
+        'Create a static array of size 3 with initial values [1, 2, 3]. Create a dynamic array and add the elements [4, 5, 6] to it.',
+      initialCode: `# Write your solution here
+static_array = 
+dynamic_array = `,
+      solution: `static_array = [1, 2, 3]
+dynamic_array = []
+dynamic_array.extend([4, 5, 6])`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Create a static array of size 4 with initial values [None, None, None, None]. Create a dynamic array and add the elements [1, 2, 3, 4] to it.',
+      initialCode: `# Write your solution here
+static_array = 
+dynamic_array = `,
+      solution: `static_array = [None] * 4
+dynamic_array = []
+dynamic_array.extend([1, 2, 3, 4])`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Create a static array of size 2 with initial values ["hello", "world"]. Create a dynamic array and add the elements ["Python", "Arrays"] to it.',
+      initialCode: `# Write your solution here
+static_array = 
+dynamic_array = `,
+      solution: `static_array = ["hello", "world"]
+dynamic_array = []
+dynamic_array.extend(["Python", "Arrays"])`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following is true about static arrays?',
+      options: [
+        'Static arrays can grow or shrink in size dynamically.',
+        'Static arrays have a fixed size once created.',
+        'Static arrays are more memory-efficient than dynamic arrays.',
+        'All of the above.',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'This is incorrect. Static arrays cannot grow or shrink in size dynamically.',
+        'This is correct. Static arrays have a fixed size once created.',
+        'This is correct. Static arrays are more memory-efficient than dynamic arrays.',
+        'This is incorrect because static arrays cannot grow or shrink in size dynamically.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'Which of the following is true about dynamic arrays?',
+      options: [
+        'Dynamic arrays have a fixed size once created.',
+        'Dynamic arrays can grow or shrink in size dynamically.',
+        'Dynamic arrays are less memory-efficient than static arrays.',
+        'None of the above.',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'This is incorrect. Dynamic arrays can grow or shrink in size dynamically.',
+        'This is correct. Dynamic arrays can grow or shrink in size dynamically.',
+        'This is correct. Dynamic arrays are less memory-efficient than static arrays.',
+        'This is incorrect because dynamic arrays can grow or shrink in size dynamically.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'Which of the following is the correct way to create a dynamic array in Python?',
+      options: [
+        'static_array = [None] * 5',
+        'dynamic_array = []',
+        'dynamic_array = [1, 2, 3]',
+        'dynamic_array = list((1, 2, 3))',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'This is incorrect. This creates a static array with a fixed size.',
+        'This is correct. This creates an empty dynamic array.',
+        'This is correct. This creates a dynamic array with initial values.',
+        'This is correct. This creates a dynamic array from a tuple.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const arrayComplexityData: LessonContent = {
+  title: 'Time and Space Complexity',
+  content: `<p>
+Understanding the time and space complexity of array operations is crucial for writing efficient code. 
+Here are some common array operations and their corresponding complexities:
+</p>
+
+<ul>
+<li><strong>Accessing an element:</strong> O(1) time complexity. This is because arrays store elements in contiguous memory locations, allowing direct access using the index.</li>
+<li><strong>Inserting an element at the end:</strong> O(1) time complexity on average. For dynamic arrays, this operation may occasionally require resizing, which takes O(n) time, but on average, it is O(1).</li>
+<li><strong>Inserting an element at the beginning or middle:</strong> O(n) time complexity. This requires shifting all subsequent elements, which takes linear time.</li>
+<li><strong>Deleting an element:</strong> O(n) time complexity. Similar to insertion, deleting an element requires shifting subsequent elements.</li>
+<li><strong>Searching for an element:</strong> O(n) time complexity in the worst case. This requires iterating through the array to find the element.</li>
+</ul>
+
+<p>
+Knowing these complexities helps in choosing the right data structure and algorithm for your specific needs, ensuring optimal performance.
+</p>`,
+  codeExample: `# Accessing an element
+array = [1, 2, 3, 4, 5]
+element = array[2]  # Accessing the third element (O(1) time complexity)
+
+# Inserting an element at the end
+array.append(6)  # O(1) time complexity on average
+
+# Inserting an element at the beginning
+array.insert(0, 0)  # O(n) time complexity
+
+# Deleting an element
+array.pop(2)  # Deleting the third element (O(n) time complexity)
+
+# Searching for an element
+index = array.index(4)  # Searching for the element 4 (O(n) time complexity in the worst case)`,
+  exercises: [
+    {
+      prompt:
+        'Given an array of 10 elements, access the 5th element and insert a new element at the end of the array.',
+      initialCode: `# Write your solution here
+array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+element = 
+array.append(`,
+      solution: `array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+element = array[4]
+array.append(10)`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Given an array of 5 elements, insert a new element at the beginning of the array and delete the last element.',
+      initialCode: `# Write your solution here
+array = [1, 2, 3, 4, 5]
+array.insert(0, 
+array.pop(`,
+      solution: `array = [1, 2, 3, 4, 5]
+array.insert(0, 0)
+array.pop()`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Given an array of 7 elements, insert a new element at the 3rd position and delete the 5th element.',
+      initialCode: `# Write your solution here
+array = [1, 2, 3, 4, 5, 6, 7]
+array.insert(2, 
+array.pop(`,
+      solution: `array = [1, 2, 3, 4, 5, 6, 7]
+array.insert(2, 10)
+array.pop(4)`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'What is the time complexity of accessing an element in an array?',
+      options: [
+        'O(1)',
+        'O(n)',
+        'O(log n)',
+        'O(n^2)',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. Accessing an element in an array is O(1) time complexity.',
+        'This is incorrect. Accessing an element in an array is not O(n) time complexity.',
+        'This is incorrect. Accessing an element in an array is not O(log n) time complexity.',
+        'This is incorrect. Accessing an element in an array is not O(n^2) time complexity.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'What is the time complexity of inserting an element at the beginning of an array?',
+      options: [
+        'O(1)',
+        'O(n)',
+        'O(log n)',
+        'O(n^2)',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'This is incorrect. Inserting an element at the beginning of an array is not O(1) time complexity.',
+        'This is correct. Inserting an element at the beginning of an array is O(n) time complexity.',
+        'This is incorrect. Inserting an element at the beginning of an array is not O(log n) time complexity.',
+        'This is incorrect. Inserting an element at the beginning of an array is not O(n^2) time complexity.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'What is the time complexity of deleting an element from an array?',
+      options: [
+        'O(1)',
+        'O(n)',
+        'O(log n)',
+        'O(n^2)',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'This is incorrect. Deleting an element from an array is not O(1) time complexity.',
+        'This is correct. Deleting an element from an array is O(n) time complexity.',
+        'This is incorrect. Deleting an element from an array is not O(log n) time complexity.',
+        'This is incorrect. Deleting an element from an array is not O(n^2) time complexity.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
 
 const arrayInitializationData: LessonContent = {
   title: 'Defining and Initializing Arrays',
@@ -1081,6 +1459,268 @@ interleaved = `,
   ],
 };
 
+const arrayTransformationsData: LessonContent = {
+  title: 'Array Transformations',
+  content: `<p>
+Array transformations are essential operations in functional programming that allow you to manipulate arrays in various ways. 
+The most common functional operations are <strong>map</strong>, <strong>filter</strong>, and <strong>reduce</strong>.
+</p>
+
+<ul>
+<li><strong>Map:</strong> Applies a function to each element in the array and returns a new array with the results.</li>
+<li><strong>Filter:</strong> Creates a new array with all elements that pass the test implemented by the provided function.</li>
+<li><strong>Reduce:</strong> Applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value.</li>
+</ul>
+
+<p>
+These operations are not only powerful but also make your code more concise and readable. Understanding how to use them effectively can significantly improve your programming skills.
+</p>`,
+  codeExample: `# Map: Apply a function to each element in the array
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = list(map(lambda x: x**2, numbers))  # Creates [1, 4, 9, 16, 25]
+
+# Filter: Create a new array with elements that pass the test
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))  # Creates [2, 4]
+
+# Reduce: Apply a function against an accumulator and each element
+from functools import reduce
+sum_of_numbers = reduce(lambda acc, x: acc + x, numbers)  # Creates 15`,
+  exercises: [
+    {
+      prompt:
+        'Given an array of numbers, use the map function to create a new array where each element is the square of the original element.',
+      initialCode: `# Write your solution here
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = `,
+      solution: `numbers = [1, 2, 3, 4, 5]
+squared_numbers = list(map(lambda x: x**2, numbers))`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Given an array of numbers, use the filter function to create a new array with only the even numbers.',
+      initialCode: `# Write your solution here
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_numbers = `,
+      solution: `numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Given an array of numbers, use the reduce function to find the product of all elements in the array.',
+      initialCode: `# Write your solution here
+from functools import reduce
+numbers = [1, 2, 3, 4, 5]
+product_of_numbers = `,
+      solution: `from functools import reduce
+numbers = [1, 2, 3, 4, 5]
+product_of_numbers = reduce(lambda acc, x: acc * x, numbers)`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following is the correct way to use the map function to square each element in an array?',
+      options: [
+        'map(lambda x: x**2, numbers)',
+        'list(map(lambda x: x**2, numbers))',
+        'map(lambda x: x**2, list(numbers))',
+        'list(map(lambda x: x**2, list(numbers)))',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'This is incorrect because the map function returns an iterator, not a list.',
+        'This is correct. It applies the lambda function to each element and converts the result to a list.',
+        'This is incorrect because the list() function is applied to numbers unnecessarily.',
+        'This is incorrect because the list() function is applied to numbers unnecessarily.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'Which of the following is the correct way to use the filter function to get only even numbers from an array?',
+      options: [
+        'filter(lambda x: x % 2 == 0, numbers)',
+        'list(filter(lambda x: x % 2 == 0, numbers))',
+        'filter(lambda x: x % 2 == 0, list(numbers))',
+        'list(filter(lambda x: x % 2 == 0, list(numbers)))',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'This is incorrect because the filter function returns an iterator, not a list.',
+        'This is correct. It applies the lambda function to each element and converts the result to a list.',
+        'This is incorrect because the list() function is applied to numbers unnecessarily.',
+        'This is incorrect because the list() function is applied to numbers unnecessarily.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'Which of the following is the correct way to use the reduce function to find the sum of all elements in an array?',
+      options: [
+        'reduce(lambda acc, x: acc + x, numbers)',
+        'list(reduce(lambda acc, x: acc + x, numbers))',
+        'reduce(lambda acc, x: acc + x, list(numbers))',
+        'list(reduce(lambda acc, x: acc + x, list(numbers)))',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. It applies the lambda function to each element and reduces the array to a single value.',
+        'This is incorrect because the reduce function does not return a list.',
+        'This is incorrect because the list() function is applied to numbers unnecessarily.',
+        'This is incorrect because the list() function is applied to numbers unnecessarily.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const sortingAnalysisData: LessonContent = {
+  title: 'Sorting Performance Analysis',
+  content: `<p>
+Sorting algorithms are fundamental to computer science and are used in a variety of applications. 
+Different sorting algorithms have different performance characteristics, and understanding these can help you choose the right algorithm for your specific needs.
+</p>
+
+<ul>
+<li><strong>Bubble Sort:</strong> Simple but inefficient for large datasets. Time complexity: O(n^2).</li>
+<li><strong>Selection Sort:</strong> Also simple but inefficient for large datasets. Time complexity: O(n^2).</li>
+<li><strong>Insertion Sort:</strong> Efficient for small datasets or nearly sorted arrays. Time complexity: O(n^2).</li>
+<li><strong>Merge Sort:</strong> Efficient and stable. Time complexity: O(n log n).</li>
+<li><strong>Quick Sort:</strong> Efficient and widely used. Time complexity: O(n log n) on average, O(n^2) in the worst case.</li>
+<li><strong>Heap Sort:</strong> Efficient and in-place. Time complexity: O(n log n).</li>
+</ul>
+
+<p>
+Choosing the right sorting algorithm depends on the size of the dataset, the distribution of the data, and the specific requirements of your application.
+</p>`,
+  codeExample: `# Bubble Sort
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+
+# Merge Sort
+def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        L = arr[:mid]
+        R = arr[mid:]
+        merge_sort(L)
+        merge_sort(R)
+        i = j = k = 0
+        while i < len(L) and j < len(R):
+            if L[i] < R[j]:
+                arr[k] = L[i]
+                i += 1
+            else:
+                arr[k] = R[j]
+                j += 1
+            k += 1
+        while i < len(L):
+            arr[k] = L[i]
+            i += 1
+            k += 1
+        while j < len(R):
+            arr[k] = R[j]
+            j += 1
+            k += 1
+    return arr`,
+  exercises: [
+    {
+      prompt:
+        'Implement the Bubble Sort algorithm to sort an array of numbers.',
+      initialCode: `# Write your solution here
+def bubble_sort(arr):
+    `,
+      solution: `def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Implement the Merge Sort algorithm to sort an array of numbers.',
+      initialCode: `# Write your solution here
+def merge_sort(arr):
+    `,
+      solution: `def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        L = arr[:mid]
+        R = arr[mid:]
+        merge_sort(L)
+        merge_sort(R)
+        i = j = k = 0
+        while i < len(L) and j < len(R):
+            if L[i] < R[j]:
+                arr[k] = L[i]
+                i += 1
+            else:
+                arr[k] = R[j]
+                j += 1
+            k += 1
+        while i < len(L):
+            arr[k] = L[i]
+            i += 1
+            k += 1
+        while j < len(R):
+            arr[k] = R[j]
+            j += 1
+            k += 1
+    return arr`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following sorting algorithms has a time complexity of O(n log n) in the worst case?',
+      options: [
+        'Bubble Sort',
+        'Selection Sort',
+        'Insertion Sort',
+        'Merge Sort',
+      ],
+      correctAnswer: 3,
+      explanations: [
+        'This is incorrect. Bubble Sort has a time complexity of O(n^2).',
+        'This is incorrect. Selection Sort has a time complexity of O(n^2).',
+        'This is incorrect. Insertion Sort has a time complexity of O(n^2).',
+        'This is correct. Merge Sort has a time complexity of O(n log n) in the worst case.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'Which of the following sorting algorithms is most efficient for nearly sorted arrays?',
+      options: [
+        'Bubble Sort',
+        'Selection Sort',
+        'Insertion Sort',
+        'Merge Sort',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'This is incorrect. Bubble Sort is not the most efficient for nearly sorted arrays.',
+        'This is incorrect. Selection Sort is not the most efficient for nearly sorted arrays.',
+        'This is correct. Insertion Sort is most efficient for nearly sorted arrays.',
+        'This is incorrect. Merge Sort is not the most efficient for nearly sorted arrays.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
 const basicSortingData: LessonContent = {
   title: 'Basic Sorting Algorithms',
   content: `<p>
@@ -1357,6 +1997,107 @@ numbers = [12, 4, 3, 10, 15]
         'Incorrect. There is no parameter called compare.',
         'Incorrect. sort_by is not a valid parameter.',
         'Correct! The key parameter allows defining a custom sorting criterion.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const partialSortingData: LessonContent = {
+  title: 'Partially Sorted Arrays',
+  content: `<p>
+Partially sorted arrays are arrays where most of the elements are already in order, but a few elements are out of place. 
+Optimizing algorithms for such arrays can significantly improve performance.
+</p>
+
+<ul>
+<li><strong>Insertion Sort:</strong> Efficient for small datasets or nearly sorted arrays. Time complexity: O(n^2).</li>
+<li><strong>Tim Sort:</strong> Python's built-in sorting algorithm, which is a hybrid of Merge Sort and Insertion Sort. It is highly optimized for partially sorted arrays.</li>
+<li><strong>Heap Sort:</strong> Efficient and in-place. Time complexity: O(n log n).</li>
+</ul>
+
+<p>
+Understanding the characteristics of partially sorted arrays and choosing the right algorithm can lead to significant performance improvements.
+</p>`,
+  codeExample: `# Insertion Sort for Partially Sorted Arrays
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and key < arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+    return arr
+
+# Tim Sort (Python's built-in sort)
+def tim_sort(arr):
+    arr.sort()
+    return arr`,
+  exercises: [
+    {
+      prompt:
+        'Implement the Insertion Sort algorithm to sort a partially sorted array of numbers.',
+      initialCode: `# Write your solution here
+def insertion_sort(arr):
+    `,
+      solution: `def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and key < arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+    return arr`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Use Python\'s built-in sort function to sort a partially sorted array of numbers.',
+      initialCode: `# Write your solution here
+def tim_sort(arr):
+    `,
+      solution: `def tim_sort(arr):
+    arr.sort()
+    return arr`,
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following sorting algorithms is most efficient for partially sorted arrays?',
+      options: [
+        'Bubble Sort',
+        'Selection Sort',
+        'Insertion Sort',
+        'Merge Sort',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'This is incorrect. Bubble Sort is not the most efficient for partially sorted arrays.',
+        'This is incorrect. Selection Sort is not the most efficient for partially sorted arrays.',
+        'This is correct. Insertion Sort is most efficient for partially sorted arrays.',
+        'This is incorrect. Merge Sort is not the most efficient for partially sorted arrays.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'Which of the following is Python\'s built-in sorting algorithm for partially sorted arrays?',
+      options: [
+        'Bubble Sort',
+        'Selection Sort',
+        'Insertion Sort',
+        'Tim Sort',
+      ],
+      correctAnswer: 3,
+      explanations: [
+        'This is incorrect. Bubble Sort is not Python\'s built-in sorting algorithm.',
+        'This is incorrect. Selection Sort is not Python\'s built-in sorting algorithm.',
+        'This is incorrect. Insertion Sort is not Python\'s built-in sorting algorithm.',
+        'This is correct. Tim Sort is Python\'s built-in sorting algorithm for partially sorted arrays.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -1826,6 +2567,75 @@ middle_node = slow`,
   ],
 };
 
+const dutchNationalFlagData: LessonContent = {
+  title: 'Dutch National Flag Problem',
+  content: `<p>
+The Dutch National Flag problem is a classic programming problem that involves sorting an array with three distinct values. 
+The goal is to rearrange the elements such that all elements of the first value are followed by all elements of the second value, followed by all elements of the third value.
+</p>
+
+<p>
+This problem can be solved using a three-way partitioning algorithm, which is similar to the partitioning step in the Quick Sort algorithm.
+</p>`,
+  codeExample: `# Dutch National Flag Problem
+def dutch_national_flag(arr):
+    low, mid, high = 0, 0, len(arr) - 1
+    while mid <= high:
+        if arr[mid] == 0:
+            arr[low], arr[mid] = arr[mid], arr[low]
+            low += 1
+            mid += 1
+        elif arr[mid] == 1:
+            mid += 1
+        else:
+            arr[mid], arr[high] = arr[high], arr[mid]
+            high -= 1
+    return arr`,
+  exercises: [
+    {
+      prompt:
+        'Implement the Dutch National Flag algorithm to sort an array with three distinct values.',
+      initialCode: `# Write your solution here
+def dutch_national_flag(arr):
+    `,
+      solution: `def dutch_national_flag(arr):
+    low, mid, high = 0, 0, len(arr) - 1
+    while mid <= high:
+        if arr[mid] == 0:
+            arr[low], arr[mid] = arr[mid], arr[low]
+            low += 1
+            mid += 1
+        elif arr[mid] == 1:
+            mid += 1
+        else:
+            arr[mid], arr[high] = arr[high], arr[mid]
+            high -= 1
+    return arr`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following problems can be solved using the Dutch National Flag algorithm?',
+      options: [
+        'Sorting an array with two distinct values',
+        'Sorting an array with three distinct values',
+        'Sorting an array with four distinct values',
+        'Sorting an array with five distinct values',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'This is incorrect. The Dutch National Flag algorithm is not designed for two distinct values.',
+        'This is correct. The Dutch National Flag algorithm is designed for three distinct values.',
+        'This is incorrect. The Dutch National Flag algorithm is not designed for four distinct values.',
+        'This is incorrect. The Dutch National Flag algorithm is not designed for five distinct values.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
 const slidingWindowConceptData: LessonContent = {
   title: 'Sliding Window Concept',
   content: `<p>
@@ -2108,6 +2918,105 @@ def min_length_dynamic_window(arr):`,
     },
   ],
 };
+const slidingWindowOptimizationData: LessonContent = {
+  title: 'Optimizing Sliding Window Solutions',
+  content: `<p>
+Sliding window problems are a common type of problem in computer science, where you need to find a subarray or substring that meets certain criteria. 
+Optimizing these problems can significantly improve performance.
+</p>
+
+<ul>
+<li><strong>Fixed-size Sliding Window:</strong> The window size is fixed and you slide it across the array to find the desired subarray.</li>
+<li><strong>Variable-size Sliding Window:</strong> The window size can change dynamically based on the problem constraints.</li>
+<li><strong>Two-pointer Technique:</strong> Often used in conjunction with sliding windows to efficiently find the desired subarray.</li>
+</ul>
+
+<p>
+Understanding these techniques and how to apply them can lead to efficient solutions for a variety of problems.
+</p>`,
+  codeExample: `# Fixed-size Sliding Window
+def max_sum_subarray(arr, k):
+    max_sum = float('-inf')
+    current_sum = sum(arr[:k])
+    for i in range(k, len(arr)):
+        current_sum += arr[i] - arr[i - k]
+        max_sum = max(max_sum, current_sum)
+    return max_sum
+
+# Variable-size Sliding Window
+def longest_substring_with_k_distinct_characters(s, k):
+    char_count = {}
+    left = 0
+    max_length = 0
+    for right in range(len(s)):
+        char_count[s[right]] = char_count.get(s[right], 0) + 1
+        while len(char_count) > k:
+            char_count[s[left]] -= 1
+            if char_count[s[left]] == 0:
+                del char_count[s[left]]
+            left += 1
+        max_length = max(max_length, right - left + 1)
+    return max_length`,
+  exercises: [
+    {
+      prompt:
+        'Implement the fixed-size sliding window algorithm to find the maximum sum of a subarray of size k.',
+      initialCode: `# Write your solution here
+def max_sum_subarray(arr, k):
+    `,
+      solution: `def max_sum_subarray(arr, k):
+    max_sum = float('-inf')
+    current_sum = sum(arr[:k])
+    for i in range(k, len(arr)):
+        current_sum += arr[i] - arr[i - k]
+        max_sum = max(max_sum, current_sum)
+    return max_sum`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Implement the variable-size sliding window algorithm to find the longest substring with at most k distinct characters.',
+      initialCode: `# Write your solution here
+def longest_substring_with_k_distinct_characters(s, k):
+    `,
+      solution: `def longest_substring_with_k_distinct_characters(s, k):
+    char_count = {}
+    left = 0
+    max_length = 0
+    for right in range(len(s)):
+        char_count[s[right]] = char_count.get(s[right], 0) + 1
+        while len(char_count) > k:
+            char_count[s[left]] -= 1
+            if char_count[s[left]] == 0:
+                del char_count[s[left]]
+            left += 1
+        max_length = max(max_length, right - left + 1)
+    return max_length`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following problems can be solved using the sliding window technique?',
+      options: [
+        'Finding the maximum sum of a subarray of size k',
+        'Finding the longest substring with at most k distinct characters',
+        'Both of the above',
+        'None of the above',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'This is correct. The sliding window technique can be used to find the maximum sum of a subarray of size k.',
+        'This is correct. The sliding window technique can be used to find the longest substring with at most k distinct characters.',
+        'This is correct. Both problems can be solved using the sliding window technique.',
+        'This is incorrect. Both problems can be solved using the sliding window technique.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
 const prefixSumConceptData: LessonContent = {
   title: 'Prefix Sum',
   content: `<p>
@@ -2312,6 +3221,85 @@ def apply_multiple_updates(arr):`,
     },
   ],
 };
+
+const rangeQueriesData: LessonContent = {
+  title: 'Range Queries',
+  content: `<p>
+Range queries are a common type of problem where you need to efficiently compute some operation over a subarray or a range of indices. 
+One of the most effective ways to handle range queries is by using <strong>prefix sums</strong>.
+</p>
+
+<ul>
+<li><strong>Prefix Sum Array:</strong> A prefix sum array is an array where each element at index i is the sum of all elements from the start of the array to index i.</li>
+<li><strong>Range Sum Query:</strong> Given a range [L, R], the sum of elements in this range can be computed efficiently using the prefix sum array.</li>
+</ul>
+
+<p>
+Using prefix sums allows you to answer range queries in constant time after an initial preprocessing step.
+</p>`,
+  codeExample: `# Prefix Sum Array
+def prefix_sum_array(arr):
+    prefix_sum = [0] * len(arr)
+    prefix_sum[0] = arr[0]
+    for i in range(1, len(arr)):
+        prefix_sum[i] = prefix_sum[i - 1] + arr[i]
+    return prefix_sum
+
+# Range Sum Query
+def range_sum_query(prefix_sum, L, R):
+    if L == 0:
+        return prefix_sum[R]
+    return prefix_sum[R] - prefix_sum[L - 1]`,
+  exercises: [
+    {
+      prompt:
+        'Implement the prefix sum array for a given array of numbers.',
+      initialCode: `# Write your solution here
+def prefix_sum_array(arr):
+    `,
+      solution: `def prefix_sum_array(arr):
+    prefix_sum = [0] * len(arr)
+    prefix_sum[0] = arr[0]
+    for i in range(1, len(arr)):
+        prefix_sum[i] = prefix_sum[i - 1] + arr[i]
+    return prefix_sum`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Implement the range sum query using the prefix sum array.',
+      initialCode: `# Write your solution here
+def range_sum_query(prefix_sum, L, R):
+    `,
+      solution: `def range_sum_query(prefix_sum, L, R):
+    if L == 0:
+        return prefix_sum[R]
+    return prefix_sum[R] - prefix_sum[L - 1]`,
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following is true about prefix sum arrays?',
+      options: [
+        'They allow range sum queries in O(n) time.',
+        'They allow range sum queries in O(1) time after an initial O(n) preprocessing step.',
+        'They are only useful for sum queries.',
+        'None of the above.',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'This is incorrect. Prefix sum arrays allow range sum queries in O(1) time after an initial O(n) preprocessing step.',
+        'This is correct. Prefix sum arrays allow range sum queries in O(1) time after an initial O(n) preprocessing step.',
+        'This is incorrect. Prefix sum arrays can be used for other types of range queries as well.',
+        'This is incorrect because the second option is correct.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
 const matrixBasicsData: LessonContent = {
   title: 'Understanding Matrices',
   content: `<p>
@@ -2533,6 +3521,547 @@ matrix = subtract_from_column(matrix, 1, 2)`,
         'Although this would work, it is inefficient compared to directly swapping the rows.',
       ],
       difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const matrixTraversalData: LessonContent = {
+  title: 'Matrix Traversal Patterns',
+  content: `<p>
+Matrix traversal is a common problem in computer science, where you need to visit each element of a matrix in a specific order. 
+Different traversal patterns include <strong>spiral</strong>, <strong>diagonal</strong>, and <strong>zigzag</strong> traversals.
+</p>
+
+<ul>
+<li><strong>Spiral Traversal:</strong> Visit elements in a spiral order, starting from the top-left corner and moving inward.</li>
+<li><strong>Diagonal Traversal:</strong> Visit elements along the diagonals of the matrix.</li>
+<li><strong>Zigzag Traversal:</strong> Visit elements in a zigzag pattern, alternating between rows or columns.</li>
+</ul>
+
+<p>
+Understanding these traversal patterns can help you solve a variety of problems involving matrices.
+</p>`,
+  codeExample: `# Spiral Traversal
+def spiral_traversal(matrix):
+    result = []
+    while matrix:
+        result += matrix.pop(0)
+        if matrix and matrix[0]:
+            for row in matrix:
+                result.append(row.pop())
+        if matrix:
+            result += matrix.pop()[::-1]
+        if matrix and matrix[0]:
+            for row in matrix[::-1]:
+                result.append(row.pop(0))
+    return result
+
+# Diagonal Traversal
+def diagonal_traversal(matrix):
+    result = []
+    for d in range(len(matrix) + len(matrix[0]) - 1):
+        if d % 2 == 0:
+            row = min(d, len(matrix) - 1)
+            col = d - row
+            while row >= 0 and col < len(matrix[0]):
+                result.append(matrix[row][col])
+                row -= 1
+                col += 1
+        else:
+            col = min(d, len(matrix[0]) - 1)
+            row = d - col
+            while col >= 0 and row < len(matrix):
+                result.append(matrix[row][col])
+                row += 1
+                col -= 1
+    return result`,
+  exercises: [
+    {
+      prompt:
+        'Implement the spiral traversal of a matrix.',
+      initialCode: `# Write your solution here
+def spiral_traversal(matrix):
+    `,
+      solution: `def spiral_traversal(matrix):
+    result = []
+    while matrix:
+        result += matrix.pop(0)
+        if matrix and matrix[0]:
+            for row in matrix:
+                result.append(row.pop())
+        if matrix:
+            result += matrix.pop()[::-1]
+        if matrix and matrix[0]:
+            for row in matrix[::-1]:
+                result.append(row.pop(0))
+    return result`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Implement the diagonal traversal of a matrix.',
+      initialCode: `# Write your solution here
+def diagonal_traversal(matrix):
+    `,
+      solution: `def diagonal_traversal(matrix):
+    result = []
+    for d in range(len(matrix) + len(matrix[0]) - 1):
+        if d % 2 == 0:
+            row = min(d, len(matrix) - 1)
+            col = d - row
+            while row >= 0 and col < len(matrix[0]):
+                result.append(matrix[row][col])
+                row -= 1
+                col += 1
+        else:
+            col = min(d, len(matrix[0]) - 1)
+            row = d - col
+            while col >= 0 and row < len(matrix):
+                result.append(matrix[row][col])
+                row += 1
+                col -= 1
+    return result`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following is a common matrix traversal pattern?',
+      options: [
+        'Spiral Traversal',
+        'Diagonal Traversal',
+        'Zigzag Traversal',
+        'All of the above',
+      ],
+      correctAnswer: 3,
+      explanations: [
+        'This is correct. Spiral Traversal is a common matrix traversal pattern.',
+        'This is correct. Diagonal Traversal is a common matrix traversal pattern.',
+        'This is correct. Zigzag Traversal is a common matrix traversal pattern.',
+        'This is correct. All of the above are common matrix traversal patterns.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const matrixSearchData: LessonContent = {
+  title: 'Matrix Search Algorithms',
+  content: `<p>
+Matrix search algorithms are used to efficiently search for elements in a matrix with specific properties, such as being sorted. 
+Two common approaches are <strong>binary search</strong> and <strong>diagonal search</strong>.
+</p>
+
+<ul>
+<li><strong>Binary Search:</strong> Efficiently search for an element in a sorted matrix by treating it as a flattened array.</li>
+<li><strong>Diagonal Search:</strong> Start from the top-right or bottom-left corner and move towards the target element based on comparisons.</li>
+</ul>
+
+<p>
+Understanding these search algorithms can help you solve problems involving sorted matrices efficiently.
+</p>`,
+  codeExample: `# Binary Search in Sorted Matrix
+def binary_search_matrix(matrix, target):
+    if not matrix or not matrix[0]:
+        return False
+    rows, cols = len(matrix), len(matrix[0])
+    left, right = 0, rows * cols - 1
+    while left <= right:
+        mid = (left + right) // 2
+        mid_element = matrix[mid // cols][mid % cols]
+        if mid_element == target:
+            return True
+        elif mid_element < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return False
+
+# Diagonal Search in Sorted Matrix
+def diagonal_search_matrix(matrix, target):
+    if not matrix or not matrix[0]:
+        return False
+    row, col = 0, len(matrix[0]) - 1
+    while row < len(matrix) and col >= 0:
+        if matrix[row][col] == target:
+            return True
+        elif matrix[row][col] < target:
+            row += 1
+        else:
+            col -= 1
+    return False`,
+  exercises: [
+    {
+      prompt:
+        'Implement the binary search algorithm to search for an element in a sorted matrix.',
+      initialCode: `# Write your solution here
+def binary_search_matrix(matrix, target):
+    `,
+      solution: `def binary_search_matrix(matrix, target):
+    if not matrix or not matrix[0]:
+        return False
+    rows, cols = len(matrix), len(matrix[0])
+    left, right = 0, rows * cols - 1
+    while left <= right:
+        mid = (left + right) // 2
+        mid_element = matrix[mid // cols][mid % cols]
+        if mid_element == target:
+            return True
+        elif mid_element < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return False`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Implement the diagonal search algorithm to search for an element in a sorted matrix.',
+      initialCode: `# Write your solution here
+def diagonal_search_matrix(matrix, target):
+    `,
+      solution: `def diagonal_search_matrix(matrix, target):
+    if not matrix or not matrix[0]:
+        return False
+    row, col = 0, len(matrix[0]) - 1
+    while row < len(matrix) and col >= 0:
+        if matrix[row][col] == target:
+            return True
+        elif matrix[row][col] < target:
+            row += 1
+        else:
+            col -= 1
+    return False`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following algorithms can be used to search for an element in a sorted matrix?',
+      options: [
+        'Binary Search',
+        'Diagonal Search',
+        'Both of the above',
+        'None of the above',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'This is correct. Binary Search can be used to search for an element in a sorted matrix.',
+        'This is correct. Diagonal Search can be used to search for an element in a sorted matrix.',
+        'This is correct. Both Binary Search and Diagonal Search can be used to search for an element in a sorted matrix.',
+        'This is incorrect. Both Binary Search and Diagonal Search can be used to search for an element in a sorted matrix.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const kadaneAlgorithmData: LessonContent = {
+  title: "Kadane's Algorithm",
+  content: `<p>
+Kadane's Algorithm is a well-known algorithm for finding the maximum sum subarray within a one-dimensional numeric array. 
+It efficiently solves the problem by iterating through the array while keeping track of the maximum sum found so far.
+</p>
+
+<p>
+The key idea is to maintain two variables: one to track the maximum sum ending at the current position (current_max), and another to track the overall maximum sum found (global_max).
+</p>`,
+  codeExample: `# Kadane's Algorithm
+def kadane_algorithm(arr):
+    current_max = global_max = arr[0]
+    for num in arr[1:]:
+        current_max = max(num, current_max + num)
+        global_max = max(global_max, current_max)
+    return global_max`,
+  exercises: [
+    {
+      prompt:
+        'Implement Kadane\'s Algorithm to find the maximum sum subarray in a given array of numbers.',
+      initialCode: `# Write your solution here
+def kadane_algorithm(arr):
+    `,
+      solution: `def kadane_algorithm(arr):
+    current_max = global_max = arr[0]
+    for num in arr[1:]:
+        current_max = max(num, current_max + num)
+        global_max = max(global_max, current_max)
+    return global_max`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'What is the time complexity of Kadane\'s Algorithm?',
+      options: [
+        'O(n)',
+        'O(n log n)',
+        'O(n^2)',
+        'O(1)',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. Kadane\'s Algorithm runs in O(n) time complexity.',
+        'This is incorrect. Kadane\'s Algorithm does not run in O(n log n) time complexity.',
+        'This is incorrect. Kadane\'s Algorithm does not run in O(n^2) time complexity.',
+        'This is incorrect. Kadane\'s Algorithm does not run in O(1) time complexity.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const boyerMooreData: LessonContent = {
+  title: 'Boyer-Moore Majority Vote',
+  content: `<p>
+The Boyer-Moore Majority Vote Algorithm is an efficient algorithm to find the majority element in an array, i.e., an element that appears more than n/2 times in an array of size n.
+</p>
+
+<p>
+The algorithm works by maintaining a candidate for the majority element and a counter. It iterates through the array, updating the candidate and counter based on the current element.
+</p>`,
+  codeExample: `# Boyer-Moore Majority Vote Algorithm
+def boyer_moore_majority_vote(arr):
+    candidate = None
+    count = 0
+    for num in arr:
+        if count == 0:
+            candidate = num
+            count = 1
+        elif num == candidate:
+            count += 1
+        else:
+            count -= 1
+    return candidate`,
+  exercises: [
+    {
+      prompt:
+        'Implement the Boyer-Moore Majority Vote Algorithm to find the majority element in a given array of numbers.',
+      initialCode: `# Write your solution here
+def boyer_moore_majority_vote(arr):
+    `,
+      solution: `def boyer_moore_majority_vote(arr):
+    candidate = None
+    count = 0
+    for num in arr:
+        if count == 0:
+            candidate = num
+            count = 1
+        elif num == candidate:
+            count += 1
+        else:
+            count -= 1
+    return candidate`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'What is the time complexity of the Boyer-Moore Majority Vote Algorithm?',
+      options: [
+        'O(n)',
+        'O(n log n)',
+        'O(n^2)',
+        'O(1)',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. The Boyer-Moore Majority Vote Algorithm runs in O(n) time complexity.',
+        'This is incorrect. The Boyer-Moore Majority Vote Algorithm does not run in O(n log n) time complexity.',
+        'This is incorrect. The Boyer-Moore Majority Vote Algorithm does not run in O(n^2) time complexity.',
+        'This is incorrect. The Boyer-Moore Majority Vote Algorithm does not run in O(1) time complexity.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const stockPatternsData: LessonContent = {
+  title: 'Stock Buy/Sell Patterns',
+  content: `<p>
+Stock Buy/Sell problems involve finding the best time to buy and sell stocks to maximize profit. 
+These problems often involve analyzing an array of stock prices over time.
+</p>
+
+<p>
+Common patterns include finding the maximum profit by making a single buy and sell, or by making multiple transactions.
+</p>`,
+  codeExample: `# Maximum Profit with One Transaction
+def max_profit_one_transaction(prices):
+    min_price = float('inf')
+    max_profit = 0
+    for price in prices:
+        min_price = min(min_price, price)
+        max_profit = max(max_profit, price - min_price)
+    return max_profit
+
+# Maximum Profit with Multiple Transactions
+def max_profit_multiple_transactions(prices):
+    max_profit = 0
+    for i in range(1, len(prices)):
+        if prices[i] > prices[i - 1]:
+            max_profit += prices[i] - prices[i - 1]
+    return max_profit`,
+  exercises: [
+    {
+      prompt:
+        'Implement the algorithm to find the maximum profit with one transaction in a given array of stock prices.',
+      initialCode: `# Write your solution here
+def max_profit_one_transaction(prices):
+    `,
+      solution: `def max_profit_one_transaction(prices):
+    min_price = float('inf')
+    max_profit = 0
+    for price in prices:
+        min_price = min(min_price, price)
+        max_profit = max(max_profit, price - min_price)
+    return max_profit`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Implement the algorithm to find the maximum profit with multiple transactions in a given array of stock prices.',
+      initialCode: `# Write your solution here
+def max_profit_multiple_transactions(prices):
+    `,
+      solution: `def max_profit_multiple_transactions(prices):
+    max_profit = 0
+    for i in range(1, len(prices)):
+        if prices[i] > prices[i - 1]:
+            max_profit += prices[i] - prices[i - 1]
+    return max_profit`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'What is the time complexity of the algorithm to find the maximum profit with one transaction?',
+      options: [
+        'O(n)',
+        'O(n log n)',
+        'O(n^2)',
+        'O(1)',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. The algorithm to find the maximum profit with one transaction runs in O(n) time complexity.',
+        'This is incorrect. The algorithm does not run in O(n log n) time complexity.',
+        'This is incorrect. The algorithm does not run in O(n^2) time complexity.',
+        'This is incorrect. The algorithm does not run in O(1) time complexity.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const subarrayProblemsData: LessonContent = {
+  title: 'Subarray Problems',
+  content: `<p>
+Subarray problems involve finding subarrays within an array that meet certain criteria, such as having the maximum sum, minimum sum, or a specific length.
+</p>
+
+<p>
+Common patterns include using prefix sums, sliding windows, and dynamic programming to solve these problems efficiently.
+</p>`,
+  codeExample: `# Maximum Subarray Sum (Kadane's Algorithm)
+def max_subarray_sum(arr):
+    current_max = global_max = arr[0]
+    for num in arr[1:]:
+        current_max = max(num, current_max + num)
+        global_max = max(global_max, current_max)
+    return global_max
+
+# Minimum Subarray Sum
+def min_subarray_sum(arr):
+    current_min = global_min = arr[0]
+    for num in arr[1:]:
+        current_min = min(num, current_min + num)
+        global_min = min(global_min, current_min)
+    return global_min
+
+# Subarray with Given Sum
+def subarray_with_given_sum(arr, target):
+    current_sum = 0
+    start = 0
+    for end in range(len(arr)):
+        current_sum += arr[end]
+        while current_sum > target:
+            current_sum -= arr[start]
+            start += 1
+        if current_sum == target:
+            return arr[start:end + 1]
+    return None`,
+  exercises: [
+    {
+      prompt:
+        'Implement the algorithm to find the maximum subarray sum in a given array of numbers.',
+      initialCode: `# Write your solution here
+def max_subarray_sum(arr):
+    `,
+      solution: `def max_subarray_sum(arr):
+    current_max = global_max = arr[0]
+    for num in arr[1:]:
+        current_max = max(num, current_max + num)
+        global_max = max(global_max, current_max)
+    return global_max`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Implement the algorithm to find the minimum subarray sum in a given array of numbers.',
+      initialCode: `# Write your solution here
+def min_subarray_sum(arr):
+    `,
+      solution: `def min_subarray_sum(arr):
+    current_min = global_min = arr[0]
+    for num in arr[1:]:
+        current_min = min(num, current_min + num)
+        global_min = min(global_min, current_min)
+    return global_min`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Implement the algorithm to find a subarray with a given sum in a given array of numbers.',
+      initialCode: `# Write your solution here
+def subarray_with_given_sum(arr, target):
+    `,
+      solution: `def subarray_with_given_sum(arr, target):
+    current_sum = 0
+    start = 0
+    for end in range(len(arr)):
+        current_sum += arr[end]
+        while current_sum > target:
+            current_sum -= arr[start]
+            start += 1
+        if current_sum == target:
+            return arr[start:end + 1]
+    return None`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'What is the time complexity of the algorithm to find the maximum subarray sum?',
+      options: [
+        'O(n)',
+        'O(n log n)',
+        'O(n^2)',
+        'O(1)',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. The algorithm to find the maximum subarray sum runs in O(n) time complexity.',
+        'This is incorrect. The algorithm does not run in O(n log n) time complexity.',
+        'This is incorrect. The algorithm does not run in O(n^2) time complexity.',
+        'This is incorrect. The algorithm does not run in O(1) time complexity.',
+      ],
+      difficulty: Difficulty.Beginner,
     },
   ],
 };
@@ -2764,6 +4293,145 @@ non_overlapping = non_overlapping_intervals(intervals, specified_interval)  # Ou
         'This answer leaves out the merged portion of the second interval set, which should include [5, 8].',
       ],
       difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const arrayRearrangementData: LessonContent = {
+  title: 'Complex Array Rearrangements',
+  content: `<p>
+Complex array rearrangements involve reorganizing elements in an array to meet specific criteria or patterns. 
+These techniques are often used in advanced algorithms and data manipulation tasks.
+</p>
+
+<p>
+Common techniques include:
+</p>
+
+<ul>
+<li><strong>In-place Rearrangement:</strong> Rearranging elements within the array without using additional space.</li>
+<li><strong>Cyclic Swaps:</strong> Using cyclic permutations to rearrange elements efficiently.</li>
+<li><strong>Two-pointer Technique:</strong> Using two pointers to rearrange elements based on certain conditions.</li>
+</ul>
+
+<p>
+Understanding these techniques can help you solve complex problems involving array reorganization efficiently.
+</p>`,
+  codeExample: `# In-place Rearrangement
+def rearrange_in_place(arr):
+    n = len(arr)
+    for i in range(n):
+        arr[i] += (arr[arr[i]] % n) * n
+    for i in range(n):
+        arr[i] //= n
+    return arr
+
+# Cyclic Swaps
+def rearrange_cyclic(arr):
+    n = len(arr)
+    for i in range(n):
+        if arr[i] >= 0:
+            start = i
+            value = arr[start]
+            while start != value:
+                next_index = arr[start]
+                arr[start] = -(arr[next_index] + 1)
+                start = next_index
+            arr[start] = -(value + 1)
+    for i in range(n):
+        arr[i] = -arr[i] - 1
+    return arr
+
+# Two-pointer Technique
+def rearrange_two_pointer(arr):
+    left, right = 0, len(arr) - 1
+    while left < right:
+        while arr[left] % 2 == 0 and left < right:
+            left += 1
+        while arr[right] % 2 == 1 and left < right:
+            right -= 1
+        if left < right:
+            arr[left], arr[right] = arr[right], arr[left]
+            left += 1
+            right -= 1
+    return arr`,
+  exercises: [
+    {
+      prompt:
+        'Implement the in-place rearrangement algorithm to rearrange elements in an array based on their indices.',
+      initialCode: `# Write your solution here
+def rearrange_in_place(arr):
+    `,
+      solution: `def rearrange_in_place(arr):
+    n = len(arr)
+    for i in range(n):
+        arr[i] += (arr[arr[i]] % n) * n
+    for i in range(n):
+        arr[i] //= n
+    return arr`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Implement the cyclic swaps algorithm to rearrange elements in an array based on cyclic permutations.',
+      initialCode: `# Write your solution here
+def rearrange_cyclic(arr):
+    `,
+      solution: `def rearrange_cyclic(arr):
+    n = len(arr)
+    for i in range(n):
+        if arr[i] >= 0:
+            start = i
+            value = arr[start]
+            while start != value:
+                next_index = arr[start]
+                arr[start] = -(arr[next_index] + 1)
+                start = next_index
+            arr[start] = -(value + 1)
+    for i in range(n):
+        arr[i] = -arr[i] - 1
+    return arr`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Implement the two-pointer technique to rearrange elements in an array such that all even numbers come before odd numbers.',
+      initialCode: `# Write your solution here
+def rearrange_two_pointer(arr):
+    `,
+      solution: `def rearrange_two_pointer(arr):
+    left, right = 0, len(arr) - 1
+    while left < right:
+        while arr[left] % 2 == 0 and left < right:
+            left += 1
+        while arr[right] % 2 == 1 and left < right:
+            right -= 1
+        if left < right:
+            arr[left], arr[right] = arr[right], arr[left]
+            left += 1
+            right -= 1
+    return arr`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following techniques is used for in-place rearrangement of array elements?',
+      options: [
+        'Cyclic Swaps',
+        'Two-pointer Technique',
+        'Both of the above',
+        'None of the above',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'This is correct. Cyclic Swaps can be used for in-place rearrangement.',
+        'This is correct. The Two-pointer Technique can be used for in-place rearrangement.',
+        'This is correct. Both Cyclic Swaps and the Two-pointer Technique can be used for in-place rearrangement.',
+        'This is incorrect. Both Cyclic Swaps and the Two-pointer Technique can be used for in-place rearrangement.',
+      ],
+      difficulty: Difficulty.Beginner,
     },
   ],
 };
@@ -3006,6 +4674,117 @@ move_negatives(arr)  # Modifies arr to [-1, -2, -3, 3, 4, 5]`,
   ],
 };
 
+const spaceOptimizationData: LessonContent = {
+  title: 'Space Optimization Techniques',
+  content: `<p>
+Space optimization is crucial for improving the efficiency of algorithms, especially when dealing with large datasets. 
+One common technique is <strong>in-place operations</strong>, which modify the input data structure without using additional space.
+</p>
+
+<ul>
+<li><strong>In-place Sorting:</strong> Sorting algorithms that modify the input array without using additional space.</li>
+<li><strong>In-place Reversal:</strong> Reversing an array or list without using additional space.</li>
+<li><strong>In-place Rotation:</strong> Rotating an array or list without using additional space.</li>
+</ul>
+
+<p>
+Understanding these techniques can help you write more efficient algorithms with lower space complexity.
+</p>`,
+  codeExample: `# In-place Sorting (Bubble Sort)
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+
+# In-place Reversal
+def reverse_array(arr):
+    left, right = 0, len(arr) - 1
+    while left < right:
+        arr[left], arr[right] = arr[right], arr[left]
+        left += 1
+        right -= 1
+    return arr
+
+# In-place Rotation
+def rotate_array(arr, k):
+    n = len(arr)
+    k = k % n
+    reverse_array(arr)
+    reverse_array(arr[:k])
+    reverse_array(arr[k:])
+    return arr`,
+  exercises: [
+    {
+      prompt:
+        'Implement the in-place bubble sort algorithm to sort an array of numbers.',
+      initialCode: `# Write your solution here
+def bubble_sort(arr):
+    `,
+      solution: `def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Implement the in-place reversal of an array of numbers.',
+      initialCode: `# Write your solution here
+def reverse_array(arr):
+    `,
+      solution: `def reverse_array(arr):
+    left, right = 0, len(arr) - 1
+    while left < right:
+        arr[left], arr[right] = arr[right], arr[left]
+        left += 1
+        right -= 1
+    return arr`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Implement the in-place rotation of an array of numbers by k positions.',
+      initialCode: `# Write your solution here
+def rotate_array(arr, k):
+    `,
+      solution: `def rotate_array(arr, k):
+    n = len(arr)
+    k = k % n
+    reverse_array(arr)
+    reverse_array(arr[:k])
+    reverse_array(arr[k:])
+    return arr`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following is an example of an in-place operation?',
+      options: [
+        'Sorting an array using Bubble Sort',
+        'Reversing an array',
+        'Rotating an array',
+        'All of the above',
+      ],
+      correctAnswer: 3,
+      explanations: [
+        'This is correct. Sorting an array using Bubble Sort is an in-place operation.',
+        'This is correct. Reversing an array is an in-place operation.',
+        'This is correct. Rotating an array is an in-place operation.',
+        'This is correct. All of the above are examples of in-place operations.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
 const multiArrayOperationsData: LessonContent = {
   title: 'Operations on Multi-dimensional Arrays',
   content: `<p>
@@ -3116,7 +4895,112 @@ transpose(matrix)  # Returns [[1, 4], [2, 5], [3, 6]]`,
   ],
 };
 
+const multiArrayPatternsData: LessonContent = {
+  title: 'Common Multidimensional Patterns',
+  content: `<p>
+Multidimensional patterns involve solving problems that require operations on multiple dimensions, such as matrices or higher-dimensional arrays. 
+Understanding these patterns can help you solve complex problems efficiently.
+</p>
+
+<ul>
+<li><strong>Matrix Operations:</strong> Operations such as matrix addition, subtraction, and multiplication.</li>
+<li><strong>Multi-dimensional Array Traversal:</strong> Traversing arrays with more than two dimensions.</li>
+<li><strong>Dynamic Programming with Multidimensional Arrays:</strong> Using dynamic programming to solve problems involving multiple dimensions.</li>
+</ul>
+
+<p>
+Mastering these patterns can significantly improve your problem-solving skills in various domains.
+</p>`,
+  codeExample: `# Matrix Addition
+def matrix_addition(A, B):
+    return [[A[i][j] + B[i][j] for j in range(len(A[0]))] for i in range(len(A))]
+
+# Multi-dimensional Array Traversal
+def traverse_3d_array(arr):
+    for i in range(len(arr)):
+        for j in range(len(arr[i])):
+            for k in range(len(arr[i][j])):
+                print(arr[i][j][k])
+
+# Dynamic Programming with Multidimensional Arrays
+def knapsack_problem(weights, values, capacity):
+    n = len(weights)
+    dp = [[0] * (capacity + 1) for _ in range(n + 1)]
+    for i in range(1, n + 1):
+        for w in range(capacity + 1):
+            if weights[i - 1] <= w:
+                dp[i][w] = max(dp[i - 1][w], dp[i - 1][w - weights[i - 1]] + values[i - 1])
+            else:
+                dp[i][w] = dp[i - 1][w]
+    return dp[n][capacity]`,
+  exercises: [
+    {
+      prompt:
+        'Implement the matrix addition algorithm for two matrices.',
+      initialCode: `# Write your solution here
+def matrix_addition(A, B):
+    `,
+      solution: `def matrix_addition(A, B):
+    return [[A[i][j] + B[i][j] for j in range(len(A[0]))] for i in range(len(A))]`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Implement the traversal of a 3D array.',
+      initialCode: `# Write your solution here
+def traverse_3d_array(arr):
+    `,
+      solution: `def traverse_3d_array(arr):
+    for i in range(len(arr)):
+        for j in range(len(arr[i])):
+            for k in range(len(arr[i][j])):
+                print(arr[i][j][k])`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Implement the dynamic programming solution for the knapsack problem using a multidimensional array.',
+      initialCode: `# Write your solution here
+def knapsack_problem(weights, values, capacity):
+    `,
+      solution: `def knapsack_problem(weights, values, capacity):
+    n = len(weights)
+    dp = [[0] * (capacity + 1) for _ in range(n + 1)]
+    for i in range(1, n + 1):
+        for w in range(capacity + 1):
+            if weights[i - 1] <= w:
+                dp[i][w] = max(dp[i - 1][w], dp[i - 1][w - weights[i - 1]] + values[i - 1])
+            else:
+                dp[i][w] = dp[i - 1][w]
+    return dp[n][capacity]`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following is a common problem involving multidimensional patterns?',
+      options: [
+        'Matrix Addition',
+        'Knapsack Problem',
+        'Both of the above',
+        'None of the above',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'This is correct. Matrix Addition is a common problem involving multidimensional patterns.',
+        'This is correct. The Knapsack Problem can be solved using multidimensional arrays.',
+        'This is correct. Both Matrix Addition and the Knapsack Problem involve multidimensional patterns.',
+        'This is incorrect. Both Matrix Addition and the Knapsack Problem involve multidimensional patterns.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
 const arrayLessons: Record<string, LessonContent> = {
+  'array-concepts': arrayConceptsData,
+  'array-complexity': arrayComplexityData,
   'array-initialization': arrayInitializationData,
   'array-access-modification': arrayAccessModificationData,
   'array-iteration': arrayIteration,
@@ -3124,22 +5008,37 @@ const arrayLessons: Record<string, LessonContent> = {
   'array-searching': arraySearchingData,
   'array-slicing': arraySlicingData,
   'array-concatenation': arrayConcatenationData,
+  'array-transformations': arrayTransformationsData,
+  'sorting-analysis': sortingAnalysisData,
   'basic-sorting': basicSortingData,
   'builtin-sorting': builtInSortingData,
+  'partial-sorting': partialSortingData,
   'custom-sorting': customSortingData,
   'two-pointer-concept': twoPointerConceptData,
   'two-pointer-problems': twoPointerProblemsData,
+  'dutch-national-flag': dutchNationalFlagData,
   'sliding-window-concept': slidingWindowConceptData,
   'sliding-window-types': slidingWindowTypesData,
+  'sliding-window-optimization': slidingWindowOptimizationData,
   'prefix-sum-concept': prefixSumConceptData,
   'difference-array': differenceArrayData,
+  'range-queries': rangeQueriesData,
   'matrix-basics': matrixBasicsData,
   'matrix-operations': matrixOperationsData,
+  'matrix-traversal': matrixTraversalData,
+  'matrix-search': matrixSearchData,
+  'kadane-algorithm': kadaneAlgorithmData,
+  'boyer-moore': boyerMooreData,
+  'stock-patterns': stockPatternsData,
+  'subarray-problems': subarrayProblemsData,
   'array-rotation': arrayRotationData,
   'merging-intervals': mergingIntervalsData,
+  'array-rearrangement': arrayRearrangementData,
   'in-place-modifications': inPlaceModificationsData,
   'element-rearrangement': elementRearrangementData,
+  'space-optimization': spaceOptimizationData,
   'multi-array-operations': multiArrayOperationsData,
+  'multi-array-patterns': multiArrayPatternsData,
 };
 
 export const arrayLessonsTab: LessonsTab = {

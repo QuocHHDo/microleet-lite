@@ -1,25 +1,11 @@
-// export interface Lesson {
-//   title: string;
-//   content: string;
-//   codeExample: string;
-//   exercise: {
-//     prompt: string;
-//     initialCode: string;
-//     solution: string;
-//   };
-//   quiz: {
-//     question: string;
-//     options: string[];
-//     correctAnswer: number;
-//   };
-//   tags?: string[];
-//   category?: 'concept' | 'implementation' | 'algorithm';
-//   relatedTopcis?: string[];
-//   difficulty?: 'beginner' | 'intermediate' | 'advanced';
-// }
-
 import { Difficulty } from './commonConcept';
 
+export enum PriorityLevel {  
+  MustKnow,           // Essential for all interviews
+  HighlyRecommended,  // Important for FAANG/top tech companies
+  Recommended,        // Good to know, commonly appears
+  Optional            // Helpful but not critical
+}
 export interface Exercise {
   prompt: string;
   initialCode: string;
@@ -45,9 +31,7 @@ export interface Topic {
   id: string;
   title: string;
   description: string;
-  // lessons: Lesson[];
-  // requiredForCompletion: boolean;
-  // dependsOn?: string[]; // IDs of prerequisite topics
+  priority?: PriorityLevel;
 }
 
 export interface Section {
