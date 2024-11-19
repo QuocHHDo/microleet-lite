@@ -1,11 +1,13 @@
 import { Difficulty } from './commonConcept';
 
-export enum PriorityLevel {  
-  MustKnow,           // Essential for all interviews
-  HighlyRecommended,  // Important for FAANG/top tech companies
-  Recommended,        // Good to know, commonly appears
-  Optional            // Helpful but not critical
+export enum PriorityLevel {
+  Essential = 1,   // A foundational topic required for all technical interviews. These are the "must-know" topics that form the core of problem-solving skills.
+  Important = 2,   // Topics frequently covered in interviews, especially by most companies. Knowing these can greatly boost your chances of success.
+  Beneficial = 3,  // Advanced or specialized topics that are more likely to appear in interviews for top-tier companies like FAANG. These demonstrate depth of knowledge and expertise.
+  Optional = 4,    // Supplementary topics that enhance understanding but are rarely required in interviews. Great for personal growth or deep diving.
 }
+
+
 export interface Exercise {
   prompt: string;
   initialCode: string;

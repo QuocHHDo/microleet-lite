@@ -14,31 +14,31 @@ const arrayCurriculum: Curriculum = {
           id: 'array-concepts',
           title: 'Array Concepts and Implementation',
           description: 'Understanding static vs dynamic arrays and their implementations',
-          priority: PriorityLevel.MustKnow
+          priority: PriorityLevel.Essential
         },
         {
           id: 'array-complexity',
           title: 'Time and Space Complexity',
           description: 'Understanding complexity of basic array operations',
-          priority: PriorityLevel.MustKnow
+          priority: PriorityLevel.Essential
         },
         {
           id: 'array-initialization',
           title: 'Defining and Initializing Arrays',
           description: 'Different ways to create and initialize arrays in Python',
-          priority: PriorityLevel.MustKnow
+          priority: PriorityLevel.Essential
         },
         {
           id: 'array-access-modification',
           title: 'Accessing and Modifying Array Elements',
           description: 'Understanding array indexing and element modification',
-          priority: PriorityLevel.MustKnow
+          priority: PriorityLevel.Essential
         },
         {
           id: 'array-iteration',
           title: 'Iterating Through Arrays',
           description: 'Different methods to traverse array elements',
-          priority: PriorityLevel.MustKnow
+          priority: PriorityLevel.Essential
         },
       ],
     },
@@ -50,31 +50,31 @@ const arrayCurriculum: Curriculum = {
           id: 'array-insert-delete',
           title: 'Insertion and Deletion',
           description: 'Adding and removing elements from arrays',
-          priority: PriorityLevel.MustKnow
+          priority: PriorityLevel.Essential
         },
         {
           id: 'array-searching',
           title: 'Searching',
           description: 'Techniques for finding elements in arrays',
-          priority: PriorityLevel.MustKnow
+          priority: PriorityLevel.Essential
         },
         {
           id: 'array-slicing',
           title: 'Array Slicing',
           description: 'Working with array segments',
-          priority: PriorityLevel.Recommended
+          priority: PriorityLevel.Important
         },
         {
           id: 'array-concatenation',
           title: 'Concatenation and Merging Arrays',
           description: 'Combining multiple arrays',
-          priority: PriorityLevel.Recommended
+          priority: PriorityLevel.Important
         },
         {
           id: 'array-transformations',
           title: 'Array Transformations',
           description: 'Functional operations like map, filter, reduce',
-          priority: PriorityLevel.HighlyRecommended
+          priority: PriorityLevel.Important
         },
       ],
     },
@@ -86,25 +86,25 @@ const arrayCurriculum: Curriculum = {
           id: 'basic-sorting',
           title: 'Basic Sorting Algorithms',
           description: 'Understanding fundamental sorting techniques',
-          priority: PriorityLevel.MustKnow
+          priority: PriorityLevel.Essential
         },
         {
           id: 'sorting-analysis',
           title: 'Sorting Performance Analysis',
           description: 'Comparing different sorting algorithms and their use cases',
-          priority: PriorityLevel.HighlyRecommended
+          priority: PriorityLevel.Important
         },
         {
           id: 'builtin-sorting',
           title: 'Built-in Sorting Functions',
           description: "Using Python's built-in sorting capabilities",
-          priority: PriorityLevel.MustKnow
+          priority: PriorityLevel.Essential
         },
         {
           id: 'custom-sorting',
           title: 'Sorting by Custom Conditions',
           description: 'Implementing custom sorting logic',
-          priority: PriorityLevel.HighlyRecommended
+          priority: PriorityLevel.Important
         },
         {
           id: 'partial-sorting',
@@ -122,19 +122,19 @@ const arrayCurriculum: Curriculum = {
           id: 'two-pointer-concept',
           title: 'Concept of Two-pointers',
           description: 'Understanding the two-pointer approach',
-          priority: PriorityLevel.MustKnow
+          priority: PriorityLevel.Essential
         },
         {
           id: 'two-pointer-problems',
           title: 'Common Two-pointer Problems',
           description: 'Solving problems using two-pointer technique',
-          priority: PriorityLevel.MustKnow
+          priority: PriorityLevel.Essential
         },
         {
           id: 'dutch-national-flag',
           title: 'Dutch National Flag Problem',
           description: 'Understanding and implementing the three-way partitioning',
-          priority: PriorityLevel.HighlyRecommended
+          priority: PriorityLevel.Beneficial
         },
       ],
     },
@@ -146,19 +146,19 @@ const arrayCurriculum: Curriculum = {
           id: 'sliding-window-concept',
           title: 'Sliding Window Concept',
           description: 'Understanding the sliding window technique',
-          priority: PriorityLevel.MustKnow
+          priority: PriorityLevel.Essential
         },
         {
           id: 'sliding-window-types',
           title: 'Fixed and Dynamic Sliding Windows',
           description: 'Different types of sliding window approaches',
-          priority: PriorityLevel.HighlyRecommended
+          priority: PriorityLevel.Important
         },
         {
           id: 'sliding-window-optimization',
           title: 'Optimizing Sliding Window Solutions',
           description: 'Advanced techniques and optimizations for sliding window problems',
-          priority: PriorityLevel.Recommended
+          priority: PriorityLevel.Beneficial
         },
       ],
     },
@@ -170,19 +170,19 @@ const arrayCurriculum: Curriculum = {
           id: 'prefix-sum-concept',
           title: 'Prefix Sum',
           description: 'Understanding and implementing prefix sums',
-          priority: PriorityLevel.HighlyRecommended
+          priority: PriorityLevel.Essential
         },
         {
           id: 'difference-array',
           title: 'Difference Array',
           description: 'Working with difference arrays',
-          priority: PriorityLevel.Recommended
+          priority: PriorityLevel.Beneficial
         },
         {
           id: 'range-queries',
           title: 'Range Queries',
           description: 'Efficient range-based operations using prefix sums',
-          priority: PriorityLevel.HighlyRecommended
+          priority: PriorityLevel.Important
         },
       ],
     },
@@ -194,25 +194,25 @@ const arrayCurriculum: Curriculum = {
           id: 'matrix-basics',
           title: 'Understanding Matrices',
           description: 'Basics of working with 2D arrays',
-          priority: PriorityLevel.MustKnow
+          priority: PriorityLevel.Essential
         },
         {
           id: 'matrix-operations',
           title: 'Row-wise and Column-wise Operations',
           description: 'Performing operations on matrix rows and columns',
-          priority: PriorityLevel.HighlyRecommended
+          priority: PriorityLevel.Important
         },
         {
           id: 'matrix-traversal',
           title: 'Matrix Traversal Patterns',
           description: 'Different ways to traverse matrices (spiral, diagonal)',
-          priority: PriorityLevel.HighlyRecommended
+          priority: PriorityLevel.Important
         },
         {
           id: 'matrix-search',
           title: 'Matrix Search Algorithms',
           description: 'Efficient searching in sorted matrices',
-          priority: PriorityLevel.HighlyRecommended
+          priority: PriorityLevel.Important
         },
       ],
     },
@@ -224,25 +224,25 @@ const arrayCurriculum: Curriculum = {
           id: 'kadane-algorithm',
           title: "Kadane's Algorithm",
           description: 'Understanding and implementing maximum subarray solutions',
-          priority: PriorityLevel.MustKnow
+          priority: PriorityLevel.Essential
         },
         {
           id: 'boyer-moore',
           title: 'Boyer-Moore Majority Vote',
           description: 'Finding majority elements in arrays',
-          priority: PriorityLevel.HighlyRecommended
+          priority: PriorityLevel.Beneficial
         },
         {
           id: 'stock-patterns',
           title: 'Stock Buy/Sell Patterns',
           description: 'Solving stock price array problems',
-          priority: PriorityLevel.MustKnow
+          priority: PriorityLevel.Essential
         },
         {
           id: 'subarray-problems',
           title: 'Subarray Problems',
           description: 'Common patterns in subarray-based problems',
-          priority: PriorityLevel.HighlyRecommended
+          priority: PriorityLevel.Important
         },
       ],
     },
@@ -254,13 +254,13 @@ const arrayCurriculum: Curriculum = {
           id: 'array-rotation',
           title: 'Array Rotation',
           description: 'Techniques for rotating array elements',
-          priority: PriorityLevel.Recommended
+          priority: PriorityLevel.Beneficial
         },
         {
           id: 'merging-intervals',
           title: 'Merging Intervals',
           description: 'Working with interval arrays',
-          priority: PriorityLevel.MustKnow
+          priority: PriorityLevel.Important
         },
         {
           id: 'array-rearrangement',
@@ -278,19 +278,19 @@ const arrayCurriculum: Curriculum = {
           id: 'in-place-modifications',
           title: 'In-place Modifications',
           description: 'Modifying arrays without extra space',
-          priority: PriorityLevel.HighlyRecommended
+          priority: PriorityLevel.Important
         },
         {
           id: 'element-rearrangement',
           title: 'Swapping and Rearranging Elements',
           description: 'Techniques for rearranging array elements',
-          priority: PriorityLevel.Recommended
+          priority: PriorityLevel.Beneficial
         },
         {
           id: 'space-optimization',
           title: 'Space Optimization Techniques',
           description: 'Methods to optimize space complexity in array operations',
-          priority: PriorityLevel.HighlyRecommended
+          priority: PriorityLevel.Important
         },
       ],
     },
@@ -302,7 +302,7 @@ const arrayCurriculum: Curriculum = {
           id: 'multi-array-operations',
           title: 'Working with Multidimensional Arrays',
           description: 'Operations on multi-dimensional arrays',
-          priority: PriorityLevel.Recommended
+          priority: PriorityLevel.Beneficial
         },
         {
           id: 'multi-array-patterns',
