@@ -36,6 +36,8 @@ const LessonsSidebar: React.FC<LessonsSidebarProps> = ({
         return 'Common in top-tier company interviews (e.g., FAANG).';
       case PriorityLevel.Optional:
         return 'Rarely asked but useful for deep learning.';
+      case PriorityLevel.Unset:
+        return 'Priority not yet determined.'
       default:
         return '';
     }
@@ -68,9 +70,10 @@ const LessonsSidebar: React.FC<LessonsSidebarProps> = ({
   };
 
   const getSelectedPrioritiesText = () => {
-    if (selectedPriorities.size === 4) return "All priorities";
+    const priorityLevelCount = Object.keys(PriorityLevel).length / 2;
+    if (selectedPriorities.size === priorityLevelCount) return "All priorities";
     if (selectedPriorities.size === 0) return "No priorities selected";
-    return `${selectedPriorities.size} ${selectedPriorities.size === 1 ? 'priority' : 'priorities'} selected`;
+    return `${selectedPriorities.size - 1} ${selectedPriorities.size - 1 === 1 ? 'priority' : 'priorities'} selected`;
   };
 
   const shouldShowTopic = (topic: { priority?: PriorityLevel }) => {
@@ -101,7 +104,7 @@ const LessonsSidebar: React.FC<LessonsSidebarProps> = ({
       {isFilterExpanded && (
         <div className="p-4 pt-0 space-y-2">
           {Object.values(PriorityLevel)
-            .filter(p => typeof p === 'number')
+            .filter(p => typeof p === 'number' && p !== PriorityLevel.Unset)
             .map((priority) => (
               <div key={priority} className="flex items-center space-x-2">
                 <Checkbox
