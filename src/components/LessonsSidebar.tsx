@@ -53,7 +53,7 @@ const LessonsSidebar: React.FC<LessonsSidebarProps> = ({
       case PriorityLevel.Optional:
         return `${baseClass} bg-gray-100 text-gray-700`;
       default:
-        return baseClass;
+        return `${baseClass} bg-gray-100 text-gray-500`;
     }
   };
 
@@ -71,6 +71,13 @@ const LessonsSidebar: React.FC<LessonsSidebarProps> = ({
     if (selectedPriorities.size === 4) return "All priorities";
     if (selectedPriorities.size === 0) return "No priorities selected";
     return `${selectedPriorities.size} ${selectedPriorities.size === 1 ? 'priority' : 'priorities'} selected`;
+  };
+
+  const shouldShowTopic = (topic: { priority?: PriorityLevel }) => {
+    // If topic has no priority, always show it
+    if (topic.priority === undefined) return true;
+    // Otherwise, check if its priority is selected
+    return selectedPriorities.has(topic.priority as PriorityLevel);
   };
 
   const FilterSection = () => (
@@ -150,7 +157,7 @@ const LessonsSidebar: React.FC<LessonsSidebarProps> = ({
                 <div className="bg-gray-50">
                   <ul className="py-2">
                     {section.topics
-                      .filter(topic => selectedPriorities.has(topic.priority as PriorityLevel))
+                      .filter(shouldShowTopic)
                       .map((topic) => (
                         <li
                           key={topic.id}
@@ -162,16 +169,20 @@ const LessonsSidebar: React.FC<LessonsSidebarProps> = ({
                                 : 'hover:bg-gray-100'
                             } transition-all duration-200`}
                         >
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <span className={getPriorityBadgeClass(topic.priority as PriorityLevel)}>
-                                {PriorityLevel[topic.priority as PriorityLevel]}
-                              </span>
-                            </TooltipTrigger>
-                            <TooltipContent className="max-w-[200px]">
-                              <p>{getPriorityDescription(topic.priority as PriorityLevel)}</p>
-                            </TooltipContent>
-                          </Tooltip>
+                          {topic.priority !== undefined ? (
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <span className={getPriorityBadgeClass(topic.priority as PriorityLevel)}>
+                                  {PriorityLevel[topic.priority as PriorityLevel]}
+                                </span>
+                              </TooltipTrigger>
+                              <TooltipContent className="max-w-[200px]">
+                                <p>{getPriorityDescription(topic.priority as PriorityLevel)}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          ) : (
+                            <span className={getPriorityBadgeClass(-1)}>Unset</span>
+                          )}
                           <span className="text-sm">{topic.title}</span>
                         </li>
                     ))}
