@@ -318,116 +318,148 @@ const arrayCurriculum: Curriculum = {
 const arrayConceptsData: LessonContent = {
   title: 'Array Concepts and Implementation',
   content: `<p>
-Arrays are fundamental data structures that store collections of elements in contiguous memory locations. 
-There are two main types of arrays: <strong>static arrays</strong> and <strong>dynamic arrays</strong>.
+Arrays are fundamental data structures that store collections of elements in <strong>contiguous memory locations</strong>. Think of an array like a row of lockers, where each locker:
 </p>
+<li>Has a unique number (index)</li>
+<li>Can store one item</li>
+<li>Can be accessed directly using its number</li>
 
-<ul>
-<li><strong>Static Arrays:</strong> These arrays have a fixed size, meaning once they are created, their size cannot be changed. They are typically used when the number of elements is known and does not change.</li>
-<li><strong>Dynamic Arrays:</strong> These arrays can grow or shrink in size as needed. They are implemented using underlying static arrays that are resized when the capacity is reached. Python's lists are an example of dynamic arrays.</li>
-</ul>
+<p>There are two main types of arrays: <strong>static arrays</strong> and <strong>dynamic arrays</strong>.</p>
 
-<p>
-Understanding the difference between static and dynamic arrays is crucial for choosing the right data structure for your needs. Static arrays are more memory-efficient but less flexible, while dynamic arrays offer more flexibility at the cost of additional memory overhead.
-</p>`,
+<h3><u>Types of Arrays</u></h3>
+
+<h4><b>Static Arrays</b></h4>
+<li>Fixed size (cannot grow or shrink)</li>
+<li>Memory efficient</li>
+<li>Best when size is known upfront</li>
+
+<h4><b>Dynamic Arrays</b></h4>
+<li>Flexible size (can grow or shrink)</li>
+<li>Automatically resizes when needed</li>
+<li>Slight memory overhead</li>
+<li>Example: Python lists, Java ArrayList</li>
+
+<h3><u>Operation Complexities</u></h3>
+<table>
+<tr><th>Operation</th><th>Static Array</th><th>Dynamic Array</th></tr>
+<tr><td>Access</td><td>O(1)</td><td>O(1)</td></tr>
+<tr><td>Insert at end</td><td>O(1)*</td><td>O(1) amortized</td></tr>
+<tr><td>Insert at middle/start</td><td>O(n)</td><td>O(n)</td></tr>
+<tr><td>Delete from end</td><td>O(1)</td><td>O(1)</td></tr>
+<tr><td>Delete from middle/start</td><td>O(n)</td><td>O(n)</td></tr>
+<tr><td>Search (unsorted)</td><td>O(n)</td><td>O(n)</td></tr>
+<tr><td>Resize</td><td>Not possible</td><td>O(n)</td></tr>
+</table>
+<p><small>*Only if space is available</small></p>`,
   codeExample: `# Static Array (Fixed Size)
-static_array = [None] * 5  # Creates an array of size 5 with None values
+static_array = [None] * 5  # Creates an array of size 5
+print(f"Static array size: {len(static_array)}")  # Always 5
+static_array[0] = 10  # Direct index assignment
+print(f"Static array: {static_array}")  # [10, None, None, None, None]
 
 # Dynamic Array (Python List)
-dynamic_array = []  # Creates an empty list (dynamic array)
-dynamic_array.append(1)  # Adds an element to the list
-dynamic_array.append(2)  # Adds another element
-dynamic_array.append(3)  # Adds yet another element
+dynamic_array = []  # Empty dynamic array
+print(f"Initial size: {len(dynamic_array)}")  # 0
 
-# Resizing a dynamic array
-dynamic_array.extend([4, 5, 6])  # Extends the list with more elements`,
+# Adding elements
+dynamic_array.append(1)  # [1]
+dynamic_array.append(2)  # [1, 2]
+print(f"Size after appends: {len(dynamic_array)}")  # 2
+print(f"Current array: {dynamic_array}")  # [1, 2]
+
+# Extending array
+dynamic_array.extend([3, 4, 5])  # [1, 2, 3, 4, 5]
+print(f"After extending: {dynamic_array}")  # [1, 2, 3, 4, 5]
+print(f"Final size: {len(dynamic_array)}")  # 5
+
+# Direct index access (both types)
+print(f"First element: {dynamic_array[0]}")  # 1
+print(f"Last element: {dynamic_array[-1]}")  # 5
+
+# Slicing (Python feature)
+print(f"First three elements: {dynamic_array[:3]}")  # [1, 2, 3]`,
   exercises: [
     {
-      prompt:
-        'Create a static array of size 3 with initial values [1, 2, 3]. Create a dynamic array and add the elements [4, 5, 6] to it.',
+      prompt: 'Create a static array of size 5 initialized with zeros and a dynamic array containing the numbers 1 through 5.',
       initialCode: `# Write your solution here
 static_array = 
 dynamic_array = `,
-      solution: `static_array = [1, 2, 3]
+      solution: `static_array = [0] * 5
 dynamic_array = []
-dynamic_array.extend([4, 5, 6])`,
+for i in range(1, 6):
+    dynamic_array.append(i)`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt:
-        'Create a static array of size 4 with initial values [None, None, None, None]. Create a dynamic array and add the elements [1, 2, 3, 4] to it.',
+      prompt: 'Create two arrays: a static array of size 3 with string values ["red", "green", "blue"] and a dynamic array. Then add "yellow" and "purple" to the dynamic array.',
       initialCode: `# Write your solution here
 static_array = 
 dynamic_array = `,
-      solution: `static_array = [None] * 4
+      solution: `static_array = ["red", "green", "blue"]
 dynamic_array = []
-dynamic_array.extend([1, 2, 3, 4])`,
+dynamic_array.extend(["yellow", "purple"])`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt:
-        'Create a static array of size 2 with initial values ["hello", "world"]. Create a dynamic array and add the elements ["Python", "Arrays"] to it.',
+      prompt: 'Create a static array of size 4 with initial values [10, 20, 30, 40]. Create a dynamic array and use extend() to add these elements in reverse order.',
       initialCode: `# Write your solution here
 static_array = 
 dynamic_array = `,
-      solution: `static_array = ["hello", "world"]
+      solution: `static_array = [10, 20, 30, 40]
 dynamic_array = []
-dynamic_array.extend(["Python", "Arrays"])`,
+dynamic_array.extend(static_array[::-1])`,
       difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question:
-        'Which of the following is true about static arrays?',
+      question: 'What is the key difference between static and dynamic arrays?',
       options: [
-        'Static arrays can grow or shrink in size dynamically.',
-        'Static arrays have a fixed size once created.',
-        'Static arrays are more memory-efficient than dynamic arrays.',
-        'All of the above.',
+        'Static arrays are faster than dynamic arrays',
+        'Static arrays have a fixed size while dynamic arrays can grow',
+        'Dynamic arrays use less memory than static arrays',
+        'Static arrays can only store numbers',
       ],
       correctAnswer: 1,
       explanations: [
-        'This is incorrect. Static arrays cannot grow or shrink in size dynamically.',
-        'This is correct. Static arrays have a fixed size once created.',
-        'This is correct. Static arrays are more memory-efficient than dynamic arrays.',
-        'This is incorrect because static arrays cannot grow or shrink in size dynamically.',
+        'Incorrect. Speed depends on the operation being performed.',
+        'Correct! Static arrays have a fixed size that cannot be changed after creation, while dynamic arrays can grow or shrink.',
+        'Incorrect. Dynamic arrays typically use more memory due to over-allocation.',
+        'Incorrect. Static arrays can store any type of data.',
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question:
-        'Which of the following is true about dynamic arrays?',
+      question: 'What happens when you try to add an element to a full static array?',
       options: [
-        'Dynamic arrays have a fixed size once created.',
-        'Dynamic arrays can grow or shrink in size dynamically.',
-        'Dynamic arrays are less memory-efficient than static arrays.',
-        'None of the above.',
+        'The array automatically expands',
+        'The new element replaces the last element',
+        'An error occurs',
+        'The element is ignored',
       ],
-      correctAnswer: 1,
+      correctAnswer: 2,
       explanations: [
-        'This is incorrect. Dynamic arrays can grow or shrink in size dynamically.',
-        'This is correct. Dynamic arrays can grow or shrink in size dynamically.',
-        'This is correct. Dynamic arrays are less memory-efficient than static arrays.',
-        'This is incorrect because dynamic arrays can grow or shrink in size dynamically.',
+        'Incorrect. Static arrays cannot automatically expand.',
+        'Incorrect. Adding to a full static array causes an error.',
+        'Correct! Static arrays cannot grow, so adding to a full array results in an error.',
+        'Incorrect. The operation fails with an error.',
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question:
-        'Which of the following is the correct way to create a dynamic array in Python?',
+      question: 'Which operation has O(1) time complexity for both static and dynamic arrays?',
       options: [
-        'static_array = [None] * 5',
-        'dynamic_array = []',
-        'dynamic_array = [1, 2, 3]',
-        'dynamic_array = list((1, 2, 3))',
+        'Inserting at the beginning',
+        'Accessing an element by index',
+        'Searching for an element',
+        'Inserting in the middle',
       ],
       correctAnswer: 1,
       explanations: [
-        'This is incorrect. This creates a static array with a fixed size.',
-        'This is correct. This creates an empty dynamic array.',
-        'This is correct. This creates a dynamic array with initial values.',
-        'This is correct. This creates a dynamic array from a tuple.',
+        'Incorrect. Inserting at the beginning is O(n) for both.',
+        'Correct! Both array types provide constant-time access by index.',
+        'Incorrect. Searching is O(n) for unsorted arrays.',
+        'Incorrect. Inserting in the middle is O(n) for both.',
       ],
       difficulty: Difficulty.Intermediate,
     },

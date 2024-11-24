@@ -40,6 +40,12 @@ interface LeetCodeProblemsProps {
   problems: Problem[];
 }
 
+enum UnderstandingLevel {
+  FullyUnderstand = "fully",
+  PartiallyUnderstand = "partially",
+  NotUnderstand = "not"
+} 
+
 const LeetCodeProblems: React.FC<LeetCodeProblemsProps> = ({ problems }) => {
   const [expandedProblem, setExpandedProblem] = useState<string | null>(null);
   const [showSolutionIndex, setShowSolutionIndex] = useState<number | null>(
@@ -99,11 +105,11 @@ const LeetCodeProblems: React.FC<LeetCodeProblemsProps> = ({ problems }) => {
 
   const getTitleColor = (index: number) => {
     const isSolved = solvedProblems[index] || false;
-    const understandingLevel = understandingLevels[index] || 'fully';
+    const understandingLevel = understandingLevels[index] || UnderstandingLevel.FullyUnderstand;
 
     if (isSolved) {
-      if (understandingLevel === 'fully') return 'text-green-600';
-      if (understandingLevel === 'partially') return 'text-yellow-600';
+      if (understandingLevel === UnderstandingLevel.FullyUnderstand) return 'text-green-600';
+      if (understandingLevel === UnderstandingLevel.PartiallyUnderstand) return 'text-yellow-600';
       return 'text-red-600';
     }
     return 'text-gray-800';
@@ -296,7 +302,7 @@ const LeetCodeProblems: React.FC<LeetCodeProblemsProps> = ({ problems }) => {
                     <label className="flex items-center">
                       Understanding:
                       <Select
-                        value={understandingLevels[index] || 'fully'}
+                        value={understandingLevels[index] || UnderstandingLevel.FullyUnderstand}
                         onValueChange={(value) =>
                           handleUnderstandingChange(index, value)
                         }
@@ -305,19 +311,19 @@ const LeetCodeProblems: React.FC<LeetCodeProblemsProps> = ({ problems }) => {
                           <SelectValue placeholder="Select understanding level" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="fully">
+                          <SelectItem value={UnderstandingLevel.FullyUnderstand}>
                             <div className="flex items-center">
                               <CheckCircle className="mr-2 h-4 w-4 text-green-500" />
                               Fully Understand
                             </div>
                           </SelectItem>
-                          <SelectItem value="partially">
+                          <SelectItem value={UnderstandingLevel.PartiallyUnderstand}>
                             <div className="flex items-center">
                               <HelpCircle className="mr-2 h-4 w-4 text-yellow-500" />
                               Partially Understand
                             </div>
                           </SelectItem>
-                          <SelectItem value="not">
+                          <SelectItem value={UnderstandingLevel.NotUnderstand}>
                             <div className="flex items-center">
                               <XCircle className="mr-2 h-4 w-4 text-red-500" />
                               Not Understand
