@@ -1,10 +1,9 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab } from '@/common/commonLesson';
+import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
 
 const linkedListCurriculum: Curriculum = {
   title: 'Linked List Curriculum',
-  description:
-    'A comprehensive guide to mastering linked list concepts and algorithms',
+  description: 'A comprehensive guide to mastering linked list concepts and algorithms for technical interviews',
   sections: [
     {
       id: 1,
@@ -14,19 +13,21 @@ const linkedListCurriculum: Curriculum = {
           id: 'list-basics',
           title: 'Introduction to Linked Lists',
           description: 'Understanding basic concepts and types of linked lists',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'node-structure',
           title: 'Node Structure',
-          description:
-            'Creating and understanding node structure and references',
+          description: 'Creating and understanding node structure and references',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'list-vs-array',
           title: 'Linked Lists vs Arrays',
-          description: 'Understanding differences and use cases for each',
-        },
-      ],
+          description: 'Understanding differences, time complexities, and use cases for each',
+          priority: PriorityLevel.Essential
+        }
+      ]
     },
     {
       id: 2,
@@ -35,24 +36,28 @@ const linkedListCurriculum: Curriculum = {
         {
           id: 'list-traversal',
           title: 'List Traversal',
-          description: 'Methods for traversing linked lists',
+          description: 'Methods for traversing linked lists, including edge cases',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'insertion',
           title: 'Insertion Operations',
-          description: 'Adding nodes at beginning, end, and middle',
+          description: 'Adding nodes at beginning, end, and middle with time complexity analysis',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'deletion',
           title: 'Deletion Operations',
-          description: 'Removing nodes from different positions',
+          description: 'Removing nodes from different positions, handling edge cases',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'searching',
           title: 'Searching Elements',
-          description: 'Finding elements in linked lists',
-        },
-      ],
+          description: 'Finding elements and implementing efficient search strategies',
+          priority: PriorityLevel.Essential
+        }
+      ]
     },
     {
       id: 3,
@@ -61,19 +66,22 @@ const linkedListCurriculum: Curriculum = {
         {
           id: 'singly-linked',
           title: 'Singly Linked Lists',
-          description: 'Working with singly linked lists',
+          description: 'Working with singly linked lists and their applications',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'doubly-linked',
           title: 'Doubly Linked Lists',
           description: 'Understanding and implementing doubly linked lists',
+          priority: PriorityLevel.Important
         },
         {
           id: 'circular-linked',
           title: 'Circular Linked Lists',
           description: 'Circular list concepts and operations',
-        },
-      ],
+          priority: PriorityLevel.Beneficial
+        }
+      ]
     },
     {
       id: 4,
@@ -83,39 +91,45 @@ const linkedListCurriculum: Curriculum = {
           id: 'fast-slow',
           title: 'Fast and Slow Pointers',
           description: "Floyd's cycle detection and applications",
+          priority: PriorityLevel.Essential
         },
         {
           id: 'multiple-pointers',
           title: 'Multiple Pointers',
           description: 'Using multiple pointers for various problems',
+          priority: PriorityLevel.Important
         },
         {
           id: 'distance-k',
           title: 'K Distance Apart',
           description: 'Maintaining pointers at fixed distances',
-        },
-      ],
+          priority: PriorityLevel.Beneficial
+        }
+      ]
     },
     {
       id: 5,
-      title: 'Common Problems',
+      title: 'Common Interview Problems',
       topics: [
         {
           id: 'cycle-detection',
           title: 'Cycle Detection',
           description: 'Finding and handling cycles in linked lists',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'intersection',
           title: 'Finding Intersection',
           description: 'Detecting intersection points of two lists',
+          priority: PriorityLevel.Important
         },
         {
           id: 'palindrome',
           title: 'Palindrome Check',
           description: 'Verifying if a linked list is palindromic',
-        },
-      ],
+          priority: PriorityLevel.Important
+        }
+      ]
     },
     {
       id: 6,
@@ -125,18 +139,21 @@ const linkedListCurriculum: Curriculum = {
           id: 'list-reversal',
           title: 'List Reversal',
           description: 'Different approaches to reverse linked lists',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'list-sorting',
           title: 'Sorting Lists',
-          description: 'Sorting algorithms for linked lists',
+          description: 'Sorting algorithms for linked lists, especially merge sort',
+          priority: PriorityLevel.Important
         },
         {
           id: 'merging-lists',
           title: 'Merging Lists',
-          description: 'Combining multiple linked lists',
-        },
-      ],
+          description: 'Combining multiple linked lists, including K-way merge',
+          priority: PriorityLevel.Important
+        }
+      ]
     },
     {
       id: 7,
@@ -146,18 +163,21 @@ const linkedListCurriculum: Curriculum = {
           id: 'recursive-operations',
           title: 'Recursive Approaches',
           description: 'Solving linked list problems recursively',
+          priority: PriorityLevel.Important
         },
         {
           id: 'in-place-operations',
           title: 'In-place Operations',
           description: 'Modifying lists without extra space',
+          priority: PriorityLevel.Important
         },
         {
           id: 'dummy-node',
           title: 'Dummy Node Pattern',
           description: 'Using dummy nodes for easier list manipulation',
-        },
-      ],
+          priority: PriorityLevel.Important
+        }
+      ]
     },
     {
       id: 8,
@@ -167,83 +187,47 @@ const linkedListCurriculum: Curriculum = {
           id: 'list-rotation',
           title: 'List Rotation',
           description: 'Rotating linked lists by K positions',
+          priority: PriorityLevel.Beneficial
         },
         {
           id: 'list-partitioning',
           title: 'List Partitioning',
           description: 'Partitioning lists around a value',
+          priority: PriorityLevel.Beneficial
         },
         {
           id: 'list-flattening',
           title: 'Flattening Lists',
           description: 'Working with nested or multi-level lists',
-        },
-      ],
+          priority: PriorityLevel.Beneficial
+        }
+      ]
     },
     {
       id: 9,
-      title: 'Special List Types',
-      topics: [
-        {
-          id: 'skip-lists',
-          title: 'Skip Lists',
-          description: 'Understanding and implementing skip lists',
-        },
-        {
-          id: 'xor-lists',
-          title: 'XOR Linked Lists',
-          description: 'Memory-efficient doubly linked lists',
-        },
-        {
-          id: 'unrolled-lists',
-          title: 'Unrolled Linked Lists',
-          description: 'Lists with array-based nodes',
-        },
-      ],
-    },
-    {
-      id: 10,
       title: 'List-based Data Structures',
       topics: [
         {
           id: 'stack-implementation',
           title: 'Stack Implementation',
           description: 'Implementing stacks using linked lists',
+          priority: PriorityLevel.Important
         },
         {
           id: 'queue-implementation',
           title: 'Queue Implementation',
           description: 'Implementing queues using linked lists',
+          priority: PriorityLevel.Important
         },
         {
           id: 'lru-cache',
           title: 'LRU Cache',
           description: 'Implementing LRU cache with linked lists',
-        },
-      ],
-    },
-    {
-      id: 11,
-      title: 'Advanced Problems',
-      topics: [
-        {
-          id: 'deep-copy',
-          title: 'Deep Copy Problems',
-          description: 'Creating deep copies of complex linked structures',
-        },
-        {
-          id: 'reordering',
-          title: 'List Reordering',
-          description: 'Complex reordering and rearrangement problems',
-        },
-        {
-          id: 'arithmetic',
-          title: 'List-based Arithmetic',
-          description: 'Performing arithmetic operations on number lists',
-        },
-      ],
-    },
-  ],
+          priority: PriorityLevel.Beneficial
+        }
+      ]
+    }
+  ]
 } as const;
 
 const linkedListBasicsData: LessonContent = {
@@ -4758,671 +4742,6 @@ print(flat_list)`,
   ],
 };
 
-const skipListsData: LessonContent = {
-  title: 'Skip Lists',
-  content: `<p>
-Skip lists are a probabilistic data structure that allows for efficient search, insertion, and deletion operations. 
-They are an alternative to balanced trees and offer a simpler implementation with similar performance characteristics. 
-Skip lists consist of multiple levels, where each level is a linked list that skips over some elements, allowing for faster traversal.
-</p>
-
-<ul>
-<li><strong>Basic Structure:</strong> Understanding the basic structure of a skip list, including levels and nodes.</li>
-<li><strong>Search Operation:</strong> Efficiently searching for an element in a skip list.</li>
-<li><strong>Insertion Operation:</strong> Inserting an element into a skip list while maintaining the levels.</li>
-<li><strong>Deletion Operation:</strong> Deleting an element from a skip list while maintaining the levels.</li>
-<li><strong>Probabilistic Nature:</strong> Understanding the probabilistic nature of skip lists and how levels are determined.</li>
-</ul>`,
-  codeExample: `# Basic Structure
-class SkipNode:
-    def __init__(self, value, level):
-        self.value = value
-        self.forward = [None] * (level + 1)
-
-class SkipList:
-    def __init__(self, max_level):
-        self.max_level = max_level
-        self.level = 0
-        self.header = SkipNode(None, max_level)
-
-# Search Operation
-def search(self, value):
-    current = self.header
-    for i in range(self.level, -1, -1):
-        while current.forward[i] and current.forward[i].value < value:
-            current = current.forward[i]
-    current = current.forward[0]
-    if current and current.value == value:
-        return True
-    return False
-
-# Insertion Operation
-import random
-
-def random_level(self):
-    level = 0
-    while random.random() < 0.5 and level < self.max_level:
-        level += 1
-    return level
-
-def insert(self, value):
-    update = [None] * (self.max_level + 1)
-    current = self.header
-    for i in range(self.level, -1, -1):
-        while current.forward[i] and current.forward[i].value < value:
-            current = current.forward[i]
-        update[i] = current
-    current = current.forward[0]
-    if current is None or current.value != value:
-        rlevel = self.random_level()
-        if rlevel > self.level:
-            for i in range(self.level + 1, rlevel + 1):
-                update[i] = self.header
-            self.level = rlevel
-        node = SkipNode(value, rlevel)
-        for i in range(rlevel + 1):
-            node.forward[i] = update[i].forward[i]
-            update[i].forward[i] = node
-
-# Deletion Operation
-def delete(self, value):
-    update = [None] * (self.max_level + 1)
-    current = self.header
-    for i in range(self.level, -1, -1):
-        while current.forward[i] and current.forward[i].value < value:
-            current = current.forward[i]
-        update[i] = current
-    current = current.forward[0]
-    if current and current.value == value:
-        for i in range(self.level + 1):
-            if update[i].forward[i] != current:
-                break
-            update[i].forward[i] = current.forward[i]
-        while self.level > 0 and self.header.forward[self.level] is None:
-            self.level -= 1
-
-# Example Usage
-skip_list = SkipList(max_level=3)
-skip_list.insert(3)
-skip_list.insert(6)
-skip_list.insert(7)
-skip_list.insert(9)
-print(skip_list.search(7))  # Output: True
-skip_list.delete(7)
-print(skip_list.search(7))  # Output: False`,
-  exercises: [
-    {
-      prompt: 'Implement the search operation for a skip list.',
-      initialCode: `# Write your solution here
-class SkipNode:
-    def __init__(self, value, level):
-        self.value = value
-        self.forward = [None] * (level + 1)
-
-class SkipList:
-    def __init__(self, max_level):
-        self.max_level = max_level
-        self.level = 0
-        self.header = SkipNode(None, max_level)
-
-    def search(self, value):
-        # Your code here
-
-skip_list = SkipList(max_level=3)
-skip_list.insert(3)
-skip_list.insert(6)
-skip_list.insert(7)
-skip_list.insert(9)`,
-      solution: `class SkipNode:
-    def __init__(self, value, level):
-        self.value = value
-        self.forward = [None] * (level + 1)
-
-class SkipList:
-    def __init__(self, max_level):
-        self.max_level = max_level
-        self.level = 0
-        self.header = SkipNode(None, max_level)
-
-    def search(self, value):
-        current = self.header
-        for i in range(self.level, -1, -1):
-            while current.forward[i] and current.forward[i].value < value:
-                current = current.forward[i]
-        current = current.forward[0]
-        if current and current.value == value:
-            return True
-        return False
-
-skip_list = SkipList(max_level=3)
-skip_list.insert(3)
-skip_list.insert(6)
-skip_list.insert(7)
-skip_list.insert(9)
-print(skip_list.search(7))  # Output: True`,
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      prompt: 'Implement the insertion operation for a skip list.',
-      initialCode: `# Write your solution here
-import random
-
-class SkipNode:
-    def __init__(self, value, level):
-        self.value = value
-        self.forward = [None] * (level + 1)
-
-class SkipList:
-    def __init__(self, max_level):
-        self.max_level = max_level
-        self.level = 0
-        self.header = SkipNode(None, max_level)
-
-    def random_level(self):
-        level = 0
-        while random.random() < 0.5 and level < self.max_level:
-            level += 1
-        return level
-
-    def insert(self, value):
-        # Your code here
-
-skip_list = SkipList(max_level=3)`,
-      solution: `import random
-
-class SkipNode:
-    def __init__(self, value, level):
-        self.value = value
-        self.forward = [None] * (level + 1)
-
-class SkipList:
-    def __init__(self, max_level):
-        self.max_level = max_level
-        self.level = 0
-        self.header = SkipNode(None, max_level)
-
-    def random_level(self):
-        level = 0
-        while random.random() < 0.5 and level < self.max_level:
-            level += 1
-        return level
-
-    def insert(self, value):
-        update = [None] * (self.max_level + 1)
-        current = self.header
-        for i in range(self.level, -1, -1):
-            while current.forward[i] and current.forward[i].value < value:
-                current = current.forward[i]
-            update[i] = current
-        current = current.forward[0]
-        if current is None or current.value != value:
-            rlevel = self.random_level()
-            if rlevel > self.level:
-                for i in range(self.level + 1, rlevel + 1):
-                    update[i] = self.header
-                self.level = rlevel
-            node = SkipNode(value, rlevel)
-            for i in range(rlevel + 1):
-                node.forward[i] = update[i].forward[i]
-                update[i].forward[i] = node
-
-skip_list = SkipList(max_level=3)
-skip_list.insert(3)
-skip_list.insert(6)
-skip_list.insert(7)
-skip_list.insert(9)`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which of the following is a common use case for skip lists?',
-      options: ['Efficient search', 'Efficient insertion', 'Efficient deletion', 'All of the above'],
-      correctAnswer: 3,
-      explanations: [
-        'This is correct. Skip lists are used for efficient search operations.',
-        'This is correct. Skip lists are used for efficient insertion operations.',
-        'This is correct. Skip lists are used for efficient deletion operations.',
-        'This is correct. All of the above are common use cases for skip lists.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'What is the primary advantage of skip lists over balanced trees?',
-      options: ['Simpler implementation', 'Better performance', 'Lower memory usage', 'None of the above'],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. Skip lists offer a simpler implementation compared to balanced trees.',
-        'This is incorrect. While skip lists can offer similar performance, their primary advantage is simpler implementation.',
-        'This is incorrect. Skip lists do not necessarily have lower memory usage.',
-        'This is incorrect. The primary advantage of skip lists is simpler implementation.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const xorListsData: LessonContent = {
-  title: 'XOR Linked Lists',
-  content: `<p>
-XOR linked lists are a memory-efficient variant of doubly linked lists. 
-Instead of storing two pointers for the previous and next nodes, each node in an XOR linked list stores a single pointer that is the XOR of the addresses of the previous and next nodes. 
-This allows for efficient traversal in both directions while using less memory.
-</p>
-
-<ul>
-<li><strong>Basic Structure:</strong> Understanding the basic structure of an XOR linked list, including the XOR pointer.</li>
-<li><strong>Traversal Operation:</strong> Efficiently traversing an XOR linked list in both directions.</li>
-<li><strong>Insertion Operation:</strong> Inserting a node into an XOR linked list.</li>
-<li><strong>Deletion Operation:</strong> Deleting a node from an XOR linked list.</li>
-<li><strong>Memory Efficiency:</strong> Understanding the memory efficiency of XOR linked lists.</li>
-</ul>`,
-  codeExample: `# Basic Structure
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.npx = 0  # XOR of prev and next node addresses
-
-class XORLinkedList:
-    def __init__(self):
-        self.head = None
-        self.tail = None
-
-# Traversal Operation
-def traverse(self, start_node):
-    prev = 0
-    current = start_node
-    while current:
-        print(current.value, end=' ')
-        next_node = prev ^ current.npx
-        prev = id(current)
-        current = next_node
-
-# Insertion Operation
-def insert(self, value):
-    node = Node(value)
-    if self.head is None:
-        self.head = node
-        self.tail = node
-    else:
-        node.npx = id(self.tail)
-        self.tail.npx ^= id(node)
-        self.tail = node
-
-# Deletion Operation
-def delete(self, value):
-    prev = 0
-    current = self.head
-    while current:
-        if current.value == value:
-            next_node = prev ^ current.npx
-            if prev:
-                prev_node = id_to_node(prev)
-                prev_node.npx ^= id(current) ^ id(next_node)
-            else:
-                self.head = next_node
-            if next_node:
-                next_next_node = next_node.npx ^ id(current)
-                next_node.npx = prev ^ id(next_next_node)
-            else:
-                self.tail = id_to_node(prev)
-            return
-        next_node = prev ^ current.npx
-        prev = id(current)
-        current = next_node
-
-# Example Usage
-xor_list = XORLinkedList()
-xor_list.insert(1)
-xor_list.insert(2)
-xor_list.insert(3)
-xor_list.traverse(xor_list.head)  # Output: 1 2 3
-xor_list.delete(2)
-xor_list.traverse(xor_list.head)  # Output: 1 3`,
-  exercises: [
-    {
-      prompt: 'Implement the traversal operation for an XOR linked list.',
-      initialCode: `# Write your solution here
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.npx = 0  # XOR of prev and next node addresses
-
-class XORLinkedList:
-    def __init__(self):
-        self.head = None
-        self.tail = None
-
-    def traverse(self, start_node):
-        # Your code here
-
-xor_list = XORLinkedList()
-xor_list.insert(1)
-xor_list.insert(2)
-xor_list.insert(3)`,
-      solution: `class Node:
-    def __init__(self, value):
-        self.value = value
-        self.npx = 0  # XOR of prev and next node addresses
-
-class XORLinkedList:
-    def __init__(self):
-        self.head = None
-        self.tail = None
-
-    def traverse(self, start_node):
-        prev = 0
-        current = start_node
-        while current:
-            print(current.value, end=' ')
-            next_node = prev ^ current.npx
-            prev = id(current)
-            current = next_node
-
-xor_list = XORLinkedList()
-xor_list.insert(1)
-xor_list.insert(2)
-xor_list.insert(3)
-xor_list.traverse(xor_list.head)  # Output: 1 2 3`,
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      prompt: 'Implement the insertion operation for an XOR linked list.',
-      initialCode: `# Write your solution here
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.npx = 0  # XOR of prev and next node addresses
-
-class XORLinkedList:
-    def __init__(self):
-        self.head = None
-        self.tail = None
-
-    def insert(self, value):
-        # Your code here
-
-xor_list = XORLinkedList()`,
-      solution: `class Node:
-    def __init__(self, value):
-        self.value = value
-        self.npx = 0  # XOR of prev and next node addresses
-
-class XORLinkedList:
-    def __init__(self):
-        self.head = None
-        self.tail = None
-
-    def insert(self, value):
-        node = Node(value)
-        if self.head is None:
-            self.head = node
-            self.tail = node
-        else:
-            node.npx = id(self.tail)
-            self.tail.npx ^= id(node)
-            self.tail = node
-
-xor_list = XORLinkedList()
-xor_list.insert(1)
-xor_list.insert(2)
-xor_list.insert(3)`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which of the following is a common use case for XOR linked lists?',
-      options: ['Memory-efficient doubly linked lists', 'Efficient search', 'Efficient insertion', 'All of the above'],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. XOR linked lists are used for memory-efficient doubly linked lists.',
-        'This is incorrect. XOR linked lists are not primarily used for efficient search.',
-        'This is incorrect. XOR linked lists are not primarily used for efficient insertion.',
-        'This is incorrect. XOR linked lists are primarily used for memory-efficient doubly linked lists.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'What is the primary advantage of XOR linked lists?',
-      options: ['Simpler implementation', 'Better performance', 'Lower memory usage', 'None of the above'],
-      correctAnswer: 2,
-      explanations: [
-        'This is incorrect. XOR linked lists do not offer simpler implementation.',
-        'This is incorrect. XOR linked lists do not necessarily offer better performance.',
-        'This is correct. XOR linked lists offer lower memory usage by storing a single XOR pointer.',
-        'This is incorrect. The primary advantage of XOR linked lists is lower memory usage.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const unrolledListsData: LessonContent = {
-  title: 'Unrolled Linked Lists',
-  content: `<p>
-Unrolled linked lists are a hybrid data structure that combines the advantages of arrays and linked lists. 
-Each node in an unrolled linked list contains an array of elements, allowing for faster access and better cache performance. 
-This makes unrolled linked lists particularly useful for scenarios where both random access and sequential access are required.
-</p>
-
-<ul>
-<li><strong>Basic Structure:</strong> Understanding the basic structure of an unrolled linked list, including the array of elements in each node.</li>
-<li><strong>Search Operation:</strong> Efficiently searching for an element in an unrolled linked list.</li>
-<li><strong>Insertion Operation:</strong> Inserting an element into an unrolled linked list while maintaining the array size.</li>
-<li><strong>Deletion Operation:</strong> Deleting an element from an unrolled linked list while maintaining the array size.</li>
-<li><strong>Cache Efficiency:</strong> Understanding the cache efficiency of unrolled linked lists.</li>
-</ul>`,
-  codeExample: `# Basic Structure
-class Node:
-    def __init__(self, capacity):
-        self.elements = [None] * capacity
-        self.next = None
-        self.size = 0
-
-class UnrolledLinkedList:
-    def __init__(self, capacity):
-        self.capacity = capacity
-        self.head = None
-        self.tail = None
-
-# Search Operation
-def search(self, value):
-    current = self.head
-    while current:
-        for i in range(current.size):
-            if current.elements[i] == value:
-                return True
-        current = current.next
-    return False
-
-# Insertion Operation
-def insert(self, value):
-    if self.head is None:
-        self.head = Node(self.capacity)
-        self.tail = self.head
-    if self.tail.size < self.capacity:
-        self.tail.elements[self.tail.size] = value
-        self.tail.size += 1
-    else:
-        new_node = Node(self.capacity)
-        half_capacity = self.capacity // 2
-        new_node.elements[:half_capacity] = self.tail.elements[half_capacity:]
-        new_node.size = half_capacity
-        self.tail.size = half_capacity
-        self.tail.next = new_node
-        self.tail = new_node
-        self.tail.elements[self.tail.size] = value
-        self.tail.size += 1
-
-# Deletion Operation
-def delete(self, value):
-    current = self.head
-    while current:
-        for i in range(current.size):
-            if current.elements[i] == value:
-                current.elements[i] = current.elements[current.size - 1]
-                current.elements[current.size - 1] = None
-                current.size -= 1
-                if current.size == 0:
-                    if current == self.head:
-                        self.head = current.next
-                    else:
-                        prev = self.head
-                        while prev.next != current:
-                            prev = prev.next
-                        prev.next = current.next
-                return
-        current = current.next
-
-# Example Usage
-unrolled_list = UnrolledLinkedList(capacity=4)
-unrolled_list.insert(1)
-unrolled_list.insert(2)
-unrolled_list.insert(3)
-unrolled_list.insert(4)
-unrolled_list.insert(5)
-print(unrolled_list.search(3))  # Output: True
-unrolled_list.delete(3)
-print(unrolled_list.search(3))  # Output: False`,
-  exercises: [
-    {
-      prompt: 'Implement the search operation for an unrolled linked list.',
-      initialCode: `# Write your solution here
-class Node:
-    def __init__(self, capacity):
-        self.elements = [None] * capacity
-        self.next = None
-        self.size = 0
-
-class UnrolledLinkedList:
-    def __init__(self, capacity):
-        self.capacity = capacity
-        self.head = None
-        self.tail = None
-
-    def search(self, value):
-        # Your code here
-
-unrolled_list = UnrolledLinkedList(capacity=4)
-unrolled_list.insert(1)
-unrolled_list.insert(2)
-unrolled_list.insert(3)
-unrolled_list.insert(4)`,
-      solution: `class Node:
-    def __init__(self, capacity):
-        self.elements = [None] * capacity
-        self.next = None
-        self.size = 0
-
-class UnrolledLinkedList:
-    def __init__(self, capacity):
-        self.capacity = capacity
-        self.head = None
-        self.tail = None
-
-    def search(self, value):
-        current = self.head
-        while current:
-            for i in range(current.size):
-                if current.elements[i] == value:
-                    return True
-            current = current.next
-        return False
-
-unrolled_list = UnrolledLinkedList(capacity=4)
-unrolled_list.insert(1)
-unrolled_list.insert(2)
-unrolled_list.insert(3)
-unrolled_list.insert(4)
-print(unrolled_list.search(3))  # Output: True`,
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      prompt: 'Implement the insertion operation for an unrolled linked list.',
-      initialCode: `# Write your solution here
-class Node:
-    def __init__(self, capacity):
-        self.elements = [None] * capacity
-        self.next = None
-        self.size = 0
-
-class UnrolledLinkedList:
-    def __init__(self, capacity):
-        self.capacity = capacity
-        self.head = None
-        self.tail = None
-
-    def insert(self, value):
-        # Your code here
-
-unrolled_list = UnrolledLinkedList(capacity=4)`,
-      solution: `class Node:
-    def __init__(self, capacity):
-        self.elements = [None] * capacity
-        self.next = None
-        self.size = 0
-
-class UnrolledLinkedList:
-    def __init__(self, capacity):
-        self.capacity = capacity
-        self.head = None
-        self.tail = None
-
-    def insert(self, value):
-        if self.head is None:
-            self.head = Node(self.capacity)
-            self.tail = self.head
-        if self.tail.size < self.capacity:
-            self.tail.elements[self.tail.size] = value
-            self.tail.size += 1
-        else:
-            new_node = Node(self.capacity)
-            half_capacity = self.capacity // 2
-            new_node.elements[:half_capacity] = self.tail.elements[half_capacity:]
-            new_node.size = half_capacity
-            self.tail.size = half_capacity
-            self.tail.next = new_node
-            self.tail = new_node
-            self.tail.elements[self.tail.size] = value
-            self.tail.size += 1
-
-unrolled_list = UnrolledLinkedList(capacity=4)
-unrolled_list.insert(1)
-unrolled_list.insert(2)
-unrolled_list.insert(3)
-unrolled_list.insert(4)`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which of the following is a common use case for unrolled linked lists?',
-      options: ['Efficient search', 'Efficient insertion', 'Cache efficiency', 'All of the above'],
-      correctAnswer: 3,
-      explanations: [
-        'This is correct. Unrolled linked lists are used for efficient search operations.',
-        'This is correct. Unrolled linked lists are used for efficient insertion operations.',
-        'This is correct. Unrolled linked lists are used for cache efficiency.',
-        'This is correct. All of the above are common use cases for unrolled linked lists.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'What is the primary advantage of unrolled linked lists?',
-      options: ['Simpler implementation', 'Better performance', 'Cache efficiency', 'None of the above'],
-      correctAnswer: 2,
-      explanations: [
-        'This is incorrect. Unrolled linked lists do not offer simpler implementation.',
-        'This is incorrect. While unrolled linked lists can offer better performance, their primary advantage is cache efficiency.',
-        'This is correct. Unrolled linked lists offer cache efficiency by combining arrays and linked lists.',
-        'This is incorrect. The primary advantage of unrolled linked lists is cache efficiency.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
 const stackImplementationData: LessonContent = {
   title: 'Stack Implementation',
   content: `<p>
@@ -6041,498 +5360,6 @@ lru_cache.put(3, 3)`,
   ],
 };
 
-const deepCopyData: LessonContent = {
-  title: 'Deep Copy Problems',
-  content: `<p>
-Deep copy problems involve creating a deep copy of complex linked structures, such as linked lists with random pointers or nested structures. 
-A deep copy means creating a new structure with new nodes that have the same values and connections as the original structure, but without any shared references. 
-This is particularly useful in scenarios where you need to manipulate the copied structure without affecting the original.
-</p>
-
-<ul>
-<li><strong>Basic Structure:</strong> Understanding the basic structure of a linked list with random pointers.</li>
-<li><strong>Deep Copy Algorithm:</strong> Implementing an algorithm to create a deep copy of the linked list.</li>
-<li><strong>Hash Map Usage:</strong> Using a hash map to keep track of the mapping between original and copied nodes.</li>
-<li><strong>Edge Cases:</strong> Handling edge cases such as empty lists or lists with cycles.</li>
-</ul>`,
-  codeExample: `# Basic Structure
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
-        self.random = None
-
-# Deep Copy Algorithm
-def deep_copy(head):
-    if not head:
-        return None
-    
-    # Step 1: Create a copy of each node and insert it next to the original node
-    current = head
-    while current:
-        new_node = Node(current.value)
-        new_node.next = current.next
-        current.next = new_node
-        current = new_node.next
-    
-    # Step 2: Update the random pointers of the copied nodes
-    current = head
-    while current:
-        if current.random:
-            current.next.random = current.random.next
-        current = current.next.next
-    
-    # Step 3: Separate the original and copied lists
-    current = head
-    new_head = head.next
-    while current:
-        new_node = current.next
-        current.next = new_node.next
-        if new_node.next:
-            new_node.next = new_node.next.next
-        current = current.next
-    
-    return new_head
-
-# Example Usage
-node1 = Node(1)
-node2 = Node(2)
-node3 = Node(3)
-node1.next = node2
-node2.next = node3
-node1.random = node3
-node2.random = node1
-node3.random = node2
-
-new_head = deep_copy(node1)
-current = new_head
-while current:
-    print(f"Value: {current.value}, Random: {current.random.value if current.random else None}")
-    current = current.next`,
-  exercises: [
-    {
-      prompt: 'Implement the deep copy algorithm for a linked list with random pointers.',
-      initialCode: `# Write your solution here
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
-        self.random = None
-
-def deep_copy(head):
-    # Your code here
-
-node1 = Node(1)
-node2 = Node(2)
-node3 = Node(3)
-node1.next = node2
-node2.next = node3
-node1.random = node3
-node2.random = node1
-node3.random = node2`,
-      solution: `class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
-        self.random = None
-
-def deep_copy(head):
-    if not head:
-        return None
-    
-    # Step 1: Create a copy of each node and insert it next to the original node
-    current = head
-    while current:
-        new_node = Node(current.value)
-        new_node.next = current.next
-        current.next = new_node
-        current = new_node.next
-    
-    # Step 2: Update the random pointers of the copied nodes
-    current = head
-    while current:
-        if current.random:
-            current.next.random = current.random.next
-        current = current.next.next
-    
-    # Step 3: Separate the original and copied lists
-    current = head
-    new_head = head.next
-    while current:
-        new_node = current.next
-        current.next = new_node.next
-        if new_node.next:
-            new_node.next = new_node.next.next
-        current = current.next
-    
-    return new_head
-
-node1 = Node(1)
-node2 = Node(2)
-node3 = Node(3)
-node1.next = node2
-node2.next = node3
-node1.random = node3
-node2.random = node1
-node3.random = node2
-
-new_head = deep_copy(node1)
-current = new_head
-while current:
-    print(f"Value: {current.value}, Random: {current.random.value if current.random else None}")
-    current = current.next`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which of the following is a common use case for deep copy problems?',
-      options: ['Manipulating complex data structures', 'Creating backups of data', 'Avoiding shared references', 'All of the above'],
-      correctAnswer: 3,
-      explanations: [
-        'This is correct. Deep copy problems are used for manipulating complex data structures.',
-        'This is correct. Deep copy problems are used for creating backups of data.',
-        'This is correct. Deep copy problems are used to avoid shared references.',
-        'This is correct. All of the above are common use cases for deep copy problems.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'What is the primary advantage of using a hash map in the deep copy algorithm?',
-      options: ['Efficient tracking of node mappings', 'Quick access to node references', 'Both of the above', 'None of the above'],
-      correctAnswer: 2,
-      explanations: [
-        'This is correct. Hash maps allow for efficient tracking of node mappings.',
-        'This is correct. Hash maps provide quick access to node references.',
-        'This is correct. Both efficient tracking of node mappings and quick access to node references are advantages.',
-        'This is incorrect. Both efficient tracking of node mappings and quick access to node references are advantages.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const reorderingData: LessonContent = {
-  title: 'List Reordering',
-  content: `<p>
-List reordering problems involve complex rearrangement and reordering of linked lists. 
-These problems often require careful manipulation of nodes to achieve the desired order. 
-Understanding how to efficiently reorder lists can lead to more optimized solutions for various algorithmic challenges.
-</p>
-
-<ul>
-<li><strong>Basic Structure:</strong> Understanding the basic structure of a linked list.</li>
-<li><strong>Reordering Algorithms:</strong> Implementing algorithms to reorder linked lists.</li>
-<li><strong>Edge Cases:</strong> Handling edge cases such as empty lists or lists with a single node.</li>
-<li><strong>Efficiency Considerations:</strong> Considering time and space complexity when reordering lists.</li>
-</ul>`,
-  codeExample: `# Basic Structure
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
-
-# Reordering Algorithms
-def reorder_list(head):
-    if not head or not head.next:
-        return head
-    
-    # Step 1: Find the middle of the list
-    slow = head
-    fast = head
-    while fast and fast.next:
-        slow = slow.next
-        fast = fast.next.next
-    
-    # Step 2: Reverse the second half of the list
-    prev = None
-    current = slow
-    while current:
-        next_node = current.next
-        current.next = prev
-        prev = current
-        current = next_node
-    
-    # Step 3: Merge the two halves
-    first = head
-    second = prev
-    while second.next:
-        first.next, first = second, first.next
-        second.next, second = first, second.next
-    
-    return head
-
-# Example Usage
-node1 = Node(1)
-node2 = Node(2)
-node3 = Node(3)
-node4 = Node(4)
-node5 = Node(5)
-node1.next = node2
-node2.next = node3
-node3.next = node4
-node4.next = node5
-
-new_head = reorder_list(node1)
-current = new_head
-while current:
-    print(current.value, end=' ')
-    current = current.next`,
-  exercises: [
-    {
-      prompt: 'Implement the reorder list algorithm for a linked list.',
-      initialCode: `# Write your solution here
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
-
-def reorder_list(head):
-    # Your code here
-
-node1 = Node(1)
-node2 = Node(2)
-node3 = Node(3)
-node4 = Node(4)
-node5 = Node(5)
-node1.next = node2
-node2.next = node3
-node3.next = node4
-node4.next = node5`,
-      solution: `class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
-
-def reorder_list(head):
-    if not head or not head.next:
-        return head
-    
-    # Step 1: Find the middle of the list
-    slow = head
-    fast = head
-    while fast and fast.next:
-        slow = slow.next
-        fast = fast.next.next
-    
-    # Step 2: Reverse the second half of the list
-    prev = None
-    current = slow
-    while current:
-        next_node = current.next
-        current.next = prev
-        prev = current
-        current = next_node
-    
-    # Step 3: Merge the two halves
-    first = head
-    second = prev
-    while second.next:
-        first.next, first = second, first.next
-        second.next, second = first, second.next
-    
-    return head
-
-node1 = Node(1)
-node2 = Node(2)
-node3 = Node(3)
-node4 = Node(4)
-node5 = Node(5)
-node1.next = node2
-node2.next = node3
-node3.next = node4
-node4.next = node5
-
-new_head = reorder_list(node1)
-current = new_head
-while current:
-    print(current.value, end=' ')
-    current = current.next`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which of the following is a common use case for list reordering problems?',
-      options: ['Algorithmic challenges', 'Data structure manipulation', 'Efficient data access', 'All of the above'],
-      correctAnswer: 3,
-      explanations: [
-        'This is correct. List reordering problems are used in algorithmic challenges.',
-        'This is correct. List reordering problems involve data structure manipulation.',
-        'This is correct. List reordering problems can lead to efficient data access.',
-        'This is correct. All of the above are common use cases for list reordering problems.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'What is the primary advantage of the reorder list algorithm?',
-      options: ['Efficient reordering', 'Space complexity', 'Both of the above', 'None of the above'],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The reorder list algorithm provides efficient reordering.',
-        'This is incorrect. The primary advantage is efficient reordering, not space complexity.',
-        'This is incorrect. The primary advantage is efficient reordering, not both.',
-        'This is incorrect. The primary advantage is efficient reordering.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const arithmeticData: LessonContent = {
-  title: 'List-based Arithmetic',
-  content: `<p>
-List-based arithmetic problems involve performing arithmetic operations on linked lists that represent numbers. 
-Each node in the linked list represents a digit of the number, and the operations are performed digit by digit. 
-These problems are particularly useful in scenarios where numbers are too large to be represented using standard data types.
-</p>
-
-<ul>
-<li><strong>Basic Structure:</strong> Understanding the basic structure of a linked list representing a number.</li>
-<li><strong>Addition Operation:</strong> Implementing an algorithm to add two numbers represented by linked lists.</li>
-<li><strong>Subtraction Operation:</strong> Implementing an algorithm to subtract two numbers represented by linked lists.</li>
-<li><strong>Multiplication Operation:</strong> Implementing an algorithm to multiply two numbers represented by linked lists.</li>
-<li><strong>Edge Cases:</strong> Handling edge cases such as different lengths of numbers or leading zeros.</li>
-</ul>`,
-  codeExample: `# Basic Structure
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
-
-# Addition Operation
-def add_lists(l1, l2):
-    dummy = Node(0)
-    current = dummy
-    carry = 0
-    
-    while l1 or l2 or carry:
-        val1 = l1.value if l1 else 0
-        val2 = l2.value if l2 else 0
-        total = val1 + val2 + carry
-        carry = total // 10
-        current.next = Node(total % 10)
-        current = current.next
-        if l1:
-            l1 = l1.next
-        if l2:
-            l2 = l2.next
-    
-    return dummy.next
-
-# Example Usage
-node1 = Node(2)
-node2 = Node(4)
-node3 = Node(3)
-node1.next = node2
-node2.next = node3
-
-node4 = Node(5)
-node5 = Node(6)
-node6 = Node(4)
-node4.next = node5
-node5.next = node6
-
-result = add_lists(node1, node4)
-current = result
-while current:
-    print(current.value, end=' ')
-    current = current.next`,
-  exercises: [
-    {
-      prompt: 'Implement the addition operation for two numbers represented by linked lists.',
-      initialCode: `# Write your solution here
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
-
-def add_lists(l1, l2):
-    # Your code here
-
-node1 = Node(2)
-node2 = Node(4)
-node3 = Node(3)
-node1.next = node2
-node2.next = node3
-
-node4 = Node(5)
-node5 = Node(6)
-node6 = Node(4)
-node4.next = node5
-node5.next = node6`,
-      solution: `class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
-
-def add_lists(l1, l2):
-    dummy = Node(0)
-    current = dummy
-    carry = 0
-    
-    while l1 or l2 or carry:
-        val1 = l1.value if l1 else 0
-        val2 = l2.value if l2 else 0
-        total = val1 + val2 + carry
-        carry = total // 10
-        current.next = Node(total % 10)
-        current = current.next
-        if l1:
-            l1 = l1.next
-        if l2:
-            l2 = l2.next
-    
-    return dummy.next
-
-node1 = Node(2)
-node2 = Node(4)
-node3 = Node(3)
-node1.next = node2
-node2.next = node3
-
-node4 = Node(5)
-node5 = Node(6)
-node6 = Node(4)
-node4.next = node5
-node5.next = node6
-
-result = add_lists(node1, node4)
-current = result
-while current:
-    print(current.value, end=' ')
-    current = current.next`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which of the following is a common use case for list-based arithmetic problems?',
-      options: ['Handling large numbers', 'Efficient arithmetic operations', 'Algorithmic challenges', 'All of the above'],
-      correctAnswer: 3,
-      explanations: [
-        'This is correct. List-based arithmetic problems are used for handling large numbers.',
-        'This is correct. List-based arithmetic problems provide efficient arithmetic operations.',
-        'This is correct. List-based arithmetic problems are used in algorithmic challenges.',
-        'This is correct. All of the above are common use cases for list-based arithmetic problems.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'What is the primary advantage of using linked lists for arithmetic operations?',
-      options: ['Handling large numbers', 'Efficient memory usage', 'Both of the above', 'None of the above'],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. Linked lists are advantageous for handling large numbers.',
-        'This is incorrect. The primary advantage is handling large numbers, not efficient memory usage.',
-        'This is incorrect. The primary advantage is handling large numbers, not both.',
-        'This is incorrect. The primary advantage is handling large numbers.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
 const linkedListLessons: Record<string, LessonContent> = {
   'list-basics': linkedListBasicsData,
   'node-structure': nodeStructureData,
@@ -6559,15 +5386,9 @@ const linkedListLessons: Record<string, LessonContent> = {
   'list-rotation': listRotationData,
   'list-partitioning': listPartitioningData,
   'list-flattening': listFlatteningData,
-  'skip-lists': skipListsData,
-  'xor-lists': xorListsData,
-  'unrolled-lists': unrolledListsData,
   'stack-implementation': stackImplementationData,
   'queue-implementation': queueImplementationData,
   'lru-cache': lruCacheData,
-  'deep-copy': deepCopyData,
-  'reordering': reorderingData,
-  'arithmetic': arithmeticData,
 };
 
 export const linkedListLessonsTab: LessonsTab = {

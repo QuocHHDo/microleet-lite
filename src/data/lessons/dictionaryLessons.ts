@@ -1,5 +1,5 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab } from '@/common/commonLesson';
+import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
 
 const dictionaryCurriculum: Curriculum = {
   title: 'Dictionary/Hash Map Curriculum',
@@ -13,18 +13,20 @@ const dictionaryCurriculum: Curriculum = {
         {
           id: 'dict-basics',
           title: 'Dictionary Basics',
-          description:
-            'Understanding key-value pairs and dictionary properties',
+          description: 'Understanding key-value pairs and dictionary properties',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'dict-creation',
           title: 'Creating Dictionaries',
           description: 'Different ways to initialize and create dictionaries',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'dict-vs-others',
           title: 'Dictionaries vs Other Data Structures',
-          description: 'Comparing dictionaries with lists, sets, and arrays',
+          description: 'When to use dictionaries vs lists, sets, and arrays',
+          priority: PriorityLevel.Essential
         },
       ],
     },
@@ -36,22 +38,25 @@ const dictionaryCurriculum: Curriculum = {
           id: 'key-operations',
           title: 'Key Operations',
           description: 'Adding, accessing, updating, and deleting keys',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'dict-methods',
           title: 'Dictionary Methods',
-          description:
-            'Using get(), update(), pop(), clear(), and other methods',
+          description: 'Using get(), update(), pop(), clear(), and other methods',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'key-existence',
           title: 'Key Existence Checking',
           description: 'Different ways to check for key presence',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'dict-iteration',
           title: 'Dictionary Iteration',
           description: 'Iterating over keys, values, and items',
+          priority: PriorityLevel.Essential
         },
       ],
     },
@@ -63,16 +68,19 @@ const dictionaryCurriculum: Curriculum = {
           id: 'dict-comprehension',
           title: 'Dictionary Comprehension',
           description: 'Creating dictionaries using comprehension syntax',
+          priority: PriorityLevel.Important
         },
         {
           id: 'filtering-dict',
           title: 'Filtering Dictionaries',
           description: 'Techniques for filtering dictionary entries',
+          priority: PriorityLevel.Important
         },
         {
           id: 'transforming-dict',
           title: 'Transforming Dictionaries',
           description: 'Mapping and transforming dictionary contents',
+          priority: PriorityLevel.Important
         },
       ],
     },
@@ -83,17 +91,20 @@ const dictionaryCurriculum: Curriculum = {
         {
           id: 'frequency-counter',
           title: 'Frequency Counter Pattern',
-          description: 'Using dictionaries to count occurrences',
+          description: 'Using dictionaries to count occurrences - a crucial interview pattern',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'grouping-pattern',
           title: 'Grouping Pattern',
           description: 'Grouping elements by common properties',
+          priority: PriorityLevel.Important
         },
         {
           id: 'caching-pattern',
           title: 'Caching Pattern',
           description: 'Using dictionaries for memoization and caching',
+          priority: PriorityLevel.Important
         },
       ],
     },
@@ -105,17 +116,19 @@ const dictionaryCurriculum: Curriculum = {
           id: 'nested-dict',
           title: 'Nested Dictionaries',
           description: 'Working with multi-level dictionaries',
+          priority: PriorityLevel.Important
         },
         {
           id: 'default-dict',
           title: 'DefaultDict',
-          description:
-            'Using collections.defaultdict for automatic initialization',
+          description: 'Using collections.defaultdict for cleaner code',
+          priority: PriorityLevel.Beneficial
         },
         {
-          id: 'ordered-dict',
-          title: 'OrderedDict',
-          description: 'Working with ordered dictionaries',
+          id: 'counter-class',
+          title: 'Counter Class',
+          description: 'Using collections.Counter for efficient counting',
+          priority: PriorityLevel.Important
         },
       ],
     },
@@ -127,137 +140,91 @@ const dictionaryCurriculum: Curriculum = {
           id: 'hash-function',
           title: 'Hash Functions',
           description: 'Understanding hash functions and their properties',
+          priority: PriorityLevel.Beneficial
         },
         {
           id: 'collision-handling',
           title: 'Collision Resolution',
           description: 'Techniques for handling hash collisions',
+          priority: PriorityLevel.Beneficial
         },
         {
-          id: 'load-factor',
-          title: 'Load Factor and Rehashing',
-          description: 'Understanding when and how to resize hash maps',
+          id: 'time-space-complexity',
+          title: 'Time/Space Complexity Analysis',
+          description: 'Understanding complexity of different operations',
+          priority: PriorityLevel.Essential
         },
       ],
     },
     {
       id: 7,
-      title: 'Dictionary-based Algorithms',
+      title: 'Common Interview Problems',
       topics: [
         {
           id: 'two-sum-pattern',
           title: 'Two Sum Pattern',
           description: 'Using dictionaries for pair finding problems',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'subarray-sum',
           title: 'Subarray Sum Pattern',
           description: 'Finding subarrays with target sums',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'isomorphic-pattern',
-          title: 'String Pattern Matching',
+          title: 'String Pattern Problems',
           description: 'Solving isomorphic strings and pattern matching',
+          priority: PriorityLevel.Essential
         },
       ],
     },
     {
       id: 8,
-      title: 'Time and Space Optimization',
-      topics: [
-        {
-          id: 'space-complexity',
-          title: 'Space Complexity Analysis',
-          description: 'Understanding dictionary space usage',
-        },
-        {
-          id: 'time-complexity',
-          title: 'Time Complexity Optimization',
-          description: 'Optimizing dictionary operations',
-        },
-        {
-          id: 'memory-efficient',
-          title: 'Memory-Efficient Dictionaries',
-          description: 'Techniques for reducing memory usage',
-        },
-      ],
-    },
-    {
-      id: 9,
       title: 'Advanced Applications',
       topics: [
         {
           id: 'lru-cache',
           title: 'LRU Cache Implementation',
           description: 'Building an LRU cache using dictionaries',
+          priority: PriorityLevel.Important
         },
         {
           id: 'graph-representation',
           title: 'Graph Representation',
           description: 'Using dictionaries for graph problems',
+          priority: PriorityLevel.Important
         },
         {
           id: 'trie-implementation',
           title: 'Trie Implementation',
           description: 'Implementing tries using dictionaries',
+          priority: PriorityLevel.Beneficial
         },
       ],
     },
     {
-      id: 10,
-      title: 'Dictionary Problem Patterns',
+      id: 9,
+      title: 'Advanced Problem Patterns',
       topics: [
         {
           id: 'sliding-window',
           title: 'Sliding Window with Dictionaries',
           description: 'Using dictionaries in sliding window problems',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'anagram-problems',
           title: 'Anagram and Permutation',
           description: 'Solving string permutation problems',
+          priority: PriorityLevel.Essential
         },
         {
-          id: 'array-intersection',
-          title: 'Array Intersection/Union',
-          description: 'Finding common elements using dictionaries',
-        },
-      ],
-    },
-    {
-      id: 11,
-      title: 'Special Dictionary Types',
-      topics: [
-        {
-          id: 'counter-class',
-          title: 'Counter Class',
-          description: 'Using collections.Counter for counting',
-        },
-        {
-          id: 'bidict',
-          title: 'Bidirectional Dictionaries',
-          description: 'Working with bidirectional mappings',
-        },
-        {
-          id: 'frozen-dict',
-          title: 'Immutable Dictionaries',
-          description: 'Working with immutable dictionary types',
-        },
-      ],
-    },
-    {
-      id: 12,
-      title: 'System Design with Dictionaries',
-      topics: [
-        {
-          id: 'consistent-hashing',
-          title: 'Consistent Hashing',
-          description: 'Understanding distributed hash tables',
-        },
-        {
-          id: 'cache-design',
-          title: 'Cache System Design',
-          description: 'Designing caching systems with dictionaries',
+          id: 'array-operations',
+          title: 'Array Operations with Dictionaries',
+          description: 'Solving array intersection/union problems efficiently',
+          priority: PriorityLevel.Important
         },
       ],
     },
@@ -1975,6 +1942,83 @@ print(word_groups)`,
   ],
 };
 
+const counterClassData: LessonContent = {
+  title: 'Counter Class',
+  content: `<p>
+The Counter class from the collections module in Python is a specialized dictionary subclass designed for counting hashable objects. 
+It is particularly useful for counting the frequency of elements in a collection. 
+Here's how you can use the Counter class:
+</p>
+
+<ul>
+<li><strong>Counting Elements:</strong> The Counter class can count the occurrences of each element in a list, string, or any iterable.</li>
+<li><strong>Most Common Elements:</strong> The Counter class provides a method to get the most common elements and their counts.</li>
+<li><strong>Arithmetic Operations:</strong> The Counter class supports arithmetic operations like addition, subtraction, intersection, and union.</li>
+</ul>`,
+  codeExample: `# Example of Counter class in Python
+from collections import Counter
+
+# Counting elements in a list
+elements = ['a', 'b', 'a', 'c', 'b', 'a']
+element_count = Counter(elements)
+print(element_count)  # Output: Counter({'a': 3, 'b': 2, 'c': 1})
+
+# Counting elements in a string
+text = "hello world"
+char_count = Counter(text)
+print(char_count)  # Output: Counter({'l': 3, 'o': 2, 'h': 1, 'e': 1, ' ': 1, 'w': 1, 'r': 1, 'd': 1})
+
+# Most common elements
+print(element_count.most_common(2))  # Output: [('a', 3), ('b', 2)]
+
+# Arithmetic operations
+c1 = Counter(a=3, b=1)
+c2 = Counter(a=1, b=2)
+print(c1 + c2)  # Output: Counter({'a': 4, 'b': 3})
+print(c1 - c2)  # Output: Counter({'a': 2})
+print(c1 & c2)  # Output: Counter({'a': 1, 'b': 1})
+print(c1 | c2)  # Output: Counter({'a': 3, 'b': 2})`,
+  exercises: [
+    {
+      prompt: 'Use the Counter class to count the frequency of each word in a given text.',
+      initialCode: `# Write your solution here
+from collections import Counter
+
+text = "the quick brown fox jumps over the lazy dog"
+words = text.split()
+word_count = Counter(words)
+print(word_count)`,
+      solution: `from collections import Counter
+
+text = "the quick brown fox jumps over the lazy dog"
+words = text.split()
+word_count = Counter(words)
+print(word_count)  # Output: Counter({'the': 2, 'quick': 1, 'brown': 1, 'fox': 1, 'jumps': 1, 'over': 1, 'lazy': 1, 'dog': 1})`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'What is the time complexity of counting elements using the Counter class?',
+      options: [
+        'O(1)',
+        'O(log n)',
+        'O(n)',
+        'O(n^2)',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'This is incorrect. The time complexity is not constant.',
+        'This is incorrect. The time complexity is not logarithmic.',
+        'This is correct. The time complexity is linear, O(n), where n is the number of elements.',
+        'This is incorrect. The time complexity is not quadratic.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+// TODO: Determine if needed
 const orderedDictData: LessonContent = {
   title: 'OrderedDict',
   content: `<p>
@@ -2110,375 +2154,6 @@ print(shopping_cart)`,
   ],
 };
 
-const hashMapImplementationData: LessonContent = {
-  title: 'Hash Map Implementation',
-  content: `<p>
-Hash maps are a fundamental data structure that allows for efficient key-value pair storage and retrieval. 
-They rely on hash functions to map keys to indices in an array, enabling average O(1) time complexity for insertions, deletions, and lookups. 
-However, hash maps must handle collisions, where two different keys hash to the same index, and manage their capacity through load factors and rehashing.
-</p>
-
-<h2>Hash Functions</h2>
-<p>
-A hash function is a function that takes an input (or "key") and returns a fixed-size string of bytes. 
-The ideal hash function should be deterministic, efficient, and uniformly distribute keys to avoid collisions. 
-Common properties of hash functions include:
-</p>
-<ul>
-<li><strong>Deterministic:</strong> The same input should always produce the same output.</li>
-<li><strong>Efficient:</strong> The hash function should compute the hash value quickly.</li>
-<li><strong>Uniform Distribution:</strong> The hash function should distribute keys uniformly across the hash table to minimize collisions.</li>
-</ul>
-
-<h2>Collision Resolution</h2>
-<p>
-Collisions occur when two different keys hash to the same index in the hash table. 
-There are several techniques to handle collisions:
-</p>
-<ul>
-<li><strong>Separate Chaining:</strong> Each index in the hash table points to a linked list of key-value pairs that hash to that index.</li>
-<li><strong>Open Addressing:</strong> When a collision occurs, the algorithm searches for the next available slot in the hash table.</li>
-<li><strong>Linear Probing:</strong> A type of open addressing where the next available slot is found by linearly searching the table.</li>
-<li><strong>Quadratic Probing:</strong> A type of open addressing where the next available slot is found using a quadratic function.</li>
-<li><strong>Double Hashing:</strong> A type of open addressing where a second hash function is used to find the next available slot.</li>
-</ul>
-
-<h2>Load Factor and Rehashing</h2>
-<p>
-The load factor is a measure of how full the hash table is. It is calculated as the number of elements divided by the size of the hash table. 
-A high load factor increases the likelihood of collisions, so the hash table should be resized (rehashed) when the load factor exceeds a certain threshold. 
-Common strategies for resizing include:
-</p>
-<ul>
-<li><strong>Doubling the Size:</strong> When the load factor exceeds a threshold, the hash table size is doubled.</li>
-<li><strong>Rehashing:</strong> All existing elements are rehashed into the new, larger hash table.</li>
-</ul>`,
-  codeExample: `# Example of a simple hash map implementation in Python
-
-class HashMap:
-    def __init__(self, size=10):
-        self.size = size
-        self.map = [None] * self.size
-
-    def _get_hash(self, key):
-        return hash(key) % self.size
-
-    def add(self, key, value):
-        key_hash = self._get_hash(key)
-        key_value = [key, value]
-
-        if self.map[key_hash] is None:
-            self.map[key_hash] = list([key_value])
-            return True
-        else:
-            for pair in self.map[key_hash]:
-                if pair[0] == key:
-                    pair[1] = value
-                    return True
-            self.map[key_hash].append(key_value)
-            return True
-
-    def get(self, key):
-        key_hash = self._get_hash(key)
-        if self.map[key_hash] is not None:
-            for pair in self.map[key_hash]:
-                if pair[0] == key:
-                    return pair[1]
-        return None
-
-    def delete(self, key):
-        key_hash = self._get_hash(key)
-
-        if self.map[key_hash] is None:
-            return False
-        for i in range(len(self.map[key_hash])):
-            if self.map[key_hash][i][0] == key:
-                self.map[key_hash].pop(i)
-                return True
-        return False
-
-    def print(self):
-        for item in self.map:
-            if item is not None:
-                print(str(item))
-
-# Example usage
-h = HashMap()
-h.add('Bob', '567-8888')
-h.add('Ming', '293-6753')
-h.add('Ming', '333-8233')  # Updating Ming's phone number
-h.add('Ankit', '293-8625')
-h.add('Aditya', '852-6551')
-h.print()
-print('Ming: ' + h.get('Ming'))
-h.delete('Bob')
-h.print()
-`,
-  exercises: [
-    {
-      prompt: 'Implement a hash map with separate chaining to handle collisions.',
-      initialCode: `# Write your solution here
-class HashMap:
-    def __init__(self, size=10):
-        self.size = size
-        self.map = [None] * self.size
-
-    def _get_hash(self, key):
-        return hash(key) % self.size
-
-    def add(self, key, value):
-        # Implement add method
-
-    def get(self, key):
-        # Implement get method
-
-    def delete(self, key):
-        # Implement delete method
-
-    def print(self):
-        for item in self.map:
-            if item is not None:
-                print(str(item))
-
-# Example usage
-h = HashMap()
-h.add('Bob', '567-8888')
-h.add('Ming', '293-6753')
-h.add('Ming', '333-8233')  # Updating Ming's phone number
-h.add('Ankit', '293-8625')
-h.add('Aditya', '852-6551')
-h.print()
-print('Ming: ' + h.get('Ming'))
-h.delete('Bob')
-h.print()
-`,
-      solution: `class HashMap:
-    def __init__(self, size=10):
-        self.size = size
-        self.map = [None] * self.size
-
-    def _get_hash(self, key):
-        return hash(key) % self.size
-
-    def add(self, key, value):
-        key_hash = self._get_hash(key)
-        key_value = [key, value]
-
-        if self.map[key_hash] is None:
-            self.map[key_hash] = list([key_value])
-            return True
-        else:
-            for pair in self.map[key_hash]:
-                if pair[0] == key:
-                    pair[1] = value
-                    return True
-            self.map[key_hash].append(key_value)
-            return True
-
-    def get(self, key):
-        key_hash = self._get_hash(key)
-        if self.map[key_hash] is not None:
-            for pair in self.map[key_hash]:
-                if pair[0] == key:
-                    return pair[1]
-        return None
-
-    def delete(self, key):
-        key_hash = self._get_hash(key)
-
-        if self.map[key_hash] is None:
-            return False
-        for i in range(len(self.map[key_hash])):
-            if self.map[key_hash][i][0] == key:
-                self.map[key_hash].pop(i)
-                return True
-        return False
-
-    def print(self):
-        for item in self.map:
-            if item is not None:
-                print(str(item))
-
-# Example usage
-h = HashMap()
-h.add('Bob', '567-8888')
-h.add('Ming', '293-6753')
-h.add('Ming', '333-8233')  # Updating Ming's phone number
-h.add('Ankit', '293-8625')
-h.add('Aditya', '852-6551')
-h.print()
-print('Ming: ' + h.get('Ming'))
-h.delete('Bob')
-h.print()
-`,
-      difficulty: Difficulty.Advanced,
-    },
-    {
-      prompt: 'Implement a hash map with open addressing (linear probing) to handle collisions.',
-      initialCode: `# Write your solution here
-class HashMap:
-    def __init__(self, size=10):
-        self.size = size
-        self.map = [None] * self.size
-
-    def _get_hash(self, key):
-        return hash(key) % self.size
-
-    def add(self, key, value):
-        # Implement add method
-
-    def get(self, key):
-        # Implement get method
-
-    def delete(self, key):
-        # Implement delete method
-
-    def print(self):
-        for item in self.map:
-            if item is not None:
-                print(str(item))
-
-# Example usage
-h = HashMap()
-h.add('Bob', '567-8888')
-h.add('Ming', '293-6753')
-h.add('Ming', '333-8233')  # Updating Ming's phone number
-h.add('Ankit', '293-8625')
-h.add('Aditya', '852-6551')
-h.print()
-print('Ming: ' + h.get('Ming'))
-h.delete('Bob')
-h.print()
-`,
-      solution: `class HashMap:
-    def __init__(self, size=10):
-        self.size = size
-        self.map = [None] * self.size
-
-    def _get_hash(self, key):
-        return hash(key) % self.size
-
-    def add(self, key, value):
-        key_hash = self._get_hash(key)
-        key_value = [key, value]
-
-        if self.map[key_hash] is None:
-            self.map[key_hash] = key_value
-            return True
-        else:
-            for i in range(key_hash, self.size):
-                if self.map[i] is None:
-                    self.map[i] = key_value
-                    return True
-            for i in range(0, key_hash):
-                if self.map[i] is None:
-                    self.map[i] = key_value
-                    return True
-            return False
-
-    def get(self, key):
-        key_hash = self._get_hash(key)
-        if self.map[key_hash] is not None:
-            if self.map[key_hash][0] == key:
-                return self.map[key_hash][1]
-            for i in range(key_hash, self.size):
-                if self.map[i] is not None and self.map[i][0] == key:
-                    return self.map[i][1]
-            for i in range(0, key_hash):
-                if self.map[i] is not None and self.map[i][0] == key:
-                    return self.map[i][1]
-        return None
-
-    def delete(self, key):
-        key_hash = self._get_hash(key)
-        if self.map[key_hash] is not None:
-            if self.map[key_hash][0] == key:
-                self.map[key_hash] = None
-                return True
-            for i in range(key_hash, self.size):
-                if self.map[i] is not None and self.map[i][0] == key:
-                    self.map[i] = None
-                    return True
-            for i in range(0, key_hash):
-                if self.map[i] is not None and self.map[i][0] == key:
-                    self.map[i] = None
-                    return True
-        return False
-
-    def print(self):
-        for item in self.map:
-            if item is not None:
-                print(str(item))
-
-# Example usage
-h = HashMap()
-h.add('Bob', '567-8888')
-h.add('Ming', '293-6753')
-h.add('Ming', '333-8233')  # Updating Ming's phone number
-h.add('Ankit', '293-8625')
-h.add('Aditya', '852-6551')
-h.print()
-print('Ming: ' + h.get('Ming'))
-h.delete('Bob')
-h.print()
-`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary purpose of a hash function in a hash map?',
-      options: [
-        'To sort the keys',
-        'To map keys to indices in an array',
-        'To encrypt the keys',
-        'To compress the keys',
-      ],
-      correctAnswer: 1,
-      explanations: [
-        'This is incorrect. Sorting is not the primary purpose of a hash function.',
-        'This is correct. The primary purpose of a hash function is to map keys to indices in an array.',
-        'This is incorrect. Encryption is not the primary purpose of a hash function.',
-        'This is incorrect. Compression is not the primary purpose of a hash function.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'Which technique is used to handle collisions in a hash map?',
-      options: [
-        'Separate Chaining',
-        'Open Addressing',
-        'Both A and B',
-        'None of the above',
-      ],
-      correctAnswer: 2,
-      explanations: [
-        'This is correct. Separate chaining is a technique used to handle collisions.',
-        'This is correct. Open addressing is a technique used to handle collisions.',
-        'This is correct. Both separate chaining and open addressing are techniques used to handle collisions.',
-        'This is incorrect. Both separate chaining and open addressing are techniques used to handle collisions.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'What is the load factor in a hash map?',
-      options: [
-        'The number of elements in the hash map',
-        'The size of the hash map',
-        'The ratio of the number of elements to the size of the hash map',
-        'The number of collisions in the hash map',
-      ],
-      correctAnswer: 2,
-      explanations: [
-        'This is incorrect. The number of elements is part of the load factor calculation, but not the load factor itself.',
-        'This is incorrect. The size of the hash map is part of the load factor calculation, but not the load factor itself.',
-        'This is correct. The load factor is the ratio of the number of elements to the size of the hash map.',
-        'This is incorrect. The number of collisions is not the load factor.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
 
 const hashFunctionData: LessonContent = {
   title: 'Hash Functions',
@@ -2740,273 +2415,148 @@ h.print()
   ],
 };
 
-const loadFactorData: LessonContent = {
-  title: 'Load Factor and Rehashing',
+const timeSpaceComplexityAnalysisData: LessonContent = {
+  title: 'Time/Space Complexity Analysis',
   content: `<p>
-The load factor is a measure of how full the hash table is. It is calculated as the number of elements divided by the size of the hash table. 
-A high load factor increases the likelihood of collisions, so the hash table should be resized (rehashed) when the load factor exceeds a certain threshold. 
-Common strategies for resizing include:
+Understanding the time and space complexity of operations on dictionaries and hashmaps is crucial for writing efficient Python code. 
+Dictionaries and hashmaps are implemented using hash tables, which provide average-case constant time complexity for key-based operations.
 </p>
+
 <ul>
-<li><strong>Doubling the Size:</strong> When the load factor exceeds a threshold, the hash table size is doubled.</li>
-<li><strong>Rehashing:</strong> All existing elements are rehashed into the new, larger hash table.</li>
+<li><strong>Insertion:</strong> Adding a key-value pair to a dictionary.</li>
+<li><strong>Deletion:</strong> Removing a key-value pair from a dictionary.</li>
+<li><strong>Lookup:</strong> Retrieving the value associated with a key.</li>
+<li><strong>Iteration:</strong> Looping through all key-value pairs in a dictionary.</li>
+<li><strong>Space Complexity:</strong> Understanding how memory usage scales with the number of elements.</li>
 </ul>`,
-  codeExample: `# Example of load factor and rehashing in Python
-class HashMap:
-    def __init__(self, size=10):
-        self.size = size
-        self.map = [None] * self.size
-        self.count = 0
+  codeExample: `# Insertion
+my_dict = {}
+my_dict['key1'] = 'value1'  # O(1) time complexity
 
-    def _get_hash(self, key):
-        return hash(key) % self.size
+# Deletion
+del my_dict['key1']  # O(1) time complexity
 
-    def add(self, key, value):
-        key_hash = self._get_hash(key)
-        key_value = [key, value]
+# Lookup
+value = my_dict.get('key1')  # O(1) time complexity
 
-        if self.map[key_hash] is None:
-            self.map[key_hash] = list([key_value])
-        else:
-            for pair in self.map[key_hash]:
-                if pair[0] == key:
-                    pair[1] = value
-                    return True
-            self.map[key_hash].append(key_value)
+# Iteration
+for key, value in my_dict.items():  # O(n) time complexity, where n is the number of items
+    print(key, value)
 
-        self.count += 1
-        if self.count / self.size > 0.7:
-            self._resize()
-
-    def get(self, key):
-        key_hash = self._get_hash(key)
-        if self.map[key_hash] is not None:
-            for pair in self.map[key_hash]:
-                if pair[0] == key:
-                    return pair[1]
-        return None
-
-    def delete(self, key):
-        key_hash = self._get_hash(key)
-
-        if self.map[key_hash] is None:
-            return False
-        for i in range(len(self.map[key_hash])):
-            if self.map[key_hash][i][0] == key:
-                self.map[key_hash].pop(i)
-                self.count -= 1
-                return True
-        return False
-
-    def print(self):
-        for item in self.map:
-            if item is not None:
-                print(str(item))
-
-    def _resize(self):
-        new_size = self.size * 2
-        new_map = [None] * new_size
-        for item in self.map:
-            if item is not None:
-                for pair in item:
-                    key_hash = self._get_hash(pair[0])
-                    if new_map[key_hash] is None:
-                        new_map[key_hash] = list([pair])
-                    else:
-                        new_map[key_hash].append(pair)
-        self.size = new_size
-        self.map = new_map
-
-# Example usage
-h = HashMap()
-h.add('Bob', '567-8888')
-h.add('Ming', '293-6753')
-h.add('Ming', '333-8233')  # Updating Ming's phone number
-h.add('Ankit', '293-8625')
-h.add('Aditya', '852-6551')
-h.print()
-print('Ming: ' + h.get('Ming'))
-h.delete('Bob')
-h.print()
-`,
+# Space Complexity
+# O(n) space complexity, where n is the number of key-value pairs`,
   exercises: [
     {
-      prompt: 'Implement a hash map that resizes and rehashes when the load factor exceeds 0.7.',
+      prompt:
+        'Given a dictionary, insert a new key-value pair and then delete it. Analyze the time complexity of each operation.',
       initialCode: `# Write your solution here
-class HashMap:
-    def __init__(self, size=10):
-        self.size = size
-        self.map = [None] * self.size
-        self.count = 0
+my_dict = {}
+# Insert a new key-value pair
+# Delete the key-value pair`,
+      solution: `my_dict = {}
+# Insert a new key-value pair
+my_dict['new_key'] = 'new_value'  # O(1) time complexity
 
-    def _get_hash(self, key):
-        return hash(key) % self.size
-
-    def add(self, key, value):
-        key_hash = self._get_hash(key)
-        key_value = [key, value]
-
-        if self.map[key_hash] is None:
-            self.map[key_hash] = list([key_value])
-        else:
-            for pair in self.map[key_hash]:
-                if pair[0] == key:
-                    pair[1] = value
-                    return True
-            self.map[key_hash].append(key_value)
-
-        self.count += 1
-        if self.count / self.size > 0.7:
-            self._resize()
-
-    def get(self, key):
-        key_hash = self._get_hash(key)
-        if self.map[key_hash] is not None:
-            for pair in self.map[key_hash]:
-                if pair[0] == key:
-                    return pair[1]
-        return None
-
-    def delete(self, key):
-        key_hash = self._get_hash(key)
-
-        if self.map[key_hash] is None:
-            return False
-        for i in range(len(self.map[key_hash])):
-            if self.map[key_hash][i][0] == key:
-                self.map[key_hash].pop(i)
-                self.count -= 1
-                return True
-        return False
-
-    def print(self):
-        for item in self.map:
-            if item is not None:
-                print(str(item))
-
-    def _resize(self):
-        new_size = self.size * 2
-        new_map = [None] * new_size
-        for item in self.map:
-            if item is not None:
-                for pair in item:
-                    key_hash = self._get_hash(pair[0])
-                    if new_map[key_hash] is None:
-                        new_map[key_hash] = list([pair])
-                    else:
-                        new_map[key_hash].append(pair)
-        self.size = new_size
-        self.map = new_map
-
-# Example usage
-h = HashMap()
-h.add('Bob', '567-8888')
-h.add('Ming', '293-6753')
-h.add('Ming', '333-8233')  # Updating Ming's phone number
-h.add('Ankit', '293-8625')
-h.add('Aditya', '852-6551')
-h.print()
-print('Ming: ' + h.get('Ming'))
-h.delete('Bob')
-h.print()
-`,
-      solution: `class HashMap:
-    def __init__(self, size=10):
-        self.size = size
-        self.map = [None] * self.size
-        self.count = 0
-
-    def _get_hash(self, key):
-        return hash(key) % self.size
-
-    def add(self, key, value):
-        key_hash = self._get_hash(key)
-        key_value = [key, value]
-
-        if self.map[key_hash] is None:
-            self.map[key_hash] = list([key_value])
-        else:
-            for pair in self.map[key_hash]:
-                if pair[0] == key:
-                    pair[1] = value
-                    return True
-            self.map[key_hash].append(key_value)
-
-        self.count += 1
-        if self.count / self.size > 0.7:
-            self._resize()
-
-    def get(self, key):
-        key_hash = self._get_hash(key)
-        if self.map[key_hash] is not None:
-            for pair in self.map[key_hash]:
-                if pair[0] == key:
-                    return pair[1]
-        return None
-
-    def delete(self, key):
-        key_hash = self._get_hash(key)
-
-        if self.map[key_hash] is None:
-            return False
-        for i in range(len(self.map[key_hash])):
-            if self.map[key_hash][i][0] == key:
-                self.map[key_hash].pop(i)
-                self.count -= 1
-                return True
-        return False
-
-    def print(self):
-        for item in self.map:
-            if item is not None:
-                print(str(item))
-
-    def _resize(self):
-        new_size = self.size * 2
-        new_map = [None] * new_size
-        for item in self.map:
-            if item is not None:
-                for pair in item:
-                    key_hash = self._get_hash(pair[0])
-                    if new_map[key_hash] is None:
-                        new_map[key_hash] = list([pair])
-                    else:
-                        new_map[key_hash].append(pair)
-        self.size = new_size
-        self.map = new_map
-
-# Example usage
-h = HashMap()
-h.add('Bob', '567-8888')
-h.add('Ming', '293-6753')
-h.add('Ming', '333-8233')  # Updating Ming's phone number
-h.add('Ankit', '293-8625')
-h.add('Aditya', '852-6551')
-h.print()
-print('Ming: ' + h.get('Ming'))
-h.delete('Bob')
-h.print()
-`,
-      difficulty: Difficulty.Advanced,
+# Delete the key-value pair
+del my_dict['new_key']  # O(1) time complexity`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Given a dictionary, retrieve the value associated with a key. Analyze the time complexity of the lookup operation.',
+      initialCode: `# Write your solution here
+my_dict = {'key1': 'value1', 'key2': 'value2'}
+# Retrieve the value associated with 'key1'`,
+      solution: `my_dict = {'key1': 'value1', 'key2': 'value2'}
+# Retrieve the value associated with 'key1'
+value = my_dict.get('key1')  # O(1) time complexity`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Given a dictionary, iterate through all key-value pairs and print them. Analyze the time complexity of the iteration operation.',
+      initialCode: `# Write your solution here
+my_dict = {'key1': 'value1', 'key2': 'value2'}
+# Iterate through all key-value pairs and print them`,
+      solution: `my_dict = {'key1': 'value1', 'key2': 'value2'}
+# Iterate through all key-value pairs and print them
+for key, value in my_dict.items():  # O(n) time complexity, where n is the number of items
+    print(key, value)`,
+      difficulty: Difficulty.Beginner,
     },
   ],
   quizzes: [
     {
-      question: 'What is the load factor in a hash map?',
+      question:
+        'What is the time complexity of inserting a key-value pair into a dictionary in Python?',
       options: [
-        'The number of elements in the hash map',
-        'The size of the hash map',
-        'The ratio of the number of elements to the size of the hash map',
-        'The number of collisions in the hash map',
+        'O(1)',
+        'O(log n)',
+        'O(n)',
+        'O(n log n)',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. Inserting a key-value pair into a dictionary has an average-case time complexity of O(1).',
+        'This is incorrect. Insertion is not logarithmic in nature.',
+        'This is incorrect. Insertion is not linear in nature.',
+        'This is incorrect. Insertion is not n log n in nature.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'What is the time complexity of deleting a key-value pair from a dictionary in Python?',
+      options: [
+        'O(1)',
+        'O(log n)',
+        'O(n)',
+        'O(n log n)',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. Deleting a key-value pair from a dictionary has an average-case time complexity of O(1).',
+        'This is incorrect. Deletion is not logarithmic in nature.',
+        'This is incorrect. Deletion is not linear in nature.',
+        'This is incorrect. Deletion is not n log n in nature.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'What is the time complexity of looking up a value by key in a dictionary in Python?',
+      options: [
+        'O(1)',
+        'O(log n)',
+        'O(n)',
+        'O(n log n)',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. Looking up a value by key in a dictionary has an average-case time complexity of O(1).',
+        'This is incorrect. Lookup is not logarithmic in nature.',
+        'This is incorrect. Lookup is not linear in nature.',
+        'This is incorrect. Lookup is not n log n in nature.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'What is the time complexity of iterating through all key-value pairs in a dictionary in Python?',
+      options: [
+        'O(1)',
+        'O(log n)',
+        'O(n)',
+        'O(n log n)',
       ],
       correctAnswer: 2,
       explanations: [
-        'This is incorrect. The number of elements is part of the load factor calculation, but not the load factor itself.',
-        'This is incorrect. The size of the hash map is part of the load factor calculation, but not the load factor itself.',
-        'This is correct. The load factor is the ratio of the number of elements to the size of the hash map.',
-        'This is incorrect. The number of collisions is not the load factor.',
+        'This is incorrect. Iteration is not constant time.',
+        'This is incorrect. Iteration is not logarithmic in nature.',
+        'This is correct. Iterating through all key-value pairs in a dictionary has a time complexity of O(n), where n is the number of items.',
+        'This is incorrect. Iteration is not n log n in nature.',
       ],
-      difficulty: Difficulty.Intermediate,
+      difficulty: Difficulty.Beginner,
     },
   ],
 };
@@ -3278,279 +2828,6 @@ print(is_isomorphic(s, t))  # Output: True`,
         'This is incorrect. The String Pattern Matching pattern using two dictionaries has a time complexity of O(n).',
         'This is correct. The String Pattern Matching pattern using two dictionaries has a time complexity of O(n).',
         'This is incorrect. The String Pattern Matching pattern using two dictionaries has a time complexity of O(n).',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const spaceComplexityData: LessonContent = {
-  title: 'Space Complexity Analysis',
-  content: `<p>
-Space complexity analysis is crucial for understanding the memory usage of algorithms, especially when using data structures like dictionaries. 
-The space complexity of a dictionary depends on the number of key-value pairs it stores and the size of each key and value. 
-Here's how you can analyze the space complexity of dictionary-based algorithms:
-</p>
-
-<ul>
-<li><strong>Number of Elements:</strong> The space complexity is directly proportional to the number of elements stored in the dictionary.</li>
-<li><strong>Size of Keys and Values:</strong> The space complexity also depends on the size of the keys and values stored in the dictionary.</li>
-<li><strong>Auxiliary Space:</strong> Consider any additional space used by the algorithm, such as temporary variables or data structures.</li>
-</ul>`,
-  codeExample: `# Example of space complexity analysis in Python
-def count_elements(nums):
-    element_count = {}
-    for num in nums:
-        if num in element_count:
-            element_count[num] += 1
-        else:
-            element_count[num] = 1
-    return element_count
-
-# Example usage
-nums = [1, 2, 2, 3, 3, 3]
-print(count_elements(nums))  # Output: {1: 1, 2: 2, 3: 3}
-
-# Space complexity analysis:
-# - The dictionary 'element_count' stores 'n' elements, where 'n' is the number of unique elements in 'nums'.
-# - Each key and value in the dictionary consumes a certain amount of memory.
-# - The overall space complexity is O(n), where 'n' is the number of unique elements.`,
-  exercises: [
-    {
-      prompt: 'Analyze the space complexity of the following function that counts the frequency of each element in an array.',
-      initialCode: `# Write your solution here
-def count_elements(nums):
-    element_count = {}
-    for num in nums:
-        if num in element_count:
-            element_count[num] += 1
-        else:
-            element_count[num] = 1
-    return element_count
-
-# Example usage
-nums = [1, 2, 2, 3, 3, 3]
-print(count_elements(nums))  # Output: {1: 1, 2: 2, 3: 3}`,
-      solution: `def count_elements(nums):
-    element_count = {}
-    for num in nums:
-        if num in element_count:
-            element_count[num] += 1
-        else:
-            element_count[num] = 1
-    return element_count
-
-# Example usage
-nums = [1, 2, 2, 3, 3, 3]
-print(count_elements(nums))  # Output: {1: 1, 2: 2, 3: 3}
-
-# Space complexity analysis:
-# - The dictionary 'element_count' stores 'n' elements, where 'n' is the number of unique elements in 'nums'.
-# - Each key and value in the dictionary consumes a certain amount of memory.
-# - The overall space complexity is O(n), where 'n' is the number of unique elements.`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the space complexity of a dictionary that stores n key-value pairs, where each key and value is of constant size?',
-      options: [
-        'O(1)',
-        'O(log n)',
-        'O(n)',
-        'O(n^2)',
-      ],
-      correctAnswer: 2,
-      explanations: [
-        'This is incorrect. The space complexity is not constant.',
-        'This is incorrect. The space complexity is not logarithmic.',
-        'This is correct. The space complexity is linear, O(n).',
-        'This is incorrect. The space complexity is not quadratic.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const timeComplexityData: LessonContent = {
-  title: 'Time Complexity Optimization',
-  content: `<p>
-Time complexity optimization is essential for ensuring that dictionary-based algorithms run efficiently. 
-The time complexity of dictionary operations, such as insertion, deletion, and lookup, is typically O(1) on average. 
-However, certain operations and patterns can lead to higher time complexities. 
-Here are some techniques for optimizing time complexity:
-</p>
-
-<ul>
-<li><strong>Avoid Nested Loops:</strong> Nested loops can lead to O(n^2) time complexity. Use dictionaries to reduce the complexity.</li>
-<li><strong>Use Efficient Data Structures:</strong> Choose the right data structure for the problem to minimize time complexity.</li>
-<li><strong>Precompute Values:</strong> Precompute values and store them in a dictionary to avoid redundant calculations.</li>
-</ul>`,
-  codeExample: `# Example of time complexity optimization in Python
-def two_sum(nums, target):
-    num_dict = {}
-    for i, num in enumerate(nums):
-        complement = target - num
-        if complement in num_dict:
-            return [num_dict[complement], i]
-        num_dict[num] = i
-    return None
-
-# Example usage
-nums = [2, 7, 11, 15]
-target = 9
-print(two_sum(nums, target))  # Output: [0, 1]
-
-# Time complexity analysis:
-# - The dictionary 'num_dict' allows for O(1) average time complexity for lookups.
-# - The overall time complexity is O(n), where 'n' is the number of elements in 'nums'.`,
-  exercises: [
-    {
-      prompt: 'Optimize the following function that finds two distinct elements in an array that sum up to a given target.',
-      initialCode: `# Write your solution here
-def two_sum(nums, target):
-    for i in range(len(nums)):
-        for j in range(i + 1, len(nums)):
-            if nums[i] + nums[j] == target:
-                return [i, j]
-    return None
-
-# Example usage
-nums = [2, 7, 11, 15]
-target = 9
-print(two_sum(nums, target))  # Output: [0, 1]`,
-      solution: `def two_sum(nums, target):
-    num_dict = {}
-    for i, num in enumerate(nums):
-        complement = target - num
-        if complement in num_dict:
-            return [num_dict[complement], i]
-        num_dict[num] = i
-    return None
-
-# Example usage
-nums = [2, 7, 11, 15]
-target = 9
-print(two_sum(nums, target))  # Output: [0, 1]
-
-# Time complexity analysis:
-# - The dictionary 'num_dict' allows for O(1) average time complexity for lookups.
-# - The overall time complexity is O(n), where 'n' is the number of elements in 'nums'.`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the average time complexity of a dictionary lookup operation?',
-      options: [
-        'O(1)',
-        'O(log n)',
-        'O(n)',
-        'O(n^2)',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The average time complexity of a dictionary lookup operation is O(1).',
-        'This is incorrect. The time complexity is not logarithmic.',
-        'This is incorrect. The time complexity is not linear.',
-        'This is incorrect. The time complexity is not quadratic.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const memoryEfficientData: LessonContent = {
-  title: 'Memory-Efficient Dictionaries',
-  content: `<p>
-Memory-efficient dictionaries are crucial for reducing the memory footprint of algorithms, especially when dealing with large datasets. 
-Here are some techniques for creating memory-efficient dictionaries:
-</p>
-
-<ul>
-<li><strong>Use Smaller Data Types:</strong> Use smaller data types for keys and values to reduce memory usage.</li>
-<li><strong>Sparse Data Structures:</strong> Use sparse data structures to store only non-zero or non-null values.</li>
-<li><strong>Compression Techniques:</strong> Apply compression techniques to reduce the size of keys and values.</li>
-<li><strong>Memory-Mapped Files:</strong> Use memory-mapped files to store large dictionaries on disk and access them as if they were in memory.</li>
-</ul>`,
-  codeExample: `# Example of memory-efficient dictionary in Python
-import sys
-
-def create_memory_efficient_dict(nums):
-    memory_efficient_dict = {}
-    for num in nums:
-        if num in memory_efficient_dict:
-            memory_efficient_dict[num] += 1
-        else:
-            memory_efficient_dict[num] = 1
-    return memory_efficient_dict
-
-# Example usage
-nums = [1, 2, 2, 3, 3, 3]
-memory_efficient_dict = create_memory_efficient_dict(nums)
-print(memory_efficient_dict)  # Output: {1: 1, 2: 2, 3: 3}
-
-# Memory usage analysis:
-# - The dictionary 'memory_efficient_dict' stores 'n' elements, where 'n' is the number of unique elements in 'nums'.
-# - Each key and value in the dictionary consumes a certain amount of memory.
-# - The overall memory usage is minimized by using smaller data types and efficient data structures.`,
-  exercises: [
-    {
-      prompt: 'Create a memory-efficient dictionary that counts the frequency of each element in an array.',
-      initialCode: `# Write your solution here
-import sys
-
-def create_memory_efficient_dict(nums):
-    memory_efficient_dict = {}
-    for num in nums:
-        if num in memory_efficient_dict:
-            memory_efficient_dict[num] += 1
-        else:
-            memory_efficient_dict[num] = 1
-    return memory_efficient_dict
-
-# Example usage
-nums = [1, 2, 2, 3, 3, 3]
-memory_efficient_dict = create_memory_efficient_dict(nums)
-print(memory_efficient_dict)  # Output: {1: 1, 2: 2, 3: 3}`,
-      solution: `import sys
-
-def create_memory_efficient_dict(nums):
-    memory_efficient_dict = {}
-    for num in nums:
-        if num in memory_efficient_dict:
-            memory_efficient_dict[num] += 1
-        else:
-            memory_efficient_dict[num] = 1
-    return memory_efficient_dict
-
-# Example usage
-nums = [1, 2, 2, 3, 3, 3]
-memory_efficient_dict = create_memory_efficient_dict(nums)
-print(memory_efficient_dict)  # Output: {1: 1, 2: 2, 3: 3}
-
-# Memory usage analysis:
-# - The dictionary 'memory_efficient_dict' stores 'n' elements, where 'n' is the number of unique elements in 'nums'.
-# - Each key and value in the dictionary consumes a certain amount of memory.
-# - The overall memory usage is minimized by using smaller data types and efficient data structures.`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which technique can be used to reduce the memory usage of a dictionary?',
-      options: [
-        'Using larger data types',
-        'Using sparse data structures',
-        'Ignoring memory usage',
-        'Increasing the size of keys and values',
-      ],
-      correctAnswer: 1,
-      explanations: [
-        'This is incorrect. Using larger data types increases memory usage.',
-        'This is correct. Using sparse data structures can reduce memory usage.',
-        'This is incorrect. Ignoring memory usage is not a valid technique.',
-        'This is incorrect. Increasing the size of keys and values increases memory usage.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -4372,649 +3649,199 @@ def find_anagrams(text, pattern):
   ],
 };
 
-const arrayIntersectionData: LessonContent = {
-  title: 'Array Intersection/Union',
+const arrayOperationsWithDictionariesData: LessonContent = {
+  title: 'Array Operations with Dictionaries',
   content: `<p>
-Finding common elements between two arrays (intersection) or combining elements from two arrays (union) is a common problem in algorithm design. 
-Dictionaries can be used to efficiently solve these problems by leveraging their fast lookup and insertion properties.
+Array operations involving intersections and unions can be efficiently solved using dictionaries. 
+Dictionaries provide a fast way to check for the presence of elements and to count occurrences, making them ideal for these types of problems.
 </p>
 
 <ul>
-<li><strong>Tracking elements:</strong> Use dictionaries to keep track of elements in one array.</li>
-<li><strong>Intersection:</strong> Check for common elements by looking up elements from the second array in the dictionary.</li>
-<li><strong>Union:</strong> Combine elements from both arrays while ensuring uniqueness using dictionaries.</li>
+<li><strong>Intersection of Arrays:</strong> Find common elements between two arrays.</li>
+<li><strong>Union of Arrays:</strong> Combine elements from two arrays without duplicates.</li>
+<li><strong>Counting Occurrences:</strong> Use dictionaries to count how many times each element appears in an array.</li>
+<li><strong>Finding Unique Elements:</strong> Identify elements that appear only once in an array.</li>
+<li><strong>Removing Duplicates:</strong> Create a new array with all duplicate elements removed.</li>
 </ul>`,
-  codeExample: `# Array Intersection and Union with Dictionaries
+  codeExample: `# Intersection of Arrays
 def array_intersection(arr1, arr2):
     set1 = set(arr1)
     set2 = set(arr2)
     return list(set1 & set2)
 
+arr1 = [1, 2, 3, 4, 5]
+arr2 = [4, 5, 6, 7, 8]
+print(array_intersection(arr1, arr2))  # Output: [4, 5]
+
+# Union of Arrays
 def array_union(arr1, arr2):
     set1 = set(arr1)
     set2 = set(arr2)
-    return list(set1 | set2)`,
+    return list(set1 | set2)
+
+print(array_union(arr1, arr2))  # Output: [1, 2, 3, 4, 5, 6, 7, 8]
+
+# Counting Occurrences
+def count_occurrences(arr):
+    count_dict = {}
+    for item in arr:
+        if item in count_dict:
+            count_dict[item] += 1
+        else:
+            count_dict[item] = 1
+    return count_dict
+
+arr = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+print(count_occurrences(arr))  # Output: {1: 1, 2: 2, 3: 3, 4: 4}
+
+# Finding Unique Elements
+def find_unique_elements(arr):
+    count_dict = count_occurrences(arr)
+    return [item for item, count in count_dict.items() if count == 1]
+
+print(find_unique_elements(arr))  # Output: [1]
+
+# Removing Duplicates
+def remove_duplicates(arr):
+    return list(set(arr))
+
+print(remove_duplicates(arr))  # Output: [1, 2, 3, 4]`,
   exercises: [
     {
       prompt:
-        'Create a function that takes two arrays and returns their intersection.',
+        'Given two arrays, find the intersection of the two arrays using a dictionary.',
       initialCode: `# Write your solution here
 def array_intersection(arr1, arr2):
-    return `,
+    return 
+
+arr1 = [1, 2, 3, 4, 5]
+arr2 = [4, 5, 6, 7, 8]
+print(array_intersection(arr1, arr2))`,
       solution: `def array_intersection(arr1, arr2):
-    set1 = set(arr1)
-    set2 = set(arr2)
-    return list(set1 & set2)`,
-      difficulty: Difficulty.Beginner,
+    count_dict = {}
+    intersection = []
+    
+    for item in arr1:
+        if item in count_dict:
+            count_dict[item] += 1
+        else:
+            count_dict[item] = 1
+    
+    for item in arr2:
+        if item in count_dict and count_dict[item] > 0:
+            intersection.append(item)
+            count_dict[item] -= 1
+    
+    return intersection
+
+arr1 = [1, 2, 3, 4, 5]
+arr2 = [4, 5, 6, 7, 8]
+print(array_intersection(arr1, arr2))`,
+      difficulty: Difficulty.Intermediate,
     },
     {
       prompt:
-        'Create a function that takes two arrays and returns their union.',
+        'Given two arrays, find the union of the two arrays using a dictionary.',
       initialCode: `# Write your solution here
 def array_union(arr1, arr2):
-    return `,
+    return 
+
+arr1 = [1, 2, 3, 4, 5]
+arr2 = [4, 5, 6, 7, 8]
+print(array_union(arr1, arr2))`,
       solution: `def array_union(arr1, arr2):
-    set1 = set(arr1)
-    set2 = set(arr2)
-    return list(set1 | set2)`,
-      difficulty: Difficulty.Beginner,
+    union_dict = {}
+    
+    for item in arr1:
+        union_dict[item] = True
+    
+    for item in arr2:
+        union_dict[item] = True
+    
+    return list(union_dict.keys())
+
+arr1 = [1, 2, 3, 4, 5]
+arr2 = [4, 5, 6, 7, 8]
+print(array_union(arr1, arr2))`,
+      difficulty: Difficulty.Intermediate,
     },
     {
       prompt:
-        'Create a function that takes two arrays and returns their symmetric difference.',
+        'Given an array, count the occurrences of each element using a dictionary.',
       initialCode: `# Write your solution here
-def array_symmetric_difference(arr1, arr2):
-    return `,
-      solution: `def array_symmetric_difference(arr1, arr2):
-    set1 = set(arr1)
-    set2 = set(arr2)
-    return list(set1 ^ set2)`,
-      difficulty: Difficulty.Intermediate,
+def count_occurrences(arr):
+    return 
+
+arr = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+print(count_occurrences(arr))`,
+      solution: `def count_occurrences(arr):
+    count_dict = {}
+    for item in arr:
+        if item in count_dict:
+            count_dict[item] += 1
+        else:
+            count_dict[item] = 1
+    return count_dict
+
+arr = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+print(count_occurrences(arr))`,
+      difficulty: Difficulty.Beginner,
     },
   ],
   quizzes: [
     {
       question:
-        'Which of the following is a common use case for dictionaries in array intersection and union problems?',
+        'Which of the following is the correct way to find the intersection of two arrays using a dictionary?',
       options: [
-        'Tracking elements',
-        'Finding common elements',
-        'Combining elements',
-        'All of the above',
+        'Using a dictionary to count occurrences and then checking for common elements.',
+        'Using a list comprehension to filter elements that are in both arrays.',
+        'Using the sorted() function with a custom key.',
+        'Using the set() function to remove duplicates.',
       ],
-      correctAnswer: 3,
+      correctAnswer: 0,
       explanations: [
-        'This is correct. Dictionaries are used to track elements in one array.',
-        'This is correct. Dictionaries are used to find common elements between arrays.',
-        'This is correct. Dictionaries are used to combine elements from two arrays.',
-        'This is correct. All of the above are common use cases for dictionaries in these problems.',
+        'This is correct. It uses a dictionary to count occurrences and then checks for common elements.',
+        'This is incorrect because it does not use a dictionary.',
+        'This is incorrect because it sorts the elements, not finds the intersection.',
+        'This is incorrect because it removes duplicates, not finds the intersection.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
       question:
-        'Which of the following operations is most efficient when using a dictionary in array intersection and union problems?',
+        'Which of the following is the correct way to find the union of two arrays using a dictionary?',
       options: [
-        'Insertion',
-        'Deletion',
-        'Lookup',
-        'All of the above',
-      ],
-      correctAnswer: 3,
-      explanations: [
-        'This is correct. Insertion in a dictionary is efficient.',
-        'This is correct. Deletion in a dictionary is efficient.',
-        'This is correct. Lookup in a dictionary is efficient.',
-        'This is correct. All of the above operations are efficient in a dictionary.',
-      ],
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-};
-
-const counterClassData: LessonContent = {
-  title: 'Counter Class',
-  content: `<p>
-The Counter class from the collections module in Python is a specialized dictionary subclass designed for counting hashable objects. 
-It is particularly useful for counting the frequency of elements in a collection. 
-Here's how you can use the Counter class:
-</p>
-
-<ul>
-<li><strong>Counting Elements:</strong> The Counter class can count the occurrences of each element in a list, string, or any iterable.</li>
-<li><strong>Most Common Elements:</strong> The Counter class provides a method to get the most common elements and their counts.</li>
-<li><strong>Arithmetic Operations:</strong> The Counter class supports arithmetic operations like addition, subtraction, intersection, and union.</li>
-</ul>`,
-  codeExample: `# Example of Counter class in Python
-from collections import Counter
-
-# Counting elements in a list
-elements = ['a', 'b', 'a', 'c', 'b', 'a']
-element_count = Counter(elements)
-print(element_count)  # Output: Counter({'a': 3, 'b': 2, 'c': 1})
-
-# Counting elements in a string
-text = "hello world"
-char_count = Counter(text)
-print(char_count)  # Output: Counter({'l': 3, 'o': 2, 'h': 1, 'e': 1, ' ': 1, 'w': 1, 'r': 1, 'd': 1})
-
-# Most common elements
-print(element_count.most_common(2))  # Output: [('a', 3), ('b', 2)]
-
-# Arithmetic operations
-c1 = Counter(a=3, b=1)
-c2 = Counter(a=1, b=2)
-print(c1 + c2)  # Output: Counter({'a': 4, 'b': 3})
-print(c1 - c2)  # Output: Counter({'a': 2})
-print(c1 & c2)  # Output: Counter({'a': 1, 'b': 1})
-print(c1 | c2)  # Output: Counter({'a': 3, 'b': 2})`,
-  exercises: [
-    {
-      prompt: 'Use the Counter class to count the frequency of each word in a given text.',
-      initialCode: `# Write your solution here
-from collections import Counter
-
-text = "the quick brown fox jumps over the lazy dog"
-words = text.split()
-word_count = Counter(words)
-print(word_count)`,
-      solution: `from collections import Counter
-
-text = "the quick brown fox jumps over the lazy dog"
-words = text.split()
-word_count = Counter(words)
-print(word_count)  # Output: Counter({'the': 2, 'quick': 1, 'brown': 1, 'fox': 1, 'jumps': 1, 'over': 1, 'lazy': 1, 'dog': 1})`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the time complexity of counting elements using the Counter class?',
-      options: [
-        'O(1)',
-        'O(log n)',
-        'O(n)',
-        'O(n^2)',
-      ],
-      correctAnswer: 2,
-      explanations: [
-        'This is incorrect. The time complexity is not constant.',
-        'This is incorrect. The time complexity is not logarithmic.',
-        'This is correct. The time complexity is linear, O(n), where n is the number of elements.',
-        'This is incorrect. The time complexity is not quadratic.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const bidictData: LessonContent = {
-  title: 'Bidirectional Dictionaries',
-  content: `<p>
-A bidirectional dictionary (or bidict) is a dictionary that allows for efficient lookups in both directions, i.e., from key to value and from value to key. 
-This can be particularly useful in scenarios where you need to map two sets of data bidirectionally. 
-Here's how you can use a bidict:
-</p>
-
-<ul>
-<li><strong>Bidirectional Mapping:</strong> A bidict maintains a mapping from keys to values and from values to keys.</li>
-<li><strong>Efficient Lookups:</strong> Both key-to-value and value-to-key lookups are efficient.</li>
-<li><strong>Custom Implementations:</strong> You can implement a bidict using two dictionaries or use a specialized library like bidict.</li>
-</ul>`,
-  codeExample: `# Example of bidict using two dictionaries in Python
-class Bidict:
-    def __init__(self):
-        self.forward = {}
-        self.backward = {}
-
-    def add(self, key, value):
-        self.forward[key] = value
-        self.backward[value] = key
-
-    def get_forward(self, key):
-        return self.forward.get(key)
-
-    def get_backward(self, value):
-        return self.backward.get(value)
-
-# Example usage
-bidict = Bidict()
-bidict.add('a', 1)
-bidict.add('b', 2)
-print(bidict.get_forward('a'))  # Output: 1
-print(bidict.get_backward(2))  # Output: b`,
-  exercises: [
-    {
-      prompt: 'Implement a bidirectional dictionary using two dictionaries.',
-      initialCode: `# Write your solution here
-class Bidict:
-    def __init__(self):
-        self.forward = {}
-        self.backward = {}
-
-    def add(self, key, value):
-        self.forward[key] = value
-        self.backward[value] = key
-
-    def get_forward(self, key):
-        return self.forward.get(key)
-
-    def get_backward(self, value):
-        return self.backward.get(value)
-
-# Example usage
-bidict = Bidict()
-bidict.add('a', 1)
-bidict.add('b', 2)
-print(bidict.get_forward('a'))  # Output: 1
-print(bidict.get_backward(2))  # Output: b`,
-      solution: `class Bidict:
-    def __init__(self):
-        self.forward = {}
-        self.backward = {}
-
-    def add(self, key, value):
-        self.forward[key] = value
-        self.backward[value] = key
-
-    def get_forward(self, key):
-        return self.forward.get(key)
-
-    def get_backward(self, value):
-        return self.backward.get(value)
-
-# Example usage
-bidict = Bidict()
-bidict.add('a', 1)
-bidict.add('b', 2)
-print(bidict.get_forward('a'))  # Output: 1
-print(bidict.get_backward(2))  # Output: b`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the time complexity of a bidirectional dictionary lookup using two dictionaries?',
-      options: [
-        'O(1)',
-        'O(log n)',
-        'O(n)',
-        'O(n^2)',
+        'Using a dictionary to store elements from both arrays without duplicates.',
+        'Using a list comprehension to combine elements from both arrays.',
+        'Using the sorted() function with a custom key.',
+        'Using the set() function to remove duplicates.',
       ],
       correctAnswer: 0,
       explanations: [
-        'This is correct. The time complexity is constant, O(1).',
-        'This is incorrect. The time complexity is not logarithmic.',
-        'This is incorrect. The time complexity is not linear.',
-        'This is incorrect. The time complexity is not quadratic.',
+        'This is correct. It uses a dictionary to store elements from both arrays without duplicates.',
+        'This is incorrect because it does not use a dictionary.',
+        'This is incorrect because it sorts the elements, not finds the union.',
+        'This is incorrect because it removes duplicates, not finds the union.',
       ],
       difficulty: Difficulty.Intermediate,
     },
-  ],
-};
-
-const frozenDictData: LessonContent = {
-  title: 'Immutable Dictionaries',
-  content: `<p>
-Immutable dictionaries, also known as frozen dictionaries, are dictionaries that cannot be modified after they are created. 
-This can be useful in scenarios where you need to ensure that the dictionary remains unchanged. 
-Here's how you can work with immutable dictionaries:
-</p>
-
-<ul>
-<li><strong>FrozenDict:</strong> A frozen dictionary is a dictionary that cannot be modified after creation.</li>
-<li><strong>Efficient Lookups:</strong> Immutable dictionaries provide efficient lookups, similar to regular dictionaries.</li>
-<li><strong>Custom Implementations:</strong> You can implement a frozen dictionary using a specialized library like frozendict or by creating a custom class.</li>
-</ul>`,
-  codeExample: `# Example of frozen dictionary using frozendict in Python
-from frozendict import frozendict
-
-# Creating a frozen dictionary
-frozen_dict = frozendict({'a': 1, 'b': 2})
-
-# Attempting to modify the frozen dictionary
-try:
-    frozen_dict['a'] = 3
-except TypeError as e:
-    print(e)  # Output: '\'frozendict\' object does not support item assignment'
-
-# Efficient lookups
-print(frozen_dict['a'])  # Output: 1`,
-  exercises: [
     {
-      prompt: 'Implement a frozen dictionary using a custom class that raises an error when attempting to modify it.',
-      initialCode: `# Write your solution here
-class FrozenDict:
-    def __init__(self, data):
-        self._data = data
-
-    def __getitem__(self, key):
-        return self._data[key]
-
-    def __setitem__(self, key, value):
-        raise TypeError("'FrozenDict' object does not support item assignment")
-
-# Example usage
-frozen_dict = FrozenDict({'a': 1, 'b': 2})
-print(frozen_dict['a'])  # Output: 1
-try:
-    frozen_dict['a'] = 3
-except TypeError as e:
-    print(e)  # Output: 'FrozenDict' object does not support item assignment'`,
-      solution: `class FrozenDict:
-    def __init__(self, data):
-        self._data = data
-
-    def __getitem__(self, key):
-        return self._data[key]
-
-    def __setitem__(self, key, value):
-        raise TypeError("'FrozenDict' object does not support item assignment")
-
-# Example usage
-frozen_dict = FrozenDict({'a': 1, 'b': 2})
-print(frozen_dict['a'])  # Output: 1
-try:
-    frozen_dict['a'] = 3
-except TypeError as e:
-    print(e)  # Output: 'FrozenDict' object does not support item assignment'`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the time complexity of a lookup in an immutable dictionary?',
+      question:
+        'Which of the following is the correct way to count the occurrences of each element in an array using a dictionary?',
       options: [
-        'O(1)',
-        'O(log n)',
-        'O(n)',
-        'O(n^2)',
+        'Using a dictionary to store the count of each element.',
+        'Using a list comprehension to filter elements by count.',
+        'Using the sorted() function with a custom key.',
+        'Using the set() function to remove duplicates.',
       ],
       correctAnswer: 0,
       explanations: [
-        'This is correct. The time complexity is constant, O(1).',
-        'This is incorrect. The time complexity is not logarithmic.',
-        'This is incorrect. The time complexity is not linear.',
-        'This is incorrect. The time complexity is not quadratic.',
+        'This is correct. It uses a dictionary to store the count of each element.',
+        'This is incorrect because it does not count occurrences.',
+        'This is incorrect because it sorts the elements, not counts occurrences.',
+        'This is incorrect because it removes duplicates, not counts occurrences.',
       ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const consistentHashingData: LessonContent = {
-  title: 'Consistent Hashing',
-  content: `<p>
-Consistent hashing is a technique used in distributed systems to distribute data across multiple servers in a way that minimizes reorganization when servers are added or removed. 
-It is particularly useful in scenarios like distributed caching, load balancing, and distributed hash tables. 
-Here's how consistent hashing works:
-</p>
-
-<ul>
-<li><strong>Hash Function:</strong> A hash function is used to map keys to a range of values.</li>
-<li><strong>Hash Ring:</strong> The range of values is represented as a circular ring, where each server is assigned a position on the ring.</li>
-<li><strong>Data Distribution:</strong> Each key is mapped to a position on the ring, and the data is stored on the server that is the next clockwise position on the ring.</li>
-<li><strong>Server Addition/Removal:</strong> When a server is added or removed, only a small portion of the data needs to be moved to the new or remaining servers.</li>
-</ul>`,
-  codeExample: `# Example of consistent hashing in Python
-import hashlib
-
-class ConsistentHashing:
-    def __init__(self, servers):
-        self.servers = servers
-        self.hash_ring = {}
-        for server in servers:
-            self.add_server(server)
-
-    def hash_function(self, key):
-        return int(hashlib.md5(key.encode()).hexdigest(), 16)
-
-    def add_server(self, server):
-        position = self.hash_function(server)
-        self.hash_ring[position] = server
-
-    def remove_server(self, server):
-        position = self.hash_function(server)
-        del self.hash_ring[position]
-
-    def get_server(self, key):
-        position = self.hash_function(key)
-        for ring_position in sorted(self.hash_ring.keys()):
-            if position <= ring_position:
-                return self.hash_ring[ring_position]
-        return self.hash_ring[min(self.hash_ring.keys())]
-
-# Example usage
-servers = ['server1', 'server2', 'server3']
-ch = ConsistentHashing(servers)
-print(ch.get_server('key1'))  # Output: server1
-print(ch.get_server('key2'))  # Output: server2
-ch.remove_server('server2')
-print(ch.get_server('key2'))  # Output: server3`,
-  exercises: [
-    {
-      prompt: 'Implement a simple consistent hashing system using a hash ring.',
-      initialCode: `# Write your solution here
-import hashlib
-
-class ConsistentHashing:
-    def __init__(self, servers):
-        self.servers = servers
-        self.hash_ring = {}
-        for server in servers:
-            self.add_server(server)
-
-    def hash_function(self, key):
-        return int(hashlib.md5(key.encode()).hexdigest(), 16)
-
-    def add_server(self, server):
-        position = self.hash_function(server)
-        self.hash_ring[position] = server
-
-    def remove_server(self, server):
-        position = self.hash_function(server)
-        del self.hash_ring[position]
-
-    def get_server(self, key):
-        position = self.hash_function(key)
-        for ring_position in sorted(self.hash_ring.keys()):
-            if position <= ring_position:
-                return self.hash_ring[ring_position]
-        return self.hash_ring[min(self.hash_ring.keys())]
-
-# Example usage
-servers = ['server1', 'server2', 'server3']
-ch = ConsistentHashing(servers)
-print(ch.get_server('key1'))  # Output: server1
-print(ch.get_server('key2'))  # Output: server2
-ch.remove_server('server2')
-print(ch.get_server('key2'))  # Output: server3`,
-      solution: `import hashlib
-
-class ConsistentHashing:
-    def __init__(self, servers):
-        self.servers = servers
-        self.hash_ring = {}
-        for server in servers:
-            self.add_server(server)
-
-    def hash_function(self, key):
-        return int(hashlib.md5(key.encode()).hexdigest(), 16)
-
-    def add_server(self, server):
-        position = self.hash_function(server)
-        self.hash_ring[position] = server
-
-    def remove_server(self, server):
-        position = self.hash_function(server)
-        del self.hash_ring[position]
-
-    def get_server(self, key):
-        position = self.hash_function(key)
-        for ring_position in sorted(self.hash_ring.keys()):
-            if position <= ring_position:
-                return self.hash_ring[ring_position]
-        return self.hash_ring[min(self.hash_ring.keys())]
-
-# Example usage
-servers = ['server1', 'server2', 'server3']
-ch = ConsistentHashing(servers)
-print(ch.get_server('key1'))  # Output: server1
-print(ch.get_server('key2'))  # Output: server2
-ch.remove_server('server2')
-print(ch.get_server('key2'))  # Output: server3`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary advantage of consistent hashing in distributed systems?',
-      options: [
-        'Minimal data movement when servers are added or removed',
-        'Simplified data storage',
-        'Reduced latency',
-        'Increased server capacity',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. Consistent hashing minimizes data movement when servers are added or removed.',
-        'This is incorrect. Consistent hashing does not simplify data storage.',
-        'This is incorrect. Consistent hashing does not necessarily reduce latency.',
-        'This is incorrect. Consistent hashing does not increase server capacity.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const cacheDesignData: LessonContent = {
-  title: 'Cache System Design',
-  content: `<p>
-Cache systems are used to store frequently accessed data in a fast-access storage layer to improve performance. 
-Dictionaries (or hash maps) are often used to implement cache systems efficiently. 
-Here's how you can design a cache system using dictionaries:
-</p>
-
-<ul>
-<li><strong>Cache Storage:</strong> Use a dictionary to store key-value pairs where the key is the data identifier and the value is the data.</li>
-<li><strong>Cache Eviction Policies:</strong> Implement policies like LRU (Least Recently Used) or FIFO (First In, First Out) to evict data when the cache reaches its capacity.</li>
-<li><strong>Cache Hit/Miss:</strong> Check if the requested data is in the cache (cache hit) or not (cache miss) and handle accordingly.</li>
-</ul>`,
-  codeExample: `# Example of cache system design using dictionaries in Python
-class LRUCache:
-    def __init__(self, capacity):
-        self.capacity = capacity
-        self.cache = {}
-        self.order = []
-
-    def get(self, key):
-        if key in self.cache:
-            self.order.remove(key)
-            self.order.append(key)
-            return self.cache[key]
-        return None
-
-    def put(self, key, value):
-        if key in self.cache:
-            self.order.remove(key)
-        elif len(self.cache) >= self.capacity:
-            oldest = self.order.pop(0)
-            del self.cache[oldest]
-        self.cache[key] = value
-        self.order.append(key)
-
-# Example usage
-cache = LRUCache(2)
-cache.put('a', 1)
-cache.put('b', 2)
-print(cache.get('a'))  # Output: 1
-cache.put('c', 3)
-print(cache.get('b'))  # Output: None
-print(cache.get('c'))  # Output: 3`,
-  exercises: [
-    {
-      prompt: 'Implement an LRU cache system using a dictionary and a list to maintain the order of access.',
-      initialCode: `# Write your solution here
-class LRUCache:
-    def __init__(self, capacity):
-        self.capacity = capacity
-        self.cache = {}
-        self.order = []
-
-    def get(self, key):
-        if key in self.cache:
-            self.order.remove(key)
-            self.order.append(key)
-            return self.cache[key]
-        return None
-
-    def put(self, key, value):
-        if key in self.cache:
-            self.order.remove(key)
-        elif len(self.cache) >= self.capacity:
-            oldest = self.order.pop(0)
-            del self.cache[oldest]
-        self.cache[key] = value
-        self.order.append(key)
-
-# Example usage
-cache = LRUCache(2)
-cache.put('a', 1)
-cache.put('b', 2)
-print(cache.get('a'))  # Output: 1
-cache.put('c', 3)
-print(cache.get('b'))  # Output: None
-print(cache.get('c'))  # Output: 3`,
-      solution: `class LRUCache:
-    def __init__(self, capacity):
-        self.capacity = capacity
-        self.cache = {}
-        self.order = []
-
-    def get(self, key):
-        if key in self.cache:
-            self.order.remove(key)
-            self.order.append(key)
-            return self.cache[key]
-        return None
-
-    def put(self, key, value):
-        if key in self.cache:
-            self.order.remove(key)
-        elif len(self.cache) >= self.capacity:
-            oldest = self.order.pop(0)
-            del self.cache[oldest]
-        self.cache[key] = value
-        self.order.append(key)
-
-# Example usage
-cache = LRUCache(2)
-cache.put('a', 1)
-cache.put('b', 2)
-print(cache.get('a'))  # Output: 1
-cache.put('c', 3)
-print(cache.get('b'))  # Output: None
-print(cache.get('c'))  # Output: 3`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary purpose of a cache system in computing?',
-      options: [
-        'To store frequently accessed data for faster retrieval',
-        'To store all data permanently',
-        'To store data in a distributed manner',
-        'To store data in a sequential manner',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The primary purpose of a cache system is to store frequently accessed data for faster retrieval.',
-        'This is incorrect. A cache system does not store all data permanently.',
-        'This is incorrect. A cache system does not necessarily store data in a distributed manner.',
-        'This is incorrect. A cache system does not store data in a sequential manner.',
-      ],
-      difficulty: Difficulty.Intermediate,
+      difficulty: Difficulty.Beginner,
     },
   ],
 };
@@ -5035,27 +3862,19 @@ const dictionaryLessons: Record<string, LessonContent> = {
   'caching-pattern': cachingPatternData,
   'nested-dict': nestedDictData,
   'default-dict': defaultDictData,
-  'ordered-dict': orderedDictData,
+  'counter-class': counterClassData,
   'hash-function': hashFunctionData,
   'collision-handling': collisionHandlingData,
-  'load-factor': loadFactorData,
+  'time-space-complexity': timeSpaceComplexityAnalysisData,
   'two-sum-pattern': twoSumPatternData,
   'subarray-sum': subarraySumPatternData,
   'isomorphic-pattern': isomorphicPatternData,
-  'space-complexity': spaceComplexityData,
-  'time-complexity': timeComplexityData,
-  'memory-efficient': memoryEfficientData,
   'lru-cache': lruCacheData,
   'graph-representation': graphRepresentationData,
   'trie-implementation': trieImplementationData,
   'sliding-window': slidingWindowData,
   'anagram-problems': anagramProblemsData,
-  'array-intersection': arrayIntersectionData,
-  'counter-class': counterClassData,
-  'bidict': bidictData,
-  'frozen-dict': frozenDictData,
-  'consistent-hashing': consistentHashingData,
-  'cache-design': cacheDesignData,
+  'array-operations': arrayOperationsWithDictionariesData,
 };
 export const dictionaryLessonsTab: LessonsTab = {
   curriculum: dictionaryCurriculum,
