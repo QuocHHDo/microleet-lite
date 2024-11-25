@@ -1,5 +1,5 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab } from '@/common/commonLesson';
+import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
 
 const tupleCurriculum: Curriculum = {
   title: 'Tuple Curriculum',
@@ -13,18 +13,20 @@ const tupleCurriculum: Curriculum = {
         {
           id: 'tuple-basics',
           title: 'Introduction to Tuples',
-          description:
-            'Understanding what tuples are and their immutable nature',
+          description: 'Understanding what tuples are and their immutable nature',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'tuple-creation',
           title: 'Creating and Initializing Tuples',
           description: 'Different ways to define and create tuples in Python',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'tuple-vs-lists',
-          title: 'Tuples vs Lists',
-          description: 'Understanding key differences and when to use each',
+          title: 'Tuples vs Lists vs Sets',
+          description: 'Understanding key differences and when to use each data structure',
+          priority: PriorityLevel.Essential
         },
       ],
     },
@@ -36,17 +38,19 @@ const tupleCurriculum: Curriculum = {
           id: 'tuple-accessing',
           title: 'Accessing Tuple Elements',
           description: 'Indexing and accessing elements in tuples',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'tuple-unpacking',
           title: 'Tuple Unpacking',
           description: 'Destructuring and unpacking tuple elements',
+          priority: PriorityLevel.Important
         },
         {
           id: 'tuple-methods',
           title: 'Built-in Tuple Methods',
-          description:
-            'Understanding count(), index(), and other tuple methods',
+          description: 'Understanding count(), index(), and other tuple methods',
+          priority: PriorityLevel.Important
         },
       ],
     },
@@ -57,18 +61,20 @@ const tupleCurriculum: Curriculum = {
         {
           id: 'multiple-returns',
           title: 'Multiple Return Values',
-          description:
-            'Using tuples for returning multiple values from functions',
+          description: 'Using tuples for returning multiple values from functions',
+          priority: PriorityLevel.Important
         },
         {
           id: 'tuple-as-key',
           title: 'Tuples as Dictionary Keys',
           description: 'Utilizing tuples as immutable dictionary keys',
+          priority: PriorityLevel.Beneficial
         },
         {
           id: 'named-tuples',
           title: 'Named Tuples',
           description: 'Working with collections.namedtuple for readable code',
+          priority: PriorityLevel.Optional
         },
       ],
     },
@@ -78,18 +84,21 @@ const tupleCurriculum: Curriculum = {
       topics: [
         {
           id: 'tuple-performance',
-          title: 'Performance Considerations',
-          description: 'Understanding memory usage and performance benefits',
+          title: 'Time and Space Complexity',
+          description: 'Understanding performance characteristics of tuple operations',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'nested-tuples',
           title: 'Nested Tuples',
-          description: 'Working with tuples within tuples',
+          description: 'Working with tuples within tuples and common patterns',
+          priority: PriorityLevel.Important
         },
         {
           id: 'tuple-conversion',
           title: 'Type Conversion',
           description: 'Converting between tuples and other data structures',
+          priority: PriorityLevel.Important
         },
       ],
     },
@@ -100,12 +109,20 @@ const tupleCurriculum: Curriculum = {
         {
           id: 'tuple-sorting',
           title: 'Sorting Tuples',
-          description: 'Techniques for sorting lists of tuples',
+          description: 'Techniques for sorting lists of tuples and custom comparators',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'tuple-comparison',
           title: 'Tuple Comparison',
           description: 'Understanding how tuples are compared and ordered',
+          priority: PriorityLevel.Important
+        },
+        {
+          id: 'interview-problems',
+          title: 'Common Interview Problems',
+          description: 'Practice problems and patterns using tuples from real interviews',
+          priority: PriorityLevel.Essential
         },
       ],
     },
@@ -116,44 +133,14 @@ const tupleCurriculum: Curriculum = {
         {
           id: 'coordinate-systems',
           title: 'Coordinate Systems',
-          description: 'Using tuples for representing points and coordinates',
+          description: 'Using tuples for representing points and coordinates in graph problems',
+          priority: PriorityLevel.Important
         },
-        {
-          id: 'state-representation',
-          title: 'State Representation',
-          description: 'Representing state and transitions using tuples',
-        },
-      ],
-    },
-    {
-      id: 7,
-      title: 'Tuple Optimization',
-      topics: [
-        {
-          id: 'memory-efficiency',
-          title: 'Memory Optimization',
-          description: 'Techniques for efficient tuple usage in large programs',
-        },
-        {
-          id: 'tuple-caching',
-          title: 'Tuple Caching',
-          description: 'Understanding tuple internals and caching behavior',
-        },
-      ],
-    },
-    {
-      id: 8,
-      title: 'Tuples in Data Processing',
-      topics: [
         {
           id: 'data-aggregation',
           title: 'Data Aggregation',
-          description: 'Using tuples for grouping and aggregating data',
-        },
-        {
-          id: 'tuple-streams',
-          title: 'Processing Tuple Streams',
-          description: 'Working with streams of tuple data',
+          description: 'Using tuples for grouping and aggregating data in interview problems',
+          priority: PriorityLevel.Beneficial
         },
       ],
     },
@@ -1388,6 +1375,158 @@ print(is_less_than(tuple1, tuple2))`,
   ],
 };
 
+const interviewProblemsData: LessonContent = {
+  title: 'Common Interview Problems',
+  content: `<p>
+Tuples are often used in interview problems due to their immutability and ability to store multiple values. 
+Here are some common interview problems that involve tuples:
+</p>
+
+<ul>
+<li><strong>Grouping by Key:</strong> Given a list of tuples, group them by a specific key.</li>
+<li><strong>Sorting by Multiple Keys:</strong> Sort a list of tuples based on multiple keys.</li>
+<li><strong>Finding Unique Tuples:</strong> Identify unique tuples in a list.</li>
+<li><strong>Tuple Intersection:</strong> Find the intersection of two lists of tuples.</li>
+<li><strong>Tuple Summation:</strong> Sum the elements of tuples in a list.</li>
+</ul>`,
+  codeExample: `# Grouping by Key
+from collections import defaultdict
+
+data = [('a', 1), ('b', 2), ('a', 3), ('c', 4)]
+grouped = defaultdict(list)
+
+for key, value in data:
+    grouped[key].append(value)
+
+print(grouped)  # Output: defaultdict(<class 'list'>, {'a': [1, 3], 'b': [2], 'c': [4]})
+
+# Sorting by Multiple Keys
+data = [(1, 3), (2, 2), (3, 1)]
+sorted_data = sorted(data, key=lambda x: (x[1], x[0]))
+
+print(sorted_data)  # Output: [(3, 1), (2, 2), (1, 3)]
+
+# Finding Unique Tuples
+data = [(1, 2), (2, 3), (1, 2), (3, 4)]
+unique_tuples = list(set(data))
+
+print(unique_tuples)  # Output: [(1, 2), (2, 3), (3, 4)]
+
+# Tuple Intersection
+list1 = [(1, 2), (2, 3), (3, 4)]
+list2 = [(2, 3), (3, 4), (4, 5)]
+intersection = list(set(list1) & set(list2))
+
+print(intersection)  # Output: [(2, 3), (3, 4)]
+
+# Tuple Summation
+data = [(1, 2), (2, 3), (3, 4)]
+sum_tuples = sum((sum(t) for t in data))
+
+print(sum_tuples)  # Output: 15`,
+  exercises: [
+    {
+      prompt:
+        'Given a list of tuples, group them by the first element of each tuple.',
+      initialCode: `# Write your solution here
+data = [('a', 1), ('b', 2), ('a', 3), ('c', 4)]
+grouped = `,
+      solution: `from collections import defaultdict
+
+data = [('a', 1), ('b', 2), ('a', 3), ('c', 4)]
+grouped = defaultdict(list)
+
+for key, value in data:
+    grouped[key].append(value)
+
+print(grouped)`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Given a list of tuples, sort them first by the second element and then by the first element.',
+      initialCode: `# Write your solution here
+data = [(1, 3), (2, 2), (3, 1)]
+sorted_data = `,
+      solution: `data = [(1, 3), (2, 2), (3, 1)]
+sorted_data = sorted(data, key=lambda x: (x[1], x[0]))
+
+print(sorted_data)`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Given two lists of tuples, find the intersection of the two lists.',
+      initialCode: `# Write your solution here
+list1 = [(1, 2), (2, 3), (3, 4)]
+list2 = [(2, 3), (3, 4), (4, 5)]
+intersection = `,
+      solution: `list1 = [(1, 2), (2, 3), (3, 4)]
+list2 = [(2, 3), (3, 4), (4, 5)]
+intersection = list(set(list1) & set(list2))
+
+print(intersection)`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following is the correct way to group a list of tuples by the first element?',
+      options: [
+        'Using a dictionary with the first element as the key and a list of the second elements as the value.',
+        'Using a list comprehension to filter tuples by the first element.',
+        'Using the sorted() function with a custom key.',
+        'Using the set() function to remove duplicates.',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. It groups the tuples by the first element.',
+        'This is incorrect because it does not group the tuples.',
+        'This is incorrect because it sorts the tuples, not groups them.',
+        'This is incorrect because it removes duplicates, not groups them.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question:
+        'Which of the following is the correct way to sort a list of tuples by the second element, then by the first element?',
+      options: [
+        'sorted(data, key=lambda x: (x[1], x[0]))',
+        'sorted(data, key=lambda x: x[1])',
+        'sorted(data, key=lambda x: x[0])',
+        'sorted(data, key=lambda x: (x[0], x[1]))',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. It sorts the tuples by the second element, then by the first element.',
+        'This is incorrect because it only sorts by the second element.',
+        'This is incorrect because it only sorts by the first element.',
+        'This is incorrect because it sorts by the first element, then by the second element.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question:
+        'Which of the following is the correct way to find the intersection of two lists of tuples?',
+      options: [
+        'list(set(list1) & set(list2))',
+        'list(set(list1) | set(list2))',
+        'list(set(list1) - set(list2))',
+        'list(set(list1) ^ set(list2))',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. It finds the intersection of the two lists.',
+        'This is incorrect because it finds the union of the two lists.',
+        'This is incorrect because it finds the difference of the two lists.',
+        'This is incorrect because it finds the symmetric difference of the two lists.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
 const coordinateSystemsData: LessonContent = {
   title: 'Coordinate Systems',
   content: `<p>
@@ -1478,331 +1617,6 @@ print(result)`,
         'This is correct. This is the Euclidean distance formula.',
         'This is incorrect. The formula uses subtraction instead of addition.',
         'This is incorrect. The formula uses addition instead of subtraction.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const stateRepresentationData: LessonContent = {
-  title: 'State Representation',
-  content: `<p>
-Tuples can be used to represent states and transitions in various algorithms and data structures. 
-This is particularly useful in state machines, game development, and other applications where state management is important.
-</p>
-
-<ul>
-<li><strong>State representation:</strong> Use tuples to represent different states of a system.</li>
-<li><strong>State transitions:</strong> Define functions to transition between states using tuples.</li>
-<li><strong>State comparison:</strong> Compare states to determine if they are the same or different.</li>
-</ul>`,
-  codeExample: `# State representation
-initial_state = (0, 0)
-goal_state = (10, 10)
-
-# State transitions
-def move_right(state):
-    return (state[0] + 1, state[1])
-
-def move_up(state):
-    return (state[0], state[1] + 1)
-
-# State comparison
-def is_goal_state(state):
-    return state == goal_state
-
-current_state = initial_state
-while not is_goal_state(current_state):
-    current_state = move_right(current_state)
-    current_state = move_up(current_state)
-
-print(current_state)  # Output: (10, 10)`,
-  exercises: [
-    {
-      prompt:
-        'Create a tuple representing the initial state of a system. Define a function to transition the state to a new state and print the new state.',
-      initialCode: `# Write your solution here
-initial_state = `,
-      solution: `initial_state = (0, 0)
-
-def transition_state(state):
-    return (state[0] + 1, state[1] + 1)
-
-new_state = transition_state(initial_state)
-print(new_state)`,
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      prompt:
-        'Create a function that takes an initial state and a goal state. The function should repeatedly transition the state until it matches the goal state and print each intermediate state.',
-      initialCode: `# Write your solution here
-def transition_to_goal(initial_state, goal_state):
-    return `,
-      solution: `def transition_to_goal(initial_state, goal_state):
-    current_state = initial_state
-    while current_state != goal_state:
-        print(current_state)
-        current_state = (current_state[0] + 1, current_state[1] + 1)
-    print(current_state)
-
-initial_state = (0, 0)
-goal_state = (3, 3)
-transition_to_goal(initial_state, goal_state)`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question:
-        'Which of the following is the correct way to represent a state in a state machine using a tuple?',
-      options: [
-        '(state1, state2)',
-        '[state1, state2]',
-        '{state1, state2}',
-        'None of the above',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. A tuple is used to represent a state in a state machine.',
-        'This is incorrect. A list is not typically used for this purpose.',
-        'This is incorrect. A set is not typically used for this purpose.',
-        'This is incorrect. The correct answer is a tuple.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      question:
-        'Which of the following is the correct way to compare two states represented as tuples in a state machine?',
-      options: [
-        'state1 > state2',
-        'state1 < state2',
-        'state1 == state2',
-        'All of the above',
-      ],
-      correctAnswer: 2,
-      explanations: [
-        'This is incorrect. The greater than operator is not typically used for state comparison.',
-        'This is incorrect. The less than operator is not typically used for state comparison.',
-        'This is correct. The equality operator is used to compare states.',
-        'This is incorrect. Only the equality operator is typically used for state comparison.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const memoryEfficiencyData: LessonContent = {
-  title: 'Memory Optimization',
-  content: `<p>
-Efficient memory usage is crucial for large programs, and tuples can play a significant role in optimizing memory consumption. 
-Understanding how to use tuples effectively can lead to more memory-efficient code.
-</p>
-
-<ul>
-<li><strong>Immutable nature:</strong> Tuples are immutable, which can lead to memory savings by avoiding unnecessary copies.</li>
-<li><strong>Smaller memory footprint:</strong> Tuples generally use less memory than lists due to their simpler internal structure.</li>
-<li><strong>Avoiding deep copies:</strong> Use tuples to avoid deep copies of large data structures.</li>
-</ul>`,
-  codeExample: `# Immutable nature
-my_tuple = (1, 2, 3)
-# my_tuple[0] = 4  # This will raise a TypeError
-
-# Smaller memory footprint
-import sys
-my_list = [1, 2, 3]
-my_tuple = (1, 2, 3)
-print(sys.getsizeof(my_list))  # Output: 88
-print(sys.getsizeof(my_tuple))  # Output: 64
-
-# Avoiding deep copies
-large_list = list(range(1000000))
-large_tuple = tuple(large_list)
-
-# Copying the tuple is much faster and uses less memory
-import copy
-tuple_copy = copy.copy(large_tuple)
-list_copy = copy.deepcopy(large_list)`,
-  exercises: [
-    {
-      prompt:
-        'Create a list and a tuple containing the same elements. Compare their memory usage using the sys.getsizeof() function.',
-      initialCode: `# Write your solution here
-import sys
-
-my_list = 
-my_tuple = `,
-      solution: `import sys
-
-my_list = [1, 2, 3]
-my_tuple = (1, 2, 3)
-
-print(sys.getsizeof(my_list))  # Output: 88
-print(sys.getsizeof(my_tuple))  # Output: 64`,
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      prompt:
-        'Create a large list and a tuple containing the same elements. Compare the time and memory usage of copying the list versus the tuple using the copy module.',
-      initialCode: `# Write your solution here
-import copy
-import time
-import sys
-
-large_list = 
-large_tuple = `,
-      solution: `import copy
-import time
-import sys
-
-large_list = list(range(1000000))
-large_tuple = tuple(large_list)
-
-start_time = time.time()
-tuple_copy = copy.copy(large_tuple)
-tuple_time = time.time() - start_time
-tuple_size = sys.getsizeof(tuple_copy)
-
-start_time = time.time()
-list_copy = copy.deepcopy(large_list)
-list_time = time.time() - start_time
-list_size = sys.getsizeof(list_copy)
-
-print(f"Tuple copy time: {tuple_time}, size: {tuple_size}")
-print(f"List copy time: {list_time}, size: {list_size}")`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question:
-        'Which of the following statements is true about the memory usage of tuples and lists in Python?',
-      options: [
-        'Tuples use more memory than lists',
-        'Lists use more memory than tuples',
-        'Tuples and lists use the same amount of memory',
-        'Memory usage depends on the number of elements',
-      ],
-      correctAnswer: 1,
-      explanations: [
-        'This is incorrect. Tuples use less memory than lists.',
-        'This is correct. Tuples use less memory than lists due to their simpler internal structure.',
-        'This is incorrect. Tuples and lists do not use the same amount of memory.',
-        'This is correct, but less specific than the correct answer.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      question:
-        'Which of the following is a valid technique for optimizing memory usage in large programs using tuples?',
-      options: [
-        'Using deep copies of large data structures',
-        'Avoiding deep copies by using tuples',
-        'Storing mutable data in tuples',
-        'None of the above',
-      ],
-      correctAnswer: 1,
-      explanations: [
-        'This is incorrect. Deep copies can lead to increased memory usage.',
-        'This is correct. Avoiding deep copies by using tuples can optimize memory usage.',
-        'This is incorrect. Tuples are immutable and not suitable for storing mutable data.',
-        'This is incorrect. The correct answer is avoiding deep copies by using tuples.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const tupleCachingData: LessonContent = {
-  title: 'Tuple Caching',
-  content: `<p>
-Understanding tuple internals and caching behavior can help optimize the performance of your Python programs. 
-Python caches small tuples to improve performance and reduce memory usage.
-</p>
-
-<ul>
-<li><strong>Small tuple caching:</strong> Python caches small tuples to avoid creating multiple instances of the same tuple.</li>
-<li><strong>Interning:</strong> Python may intern tuples to improve performance and reduce memory usage.</li>
-<li><strong>Performance implications:</strong> Knowing when and how tuples are cached can help you write more efficient code.</li>
-</ul>`,
-  codeExample: `# Small tuple caching
-tuple1 = (1, 2, 3)
-tuple2 = (1, 2, 3)
-print(tuple1 is tuple2)  # Output: True (due to caching)
-
-# Interning
-tuple3 = (1000, 2000)
-tuple4 = (1000, 2000)
-print(tuple3 is tuple4)  # Output: False (not cached)
-
-# Performance implications
-import sys
-tuple5 = (1, 2, 3)
-tuple6 = (1, 2, 3)
-print(sys.getrefcount(tuple5))  # Output: 4 (due to caching and references)`,
-  exercises: [
-    {
-      prompt:
-        'Create two tuples with the same elements and check if they refer to the same object using the "is" operator. Print the result.',
-      initialCode: `# Write your solution here
-tuple1 = 
-tuple2 = `,
-      solution: `tuple1 = (1, 2, 3)
-tuple2 = (1, 2, 3)
-print(tuple1 is tuple2)`,
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      prompt:
-        'Create a function that takes a tuple and returns the number of references to that tuple using the sys.getrefcount() function.',
-      initialCode: `# Write your solution here
-import sys
-
-def ref_count(tup):
-    return `,
-      solution: `import sys
-
-def ref_count(tup):
-    return sys.getrefcount(tup)
-
-my_tuple = (1, 2, 3)
-print(ref_count(my_tuple))`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question:
-        'Which of the following statements is true about tuple caching in Python?',
-      options: [
-        'Python caches all tuples to improve performance',
-        'Python caches only small tuples to improve performance',
-        'Python does not cache tuples',
-        'Tuple caching depends on the Python version',
-      ],
-      correctAnswer: 1,
-      explanations: [
-        'This is incorrect. Python does not cache all tuples.',
-        'This is correct. Python caches small tuples to improve performance.',
-        'This is incorrect. Python caches small tuples.',
-        'This is incorrect. Tuple caching behavior is consistent across Python versions.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      question:
-        'Which of the following is a valid technique for checking if two tuples refer to the same object in Python?',
-      options: [
-        'Using the "==" operator',
-        'Using the "is" operator',
-        'Using the "in" operator',
-        'None of the above',
-      ],
-      correctAnswer: 1,
-      explanations: [
-        'This is incorrect. The "==" operator checks for equality, not identity.',
-        'This is correct. The "is" operator checks for object identity.',
-        'This is incorrect. The "in" operator is used for membership testing.',
-        'This is incorrect. The correct answer is using the "is" operator.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -1921,100 +1735,6 @@ print(average_ages(data))`,
   ],
 };
 
-const tupleStreamsData: LessonContent = {
-  title: 'Processing Tuple Streams',
-  content: `<p>
-Processing streams of tuple data is a common task in data processing pipelines. 
-Tuples provide a convenient way to represent and manipulate data points in a stream, making them ideal for tasks like filtering, mapping, and reducing data.
-</p>
-
-<ul>
-<li><strong>Filtering streams:</strong> Use tuples to filter data points based on certain criteria.</li>
-<li><strong>Mapping streams:</strong> Transform data points in a stream using tuples.</li>
-<li><strong>Reducing streams:</strong> Aggregate data points in a stream using tuples.</li>
-</ul>`,
-  codeExample: `# Filtering streams
-data_stream = [(1, 'apple'), (2, 'banana'), (3, 'cherry'), (4, 'date')]
-filtered_stream = [(num, fruit) for num, fruit in data_stream if num % 2 == 0]
-print(filtered_stream)  # Output: [(2, 'banana'), (4, 'date')]
-
-# Mapping streams
-mapped_stream = [(num * 2, fruit.upper()) for num, fruit in data_stream]
-print(mapped_stream)  # Output: [(2, 'APPLE'), (4, 'BANANA'), (6, 'CHERRY'), (8, 'DATE')]
-
-# Reducing streams
-from functools import reduce
-
-def sum_numbers(acc, item):
-    return acc + item[0]
-
-total_sum = reduce(sum_numbers, data_stream, 0)
-print(total_sum)  # Output: 10`,
-  exercises: [
-    {
-      prompt:
-        'Create a list of tuples where each tuple contains a number and a fruit name. Filter the list to include only tuples where the number is greater than 2.',
-      initialCode: `# Write your solution here
-data_stream = `,
-      solution: `data_stream = [(1, 'apple'), (2, 'banana'), (3, 'cherry'), (4, 'date')]
-filtered_stream = [(num, fruit) for num, fruit in data_stream if num > 2]
-print(filtered_stream)`,
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      prompt:
-        'Create a function that takes a list of tuples (number, fruit) and returns a new list where each number is doubled and each fruit name is capitalized.',
-      initialCode: `# Write your solution here
-def transform_stream(data_stream):
-    return `,
-      solution: `def transform_stream(data_stream):
-    return [(num * 2, fruit.capitalize()) for num, fruit in data_stream]
-
-data_stream = [(1, 'apple'), (2, 'banana'), (3, 'cherry'), (4, 'date')]
-print(transform_stream(data_stream))`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question:
-        'Which of the following is the correct way to filter a stream of tuples in Python?',
-      options: [
-        'Using a list comprehension with a condition',
-        'Using the filter() function with a lambda function',
-        'Using the map() function with a condition',
-        'All of the above',
-      ],
-      correctAnswer: 3,
-      explanations: [
-        'This is correct. List comprehensions with conditions can filter tuples.',
-        'This is correct. The filter() function with a lambda can filter tuples.',
-        'This is incorrect. The map() function transforms tuples, not filters them.',
-        'This is correct. Both list comprehensions and the filter() function can filter tuples.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      question:
-        'Which of the following is a valid operation for reducing a stream of tuples in Python?',
-      options: [
-        'Summing the values of a specific field in each tuple',
-        'Finding the average value of a specific field in each tuple',
-        'Counting the number of elements in each tuple',
-        'All of the above',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. Summing values is a common reduction operation.',
-        'This is incorrect. Finding averages is not typically done with the reduce() function.',
-        'This is incorrect. Counting elements is not typically done with the reduce() function.',
-        'This is incorrect. Only summing values is a valid reduction operation.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
 const tupleLessons: Record<string, LessonContent> = {
   'tuple-basics': tupleBasicsData,
   'tuple-creation': tupleCreationData,
@@ -2030,12 +1750,9 @@ const tupleLessons: Record<string, LessonContent> = {
   'tuple-conversion': tupleConversionData,
   'tuple-sorting': tupleSortingData,
   'tuple-comparison': tupleComparisonData,
+  'interview-problems': interviewProblemsData,
   'coordinate-systems': coordinateSystemsData,
-  'state-representation': stateRepresentationData,
-  'memory-efficiency': memoryEfficiencyData,
-  'tuple-caching': tupleCachingData,
   'data-aggregation': dataAggregationData,
-  'tuple-streams': tupleStreamsData
 };
 
 export const tupleLessonsTab: LessonsTab = {
