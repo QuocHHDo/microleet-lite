@@ -1,91 +1,114 @@
 import { Difficulty } from "@/common/commonConcept";
-import { Curriculum, LessonContent, LessonsTab } from "@/common/commonLesson";
+import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from "@/common/commonLesson";
 
 const trieCurriculum: Curriculum = {
-    title: 'Trie Curriculum',
-    description: 'A comprehensive guide to mastering trie data structure and its applications',
-    sections: [
-      {
-        id: 1,
-        title: 'Trie Fundamentals',
-        topics: [
-          {
-            id: 'trie-basics',
-            title: 'Trie Basics',
-            description: 'Understanding prefix trees and their properties'
-          },
-          {
-            id: 'trie-implementation',
-            title: 'Trie Implementation',
-            description: 'Building a basic trie structure and node class'
-          },
-          {
-            id: 'trie-operations',
-            title: 'Basic Trie Operations',
-            description: 'Insert, search, and delete operations'
-          }
-        ]
-      },
-      {
-        id: 2,
-        title: 'Advanced Trie Operations',
-        topics: [
-          {
-            id: 'prefix-matching',
-            title: 'Prefix Matching',
-            description: 'Finding words with common prefixes'
-          },
-          {
-            id: 'autocomplete',
-            title: 'Autocomplete System',
-            description: 'Implementing autocomplete functionality'
-          },
-          {
-            id: 'word-search',
-            title: 'Pattern Search',
-            description: 'Implementing wildcard and regex pattern matching'
-          }
-        ]
-      },
-      {
-        id: 3,
-        title: 'Trie Optimization',
-        topics: [
-          {
-            id: 'memory-optimization',
-            title: 'Memory Optimization',
-            description: 'Compressed tries and memory-efficient implementations'
-          },
-          {
-            id: 'concurrent-tries',
-            title: 'Concurrent Tries',
-            description: 'Thread-safe trie implementations'
-          }
-        ]
-      },
-      {
-        id: 4,
-        title: 'Advanced Applications',
-        topics: [
-          {
-            id: 'spell-checker',
-            title: 'Spell Checker',
-            description: 'Building a spell checker using tries'
-          },
-          {
-            id: 'ip-routing',
-            title: 'IP Routing',
-            description: 'Using tries for IP address routing tables'
-          },
-          {
-            id: 'xor-problems',
-            title: 'XOR Problems',
-            description: 'Solving XOR-based problems using tries'
-          }
-        ]
-      }
-    ]
-  } as const;
+  title: 'Trie Curriculum',
+  description: 'A comprehensive guide to mastering trie data structure and its applications',
+  sections: [
+    {
+      id: 1,
+      title: 'Trie Fundamentals',
+      topics: [
+        {
+          id: 'trie-basics',
+          title: 'Trie Basics',
+          description: 'Understanding prefix trees, their properties, and time/space complexity analysis',
+          priority: PriorityLevel.Essential
+        },
+        {
+          id: 'trie-implementation',
+          title: 'Trie Implementation',
+          description: 'Building a basic trie structure and node class',
+          priority: PriorityLevel.Essential
+        },
+        {
+          id: 'trie-operations',
+          title: 'Basic Trie Operations',
+          description: 'Insert, search, and delete operations with edge cases',
+          priority: PriorityLevel.Essential
+        },
+        {
+          id: 'trie-traversal',
+          title: 'Trie Traversal',
+          description: 'DFS and BFS traversal techniques for tries',
+          priority: PriorityLevel.Important
+        }
+      ]
+    },
+    {
+      id: 2,
+      title: 'Advanced Trie Operations',
+      topics: [
+        {
+          id: 'prefix-matching',
+          title: 'Prefix Matching',
+          description: 'Finding words with common prefixes and counting prefix occurrences',
+          priority: PriorityLevel.Essential
+        },
+        {
+          id: 'autocomplete',
+          title: 'Autocomplete System',
+          description: 'Implementing autocomplete functionality with ranking and suggestions',
+          priority: PriorityLevel.Important
+        },
+        {
+          id: 'word-search',
+          title: 'Pattern Search',
+          description: 'Implementing wildcard and regex pattern matching',
+          priority: PriorityLevel.Important
+        }
+      ]
+    },
+    {
+      id: 3,
+      title: 'Trie Optimization',
+      topics: [
+        {
+          id: 'memory-optimization',
+          title: 'Memory Optimization',
+          description: 'Compressed tries and memory-efficient implementations',
+          priority: PriorityLevel.Beneficial
+        },
+        {
+          id: 'concurrent-tries',
+          title: 'Concurrent Tries',
+          description: 'Thread-safe trie implementations',
+          priority: PriorityLevel.Optional
+        }
+      ]
+    },
+    {
+      id: 4,
+      title: 'Advanced Applications',
+      topics: [
+        {
+          id: 'spell-checker',
+          title: 'Spell Checker',
+          description: 'Building a spell checker using tries with edit distance',
+          priority: PriorityLevel.Beneficial
+        },
+        {
+          id: 'word-break',
+          title: 'Word Break Problems',
+          description: 'Solving word break and sentence reconstruction problems',
+          priority: PriorityLevel.Important
+        },
+        {
+          id: 'xor-problems',
+          title: 'XOR Problems',
+          description: 'Solving XOR-based problems using binary tries',
+          priority: PriorityLevel.Beneficial
+        },
+        {
+          id: 'ip-routing',
+          title: 'IP Routing',
+          description: 'Using tries for IP address routing tables',
+          priority: PriorityLevel.Optional
+        }
+      ]
+    }
+  ]
+} as const;
 
   const trieBasicsData: LessonContent = {
     title: 'Trie Basics',
@@ -492,6 +515,138 @@ const trieCurriculum: Curriculum = {
           'This is incorrect. Tries do not have a specific update operation; instead, you can delete and then insert to update a word.',
         ],
         difficulty: Difficulty.Beginner,
+      },
+    ],
+  };
+
+  const trieTraversalData: LessonContent = {
+    title: 'Trie Traversal',
+    content: `<p>
+    A trie, or prefix tree, is a tree-like data structure used to store a dynamic set of strings, where the keys are usually strings. Each node in a trie represents a single character of the key, and the path from the root to a particular node represents the key associated with that node.
+    </p>
+    
+    <p>
+    Traversing a trie involves visiting each node in a specific order. The two common traversal techniques are Depth-First Search (DFS) and Breadth-First Search (BFS). DFS explores as far as possible along each branch before backtracking, typically implemented using recursion. BFS explores all nodes at the current depth level before moving on to nodes at the next depth level, typically implemented using a queue.
+    </p>`,
+    codeExample: `class TrieNode {
+        children: { [key: string]: TrieNode };
+        isEndOfWord: boolean;
+        constructor() {
+            this.children = {};
+            this.isEndOfWord = false;
+        }
+    }
+  
+    function dfsTrie(root: TrieNode, prefix: string = ''): void {
+        if (root.isEndOfWord) {
+            console.log(prefix);
+        }
+        for (const char in root.children) {
+            dfsTrie(root.children[char], prefix + char);
+        }
+    }
+  
+    function bfsTrie(root: TrieNode): void {
+        if (!root) return;
+        const queue: [TrieNode, string][] = [[root, '']];
+        while (queue.length > 0) {
+            const [currentNode, currentPrefix] = queue.shift()!;
+            if (currentNode.isEndOfWord) {
+                console.log(currentPrefix);
+            }
+            for (const char in currentNode.children) {
+                queue.push([currentNode.children[char], currentPrefix + char]);
+            }
+        }
+    }`,
+    exercises: [
+      {
+        prompt: 'Implement DFS traversal for a trie.',
+        initialCode: `function dfsTrie(root: TrieNode, prefix: string = ''): void {
+      // Implement DFS traversal
+  }`,
+        solution: `function dfsTrie(root: TrieNode, prefix: string = ''): void {
+      if (root.isEndOfWord) {
+          console.log(prefix);
+      }
+      for (const char in root.children) {
+          dfsTrie(root.children[char], prefix + char);
+      }
+  }`,
+        difficulty: Difficulty.Intermediate,
+      },
+      {
+        prompt: 'Implement BFS traversal for a trie.',
+        initialCode: `function bfsTrie(root: TrieNode): void {
+      // Implement BFS traversal
+  }`,
+        solution: `function bfsTrie(root: TrieNode): void {
+      if (!root) return;
+      const queue: [TrieNode, string][] = [[root, '']];
+      while (queue.length > 0) {
+          const [currentNode, currentPrefix] = queue.shift()!;
+          if (currentNode.isEndOfWord) {
+              console.log(currentPrefix);
+          }
+          for (const char in currentNode.children) {
+              queue.push([currentNode.children[char], currentPrefix + char]);
+          }
+      }
+  }`,
+        difficulty: Difficulty.Intermediate,
+      },
+    ],
+    quizzes: [
+      {
+        question: 'What is the main difference between DFS and BFS traversal in a trie?',
+        options: [
+          'DFS is faster than BFS.',
+          'DFS explores nodes level by level, while BFS explores nodes by depth.',
+          'DFS uses a stack implicitly through recursion, while BFS uses a queue.',
+          'There is no difference; both traversals visit nodes in the same order.',
+        ],
+        correctAnswer: 2,
+        explanations: [
+          'Incorrect. The speed can depend on the specific implementation and use case.',
+          'Incorrect. DFS explores as far as possible along each branch before backtracking, while BFS explores level by level.',
+          'Correct. DFS typically uses recursion (which uses a stack), and BFS uses a queue.',
+          'Incorrect. There is a difference in the order nodes are visited.',
+        ],
+        difficulty: Difficulty.Beginner,
+      },
+      {
+        question: 'When would you prefer using BFS over DFS in a trie?',
+        options: [
+          'When you need to find the shortest prefix.',
+          'When you need to visit nodes in alphabetical order.',
+          'When you need to visit nodes in the order of insertion.',
+          'BFS is generally not preferred over DFS in tries.',
+        ],
+        correctAnswer: 0,
+        explanations: [
+          'Correct. BFS can be used to find the shortest prefix or level-based properties.',
+          'Incorrect. Alphabetical order would depend on how the children are traversed, not the traversal method itself.',
+          'Incorrect. Insertion order is not guaranteed to be preserved.',
+          'Incorrect. BFS is preferred in certain scenarios, such as finding the shortest prefix.',
+        ],
+        difficulty: Difficulty.Intermediate,
+      },
+      {
+        question: 'Which of the following is true about trie traversal?',
+        options: [
+          'DFS cannot be used to traverse a trie.',
+          'BFS requires more memory than DFS in all cases.',
+          'DFS can be implemented using recursion or iteration.',
+          'BFS traversal order is always deterministic.',
+        ],
+        correctAnswer: 2,
+        explanations: [
+          'Incorrect. DFS can be used to traverse a trie.',
+          'Incorrect. Memory usage can vary based on implementation and the trie’s structure.',
+          'Correct. DFS can be implemented recursively or iteratively.',
+          'Incorrect. BFS traversal order can be non-deterministic if the order of children is not specified.',
+        ],
+        difficulty: Difficulty.Intermediate,
       },
     ],
   };
@@ -1474,6 +1629,207 @@ const trieCurriculum: Curriculum = {
     ],
   };
   
+  const wordBreakData: LessonContent = {
+    title: 'Word Break Problems',
+    content: `<p>
+  The Word Break problem involves determining if a given string can be segmented into a space-separated sequence of one or more dictionary words. This is a classic problem often solved using dynamic programming or memoization. We will explore different approaches to solve this problem, including their time and space complexities.
+  </p>
+  
+  <h2>Approaches to Solve Word Break Problems</h2>
+  
+  <h3>1. Brute Force Approach</h3>
+  <p>
+  The brute force method involves checking every possible partition of the string to see if it can be segmented into dictionary words. This approach is straightforward but highly inefficient, especially for longer strings.
+  </p>
+  <ul>
+    <li><strong>Time Complexity:</strong> O(2^n), where n is the length of the string.</li>
+    <li><strong>Space Complexity:</strong> O(n), due to the recursion stack.</li>
+  </ul>
+  
+  <h3>2. Memoization (Top-Down DP)</h3>
+  <p>
+  By using memoization, we store the results of subproblems to avoid redundant computations. This significantly reduces the time complexity compared to the brute force approach.
+  </p>
+  <ul>
+    <li><strong>Time Complexity:</strong> O(n^2), where n is the length of the string.</li>
+    <li><strong>Space Complexity:</strong> O(n), due to the recursion stack and memoization table.</li>
+  </ul>
+  
+  <h3>3. Dynamic Programming (Bottom-Up)</h3>
+  <p>
+  The bottom-up DP approach builds a table where each entry i indicates whether the substring up to i can be segmented into dictionary words. This method is efficient and avoids the overhead of recursive calls.
+  </p>
+  <ul>
+    <li><strong>Time Complexity:</strong> O(n^2), where n is the length of the string.</li>
+    <li><strong>Space Complexity:</strong> O(n), for the DP table.</li>
+  </ul>
+  `,
+    codeExample: `# Memoization Approach
+  def wordBreak(s, wordDict):
+      wordSet = set(wordDict)
+      memo = {}
+      
+      def dfs(index):
+          if index in memo:
+              return memo[index]
+          if index == len(s):
+              return True
+          for end in range(index + 1, len(s) + 1):
+              if s[index:end] in wordSet and dfs(end):
+                  memo[index] = True
+                  return True
+          memo[index] = False
+          return False
+      
+      return dfs(0)
+  
+  # Dynamic Programming Approach
+  def wordBreakDP(s, wordDict):
+      wordSet = set(wordDict)
+      dp = [False] * (len(s) + 1)
+      dp[0] = True  # empty string
+      
+      for i in range(1, len(s) + 1):
+          for j in range(i):
+              if dp[j] and s[j:i] in wordSet:
+                  dp[i] = True
+                  break
+      return dp[len(s)]
+  
+  # Example Usage
+  s = "leetcode"
+  wordDict = ["leet", "code"]
+  print(wordBreak(s, wordDict))  # Output: True
+  print(wordBreakDP(s, wordDict))  # Output: True
+  `,
+    exercises: [
+      {
+        prompt: 'Implement the brute force approach for the Word Break problem and analyze its time complexity.',
+        initialCode: `# Write your brute force solution here
+  def bruteForceWordBreak(s, wordDict):
+      pass`,
+        solution: `def bruteForceWordBreak(s, wordDict):
+      wordSet = set(wordDict)
+      
+      def dfs(index):
+          if index == len(s):
+              return True
+          for end in range(index + 1, len(s) + 1):
+              if s[index:end] in wordSet and dfs(end):
+                  return True
+          return False
+      
+      return dfs(0)
+  
+  # Time Complexity: O(2^n)
+  `,
+        difficulty: Difficulty.Beginner,
+      },
+      {
+        prompt: 'Implement the memoization approach for the Word Break problem and explain how it improves upon the brute force method.',
+        initialCode: `# Write your memoization solution here
+  def memoWordBreak(s, wordDict):
+      pass`,
+        solution: `def memoWordBreak(s, wordDict):
+      wordSet = set(wordDict)
+      memo = {}
+      
+      def dfs(index):
+          if index in memo:
+              return memo[index]
+          if index == len(s):
+              return True
+          for end in range(index + 1, len(s) + 1):
+              if s[index:end] in wordSet and dfs(end):
+                  memo[index] = True
+                  return True
+          memo[index] = False
+          return False
+      
+      return dfs(0)
+  
+  # Time Complexity: O(n^2)
+  # The memoization approach improves by avoiding redundant computations through caching results.
+  `,
+        difficulty: Difficulty.Intermediate,
+      },
+      {
+        prompt: 'Implement the dynamic programming approach for the Word Break problem and discuss its space complexity.',
+        initialCode: `# Write your DP solution here
+  def dpWordBreak(s, wordDict):
+      pass`,
+        solution: `def dpWordBreak(s, wordDict):
+      wordSet = set(wordDict)
+      dp = [False] * (len(s) + 1)
+      dp[0] = True  # empty string
+      
+      for i in range(1, len(s) + 1):
+          for j in range(i):
+              if dp[j] and s[j:i] in wordSet:
+                  dp[i] = True
+                  break
+      return dp[len(s)]
+  
+  # Space Complexity: O(n), due to the DP table.
+  `,
+        difficulty: Difficulty.Intermediate,
+      },
+    ],
+    quizzes: [
+      {
+        question: 'Which approach has a better time complexity for solving the Word Break problem?',
+        options: [
+          'Brute Force',
+          'Memoization',
+          'Dynamic Programming',
+          'All have the same time complexity',
+        ],
+        correctAnswer: 1,
+        explanations: [
+          'Incorrect. The brute force approach has O(2^n) time complexity.',
+          'Correct. Memoization and DP both have O(n^2) time complexity, which is better than brute force.',
+          'Correct. DP is another O(n^2) approach.',
+          'Incorrect. Memoization and DP are better than brute force.',
+        ],
+        difficulty: Difficulty.Beginner,
+      },
+      {
+        question: 'What is the space complexity of the memoization approach for the Word Break problem?',
+        options: [
+          'O(1)',
+          'O(n)',
+          'O(n^2)',
+          'O(2^n)',
+        ],
+        correctAnswer: 1,
+        explanations: [
+          'Incorrect. There is space used for the recursion stack and memoization table.',
+          'Correct. O(n) space for the recursion stack and memoization table.',
+          'Incorrect. O(n^2) is the time complexity, not space.',
+          'Incorrect. O(2^n) is the time complexity of brute force.',
+        ],
+        difficulty: Difficulty.Intermediate,
+      },
+      {
+        question: 'In the DP approach, what does dp[i] represent?',
+        options: [
+          'The number of ways to break the string up to index i.',
+          'Whether the substring up to index i can be broken into dictionary words.',
+          'The length of the longest word ending at index i.',
+          'The minimum number of words needed to break the string up to index i.',
+        ],
+        correctAnswer: 1,
+        explanations: [
+          'Incorrect. DP can be modified to count ways, but the standard DP for Word Break indicates feasibility.',
+          'Correct. dp[i] is True if the substring up to index i can be segmented into dictionary words.',
+          'Incorrect. dp[i] does not track word lengths.',
+          'Incorrect. dp[i] does not track the number of words, only feasibility.',
+        ],
+        difficulty: Difficulty.Intermediate,
+      },
+    ],
+  };
+
   const ipRoutingData: LessonContent = {
     title: 'IP Routing',
     content: `<p>
@@ -1727,14 +2083,17 @@ const trieCurriculum: Curriculum = {
     'trie-basics': trieBasicsData,
     'trie-implementation': trieImplementationData,
     'trie-operations': trieOperationsData,
+    'trie-traversal': trieTraversalData,
     'prefix-matching': prefixMatchingData,
     'autocomplete': autocompleteSystemData,
     'word-search': patternSearchData,
     'memory-optimization': memoryOptimizationData,
     'concurrent-tries': concurrentTriesData,
     'spell-checker': spellCheckerData,
+    'word-break': wordBreakData,
+    'xor-problems': xorProblemsData,
     'ip-routing': ipRoutingData,
-    'xor-problems': xorProblemsData
+
   }
 export const trieLessonsTab: LessonsTab = {
     curriculum: trieCurriculum,

@@ -203,24 +203,6 @@ const treeCurriculum: Curriculum = {
         }
       ],
     },
-    {
-      id: 9,
-      title: 'Tree in System Design',
-      topics: [
-        {
-          id: 'expression-trees',
-          title: 'Expression Trees',
-          description: 'Building and evaluating expression trees',
-          priority: PriorityLevel.Beneficial
-        },
-        {
-          id: 'decision-trees',
-          title: 'Decision Trees',
-          description: 'Understanding and implementing decision trees',
-          priority: PriorityLevel.Optional
-        }
-      ],
-    }
   ],
 } as const;
 
@@ -668,6 +650,279 @@ print("Depth of node 5:", tree.depth(5))  # Output: 2`,
   ],
 };
 
+const commonTreePatternsData: LessonContent = {
+  title: 'Common Tree Interview Patterns',
+  content: `<p>
+Trees are a fundamental data structure in computer science, and understanding common interview patterns 
+related to trees is crucial for success in coding interviews. This lesson covers essential techniques and 
+problem-solving patterns for tree problems, including traversals, checking for binary search tree properties, 
+and finding tree heights.
+</p>
+
+<p>
+Common interview patterns include:
+</p>
+<ul>
+  <li>Tree traversals (pre-order, in-order, post-order, level-order)</li>
+  <li>Checking if a tree is a binary search tree (BST)</li>
+  <li>Finding the height or depth of a tree</li>
+  <li>Determining if two trees are identical</li>
+</ul>
+
+<p>
+Mastering these patterns will help you tackle a wide range of tree-based problems efficiently.
+</p>`,
+  codeExample: `# Define the TreeNode class
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+# Pre-order traversal
+def pre_order(root):
+    if root:
+        print(root.val, end=' ')
+        pre_order(root.left)
+        pre_order(root.right)
+
+# In-order traversal
+def in_order(root):
+    if root:
+        in_order(root.left)
+        print(root.val, end=' ')
+        in_order(root.right)
+
+# Post-order traversal
+def post_order(root):
+    if root:
+        post_order(root.left)
+        post_order(root.right)
+        print(root.val, end=' ')
+
+# Level-order traversal (BFS)
+from collections import deque
+def level_order(root):
+    if not root:
+        return
+    queue = deque([root])
+    while queue:
+        node = queue.popleft()
+        print(node.val, end=' ')
+        if node.left:
+            queue.append(node.left)
+        if node.right:
+            queue.append(node.right)
+
+# Check if a tree is a BST
+def is_bst(root, lower=-float('inf'), upper=float('inf')):
+    if not root:
+        return True
+    if root.val <= lower or root.val >= upper:
+        return False
+    return is_bst(root.left, lower, root.val) and is_bst(root.right, root.val, upper)
+
+# Find the height of a tree
+def tree_height(root):
+    if not root:
+        return 0
+    return 1 + max(tree_height(root.left), tree_height(root.right))
+
+# Example usage
+# Creating a simple binary tree:
+#       1
+#      / \
+#     2   3
+#    / \
+#   4   5
+
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(5)
+
+print("Pre-order traversal:")
+pre_order(root)  # Output: 1 2 4 5 3
+
+print("\nIn-order traversal:")
+in_order(root)   # Output: 4 2 5 1 3
+
+print("\nPost-order traversal:")
+post_order(root) # Output: 4 5 2 3 1
+
+print("\nLevel-order traversal:")
+level_order(root) # Output: 1 2 3 4 5
+
+print("\nIs the tree a BST?", is_bst(root))  # Output: False
+
+print("\nTree height:", tree_height(root))  # Output: 3
+`,
+  exercises: [
+    {
+      prompt: 'Implement the in-order traversal of a binary tree.',
+      initialCode: `class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def in_order(root):
+    # Your code here`,
+      solution: `class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def in_order(root):
+    if root:
+        in_order(root.left)
+        print(root.val, end=' ')
+        in_order(root.right)
+
+# Example usage
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(5)
+
+in_order(root)  # Output: 4 2 5 1 3`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt: 'Write a function to check if a binary tree is a binary search tree (BST).',
+      initialCode: `class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def is_bst(root):
+    # Your code here`,
+      solution: `class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def is_bst(root, lower=-float('inf'), upper=float('inf')):
+    if not root:
+        return True
+    if root.val <= lower or root.val >= upper:
+        return False
+    return is_bst(root.left, lower, root.val) and is_bst(root.right, root.val, upper)
+
+# Example usage
+# Creating a BST:
+#       2
+#      / \
+#     1   3
+
+bst_root = TreeNode(2)
+bst_root.left = TreeNode(1)
+bst_root.right = TreeNode(3)
+
+print("Is BST:", is_bst(bst_root))  # Output: True
+
+# Creating a non-BST:
+#       2
+#      / \
+#     3   1
+
+non_bst_root = TreeNode(2)
+non_bst_root.left = TreeNode(3)
+non_bst_root.right = TreeNode(1)
+
+print("Is BST:", is_bst(non_bst_root))  # Output: False`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt: 'Find the height of a binary tree.',
+      initialCode: `class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def tree_height(root):
+    # Your code here`,
+      solution: `class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def tree_height(root):
+    if not root:
+        return 0
+    return 1 + max(tree_height(root.left), tree_height(root.right))
+
+# Example usage
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(5)
+
+print("Tree height:", tree_height(root))  # Output: 3`,
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'What is the order of nodes visited in an in-order traversal of a binary search tree (BST)?',
+      options: [
+        'Descending order',
+        'No specific order',
+        'Ascending order',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'Descending order is the order for reverse in-order traversal.',
+        'In-order traversal of a BST does have a specific order.',
+        'In-order traversal of a BST visits nodes in ascending order.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question: 'Which traversal type visits the root node first?',
+      options: [
+        'Pre-order',
+        'In-order',
+        'Post-order',
+        'Level-order',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'Pre-order traversal visits root first, then left, then right.',
+        'In-order traversal visits left, then root, then right.',
+        'Post-order traversal visits left, then right, then root.',
+        'Level-order traversal visits nodes level by level, starting from the root.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question: 'What is the time complexity of finding the height of a binary tree?',
+      options: [
+        'O(1)',
+        'O(log n)',
+        'O(n)',
+        'O(n^2)',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'O(1) is incorrect because it depends on the number of nodes.',
+        'O(log n) is incorrect for skewed trees; it would be O(n).',
+        'O(n) is correct because in the worst case, you have to visit every node.',
+        'O(n^2) is incorrect for this operation.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
 const binaryTreeBasicsData: LessonContent = {
   title: 'Binary Tree Basics',
   content: `<p>
@@ -1000,159 +1255,213 @@ print("Inorder Traversal:", tree.inorder_traversal())  # Output: [4, 2, 5, 1, 3]
   ],
 };
 
-const treeConstructionData: LessonContent = {
-  title: 'Tree Construction',
+const treeViewsData: LessonContent = {
+  title: 'Tree Views',
   content: `<p>
-Tree construction involves building a tree from given traversal sequences, such as inorder, preorder, postorder, and level-order traversals. 
-Understanding how to construct trees from these sequences is essential for working with various tree-based algorithms and data structures.
+Tree views include the left view, right view, and top view, which are essential for understanding the structure of a binary tree from different perspectives. These views are crucial in various applications, such as visualizing tree structures and solving problems related to tree traversals.
 </p>
 
-<ul>
-<li><strong>Inorder and Preorder:</strong> Constructing a tree from inorder and preorder traversal sequences.</li>
-<li><strong>Inorder and Postorder:</strong> Constructing a tree from inorder and postorder traversal sequences.</li>
-<li><strong>Level-order:</strong> Constructing a tree from level-order traversal sequences.</li>
-<li><strong>Example Usage:</strong> Demonstrating how to construct a tree from different traversal sequences.</li>
-</ul>`,
-  codeExample: `# Node Class
-class TreeNode:
-    def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
+<h3>Left View</h3>
+<p>
+The left view of a binary tree consists of the nodes that are visible when the tree is viewed from the left side. It includes the first node at each level of the tree.
+</p>
 
-# Tree Construction from Inorder and Preorder
-def build_tree_inorder_preorder(inorder, preorder):
-    if not inorder or not preorder:
-        return None
-    root_value = preorder.pop(0)
-    root = TreeNode(root_value)
-    inorder_index = inorder.index(root_value)
-    root.left = build_tree_inorder_preorder(inorder[:inorder_index], preorder)
-    root.right = build_tree_inorder_preorder(inorder[inorder_index + 1:], preorder)
-    return root
+<h3>Right View</h3>
+<p>
+The right view includes the nodes visible from the right side, which are the last nodes at each level of the tree.
+</p>
 
-# Tree Construction from Inorder and Postorder
-def build_tree_inorder_postorder(inorder, postorder):
-    if not inorder or not postorder:
-        return None
-    root_value = postorder.pop()
-    root = TreeNode(root_value)
-    inorder_index = inorder.index(root_value)
-    root.right = build_tree_inorder_postorder(inorder[inorder_index + 1:], postorder)
-    root.left = build_tree_inorder_postorder(inorder[:inorder_index], postorder)
-    return root
+<h3>Top View</h3>
+<p>
+The top view consists of the nodes visible when looking at the tree from the top. It includes the topmost nodes at each horizontal distance from the root.
+</p>
 
-# Tree Construction from Level-order
-def build_tree_level_order(level_order):
-    if not level_order:
-        return None
-    root = TreeNode(level_order[0])
-    queue = [root]
-    i = 1
-    while queue and i < len(level_order):
-        node = queue.pop(0)
-        if i < len(level_order):
-            node.left = TreeNode(level_order[i])
-            queue.append(node.left)
-            i += 1
-        if i < len(level_order):
-            node.right = TreeNode(level_order[i])
-            queue.append(node.right)
-            i += 1
-    return root
+<p>
+Understanding these views helps in solving various tree-related problems efficiently.
+</p>`,
+  codeExample: `class TreeNode {
+    constructor(public val: number, public left: TreeNode | null = null, public right: TreeNode | null = null) {}
+}
 
-# Example Usage
-inorder = [4, 2, 5, 1, 3]
-preorder = [1, 2, 4, 5, 3]
-postorder = [4, 5, 2, 3, 1]
-level_order = [1, 2, 3, 4, 5]
+function leftView(root: TreeNode | null): number[] {
+    if (!root) return [];
+    const result: number[] = [];
+    const queue: [TreeNode, number][] = [[root, 0]];
+    while (queue.length > 0) {
+        const [node, level] = queue.shift()!;
+        if (level === result.length) {
+            result.push(node.val);
+        }
+        if (node.left) queue.push([node.left, level + 1]);
+        if (node.right) queue.push([node.right, level + 1]);
+    }
+    return result;
+}
 
-tree_in_pre = build_tree_inorder_preorder(inorder, preorder)
-tree_in_post = build_tree_inorder_postorder(inorder, postorder)
-tree_level = build_tree_level_order(level_order)
+function rightView(root: TreeNode | null): number[] {
+    if (!root) return [];
+    const result: number[] = [];
+    const queue: [TreeNode, number][] = [[root, 0]];
+    while (queue.length > 0) {
+        const [node, level] = queue.shift()!;
+        if (level === result.length) {
+            result.push(node.val);
+        }
+        if (node.right) queue.push([node.right, level + 1]);
+        if (node.left) queue.push([node.left, level + 1]);
+    }
+    return result;
+}
 
-# Helper function to print tree (inorder traversal)
-def print_tree(node):
-    if node:
-        print_tree(node.left)
-        print(node.value, end=' ')
-        print_tree(node.right)
+function topView(root: TreeNode | null): number[] {
+    if (!root) return [];
+    const view: { [key: number]: number } = {};
+    const queue: [TreeNode, number][] = [[root, 0]];
+    while (queue.length > 0) {
+        const [node, hd] = queue.shift()!;
+        if (!(hd in view)) {
+            view[hd] = node.val;
+        }
+        if (node.left) queue.push([node.left, hd - 1]);
+        if (node.right) queue.push([node.right, hd + 1]);
+    }
+    const hds = Object.keys(view).map(Number).sort();
+    return hds.map(hd => view[hd]);
+}
 
-print("Tree from Inorder and Preorder:")
-print_tree(tree_in_pre)  # Output: 4 2 5 1 3
-print("\nTree from Inorder and Postorder:")
-print_tree(tree_in_post)  # Output: 4 2 5 1 3
-print("\nTree from Level-order:")
-print_tree(tree_level)  # Output: 4 2 5 1 3`,
+// Example usage:
+const root = new TreeNode(1, 
+    new TreeNode(2, 
+        new TreeNode(4), 
+        new TreeNode(5, null, new TreeNode(7))
+    ), 
+    new TreeNode(3, null, new TreeNode(6, null, new TreeNode(8)))
+);
+
+console.log("Left View:", leftView(root)); // [1, 2, 4, 7]
+console.log("Right View:", rightView(root)); // [1, 3, 6, 8]
+console.log("Top View:", topView(root)); // [4, 2, 1, 3, 6, 8]
+`,
   exercises: [
     {
-      prompt: 'Implement the tree construction from inorder and preorder traversal sequences.',
-      initialCode: `# Write your solution here
-class TreeNode:
-    def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
+      prompt: 'Implement the left view of a binary tree using recursion.',
+      initialCode: `class TreeNode {
+    constructor(public val: number, public left: TreeNode | null = null, public right: TreeNode | null = null) {}
+}
 
-def build_tree_inorder_preorder(inorder, preorder):
-    # Your code here
+function leftView(root: TreeNode | null): number[] {
+    // Your code here
+}`,
+      solution: `function leftView(root: TreeNode | null, level: number = 0, result: number[] = []): number[] {
+    if (!root) return result;
+    if (level === result.length) {
+        result.push(root.val);
+    }
+    leftView(root.left, level + 1, result);
+    leftView(root.right, level + 1, result);
+    return result;
+}`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt: 'Implement the right view of a binary tree using iterative methods.',
+      initialCode: `class TreeNode {
+    constructor(public val: number, public left: TreeNode | null = null, public right: TreeNode | null = null) {}
+}
 
-inorder = [4, 2, 5, 1, 3]
-preorder = [1, 2, 4, 5, 3]`,
-      solution: `class TreeNode:
-    def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
+function rightView(root: TreeNode | null): number[] {
+    // Your code here
+}`,
+      solution: `function rightView(root: TreeNode | null): number[] {
+    if (!root) return [];
+    const result: number[] = [];
+    const queue: [TreeNode, number][] = [[root, 0]];
+    while (queue.length > 0) {
+        const [node, level] = queue.shift()!;
+        if (level === result.length) {
+            result.push(node.val);
+        }
+        if (node.right) queue.push([node.right, level + 1]);
+        if (node.left) queue.push([node.left, level + 1]);
+    }
+    return result;
+}`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt: 'Implement the top view of a binary tree and explain how horizontal distances are calculated.',
+      initialCode: `class TreeNode {
+    constructor(public val: number, public left: TreeNode | null = null, public right: TreeNode | null = null) {}
+}
 
-def build_tree_inorder_preorder(inorder, preorder):
-    if not inorder or not preorder:
-        return None
-    root_value = preorder.pop(0)
-    root = TreeNode(root_value)
-    inorder_index = inorder.index(root_value)
-    root.left = build_tree_inorder_preorder(inorder[:inorder_index], preorder)
-    root.right = build_tree_inorder_preorder(inorder[inorder_index + 1:], preorder)
-    return root
-
-inorder = [4, 2, 5, 1, 3]
-preorder = [1, 2, 4, 5, 3]
-tree = build_tree_inorder_preorder(inorder, preorder)
-
-# Helper function to print tree (inorder traversal)
-def print_tree(node):
-    if node:
-        print_tree(node.left)
-        print(node.value, end=' ')
-        print_tree(node.right)
-
-print("Tree from Inorder and Preorder:")
-print_tree(tree)  # Output: 4 2 5 1 3`,
+function topView(root: TreeNode | null): number[] {
+    // Your code here
+}`,
+      solution: `function topView(root: TreeNode | null): number[] {
+    if (!root) return [];
+    const view: { [key: number]: number } = {};
+    const queue: [TreeNode, number][] = [[root, 0]];
+    while (queue.length > 0) {
+        const [node, hd] = queue.shift()!;
+        if (!(hd in view)) {
+            view[hd] = node.val;
+        }
+        if (node.left) queue.push([node.left, hd - 1]);
+        if (node.right) queue.push([node.right, hd + 1]);
+    }
+    const hds = Object.keys(view).map(Number).sort();
+    return hds.map(hd => view[hd]);
+}`,
       difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question: 'Which of the following traversal sequences can be used to uniquely construct a binary tree?',
-      options: ['Inorder and Preorder', 'Inorder and Postorder', 'Preorder and Postorder', 'All of the above'],
-      correctAnswer: 3,
+      question: 'What is the difference between the left view and the top view of a binary tree?',
+      options: [
+        'The left view includes all nodes, while the top view includes only leaf nodes.',
+        'The left view is based on depth, while the top view is based on horizontal distance.',
+        'There is no difference; they are the same.',
+      ],
+      correctAnswer: 1,
       explanations: [
-        'This is correct. Inorder and Preorder traversal sequences can be used to uniquely construct a binary tree.',
-        'This is correct. Inorder and Postorder traversal sequences can be used to uniquely construct a binary tree.',
-        'This is incorrect. Preorder and Postorder traversal sequences alone cannot uniquely construct a binary tree.',
-        'This is correct. Inorder and Preorder, and Inorder and Postorder traversal sequences can be used to uniquely construct a binary tree.',
+        'Incorrect. Both views can include non-leaf nodes.',
+        'Correct. Left view is the first node at each level, top view is the topmost node at each horizontal distance.',
+        'Incorrect. They are different.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question: 'What is the time complexity of finding the top view of a binary tree?',
+      options: [
+        'O(1)',
+        'O(n)',
+        'O(n^2)',
+        'O(log n)',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Incorrect. It depends on the number of nodes.',
+        'Correct. Each node is visited once.',
+        'Incorrect. Not applicable for this operation.',
+        'Incorrect. Not relevant here.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the first node in a preorder traversal sequence?',
-      options: ['Leftmost node', 'Root node', 'Rightmost node', 'None of the above'],
-      correctAnswer: 1,
+      question: 'Which traversal method is most suitable for finding the right view of a binary tree?',
+      options: [
+        'Pre-order traversal',
+        'Post-order traversal',
+        'Level order traversal',
+        'In-order traversal',
+      ],
+      correctAnswer: 2,
       explanations: [
-        'This is incorrect. The first node in a preorder traversal sequence is the root node.',
-        'This is correct. The first node in a preorder traversal sequence is the root node.',
-        'This is incorrect. The first node in a preorder traversal sequence is the root node.',
-        'This is incorrect. The first node in a preorder traversal sequence is the root node.',
+        'Incorrect. Pre-order is root, left, right.',
+        'Incorrect. Post-order is left, right, root.',
+        'Correct. Level order allows accessing the last node of each level.',
+        'Incorrect. In-order is left, root, right.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -2834,127 +3143,168 @@ def prune_tree(root):
   ],
 };
 
-const subtreeOperationsData: LessonContent = {
-  title: 'Subtree Operations',
+const treeComparisonsData: LessonContent = {
+  title: 'Tree Comparison Problems',
   content: `<p>
-Subtree operations involve working with parts of a tree, such as finding, validating, and manipulating subtrees.
+Tree comparison problems involve determining relationships and properties between tree structures. This lesson covers three essential problems: Same Tree, Subtree of Another Tree, and Symmetric Tree. Understanding these concepts is crucial for solving various tree-related problems in computer science.
 </p>
 
-<ul>
-<li><strong>Finding Subtrees:</strong> Locating specific subtrees within a larger tree.</li>
-<li><strong>Validating Subtrees:</strong> Checking if a given tree is a subtree of another tree.</li>
-<li><strong>Manipulating Subtrees:</strong> Adding, removing, or modifying subtrees.</li>
-</ul>`,
-  codeExample: `# Finding Subtrees
-def find_subtree(root, target):
-    if not root:
-        return False
-    if is_identical(root, target):
-        return True
-    return find_subtree(root.left, target) or find_subtree(root.right, target)
+<h3>Same Tree</h3>
+<p>
+A "Same Tree" problem requires determining if two binary trees are identical in both structure and node values. This means that each corresponding node in both trees must have the same value, and the structure must be mirror images of each other.
+</p>
 
-# Validating Subtrees
-def is_subtree(s, t):
-    if not s:
-        return False
-    if is_identical(s, t):
-        return True
-    return is_subtree(s.left, t) or is_subtree(s.right, t)
+<h3>Subtree of Another Tree</h3>
+<p>
+The "Subtree of Another Tree" problem involves checking if one binary tree is a subtree of another. A subtree must have the same structure and node values as the original tree it is being compared to.
+</p>
 
-# Manipulating Subtrees
-def add_subtree(root, subtree, position):
-    if position == 'left':
-        root.left = subtree
-    elif position == 'right':
-        root.right = subtree
-    return root`,
+<h3>Symmetric Tree</h3>
+<p>
+A "Symmetric Tree" is a tree that is a mirror image of itself. This means that the left subtree is a mirror reflection of the right subtree. Determining if a tree is symmetric is essential for understanding tree symmetry and balance.
+</p>`,
+  codeExample: `class TreeNode {
+    constructor(public val: number, public left: TreeNode | null = null, public right: TreeNode | null = null) {}
+}
+
+// Same Tree
+function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
+    if (p === null && q === null) return true;
+    if (p === null || q === null) return false;
+    if (p.val !== q.val) return false;
+    return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+}
+
+// Subtree of Another Tree
+function isSubtree(root: TreeNode | null, subRoot: TreeNode | null): boolean {
+    if (subRoot === null) return true;
+    if (root === null) return false;
+    if (isSameTree(root, subRoot)) return true;
+    return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+}
+
+// Symmetric Tree
+function isSymmetric(root: TreeNode | null): boolean {
+    function isMirror(left: TreeNode | null, right: TreeNode | null): boolean {
+        if (left === null && right === null) return true;
+        if (left === null || right === null) return false;
+        return (left.val === right.val) && isMirror(left.left, right.right) && isMirror(left.right, right.left);
+    }
+    return root ? isMirror(root.left, root.right) : true;
+}
+
+// Example usage:
+const tree1 = new TreeNode(1, new TreeNode(2), new TreeNode(3));
+const tree2 = new TreeNode(1, new TreeNode(2), new TreeNode(3));
+console.log("Same Tree:", isSameTree(tree1, tree2)); // Output: true
+
+const mainTree = new TreeNode(1, new TreeNode(2, new TreeNode(4), new TreeNode(5)), new TreeNode(3));
+const subTree = new TreeNode(2, new TreeNode(4), new TreeNode(5));
+console.log("Subtree:", isSubtree(mainTree, subTree)); // Output: true
+
+const symmetricTree = new TreeNode(1, new TreeNode(2, new TreeNode(3), new TreeNode(4)), new TreeNode(2, new TreeNode(4), new TreeNode(3)));
+console.log("Symmetric Tree:", isSymmetric(symmetricTree)); // Output: true
+`,
   exercises: [
     {
-      prompt: 'Write a function to find if a given subtree exists within a larger tree.',
-      initialCode: `# Write your solution here
-def find_subtree(root, target):
-    if not root:
-        return False
-    if is_identical(root, target):
-        return True
-    return find_subtree(root.left, target) or find_subtree(root.right, target)`,
-      solution: `def find_subtree(root, target):
-    if not root:
-        return False
-    if is_identical(root, target):
-        return True
-    return find_subtree(root.left, target) or find_subtree(root.right, target)`,
+      prompt: 'Implement a function to check if two trees are the same.',
+      initialCode: `class TreeNode {
+    constructor(public val: number, public left: TreeNode | null = null, public right: TreeNode | null = null) {}
+}
+
+function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
+    // Your code here
+}`,
+      solution: `function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
+    if (p === null && q === null) return true;
+    if (p === null || q === null) return false;
+    if (p.val !== q.val) return false;
+    return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+}`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt: 'Implement a function to check if one tree is a subtree of another.',
+      initialCode: `class TreeNode {
+    constructor(public val: number, public left: TreeNode | null = null, public right: TreeNode | null = null) {}
+}
+
+function isSubtree(root: TreeNode | null, subRoot: TreeNode | null): boolean {
+    // Your code here
+}`,
+      solution: `function isSubtree(root: TreeNode | null, subRoot: TreeNode | null): boolean {
+    if (subRoot === null) return true;
+    if (root === null) return false;
+    if (isSameTree(root, subRoot)) return true;
+    return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+}`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Write a function to validate if a given tree is a subtree of another tree.',
-      initialCode: `# Write your solution here
-def is_subtree(s, t):
-    if not s:
-        return False
-    if is_identical(s, t):
-        return True
-    return is_subtree(s.left, t) or is_subtree(s.right, t)`,
-      solution: `def is_subtree(s, t):
-    if not s:
-        return False
-    if is_identical(s, t):
-        return True
-    return is_subtree(s.left, t) or is_subtree(s.right, t)`,
+      prompt: 'Implement a function to check if a tree is symmetric.',
+      initialCode: `class TreeNode {
+    constructor(public val: number, public left: TreeNode | null = null, public right: TreeNode | null = null) {}
+}
+
+function isSymmetric(root: TreeNode | null): boolean {
+    // Your code here
+}`,
+      solution: `function isSymmetric(root: TreeNode | null): boolean {
+    function isMirror(left: TreeNode | null, right: TreeNode | null): boolean {
+        if (left === null && right === null) return true;
+        if (left === null || right === null) return false;
+        return (left.val === right.val) && isMirror(left.left, right.right) && isMirror(left.right, right.left);
+    }
+    return root ? isMirror(root.left, root.right) : true;
+}`,
       difficulty: Difficulty.Intermediate,
-    },
-    {
-      prompt: 'Write a function to add a subtree to a given position in a larger tree.',
-      initialCode: `# Write your solution here
-def add_subtree(root, subtree, position):
-    if position == 'left':
-        root.left = subtree
-    elif position == 'right':
-        root.right = subtree
-    return root`,
-      solution: `def add_subtree(root, subtree, position):
-    if position == 'left':
-        root.left = subtree
-    elif position == 'right':
-        root.right = subtree
-    return root`,
-      difficulty: Difficulty.Advanced,
     },
   ],
   quizzes: [
     {
-      question: 'Which of the following is a common subtree operation?',
+      question: 'What does it mean for two trees to be the same?',
       options: [
-        'Sorting the subtree',
-        'Finding the subtree',
-        'Balancing the subtree',
-        'Rotating the subtree',
+        'They have the same set of values but not necessarily the same structure.',
+        'They have identical structure and corresponding nodes with the same values.',
+        'They are both binary search trees with the same in-order traversal.',
       ],
       correctAnswer: 1,
       explanations: [
-        'This is incorrect because sorting is not a common subtree operation.',
-        'This is correct. Finding a subtree is a common operation.',
-        'This is incorrect because balancing is a separate operation.',
-        'This is incorrect because rotating is not a common subtree operation.',
+        'Incorrect. The structure must also be identical.',
+        'Correct. Both structure and node values must match.',
+        'Incorrect. They do not need to be binary search trees.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question: 'How do you check if one tree is a subtree of another?',
+      options: [
+        'Check if the subtree is identical to the entire tree.',
+        'Traverse the main tree and check for a matching subtree structure and values.',
+        'Compare the heights of both trees.',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Incorrect. The subtree can be any part of the main tree, not necessarily the entire tree.',
+        'Correct. Traverse and check for a matching subtree.',
+        'Incorrect. Heights do not determine subtree relationships.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the purpose of validating a subtree?',
+      question: 'What is a symmetric tree?',
       options: [
-        'To sort the subtree',
-        'To check if it is a part of a larger tree',
-        'To balance the subtree',
-        'To prune the subtree',
+        'A tree where the left and right subtrees are mirrors of each other.',
+        'A tree where all nodes have the same value.',
+        'A tree that is a binary search tree.',
       ],
-      correctAnswer: 1,
+      correctAnswer: 0,
       explanations: [
-        'This is incorrect because sorting is not the purpose of validating a subtree.',
-        'This is correct. Validating a subtree checks if it is a part of a larger tree.',
-        'This is incorrect because balancing is a separate operation.',
-        'This is incorrect because pruning is a separate operation.',
+        'Correct. The tree is a mirror image of itself.',
+        'Incorrect. Symmetry is not about node values being the same.',
+        'Incorrect. Symmetry is unrelated to binary search properties.',
       ],
-      difficulty: Difficulty.Intermediate,
+      difficulty: Difficulty.Beginner,
     },
   ],
 };
@@ -3752,120 +4102,6 @@ def pre_order_traversal(self, root):
   ],
 };
 
-const trieData: LessonContent = {
-  title: 'Trie (Prefix Tree)',
-  content: `<p>
-A trie, also known as a prefix tree, is a tree-like data structure that stores a dynamic set of strings. Tries are particularly useful for prefix-based searches.
-</p>
-
-<ul>
-<li><strong>Node Structure:</strong> Each node contains a dictionary of children nodes and a flag indicating the end of a word.</li>
-<li><strong>Operations:</strong> Insertion, deletion, and searching in a trie.</li>
-<li><strong>Applications:</strong> Autocomplete, spell checking, and IP routing.</li>
-</ul>`,
-  codeExample: `# Trie Node
-class TrieNode:
-    def __init__(self):
-        self.children = {}
-        self.is_end_of_word = False
-
-# Trie Class
-class Trie:
-    def insert(self, word):
-        node = self.root
-        for char in word:
-            if char not in node.children:
-                node.children[char] = TrieNode()
-            node = node.children[char]
-        node.is_end_of_word = True
-
-    def search(self, word):
-        node = self.root
-        for char in word:
-            if char not in node.children:
-                return False
-            node = node.children[char]
-        return node.is_end_of_word`,
-  exercises: [
-    {
-      prompt: 'Implement the insertion operation for a trie.',
-      initialCode: `# Write your solution here
-class Trie:
-    def insert(self, word):
-        node = self.root
-        for char in word:
-            if char not in node.children:
-                node.children[char] = TrieNode()
-            node = node.children[char]
-        node.is_end_of_word = True`,
-      solution: `class Trie:
-    def insert(self, word):
-        node = self.root
-        for char in word:
-            if char not in node.children:
-                node.children[char] = TrieNode()
-            node = node.children[char]
-        node.is_end_of_word = True`,
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      prompt: 'Implement the search operation for a trie.',
-      initialCode: `# Write your solution here
-def search(self, word):
-    node = self.root
-    for char in word:
-        if char not in node.children:
-            return False
-        node = node.children[char]
-    return node.is_end_of_word`,
-      solution: `def search(self, word):
-    node = self.root
-    for char in word:
-        if char not in node.children:
-            return False
-        node = node.children[char]
-    return node.is_end_of_word`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which of the following is a common application of a trie?',
-      options: [
-        'Sorting numbers',
-        'Autocomplete',
-        'Balancing trees',
-        'Graph traversal',
-      ],
-      correctAnswer: 1,
-      explanations: [
-        'This is incorrect because sorting numbers is not a common application of a trie.',
-        'This is correct. Autocomplete is a common application of a trie.',
-        'This is incorrect because balancing trees is not a common application of a trie.',
-        'This is incorrect because graph traversal is not a common application of a trie.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'What does the is_end_of_word flag indicate in a trie node?',
-      options: [
-        'The node is the root of the trie',
-        'The node is a leaf node',
-        'The node marks the end of a word',
-        'The node is the middle of a word',
-      ],
-      correctAnswer: 2,
-      explanations: [
-        'This is incorrect because the is_end_of_word flag does not indicate if the node is the root.',
-        'This is incorrect because the is_end_of_word flag does not indicate if the node is a leaf.',
-        'This is correct. The is_end_of_word flag indicates that the node marks the end of a word.',
-        'This is incorrect because the is_end_of_word flag does not indicate if the node is in the middle of a word.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
 const segmentTreesData: LessonContent = {
   title: 'Segment Trees',
   content: `<p>
@@ -4007,739 +4243,6 @@ def update(self, root, i, val):
         'This is correct. The total attribute represents the sum of elements in the interval represented by the node.',
         'This is incorrect because the total attribute does not represent the maximum element in the interval.',
         'This is incorrect because the total attribute does not represent the minimum element in the interval.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const fenwickTreesData: LessonContent = {
-  title: 'Fenwick Trees (Binary Indexed Trees)',
-  content: `<p>
-Fenwick trees, also known as Binary Indexed Trees (BIT), are data structures that efficiently update elements and calculate prefix sums in a table of numbers.
-</p>
-
-<ul>
-<li><strong>Node Structure:</strong> Each node stores the cumulative frequency up to a certain point.</li>
-<li><strong>Operations:</strong> Update and query operations in a Fenwick tree.</li>
-<li><strong>Applications:</strong> Range sum queries, frequency counting, and dynamic order statistics.</li>
-</ul>`,
-  codeExample: `# Fenwick Tree Class
-class FenwickTree:
-    def __init__(self, size):
-        self.size = size
-        self.tree = [0] * (size + 1)
-
-    def update(self, index, value):
-        while index <= self.size:
-            self.tree[index] += value
-            index += index & -index
-
-    def query(self, index):
-        total = 0
-        while index > 0:
-            total += self.tree[index]
-            index -= index & -index
-        return total`,
-  exercises: [
-    {
-      prompt: 'Implement the update operation for a Fenwick tree.',
-      initialCode: `# Write your solution here
-def update(self, index, value):
-    while index <= self.size:
-        self.tree[index] += value
-        index += index & -index`,
-      solution: `def update(self, index, value):
-    while index <= self.size:
-        self.tree[index] += value
-        index += index & -index`,
-      difficulty: Difficulty.Advanced,
-    },
-    {
-      prompt: 'Implement the query operation for a Fenwick tree.',
-      initialCode: `# Write your solution here
-def query(self, index):
-    total = 0
-    while index > 0:
-        total += self.tree[index]
-        index -= index & -index
-    return total`,
-      solution: `def query(self, index):
-    total = 0
-    while index > 0:
-        total += self.tree[index]
-        index -= index & -index
-    return total`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which of the following is a common application of a Fenwick tree?',
-      options: [
-        'Sorting numbers',
-        'Range sum queries',
-        'Balancing trees',
-        'Graph traversal',
-      ],
-      correctAnswer: 1,
-      explanations: [
-        'This is incorrect because sorting numbers is not a common application of a Fenwick tree.',
-        'This is correct. Range sum queries are a common application of a Fenwick tree.',
-        'This is incorrect because balancing trees is not a common application of a Fenwick tree.',
-        'This is incorrect because graph traversal is not a common application of a Fenwick tree.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'What does the index & -index operation do in a Fenwick tree?',
-      options: [
-        'Finds the next node to update',
-        'Finds the parent node',
-        'Finds the left child node',
-        'Finds the right child node',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The index & -index operation finds the next node to update in a Fenwick tree.',
-        'This is incorrect because the index & -index operation does not find the parent node.',
-        'This is incorrect because the index & -index operation does not find the left child node.',
-        'This is incorrect because the index & -index operation does not find the right child node.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const spanningTreesData: LessonContent = {
-  title: 'Spanning Trees',
-  content: `<p>
-A spanning tree of a connected, undirected graph is a subgraph that is a tree and includes all the vertices of the graph. A minimum spanning tree (MST) is a spanning tree with the minimum possible total edge weight.
-</p>
-
-<ul>
-<li><strong>Properties:</strong> A spanning tree has V-1 edges, where V is the number of vertices.</li>
-<li><strong>Algorithms:</strong> Common algorithms to find MST include Kruskal's and Prim's algorithms.</li>
-<li><strong>Applications:</strong> Network design, clustering, and image segmentation.</li>
-</ul>`,
-  codeExample: `# Kruskal's Algorithm for Minimum Spanning Tree
-class UnionFind:
-    def __init__(self, size):
-        self.parent = list(range(size))
-        self.rank = [1] * size
-
-    def find(self, p):
-        if self.parent[p] != p:
-            self.parent[p] = self.find(self.parent[p])
-        return self.parent[p]
-
-    def union(self, p, q):
-        rootP = self.find(p)
-        rootQ = self.find(q)
-        if rootP != rootQ:
-            if self.rank[rootP] > self.rank[rootQ]:
-                self.parent[rootQ] = rootP
-            elif self.rank[rootP] < self.rank[rootQ]:
-                self.parent[rootP] = rootQ
-            else:
-                self.parent[rootQ] = rootP
-                self.rank[rootP] += 1
-
-def kruskal(edges, num_vertices):
-    uf = UnionFind(num_vertices)
-    edges.sort(key=lambda x: x[2])
-    mst = []
-    for edge in edges:
-        u, v, weight = edge
-        if uf.find(u) != uf.find(v):
-            uf.union(u, v)
-            mst.append(edge)
-    return mst`,
-  exercises: [
-    {
-      prompt: 'Implement Kruskal\'s algorithm for finding the minimum spanning tree.',
-      initialCode: `# Write your solution here
-class UnionFind:
-    def __init__(self, size):
-        self.parent = list(range(size))
-        self.rank = [1] * size
-
-    def find(self, p):
-        if self.parent[p] != p:
-            self.parent[p] = self.find(self.parent[p])
-        return self.parent[p]
-
-    def union(self, p, q):
-        rootP = self.find(p)
-        rootQ = self.find(q)
-        if rootP != rootQ:
-            if self.rank[rootP] > self.rank[rootQ]:
-                self.parent[rootQ] = rootP
-            elif self.rank[rootP] < self.rank[rootQ]:
-                self.parent[rootP] = rootQ
-            else:
-                self.parent[rootQ] = rootP
-                self.rank[rootP] += 1
-
-def kruskal(edges, num_vertices):
-    uf = UnionFind(num_vertices)
-    edges.sort(key=lambda x: x[2])
-    mst = []
-    for edge in edges:
-        u, v, weight = edge
-        if uf.find(u) != uf.find(v):
-            uf.union(u, v)
-            mst.append(edge)
-    return mst`,
-      solution: `class UnionFind:
-    def __init__(self, size):
-        self.parent = list(range(size))
-        self.rank = [1] * size
-
-    def find(self, p):
-        if self.parent[p] != p:
-            self.parent[p] = self.find(self.parent[p])
-        return self.parent[p]
-
-    def union(self, p, q):
-        rootP = self.find(p)
-        rootQ = self.find(q)
-        if rootP != rootQ:
-            if self.rank[rootP] > self.rank[rootQ]:
-                self.parent[rootQ] = rootP
-            elif self.rank[rootP] < self.rank[rootQ]:
-                self.parent[rootP] = rootQ
-            else:
-                self.parent[rootQ] = rootP
-                self.rank[rootP] += 1
-
-def kruskal(edges, num_vertices):
-    uf = UnionFind(num_vertices)
-    edges.sort(key=lambda x: x[2])
-    mst = []
-    for edge in edges:
-        u, v, weight = edge
-        if uf.find(u) != uf.find(v):
-            uf.union(u, v)
-            mst.append(edge)
-    return mst`,
-      difficulty: Difficulty.Advanced,
-    },
-    {
-      prompt: 'Implement Prim\'s algorithm for finding the minimum spanning tree.',
-      initialCode: `# Write your solution here
-import heapq
-
-def prim(graph, start):
-    mst = []
-    visited = set()
-    heap = [(0, start)]
-    while heap:
-        cost, node = heapq.heappop(heap)
-        if node not in visited:
-            visited.add(node)
-            mst.append((cost, node))
-            for neighbor, weight in graph[node]:
-                if neighbor not in visited:
-                    heapq.heappush(heap, (weight, neighbor))
-    return mst`,
-      solution: `import heapq
-
-def prim(graph, start):
-    mst = []
-    visited = set()
-    heap = [(0, start)]
-    while heap:
-        cost, node = heapq.heappop(heap)
-        if node not in visited:
-            visited.add(node)
-            mst.append((cost, node))
-            for neighbor, weight in graph[node]:
-                if neighbor not in visited:
-                    heapq.heappush(heap, (weight, neighbor))
-    return mst`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which of the following is a property of a spanning tree?',
-      options: [
-        'It has V edges, where V is the number of vertices',
-        'It has V-1 edges, where V is the number of vertices',
-        'It has E-1 edges, where E is the number of edges',
-        'It has E edges, where E is the number of edges',
-      ],
-      correctAnswer: 1,
-      explanations: [
-        'This is incorrect. A spanning tree has V-1 edges, not V edges.',
-        'This is correct. A spanning tree has V-1 edges, where V is the number of vertices.',
-        'This is incorrect. A spanning tree has V-1 edges, not E-1 edges.',
-        'This is incorrect. A spanning tree has V-1 edges, not E edges.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'Which of the following algorithms is used to find the minimum spanning tree?',
-      options: [
-        'Dijkstra\'s algorithm',
-        'Kruskal\'s algorithm',
-        'Bellman-Ford algorithm',
-        'Floyd-Warshall algorithm',
-      ],
-      correctAnswer: 1,
-      explanations: [
-        'This is incorrect. Dijkstra\'s algorithm is used for finding the shortest path.',
-        'This is correct. Kruskal\'s algorithm is used to find the minimum spanning tree.',
-        'This is incorrect. Bellman-Ford algorithm is used for finding the shortest path with negative weights.',
-        'This is incorrect. Floyd-Warshall algorithm is used for finding all-pairs shortest paths.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const lowestCommonAncestorData: LessonContent = {
-  title: 'Lowest Common Ancestor',
-  content: `<p>
-The lowest common ancestor (LCA) of two nodes in a tree is the lowest (i.e., deepest) node that has both nodes as descendants. LCA has various applications in computer science, including network routing and computational biology.
-</p>
-
-<ul>
-<li><strong>Algorithms:</strong> Common algorithms to find LCA include the binary lifting method and the Euler tour technique.</li>
-<li><strong>Applications:</strong> Network routing, computational biology, and range minimum query.</li>
-</ul>`,
-  codeExample: `# Binary Lifting Method for Lowest Common Ancestor
-class TreeNode:
-    def __init__(self, val):
-        self.val = val
-        self.parent = None
-        self.children = []
-
-class LCA:
-    def __init__(self, root):
-        self.root = root
-        self.up = {}
-        self.depth = {}
-        self.log = 0
-        self.dfs(root, None, 0)
-        self.preprocess()
-
-    def dfs(self, node, parent, depth):
-        self.depth[node.val] = depth
-        self.up[node.val] = {}
-        self.up[node.val][0] = parent
-        for child in node.children:
-            self.dfs(child, node, depth + 1)
-
-    def preprocess(self):
-        while (1 << self.log) <= len(self.depth):
-            self.log += 1
-        for i in range(1, self.log + 1):
-            for node in self.depth:
-                if self.up[node][i - 1] is not None:
-                    self.up[node][i] = self.up[self.up[node][i - 1].val][i - 1]
-
-    def lca(self, u, v):
-        if self.depth[u] < self.depth[v]:
-            u, v = v, u
-        for i in range(self.log, -1, -1):
-            if self.depth[u] - (1 << i) >= self.depth[v]:
-                u = self.up[u][i].val
-        if u == v:
-            return u
-        for i in range(self.log, -1, -1):
-            if self.up[u][i] != self.up[v][i]:
-                u = self.up[u][i].val
-                v = self.up[v][i].val
-        return self.up[u][0].val`,
-  exercises: [
-    {
-      prompt: 'Implement the binary lifting method for finding the lowest common ancestor.',
-      initialCode: `# Write your solution here
-class TreeNode:
-    def __init__(self, val):
-        self.val = val
-        self.parent = None
-        self.children = []
-
-class LCA:
-    def __init__(self, root):
-        self.root = root
-        self.up = {}
-        self.depth = {}
-        self.log = 0
-        self.dfs(root, None, 0)
-        self.preprocess()
-
-    def dfs(self, node, parent, depth):
-        self.depth[node.val] = depth
-        self.up[node.val] = {}
-        self.up[node.val][0] = parent
-        for child in node.children:
-            self.dfs(child, node, depth + 1)
-
-    def preprocess(self):
-        while (1 << self.log) <= len(self.depth):
-            self.log += 1
-        for i in range(1, self.log + 1):
-            for node in self.depth:
-                if self.up[node][i - 1] is not None:
-                    self.up[node][i] = self.up[self.up[node][i - 1].val][i - 1]
-
-    def lca(self, u, v):
-        if self.depth[u] < self.depth[v]:
-            u, v = v, u
-        for i in range(self.log, -1, -1):
-            if self.depth[u] - (1 << i) >= self.depth[v]:
-                u = self.up[u][i].val
-        if u == v:
-            return u
-        for i in range(self.log, -1, -1):
-            if self.up[u][i] != self.up[v][i]:
-                u = self.up[u][i].val
-                v = self.up[v][i].val
-        return self.up[u][0].val`,
-      solution: `class TreeNode:
-    def __init__(self, val):
-        self.val = val
-        self.parent = None
-        self.children = []
-
-class LCA:
-    def __init__(self, root):
-        self.root = root
-        self.up = {}
-        self.depth = {}
-        self.log = 0
-        self.dfs(root, None, 0)
-        self.preprocess()
-
-    def dfs(self, node, parent, depth):
-        self.depth[node.val] = depth
-        self.up[node.val] = {}
-        self.up[node.val][0] = parent
-        for child in node.children:
-            self.dfs(child, node, depth + 1)
-
-    def preprocess(self):
-        while (1 << self.log) <= len(self.depth):
-            self.log += 1
-        for i in range(1, self.log + 1):
-            for node in self.depth:
-                if self.up[node][i - 1] is not None:
-                    self.up[node][i] = self.up[self.up[node][i - 1].val][i - 1]
-
-    def lca(self, u, v):
-        if self.depth[u] < self.depth[v]:
-            u, v = v, u
-        for i in range(self.log, -1, -1):
-            if self.depth[u] - (1 << i) >= self.depth[v]:
-                u = self.up[u][i].val
-        if u == v:
-            return u
-        for i in range(self.log, -1, -1):
-            if self.up[u][i] != self.up[v][i]:
-                u = self.up[u][i].val
-                v = self.up[v][i].val
-        return self.up[u][0].val`,
-      difficulty: Difficulty.Advanced,
-    },
-    {
-      prompt: 'Implement the Euler tour technique for finding the lowest common ancestor.',
-      initialCode: `# Write your solution here
-class TreeNode:
-    def __init__(self, val):
-        self.val = val
-        self.parent = None
-        self.children = []
-
-class LCA:
-    def __init__(self, root):
-        self.root = root
-        self.euler = []
-        self.depth = []
-        self.first = {}
-        self.dfs(root, 0)
-        self.st = self.build_sparse_table(self.depth)
-
-    def dfs(self, node, depth):
-        self.first[node.val] = len(self.euler)
-        self.euler.append(node.val)
-        self.depth.append(depth)
-        for child in node.children:
-            self.dfs(child, depth + 1)
-            self.euler.append(node.val)
-            self.depth.append(depth)
-
-    def build_sparse_table(self, arr):
-        n = len(arr)
-        st = [[0] * (n + 1) for _ in range(n + 1)]
-        for i in range(n):
-            st[i][0] = arr[i]
-        j = 1
-        while (1 << j) <= n:
-            for i in range(n - (1 << j) + 1):
-                st[i][j] = min(st[i][j - 1], st[i + (1 << (j - 1))][j - 1])
-            j += 1
-        return st
-
-    def query_sparse_table(self, L, R):
-        j = int(math.log2(R - L + 1))
-        return min(self.st[L][j], self.st[R - (1 << j) + 1][j])
-
-    def lca(self, u, v):
-        if self.first[u] > self.first[v]:
-            u, v = v, u
-        return self.euler[self.query_sparse_table(self.first[u], self.first[v])]`,
-      solution: `class TreeNode:
-    def __init__(self, val):
-        self.val = val
-        self.parent = None
-        self.children = []
-
-class LCA:
-    def __init__(self, root):
-        self.root = root
-        self.euler = []
-        self.depth = []
-        self.first = {}
-        self.dfs(root, 0)
-        self.st = self.build_sparse_table(self.depth)
-
-    def dfs(self, node, depth):
-        self.first[node.val] = len(self.euler)
-        self.euler.append(node.val)
-        self.depth.append(depth)
-        for child in node.children:
-            self.dfs(child, depth + 1)
-            self.euler.append(node.val)
-            self.depth.append(depth)
-
-    def build_sparse_table(self, arr):
-        n = len(arr)
-        st = [[0] * (n + 1) for _ in range(n + 1)]
-        for i in range(n):
-            st[i][0] = arr[i]
-        j = 1
-        while (1 << j) <= n:
-            for i in range(n - (1 << j) + 1):
-                st[i][j] = min(st[i][j - 1], st[i + (1 << (j - 1))][j - 1])
-            j += 1
-        return st
-
-    def query_sparse_table(self, L, R):
-        j = int(math.log2(R - L + 1))
-        return min(self.st[L][j], self.st[R - (1 << j) + 1][j])
-
-    def lca(self, u, v):
-        if self.first[u] > self.first[v]:
-            u, v = v, u
-        return self.euler[self.query_sparse_table(self.first[u], self.first[v])]`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which of the following is a common application of the lowest common ancestor (LCA)?',
-      options: [
-        'Network routing',
-        'Sorting numbers',
-        'Balancing trees',
-        'Graph traversal',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. Network routing is a common application of LCA.',
-        'This is incorrect. Sorting numbers is not a common application of LCA.',
-        'This is incorrect. Balancing trees is not a common application of LCA.',
-        'This is incorrect. Graph traversal is not a common application of LCA.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'Which of the following algorithms is used to find the lowest common ancestor (LCA)?',
-      options: [
-        'Dijkstra\'s algorithm',
-        'Kruskal\'s algorithm',
-        'Binary lifting method',
-        'Floyd-Warshall algorithm',
-      ],
-      correctAnswer: 2,
-      explanations: [
-        'This is incorrect. Dijkstra\'s algorithm is used for finding the shortest path.',
-        'This is incorrect. Kruskal\'s algorithm is used for finding the minimum spanning tree.',
-        'This is correct. The binary lifting method is used to find the LCA.',
-        'This is incorrect. Floyd-Warshall algorithm is used for finding all-pairs shortest paths.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const treeSerializationData: LessonContent = {
-  title: 'Tree Serialization',
-  content: `<p>
-Tree serialization is the process of converting a tree data structure into a format that can be stored or transmitted, and then reconstructing the tree from that format.
-</p>
-
-<ul>
-<li><strong>Serialization:</strong> Converting a tree into a string or another format.</li>
-<li><strong>Deserialization:</strong> Reconstructing the tree from the serialized format.</li>
-<li><strong>Applications:</strong> Data storage, network transmission, and data compression.</li>
-</ul>`,
-  codeExample: `# Tree Node
-class TreeNode:
-    def __init__(self, val):
-        self.val = val
-        self.left = None
-        self.right = None
-
-# Tree Serialization and Deserialization
-class TreeSerializer:
-    def serialize(self, root):
-        if not root:
-            return ''
-        queue = [root]
-        result = []
-        while queue:
-            node = queue.pop(0)
-            if node:
-                result.append(str(node.val))
-                queue.append(node.left)
-                queue.append(node.right)
-            else:
-                result.append('null')
-        return ','.join(result)
-
-    def deserialize(self, data):
-        if not data:
-            return None
-        nodes = data.split(',')
-        root = TreeNode(int(nodes[0]))
-        queue = [root]
-        index = 1
-        while queue:
-            node = queue.pop(0)
-            if nodes[index] != 'null':
-                node.left = TreeNode(int(nodes[index]))
-                queue.append(node.left)
-            index += 1
-            if nodes[index] != 'null':
-                node.right = TreeNode(int(nodes[index]))
-                queue.append(node.right)
-            index += 1
-        return root`,
-  exercises: [
-    {
-      prompt: 'Implement the serialization of a binary tree.',
-      initialCode: `# Write your solution here
-class TreeSerializer:
-    def serialize(self, root):
-        if not root:
-            return ''
-        queue = [root]
-        result = []
-        while queue:
-            node = queue.pop(0)
-            if node:
-                result.append(str(node.val))
-                queue.append(node.left)
-                queue.append(node.right)
-            else:
-                result.append('null')
-        return ','.join(result)`,
-      solution: `class TreeSerializer:
-    def serialize(self, root):
-        if not root:
-            return ''
-        queue = [root]
-        result = []
-        while queue:
-            node = queue.pop(0)
-            if node:
-                result.append(str(node.val))
-                queue.append(node.left)
-                queue.append(node.right)
-            else:
-                result.append('null')
-        return ','.join(result)`,
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      prompt: 'Implement the deserialization of a binary tree.',
-      initialCode: `# Write your solution here
-def deserialize(self, data):
-    if not data:
-        return None
-    nodes = data.split(',')
-    root = TreeNode(int(nodes[0]))
-    queue = [root]
-    index = 1
-    while queue:
-        node = queue.pop(0)
-        if nodes[index] != 'null':
-            node.left = TreeNode(int(nodes[index]))
-            queue.append(node.left)
-        index += 1
-        if nodes[index] != 'null':
-            node.right = TreeNode(int(nodes[index]))
-            queue.append(node.right)
-        index += 1
-    return root`,
-      solution: `def deserialize(self, data):
-    if not data:
-        return None
-    nodes = data.split(',')
-    root = TreeNode(int(nodes[0]))
-    queue = [root]
-    index = 1
-    while queue:
-        node = queue.pop(0)
-        if nodes[index] != 'null':
-            node.left = TreeNode(int(nodes[index]))
-            queue.append(node.left)
-        index += 1
-        if nodes[index] != 'null':
-            node.right = TreeNode(int(nodes[index]))
-            queue.append(node.right)
-        index += 1
-    return root`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which of the following is a common application of tree serialization?',
-      options: [
-        'Data storage',
-        'Sorting numbers',
-        'Balancing trees',
-        'Graph traversal',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. Data storage is a common application of tree serialization.',
-        'This is incorrect. Sorting numbers is not a common application of tree serialization.',
-        'This is incorrect. Balancing trees is not a common application of tree serialization.',
-        'This is incorrect. Graph traversal is not a common application of tree serialization.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'Which of the following is the process of reconstructing a tree from a serialized format?',
-      options: [
-        'Serialization',
-        'Deserialization',
-        'Compression',
-        'Encryption',
-      ],
-      correctAnswer: 1,
-      explanations: [
-        'This is incorrect. Serialization is the process of converting a tree into a format.',
-        'This is correct. Deserialization is the process of reconstructing a tree from a serialized format.',
-        'This is incorrect. Compression is a separate process.',
-        'This is incorrect. Encryption is a separate process.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -5071,626 +4574,14 @@ def find_distance(root, node1, node2):
   ],
 };
 
-const treeColoringData: LessonContent = {
-  title: 'Tree Coloring',
-  content: `<p>
-Tree coloring problems involve assigning colors to the nodes of a tree such that certain conditions are met, often related to the colors of adjacent nodes.
-</p>
-
-<ul>
-<li><strong>Coloring Constraints:</strong> Understanding the constraints on coloring adjacent nodes.</li>
-<li><strong>Algorithms:</strong> Common algorithms to solve tree coloring problems include greedy algorithms and dynamic programming.</li>
-<li><strong>Applications:</strong> Scheduling, resource allocation, and graph theory problems.</li>
-</ul>`,
-  codeExample: `# Tree Node
-class TreeNode:
-    def __init__(self, val):
-        self.val = val
-        self.children = []
-
-# Tree Coloring with Minimum Colors
-def min_colors(root):
-    def dfs(node):
-        if not node:
-            return 0
-        colors = set()
-        for child in node.children:
-            child_color = dfs(child)
-            colors.add(child_color)
-        for i in range(1, len(node.children) + 2):
-            if i not in colors:
-                return i
-
-    return dfs(root)`,
-  exercises: [
-    {
-      prompt: 'Implement a function to find the minimum number of colors needed to color a tree such that no two adjacent nodes have the same color.',
-      initialCode: `# Write your solution here
-def min_colors(root):
-    def dfs(node):
-        if not node:
-            return 0
-        colors = set()
-        for child in node.children:
-            child_color = dfs(child)
-            colors.add(child_color)
-        for i in range(1, len(node.children) + 2):
-            if i not in colors:
-                return i
-
-    return dfs(root)`,
-      solution: `def min_colors(root):
-    def dfs(node):
-        if not node:
-            return 0
-        colors = set()
-        for child in node.children:
-            child_color = dfs(child)
-            colors.add(child_color)
-        for i in range(1, len(node.children) + 2):
-            if i not in colors:
-                return i
-
-    return dfs(root)`,
-      difficulty: Difficulty.Advanced,
-    },
-    {
-      prompt: 'Implement a function to check if a given coloring of a tree is valid (i.e., no two adjacent nodes have the same color).',
-      initialCode: `# Write your solution here
-def is_valid_coloring(root, colors):
-    def dfs(node):
-        for child in node.children:
-            if colors[node.val] == colors[child.val]:
-                return False
-            if not dfs(child):
-                return False
-        return True
-
-    return dfs(root)`,
-      solution: `def is_valid_coloring(root, colors):
-    def dfs(node):
-        for child in node.children:
-            if colors[node.val] == colors[child.val]:
-                return False
-            if not dfs(child):
-                return False
-        return True
-
-    return dfs(root)`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which of the following is a common constraint in tree coloring problems?',
-      options: [
-        'Adjacent nodes must have the same color',
-        'Adjacent nodes must have different colors',
-        'All nodes must have the same color',
-        'Nodes must be colored in alphabetical order',
-      ],
-      correctAnswer: 1,
-      explanations: [
-        'This is incorrect. Adjacent nodes must not have the same color.',
-        'This is correct. Adjacent nodes must have different colors.',
-        'This is incorrect. All nodes must not have the same color.',
-        'This is incorrect. Nodes must not be colored in alphabetical order.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'What is the main goal of solving tree coloring problems?',
-      options: [
-        'Minimize the number of colors used',
-        'Maximize the number of colors used',
-        'Sort the tree nodes',
-        'Balance the tree',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The main goal is to minimize the number of colors used.',
-        'This is incorrect. The main goal is not to maximize the number of colors used.',
-        'This is incorrect. Sorting the tree nodes is not the main goal.',
-        'This is incorrect. Balancing the tree is not the main goal.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const fileSystemDesignData: LessonContent = {
-  title: 'File System Design',
-  content: `<p>
-File systems are a critical component of operating systems, responsible for managing the storage and retrieval of files and directories. Trees are often used to represent the hierarchical structure of directories and files.
-</p>
-
-<ul>
-<li><strong>Directory Tree:</strong> Representing the file system as a tree where directories are nodes and files are leaves.</li>
-<li><strong>Operations:</strong> Common operations include creating, deleting, and navigating directories and files.</li>
-<li><strong>Applications:</strong> Operating systems, cloud storage, and version control systems.</li>
-</ul>`,
-  codeExample: `# File System Node
-class FileSystemNode:
-    def __init__(self, name, is_directory=False):
-        self.name = name
-        self.is_directory = is_directory
-        self.children = {}
-
-# File System Class
-class FileSystem:
-    def __init__(self):
-        self.root = FileSystemNode("/", is_directory=True)
-
-    def create_directory(self, path):
-        parts = path.split('/')
-        node = self.root
-        for part in parts:
-            if part:
-                if part not in node.children:
-                    node.children[part] = FileSystemNode(part, is_directory=True)
-                node = node.children[part]
-
-    def create_file(self, path):
-        parts = path.split('/')
-        file_name = parts[-1]
-        directory_path = '/'.join(parts[:-1])
-        self.create_directory(directory_path)
-        node = self.root
-        for part in parts[:-1]:
-            if part:
-                node = node.children[part]
-        node.children[file_name] = FileSystemNode(file_name)`,
-  exercises: [
-    {
-      prompt: 'Implement the creation of directories in a file system.',
-      initialCode: `# Write your solution here
-class FileSystem:
-    def __init__(self):
-        self.root = FileSystemNode("/", is_directory=True)
-
-    def create_directory(self, path):
-        parts = path.split('/')
-        node = self.root
-        for part in parts:
-            if part:
-                if part not in node.children:
-                    node.children[part] = FileSystemNode(part, is_directory=True)
-                node = node.children[part]`,
-      solution: `class FileSystem:
-    def __init__(self):
-        self.root = FileSystemNode("/", is_directory=True)
-
-    def create_directory(self, path):
-        parts = path.split('/')
-        node = self.root
-        for part in parts:
-            if part:
-                if part not in node.children:
-                    node.children[part] = FileSystemNode(part, is_directory=True)
-                node = node.children[part]`,
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      prompt: 'Implement the creation of files in a file system.',
-      initialCode: `# Write your solution here
-def create_file(self, path):
-    parts = path.split('/')
-    file_name = parts[-1]
-    directory_path = '/'.join(parts[:-1])
-    self.create_directory(directory_path)
-    node = self.root
-    for part in parts[:-1]:
-        if part:
-            node = node.children[part]
-    node.children[file_name] = FileSystemNode(file_name)`,
-      solution: `def create_file(self, path):
-    parts = path.split('/')
-    file_name = parts[-1]
-    directory_path = '/'.join(parts[:-1])
-    self.create_directory(directory_path)
-    node = self.root
-    for part in parts[:-1]:
-        if part:
-            node = node.children[part]
-    node.children[file_name] = FileSystemNode(file_name)`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which of the following is a common representation of a file system?',
-      options: [
-        'Linked list',
-        'Tree',
-        'Graph',
-        'Stack',
-      ],
-      correctAnswer: 1,
-      explanations: [
-        'This is incorrect. A linked list is not a common representation of a file system.',
-        'This is correct. A tree is a common representation of a file system.',
-        'This is incorrect. A graph is not a common representation of a file system.',
-        'This is incorrect. A stack is not a common representation of a file system.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'What is the main advantage of using a tree structure for file systems?',
-      options: [
-        'Simplifies file access',
-        'Reduces memory usage',
-        'Improves sorting efficiency',
-        'Enhances graph traversal',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. A tree structure simplifies file access by organizing files hierarchically.',
-        'This is incorrect. A tree structure does not necessarily reduce memory usage.',
-        'This is incorrect. A tree structure does not improve sorting efficiency.',
-        'This is incorrect. A tree structure does not enhance graph traversal.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const expressionTreesData: LessonContent = {
-  title: 'Expression Trees',
-  content: `<p>
-Expression trees are a type of binary tree used to represent expressions. Each leaf node represents an operand, and each internal node represents an operator.
-</p>
-
-<ul>
-<li><strong>Node Structure:</strong> Each node can be an operand or an operator.</li>
-<li><strong>Construction:</strong> Building an expression tree from an infix, prefix, or postfix expression.</li>
-<li><strong>Evaluation:</strong> Evaluating the expression tree to get the result.</li>
-<li><strong>Applications:</strong> Compilers, calculators, and mathematical expression processing.</li>
-</ul>`,
-  codeExample: `# Expression Tree Node
-class ExprTreeNode:
-    def __init__(self, val):
-        self.val = val
-        self.left = None
-        self.right = None
-
-# Expression Tree Class
-class ExpressionTree:
-    def build_tree(self, postfix):
-        stack = []
-        for char in postfix:
-            if char.isdigit():
-                stack.append(ExprTreeNode(char))
-            else:
-                right = stack.pop()
-                left = stack.pop()
-                node = ExprTreeNode(char)
-                node.left = left
-                node.right = right
-                stack.append(node)
-        return stack[0]
-
-    def evaluate(self, root):
-        if root.val.isdigit():
-            return int(root.val)
-        left_val = self.evaluate(root.left)
-        right_val = self.evaluate(root.right)
-        if root.val == '+':
-            return left_val + right_val
-        elif root.val == '-':
-            return left_val - right_val
-        elif root.val == '*':
-            return left_val * right_val
-        elif root.val == '/':
-            return left_val / right_val`,
-  exercises: [
-    {
-      prompt: 'Implement the construction of an expression tree from a postfix expression.',
-      initialCode: `# Write your solution here
-class ExpressionTree:
-    def build_tree(self, postfix):
-        stack = []
-        for char in postfix:
-            if char.isdigit():
-                stack.append(ExprTreeNode(char))
-            else:
-                right = stack.pop()
-                left = stack.pop()
-                node = ExprTreeNode(char)
-                node.left = left
-                node.right = right
-                stack.append(node)
-        return stack[0]`,
-      solution: `class ExpressionTree:
-    def build_tree(self, postfix):
-        stack = []
-        for char in postfix:
-            if char.isdigit():
-                stack.append(ExprTreeNode(char))
-            else:
-                right = stack.pop()
-                left = stack.pop()
-                node = ExprTreeNode(char)
-                node.left = left
-                node.right = right
-                stack.append(node)
-        return stack[0]`,
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      prompt: 'Implement the evaluation of an expression tree.',
-      initialCode: `# Write your solution here
-def evaluate(self, root):
-    if root.val.isdigit():
-        return int(root.val)
-    left_val = self.evaluate(root.left)
-    right_val = self.evaluate(root.right)
-    if root.val == '+':
-        return left_val + right_val
-    elif root.val == '-':
-        return left_val - right_val
-    elif root.val == '*':
-        return left_val * right_val
-    elif root.val == '/':
-        return left_val / right_val`,
-      solution: `def evaluate(self, root):
-    if root.val.isdigit():
-        return int(root.val)
-    left_val = self.evaluate(root.left)
-    right_val = self.evaluate(root.right)
-    if root.val == '+':
-        return left_val + right_val
-    elif root.val == '-':
-        return left_val - right_val
-    elif root.val == '*':
-        return left_val * right_val
-    elif root.val == '/':
-        return left_val / right_val`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which of the following is a common use case for expression trees?',
-      options: [
-        'Sorting numbers',
-        'Compilers',
-        'Balancing trees',
-        'Graph traversal',
-      ],
-      correctAnswer: 1,
-      explanations: [
-        'This is incorrect. Sorting numbers is not a common use case for expression trees.',
-        'This is correct. Compilers use expression trees to parse and evaluate expressions.',
-        'This is incorrect. Balancing trees is not a common use case for expression trees.',
-        'This is incorrect. Graph traversal is not a common use case for expression trees.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'What is the main advantage of using an expression tree for evaluating expressions?',
-      options: [
-        'Simplifies expression evaluation',
-        'Reduces memory usage',
-        'Improves sorting efficiency',
-        'Enhances graph traversal',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. An expression tree simplifies expression evaluation by organizing the expression hierarchically.',
-        'This is incorrect. An expression tree does not necessarily reduce memory usage.',
-        'This is incorrect. An expression tree does not improve sorting efficiency.',
-        'This is incorrect. An expression tree does not enhance graph traversal.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const decisionTreesData: LessonContent = {
-  title: 'Decision Trees',
-  content: `<p>
-Decision trees are a type of supervised learning algorithm used for classification and regression tasks. They represent decisions and decision-making processes as a tree structure.
-</p>
-
-<ul>
-<li><strong>Node Structure:</strong> Each internal node represents a test on an attribute, each branch represents the outcome of the test, and each leaf node represents a class label.</li>
-<li><strong>Construction:</strong> Building a decision tree from training data using algorithms like ID3, C4.5, or CART.</li>
-<li><strong>Applications:</strong> Machine learning, data mining, and decision support systems.</li>
-</ul>`,
-  codeExample: `# Decision Tree Node
-class DecisionTreeNode:
-    def __init__(self, attribute=None, value=None, results=None, tb=None, fb=None):
-        self.attribute = attribute
-        self.value = value
-        self.results = results
-        self.tb = tb
-        self.fb = fb
-
-# Decision Tree Class
-class DecisionTree:
-    def build_tree(self, rows):
-        if not rows:
-            return DecisionTreeNode()
-        current_score = self.gini_impurity(rows)
-        best_gain = 0.0
-        best_criteria = None
-        best_sets = None
-        column_count = len(rows[0]) - 1
-        for col in range(column_count):
-            column_values = set(row[col] for row in rows)
-            for value in column_values:
-                set1, set2 = self.divide_set(rows, col, value)
-                p = float(len(set1)) / len(rows)
-                gain = current_score - p * self.gini_impurity(set1) - (1 - p) * self.gini_impurity(set2)
-                if gain > best_gain and set1 and set2:
-                    best_gain = gain
-                    best_criteria = (col, value)
-                    best_sets = (set1, set2)
-        if best_gain > 0:
-            true_branch = self.build_tree(best_sets[0])
-            false_branch = self.build_tree(best_sets[1])
-            return DecisionTreeNode(attribute=best_criteria[0], value=best_criteria[1], tb=true_branch, fb=false_branch)
-        else:
-            return DecisionTreeNode(results=self.unique_counts(rows))
-
-    def gini_impurity(self, rows):
-        total = len(rows)
-        counts = self.unique_counts(rows)
-        imp = 0
-        for k1 in counts:
-            p1 = float(counts[k1]) / total
-            for k2 in counts:
-                if k1 == k2:
-                    continue
-                p2 = float(counts[k2]) / total
-                imp += p1 * p2
-        return imp
-
-    def unique_counts(self, rows):
-        results = {}
-        for row in rows:
-            r = row[len(row) - 1]
-            if r not in results:
-                results[r] = 0
-            results[r] += 1
-        return results
-
-    def divide_set(self, rows, column, value):
-        split_function = lambda row: row[column] == value
-        set1 = [row for row in rows if split_function(row)]
-        set2 = [row for row in rows if not split_function(row)]
-        return set1, set2`,
-  exercises: [
-    {
-      prompt: 'Implement the construction of a decision tree using the ID3 algorithm.',
-      initialCode: `# Write your solution here
-class DecisionTree:
-    def build_tree(self, rows):
-        if not rows:
-            return DecisionTreeNode()
-        current_score = self.gini_impurity(rows)
-        best_gain = 0.0
-        best_criteria = None
-        best_sets = None
-        column_count = len(rows[0]) - 1
-        for col in range(column_count):
-            column_values = set(row[col] for row in rows)
-            for value in column_values:
-                set1, set2 = self.divide_set(rows, col, value)
-                p = float(len(set1)) / len(rows)
-                gain = current_score - p * self.gini_impurity(set1) - (1 - p) * self.gini_impurity(set2)
-                if gain > best_gain and set1 and set2:
-                    best_gain = gain
-                    best_criteria = (col, value)
-                    best_sets = (set1, set2)
-        if best_gain > 0:
-            true_branch = self.build_tree(best_sets[0])
-            false_branch = self.build_tree(best_sets[1])
-            return DecisionTreeNode(attribute=best_criteria[0], value=best_criteria[1], tb=true_branch, fb=false_branch)
-        else:
-            return DecisionTreeNode(results=self.unique_counts(rows))`,
-      solution: `class DecisionTree:
-    def build_tree(self, rows):
-        if not rows:
-            return DecisionTreeNode()
-        current_score = self.gini_impurity(rows)
-        best_gain = 0.0
-        best_criteria = None
-        best_sets = None
-        column_count = len(rows[0]) - 1
-        for col in range(column_count):
-            column_values = set(row[col] for row in rows)
-            for value in column_values:
-                set1, set2 = self.divide_set(rows, col, value)
-                p = float(len(set1)) / len(rows)
-                gain = current_score - p * self.gini_impurity(set1) - (1 - p) * self.gini_impurity(set2)
-                if gain > best_gain and set1 and set2:
-                    best_gain = gain
-                    best_criteria = (col, value)
-                    best_sets = (set1, set2)
-        if best_gain > 0:
-            true_branch = self.build_tree(best_sets[0])
-            false_branch = self.build_tree(best_sets[1])
-            return DecisionTreeNode(attribute=best_criteria[0], value=best_criteria[1], tb=true_branch, fb=false_branch)
-        else:
-            return DecisionTreeNode(results=self.unique_counts(rows))`,
-      difficulty: Difficulty.Advanced,
-    },
-    {
-      prompt: 'Implement the Gini impurity calculation for decision tree construction.',
-      initialCode: `# Write your solution here
-def gini_impurity(self, rows):
-    total = len(rows)
-    counts = self.unique_counts(rows)
-    imp = 0
-    for k1 in counts:
-        p1 = float(counts[k1]) / total
-        for k2 in counts:
-            if k1 == k2:
-                continue
-            p2 = float(counts[k2]) / total
-            imp += p1 * p2
-    return imp`,
-      solution: `def gini_impurity(self, rows):
-    total = len(rows)
-    counts = self.unique_counts(rows)
-    imp = 0
-    for k1 in counts:
-        p1 = float(counts[k1]) / total
-        for k2 in counts:
-            if k1 == k2:
-                continue
-            p2 = float(counts[k2]) / total
-            imp += p1 * p2
-    return imp`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which of the following is a common use case for decision trees?',
-      options: [
-        'Sorting numbers',
-        'Machine learning',
-        'Balancing trees',
-        'Graph traversal',
-      ],
-      correctAnswer: 1,
-      explanations: [
-        'This is incorrect. Sorting numbers is not a common use case for decision trees.',
-        'This is correct. Machine learning is a common use case for decision trees.',
-        'This is incorrect. Balancing trees is not a common use case for decision trees.',
-        'This is incorrect. Graph traversal is not a common use case for decision trees.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'What is the main advantage of using decision trees for classification tasks?',
-      options: [
-        'Simplifies decision-making',
-        'Reduces memory usage',
-        'Improves sorting efficiency',
-        'Enhances graph traversal',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. Decision trees simplify decision-making by organizing decisions hierarchically.',
-        'This is incorrect. Decision trees do not necessarily reduce memory usage.',
-        'This is incorrect. Decision trees do not improve sorting efficiency.',
-        'This is incorrect. Decision trees do not enhance graph traversal.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
 const treeLessons: Record<string, LessonContent> = {
   'tree-concept': treeConceptData,
   'tree-implementation': treeImplementationData,
   'tree-properties': treePropertiesData,
+  'interview-patterns': commonTreePatternsData,
   'binary-tree-basics': binaryTreeBasicsData,
   'tree-traversal': treeTraversalData,
-  'tree-construction': treeConstructionData,
+  'tree-views': treeViewsData,
   'tree-properties-checking': treePropertiesCheckingData,
   'bst-concept': bstConceptData,
   'bst-operations': bstOperationsData,
@@ -5700,25 +4591,15 @@ const treeLessons: Record<string, LessonContent> = {
   'morris-traversal': morrisTraversalData,
   'special-traversals': specialTraversalsData,
   'tree-transformations': treeTransformationsData,
-  'subtree-operations': subtreeOperationsData,
+  'tree-comparisons': treeComparisonsData,
   'path-operations': pathOperationsData,
   'avl-trees': avlTreesData,
   'red-black-trees': redBlackTreesData,
   'b-trees': bTreesData,
   'n-ary-trees': nAryTreesData,
-  'trie': trieData,
   'segment-trees': segmentTreesData,
-  'fenwick-trees': fenwickTreesData,
-  'spanning-trees': spanningTreesData,
-  'lowest-common-ancestor': lowestCommonAncestorData,
-  'tree-serialization': treeSerializationData,
   'tree-dp': treeDPData,
   'tree-distance': treeDistanceData,
-  'tree-coloring': treeColoringData,
-  'file-systems': fileSystemDesignData,
-  'expression-trees': expressionTreesData,
-  'decision-trees': decisionTreesData
-
 };
 
 export const treeLessonsTab: LessonsTab = {
