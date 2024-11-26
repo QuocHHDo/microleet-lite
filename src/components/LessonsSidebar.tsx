@@ -21,8 +21,15 @@ const LessonsSidebar: React.FC<LessonsSidebarProps> = ({
   selectedTopicId,
   handleTopicSelect,
 }) => {
-  const [selectedPriorities, setSelectedPriorities] = useState<Set<PriorityLevel>>(
-    new Set(Object.values(PriorityLevel).filter(p => typeof p === 'number'))
+  const [selectedPriorities, setSelectedPriorities] = useState<
+    Set<PriorityLevel>
+  >(
+    new Set(
+      Object.values(PriorityLevel).filter(
+        (p): p is PriorityLevel =>
+          typeof p === 'number' && p !== PriorityLevel.Unset,
+      ),
+    ),
   );
   const [isFilterExpanded, setIsFilterExpanded] = useState(false);
 
@@ -37,14 +44,14 @@ const LessonsSidebar: React.FC<LessonsSidebarProps> = ({
       case PriorityLevel.Optional:
         return 'Rarely asked but useful for deep learning.';
       case PriorityLevel.Unset:
-        return 'Priority not yet determined.'
+        return 'Priority not yet determined.';
       default:
         return '';
     }
   };
 
   const getPriorityBadgeClass = (priority: PriorityLevel): string => {
-    const baseClass = "px-2 py-1 rounded-full text-xs font-medium";
+    const baseClass = 'px-2 py-1 rounded-full text-xs font-medium';
     switch (priority) {
       case PriorityLevel.Essential:
         return `${baseClass} bg-red-100 text-red-700`;
@@ -71,8 +78,8 @@ const LessonsSidebar: React.FC<LessonsSidebarProps> = ({
 
   const getSelectedPrioritiesText = () => {
     const priorityLevelCount = Object.keys(PriorityLevel).length / 2;
-    if (selectedPriorities.size === priorityLevelCount) return "All priorities";
-    if (selectedPriorities.size === 0) return "No priorities selected";
+    if (selectedPriorities.size === priorityLevelCount) return 'All priorities';
+    if (selectedPriorities.size === 0) return 'No priorities selected';
     return `${selectedPriorities.size - 1} ${selectedPriorities.size - 1 === 1 ? 'priority' : 'priorities'} selected`;
   };
 
@@ -91,8 +98,12 @@ const LessonsSidebar: React.FC<LessonsSidebarProps> = ({
       >
         <div className="flex items-center gap-2">
           <Filter className="h-4 w-4 text-gray-500" />
-          <span className="text-sm font-medium text-gray-700">Filter by Priority</span>
-          <span className="text-xs text-gray-500">({getSelectedPrioritiesText()})</span>
+          <span className="text-sm font-medium text-gray-700">
+            Filter by Priority
+          </span>
+          <span className="text-xs text-gray-500">
+            ({getSelectedPrioritiesText()})
+          </span>
         </div>
         {isFilterExpanded ? (
           <ChevronDown className="h-4 w-4 text-gray-400" />
@@ -100,24 +111,27 @@ const LessonsSidebar: React.FC<LessonsSidebarProps> = ({
           <ChevronRight className="h-4 w-4 text-gray-400" />
         )}
       </button>
-      
+
       {isFilterExpanded && (
         <div className="p-4 pt-0 space-y-2">
           {Object.values(PriorityLevel)
-            .filter(p => typeof p === 'number' && p !== PriorityLevel.Unset)
+            .filter(
+              (p): p is PriorityLevel =>
+                typeof p === 'number' && p !== PriorityLevel.Unset,
+            )
             .map((priority) => (
               <div key={priority} className="flex items-center space-x-2">
                 <Checkbox
                   id={`priority-${priority}`}
                   checked={selectedPriorities.has(priority)}
-                  onCheckedChange={() => togglePriority(priority as PriorityLevel)}
+                  onCheckedChange={() => togglePriority(priority)}
                 />
                 <label
                   htmlFor={`priority-${priority}`}
                   className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                 >
-                  <span className={getPriorityBadgeClass(priority as PriorityLevel)}>
-                    {PriorityLevel[priority as PriorityLevel]}
+                  <span className={getPriorityBadgeClass(priority)}>
+                    {PriorityLevel[priority]}
                   </span>
                 </label>
               </div>
@@ -133,10 +147,7 @@ const LessonsSidebar: React.FC<LessonsSidebarProps> = ({
         <FilterSection />
         <TooltipProvider>
           {curriculum?.sections.map((section: Section) => (
-            <div
-              key={section.id}
-              className="border-t first:border-t-0"
-            >
+            <div key={section.id} className="border-t first:border-t-0">
               <button
                 onClick={() => toggleSection(section.id)}
                 className="w-full flex items-center justify-between p-4 bg-white hover:bg-gray-50 transition-colors"
@@ -159,35 +170,43 @@ const LessonsSidebar: React.FC<LessonsSidebarProps> = ({
               {expandedSections[section.id] && (
                 <div className="bg-gray-50">
                   <ul className="py-2">
-                    {section.topics
-                      .filter(shouldShowTopic)
-                      .map((topic) => (
-                        <li
-                          key={topic.id}
-                          onClick={() => handleTopicSelect(topic.id)}
-                          className={`flex items-center gap-3 mx-2 px-4 py-3 rounded-lg cursor-pointer
+                    {section.topics.filter(shouldShowTopic).map((topic) => (
+                      <li
+                        key={topic.id}
+                        onClick={() => handleTopicSelect(topic.id)}
+                        className={`flex items-center gap-3 mx-2 px-4 py-3 rounded-lg cursor-pointer
                             ${
                               selectedTopicId === topic.id
                                 ? 'bg-blue-100 text-blue-700'
                                 : 'hover:bg-gray-100'
                             } transition-all duration-200`}
-                        >
-                          {topic.priority !== undefined ? (
-                            <Tooltip>
-                              <TooltipTrigger asChild>
-                                <span className={getPriorityBadgeClass(topic.priority as PriorityLevel)}>
-                                  {PriorityLevel[topic.priority as PriorityLevel]}
-                                </span>
-                              </TooltipTrigger>
-                              <TooltipContent className="max-w-[200px]">
-                                <p>{getPriorityDescription(topic.priority as PriorityLevel)}</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          ) : (
-                            <span className={getPriorityBadgeClass(-1)}>Unset</span>
-                          )}
-                          <span className="text-sm">{topic.title}</span>
-                        </li>
+                      >
+                        {topic.priority !== undefined ? (
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <span
+                                className={getPriorityBadgeClass(
+                                  topic.priority as PriorityLevel,
+                                )}
+                              >
+                                {PriorityLevel[topic.priority as PriorityLevel]}
+                              </span>
+                            </TooltipTrigger>
+                            <TooltipContent className="max-w-[200px]">
+                              <p>
+                                {getPriorityDescription(
+                                  topic.priority as PriorityLevel,
+                                )}
+                              </p>
+                            </TooltipContent>
+                          </Tooltip>
+                        ) : (
+                          <span className={getPriorityBadgeClass(-1)}>
+                            Unset
+                          </span>
+                        )}
+                        <span className="text-sm">{topic.title}</span>
+                      </li>
                     ))}
                   </ul>
                 </div>

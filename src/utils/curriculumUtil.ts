@@ -11,11 +11,11 @@ export const getTopicsByPriority = (
 
 export const getStudyPath = (curriculum: Curriculum, isNewGrad: boolean) => {
   const priorities = isNewGrad
-    ? [PriorityLevel.MustKnow, PriorityLevel.Recommended]
+    ? [PriorityLevel.Essential, PriorityLevel.Beneficial]
     : [
-        PriorityLevel.MustKnow,
-        PriorityLevel.HighlyRecommended,
-        PriorityLevel.Recommended,
+        PriorityLevel.Essential,
+        PriorityLevel.Important,
+        PriorityLevel.Beneficial,
       ];
 
   return curriculum.sections
