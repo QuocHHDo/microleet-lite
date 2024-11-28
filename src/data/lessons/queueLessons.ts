@@ -142,51 +142,120 @@ const queueCurriculum: Curriculum = {
 
 const queueConceptData: LessonContent = {
   title: 'Queue Concept and Properties',
-  content: `<p>
-  A queue is a linear data structure that follows the First-In-First-Out (FIFO) principle, meaning elements are removed in the same order they were added.
-  Queues are commonly used in scheduling algorithms, buffering, and real-time processing.
-  </p>`,
-  codeExample: `# Queue Example in Python (using a list)
-  class Queue:
-      def __init__(self):
-          self.queue = []
-  
-      def enqueue(self, item):
-          self.queue.append(item)  # Add item to the end of the queue
-  
-      def dequeue(self):
-          if not self.is_empty():
-              return self.queue.pop(0)  # Remove item from the front
-  
-      def is_empty(self):
-          return len(self.queue) == 0`,
+  content: `
+Queues are fundamental data structures that follow the First-In-First-Out (FIFO) principle, 
+similar to a real-world queue like people waiting in line. In a queue, the first element 
+added is the first one to be removed, mimicking how the first person in line is served first.
+
+Key Characteristics of Queues:
+- FIFO (First-In-First-Out) principle
+- Elements are added at one end (rear/back)
+- Elements are removed from the other end (front)
+- Supports two primary operations: enqueue (add) and dequeue (remove)
+
+Time Complexity Analysis:
+- Enqueue operation: O(1) time complexity
+- Dequeue operation: O(1) time complexity
+- Peek (view front element): O(1) time complexity
+- Check if empty: O(1) time complexity
+
+Common Use Cases:
+- Task scheduling in operating systems
+- Breadth-First Search (BFS) algorithms
+- Print job scheduling
+- Handling asynchronous data transfer
+- Managing resources in computer networks
+`, 
+  codeExample: `# Basic Queue Implementation in Python
+class Queue:
+    def __init__(self):
+        self.items = []
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def enqueue(self, item):
+        self.items.append(item)  # O(1) operation
+
+    def dequeue(self):
+        if not self.is_empty():
+            return self.items.pop(0)  # O(n) operation
+        raise IndexError("Queue is empty")
+
+    def front(self):
+        if not self.is_empty():
+            return self.items[0]
+        raise IndexError("Queue is empty")
+
+# Example usage
+queue = Queue()
+queue.enqueue(1)  # Queue: [1]
+queue.enqueue(2)  # Queue: [1, 2]
+queue.enqueue(3)  # Queue: [1, 2, 3]
+
+print(queue.dequeue())  # Outputs: 1
+print(queue.front())    # Outputs: 2
+`,
+  difficulty: Difficulty.Beginner,
   exercises: [
     {
-      prompt:
-        'Demonstrate the FIFO property by enqueuing [1, 2, 3] and dequeuing one element.',
-      initialCode: `# Create a queue and perform enqueue and dequeue operations`,
-      solution: `# Expected output should show [1] is removed, and [2, 3] remain in the queue`,
+      prompt: 'Implement a method to check if a queue is full when using a fixed-size array.',
+      initialCode: `# Write your solution here
+def is_full(self):
+    # Implement the is_full method
+    pass`,
+      solution: `def is_full(self):
+    return len(self.items) >= self.max_size`,
       difficulty: Difficulty.Beginner,
     },
+    {
+      prompt: 'Create a method that returns the size of the queue.',
+      initialCode: `# Write your solution here
+def size(self):
+    # Implement the size method
+    pass`,
+      solution: `def size(self):
+    return len(self.items)`,
+      difficulty: Difficulty.Beginner,
+    }
   ],
   quizzes: [
     {
-      question: 'Which principle does a queue follow?',
+      question: 'What is the primary characteristic of a Queue data structure?',
       options: [
         'Last-In-First-Out (LIFO)',
         'First-In-First-Out (FIFO)',
-        'Depth-First',
-        'Breadth-First',
+        'Random access',
+        'Sorted order'
       ],
       correctAnswer: 1,
       explanations: [
-        'Correct. Queue follows the FIFO principle, removing elements in the order they were added.',
+        'Incorrect. This describes a Stack.',
+        'Correct. Queues follow the First-In-First-Out principle.',
+        'Incorrect. Queues do not provide random access.',
+        'Incorrect. Queues are not inherently sorted.'
       ],
       difficulty: Difficulty.Beginner,
     },
-  ],
+    {
+      question: 'What is the typical time complexity of enqueue and dequeue operations?',
+      options: [
+        'O(n)',
+        'O(log n)',
+        'O(1)',
+        'O(n log n)'
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'Incorrect for most queue implementations.',
+        'Incorrect. This is not the standard queue operation complexity.',
+        'Correct. Enqueue and dequeue are typically O(1) operations.',
+        'Incorrect. This is more complex than queue operations.'
+      ],
+      difficulty: Difficulty.Intermediate,
+    }
+  ]
 };
-
 const queueImplementationData: LessonContent = {
   title: 'Queue Implementation',
   content: `<p>

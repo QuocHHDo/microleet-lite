@@ -233,29 +233,87 @@ const linkedListCurriculum: Curriculum = {
 const linkedListBasicsData: LessonContent = {
   title: 'Introduction to Linked Lists',
   content: `<p>
-  A Linked List is a linear data structure where each element, called a node, contains a data part and a reference to the next node. Unlike arrays, linked lists do not store elements in contiguous memory locations.
-  </p>`,
-  codeExample: `# Basic Linked List Node and Structure in Python
-  class Node:
-      def __init__(self, data):
-          self.data = data
-          self.next = None
-  
-  # Creating nodes and linking them
-  node1 = Node(1)
-  node2 = Node(2)
-  node1.next = node2  # Links node1 to node2
-  
-  # Traverse and print linked list
-  current = node1
-  while current:
-      print(current.data)
-      current = current.next`,
+      A <strong>Linked List</strong> is a linear data structure where each element, called a node, contains two main components:
+      <ol>
+        <li><strong>Data:</strong> This part holds the value or information stored in the node.</li>
+        <li><strong>Next Pointer/Reference:</strong> This points to the next node in the sequence. The last node's pointer is typically set to <code>null</code> (or <code>None</code> in Python) indicating the end of the list.
+      </ol>
+    </p>
+    <p>
+      Unlike arrays, linked lists do not store elements in contiguous memory locations. This allows for more efficient insertion and deletion operations since there's no need to shift elements as you would in an array.
+    </p>
+    <h3>Types of Linked Lists</h3>
+    <ul>
+      <li><strong>Singly Linked List:</strong> Each node contains only a reference to the next node.</li>
+      <li><strong>Doubly Linked List:</strong> Each node has references to both the next and previous nodes, allowing traversal in both directions.</li>
+      <li><strong>Circular Linked List:</strong> The last node points back to the first node, forming a circle.</li>
+    </ul>
+  `,
+  codeExample: `
+# Basic Linked List Node and Structure in Python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+# Creating nodes and linking them to form a singly linked list
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+node1.next = node2  # Links node1 to node2
+node2.next = node3  # Links node2 to node3
+
+# Traverse and print linked list
+current = node1
+while current:
+    print(current.data)  # Output will be: 1, 2, 3
+    current = current.next
+`,
   exercises: [
     {
-      prompt: 'Write a function to count the number of nodes in a linked list.',
-      initialCode: `# Define count_nodes() function to traverse list and count nodes`,
-      solution: `# Expected solution: iterates through list, counts nodes, and returns count`,
+      prompt: 'Write a function to count the number of nodes in a singly linked list.',
+      initialCode: `
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+def count_nodes(head):
+    # Write your code here
+`,
+      solution: `
+def count_nodes(head):
+    count = 0
+    current = head
+    while current:
+        count += 1
+        current = current.next
+    return count
+`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt: 'Write a function to add a new node at the end of a singly linked list.',
+      initialCode: `
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+def append_to_end(head, value):
+    # Write your code here
+`,
+      solution: `
+def append_to_end(head, value):
+    new_node = Node(value)
+    if not head:
+        return new_node
+    current = head
+    while current.next:
+        current = current.next
+    current.next = new_node
+    return head
+`,
       difficulty: Difficulty.Beginner,
     },
   ],
@@ -270,117 +328,265 @@ const linkedListBasicsData: LessonContent = {
       ],
       correctAnswer: 1,
       explanations: [
-        'Correct. Each node in a linked list typically contains data and a reference to the next node.',
+        "Incorrect. Memory address is not a component of a linked list node.",
+        "Correct. Each node in a linked list contains data and a reference to the next node.",
+        "Incorrect. This describes part of a Doubly Linked List, not a general node.",
+        "Incorrect. A node must contain at least data and a pointer/reference to the next node."
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question: 'Which type of linked list allows traversal in both directions?',
+      options: [
+        'Singly Linked List',
+        'Doubly Linked List',
+        'Circular Linked List',
+        'All of the above',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        "Incorrect. A Singly Linked List only allows traversal in one direction.",
+        "Correct. A Doubly Linked List allows traversal in both directions.",
+        "Incorrect. While a Circular Linked List can be traversed, it does not inherently allow traversal in both directions unless it is also doubly linked.",
+        "Incorrect. Only the Doubly Linked List allows traversal in both directions."
       ],
       difficulty: Difficulty.Beginner,
     },
   ],
 };
-
 const nodeStructureData: LessonContent = {
   title: 'Node Structure',
   content: `<p>
-  The Node is the fundamental building block of a linked list. Each node consists of a data field and a pointer, or reference, that links it to the next node in the list.
-  </p>`,
-  codeExample: `# Node Class Implementation
-  class Node:
-      def __init__(self, data):
-          self.data = data  # Data contained in the node
-          self.next = None  # Reference to the next node
-  
-  # Example of creating nodes and linking
-  head = Node(5)
-  second = Node(10)
-  head.next = second  # head now points to second node
+      The <strong>Node</strong> is the fundamental building block of a linked list. Each node consists of two main components:
+      <ol>
+        <li><strong>Data:</strong> Stores the value or information.</li>
+        <li><strong>Pointer/Reference:</strong> Points to the next node in the sequence, or <code>null</code> if it's the last node.</li>
+      </ol>
+    </p>
+    <h3>Advantages of Nodes in Linked Lists:</h3>
+    <ul>
+      <li><strong>Dynamic Size:</strong> Memory is allocated as needed, allowing for dynamic resizing without predefined limits.</li>
+      <li><strong>Efficient Insertions/Deletions:</strong> Adding or removing elements is more efficient, especially in the middle of the list, as it does not require shifting other elements.</li>
+    </ul>
   `,
+  codeExample: `# Example of creating a singly linked list
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+head = Node(1)
+second = Node(2)
+third = Node(3)
+
+head.next = second
+second.next = third
+
+# Function to print a singly linked list
+def print_linked_list(head):
+    current = head
+    while current is not None:
+        print(current.data, end=" -> ")
+        current = current.next
+    print("None")
+
+print_linked_list(head)  # Output: 1 -> 2 -> 3 -> None`,
   exercises: [
     {
-      prompt:
-        'Modify the Node class to include a reference to the previous node for a doubly linked list.',
-      initialCode: `# Add previous reference to Node class for doubly linked list support`,
-      solution: `# Expected solution has self.previous = None added to the Node class`,
-      difficulty: Difficulty.Intermediate,
+      prompt: 'Create a function that inserts a new node at the end of a singly linked list.',
+      initialCode: `# Implement a function to insert a node at the end of a singly linked list
+def insert_at_end(head, data):
+    # Add your code here
+`,
+      solution: `# Expected solution creates a new node and appends it to the end
+def insert_at_end(head, data):
+    new_node = Node(data)
+    if head is None:
+        return new_node
+    current = head
+    while current.next is not None:
+        current = current.next
+    current.next = new_node
+    return head`,
+      difficulty: Difficulty.Intermediate
+    },
+    {
+      prompt: 'Create a function that inserts an element at the end of an array.',
+      initialCode: `# Implement a function to insert an element at the end of an array
+def insert_at_end(array, data):
+    # Add your code here
+`,
+      solution: `# Expected solution appends the element to the array
+def insert_at_end(array, data):
+    array.append(data)
+    return array`,
+      difficulty: Difficulty.Beginner,
     },
   ],
   quizzes: [
     {
-      question: 'What is the primary role of the "next" attribute in a node?',
+      question: 'What is one advantage of using a linked list over an array?',
       options: [
-        'To store data for the next element',
-        'To link the current node to the next node',
-        'To keep track of the last element',
-        'To perform data operations',
+        'Random access to elements',
+        'Efficient insertions and deletions',
+        'Less memory usage per element',
+        'Faster sorting operations',
       ],
-      correctAnswer: 1,
+      correctAnswer: 1, // Correct option is "Efficient insertions and deletions"
       explanations: [
-        'Correct. The "next" attribute in a node references the subsequent node in the list.',
+        'Incorrect. Random access is not efficient in linked lists.',
+        'Correct. Linked lists allow for efficient insertions and deletions, especially in the middle of the list.',
+        'Incorrect. Both data structures use similar memory per element.',
+        'Incorrect. Sorting operations can be slower in linked lists due to lack of random access.',
       ],
-      difficulty: Difficulty.Beginner,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question: 'What is a disadvantage of using an array compared to a linked list?',
+      options: [
+        'Less memory usage per element',
+        'Faster sorting operations',
+        'Dynamic resizing',
+        'Inefficient insertions and deletions in the middle',
+      ],
+      correctAnswer: 3, // Correct option is "Inefficient insertions and deletions in the middle"
+      explanations: [
+        'Incorrect. Both data structures use similar memory per element.',
+        'Incorrect. Sorting operations can be slower in linked lists due to lack of random access.',
+        'Incorrect. Arrays have fixed size, making dynamic resizing more complex compared to linked lists.',
+        'Correct. In arrays, inserting or deleting elements requires shifting other elements, which is inefficient.',
+      ],
+      difficulty: Difficulty.Intermediate,
     },
   ],
 };
 
+
 const listVsArrayData: LessonContent = {
   title: 'Linked Lists vs Arrays',
   content: `<p>
-  Linked Lists and Arrays are both linear data structures, but they differ in terms of memory allocation, performance, and flexibility. Linked Lists provide dynamic memory usage, while arrays require contiguous memory.
-  </p>`,
-  codeExample: `# Comparing Linked List with Array
-  # Array-based implementation
-  array = [1, 2, 3, 4]
-  array.append(5)  # Fast appending at the end
-  
-  # Linked List-based implementation
-  class Node:
-      def __init__(self, data):
-          self.data = data
-          self.next = None
-  
-  head = Node(1)
-  current = head
-  for i in range(2, 6):
-      current.next = Node(i)
-      current = current.next  # Slower than appending to an array`,
+      Both <strong>linked lists</strong> and <strong>arrays</strong> are fundamental data structures used in computer programming, each with its own set of advantages and disadvantages.
+    </p>
+    <h3>Advantages of Linked Lists:</h3>
+    <ul>
+      <li><strong>Dynamic Size:</strong> Memory is allocated as needed, allowing for dynamic resizing.</li>
+      <li><strong>Efficient Insertions/Deletions:</strong> Adding or removing elements is more efficient, especially in the middle of the list.</li>
+    </ul>
+    <h3>Advantages of Arrays:</h3>
+    <ul>
+      <li><strong>Random Access:</strong> Elements can be accessed directly using an index.</li>
+      <li><strong>Memory Efficiency:</strong> Uses less memory per element compared to linked lists due to the absence of pointers/references.</li>
+    </ul>
+  `,
+  codeExample: `# Example of creating and manipulating an array
+array = [1, 2, 3, 4, 5]
+print(array[2])  # Access element at index 2 (value is 3)
+
+# Example of creating a singly linked list
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+head = Node(1)
+second = Node(2)
+third = Node(3)
+head.next = second
+second.next = third
+
+# Function to print a singly linked list
+def print_linked_list(head):
+    current = head
+    while current is not None:
+        print(current.data, end=" -> " if current.next else "")
+        current = current.next
+
+print_linked_list(head)  # Output: 1 -> 2 -> 3`,
   exercises: [
     {
-      prompt:
-        'Create a linked list and compare its memory usage with an array of the same size.',
-      initialCode: `# Implement memory comparison for array and linked list`,
-      solution: `# Expected solution creates both structures and examines space allocation`,
+      prompt: 'Create a function that reverses the elements of an array.',
+      initialCode: `# Implement a function to reverse an array
+def reverse_array(array):
+    # Add your code here`,
+      solution: `# Expected solution reverses the array in place or returns a new reversed array
+def reverse_array(array):
+    return array[::-1]`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt: 'Create a function that reverses a singly linked list.',
+      initialCode: `# Implement a function to reverse a singly linked list
+def reverse_linked_list(head):
+    # Add your code here`,
+      solution: `# Expected solution reverses the pointers of the linked list
+def reverse_linked_list(head):
+    prev = None
+    current = head
+    while current is not None:
+        next_node = current.next
+        current.next = prev
+        prev = current
+        current = next_node
+    return prev`,
       difficulty: Difficulty.Advanced,
     },
   ],
   quizzes: [
     {
-      question:
-        'Which of the following is an advantage of linked lists over arrays?',
+      question: 'What is a key difference between arrays and linked lists?',
       options: [
-        'Constant-time access to any element',
-        'Dynamic size without reallocating memory',
-        'Uses less memory per element',
-        'Supports direct access to elements',
+        'Arrays are dynamic in size, while linked lists have fixed sizes.',
+        'Arrays can only store elements of the same data type, whereas linked lists can store different types.',
+        'Linked lists allow for efficient insertions and deletions, especially in the middle of the list, compared to arrays.',
+        'Arrays support random access to elements, but linked lists do not.',
       ],
-      correctAnswer: 1,
+      correctAnswer: 2, // Correct option is "Linked lists allow for efficient insertions and deletions, especially in the middle of the list, compared to arrays."
       explanations: [
-        'Correct. Linked lists dynamically adjust in size, which can reduce memory overhead in dynamic data applications.',
+        'Incorrect. Arrays can also be dynamic in size if using dynamic array implementations like lists in Python.',
+        'Incorrect. Both arrays and linked lists can store elements of different data types if the language allows it.',
+        'Correct. Linked lists are designed to make insertions and deletions more efficient, especially when these operations occur at positions other than the end of the list.',
+        'Incorrect. Arrays support random access to elements using indices, while linked lists do not.',
       ],
-      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question: 'Which data structure is generally better for accessing elements by index?',
+      options: [
+        'Linked Lists',
+        'Arrays',
+        'Both are equally good',
+        'It depends on the context and use case',
+      ],
+      correctAnswer: 1, // Correct option is "Arrays"
+      explanations: [
+        'Incorrect. Linked lists do not support random access to elements by index.',
+        'Correct. Arrays allow random access to elements using indices, making them ideal for scenarios where accessing elements by position is frequent.',
+        'Incorrect. Arrays are generally better for random access compared to linked lists.',
+        'Incorrect. While context can matter, arrays are typically more efficient for random access.',
+      ],
     },
   ],
 };
 
 const listTraversalData: LessonContent = {
   title: 'List Traversal',
-  content: `<p>
-List traversal is a fundamental operation in linked lists, allowing you to visit each node in the list. 
-There are several methods to traverse a linked list, including iterative and recursive approaches.
-</p>
-
-<ul>
-<li><strong>Iterative traversal:</strong> Use a loop to iterate through the list, updating the current node until the end is reached.</li>
-<li><strong>Recursive traversal:</strong> Use a recursive function to visit each node, passing the next node to the function until the end is reached.</li>
-</ul>`,
-  codeExample: `# Iterative traversal
+  content: `<p>List traversal is a fundamental operation in linked lists, allowing you to visit each node in the list. 
+    It is essential for performing various operations such as searching, updating, or deleting nodes. There are two primary methods for traversing a linked list: iterative and recursive.</p>
+    <h3>Iterative Traversal</h3>
+    <p>Iterative traversal uses a loop to traverse the list. You start from the head node and move to the next node until you reach the end (where the next pointer is null).</p>
+    <ul>
+      <li><strong>Time Complexity:</strong> O(n), where n is the number of nodes.</li>
+      <li><strong>Space Complexity:</strong> O(1), as it uses a constant amount of extra space.</li>
+    </ul>
+    <h3>Recursive Traversal</h3>
+    <p>Recursive traversal involves calling a function repeatedly, passing the next node in each call, until the end of the list is reached.</p>
+    <ul>
+      <li><strong>Time Complexity:</strong> O(n), where n is the number of nodes.</li>
+      <li><strong>Space Complexity:</strong> O(n), due to the recursive call stack.</li>
+    </ul>
+    <p>Iterative traversal is generally more efficient in terms of space, while recursive traversal can be more elegant but may lead to stack overflow for large lists.</p>
+  `,
+  codeExample: `
+# Iterative Traversal
 class Node:
     def __init__(self, data):
         self.data = data
@@ -389,34 +595,39 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
-
-    def traverse(self):
+    
+    def traverse_iterative(self):
         current = self.head
         while current:
             print(current.data, end=' ')
             current = current.next
         print()
 
-# Recursive traversal
+# Recursive Traversal
 def traverse_recursive(node):
     if node is None:
         return
     print(node.data, end=' ')
     traverse_recursive(node.next)
 
-# Example usage
+# Example Usage
 linked_list = LinkedList()
 linked_list.head = Node(1)
-linked_list.head.next = Node(2)
-linked_list.head.next.next = Node(3)
+second_node = Node(2)
+third_node = Node(3)
+linked_list.head.next = second_node
+second_node.next = third_node
 
-linked_list.traverse()  # Output: 1 2 3
-traverse_recursive(linked_list.head)  # Output: 1 2 3`,
+# Iterative Traversal
+linked_list.traverse_iterative()  # Output: 1 2 3
+
+# Recursive Traversal
+traverse_recursive(linked_list.head)  # Output: 1 2 3
+`,
   exercises: [
     {
-      prompt:
-        'Create a linked list with three nodes and traverse it using an iterative approach.',
-      initialCode: `# Write your solution here
+      prompt: 'Create a linked list with three nodes and implement both iterative and recursive traversal methods.',
+      initialCode: `
 class Node:
     def __init__(self, data):
         self.data = data
@@ -425,21 +636,23 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
+    
+    def traverse_iterative(self):
+        # Implement iterative traversal here
+        pass
+    
+    def traverse_recursive(self, node):
+        # Implement recursive traversal here
+        pass
 
-    def traverse(self):
-        current = self.head
-        while current:
-            print(current.data, end=' ')
-            current = current.next
-        print()
-
+# Create a linked list with three nodes
 linked_list = LinkedList()
 linked_list.head = Node(1)
 linked_list.head.next = Node(2)
 linked_list.head.next.next = Node(3)
-
-linked_list.traverse()`,
-      solution: `class Node:
+`,
+      solution: `
+class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -447,105 +660,89 @@ linked_list.traverse()`,
 class LinkedList:
     def __init__(self):
         self.head = None
-
-    def traverse(self):
+    
+    def traverse_iterative(self):
         current = self.head
         while current:
             print(current.data, end=' ')
             current = current.next
         print()
+    
+    def traverse_recursive(self, node):
+        if node is None:
+            return
+        print(node.data, end=' ')
+        self.traverse_recursive(node.next)
 
+# Create a linked list with three nodes
 linked_list = LinkedList()
 linked_list.head = Node(1)
 linked_list.head.next = Node(2)
 linked_list.head.next.next = Node(3)
 
-linked_list.traverse()`,
+# Perform iterative traversal
+print("Iterative Traversal:")
+linked_list.traverse_iterative()  # Output: 1 2 3
+
+# Perform recursive traversal
+print("Recursive Traversal:")
+linked_list.traverse_recursive(linked_list.head)  # Output: 1 2 3
+`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt:
-        'Create a linked list with three nodes and traverse it using a recursive approach.',
-      initialCode: `# Write your solution here
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
+      prompt: 'Compare iterative and recursive traversal methods in terms of time and space complexity, and discuss scenarios where one might be preferred over the other.',
+      initialCode: ``,
+      solution: `
+Iterative Traversal:
+- Time Complexity: O(n)
+- Space Complexity: O(1)
+- Pros: More space-efficient, avoids the risk of stack overflow.
+- Cons: Might be less intuitive to implement for some developers.
 
-class LinkedList:
-    def __init__(self):
-        self.head = None
+Recursive Traversal:
+- Time Complexity: O(n)
+- Space Complexity: O(n)
+- Pros: Often simpler and more elegant code.
+- Cons: Can lead to stack overflow with large lists, higher memory usage.
 
-def traverse_recursive(node):
-    if node is None:
-        return
-    print(node.data, end=' ')
-    traverse_recursive(node.next)
-
-linked_list = LinkedList()
-linked_list.head = Node(1)
-linked_list.head.next = Node(2)
-linked_list.head.next.next = Node(3)
-
-traverse_recursive(linked_list.head)`,
-      solution: `class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-class LinkedList:
-    def __init__(self):
-        self.head = None
-
-def traverse_recursive(node):
-    if node is None:
-        return
-    print(node.data, end=' ')
-    traverse_recursive(node.next)
-
-linked_list = LinkedList()
-linked_list.head = Node(1)
-linked_list.head.next = Node(2)
-linked_list.head.next.next = Node(3)
-
-traverse_recursive(linked_list.head)`,
+Iterative traversal is generally preferred when working with large lists or when memory efficiency is a priority. Recursive traversal can be more straightforward to implement but should be used with caution due to potential stack overflow issues.
+`,
       difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question:
-        'Which of the following is the correct way to traverse a linked list iteratively?',
+      question: 'Which of the following is the correct way to traverse a linked list iteratively?',
       options: [
-        'Using a loop to iterate through the list, updating the current node until the end is reached',
-        'Using a recursive function to visit each node, passing the next node to the function until the end is reached',
-        'Using a stack to push and pop nodes',
+        'Using a loop to iterate through the list, updating the current node until the end is reached.',
+        'Using a recursive function to visit each node, passing the next node to the function until the end is reached.',
+        'Using a stack to push and pop nodes.',
         'None of the above',
       ],
       correctAnswer: 0,
       explanations: [
-        'This is correct. Iterative traversal uses a loop to iterate through the list.',
-        'This is incorrect. This describes recursive traversal.',
-        'This is incorrect. Stacks are not typically used for iterative traversal.',
-        'This is incorrect. The correct answer is iterative traversal using a loop.',
+        'Correct. Iterative traversal uses a loop to traverse the list.',
+        'Incorrect. This describes recursive traversal.',
+        'Incorrect. Stacks are not typically used for iterative traversal.',
+        'Incorrect. Option 0 is correct.',
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question:
-        'Which of the following is the correct way to traverse a linked list recursively?',
+      question: 'Which of the following is true about recursive traversal of a linked list?',
       options: [
-        'Using a loop to iterate through the list, updating the current node until the end is reached',
-        'Using a recursive function to visit each node, passing the next node to the function until the end is reached',
-        'Using a stack to push and pop nodes',
-        'None of the above',
+        'It uses a loop to traverse the list.',
+        'It is generally more space-efficient than iterative traversal.',
+        'It can lead to stack overflow if the list is very large.',
+        'It is not suitable for large lists due to its time complexity.',
       ],
-      correctAnswer: 1,
+      correctAnswer: 2,
       explanations: [
-        'This is incorrect. This describes iterative traversal.',
-        'This is correct. Recursive traversal uses a recursive function to visit each node.',
-        'This is incorrect. Stacks are not typically used for recursive traversal.',
-        'This is incorrect. The correct answer is recursive traversal using a recursive function.',
+        'Incorrect. Recursive traversal uses function calls, not loops.',
+        'Incorrect. Recursive traversal uses more space due to the call stack.',
+        'Correct. Deep recursion can cause stack overflow.',
+        'Incorrect. Time complexity is similar to iterative traversal.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -555,15 +752,43 @@ traverse_recursive(linked_list.head)`,
 const insertionData: LessonContent = {
   title: 'Insertion Operations',
   content: `<p>
-Insertion operations in linked lists involve adding new nodes at different positions: beginning, end, and middle. 
-Each insertion operation has its own approach and complexity.
+Insertion operations in linked lists involve adding new nodes at different positions: beginning, end, and middle. Each insertion operation has its own approach, complexity, and use cases.
 </p>
 
+<h3>Insertion at the Beginning</h3>
 <ul>
-<li><strong>Insert at the beginning:</strong> Create a new node and make it the new head of the list.</li>
-<li><strong>Insert at the end:</strong> Traverse the list to find the last node and append the new node.</li>
-<li><strong>Insert at the middle:</strong> Traverse the list to find the desired position and insert the new node.</li>
-</ul>`,
+  <li>Create a new node.</li>
+  <li>Make the new node's next point to the current head.</li>
+  <li>Update the head to point to the new node.</li>
+</ul>
+<p>
+Time Complexity: O(1) <br>
+Space Complexity: O(1) <br>
+Preferred when frequent insertions at the start are required.
+</p>
+
+<h3>Insertion at the End</h3>
+<ul>
+  <li>If the list is empty, make the new node the head.</li>
+  <li>Otherwise, traverse the list until the last node.</li>
+  <li>Make the last node's next point to the new node.</li>
+</ul>
+<p>
+Time Complexity: O(n) <br>
+Space Complexity: O(1) <br>
+Useful for appending elements, though inefficient for large lists.
+</p>
+
+<h3>Insertion in the Middle</h3>
+<ul>
+  <li>Traverse the list to find the node before the insertion point.</li>
+  <li>Update the pointers to include the new node.</li>
+</ul>
+<p>
+Time Complexity: O(n) <br>
+Space Complexity: O(1) <br>
+Use when inserting after a specific node or value.
+</p>`,
   codeExample: `# Insertion operations
 class Node:
     def __init__(self, data):
@@ -589,19 +814,22 @@ class LinkedList:
             last = last.next
         last.next = new_node
 
-    def insert_at_middle(self, middle_node, data):
-        if middle_node is None:
-            print("Middle node is not found")
-            return
-        new_node = Node(data)
-        new_node.next = middle_node.next
-        middle_node.next = new_node
+    def insert_after_value(self, value, data):
+        current = self.head
+        while current:
+            if current.data == value:
+                new_node = Node(data)
+                new_node.next = current.next
+                current.next = new_node
+                return
+            current = current.next
+        print(f"Value {value} not found in the list.")
 
 # Example usage
 linked_list = LinkedList()
 linked_list.insert_at_beginning(1)
+linked_list.insert_after_value(1, 2)
 linked_list.insert_at_end(3)
-linked_list.insert_at_middle(linked_list.head, 2)
 
 current = linked_list.head
 while current:
@@ -610,8 +838,7 @@ while current:
 # Output: 1 2 3`,
   exercises: [
     {
-      prompt:
-        'Create a linked list and insert a node at the beginning. Print the list to verify the insertion.',
+      prompt: 'Create a linked list and insert a node at the beginning. Print the list to verify the insertion.',
       initialCode: `# Write your solution here
 class Node:
     def __init__(self, data):
@@ -623,9 +850,8 @@ class LinkedList:
         self.head = None
 
     def insert_at_beginning(self, data):
-        new_node = Node(data)
-        new_node.next = self.head
-        self.head = new_node
+        # Implement insertion at the beginning
+        pass
 
 linked_list = LinkedList()
 linked_list.insert_at_beginning(1)
@@ -635,33 +861,12 @@ while current:
     print(current.data, end=' ')
     current = current.next
 # Output: 1`,
-      solution: `class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-class LinkedList:
-    def __init__(self):
-        self.head = None
-
-    def insert_at_beginning(self, data):
-        new_node = Node(data)
-        new_node.next = self.head
-        self.head = new_node
-
-linked_list = LinkedList()
-linked_list.insert_at_beginning(1)
-
-current = linked_list.head
-while current:
-    print(current.data, end=' ')
-    current = current.next
-# Output: 1`,
+      solution: `# Solution code here
+`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt:
-        'Create a linked list and insert a node at the end. Print the list to verify the insertion.',
+      prompt: 'Create a linked list and insert a node at the end. Handle the case when the list is empty.',
       initialCode: `# Write your solution here
 class Node:
     def __init__(self, data):
@@ -673,14 +878,8 @@ class LinkedList:
         self.head = None
 
     def insert_at_end(self, data):
-        new_node = Node(data)
-        if self.head is None:
-            self.head = new_node
-            return
-        last = self.head
-        while last.next:
-            last = last.next
-        last.next = new_node
+        # Implement insertion at the end
+        pass
 
 linked_list = LinkedList()
 linked_list.insert_at_end(1)
@@ -690,7 +889,14 @@ while current:
     print(current.data, end=' ')
     current = current.next
 # Output: 1`,
-      solution: `class Node:
+      solution: `# Solution code here
+`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt: 'Create a linked list and insert a node after a specific value. Handle the case when the value is not found.',
+      initialCode: `# Write your solution here
+class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -699,61 +905,68 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    def insert_at_end(self, data):
-        new_node = Node(data)
-        if self.head is None:
-            self.head = new_node
-            return
-        last = self.head
-        while last.next:
-            last = last.next
-        last.next = new_node
+    def insert_after_value(self, value, data):
+        # Implement insertion after a specific value
+        pass
 
 linked_list = LinkedList()
-linked_list.insert_at_end(1)
+linked_list.insert_at_beginning(1)
+linked_list.insert_after_value(1, 2)
 
 current = linked_list.head
 while current:
     print(current.data, end=' ')
     current = current.next
-# Output: 1`,
+# Output: 1 2`,
+      solution: `# Solution code here
+`,
       difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question:
-        'Which of the following is the correct way to insert a node at the beginning of a linked list?',
-      options: [
-        'Create a new node and make it the new head of the list',
-        'Traverse the list to find the last node and append the new node',
-        'Traverse the list to find the desired position and insert the new node',
-        'None of the above',
-      ],
+      question: 'What is the time complexity of inserting a node at the beginning of a linked list?',
+      options: ['O(1)', 'O(n)', 'O(log n)', 'O(n^2)'],
       correctAnswer: 0,
       explanations: [
-        'This is correct. Inserting at the beginning involves creating a new node and making it the new head.',
-        'This is incorrect. This describes inserting at the end.',
-        'This is incorrect. This describes inserting at the middle.',
-        'This is incorrect. The correct answer is inserting at the beginning.',
+        'Correct. Inserting at the beginning is a constant time operation.',
+        'Incorrect. This is the time complexity for inserting at the end.',
+        'Incorrect. This is not applicable for this operation.',
+        'Incorrect. This is not applicable for this operation.',
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question:
-        'Which of the following is the correct way to insert a node at the end of a linked list?',
+      question: 'Which insertion method is most efficient for large linked lists when appending elements?',
       options: [
-        'Create a new node and make it the new head of the list',
-        'Traverse the list to find the last node and append the new node',
-        'Traverse the list to find the desired position and insert the new node',
-        'None of the above',
+        'Inserting at the beginning',
+        'Inserting at the end',
+        'Inserting in the middle',
+        'All are equally efficient',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'Correct. Inserting at the beginning is O(1), while inserting at the end is O(n).',
+        'Incorrect. Inserting at the end is O(n).',
+        'Incorrect. Inserting in the middle is O(n).',
+        'Incorrect. Inserting at the beginning is more efficient for appending.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question: 'When would you prefer inserting a node in the middle of a linked list?',
+      options: [
+        'When you need constant time operations',
+        'When you need to insert after a specific value',
+        'When the list is empty',
+        'Never, it is always inefficient',
       ],
       correctAnswer: 1,
       explanations: [
-        'This is incorrect. This describes inserting at the beginning.',
-        'This is correct. Inserting at the end involves traversing the list to find the last node and appending the new node.',
-        'This is incorrect. This describes inserting at the middle.',
-        'This is incorrect. The correct answer is inserting at the end.',
+        'Incorrect. Constant time operations are for beginning insertions.',
+        'Correct. Inserting after a specific value is a middle insertion.',
+        'Incorrect. Inserting in an empty list is like inserting at the beginning or end.',
+        'Incorrect. It is useful in specific scenarios.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -763,15 +976,44 @@ while current:
 const deletionData: LessonContent = {
   title: 'Deletion Operations',
   content: `<p>
-Deletion operations in linked lists involve removing nodes from different positions: beginning, end, and middle. 
-Each deletion operation has its own approach and complexity.
+Deletion operations in linked lists involve removing nodes from different positions: beginning, end, and middle. Each deletion operation has its own approach, complexity, and use cases.
 </p>
 
+<h3>Delete at the Beginning</h3>
 <ul>
-<li><strong>Delete at the beginning:</strong> Remove the head node and update the head to the next node.</li>
-<li><strong>Delete at the end:</strong> Traverse the list to find the last node and remove it.</li>
-<li><strong>Delete at the middle:</strong> Traverse the list to find the desired position and remove the node.</li>
-</ul>`,
+  <li>Remove the head node and update the head to the next node.</li>
+</ul>
+<p>
+Time Complexity: O(1) <br>
+Space Complexity: O(1) <br>
+Preferred when frequent deletions at the start are required.
+</p>
+
+<h3>Delete at the End</h3>
+<ul>
+  <li>Traverse the list to find the second last node.</li>
+  <li>Update the second last node's next to null.</li>
+</ul>
+<p>
+Time Complexity: O(n) <br>
+Space Complexity: O(1) <br>
+Useful for removing the last element, though inefficient for large lists.
+</p>
+
+<h3>Delete at the Middle</h3>
+<ul>
+  <li>Traverse the list to find the node before the one to be deleted.</li>
+  <li>Update the pointers to skip the node to be deleted.</li>
+</ul>
+<p>
+Time Complexity: O(n) <br>
+Space Complexity: O(1) <br>
+Use when deleting a specific node or value.
+</p>
+
+<p>
+Edge cases include deleting from an empty list or deleting the only node in the list.
+</p>`,
   codeExample: `# Deletion operations
 class Node:
     def __init__(self, data):
@@ -784,32 +1026,36 @@ class LinkedList:
 
     def delete_at_beginning(self):
         if self.head is None:
+            print("List is empty.")
             return
         self.head = self.head.next
 
     def delete_at_end(self):
         if self.head is None:
+            print("List is empty.")
             return
         if self.head.next is None:
             self.head = None
             return
-        second_last = self.head
-        while second_last.next.next:
-            second_last = second_last.next
-        second_last.next = None
+        current = self.head
+        while current.next.next:
+            current = current.next
+        current.next = None
 
-    def delete_at_middle(self, key):
+    def delete_by_value(self, key):
         if self.head is None:
+            print("List is empty.")
             return
         if self.head.data == key:
             self.head = self.head.next
             return
         current = self.head
-        while current.next and current.next.data != key:
+        while current.next:
+            if current.next.data == key:
+                current.next = current.next.next
+                return
             current = current.next
-        if current.next is None:
-            return
-        current.next = current.next.next
+        print(f"Value {key} not found in the list.")
 
 # Example usage
 linked_list = LinkedList()
@@ -817,19 +1063,16 @@ linked_list.head = Node(1)
 linked_list.head.next = Node(2)
 linked_list.head.next.next = Node(3)
 
-linked_list.delete_at_beginning()
-linked_list.delete_at_end()
-linked_list.delete_at_middle(2)
+linked_list.delete_by_value(2)
 
 current = linked_list.head
 while current:
     print(current.data, end=' ')
     current = current.next
-# Output: 2`,
+# Output: 1 3`,
   exercises: [
     {
-      prompt:
-        'Create a linked list and delete a node at the beginning. Print the list to verify the deletion.',
+      prompt: 'Create a linked list and delete a node at the beginning. Handle the case when the list is empty.',
       initialCode: `# Write your solution here
 class Node:
     def __init__(self, data):
@@ -841,9 +1084,8 @@ class LinkedList:
         self.head = None
 
     def delete_at_beginning(self):
-        if self.head is None:
-            return
-        self.head = self.head.next
+        # Implement deletion at the beginning
+        pass
 
 linked_list = LinkedList()
 linked_list.head = Node(1)
@@ -857,37 +1099,12 @@ while current:
     print(current.data, end=' ')
     current = current.next
 # Output: 2 3`,
-      solution: `class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-class LinkedList:
-    def __init__(self):
-        self.head = None
-
-    def delete_at_beginning(self):
-        if self.head is None:
-            return
-        self.head = self.head.next
-
-linked_list = LinkedList()
-linked_list.head = Node(1)
-linked_list.head.next = Node(2)
-linked_list.head.next.next = Node(3)
-
-linked_list.delete_at_beginning()
-
-current = linked_list.head
-while current:
-    print(current.data, end=' ')
-    current = current.next
-# Output: 2 3`,
+      solution: `# Solution code here
+`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt:
-        'Create a linked list and delete a node at the end. Print the list to verify the deletion.',
+      prompt: 'Create a linked list and delete a node by value. Handle the case when the value is not found.',
       initialCode: `# Write your solution here
 class Node:
     def __init__(self, data):
@@ -898,98 +1115,54 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    def delete_at_end(self):
-        if self.head is None:
-            return
-        if self.head.next is None:
-            self.head = None
-            return
-        second_last = self.head
-        while second_last.next.next:
-            second_last = second_last.next
-        second_last.next = None
+    def delete_by_value(self, key):
+        # Implement deletion by value
+        pass
 
 linked_list = LinkedList()
 linked_list.head = Node(1)
 linked_list.head.next = Node(2)
 linked_list.head.next.next = Node(3)
 
-linked_list.delete_at_end()
+linked_list.delete_by_value(2)
 
 current = linked_list.head
 while current:
     print(current.data, end=' ')
     current = current.next
-# Output: 1 2`,
-      solution: `class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-class LinkedList:
-    def __init__(self):
-        self.head = None
-
-    def delete_at_end(self):
-        if self.head is None:
-            return
-        if self.head.next is None:
-            self.head = None
-            return
-        second_last = self.head
-        while second_last.next.next:
-            second_last = second_last.next
-        second_last.next = None
-
-linked_list = LinkedList()
-linked_list.head = Node(1)
-linked_list.head.next = Node(2)
-linked_list.head.next.next = Node(3)
-
-linked_list.delete_at_end()
-
-current = linked_list.head
-while current:
-    print(current.data, end=' ')
-    current = current.next
-# Output: 1 2`,
+# Output: 1 3`,
+      solution: `# Solution code here
+`,
       difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question:
-        'Which of the following is the correct way to delete a node at the beginning of a linked list?',
-      options: [
-        'Remove the head node and update the head to the next node',
-        'Traverse the list to find the last node and remove it',
-        'Traverse the list to find the desired position and remove the node',
-        'None of the above',
-      ],
+      question: 'What is the time complexity of deleting a node at the beginning of a linked list?',
+      options: ['O(1)', 'O(n)', 'O(log n)', 'O(n^2)'],
       correctAnswer: 0,
       explanations: [
-        'This is correct. Deleting at the beginning involves removing the head node and updating the head to the next node.',
-        'This is incorrect. This describes deleting at the end.',
-        'This is incorrect. This describes deleting at the middle.',
-        'This is incorrect. The correct answer is deleting at the beginning.',
+        'Correct. Deleting at the beginning is a constant time operation.',
+        'Incorrect. This is the time complexity for deleting at the end.',
+        'Incorrect. This is not applicable for this operation.',
+        'Incorrect. This is not applicable for this operation.',
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question:
-        'Which of the following is the correct way to delete a node at the end of a linked list?',
+      question: 'Which deletion method is most efficient for large linked lists when removing the last element?',
       options: [
-        'Remove the head node and update the head to the next node',
-        'Traverse the list to find the last node and remove it',
-        'Traverse the list to find the desired position and remove the node',
-        'None of the above',
+        'Deleting at the beginning',
+        'Deleting at the end',
+        'Deleting in the middle',
+        'All are equally efficient',
       ],
-      correctAnswer: 1,
+      correctAnswer: 0,
       explanations: [
-        'This is incorrect. This describes deleting at the beginning.',
-        'This is correct. Deleting at the end involves traversing the list to find the last node and removing it.',
-        'This is incorrect. This describes deleting at the middle.',
-        'This is incorrect. The correct answer is deleting at the end.',
+        'Correct. Deleting at the beginning is O(1), while deleting at the end is O(n).',
+        'Incorrect. Deleting at the end is O(n).',
+        'Incorrect. Deleting in the middle is O(n).',
+        'Incorrect. Deleting at the beginning is more efficient for removing the last element if you maintain a tail pointer.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -999,14 +1172,32 @@ while current:
 const searchingData: LessonContent = {
   title: 'Searching Elements',
   content: `<p>
-Searching elements in linked lists involves finding a specific node based on its data. 
-This operation can be performed iteratively or recursively.
+Searching elements in linked lists involves finding a specific node based on its data. This operation can be performed iteratively or recursively, each with its own pros and cons.
 </p>
 
+<h3>Iterative Search</h3>
 <ul>
-<li><strong>Iterative search:</strong> Use a loop to iterate through the list, comparing each node's data with the target value.</li>
-<li><strong>Recursive search:</strong> Use a recursive function to compare each node's data with the target value, passing the next node to the function until the end is reached.</li>
-</ul>`,
+  <li>Use a loop to iterate through the list, comparing each node's data with the target value.</li>
+</ul>
+<p>
+Time Complexity: O(n) <br>
+Space Complexity: O(1) <br>
+Preferred for large lists to avoid stack overflow.
+</p>
+
+<h3>Recursive Search</h3>
+<ul>
+  <li>Use a recursive function to compare each node's data with the target value, passing the next node to the function until the end is reached.</li>
+</ul>
+<p>
+Time Complexity: O(n) <br>
+Space Complexity: O(n) <br>
+Can lead to stack overflow with large lists.
+</p>
+
+<p>
+Iterative search is generally preferred for large lists due to its lower space complexity.
+</p>`,
   codeExample: `# Searching elements
 class Node:
     def __init__(self, data):
@@ -1042,8 +1233,7 @@ print(linked_list.search_iterative(2))  # Output: True
 print(linked_list.search_recursive(linked_list.head, 2))  # Output: True`,
   exercises: [
     {
-      prompt:
-        'Create a linked list and search for an element using an iterative approach. Print whether the element is found or not.',
+      prompt: 'Create a linked list and search for an element using an iterative approach. Print whether the element is found or not.',
       initialCode: `# Write your solution here
 class Node:
     def __init__(self, data):
@@ -1068,34 +1258,12 @@ linked_list.head.next = Node(2)
 linked_list.head.next.next = Node(3)
 
 print(linked_list.search_iterative(2))  # Output: True`,
-      solution: `class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-class LinkedList:
-    def __init__(self):
-        self.head = None
-
-    def search_iterative(self, key):
-        current = self.head
-        while current:
-            if current.data == key:
-                return True
-            current = current.next
-        return False
-
-linked_list = LinkedList()
-linked_list.head = Node(1)
-linked_list.head.next = Node(2)
-linked_list.head.next.next = Node(3)
-
-print(linked_list.search_iterative(2))  # Output: True`,
+      solution: `# Solution code here
+`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt:
-        'Create a linked list and search for an element using a recursive approach. Print whether the element is found or not.',
+      prompt: 'Create a linked list and search for an element using a recursive approach. Handle the case when the list is empty.',
       initialCode: `# Write your solution here
 class Node:
     def __init__(self, data):
@@ -1119,35 +1287,14 @@ linked_list.head.next = Node(2)
 linked_list.head.next.next = Node(3)
 
 print(linked_list.search_recursive(linked_list.head, 2))  # Output: True`,
-      solution: `class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-class LinkedList:
-    def __init__(self):
-        self.head = None
-
-    def search_recursive(self, node, key):
-        if node is None:
-            return False
-        if node.data == key:
-            return True
-        return self.search_recursive(node.next, key)
-
-linked_list = LinkedList()
-linked_list.head = Node(1)
-linked_list.head.next = Node(2)
-linked_list.head.next.next = Node(3)
-
-print(linked_list.search_recursive(linked_list.head, 2))  # Output: True`,
+      solution: `# Solution code here
+`,
       difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question:
-        'Which of the following is the correct way to search for an element in a linked list iteratively?',
+      question: 'Which of the following is the correct way to search for an element in a linked list iteratively?',
       options: [
         'Use a loop to iterate through the list, comparing each node\'s data with the target value',
         'Use a recursive function to compare each node\'s data with the target value, passing the next node to the function until the end is reached',
@@ -1164,20 +1311,19 @@ print(linked_list.search_recursive(linked_list.head, 2))  # Output: True`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question:
-        'Which of the following is the correct way to search for an element in a linked list recursively?',
+      question: 'What is a potential pitfall of using recursive search in linked lists?',
       options: [
-        'Use a loop to iterate through the list, comparing each node\'s data with the target value',
-        'Use a recursive function to compare each node\'s data with the target value, passing the next node to the function until the end is reached',
-        'Use a stack to push and pop nodes',
+        'Increased time complexity',
+        'Stack overflow with large lists',
+        'Difficulty in implementation',
         'None of the above',
       ],
       correctAnswer: 1,
       explanations: [
-        'This is incorrect. This describes iterative search.',
-        'This is correct. Recursive search uses a recursive function to compare each node\'s data.',
-        'This is incorrect. Stacks are not typically used for recursive search.',
-        'This is incorrect. The correct answer is recursive search using a recursive function.',
+        'Incorrect. Time complexity is the same as iterative search.',
+        'Correct. Recursive search can lead to stack overflow with large lists.',
+        'Incorrect. Recursive search can be straightforward to implement.',
+        'Incorrect. Stack overflow is a valid concern.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -1187,16 +1333,41 @@ print(linked_list.search_recursive(linked_list.head, 2))  # Output: True`,
 const singlyLinkedData: LessonContent = {
   title: 'Singly Linked Lists',
   content: `<p>
-Singly linked lists are a fundamental data structure where each node contains data and a reference (or link) to the next node in the sequence. 
-This type of linked list allows for efficient insertion and deletion operations at the beginning of the list.
+Singly linked lists are a fundamental data structure where each node contains data and a reference (or link) to the next node in the sequence. This type of linked list allows for efficient insertion and deletion operations at the beginning of the list.
 </p>
 
+<h3>Node Structure</h3>
 <ul>
-<li><strong>Node structure:</strong> Each node contains data and a reference to the next node.</li>
-<li><strong>Head and tail:</strong> The head is the first node, and the tail is the last node (which points to None).</li>
-<li><strong>Operations:</strong> Insertion, deletion, traversal, and searching.</li>
-</ul>`,
-  codeExample: `# Singly Linked List
+  <li>Each node contains data and a reference to the next node.</li>
+</ul>
+
+<h3>Head and Tail</h3>
+<ul>
+  <li>The head is the first node, and the tail is the last node (which points to null).</li>
+</ul>
+
+<h3>Operations</h3>
+<ul>
+  <li><strong>Insertion:</strong> Adding a new node at the beginning or end.</li>
+  <li><strong>Deletion:</strong> Removing a node from the beginning or a specific position.</li>
+  <li><strong>Traversal:</strong> Visiting each node in sequence.</li>
+  <li><strong>Searching:</strong> Finding a node with a specific value.</li>
+</ul>
+
+<h3>Time and Space Complexities</h3>
+<ul>
+  <li><strong>Insertion at Beginning:</strong> O(1)</li>
+  <li><strong>Insertion at End:</strong> O(n)</li>
+  <li><strong>Deletion at Beginning:</strong> O(1)</li>
+  <li><strong>Deletion at End:</strong> O(n)</li>
+  <li><strong>Traversal:</strong> O(n)</li>
+  <li><strong>Searching:</strong> O(n)</li>
+</ul>
+
+<p>
+Singly linked lists are advantageous in scenarios where frequent insertions and deletions at the beginning are required. They don't need contiguous memory and efficiently handle dynamic data sizes.
+</p>`,
+  codeExample: `# Singly Linked List with Deletion at Beginning
 class Node:
     def __init__(self, data):
         self.data = data
@@ -1215,6 +1386,12 @@ class SinglyLinkedList:
         while last.next:
             last = last.next
         last.next = new_node
+
+    def delete_at_beginning(self):
+        if self.head is None:
+            print("List is empty.")
+            return
+        self.head = self.head.next
 
     def traverse(self):
         current = self.head
@@ -1229,11 +1406,11 @@ linked_list.append(1)
 linked_list.append(2)
 linked_list.append(3)
 
-linked_list.traverse()  # Output: 1 2 3`,
+linked_list.delete_at_beginning()
+linked_list.traverse()  # Output: 2 3`,
   exercises: [
     {
-      prompt:
-        'Create a singly linked list and append three nodes. Traverse the list to print the nodes.',
+      prompt: 'Create a singly linked list and implement a function to delete a node at a specific position.',
       initialCode: `# Write your solution here
 class Node:
     def __init__(self, data):
@@ -1254,150 +1431,34 @@ class SinglyLinkedList:
             last = last.next
         last.next = new_node
 
-    def traverse(self):
-        current = self.head
-        while current:
-            print(current.data, end=' ')
-            current = current.next
-        print()
+    def delete_at_position(self, position):
+        # Implement deletion at a specific position
+        pass
 
 linked_list = SinglyLinkedList()
 linked_list.append(1)
 linked_list.append(2)
 linked_list.append(3)
 
-linked_list.traverse()`,
-      solution: `class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-class SinglyLinkedList:
-    def __init__(self):
-        self.head = None
-
-    def append(self, data):
-        new_node = Node(data)
-        if self.head is None:
-            self.head = new_node
-            return
-        last = self.head
-        while last.next:
-            last = last.next
-        last.next = new_node
-
-    def traverse(self):
-        current = self.head
-        while current:
-            print(current.data, end=' ')
-            current = current.next
-        print()
-
-linked_list = SinglyLinkedList()
-linked_list.append(1)
-linked_list.append(2)
-linked_list.append(3)
-
-linked_list.traverse()`,
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      prompt:
-        'Create a function that inserts a node at the beginning of a singly linked list. Print the list to verify the insertion.',
-      initialCode: `# Write your solution here
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-class SinglyLinkedList:
-    def __init__(self):
-        self.head = None
-
-    def insert_at_beginning(self, data):
-        new_node = Node(data)
-        new_node.next = self.head
-        self.head = new_node
-
-    def traverse(self):
-        current = self.head
-        while current:
-            print(current.data, end=' ')
-            current = current.next
-        print()
-
-linked_list = SinglyLinkedList()
-linked_list.insert_at_beginning(1)
-linked_list.insert_at_beginning(2)
-linked_list.insert_at_beginning(3)
-
-linked_list.traverse()`,
-      solution: `class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-class SinglyLinkedList:
-    def __init__(self):
-        self.head = None
-
-    def insert_at_beginning(self, data):
-        new_node = Node(data)
-        new_node.next = self.head
-        self.head = new_node
-
-    def traverse(self):
-        current = self.head
-        while current:
-            print(current.data, end=' ')
-            current = current.next
-        print()
-
-linked_list = SinglyLinkedList()
-linked_list.insert_at_beginning(1)
-linked_list.insert_at_beginning(2)
-linked_list.insert_at_beginning(3)
-
-linked_list.traverse()`,
+linked_list.delete_at_position(1)
+linked_list.traverse()  # Output: 1 3`,
+      solution: `# Solution code here
+`,
       difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question:
-        'Which of the following is the correct way to define a node in a singly linked list?',
-      options: [
-        'class Node: def __init__(self, data): self.data = data self.next = None',
-        'class Node: def __init__(self, data): self.data = data self.prev = None self.next = None',
-        'class Node: def __init__(self, data): self.data = data self.next = self.prev = None',
-        'None of the above',
-      ],
+      question: 'What is the time complexity of deleting a node at the beginning of a singly linked list?',
+      options: ['O(1)', 'O(n)', 'O(log n)', 'O(n^2)'],
       correctAnswer: 0,
       explanations: [
-        'This is correct. A singly linked list node contains data and a reference to the next node.',
-        'This is incorrect. This describes a doubly linked list node.',
-        'This is incorrect. This describes a doubly linked list node.',
-        'This is incorrect. The correct answer is the first option.',
+        'Correct. Deleting at the beginning is a constant time operation.',
+        'Incorrect. This is the time complexity for deleting at the end.',
+        'Incorrect. This is not applicable for this operation.',
+        'Incorrect. This is not applicable for this operation.',
       ],
       difficulty: Difficulty.Beginner,
-    },
-    {
-      question:
-        'Which of the following operations is most efficient in a singly linked list?',
-      options: [
-        'Insertion at the beginning',
-        'Insertion at the end',
-        'Deletion at the beginning',
-        'Deletion at the end',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. Insertion at the beginning is O(1) in a singly linked list.',
-        'This is incorrect. Insertion at the end is O(n) in a singly linked list.',
-        'This is correct. Deletion at the beginning is O(1) in a singly linked list.',
-        'This is incorrect. Deletion at the end is O(n) in a singly linked list.',
-      ],
-      difficulty: Difficulty.Intermediate,
     },
   ],
 };
@@ -1405,16 +1466,41 @@ linked_list.traverse()`,
 const doublyLinkedData: LessonContent = {
   title: 'Doubly Linked Lists',
   content: `<p>
-Doubly linked lists are a type of linked list where each node contains data and references to both the next and previous nodes. 
-This allows for more flexible operations, such as efficient traversal in both directions.
+Doubly linked lists are a type of linked list where each node contains data and references to both the next and previous nodes. This allows for more flexible operations, such as efficient traversal in both directions.
 </p>
 
+<h3>Node Structure</h3>
 <ul>
-<li><strong>Node structure:</strong> Each node contains data, a reference to the next node, and a reference to the previous node.</li>
-<li><strong>Head and tail:</strong> The head is the first node, and the tail is the last node.</li>
-<li><strong>Operations:</strong> Insertion, deletion, traversal (forward and backward), and searching.</li>
-</ul>`,
-  codeExample: `# Doubly Linked List
+  <li>Each node contains data, a reference to the next node, and a reference to the previous node.</li>
+</ul>
+
+<h3>Head and Tail</h3>
+<ul>
+  <li>The head is the first node, and the tail is the last node.</li>
+</ul>
+
+<h3>Operations</h3>
+<ul>
+  <li><strong>Insertion:</strong> Adding a new node at the beginning or end.</li>
+  <li><strong>Deletion:</strong> Removing a node from the beginning or a specific position.</li>
+  <li><strong>Traversal:</strong> Visiting each node in forward or backward sequence.</li>
+  <li><strong>Searching:</strong> Finding a node with a specific value.</li>
+</ul>
+
+<h3>Time and Space Complexities</h3>
+<ul>
+  <li><strong>Insertion at Beginning:</strong> O(1)</li>
+  <li><strong>Insertion at End:</strong> O(1) (with tail reference)</li>
+  <li><strong>Deletion at Beginning:</strong> O(1)</li>
+  <li><strong>Deletion at End:</strong> O(1) (with tail reference)</li>
+  <li><strong>Traversal:</strong> O(n)</li>
+  <li><strong>Searching:</strong> O(n)</li>
+</ul>
+
+<p>
+Doubly linked lists are advantageous for scenarios requiring bidirectional traversal, such as browser history navigation. However, they introduce additional memory overhead due to the previous pointer.
+</p>`,
+  codeExample: `# Doubly Linked List with Insertion and Deletion
 class Node:
     def __init__(self, data):
         self.data = data
@@ -1435,6 +1521,25 @@ class DoublyLinkedList:
             last = last.next
         last.next = new_node
         new_node.prev = last
+
+    def insert_at_beginning(self, data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        new_node.next = self.head
+        self.head.prev = new_node
+        self.head = new_node
+
+    def delete_at_beginning(self):
+        if self.head is None:
+            print("List is empty.")
+            return
+        if self.head.next is None:
+            self.head = None
+            return
+        self.head = self.head.next
+        self.head.prev = None
 
     def traverse_forward(self):
         current = self.head
@@ -1462,12 +1567,13 @@ linked_list.append(1)
 linked_list.append(2)
 linked_list.append(3)
 
+linked_list.insert_at_beginning(0)
+linked_list.delete_at_beginning()
 linked_list.traverse_forward()  # Output: 1 2 3
 linked_list.traverse_backward()  # Output: 3 2 1`,
   exercises: [
     {
-      prompt:
-        'Create a doubly linked list and append three nodes. Traverse the list forward and backward to print the nodes.',
+      prompt: 'Create a doubly linked list and implement a function to delete a node by value.',
       initialCode: `# Write your solution here
 class Node:
     def __init__(self, data):
@@ -1490,186 +1596,39 @@ class DoublyLinkedList:
         last.next = new_node
         new_node.prev = last
 
-    def traverse_forward(self):
-        current = self.head
-        while current:
-            print(current.data, end=' ')
-            current = current.next
-        print()
-
-    def traverse_backward(self):
-        last = None
-        if self.head is None:
-            return
-        current = self.head
-        while current:
-            last = current
-            current = current.next
-        while last:
-            print(last.data, end=' ')
-            last = last.prev
-        print()
+    def delete_by_value(self, key):
+        # Implement deletion by value
+        pass
 
 linked_list = DoublyLinkedList()
 linked_list.append(1)
 linked_list.append(2)
 linked_list.append(3)
 
-linked_list.traverse_forward()
-linked_list.traverse_backward()`,
-      solution: `class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-        self.prev = None
-
-class DoublyLinkedList:
-    def __init__(self):
-        self.head = None
-
-    def append(self, data):
-        new_node = Node(data)
-        if self.head is None:
-            self.head = new_node
-            return
-        last = self.head
-        while last.next:
-            last = last.next
-        last.next = new_node
-        new_node.prev = last
-
-    def traverse_forward(self):
-        current = self.head
-        while current:
-            print(current.data, end=' ')
-            current = current.next
-        print()
-
-    def traverse_backward(self):
-        last = None
-        if self.head is None:
-            return
-        current = self.head
-        while current:
-            last = current
-            current = current.next
-        while last:
-            print(last.data, end=' ')
-            last = last.prev
-        print()
-
-linked_list = DoublyLinkedList()
-linked_list.append(1)
-linked_list.append(2)
-linked_list.append(3)
-
-linked_list.traverse_forward()
-linked_list.traverse_backward()`,
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      prompt:
-        'Create a function that inserts a node at the beginning of a doubly linked list. Print the list to verify the insertion.',
-      initialCode: `# Write your solution here
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-        self.prev = None
-
-class DoublyLinkedList:
-    def __init__(self):
-        self.head = None
-
-    def insert_at_beginning(self, data):
-        new_node = Node(data)
-        new_node.next = self.head
-        if self.head is not None:
-            self.head.prev = new_node
-        self.head = new_node
-
-    def traverse_forward(self):
-        current = self.head
-        while current:
-            print(current.data, end=' ')
-            current = current.next
-        print()
-
-linked_list = DoublyLinkedList()
-linked_list.insert_at_beginning(1)
-linked_list.insert_at_beginning(2)
-linked_list.insert_at_beginning(3)
-
-linked_list.traverse_forward()`,
-      solution: `class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-        self.prev = None
-
-class DoublyLinkedList:
-    def __init__(self):
-        self.head = None
-
-    def insert_at_beginning(self, data):
-        new_node = Node(data)
-        new_node.next = self.head
-        if self.head is not None:
-            self.head.prev = new_node
-        self.head = new_node
-
-    def traverse_forward(self):
-        current = self.head
-        while current:
-            print(current.data, end=' ')
-            current = current.next
-        print()
-
-linked_list = DoublyLinkedList()
-linked_list.insert_at_beginning(1)
-linked_list.insert_at_beginning(2)
-linked_list.insert_at_beginning(3)
-
-linked_list.traverse_forward()`,
+linked_list.delete_by_value(2)
+linked_list.traverse_forward()  # Output: 1 3`,
+      solution: `# Solution code here
+`,
       difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question:
-        'Which of the following is the correct way to define a node in a doubly linked list?',
+      question: 'Which of the following is true about doubly linked lists compared to singly linked lists?',
       options: [
-        'class Node: def __init__(self, data): self.data = data self.next = None',
-        'class Node: def __init__(self, data): self.data = data self.prev = None self.next = None',
-        'class Node: def __init__(self, data): self.data = data self.next = self.prev = None',
-        'None of the above',
+        'Doubly linked lists allow only forward traversal.',
+        'Doubly linked lists require less memory.',
+        'Doubly linked lists allow both forward and backward traversal.',
+        'Doubly linked lists have simpler node structures.',
       ],
-      correctAnswer: 1,
+      correctAnswer: 2,
       explanations: [
-        'This is incorrect. This describes a singly linked list node.',
-        'This is correct. A doubly linked list node contains data, a reference to the next node, and a reference to the previous node.',
-        'This is incorrect. This describes a doubly linked list node, but the syntax is incorrect.',
-        'This is incorrect. The correct answer is the second option.',
+        'Incorrect. Doubly linked lists allow both forward and backward traversal.',
+        'Incorrect. Doubly linked lists require more memory due to the previous pointer.',
+        'Correct. They support bidirectional traversal.',
+        'Incorrect. Doubly linked lists have more complex node structures.',
       ],
       difficulty: Difficulty.Beginner,
-    },
-    {
-      question:
-        'Which of the following operations is most efficient in a doubly linked list?',
-      options: [
-        'Insertion at the beginning',
-        'Insertion at the end',
-        'Deletion at the beginning',
-        'Deletion at the end',
-      ],
-      correctAnswer: 3,
-      explanations: [
-        'This is correct. Insertion at the beginning is O(1) in a doubly linked list.',
-        'This is correct. Insertion at the end is O(1) in a doubly linked list.',
-        'This is correct. Deletion at the beginning is O(1) in a doubly linked list.',
-        'This is correct. Deletion at the end is O(1) in a doubly linked list.',
-      ],
-      difficulty: Difficulty.Intermediate,
     },
   ],
 };
@@ -1677,16 +1636,28 @@ linked_list.traverse_forward()`,
 const circularLinkedData: LessonContent = {
   title: 'Circular Linked Lists',
   content: `<p>
-Circular linked lists are a type of linked list where the last node points back to the head node, creating a circular structure. 
-This can be either singly or doubly linked. Circular linked lists have unique properties and use cases.
+Circular linked lists are a variation of linked lists where the last node points back to the head node, forming a loop. This structure can be singly or doubly linked. Circular linked lists offer unique advantages, such as simplified traversal and specific use cases in algorithms.
 </p>
 
 <ul>
-<li><strong>Node structure:</strong> Similar to singly or doubly linked lists, but the last node points to the head.</li>
-<li><strong>Operations:</strong> Insertion, deletion, traversal (circular), and searching.</li>
-<li><strong>Use cases:</strong> Scheduling algorithms, round-robin algorithms, and circular buffers.</li>
+<li><strong>Node Structure:</strong> Each node contains data and a reference to the next node. In a doubly circular linked list, each node also has a reference to the previous node.</li>
+<li><strong>Operations:</strong> 
+  <ul>
+    <li>Insertion: At the beginning, end, or after a specific node.</li>
+    <li>Deletion: Removing a node based on data or position.</li>
+    <li>Traversal: Circular traversal to visit each node.</li>
+    <li>Searching: Finding a node with specific data.</li>
+  </ul>
+</li>
+<li><strong>Use Cases:</strong> 
+  <ul>
+    <li>Scheduling algorithms for round-robin tasks.</li>
+    <li>Circular buffers in data structures.</li>
+    <li>Memory management in operating systems.</li>
+  </ul>
+</li>
 </ul>`,
-  codeExample: `# Circular Linked List
+  codeExample: `# Circular Linked List Implementation
 class Node:
     def __init__(self, data):
         self.data = data
@@ -1698,18 +1669,53 @@ class CircularLinkedList:
 
     def append(self, data):
         new_node = Node(data)
-        if self.head is None:
+        if not self.head:
             self.head = new_node
             new_node.next = self.head
             return
-        last = self.head
-        while last.next != self.head:
-            last = last.next
-        last.next = new_node
+        current = self.head
+        while current.next != self.head:
+            current = current.next
+        current.next = new_node
         new_node.next = self.head
 
+    def insert_at_beginning(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            new_node.next = self.head
+            return
+        new_node.next = self.head
+        current = self.head
+        while current.next != self.head:
+            current = current.next
+        current.next = new_node
+        self.head = new_node
+
+    def delete_node(self, key):
+        if not self.head:
+            return
+        if self.head.data == key and self.head.next == self.head:
+            self.head = None
+            return
+        if self.head.data == key:
+            current = self.head
+            while current.next != self.head:
+                current = current.next
+            current.next = self.head.next
+            self.head = self.head.next
+            return
+        current = self.head
+        prev = None
+        while current.next != self.head:
+            prev = current
+            current = current.next
+            if current.data == key:
+                prev.next = current.next
+                return
+
     def traverse(self):
-        if self.head is None:
+        if not self.head:
             return
         current = self.head
         while True:
@@ -1724,14 +1730,14 @@ linked_list = CircularLinkedList()
 linked_list.append(1)
 linked_list.append(2)
 linked_list.append(3)
-
-linked_list.traverse()  # Output: 1 2 3`,
+linked_list.insert_at_beginning(0)
+linked_list.traverse()  # Output: 0 1 2 3
+linked_list.delete_node(2)
+linked_list.traverse()  # Output: 0 1 3`,
   exercises: [
     {
-      prompt:
-        'Create a circular linked list and append three nodes. Traverse the list to print the nodes.',
-      initialCode: `# Write your solution here
-class Node:
+      prompt: 'Implement a function to insert a node at the end of a circular linked list.',
+      initialCode: `class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -1741,79 +1747,24 @@ class CircularLinkedList:
         self.head = None
 
     def append(self, data):
-        new_node = Node(data)
-        if self.head is None:
-            self.head = new_node
-            new_node.next = self.head
-            return
-        last = self.head
-        while last.next != self.head:
-            last = last.next
-        last.next = new_node
+        # Implement this function
+`,
+      solution: `def append(self, data):
+    new_node = Node(data)
+    if not self.head:
+        self.head = new_node
         new_node.next = self.head
-
-    def traverse(self):
-        if self.head is None:
-            return
-        current = self.head
-        while True:
-            print(current.data, end=' ')
-            current = current.next
-            if current == self.head:
-                break
-        print()
-
-linked_list = CircularLinkedList()
-linked_list.append(1)
-linked_list.append(2)
-linked_list.append(3)
-
-linked_list.traverse()`,
-      solution: `class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-class CircularLinkedList:
-    def __init__(self):
-        self.head = None
-
-    def append(self, data):
-        new_node = Node(data)
-        if self.head is None:
-            self.head = new_node
-            new_node.next = self.head
-            return
-        last = self.head
-        while last.next != self.head:
-            last = last.next
-        last.next = new_node
-        new_node.next = self.head
-
-    def traverse(self):
-        if self.head is None:
-            return
-        current = self.head
-        while True:
-            print(current.data, end=' ')
-            current = current.next
-            if current == self.head:
-                break
-        print()
-
-linked_list = CircularLinkedList()
-linked_list.append(1)
-linked_list.append(2)
-linked_list.append(3)
-
-linked_list.traverse()`,
+        return
+    current = self.head
+    while current.next != self.head:
+        current = current.next
+    current.next = new_node
+    new_node.next = self.head`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt:
-        'Create a function that inserts a node at the beginning of a circular linked list. Print the list to verify the insertion.',
-      initialCode: `# Write your solution here
-class Node:
+      prompt: 'Implement a function to delete a node with a specific value from a circular linked list.',
+      initialCode: `class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -1822,112 +1773,65 @@ class CircularLinkedList:
     def __init__(self):
         self.head = None
 
-    def insert_at_beginning(self, data):
-        new_node = Node(data)
-        if self.head is None:
-            self.head = new_node
-            new_node.next = self.head
-            return
-        last = self.head
-        while last.next != self.head:
-            last = last.next
-        last.next = new_node
-        new_node.next = self.head
-        self.head = new_node
-
-    def traverse(self):
-        if self.head is None:
-            return
-        current = self.head
-        while True:
-            print(current.data, end=' ')
-            current = current.next
-            if current == self.head:
-                break
-        print()
-
-linked_list = CircularLinkedList()
-linked_list.insert_at_beginning(1)
-linked_list.insert_at_beginning(2)
-linked_list.insert_at_beginning(3)
-
-linked_list.traverse()`,
-      solution: `class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-class CircularLinkedList:
-    def __init__(self):
+    def delete_node(self, key):
+        # Implement this function
+`,
+      solution: `def delete_node(self, key):
+    if not self.head:
+        return
+    if self.head.data == key and self.head.next == self.head:
         self.head = None
-
-    def insert_at_beginning(self, data):
-        new_node = Node(data)
-        if self.head is None:
-            self.head = new_node
-            new_node.next = self.head
-            return
-        last = self.head
-        while last.next != self.head:
-            last = last.next
-        last.next = new_node
-        new_node.next = self.head
-        self.head = new_node
-
-    def traverse(self):
-        if self.head is None:
-            return
+        return
+    if self.head.data == key:
         current = self.head
-        while True:
-            print(current.data, end=' ')
+        while current.next != self.head:
             current = current.next
-            if current == self.head:
-                break
-        print()
-
-linked_list = CircularLinkedList()
-linked_list.insert_at_beginning(1)
-linked_list.insert_at_beginning(2)
-linked_list.insert_at_beginning(3)
-
-linked_list.traverse()`,
+        current.next = self.head.next
+        self.head = self.head.next
+        return
+    current = self.head
+    prev = None
+    while current.next != self.head:
+        prev = current
+        current = current.next
+        if current.data == key:
+            prev.next = current.next
+            return`,
       difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question:
-        'Which of the following is the correct way to define a node in a circular linked list?',
+      question: 'What is the primary difference between a circular linked list and a linear linked list?',
       options: [
-        'class Node: def __init__(self, data): self.data = data self.next = None',
-        'class Node: def __init__(self, data): self.data = data self.prev = None self.next = None',
-        'class Node: def __init__(self, data): self.data = data self.next = self.prev = None',
-        'None of the above',
+        'Circular linked lists have nodes with only data.',
+        'Circular linked lists have nodes with data and next pointers.',
+        'Circular linked lists have the last node pointing back to the head.',
+        'Circular linked lists do not allow traversal.',
       ],
-      correctAnswer: 0,
+      correctAnswer: 2,
       explanations: [
-        'This is correct. A circular linked list node contains data and a reference to the next node.',
-        'This is incorrect. This describes a doubly linked list node.',
-        'This is incorrect. This describes a doubly linked list node, but the syntax is incorrect.',
-        'This is incorrect. The correct answer is the first option.',
+        'Incorrect. Both have data in nodes.',
+        'Incorrect. Both have data and next pointers.',
+        'Correct. In circular linked lists, the last node points back to the head, forming a loop.',
+        'Incorrect. Circular linked lists allow traversal, typically in a loop.',
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question:
-        'Which of the following operations is most efficient in a circular linked list?',
+      question: 'Which operation is more efficient in a circular linked list compared to a linear linked list?',
       options: [
         'Insertion at the beginning',
         'Insertion at the end',
-        'Deletion at the beginning',
-        'Deletion at the end',
+        'Traversal to the end',
+        'None of the above',
       ],
       correctAnswer: 0,
       explanations: [
-        'This is correct. Insertion at the beginning is O(1) in a circular linked list.',
-        'This is incorrect. Insertion at the end is O(n) in a circular linked list.',
-        'This is correct. Deletion at the beginning is O(1) in a circular linked list.',
-        'This is incorrect. Deletion at the end is O(n) in a circular linked list.',
+        'Correct. Insertion at the beginning can be more efficient as it doesn’t require traversing to the end.',
+        'Incorrect. Insertion at the end may require traversing the entire list.',
+        'Incorrect. Traversal to the end is similar in both.',
+        'Incorrect. The correct answer is A.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -1935,17 +1839,28 @@ linked_list.traverse()`,
 };
 
 const fastSlowData: LessonContent = {
-  title: 'Fast and Slow Pointers',
+  title: 'Fast and Slow Pointers (Floyd’s Cycle-Finding Algorithm)',
   content: `<p>
-The fast and slow pointer technique, also known as Floyd's cycle detection algorithm, is a common approach for detecting cycles in linked lists. 
-This technique uses two pointers that move at different speeds to traverse the list.
+The fast and slow pointer technique, often referred to as Floyd’s cycle-finding algorithm, is a pointer algorithm that uses two pointers moving through a sequence at different speeds to detect cycles. This technique is widely used in linked list problems.
 </p>
 
 <ul>
-<li><strong>Cycle detection:</strong> The slow pointer moves one step at a time, while the fast pointer moves two steps at a time. If there is a cycle, the fast pointer will eventually catch up to the slow pointer.</li>
-<li><strong>Applications:</strong> Detecting cycles in linked lists, finding the middle element of a linked list, and more.</li>
+<li><strong>Cycle Detection:</strong> 
+  <ul>
+    <li>Slow pointer moves one step at a time.</li>
+    <li>Fast pointer moves two steps at a time.</li>
+    <li>If there is a cycle, the fast pointer will eventually catch up to the slow pointer.</li>
+  </ul>
+</li>
+<li><strong>Applications:</strong> 
+  <ul>
+    <li>Detecting cycles in linked lists.</li>
+    <li>Finding the middle element of a linked list.</li>
+    <li>Finding the start of the cycle in a linked list.</li>
+  </ul>
+</li>
 </ul>`,
-  codeExample: `# Fast and Slow Pointer Technique
+  codeExample: `# Detecting a Cycle in a Linked List
 class Node:
     def __init__(self, data):
         self.data = data
@@ -1959,11 +1874,11 @@ class LinkedList:
         slow = self.head
         fast = self.head
         while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
+            slow = slow.next        # Move slow pointer by one
+            fast = fast.next.next   # Move fast pointer by two
             if slow == fast:
-                return True
-        return False
+                return True  # Cycle detected
+        return False  # No cycle found
 
 # Example usage
 linked_list = LinkedList()
@@ -1975,10 +1890,8 @@ linked_list.head.next.next.next = linked_list.head  # Creating a cycle
 print(linked_list.detect_cycle())  # Output: True`,
   exercises: [
     {
-      prompt:
-        'Create a linked list with a cycle and use the fast and slow pointer technique to detect the cycle. Print whether a cycle is detected or not.',
-      initialCode: `# Write your solution here
-class Node:
+      prompt: 'Implement a function to detect a cycle in a linked list using the fast and slow pointer technique.',
+      initialCode: `class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -1988,55 +1901,24 @@ class LinkedList:
         self.head = None
 
     def detect_cycle(self):
-        slow = self.head
-        fast = self.head
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-            if slow == fast:
-                return True
+        # Implement this function
+`,
+      solution: `def detect_cycle(self):
+    if not self.head or not self.head.next:
         return False
-
-linked_list = LinkedList()
-linked_list.head = Node(1)
-linked_list.head.next = Node(2)
-linked_list.head.next.next = Node(3)
-linked_list.head.next.next.next = linked_list.head  # Creating a cycle
-
-print(linked_list.detect_cycle())`,
-      solution: `class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-class LinkedList:
-    def __init__(self):
-        self.head = None
-
-    def detect_cycle(self):
-        slow = self.head
-        fast = self.head
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-            if slow == fast:
-                return True
-        return False
-
-linked_list = LinkedList()
-linked_list.head = Node(1)
-linked_list.head.next = Node(2)
-linked_list.head.next.next = Node(3)
-linked_list.head.next.next.next = linked_list.head  # Creating a cycle
-
-print(linked_list.detect_cycle())`,
+    slow = self.head
+    fast = self.head.next
+    while fast and fast.next:
+        if slow == fast:
+            return True  # Cycle detected
+        slow = slow.next        # Move slow pointer by one
+        fast = fast.next.next   # Move fast pointer by two
+    return False  # No cycle found`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt:
-        'Create a function that finds the middle element of a linked list using the fast and slow pointer technique. Print the middle element.',
-      initialCode: `# Write your solution here
-class Node:
+      prompt: 'Implement a function to find the middle element of a linked list using the fast and slow pointer technique.',
+      initialCode: `class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -2046,83 +1928,50 @@ class LinkedList:
         self.head = None
 
     def find_middle(self):
-        slow = self.head
-        fast = self.head
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-        return slow.data
-
-linked_list = LinkedList()
-linked_list.head = Node(1)
-linked_list.head.next = Node(2)
-linked_list.head.next.next = Node(3)
-linked_list.head.next.next.next = Node(4)
-linked_list.head.next.next.next.next = Node(5)
-
-print(linked_list.find_middle())`,
-      solution: `class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-class LinkedList:
-    def __init__(self):
-        self.head = None
-
-    def find_middle(self):
-        slow = self.head
-        fast = self.head
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-        return slow.data
-
-linked_list = LinkedList()
-linked_list.head = Node(1)
-linked_list.head.next = Node(2)
-linked_list.head.next.next = Node(3)
-linked_list.head.next.next.next = Node(4)
-linked_list.head.next.next.next.next = Node(5)
-
-print(linked_list.find_middle())`,
+        # Implement this function
+`,
+      solution: `def find_middle(self):
+    slow = self.head
+    fast = self.head
+    while fast and fast.next:
+        slow = slow.next        # Move slow pointer by one
+        fast = fast.next.next   # Move fast pointer by two
+    return slow.data if slow else None`,
       difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question:
-        'Which of the following is the correct way to detect a cycle in a linked list using the fast and slow pointer technique?',
+      question: 'What happens if there is no cycle in a linked list when using the fast and slow pointer technique?',
       options: [
-        'Move the slow pointer one step at a time and the fast pointer two steps at a time. If they meet, there is a cycle.',
-        'Move both pointers one step at a time. If they meet, there is a cycle.',
-        'Move the slow pointer two steps at a time and the fast pointer one step at a time. If they meet, there is a cycle.',
-        'None of the above',
+        'The fast pointer will always catch up to the slow pointer.',
+        'The fast pointer will reach the end of the list before the slow pointer.',
+        'The slow pointer will reach the end of the list first.',
+        'The linked list will become circular.',
       ],
-      correctAnswer: 0,
+      correctAnswer: 1,
       explanations: [
-        'This is correct. The fast and slow pointer technique involves moving the slow pointer one step at a time and the fast pointer two steps at a time.',
-        'This is incorrect. Both pointers moving one step at a time will not detect a cycle.',
-        'This is incorrect. The slow pointer moving two steps at a time and the fast pointer moving one step at a time is not the correct approach.',
-        'This is incorrect. The correct answer is the first option.',
+        'Incorrect. Without a cycle, the fast pointer won’t catch up.',
+        'Correct. The fast pointer reaches the end before the slow pointer.',
+        'Incorrect. The fast pointer moves faster.',
+        'Incorrect. The list structure doesn’t change.',
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question:
-        'Which of the following is a common application of the fast and slow pointer technique?',
+      question: 'Which of the following is NOT a typical application of the fast and slow pointer technique?',
       options: [
-        'Detecting cycles in linked lists',
-        'Finding the middle element of a linked list',
-        'Both A and B',
-        'None of the above',
+        'Detecting a cycle in a linked list.',
+        'Finding the middle element of a linked list.',
+        'Reversing a linked list.',
+        'Finding the start of a cycle in a linked list.',
       ],
       correctAnswer: 2,
       explanations: [
-        'This is correct. Detecting cycles in linked lists is a common application.',
-        'This is correct. Finding the middle element of a linked list is a common application.',
-        'This is correct. Both detecting cycles and finding the middle element are common applications.',
-        'This is incorrect. The correct answer is both A and B.',
+        'Incorrect. Detecting a cycle is a typical application.',
+        'Incorrect. Finding the middle element is a typical application.',
+        'Correct. Reversing a linked list is not a typical application of this technique.',
+        'Incorrect. Finding the start of a cycle is a typical application.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -2130,18 +1979,19 @@ print(linked_list.find_middle())`,
 };
 
 const multiplePointersData: LessonContent = {
-  title: 'Multiple Pointers',
+  title: 'Multiple Pointers Technique',
   content: `<p>
-The multiple pointers technique involves using multiple pointers to solve various problems efficiently. 
-This technique is particularly useful for problems involving arrays or linked lists.
+The multiple pointers technique is a powerful method for solving problems efficiently by using two or more pointers to traverse data structures like arrays and linked lists. This technique is particularly useful for problems involving searching, sorting, and manipulating data.
 </p>
-
 <ul>
-<li><strong>Two pointers:</strong> Use two pointers to traverse the list or array from different directions.</li>
-<li><strong>Three pointers:</strong> Use three pointers to solve more complex problems.</li>
-<li><strong>Applications:</strong> Finding pairs that sum to a target, removing duplicates, and more.</li>
-</ul>`,
-  codeExample: `# Multiple Pointers Technique
+  <li><strong>Two Pointers:</strong> Often used for finding pairs or reversing arrays.</li>
+  <li><strong>Three Pointers:</strong> Useful for more complex operations like linked list reversal.</li>
+  <li><strong>Applications:</strong> Finding pairs that sum to a target, removing duplicates, detecting intersections in linked lists.</li>
+</ul>
+<p>
+By maintaining pointers at different positions, we can traverse the data structure in a way that reduces time complexity and optimizes space usage.
+</p>`,
+  codeExample: `# Finding a Pair that Sums to a Target
 def find_pair_sum(arr, target):
     left = 0
     right = len(arr) - 1
@@ -2155,140 +2005,105 @@ def find_pair_sum(arr, target):
             right -= 1
     return None
 
-# Example usage
+# Example Usage
 arr = [1, 2, 3, 4, 5]
 target = 7
 print(find_pair_sum(arr, target))  # Output: (2, 5)`,
   exercises: [
     {
-      prompt:
-        'Create a function that finds a pair of elements in an array that sum to a given target using the multiple pointers technique. Print the pair if found, otherwise print "No pair found".',
-      initialCode: `# Write your solution here
-def find_pair_sum(arr, target):
-    left = 0
-    right = len(arr) - 1
-    while left < right:
-        current_sum = arr[left] + arr[right]
-        if current_sum == target:
-            return (arr[left], arr[right])
-        elif current_sum < target:
-            left += 1
-        else:
-            right -= 1
-    return None
-
-arr = [1, 2, 3, 4, 5]
-target = 7
-result = find_pair_sum(arr, target)
-if result:
-    print(result)
-else:
-    print("No pair found")`,
-      solution: `def find_pair_sum(arr, target):
-    left = 0
-    right = len(arr) - 1
-    while left < right:
-        current_sum = arr[left] + arr[right]
-        if current_sum == target:
-            return (arr[left], arr[right])
-        elif current_sum < target:
-            left += 1
-        else:
-            right -= 1
-    return None
-
-arr = [1, 2, 3, 4, 5]
-target = 7
-result = find_pair_sum(arr, target)
-if result:
-    print(result)
-else:
-    print("No pair found")`,
-      difficulty: Difficulty.Beginner,
+      prompt: 'Implement a function to find a triplet in an array that sums to zero using the multiple pointers technique.',
+      initialCode: `def find_triplet_sum_zero(arr):
+    # Implement this function
+`,
+      solution: `def find_triplet_sum_zero(arr):
+    arr.sort()
+    n = len(arr)
+    for i in range(n - 2):
+        left = i + 1
+        right = n - 1
+        while left < right:
+            current_sum = arr[i] + arr[left] + arr[right]
+            if current_sum == 0:
+                return (arr[i], arr[left], arr[right])
+            elif current_sum < 0:
+                left += 1
+            else:
+                right -= 1
+    return None`,
+      difficulty: Difficulty.Intermediate,
     },
     {
-      prompt:
-        'Create a function that removes duplicates from a sorted array using the multiple pointers technique. Print the modified array.',
-      initialCode: `# Write your solution here
-def remove_duplicates(arr):
-    if not arr:
-        return arr
-    i = 0
-    for j in range(1, len(arr)):
-        if arr[j] != arr[i]:
-            i += 1
-            arr[i] = arr[j]
-    return arr[:i + 1]
+      prompt: 'Create a function to reverse a linked list using multiple pointers.',
+      initialCode: `class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
-arr = [1, 1, 2, 2, 3, 4, 4, 5]
-print(remove_duplicates(arr))`,
-      solution: `def remove_duplicates(arr):
-    if not arr:
-        return arr
-    i = 0
-    for j in range(1, len(arr)):
-        if arr[j] != arr[i]:
-            i += 1
-            arr[i] = arr[j]
-    return arr[:i + 1]
-
-arr = [1, 1, 2, 2, 3, 4, 4, 5]
-print(remove_duplicates(arr))`,
+def reverseLinkedList(head):
+    # Implement this function
+`,
+      solution: `def reverseLinkedList(head):
+    prev = None
+    current = head
+    while current:
+        next_node = current.next
+        current.next = prev
+        prev = current
+        current = next_node
+    return prev`,
       difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question:
-        'Which of the following is the correct way to use the multiple pointers technique to find a pair that sums to a target in an array?',
+      question: 'When is the multiple pointers technique most effective?',
       options: [
-        'Use two pointers starting from the beginning of the array and move them towards each other.',
-        'Use two pointers starting from the beginning and end of the array and move them towards each other.',
-        'Use three pointers starting from the beginning of the array and move them towards each other.',
-        'None of the above',
+        'When dealing with sorted arrays.',
+        'When working with linked lists.',
+        'Both A and B.',
+        'Neither A nor B.',
       ],
-      correctAnswer: 1,
+      correctAnswer: 2,
       explanations: [
-        'This is incorrect. Two pointers starting from the beginning of the array will not work.',
-        'This is correct. Two pointers starting from the beginning and end of the array and moving towards each other is the correct approach.',
-        'This is incorrect. Three pointers are not needed for this problem.',
-        'This is incorrect. The correct answer is the second option.',
+        'Correct. Sorted arrays benefit from two-pointer techniques for pair finding.',
+        'Correct. Linked lists can be manipulated efficiently with multiple pointers.',
+        'This is the correct answer.',
+        'Incorrect. Both A and B are valid scenarios.',
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question:
-        'Which of the following is a common application of the multiple pointers technique?',
+      question: 'What is the time complexity of finding a pair that sums to a target in a sorted array using two pointers?',
       options: [
-        'Finding pairs that sum to a target',
-        'Removing duplicates from a sorted array',
-        'Both A and B',
-        'None of the above',
+        'O(1)',
+        'O(n)',
+        'O(log n)',
+        'O(n^2)',
       ],
-      correctAnswer: 2,
+      correctAnswer: 1,
       explanations: [
-        'This is correct. Finding pairs that sum to a target is a common application.',
-        'This is correct. Removing duplicates from a sorted array is a common application.',
-        'This is correct. Both finding pairs and removing duplicates are common applications.',
-        'This is incorrect. The correct answer is both A and B.',
+        'Incorrect. O(1) is constant time, not applicable here.',
+        'Correct. The two-pointer approach traverses the array once.',
+        'Incorrect. O(log n) is typical for binary search.',
+        'Incorrect. O(n^2) is for nested loops.',
       ],
       difficulty: Difficulty.Intermediate,
     },
   ],
 };
-
 const distanceKData: LessonContent = {
-  title: 'K Distance Apart',
+  title: 'K Distance Apart Technique',
   content: `<p>
-The K distance apart technique involves maintaining pointers at fixed distances to solve various problems efficiently. 
-This technique is particularly useful for problems involving arrays or linked lists.
+The K distance apart technique involves maintaining pointers at a fixed distance to solve problems efficiently. This technique is commonly used in sliding window problems and finding elements at a specific distance in arrays.
 </p>
-
 <ul>
-<li><strong>Fixed distance:</strong> Maintain pointers at a fixed distance from each other.</li>
-<li><strong>Applications:</strong> Finding elements at a fixed distance, sliding window problems, and more.</li>
-</ul>`,
-  codeExample: `# K Distance Apart Technique
+  <li><strong>Fixed Distance:</strong> Pointers are maintained at a fixed distance to track subarrays or elements.</li>
+  <li><strong>Applications:</strong> Sliding window problems, finding elements at a fixed distance, maximum/minimum subarray sums.</li>
+</ul>
+<p>
+By keeping pointers a fixed distance apart, we can efficiently compute results for subarrays without redundant computations.
+</p>`,
+  codeExample: `# Finding Elements K Distance Apart
 def find_k_distance_elements(arr, k):
     result = []
     for i in range(len(arr) - k):
@@ -2296,108 +2111,74 @@ def find_k_distance_elements(arr, k):
             result.append((arr[i], arr[i + k]))
     return result
 
-# Example usage
+# Example Usage
 arr = [1, 2, 3, 1, 2, 3]
 k = 2
 print(find_k_distance_elements(arr, k))  # Output: [(1, 1), (2, 2)]`,
   exercises: [
     {
-      prompt:
-        'Create a function that finds pairs of elements in an array that are k distance apart and have the same value. Print the pairs if found, otherwise print "No pairs found".',
-      initialCode: `# Write your solution here
-def find_k_distance_elements(arr, k):
-    result = []
-    for i in range(len(arr) - k):
-        if arr[i] == arr[i + k]:
-            result.append((arr[i], arr[i + k]))
-    return result
-
-arr = [1, 2, 3, 1, 2, 3]
-k = 2
-result = find_k_distance_elements(arr, k)
-if result:
-    print(result)
-else:
-    print("No pairs found")`,
-      solution: `def find_k_distance_elements(arr, k):
-    result = []
-    for i in range(len(arr) - k):
-        if arr[i] == arr[i + k]:
-            result.append((arr[i], arr[i + k]))
-    return result
-
-arr = [1, 2, 3, 1, 2, 3]
-k = 2
-result = find_k_distance_elements(arr, k)
-if result:
-    print(result)
-else:
-    print("No pairs found")`,
-      difficulty: Difficulty.Beginner,
+      prompt: 'Implement a function to find the maximum product of two elements that are k distance apart.',
+      initialCode: `def max_product_k_distance(arr, k):
+    # Implement this function
+`,
+      solution: `def max_product_k_distance(arr, k):
+    max_product = float('-inf')
+    n = len(arr)
+    for i in range(n - k):
+        product = arr[i] * arr[i + k]
+        if product > max_product:
+            max_product = product
+    return max_product`,
+      difficulty: Difficulty.Intermediate,
     },
     {
-      prompt:
-        'Create a function that finds the maximum sum of a subarray of size k using the K distance apart technique. Print the maximum sum.',
-      initialCode: `# Write your solution here
-def max_sum_subarray(arr, k):
-    max_sum = float('-inf')
-    current_sum = sum(arr[:k])
-    for i in range(len(arr) - k):
-        current_sum = current_sum - arr[i] + arr[i + k]
-        max_sum = max(max_sum, current_sum)
-    return max_sum
-
-arr = [1, 4, 2, 10, 2, 3, 1, 0, 20]
-k = 3
-print(max_sum_subarray(arr, k))`,
-      solution: `def max_sum_subarray(arr, k):
-    max_sum = float('-inf')
-    current_sum = sum(arr[:k])
-    for i in range(len(arr) - k):
-        current_sum = current_sum - arr[i] + arr[i + k]
-        max_sum = max(max_sum, current_sum)
-    return max_sum
-
-arr = [1, 4, 2, 10, 2, 3, 1, 0, 20]
-k = 3
-print(max_sum_subarray(arr, k))`,
-      difficulty: Difficulty.Intermediate,
+      prompt: 'Create a function to find the median of subarrays of size k using the sliding window technique.',
+      initialCode: `def median_sliding_window(arr, k):
+    # Implement this function
+`,
+      solution: `def median_sliding_window(arr, k):
+    from statistics import median
+    medians = []
+    for i in range(len(arr) - k + 1):
+        window = arr[i:i+k]
+        med = median(window)
+        medians.append(med)
+    return medians`,
+      difficulty: Difficulty.Advanced,
     },
   ],
   quizzes: [
     {
-      question:
-        'Which of the following is the correct way to use the K distance apart technique to find pairs of elements in an array that are k distance apart and have the same value?',
+      question: 'What is the primary advantage of using the K distance apart technique in sliding window problems?',
       options: [
-        'Use two pointers starting from the beginning of the array and move them towards each other.',
-        'Use two pointers starting from the beginning and end of the array and move them towards each other.',
-        'Use a single pointer and check the element at a fixed distance k from the current element.',
-        'None of the above',
+        'Reduced time complexity.',
+        'Simplified code.',
+        'Both A and B.',
+        'Neither A nor B.',
       ],
       correctAnswer: 2,
       explanations: [
-        'This is incorrect. Two pointers starting from the beginning of the array will not work.',
-        'This is incorrect. Two pointers starting from the beginning and end of the array will not work.',
-        'This is correct. A single pointer and checking the element at a fixed distance k is the correct approach.',
-        'This is incorrect. The correct answer is the third option.',
+        'Correct. Time complexity is reduced by avoiding redundant computations.',
+        'Correct. The technique simplifies managing window boundaries.',
+        'This is the correct answer.',
+        'Incorrect. Both A and B are valid advantages.',
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question:
-        'Which of the following is a common application of the K distance apart technique?',
+      question: 'Which of the following is a common application of the K distance apart technique?',
       options: [
-        'Finding pairs that are k distance apart',
-        'Finding the maximum sum of a subarray of size k',
-        'Both A and B',
-        'None of the above',
+        'Finding the maximum sum of subarrays of size k.',
+        'Detecting duplicates within k distance in an array.',
+        'Both A and B.',
+        'Neither A nor B.',
       ],
       correctAnswer: 2,
       explanations: [
-        'This is correct. Finding pairs that are k distance apart is a common application.',
-        'This is correct. Finding the maximum sum of a subarray of size k is a common application.',
-        'This is correct. Both finding pairs and finding the maximum sum are common applications.',
-        'This is incorrect. The correct answer is both A and B.',
+        'Correct. Sliding window for maximum sum is a common application.',
+        'Correct. Finding duplicates within k distance is another application.',
+        'This is the correct answer.',
+        'Incorrect. Both A and B are valid applications.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -2405,17 +2186,25 @@ print(max_sum_subarray(arr, k))`,
 };
 
 const cycleDetectionData: LessonContent = {
-  title: 'Cycle Detection',
+  title: 'Cycle Detection in Linked Lists',
   content: `<p>
-Cycle detection is a common problem in linked lists where the goal is to determine if there is a cycle (loop) within the list. 
-This can be efficiently solved using Floyd's cycle detection algorithm, also known as the tortoise and hare algorithm.
+Cycle detection is crucial for identifying loops in linked lists. Floyd's cycle detection algorithm, also known as the tortoise and hare algorithm, efficiently determines if a cycle exists.
 </p>
-
+<p>
+The algorithm uses two pointers: one moves slowly (tortoise), and the other moves quickly (hare). If there's a cycle, the hare will eventually meet the tortoise inside the cycle.
+</p>
+<p>
+To find the starting point of the cycle, once a meeting point is found, reset the tortoise to the head and move both pointers one step at a time. They will meet at the cycle's start.
+</p>
 <ul>
-<li><strong>Floyd's cycle detection:</strong> Use two pointers, one moving at a slower pace (tortoise) and the other moving at a faster pace (hare). If there is a cycle, the hare will eventually catch up to the tortoise.</li>
-<li><strong>Applications:</strong> Detecting cycles in linked lists, finding the starting point of a cycle, and more.</li>
+<li>
+<strong>Time Complexity:</strong> O(n), where n is the number of nodes.
+</li>
+<li>
+<strong>Space Complexity:</strong> O(1), as it uses constant extra space.
+</li>
 </ul>`,
-  codeExample: `# Cycle Detection using Floyd's Algorithm
+  codeExample: `# Cycle Detection and Finding Start Point using Floyd's Algorithm
 class Node:
     def __init__(self, data):
         self.data = data
@@ -2425,28 +2214,40 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    def detect_cycle(self):
-        slow = self.head
-        fast = self.head
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-            if slow == fast:
-                return True
-        return False
+    def detect_and_find_cycle(self):
+        # Phase 1: Detect if a cycle exists
+        tortoise = self.head
+        hare = self.head
+        while hare and hare.next:
+            tortoise = tortoise.next       # Move tortoise by one
+            hare = hare.next.next         # Move hare by two
+            if tortoise == hare:
+                break
+        # Phase 2: Find the start of the cycle
+        if not hare or not hare.next:
+            return "No cycle found"
+        tortoise = self.head
+        while tortoise != hare:
+            tortoise = tortoise.next
+            hare = hare.next
+        return hare.data  # Start of the cycle
 
 # Example usage
 linked_list = LinkedList()
-linked_list.head = Node(1)
-linked_list.head.next = Node(2)
-linked_list.head.next.next = Node(3)
-linked_list.head.next.next.next = linked_list.head  # Creating a cycle
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+node4 = Node(4)
+linked_list.head = node1
+node1.next = node2
+node2.next = node3
+node3.next = node4
+node4.next = node2  # Creating a cycle
 
-print(linked_list.detect_cycle())  # Output: True`,
+print(linked_list.detect_and_find_cycle())  # Output: 2`,
   exercises: [
     {
-      prompt:
-        'Create a linked list with a cycle and use Floyd\'s cycle detection algorithm to detect the cycle. Print whether a cycle is detected or not.',
+      prompt: 'Implement Floyd’s cycle detection algorithm from scratch to detect a cycle in a linked list.',
       initialCode: `# Write your solution here
 class Node:
     def __init__(self, data):
@@ -2458,23 +2259,13 @@ class LinkedList:
         self.head = None
 
     def detect_cycle(self):
-        slow = self.head
-        fast = self.head
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-            if slow == fast:
-                return True
-        return False
+        # Implement cycle detection here
+        pass
 
-linked_list = LinkedList()
-linked_list.head = Node(1)
-linked_list.head.next = Node(2)
-linked_list.head.next.next = Node(3)
-linked_list.head.next.next.next = linked_list.head  # Creating a cycle
-
-print(linked_list.detect_cycle())`,
-      solution: `class Node:
+# Create a linked list with a cycle and test your function
+`,
+      solution: `# Solution for cycle detection
+class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -2484,27 +2275,30 @@ class LinkedList:
         self.head = None
 
     def detect_cycle(self):
-        slow = self.head
-        fast = self.head
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-            if slow == fast:
-                return True
-        return False
+        tortoise = self.head
+        hare = self.head
+        while hare and hare.next:
+            tortoise = tortoise.next       # Move tortoise by one
+            hare = hare.next.next         # Move hare by two
+            if tortoise == hare:
+                return True  # Cycle detected
+        return False  # No cycle
 
+# Create a linked list with a cycle
 linked_list = LinkedList()
-linked_list.head = Node(1)
-linked_list.head.next = Node(2)
-linked_list.head.next.next = Node(3)
-linked_list.head.next.next.next = linked_list.head  # Creating a cycle
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+linked_list.head = node1
+node1.next = node2
+node2.next = node3
+node3.next = node2  # Creating a cycle
 
-print(linked_list.detect_cycle())`,
+print(linked_list.detect_cycle())  # Output: True`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt:
-        'Create a function that finds the starting point of a cycle in a linked list using Floyd\'s cycle detection algorithm. Print the starting point if a cycle is detected, otherwise print "No cycle found".',
+      prompt: 'Implement a function to find the starting point of a cycle in a linked list if a cycle exists.',
       initialCode: `# Write your solution here
 class Node:
     def __init__(self, data):
@@ -2516,27 +2310,13 @@ class LinkedList:
         self.head = None
 
     def find_cycle_start(self):
-        slow = self.head
-        fast = self.head
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-            if slow == fast:
-                slow = self.head
-                while slow != fast:
-                    slow = slow.next
-                    fast = fast.next
-                return slow.data
-        return "No cycle found"
+        # Implement cycle start detection here
+        pass
 
-linked_list = LinkedList()
-linked_list.head = Node(1)
-linked_list.head.next = Node(2)
-linked_list.head.next.next = Node(3)
-linked_list.head.next.next.next = linked_list.head.next  # Creating a cycle
-
-print(linked_list.find_cycle_start())`,
-      solution: `class Node:
+# Create a linked list with a cycle and test your function
+`,
+      solution: `# Solution for finding the start of a cycle
+class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -2546,63 +2326,69 @@ class LinkedList:
         self.head = None
 
     def find_cycle_start(self):
-        slow = self.head
-        fast = self.head
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-            if slow == fast:
-                slow = self.head
-                while slow != fast:
-                    slow = slow.next
-                    fast = fast.next
-                return slow.data
-        return "No cycle found"
+        tortoise = self.head
+        hare = self.head
+        # Phase 1: Finding the meeting point
+        while hare and hare.next:
+            tortoise = tortoise.next       # Move tortoise by one
+            hare = hare.next.next         # Move hare by two
+            if tortoise == hare:
+                break
+        # Phase 2: Finding the start of the cycle
+        if not hare or not hare.next:
+            return "No cycle found"
+        tortoise = self.head
+        while tortoise != hare:
+            tortoise = tortoise.next
+            hare = hare.next
+        return hare.data  # Start of the cycle
 
+# Create a linked list with a cycle
 linked_list = LinkedList()
-linked_list.head = Node(1)
-linked_list.head.next = Node(2)
-linked_list.head.next.next = Node(3)
-linked_list.head.next.next.next = linked_list.head.next  # Creating a cycle
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+linked_list.head = node1
+node1.next = node2
+node2.next = node3
+node3.next = node2  # Creating a cycle
 
-print(linked_list.find_cycle_start())`,
+print(linked_list.find_cycle_start())  # Output: 2`,
       difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question:
-        'Which of the following is the correct way to detect a cycle in a linked list using Floyd\'s cycle detection algorithm?',
+      question: 'Which statement correctly describes Floyd’s cycle detection algorithm?',
       options: [
-        'Move the slow pointer one step at a time and the fast pointer two steps at a time. If they meet, there is a cycle.',
-        'Move both pointers one step at a time. If they meet, there is a cycle.',
-        'Move the slow pointer two steps at a time and the fast pointer one step at a time. If they meet, there is a cycle.',
-        'None of the above',
+        'It uses two pointers moving at different speeds to detect a cycle.',
+        'It detects cycles by counting the number of nodes.',
+        'It requires additional memory to track visited nodes.',
+        'It only works on sorted linked lists.',
       ],
       correctAnswer: 0,
       explanations: [
-        'This is correct. The fast and slow pointer technique involves moving the slow pointer one step at a time and the fast pointer two steps at a time.',
-        'This is incorrect. Both pointers moving one step at a time will not detect a cycle.',
-        'This is incorrect. The slow pointer moving two steps at a time and the fast pointer moving one step at a time is not the correct approach.',
-        'This is incorrect. The correct answer is the first option.',
+        'Correct. Floyd’s algorithm uses a slow and fast pointer to detect cycles.',
+        'Incorrect. Counting nodes does not detect cycles effectively.',
+        'Incorrect. Floyd’s algorithm uses constant space.',
+        'Incorrect. It works on any linked list with or without sorting.',
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question:
-        'Which of the following is a common application of Floyd\'s cycle detection algorithm?',
+      question: 'What is the time complexity of Floyd’s cycle detection algorithm?',
       options: [
-        'Detecting cycles in linked lists',
-        'Finding the starting point of a cycle in a linked list',
-        'Both A and B',
-        'None of the above',
+        'O(1)',
+        'O(n)',
+        'O(n^2)',
+        'O(log n)',
       ],
-      correctAnswer: 2,
+      correctAnswer: 1,
       explanations: [
-        'This is correct. Detecting cycles in linked lists is a common application.',
-        'This is correct. Finding the starting point of a cycle in a linked list is a common application.',
-        'This is correct. Both detecting cycles and finding the starting point are common applications.',
-        'This is incorrect. The correct answer is both A and B.',
+        'Incorrect. O(1) is constant time, which is not applicable here.',
+        'Correct. The algorithm runs in linear time relative to the number of nodes.',
+        'Incorrect. O(n^2) is quadratic time, which is not the case.',
+        'Incorrect. O(log n) is logarithmic time, not relevant here.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -2610,17 +2396,25 @@ print(linked_list.find_cycle_start())`,
 };
 
 const intersectionData: LessonContent = {
-  title: 'Finding Intersection',
+  title: 'Finding Intersection Point of Two Linked Lists',
   content: `<p>
-Finding the intersection point of two linked lists is a common problem where the goal is to determine if two lists intersect and, if so, at which node. 
-This can be efficiently solved using various techniques.
+Finding the intersection point of two linked lists involves identifying the first node they share. This is commonly solved using a two-pass algorithm to handle lists of different lengths.
 </p>
-
+<p>
+Alternative methods include using a hash set to store nodes of one list and checking for intersections in the other list, though this increases space complexity.
+</p>
 <ul>
-<li><strong>Two-pass algorithm:</strong> Traverse both lists to find their lengths, then traverse them again from the point where they have the same remaining length.</li>
-<li><strong>Applications:</strong> Detecting intersections in linked lists, merging linked lists, and more.</li>
+<li>
+<strong>Two-pass algorithm:</strong> Determine the lengths of both lists, align the starting points, and traverse to find the intersection.
+</li>
+<li>
+<strong>Time Complexity:</strong> O(n + m), where n and m are the lengths of the two lists.
+</li>
+<li>
+<strong>Space Complexity:</strong> O(1), using constant extra space.
+</li>
 </ul>`,
-  codeExample: `# Finding Intersection of Two Linked Lists
+  codeExample: `# Finding Intersection Point of Two Linked Lists
 class Node:
     def __init__(self, data):
         self.data = data
@@ -2640,37 +2434,36 @@ class LinkedList:
 
         len1 = get_length(self.head)
         len2 = get_length(list2.head)
-        curr1, curr2 = self.head, list2.head
-
-        if len1 > len2:
-            for _ in range(len1 - len2):
-                curr1 = curr1.next
-        else:
-            for _ in range(len2 - len1):
-                curr2 = curr2.next
-
-        while curr1 and curr2:
-            if curr1 == curr2:
-                return curr1.data
-            curr1 = curr1.next
-            curr2 = curr2.next
-        return None
+        # Align starting points
+        longer = self.head if len1 > len2 else list2.head
+        shorter = list2.head if len1 > len2 else self.head
+        diff = abs(len1 - len2)
+        for _ in range(diff):
+            longer = longer.next
+        # Find the intersection
+        while longer and shorter:
+            if longer == shorter:
+                return longer.data
+            longer = longer.next
+            shorter = shorter.next
+        return "No intersection found"
 
 # Example usage
-list1 = LinkedList()
-list1.head = Node(1)
-list1.head.next = Node(2)
-list1.head.next.next = Node(3)
+# Creating two lists that intersect at node with data 3
+listA = LinkedList()
+listA.head = Node(1)
+listA.head.next = Node(2)
+intersectionNode = Node(3)
+listA.head.next.next = intersectionNode
 
-list2 = LinkedList()
-list2.head = Node(4)
-list2.head.next = list1.head.next.next  # Intersection at node with data 3
+listB = LinkedList()
+listB.head = Node(4)
+listB.head.next = intersectionNode
 
-print(list1.get_intersection_node(list2))  # Output: 3`,
+print(listA.get_intersection_node(listB))  # Output: 3`,
   exercises: [
     {
-      prompt:
-        'Create two linked lists that intersect and use the two-pass algorithm to find the intersection point. Print the intersection point if found, otherwise print "No intersection found".',
+      prompt: 'Implement the two-pass algorithm to find the intersection point of two linked lists.',
       initialCode: `# Write your solution here
 class Node:
     def __init__(self, data):
@@ -2682,42 +2475,13 @@ class LinkedList:
         self.head = None
 
     def get_intersection_node(self, list2):
-        def get_length(node):
-            length = 0
-            while node:
-                length += 1
-                node = node.next
-            return length
+        # Implement intersection detection here
+        pass
 
-        len1 = get_length(self.head)
-        len2 = get_length(list2.head)
-        curr1, curr2 = self.head, list2.head
-
-        if len1 > len2:
-            for _ in range(len1 - len2):
-                curr1 = curr1.next
-        else:
-            for _ in range(len2 - len1):
-                curr2 = curr2.next
-
-        while curr1 and curr2:
-            if curr1 == curr2:
-                return curr1.data
-            curr1 = curr1.next
-            curr2 = curr2.next
-        return "No intersection found"
-
-list1 = LinkedList()
-list1.head = Node(1)
-list1.head.next = Node(2)
-list1.head.next.next = Node(3)
-
-list2 = LinkedList()
-list2.head = Node(4)
-list2.head.next = list1.head.next.next  # Intersection at node with data 3
-
-print(list1.get_intersection_node(list2))`,
-      solution: `class Node:
+# Create two linked lists with an intersection and test your function
+`,
+      solution: `# Solution for finding intersection point
+class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -2736,38 +2500,58 @@ class LinkedList:
 
         len1 = get_length(self.head)
         len2 = get_length(list2.head)
-        curr1, curr2 = self.head, list2.head
-
-        if len1 > len2:
-            for _ in range(len1 - len2):
-                curr1 = curr1.next
-        else:
-            for _ in range(len2 - len1):
-                curr2 = curr2.next
-
-        while curr1 and curr2:
-            if curr1 == curr2:
-                return curr1.data
-            curr1 = curr1.next
-            curr2 = curr2.next
+        longer = self.head if len1 > len2 else list2.head
+        shorter = list2.head if len1 > len2 else self.head
+        diff = abs(len1 - len2)
+        for _ in range(diff):
+            longer = longer.next
+        while longer and shorter:
+            if longer == shorter:
+                return longer.data
+            longer = longer.next
+            shorter = shorter.next
         return "No intersection found"
 
-list1 = LinkedList()
-list1.head = Node(1)
-list1.head.next = Node(2)
-list1.head.next.next = Node(3)
+# Create two linked lists with an intersection
+listA = LinkedList()
+listA.head = Node(1)
+listA.head.next = Node(2)
+intersectionNode = Node(3)
+listA.head.next.next = intersectionNode
 
-list2 = LinkedList()
-list2.head = Node(4)
-list2.head.next = list1.head.next.next  # Intersection at node with data 3
+listB = LinkedList()
+listB.head = Node(4)
+listB.head.next = intersectionNode
 
-print(list1.get_intersection_node(list2))`,
+print(listA.get_intersection_node(listB))  # Output: 3`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt:
-        'Create a function that merges two sorted linked lists and returns the head of the merged list. Print the merged list.',
+      prompt: 'Implement a function to merge two sorted linked lists and return the head of the merged list.',
       initialCode: `# Write your solution here
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def merge_sorted_lists(self, list2):
+        # Implement merging of two sorted lists here
+        pass
+
+    def traverse(self):
+        current = self.head
+        while current:
+            print(current.data, end=' ')
+            current = current.next
+        print()
+
+# Create two sorted linked lists and test your merge function
+`,
+      solution: `# Solution for merging two sorted linked lists
 class Node:
     def __init__(self, data):
         self.data = data
@@ -2780,8 +2564,8 @@ class LinkedList:
     def merge_sorted_lists(self, list2):
         dummy = Node(0)
         tail = dummy
-        curr1, curr2 = self.head, list2.head
-
+        curr1 = self.head
+        curr2 = list2.head
         while curr1 and curr2:
             if curr1.data < curr2.data:
                 tail.next = curr1
@@ -2790,12 +2574,10 @@ class LinkedList:
                 tail.next = curr2
                 curr2 = curr2.next
             tail = tail.next
-
         if curr1:
             tail.next = curr1
-        elif curr2:
+        if curr2:
             tail.next = curr2
-
         return dummy.next
 
     def traverse(self):
@@ -2805,106 +2587,55 @@ class LinkedList:
             current = current.next
         print()
 
-list1 = LinkedList()
-list1.head = Node(1)
-list1.head.next = Node(3)
-list1.head.next.next = Node(5)
+# Create two sorted linked lists
+listA = LinkedList()
+listA.head = Node(1)
+listA.head.next = Node(3)
+listA.head.next.next = Node(5)
 
-list2 = LinkedList()
-list2.head = Node(2)
-list2.head.next = Node(4)
-list2.head.next.next = Node(6)
-
-merged_list = LinkedList()
-merged_list.head = list1.merge_sorted_lists(list2)
-merged_list.traverse()`,
-      solution: `class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-class LinkedList:
-    def __init__(self):
-        self.head = None
-
-    def merge_sorted_lists(self, list2):
-        dummy = Node(0)
-        tail = dummy
-        curr1, curr2 = self.head, list2.head
-
-        while curr1 and curr2:
-            if curr1.data < curr2.data:
-                tail.next = curr1
-                curr1 = curr1.next
-            else:
-                tail.next = curr2
-                curr2 = curr2.next
-            tail = tail.next
-
-        if curr1:
-            tail.next = curr1
-        elif curr2:
-            tail.next = curr2
-
-        return dummy.next
-
-    def traverse(self):
-        current = self.head
-        while current:
-            print(current.data, end=' ')
-            current = current.next
-        print()
-
-list1 = LinkedList()
-list1.head = Node(1)
-list1.head.next = Node(3)
-list1.head.next.next = Node(5)
-
-list2 = LinkedList()
-list2.head = Node(2)
-list2.head.next = Node(4)
-list2.head.next.next = Node(6)
+listB = LinkedList()
+listB.head = Node(2)
+listB.head.next = Node(4)
+listB.head.next.next = Node(6)
 
 merged_list = LinkedList()
-merged_list.head = list1.merge_sorted_lists(list2)
-merged_list.traverse()`,
+merged_list.head = listA.merge_sorted_lists(listB)
+merged_list.traverse()  # Output: 1 2 3 4 5 6`,
       difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question:
-        'Which of the following is the correct way to find the intersection point of two linked lists using the two-pass algorithm?',
+      question: 'Which method is NOT used to find the intersection point of two linked lists?',
       options: [
-        'Traverse both lists to find their lengths, then traverse them again from the point where they have the same remaining length.',
-        'Traverse both lists simultaneously and check if the nodes are the same.',
-        'Use a hash table to store nodes of one list and check for the first node in the other list that is already in the hash table.',
-        'None of the above',
+        'Two-pass algorithm with length difference',
+        'Hash set to store nodes of one list',
+        'Merging two sorted lists',
+        'Floyd’s cycle detection algorithm',
       ],
-      correctAnswer: 0,
+      correctAnswer: 3,
       explanations: [
-        'This is correct. The two-pass algorithm involves finding the lengths of both lists and then traversing them again from the point where they have the same remaining length.',
-        'This is incorrect. Traversing both lists simultaneously will not work if the lists have different lengths.',
-        'This is incorrect. Using a hash table is a valid approach but is not the two-pass algorithm.',
-        'This is incorrect. The correct answer is the first option.',
+        'Incorrect. The two-pass algorithm is used for intersection detection.',
+        'Incorrect. Hash sets can be used to detect intersections.',
+        'Correct. Merging lists is not a method for finding intersections.',
+        'Incorrect. Floyd’s algorithm is for cycle detection, not intersection detection.',
       ],
-      difficulty: Difficulty.Beginner,
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question:
-        'Which of the following is a common application of finding the intersection point of two linked lists?',
+      question: 'What is the time complexity of the two-pass algorithm for finding the intersection of two linked lists?',
       options: [
-        'Detecting intersections in linked lists',
-        'Merging linked lists',
-        'Both A and B',
-        'None of the above',
+        'O(1)',
+        'O(n + m)',
+        'O(n * m)',
+        'O(log n)',
       ],
-      correctAnswer: 2,
+      correctAnswer: 1,
       explanations: [
-        'This is correct. Detecting intersections in linked lists is a common application.',
-        'This is correct. Merging linked lists is a common application.',
-        'This is correct. Both detecting intersections and merging linked lists are common applications.',
-        'This is incorrect. The correct answer is both A and B.',
+        'Incorrect. O(n + m) is the correct time complexity.',
+        'Correct. The algorithm runs in linear time relative to the sum of the lengths of both lists.',
+        'Incorrect. O(n * m) is not applicable here.',
+        'Incorrect. O(log n) is not relevant to this algorithm.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -2968,8 +2699,7 @@ linked_list.head.next.next.next = Node(1)
 print(linked_list.is_palindrome())  # Output: True`,
   exercises: [
     {
-      prompt:
-        'Create a linked list that is a palindrome and use the reverse and compare technique to verify it. Print whether the list is a palindrome or not.',
+      prompt: 'Create a linked list that is a palindrome and use the reverse and compare technique to verify it. Print whether the list is a palindrome or not.',
       initialCode: `# Write your solution here
 class Node:
     def __init__(self, data):
@@ -3058,8 +2788,7 @@ print(linked_list.is_palindrome())`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt:
-        'Create a function that checks if a linked list is a palindrome using the reverse and compare technique. Print whether the list is a palindrome or not.',
+      prompt: 'Create a function that checks if a linked list is a palindrome using the reverse and compare technique. Print whether the list is a palindrome or not.',
       initialCode: `# Write your solution here
 class Node:
     def __init__(self, data):
@@ -3152,8 +2881,7 @@ print(linked_list.is_palindrome())`,
   ],
   quizzes: [
     {
-      question:
-        'Which of the following is the correct way to check if a linked list is a palindrome using the reverse and compare technique?',
+      question: 'Which of the following is the correct way to check if a linked list is a palindrome using the reverse and compare technique?',
       options: [
         'Reverse the entire list and compare it with the original list.',
         'Reverse the second half of the list and compare it with the first half.',
@@ -3170,8 +2898,7 @@ print(linked_list.is_palindrome())`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question:
-        'Which of the following is a common application of checking if a linked list is a palindrome?',
+      question: 'Which of the following is a common application of checking if a linked list is a palindrome?',
       options: [
         'Verifying palindromic sequences',
         'String manipulation',
@@ -3257,6 +2984,27 @@ my_list = [1, 2, 3, 4, 5]`,
 reversed_list = my_list[::-1]`,
       difficulty: Difficulty.Intermediate,
     },
+    {
+      prompt: 'Implement a custom function to reverse a list without using any built-in methods or slicing.',
+      initialCode: `# Write your solution here
+def reverse_list(lst):
+    # Implement custom reversal
+    pass
+
+my_list = [1, 2, 3, 4, 5]
+reversed_list = reverse_list(my_list)
+print(reversed_list)`,
+      solution: `def reverse_list(lst):
+    reversed_lst = []
+    for i in range(len(lst)-1, -1, -1):
+        reversed_lst.append(lst[i])
+    return reversed_lst
+
+my_list = [1, 2, 3, 4, 5]
+reversed_list = reverse_list(my_list)
+print(reversed_list)  # Output: [5, 4, 3, 2, 1]`,
+      difficulty: Difficulty.Intermediate,
+    },
   ],
   quizzes: [
     {
@@ -3272,14 +3020,19 @@ reversed_list = my_list[::-1]`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'Which of the following methods creates a new list that is the reverse of the original list?',
-      options: ['reverse()', 'reversed()', 'slice[::-1]', 'None of the above'],
-      correctAnswer: 2,
+      question: 'What is the difference between reverse() and reversed()?',
+      options: [
+        'reverse() creates a new list, while reversed() modifies the original list.',
+        'reverse() modifies the original list, while reversed() creates an iterator for the reversed list.',
+        'Both modify the original list.',
+        'Both create new lists.',
+      ],
+      correctAnswer: 1,
       explanations: [
-        'This is incorrect. The reverse() method modifies the list in place.',
-        'This is incorrect. The reversed() function returns an iterator.',
-        'This is correct. Slicing creates a new list that is the reverse of the original list.',
-        'This is incorrect. Slicing creates a new list that is the reverse of the original list.',
+        'Incorrect. reverse() modifies the list in place.',
+        'Correct. reverse() modifies the list, reversed() returns an iterator.',
+        'Incorrect. reversed() does not modify the list.',
+        'Incorrect. reversed() does not create a new list directly.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -3295,13 +3048,13 @@ Additionally, you can implement various sorting algorithms like Bubble Sort, Sel
 </p>
 
 <ul>
-<li><strong>Using the sort() method:</strong> This method sorts the list in place.</li>
-<li><strong>Using the sorted() function:</strong> This function returns a new sorted list.</li>
-<li><strong>Bubble Sort:</strong> A simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.</li>
-<li><strong>Selection Sort:</strong> A sorting algorithm that selects the smallest element from an unsorted list and places it at the beginning.</li>
-<li><strong>Insertion Sort:</strong> A sorting algorithm that builds the final sorted list one item at a time.</li>
-<li><strong>Merge Sort:</strong> A divide-and-conquer algorithm that recursively splits the list into halves until it cannot be divided further, then merges the sorted halves.</li>
-<li><strong>Quick Sort:</strong> A divide-and-conquer algorithm that selects a "pivot" element and partitions the other elements into two sub-lists, according to whether they are less than or greater than the pivot.</li>
+  <li><strong>Using the sort() method:</strong> This method sorts the list in place.</li>
+  <li><strong>Using the sorted() function:</strong> This function returns a new sorted list.</li>
+  <li><strong>Bubble Sort:</strong> A simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.</li>
+  <li><strong>Selection Sort:</strong> A sorting algorithm that selects the smallest element from an unsorted list and places it at the beginning.</li>
+  <li><strong>Insertion Sort:</strong> A sorting algorithm that builds the final sorted list one item at a time.</li>
+  <li><strong>Merge Sort:</strong> A divide-and-conquer algorithm that recursively splits the list into halves until it cannot be divided further, then merges the sorted halves.</li>
+  <li><strong>Quick Sort:</strong> A divide-and-conquer algorithm that selects a "pivot" element and partitions the other elements into two sub-lists, according to whether they are less than or greater than the pivot.</li>
 </ul>`,
   codeExample: `# Using the sort() method
 my_list = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
@@ -3317,9 +3070,9 @@ print(sorted_list)  # Output: [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]
 def bubble_sort(lst):
     n = len(lst)
     for i in range(n):
-        for j in range(0, n-i-1):
-            if lst[j] > lst[j+1]:
-                lst[j], lst[j+1] = lst[j+1], lst[j]
+        for j in range(0, n - i - 1):
+            if lst[j] > lst[j + 1]:
+                lst[j], lst[j + 1] = lst[j + 1], lst[j]
     return lst
 
 my_list = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
@@ -3330,7 +3083,7 @@ print(sorted_list)  # Output: [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]
 def selection_sort(lst):
     for i in range(len(lst)):
         min_idx = i
-        for j in range(i+1, len(lst)):
+        for j in range(i + 1, len(lst)):
             if lst[j] < lst[min_idx]:
                 min_idx = j
         lst[i], lst[min_idx] = lst[min_idx], lst[i]
@@ -3431,9 +3184,9 @@ my_list = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]`,
       solution: `def bubble_sort(lst):
     n = len(lst)
     for i in range(n):
-        for j in range(0, n-i-1):
-            if lst[j] > lst[j+1]:
-                lst[j], lst[j+1] = lst[j+1], lst[j]
+        for j in range(0, n - i - 1):
+            if lst[j] > lst[j + 1]:
+                lst[j], lst[j + 1] = lst[j + 1], lst[j]
     return lst
 
 my_list = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
@@ -3464,7 +3217,7 @@ sorted_list = bubble_sort(my_list)`,
         'This is incorrect. Slicing creates a new list.',
         'This is incorrect. The sorted() function returns a new sorted list.',
       ],
-      difficulty: Difficulty.Intermediate,
+      difficulty: Difficulty.Beginner,
     },
   ],
 };
@@ -3478,10 +3231,10 @@ Additionally, you can implement custom merge algorithms like the Merge Sort algo
 </p>
 
 <ul>
-<li><strong>Using the + operator:</strong> This method concatenates two lists and returns a new list.</li>
-<li><strong>Using the extend() method:</strong> This method modifies the first list by appending elements from the second list.</li>
-<li><strong>Using the zip() function:</strong> This function pairs elements from two lists into tuples.</li>
-<li><strong>Merge Sort algorithm:</strong> A divide-and-conquer algorithm that recursively splits the list into halves until it cannot be divided further, then merges the sorted halves.</li>
+  <li><strong>Using the + operator:</strong> This method concatenates two lists and returns a new list.</li>
+  <li><strong>Using the extend() method:</strong> This method modifies the first list by appending elements from the second list.</li>
+  <li><strong>Using the zip() function:</strong> This function pairs elements from two lists into tuples.</li>
+  <li><strong>Merge Sort algorithm:</strong> A divide-and-conquer algorithm that recursively splits the list into halves until it cannot be divided further, then merges the sorted halves.</li>
 </ul>`,
   codeExample: `# Using the + operator
 list1 = [1, 2, 3]
@@ -3592,7 +3345,7 @@ zipped_list = list(zip(list1, list2))`,
         'This is incorrect. The zip() function pairs elements from two lists into tuples.',
         'This is incorrect. The extend() method modifies the first list in place.',
       ],
-      difficulty: Difficulty.Intermediate,
+      difficulty: Difficulty.Beginner,
     },
   ],
 };
@@ -3606,11 +3359,11 @@ Understanding how to use recursion can lead to elegant and concise solutions.
 </p>
 
 <ul>
-<li><strong>Recursive Traversal:</strong> Recursively traversing a linked list to access or modify its elements.</li>
-<li><strong>Recursive Reversal:</strong> Reversing a linked list using a recursive approach.</li>
-<li><strong>Recursive Search:</strong> Searching for an element in a linked list using recursion.</li>
-<li><strong>Recursive Deletion:</strong> Deleting a node from a linked list using recursion.</li>
-<li><strong>Recursive Merging:</strong> Merging two sorted linked lists using a recursive approach.</li>
+  <li><strong>Recursive Traversal:</strong> Recursively traversing a linked list to access or modify its elements.</li>
+  <li><strong>Recursive Reversal:</strong> Reversing a linked list using a recursive approach.</li>
+  <li><strong>Recursive Search:</strong> Searching for an element in a linked list using recursion.</li>
+  <li><strong>Recursive Deletion:</strong> Deleting a node from a linked list using recursion.</li>
+  <li><strong>Recursive Merging:</strong> Merging two sorted linked lists using a recursive approach.</li>
 </ul>`,
   codeExample: `# Recursive Traversal
 class Node:
@@ -3795,11 +3548,11 @@ By performing operations in place, you can save memory and improve performance.
 </p>
 
 <ul>
-<li><strong>In-place Reversal:</strong> Reversing a linked list without using extra space.</li>
-<li><strong>In-place Deletion:</strong> Deleting a node from a linked list without using extra space.</li>
-<li><strong>In-place Merging:</strong> Merging two sorted linked lists without using extra space.</li>
-<li><strong>In-place Partitioning:</strong> Partitioning a linked list around a value without using extra space.</li>
-<li><strong>In-place Rotation:</strong> Rotating a linked list by a certain number of positions without using extra space.</li>
+  <li><strong>In-place Reversal:</strong> Reversing a linked list without using extra space.</li>
+  <li><strong>In-place Deletion:</strong> Deleting a node from a linked list without using extra space.</li>
+  <li><strong>In-place Merging:</strong> Merging two sorted linked lists without using extra space.</li>
+  <li><strong>In-place Partitioning:</strong> Partitioning a linked list around a value without using extra space.</li>
+  <li><strong>In-place Rotation:</strong> Rotating a linked list by a certain number of positions without using extra space.</li>
 </ul>`,
   codeExample: `# In-place Reversal
 class Node:
@@ -4042,11 +3795,11 @@ By using a dummy node, you can avoid special handling for the head of the list, 
 </p>
 
 <ul>
-<li><strong>Dummy Node for Insertion:</strong> Using a dummy node to simplify the insertion of new nodes.</li>
-<li><strong>Dummy Node for Deletion:</strong> Using a dummy node to simplify the deletion of nodes.</li>
-<li><strong>Dummy Node for Merging:</strong> Using a dummy node to simplify the merging of two linked lists.</li>
-<li><strong>Dummy Node for Partitioning:</strong> Using a dummy node to simplify the partitioning of a linked list.</li>
-<li><strong>Dummy Node for Reversal:</strong> Using a dummy node to simplify the reversal of a linked list.</li>
+  <li><strong>Dummy Node for Insertion:</strong> Using a dummy node to simplify the insertion of new nodes.</li>
+  <li><strong>Dummy Node for Deletion:</strong> Using a dummy node to simplify the deletion of nodes.</li>
+  <li><strong>Dummy Node for Merging:</strong> Using a dummy node to simplify the merging of two linked lists.</li>
+  <li><strong>Dummy Node for Partitioning:</strong> Using a dummy node to simplify the partitioning of a linked list.</li>
+  <li><strong>Dummy Node for Reversal:</strong> Using a dummy node to simplify the reversal of a linked list.</li>
 </ul>`,
   codeExample: `# Dummy Node for Insertion
 class Node:
@@ -4281,11 +4034,11 @@ Understanding how to rotate a list efficiently can lead to more optimized soluti
 </p>
 
 <ul>
-<li><strong>Left Rotation:</strong> Shifting elements to the left by K positions.</li>
-<li><strong>Right Rotation:</strong> Shifting elements to the right by K positions.</li>
-<li><strong>Circular Rotation:</strong> Rotating the list such that the elements wrap around the list.</li>
-<li><strong>In-place Rotation:</strong> Rotating the list without using extra space.</li>
-<li><strong>Rotation by Reversal:</strong> Rotating the list using the reversal technique.</li>
+  <li><strong>Left Rotation:</strong> Shifting elements to the left by K positions.</li>
+  <li><strong>Right Rotation:</strong> Shifting elements to the right by K positions.</li>
+  <li><strong>Circular Rotation:</strong> Rotating the list such that the elements wrap around the list.</li>
+  <li><strong>In-place Rotation:</strong> Rotating the list without using extra space.</li>
+  <li><strong>Rotation by Reversal:</strong> Rotating the list using the reversal technique.</li>
 </ul>`,
   codeExample: `# Left Rotation
 def left_rotate(lst, k):
