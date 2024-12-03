@@ -15,5 +15,6 @@ export enum TopicName {
   Queues = 'queues',
   Heaps = 'heaps',
   Trees = 'trees',
+  Tries = 'tries',
   Graphs = 'graphs',
 }

@@ -78,6 +78,7 @@ const LeetcodePage: React.FC = () => {
         'Stacks',
         'Queues',
         'Trees',
+        'Tries',
         'Heaps',
         'Graphs',
       ],

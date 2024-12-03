@@ -1,10 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab } from '@/common/commonLesson';
+import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
 
 const graphCurriculum: Curriculum = {
   title: 'Graph Curriculum',
   description:
-    'A comprehensive guide to mastering graph theory, algorithms, and applications',
+    'Master graph algorithms and patterns to solve LeetCode problems and ace technical interviews',
   sections: [
     {
       id: 1,
@@ -13,208 +13,188 @@ const graphCurriculum: Curriculum = {
         {
           id: 'graph-concepts',
           title: 'Basic Graph Concepts',
-          description:
-            'Understanding vertices, edges, directed/undirected graphs',
+          description: 'Understanding vertices, edges, and graph types through LeetCode examples',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'graph-representation',
           title: 'Graph Representation',
-          description:
-            'Adjacency matrix, adjacency list, edge list implementations',
+          description: 'Implementing adjacency lists and matrices - crucial for coding interviews',
+          priority: PriorityLevel.Essential
         },
         {
-          id: 'graph-properties',
-          title: 'Graph Properties',
-          description: 'Connectivity, cycles, degrees, weights, and paths',
+          id: 'graph-building',
+          title: 'Building Graphs',
+          description: 'Converting problem input into graph representation - a key interview skill',
+          priority: PriorityLevel.Essential
         },
       ],
     },
     {
       id: 2,
-      title: 'Graph Traversal',
+      title: 'Graph Traversal Patterns',
       topics: [
         {
-          id: 'bfs',
-          title: 'Breadth-First Search',
-          description: 'BFS implementation and applications',
+          id: 'bfs-pattern',
+          title: 'BFS Pattern',
+          description: 'Solving shortest path, level-order, and grid traversal problems using BFS',
+          priority: PriorityLevel.Essential
         },
         {
-          id: 'dfs',
-          title: 'Depth-First Search',
-          description: 'DFS implementation and applications',
+          id: 'dfs-pattern',
+          title: 'DFS Pattern',
+          description: 'Using DFS for path finding, backtracking, and island problems',
+          priority: PriorityLevel.Essential
         },
         {
-          id: 'traversal-applications',
-          title: 'Traversal Applications',
-          description: 'Connected components, flood fill, maze problems',
+          id: 'matrix-traversal',
+          title: 'Matrix as Graph',
+          description: 'Tackling matrix problems using graph traversal techniques',
+          priority: PriorityLevel.Essential
         },
       ],
     },
     {
       id: 3,
-      title: 'Shortest Paths',
+      title: 'Common Graph Patterns',
       topics: [
         {
-          id: 'dijkstra',
-          title: "Dijkstra's Algorithm",
-          description: 'Single-source shortest path in weighted graphs',
+          id: 'island-problems',
+          title: 'Island Problems',
+          description: 'Solving number of islands and related grid-based graph problems',
+          priority: PriorityLevel.Essential
         },
         {
-          id: 'bellman-ford',
-          title: 'Bellman-Ford Algorithm',
-          description: 'Shortest paths with negative weights',
+          id: 'graph-connectivity',
+          title: 'Connected Components',
+          description: 'Finding and counting connected components in various graph types',
+          priority: PriorityLevel.Essential
         },
         {
-          id: 'floyd-warshall',
-          title: 'Floyd-Warshall Algorithm',
-          description: 'All-pairs shortest paths',
+          id: 'bipartite-check',
+          title: 'Bipartite Graph Pattern',
+          description: 'Checking bipartite property and solving coloring problems',
+          priority: PriorityLevel.Important
         },
       ],
     },
     {
       id: 4,
-      title: 'Minimum Spanning Trees',
+      title: 'Path Finding Problems',
       topics: [
         {
-          id: 'kruskal',
-          title: "Kruskal's Algorithm",
-          description: 'MST using edge sorting and union-find',
+          id: 'shortest-path',
+          title: 'Shortest Path Patterns',
+          description: 'Implementing Dijkstra and BFS for shortest path problems',
+          priority: PriorityLevel.Essential
         },
         {
-          id: 'prim',
-          title: "Prim's Algorithm",
-          description: 'MST using priority queue',
+          id: 'path-existence',
+          title: 'Path Existence Problems',
+          description: 'Finding if path exists between nodes and all paths problems',
+          priority: PriorityLevel.Essential
         },
         {
-          id: 'union-find',
-          title: 'Union-Find Structure',
-          description: 'Disjoint set implementation and optimization',
+          id: 'cycle-detection',
+          title: 'Cycle Detection',
+          description: 'Detecting cycles in directed and undirected graphs',
+          priority: PriorityLevel.Essential
         },
       ],
     },
     {
       id: 5,
-      title: 'Graph Cycles',
+      title: 'Topological Sort Patterns',
       topics: [
         {
-          id: 'cycle-detection',
-          title: 'Cycle Detection',
-          description: 'Finding cycles in directed and undirected graphs',
+          id: 'course-schedule',
+          title: 'Course Schedule Pattern',
+          description: 'Solving course prerequisite and dependency problems',
+          priority: PriorityLevel.Essential
         },
         {
-          id: 'topological-sort',
-          title: 'Topological Sort',
-          description: 'Ordering vertices in directed acyclic graphs',
+          id: 'build-order',
+          title: 'Build Order Problems',
+          description: 'Handling build dependencies and task scheduling',
+          priority: PriorityLevel.Important
         },
         {
-          id: 'strongly-connected',
-          title: 'Strongly Connected Components',
-          description: "Kosaraju's and Tarjan's algorithms",
+          id: 'parallel-courses',
+          title: 'Parallel Execution',
+          description: 'Finding minimum time to complete tasks with dependencies',
+          priority: PriorityLevel.Important
         },
       ],
     },
     {
       id: 6,
-      title: 'Network Flow',
+      title: 'Union-Find Applications',
       topics: [
         {
-          id: 'max-flow',
-          title: 'Maximum Flow',
-          description: 'Ford-Fulkerson and Edmonds-Karp algorithms',
+          id: 'redundant-connection',
+          title: 'Redundant Connection Pattern',
+          description: 'Using Union-Find to detect and handle redundant edges',
+          priority: PriorityLevel.Important
         },
         {
-          id: 'min-cut',
-          title: 'Minimum Cut',
-          description: 'Min-cut max-flow theorem and applications',
+          id: 'number-of-provinces',
+          title: 'Province Counting Pattern',
+          description: 'Counting connected components using Union-Find',
+          priority: PriorityLevel.Important
         },
         {
-          id: 'bipartite-matching',
-          title: 'Bipartite Matching',
-          description: 'Maximum bipartite matching algorithms',
+          id: 'accounts-merge',
+          title: 'Account Merge Pattern',
+          description: 'Solving account merging and similar grouping problems',
+          priority: PriorityLevel.Beneficial
         },
       ],
     },
     {
       id: 7,
-      title: 'Advanced Graph Algorithms',
+      title: 'Advanced Problem Patterns',
       topics: [
         {
-          id: 'articulation-bridges',
-          title: 'Articulation Points and Bridges',
-          description: 'Finding critical vertices and edges',
+          id: 'word-ladder',
+          title: 'Word Transformation',
+          description: 'Solving word ladder and string transformation problems',
+          priority: PriorityLevel.Important
         },
         {
-          id: 'euler-hamilton',
-          title: 'Euler and Hamiltonian Paths',
-          description: 'Finding special paths in graphs',
+          id: 'graph-clone',
+          title: 'Graph Clone Pattern',
+          description: 'Deep copying graphs while maintaining structure',
+          priority: PriorityLevel.Important
         },
         {
-          id: 'traveling-salesman',
-          title: 'Traveling Salesman Problem',
-          description: 'Exact and approximate solutions for TSP',
+          id: 'min-height-trees',
+          title: 'Minimum Height Trees',
+          description: 'Finding centroids and similar tree-related graph problems',
+          priority: PriorityLevel.Beneficial
         },
       ],
     },
     {
       id: 8,
-      title: 'Graph Coloring and Independence',
+      title: 'Implementation Techniques',
       topics: [
         {
-          id: 'graph-coloring',
-          title: 'Graph Coloring',
-          description: 'Vertex and edge coloring algorithms',
+          id: 'state-tracking',
+          title: 'State Tracking',
+          description: 'Managing visited states and handling complex graph states',
+          priority: PriorityLevel.Essential
         },
         {
-          id: 'independent-sets',
-          title: 'Independent Sets',
-          description: 'Finding maximum independent sets',
+          id: 'optimization',
+          title: 'Space-Time Optimization',
+          description: 'Optimizing graph solutions for interview performance',
+          priority: PriorityLevel.Essential
         },
         {
-          id: 'vertex-cover',
-          title: 'Vertex Cover',
-          description: 'Minimum vertex cover algorithms',
-        },
-      ],
-    },
-    {
-      id: 9,
-      title: 'Special Graphs',
-      topics: [
-        {
-          id: 'bipartite-graphs',
-          title: 'Bipartite Graphs',
-          description: 'Properties and algorithms for bipartite graphs',
-        },
-        {
-          id: 'planar-graphs',
-          title: 'Planar Graphs',
-          description: 'Understanding and working with planar graphs',
-        },
-        {
-          id: 'directed-acyclic',
-          title: 'Directed Acyclic Graphs',
-          description: 'Special algorithms for DAGs',
-        },
-      ],
-    },
-    {
-      id: 10,
-      title: 'Advanced Applications',
-      topics: [
-        {
-          id: 'graph-dp',
-          title: 'Dynamic Programming on Graphs',
-          description: 'Solving graph problems using DP',
-        },
-        {
-          id: 'network-design',
-          title: 'Network Design Problems',
-          description: 'Solving network optimization problems',
-        },
-        {
-          id: 'social-networks',
-          title: 'Social Network Analysis',
-          description: 'Algorithms for analyzing large networks',
+          id: 'edge-cases',
+          title: 'Edge Cases',
+          description: 'Handling empty graphs, single nodes, and disconnected components',
+          priority: PriorityLevel.Essential
         },
       ],
     },
@@ -520,6 +500,104 @@ class GraphEdgeList:
   ],
 };
 
+const buildingGraphsData: LessonContent = {
+  title: 'Building Graphs',
+  content: `
+  <p>
+  Building graphs is a fundamental skill in programming interviews, particularly for algorithm-based problems. It involves converting problem inputs into graph representations, which can be adjacency lists or matrices. This skill is crucial for solving various graph-related problems such as shortest path, traversal, and connectivity.
+  </p>
+  <h3>Graph Representations</h3>
+  <p>
+  Graphs can be represented in two common ways:
+  </p>
+  <ul>
+    <li><strong>Adjacency List:</strong> Efficient for sparse graphs, using a list of lists to represent connections.</li>
+    <li><strong>Adjacency Matrix:</strong> Useful for dense graphs, using a 2D array to represent connections.</li>
+  </ul>
+  <p>
+  The choice of representation depends on the problem's requirements and the graph's density.
+  </p>
+  `,
+  codeExample: `function buildAdjacencyList(edges: [number, number][]): Map<number, number[]> {
+    const graph = new Map<number, number[]>();
+    for (const [u, v] of edges) {
+      if (!graph.has(u)) {
+        graph.set(u, []);
+      }
+      if (!graph.has(v)) {
+        graph.set(v, []);
+      }
+      graph.get(u)!.push(v);
+      graph.get(v)!.push(u);
+    }
+    return graph;
+  }`,
+  exercises: [
+    {
+      prompt: 'Implement a function to create an adjacency list from a list of edges.',
+      initialCode: `function buildAdjacencyList(edges: [number, number][]): Map<number, number[]> {
+  // Your code here
+}`,
+      solution: `function buildAdjacencyList(edges: [number, number][]): Map<number, number[]> {
+  const graph = new Map<number, number[]>();
+  for (const [u, v] of edges) {
+    if (!graph.has(u)) {
+      graph.set(u, []);
+    }
+    if (!graph.has(v)) {
+      graph.set(v, []);
+    }
+    graph.get(u)!.push(v);
+    graph.get(v)!.push(u);
+  }
+  return graph;
+}`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt: 'Implement a function to create an adjacency matrix from a list of edges.',
+      initialCode: `function buildAdjacencyMatrix(edges: [number, number][], numNodes: number): number[][] {
+  // Your code here
+}`,
+      solution: `function buildAdjacencyMatrix(edges: [number, number][], numNodes: number): number[][] {
+  const graph: number[][] = Array.from({ length: numNodes }, () => Array(numNodes).fill(0));
+  for (const [u, v] of edges) {
+    graph[u][v] = 1;
+    graph[v][u] = 1;
+  }
+  return graph;
+}`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'Which graph representation is more space-efficient for sparse graphs?',
+      options: ['Adjacency List', 'Adjacency Matrix', 'Both are equally efficient', 'Neither'],
+      correctAnswer: 0,
+      explanations: [
+        'Correct. Adjacency lists are more space-efficient for sparse graphs.',
+        'Incorrect. Adjacency matrices use more space for sparse graphs.',
+        'Incorrect. They are not equally efficient.',
+        'Incorrect. Adjacency lists are efficient for sparse graphs.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question: 'What is the time complexity of checking if an edge exists in an adjacency list?',
+      options: ['O(1)', 'O(V)', 'O(E)', 'O(V + E)'],
+      correctAnswer: 1,
+      explanations: [
+        'Incorrect. O(1) is for adjacency matrices.',
+        'Correct. O(V) in the worst case for adjacency lists.',
+        'Incorrect. O(E) is not typical for this operation.',
+        'Incorrect. O(V + E) is for graph traversal algorithms.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
 const graphPropertiesData: LessonContent = {
   title: 'Graph Properties',
   content: `<p>
@@ -677,6 +755,924 @@ def has_cycle(self):
     },
   ],
 };
+
+const bfsPatternData: LessonContent = {
+  title: 'BFS Pattern',
+  content: `<p>
+    Breadth-First Search (BFS) is a graph traversal algorithm that explores all the neighbors at the current depth before moving to nodes at the next depth level. It is widely used for finding the shortest path in unweighted graphs, level-order traversal in trees, and grid traversal problems.
+  </p>
+  <p>
+    BFS is particularly useful for problems like finding the shortest path in a maze or determining the levels in a tree.
+  </p>`,
+  codeExample: `// BFS implementation using a queue
+function bfs(graph, startNode) {
+    const visited = new Set();
+    const queue = [startNode];
+    visited.add(startNode);
+    
+    while(queue.length > 0) {
+        const current = queue.shift();
+        console.log(current);
+        
+        for(let neighbor of graph[current]) {
+            if(!visited.has(neighbor)) {
+                visited.add(neighbor);
+                queue.push(neighbor);
+            }
+        }
+    }
+}
+
+// Example usage
+const graph = {
+    A: ['B', 'C'],
+    B: ['A', 'D'],
+    C: ['A', 'E'],
+    D: ['B'],
+    E: ['C']
+};
+bfs(graph, 'A');`,
+  exercises: [
+    {
+      prompt: 'Implement BFS to find the shortest path in an unweighted graph.',
+      initialCode: `// Write your solution here
+function bfsShortestPath(graph, start, end) {
+    // Implement BFS to find the shortest path
+}`,
+      solution: `function bfsShortestPath(graph, start, end) {
+    const queue = [[start]];
+    const visited = new Set();
+    visited.add(start);
+    
+    while(queue.length > 0) {
+        const path = queue.shift();
+        const lastNode = path[path.length - 1];
+        
+        if(lastNode === end) {
+            return path;
+        }
+        
+        for(let neighbor of graph[lastNode]) {
+            if(!visited.has(neighbor)) {
+                visited.add(neighbor);
+                queue.push([...path, neighbor]);
+            }
+        }
+    }
+    return null;
+}`,
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'When is BFS preferred over DFS?',
+      options: [
+        'When finding the shortest path in an unweighted graph',
+        'When the graph is deep and narrow',
+        'When memory is a constraint',
+        'None of the above',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'Correct. BFS is ideal for finding the shortest path in unweighted graphs.',
+        'Incorrect. DFS is更适合 deep and narrow graphs.',
+        'Incorrect. BFS typically uses more memory than DFS.',
+        'Incorrect.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const dfsPatternData: LessonContent = {
+  title: 'DFS Pattern',
+  content: `<p>
+    Depth-First Search (DFS) is a graph traversal algorithm that explores as far as possible along each branch before backtracking. It is useful for path finding, backtracking problems like N-Queens, and solving island problems in matrices.
+  </p>
+  <p>
+    DFS can be implemented iteratively or recursively and is suitable for scenarios where you need to explore all possible paths.
+  </p>`,
+  codeExample: `// Recursive DFS implementation
+function dfs(graph, node, visited = new Set()) {
+    visited.add(node);
+    console.log(node);
+    
+    for(let neighbor of graph[node]) {
+        if(!visited.has(neighbor)) {
+            dfs(graph, neighbor, visited);
+        }
+    }
+}
+
+// Example usage
+const graph = {
+    A: ['B', 'C'],
+    B: ['A', 'D'],
+    C: ['A', 'E'],
+    D: ['B'],
+    E: ['C']
+};
+dfs(graph, 'A');`,
+  exercises: [
+    {
+      prompt: 'Implement DFS to find all paths from a start node to an end node in a graph.',
+      initialCode: `// Write your solution here
+function dfsAllPaths(graph, start, end, path = [], allPaths = []) {
+    // Implement DFS to find all paths
+    return allPaths;
+}`,
+      solution: `function dfsAllPaths(graph, start, end, path = [], allPaths = []) {
+    path.push(start);
+    if(start === end) {
+        allPaths.push([...path]);
+    } else {
+        for(let neighbor of graph[start]) {
+            if(!path.includes(neighbor)) {
+                dfsAllPaths(graph, neighbor, end, path, allPaths);
+            }
+        }
+    }
+    path.pop();
+    return allPaths;
+}`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'Which of the following is a typical use case for DFS?',
+      options: [
+        'Finding the shortest path in an unweighted graph',
+        'Solving puzzles like mazes or Sudoku',
+        'Level-order traversal of a tree',
+        'All of the above',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Incorrect. BFS is better for shortest path in unweighted graphs.',
+        'Correct. DFS is useful for backtracking in puzzles.',
+        'Incorrect. Level-order traversal is typically done with BFS.',
+        'Incorrect.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const matrixTraversalData: LessonContent = {
+  title: 'Matrix as Graph',
+  content: `<p>
+    Treating a matrix as a graph involves considering each cell as a node and its adjacent cells as edges. This approach is useful for solving problems like island counting, shortest path in a matrix, and flood fill.
+  </p>
+  <p>
+    Graph traversal techniques like BFS and DFS can be applied to matrices to solve these problems efficiently.
+  </p>`,
+  codeExample: `// BFS for island counting in a matrix
+function countIslands(matrix) {
+    const rows = matrix.length;
+    const cols = matrix[0].length;
+    const visited = new Array(rows).fill(false).map(() => new Array(cols).fill(false));
+    let count = 0;
+    
+    for(let i = 0; i < rows; i++) {
+        for(let j = 0; j < cols; j++) {
+            if(matrix[i][j] === 1 && !visited[i][j]) {
+                bfs(matrix, i, j, visited);
+                count++;
+            }
+        }
+    }
+    return count;
+}
+
+function bfs(matrix, i, j, visited) {
+    const queue = [[i, j]];
+    visited[i][j] = true;
+    
+    while(queue.length > 0) {
+        const [x, y] = queue.shift();
+        
+        // Explore neighbors
+        if(x > 0 && matrix[x-1][y] === 1 && !visited[x-1][y]) {
+            visited[x-1][y] = true;
+            queue.push([x-1, y]);
+        }
+        // Add other directions similarly
+    }
+}
+
+// Example usage
+const matrix = [
+    [1, 1, 0],
+    [0, 1, 0],
+    [0, 0, 1]
+];
+console.log(countIslands(matrix)); // Output: 2`,
+  exercises: [
+    {
+      prompt: 'Implement a flood fill algorithm using DFS on a given matrix.',
+      initialCode: `// Write your solution here
+function floodFill(matrix, sr, sc, newColor) {
+    // Implement DFS for flood fill
+}`,
+      solution: `function floodFill(matrix, sr, sc, newColor) {
+    const originalColor = matrix[sr][sc];
+    if(originalColor === newColor) return matrix;
+    
+    function dfs(x, y) {
+        if(x < 0 || x >= matrix.length || y < 0 || y >= matrix[0].length || matrix[x][y] !== originalColor) {
+            return;
+        }
+        matrix[x][y] = newColor;
+        dfs(x+1, y);
+        dfs(x-1, y);
+        dfs(x, y+1);
+        dfs(x, y-1);
+    }
+    
+    dfs(sr, sc);
+    return matrix;
+}`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'Which traversal method is typically used for finding the number of islands in a matrix?',
+      options: [
+        'BFS',
+        'DFS',
+        'Either BFS or DFS',
+        'Neither BFS nor DFS',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'Incorrect. BFS can be used, but it is not the only option.',
+        'Incorrect. DFS can be used, but it is not the only option.',
+        'Correct. Both BFS and DFS can be used for island counting.',
+        'Incorrect.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const islandProblemsData: LessonContent = {
+  title: 'Island Problems',
+  content: `<p>
+    Island problems involve identifying and counting distinct islands in a grid, where land is represented by '1's and water by '0's. These problems are common in scenarios like geography and computer vision. DFS or BFS algorithms are typically used to traverse and mark visited lands.
+  </p>
+  <p>
+    The approach involves iterating through each cell in the grid, and when an unvisited land cell is found, a DFS or BFS traversal is initiated to mark all connected land cells as visited, incrementing the island count for each such traversal.
+  </p>
+  <p>
+    The time complexity is O(M*N), where M is the number of rows and N is the number of columns, and space complexity is O(M*N) for the visited matrix.
+  </p>`,
+  codeExample: `// Function to count the number of islands in a grid
+function countIslands(grid) {
+    const rows = grid.length;
+    const cols = grid[0].length;
+    const visited = new Array(rows).fill(false).map(() => new Array(cols).fill(false));
+    let count = 0;
+    
+    function dfs(r, c) {
+        if(r < 0 || r >= rows || c < 0 || c >= cols || grid[r][c] === '0' || visited[r][c]) {
+            return;
+        }
+        visited[r][c] = true;
+        // Explore in all four directions
+        dfs(r+1, c);
+        dfs(r-1, c);
+        dfs(r, c+1);
+        dfs(r, c-1);
+    }
+    
+    for(let i = 0; i < rows; i++) {
+        for(let j = 0; j < cols; j++) {
+            if(grid[i][j] === '1' && !visited[i][j]) {
+                dfs(i, j);
+                count++;
+            }
+        }
+    }
+    return count;
+}`,
+  exercises: [
+    {
+      prompt: 'Implement island counting using BFS.',
+      initialCode: `// Write your solution here
+function countIslandsBFS(grid) {
+    // Implement BFS to count islands
+}`,
+      solution: `function countIslandsBFS(grid) {
+    const rows = grid.length;
+    const cols = grid[0].length;
+    const visited = new Array(rows).fill(false).map(() => new Array(cols).fill(false));
+    let count = 0;
+    const directions = [[1,0], [-1,0], [0,1], [0,-1]];
+    
+    function bfs(r, c) {
+        const queue = [[r, c]];
+        visited[r][c] = true;
+        
+        while(queue.length > 0) {
+            const [x, y] = queue.shift();
+            for(const [dx, dy] of directions) {
+                const nx = x + dx;
+                const ny = y + dy;
+                if(nx >= 0 && nx < rows && ny >= 0 && ny < cols && grid[nx][ny] === '1' && !visited[nx][ny]) {
+                    visited[nx][ny] = true;
+                    queue.push([nx, ny]);
+                }
+            }
+        }
+    }
+    
+    for(let i = 0; i < rows; i++) {
+        for(let j = 0; j < cols; j++) {
+            if(grid[i][j] === '1' && !visited[i][j]) {
+                bfs(i, j);
+                count++;
+            }
+        }
+    }
+    return count;
+}`,
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'Which algorithm is commonly used to solve island problems?',
+      options: ['DFS', 'BFS', 'Both DFS and BFS', 'Neither DFS nor BFS'],
+      correctAnswer: 2,
+      explanations: [
+        'DFS is commonly used.',
+        'BFS is also commonly used.',
+        'Correct. Both DFS and BFS are suitable.',
+        'Incorrect.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const graphConnectivityData: LessonContent = {
+  title: 'Connected Components',
+  content: `<p>
+    Connected components in a graph are subsets of vertices where each vertex is reachable from any other vertex in the same subset. This concept is crucial in analyzing social networks, network connectivity, and more. DFS or BFS can be used to identify these components.
+  </p>
+  <p>
+    The algorithm involves iterating through each vertex, and for each unvisited vertex, performing a DFS or BFS to mark all reachable vertices, thus identifying a new connected component.
+  </p>
+  <p>
+    The time complexity is O(V+E), where V is the number of vertices and E is the number of edges.
+  </p>`,
+  codeExample: `// Function to find the number of connected components in an undirected graph
+function countConnectedComponents(graph, numVertices) {
+    const visited = new Array(numVertices).fill(false);
+    let count = 0;
+    
+    function dfs(u) {
+        visited[u] = true;
+        for(const v of graph[u]) {
+            if(!visited[v]) {
+                dfs(v);
+            }
+        }
+    }
+    
+    for(let i = 0; i < numVertices; i++) {
+        if(!visited[i]) {
+            dfs(i);
+            count++;
+        }
+    }
+    return count;
+}`,
+  exercises: [
+    {
+      prompt: 'Implement connected components finding using DFS.',
+      initialCode: `// Write your solution here
+function findConnectedComponentsDFS(graph, numVertices) {
+    // Implement DFS to find connected components
+}`,
+      solution: `function findConnectedComponentsDFS(graph, numVertices) {
+    const visited = new Array(numVertices).fill(false);
+    let count = 0;
+    
+    function dfs(u) {
+        visited[u] = true;
+        for(const v of graph[u]) {
+            if(!visited[v]) {
+                dfs(v);
+            }
+        }
+    }
+    
+    for(let i = 0; i < numVertices; i++) {
+        if(!visited[i]) {
+            dfs(i);
+            count++;
+        }
+    }
+    return count;
+}`,
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'What is a connected component in a graph?',
+      options: [
+        'A subset of vertices where each vertex is connected to every other vertex.',
+        'A subset of vertices where each vertex is reachable from any other vertex in the subset.',
+        'A subset of vertices with no edges between them.',
+        'None of the above.',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Incorrect. It does not require each vertex to be connected to every other vertex, just reachable.',
+        'Correct.',
+        'Incorrect. This describes an independent set.',
+        'Incorrect.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const bipartiteGraphData: LessonContent = {
+  title: 'Bipartite Graph Pattern',
+  content: `<p>
+    A bipartite graph is a graph whose vertices can be divided into two disjoint and independent sets U and V such that every edge connects a vertex in U to one in V. Bipartite graphs are useful in solving scheduling and matching problems.
+  </p>
+  <p>
+    To check if a graph is bipartite, we can use BFS or DFS to attempt to color the graph using two colors such that no two adjacent vertices have the same color.
+  </p>
+  <p>
+    The time complexity is O(V+E), where V is the number of vertices and E is the number of edges.
+  </p>`,
+  codeExample: `// Function to check if a graph is bipartite
+function isBipartite(graph, numVertices) {
+    const color = new Array(numVertices).fill(-1);
+    
+    function bfs(u) {
+        const queue = [u];
+        color[u] = 0;
+        
+        while(queue.length > 0) {
+            const current = queue.shift();
+            for(const v of graph[current]) {
+                if(color[v] === -1) {
+                    color[v] = color[current] ^ 1;
+                    queue.push(v);
+                } else if(color[v] === color[current]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    
+    for(let i = 0; i < numVertices; i++) {
+        if(color[i] === -1) {
+            if(!bfs(i)) {
+                return false;
+            }
+        }
+    }
+    return true;
+}`,
+  exercises: [
+    {
+      prompt: 'Implement bipartite check using DFS.',
+      initialCode: `// Write your solution here
+function isBipartiteDFS(graph, numVertices) {
+    // Implement DFS to check bipartiteness
+}`,
+      solution: `function isBipartiteDFS(graph, numVertices) {
+    const color = new Array(numVertices).fill(-1);
+    
+    function dfs(u, c) {
+        color[u] = c;
+        for(const v of graph[u]) {
+            if(color[v] === -1) {
+                if(!dfs(v, c ^ 1)) {
+                    return false;
+                }
+            } else if(color[v] === c) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    for(let i = 0; i < numVertices; i++) {
+        if(color[i] === -1) {
+            if(!dfs(i, 0)) {
+                return false;
+            }
+        }
+    }
+    return true;
+}`,
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'Which algorithm is suitable for checking bipartiteness?',
+      options: ['DFS', 'BFS', 'Both DFS and BFS', 'Neither DFS nor BFS'],
+      correctAnswer: 2,
+      explanations: [
+        'DFS is suitable.',
+        'BFS is suitable.',
+        'Correct. Both DFS and BFS can be used.',
+        'Incorrect.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const shortestPathData: LessonContent = {
+  title: 'Implementing Dijkstra and BFS for shortest path problems',
+  content: `<p>
+Shortest path problems involve finding the path with the minimum cost between two nodes in a graph. 
+Two common algorithms for solving these problems are Dijkstra's algorithm and Breadth-First Search (BFS).
+</p>
+
+<h3>Dijkstra's Algorithm</h3>
+<p>
+Dijkstra's algorithm is used to find the shortest path from a source node to all other nodes in a graph with non-negative edge weights.
+</p>
+<p>
+Time Complexity: O((V + E) log V) using a priority queue, where V is the number of vertices and E is the number of edges.
+</p>
+
+<h3>Breadth-First Search (BFS)</h3>
+<p>
+BFS is used to find the shortest path in an unweighted graph or a graph with uniform edge weights.
+</p>
+<p>
+Time Complexity: O(V + E), where V is the number of vertices and E is the number of edges.
+</p>`,
+  codeExample: `# Dijkstra's Algorithm
+import heapq
+
+def dijkstra(graph, start):
+    distances = {node: float('inf') for node in graph}
+    distances[start] = 0
+    heap = [(0, start)]
+    
+    while heap:
+        current_distance, current_node = heapq.heappop(heap)
+        if current_distance > distances[current_node]:
+            continue
+        for neighbor, weight in graph[current_node].items():
+            distance = current_distance + weight
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
+                heapq.heappush(heap, (distance, neighbor))
+    return distances
+
+# BFS for Shortest Path in Unweighted Graph
+from collections import deque
+
+def bfs_shortest_path(graph, start, end):
+    visited = set()
+    queue = deque([(start, 0)])
+    
+    while queue:
+        node, distance = queue.popleft()
+        if node == end:
+            return distance
+        if node not in visited:
+            visited.add(node)
+            for neighbor in graph[node]:
+                queue.append((neighbor, distance + 1))
+    return -1`,
+  exercises: [
+    {
+      prompt: 'Implement Dijkstra’s algorithm to find the shortest path from a source node in a weighted graph.',
+      initialCode: `# Write your solution here
+def dijkstra(graph, start):
+    # Initialize distances
+    distances = {}
+    return distances`,
+      solution: `# Solution for Dijkstra's Algorithm
+import heapq
+
+def dijkstra(graph, start):
+    distances = {node: float('inf') for node in graph}
+    distances[start] = 0
+    heap = [(0, start)]
+    
+    while heap:
+        current_distance, current_node = heapq.heappop(heap)
+        if current_distance > distances[current_node]:
+            continue
+        for neighbor, weight in graph[current_node].items():
+            distance = current_distance + weight
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
+                heapq.heappush(heap, (distance, neighbor))
+    return distances`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt: 'Implement BFS to find the shortest path in an unweighted graph.',
+      initialCode: `# Write your solution here
+from collections import deque
+
+def bfs_shortest_path(graph, start, end):
+    # Initialize queue and visited set
+    queue = deque()
+    visited = set()
+    return -1`,
+      solution: `# Solution for BFS Shortest Path
+from collections import deque
+
+def bfs_shortest_path(graph, start, end):
+    visited = set()
+    queue = deque([(start, 0)])
+    
+    while queue:
+        node, distance = queue.popleft()
+        if node == end:
+            return distance
+        if node not in visited:
+            visited.add(node)
+            for neighbor in graph[node]:
+                queue.append((neighbor, distance + 1))
+    return -1`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt: 'Modify Dijkstra’s algorithm to return the actual shortest path, not just the distances.',
+      initialCode: `# Write your solution here
+def dijkstra_with_path(graph, start):
+    # Initialize distances and paths
+    distances = {}
+    paths = {}
+    return distances, paths`,
+      solution: `# Solution for Dijkstra's Algorithm with Path
+import heapq
+
+def dijkstra_with_path(graph, start):
+    distances = {node: float('inf') for node in graph}
+    distances[start] = 0
+    paths = {start: []}
+    heap = [(0, start)]
+    
+    while heap:
+        current_distance, current_node = heapq.heappop(heap)
+        if current_distance > distances[current_node]:
+            continue
+        for neighbor, weight in graph[current_node].items():
+            distance = current_distance + weight
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
+                paths[neighbor] = paths[current_node] + [neighbor]
+                heapq.heappush(heap, (distance, neighbor))
+    return distances, paths`,
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'Which algorithm is used to find the shortest path in a graph with non-negative edge weights?',
+      options: [
+        'BFS',
+        'DFS',
+        'Dijkstra’s Algorithm',
+        'Bellman-Ford Algorithm',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'BFS is used for unweighted graphs.',
+        'DFS is not suitable for finding shortest paths.',
+        'Correct. Dijkstra’s Algorithm finds the shortest path in graphs with non-negative weights.',
+        'Bellman-Ford can handle negative weights but is slower.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question: 'What is the time complexity of Dijkstra’s algorithm using a priority queue?',
+      options: [
+        'O(V^2)',
+        'O(V + E)',
+        'O((V + E) log V)',
+        'O(V)',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'This is the time complexity without a priority queue.',
+        'This is the time complexity of BFS.',
+        'Correct. With a priority queue, it’s O((V + E) log V).',
+        'This is incorrect.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question: 'Which algorithm is more efficient for finding the shortest path in an unweighted graph?',
+      options: [
+        'Dijkstra’s Algorithm',
+        'BFS',
+        'DFS',
+        'A* Search',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Dijkstra’s can be used but is less efficient than BFS for unweighted graphs.',
+        'Correct. BFS is more efficient for unweighted graphs.',
+        'DFS does not find the shortest path.',
+        'A* is suitable for graphs with heuristics.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const pathExistenceData: LessonContent = {
+  title: 'Finding if Path Exists Between Nodes and All Paths Problems',
+  content: `<p>
+Path existence problems involve determining whether a path exists between two nodes in a graph. 
+Common algorithms used to solve these problems include Depth-First Search (DFS) and Breadth-First Search (BFS).
+</p>
+
+<h3>Depth-First Search (DFS)</h3>
+<p>
+DFS explores as far as possible along each branch before backtracking and can be used to detect a path between two nodes.
+</p>
+<p>
+Time Complexity: O(V + E), where V is the number of vertices and E is the number of edges.
+</p>
+
+<h3>Breadth-First Search (BFS)</h3>
+<p>
+BFS explores all nodes at the current depth level before moving on to nodes at the next depth level and can also find the shortest path in unweighted graphs.
+</p>
+<p>
+Time Complexity: O(V + E), where V is the number of vertices and E is the number of edges.
+</p>`,
+  codeExample: `# DFS to Check Path Existence
+def dfs_check_path(graph, start, end, visited=None):
+    if visited is None:
+        visited = set()
+    if start == end:
+        return True
+    if start in visited:
+        return False
+    visited.add(start)
+    for neighbor in graph[start]:
+        if dfs_check_path(graph, neighbor, end, visited):
+            return True
+    return False
+
+# BFS to Check Path Existence
+from collections import deque
+
+def bfs_check_path(graph, start, end):
+    visited = set()
+    queue = deque([start])
+    
+    while queue:
+        node = queue.popleft()
+        if node == end:
+            return True
+        if node not in visited:
+            visited.add(node)
+            for neighbor in graph[node]:
+                queue.append(neighbor)
+    return False`,
+  exercises: [
+    {
+      prompt: 'Implement DFS to check if a path exists between two nodes in a graph.',
+      initialCode: `# Write your solution here
+def dfs_check_path(graph, start, end, visited=None):
+    if visited is None:
+        visited = set()
+    # Implement DFS
+    return False`,
+      solution: `# Solution for DFS Path Existence
+def dfs_check_path(graph, start, end, visited=None):
+    if visited is None:
+        visited = set()
+    if start == end:
+        return True
+    if start in visited:
+        return False
+    visited.add(start)
+    for neighbor in graph[start]:
+        if dfs_check_path(graph, neighbor, end, visited):
+            return True
+    return False`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt: 'Implement BFS to check if a path exists between two nodes in a graph.',
+      initialCode: `# Write your solution here
+from collections import deque
+
+def bfs_check_path(graph, start, end):
+    visited = set()
+    queue = deque([start])
+    # Implement BFS
+    return False`,
+      solution: `# Solution for BFS Path Existence
+from collections import deque
+
+def bfs_check_path(graph, start, end):
+    visited = set()
+    queue = deque([start])
+    
+    while queue:
+        node = queue.popleft()
+        if node == end:
+            return True
+        if node not in visited:
+            visited.add(node)
+            for neighbor in graph[node]:
+                queue.append(neighbor)
+    return False`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt: 'Modify the DFS function to return all paths between two nodes in a graph.',
+      initialCode: `# Write your solution here
+def dfs_all_paths(graph, start, end, path=[], paths=[]):
+    # Implement DFS to find all paths
+    return paths`,
+      solution: `# Solution for All Paths with DFS
+def dfs_all_paths(graph, start, end, path=[], paths=[]):
+    path = path + [start]
+    if start == end:
+        paths.append(path)
+    for neighbor in graph[start]:
+        if neighbor not in path:
+            dfs_all_paths(graph, neighbor, end, path, paths)
+    return paths`,
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'Which algorithm is more suitable for finding if a path exists in an unweighted graph?',
+      options: [
+        'DFS',
+        'BFS',
+        'Dijkstra’s Algorithm',
+        'Both DFS and BFS',
+      ],
+      correctAnswer: 3,
+      explanations: [
+        'DFS can be used to find path existence.',
+        'BFS can also be used to find path existence.',
+        'Dijkstra’s is not necessary for unweighted graphs.',
+        'Correct. Both DFS and BFS can be used.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question: 'What is the time complexity of BFS for checking path existence in a graph?',
+      options: [
+        'O(V)',
+        'O(E)',
+        'O(V + E)',
+        'O(V^2)',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'This is incomplete; it should be O(V + E).',
+        'This is incomplete; it should be O(V + E).',
+        'Correct. BFS has a time complexity of O(V + E).',
+        'This is incorrect.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question: 'Can DFS be used to find the shortest path in an unweighted graph?',
+      options: [
+        'Yes, always.',
+        'No, BFS is more appropriate.',
+        'Yes, but only if the graph is a tree.',
+        'No, DFS cannot find any paths.',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'This is incorrect; DFS does not guarantee the shortest path.',
+        'Correct. BFS is more appropriate for finding the shortest path in unweighted graphs.',
+        'DFS can find paths in trees, but it doesn’t guarantee the shortest path.',
+        'This is incorrect; DFS can find paths.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
 
 const bfsData: LessonContent = {
   title: 'Breadth-First Search',
@@ -2114,2377 +3110,1318 @@ def has_cycle_undirected(graph):
   ],
 };
 
-const topologicalSortData: LessonContent = {
-  title: 'Topological Sort',
+const courseScheduleData: LessonContent = {
+  title: 'Course Schedule Pattern',
   content: `<p>
-Topological sort is an ordering of vertices in a directed acyclic graph (DAG) such that for every directed edge uv, vertex u comes before vertex v in the ordering. Topological sorting for a graph is not possible if the graph is not a DAG.
-</p>
-
-<ul>
-<li><strong>Directed Acyclic Graph (DAG):</strong> Topological sort is applicable only to DAGs.</li>
-<li><strong>Kahn's Algorithm:</strong> A common algorithm for topological sorting using BFS.</li>
-<li><strong>Applications:</strong> Dependency resolution, task scheduling, and course prerequisites.</li>
-</ul>`,
-  codeExample: `# Topological Sort Implementation
-from collections import deque
-
-def topological_sort(graph):
-    in_degree = {vertex: 0 for vertex in graph}
-    for vertex in graph:
-        for neighbor in graph[vertex]:
-            in_degree[neighbor] += 1
-    queue = deque([vertex for vertex in in_degree if in_degree[vertex] == 0])
-    topo_order = []
-    while queue:
-        vertex = queue.popleft()
-        topo_order.append(vertex)
-        for neighbor in graph[vertex]:
-            in_degree[neighbor] -= 1
-            if in_degree[neighbor] == 0:
-                queue.append(neighbor)
-    return topo_order if len(topo_order) == len(graph) else []`,
+  Course prerequisite problems involve determining if it's possible to complete all courses given their dependencies. 
+  This can be modeled using directed graphs, where nodes represent courses and edges represent prerequisites. 
+  The goal is to detect if a valid course order exists, which involves checking for cycles in the graph.
+  </p>
+  
+  <h3>Topological Sorting</h3>
+  <p>
+  Topological sort is used to linearly order the courses respecting all prerequisites. 
+  If a topological order exists, the courses can be completed; otherwise, there's a cycle.
+  </p>
+  <p>
+  Time Complexity: O(V + E), where V is the number of courses and E is the number of prerequisites.
+  </p>`,
+  codeExample: `# Topological Sort using DFS
+  def canFinish(numCourses, prerequisites):
+      from collections import defaultdict, deque
+      graph = defaultdict(list)
+      visited = [0] * numCourses  # 0: unvisited, 1: visiting, 2: visited
+      
+      # Build graph
+      for course, prereq in prerequisites:
+          graph[prereq].append(course)
+      
+      def hasCycle(node):
+          if visited[node] == 1:
+              return True
+          if visited[node] == 2:
+              return False
+          
+          visited[node] = 1
+          for neighbor in graph[node]:
+              if hasCycle(neighbor):
+                  return True
+          visited[node] = 2
+          return False
+      
+      for node in range(numCourses):
+          if visited[node] == 0 and hasCycle(node):
+              return False
+      return True
+  `,
   exercises: [
     {
-      prompt: 'Implement the topological sort algorithm for a directed acyclic graph (DAG).',
+      prompt: 'Implement topological sort using Kahn’s algorithm.',
       initialCode: `# Write your solution here
-from collections import deque
-
-def topological_sort(graph):
-    in_degree = {vertex: 0 for vertex in graph}
-    for vertex in graph:
-        for neighbor in graph[vertex]:
-            in_degree[neighbor] += 1
-    queue = deque([vertex for vertex in in_degree if in_degree[vertex] == 0])
-    topo_order = []
-    while queue:
-        vertex = queue.popleft()
-        topo_order.append(vertex)
-        for neighbor in graph[vertex]:
-            in_degree[neighbor] -= 1
-            if in_degree[neighbor] == 0:
-                queue.append(neighbor)
-    return topo_order if len(topo_order) == len(graph) else []`,
-      solution: `from collections import deque
-
-def topological_sort(graph):
-    in_degree = {vertex: 0 for vertex in graph}
-    for vertex in graph:
-        for neighbor in graph[vertex]:
-            in_degree[neighbor] += 1
-    queue = deque([vertex for vertex in in_degree if in_degree[vertex] == 0])
-    topo_order = []
-    while queue:
-        vertex = queue.popleft()
-        topo_order.append(vertex)
-        for neighbor in graph[vertex]:
-            in_degree[neighbor] -= 1
-            if in_degree[neighbor] == 0:
-                queue.append(neighbor)
-    return topo_order if len(topo_order) == len(graph) else []`,
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      prompt: 'Implement a function to check if a graph is a directed acyclic graph (DAG) using topological sort.',
-      initialCode: `# Write your solution here
-def is_dag(graph):
-    in_degree = {vertex: 0 for vertex in graph}
-    for vertex in graph:
-        for neighbor in graph[vertex]:
-            in_degree[neighbor] += 1
-    queue = deque([vertex for vertex in in_degree if in_degree[vertex] == 0])
-    topo_order = []
-    while queue:
-        vertex = queue.popleft()
-        topo_order.append(vertex)
-        for neighbor in graph[vertex]:
-            in_degree[neighbor] -= 1
-            if in_degree[neighbor] == 0:
-                queue.append(neighbor)
-    return len(topo_order) == len(graph)`,
-      solution: `def is_dag(graph):
-    in_degree = {vertex: 0 for vertex in graph}
-    for vertex in graph:
-        for neighbor in graph[vertex]:
-            in_degree[neighbor] += 1
-    queue = deque([vertex for vertex in in_degree if in_degree[vertex] == 0])
-    topo_order = []
-    while queue:
-        vertex = queue.popleft()
-        topo_order.append(vertex)
-        for neighbor in graph[vertex]:
-            in_degree[neighbor] -= 1
-            if in_degree[neighbor] == 0:
-                queue.append(neighbor)
-    return len(topo_order) == len(graph)`,
+      def kahn_topological_sort(graph, num_nodes):
+          from collections import deque
+          # Initialize indegrees and adjacency list
+          return []`,
+      solution: `# Solution using Kahn's Algorithm
+      def kahn_topological_sort(graph, num_nodes):
+          from collections import deque
+          indegree = {node: 0 for node in graph}
+          for node in graph:
+              for neighbor in graph[node]:
+                  indegree[neighbor] += 1
+          
+          queue = deque([node for node in graph if indegree[node] == 0])
+          result = []
+          
+          while queue:
+              node = queue.popleft()
+              result.append(node)
+              for neighbor in graph[node]:
+                  indegree[neighbor] -= 1
+                  if indegree[neighbor] == 0:
+                      queue.append(neighbor)
+          
+          if len(result) == num_nodes:
+              return result
+          else:
+              return []  # Cycle exists
+      `,
       difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question: 'Which of the following is a characteristic of topological sort?',
+      question: 'What algorithm is used to detect if a course schedule is possible?',
       options: [
-        'Applicable to undirected graphs',
-        'Applicable to directed acyclic graphs (DAGs)',
-        'Uses a stack',
-        'Explores nodes level-by-level',
+        'Dijkstra’s Algorithm',
+        'Topological Sort',
+        'DFS',
+        'BFS',
       ],
       correctAnswer: 1,
       explanations: [
-        'This is incorrect. Topological sort is not applicable to undirected graphs.',
-        'This is correct. Topological sort is applicable to directed acyclic graphs (DAGs).',
-        'This is incorrect. Topological sort does not use a stack.',
-        'This is incorrect. Topological sort does not explore nodes level-by-level.',
+        'Dijkstra’s is for shortest paths.',
+        'Correct. Topological sort detects cycle in DAG.',
+        'DFS is part of topological sort.',
+        'BFS is also used in topological sort (Kahn’s algorithm).',
       ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'What is a common application of topological sort?',
-      options: [
-        'Finding the shortest path in an unweighted graph',
-        'Finding the longest path in a graph',
-        'Dependency resolution',
-        'Balancing trees',
-      ],
-      correctAnswer: 2,
-      explanations: [
-        'This is incorrect. Topological sort is not used to find the shortest path in an unweighted graph.',
-        'This is incorrect. Topological sort is not used to find the longest path in a graph.',
-        'This is correct. Dependency resolution is a common application of topological sort.',
-        'This is incorrect. Topological sort is not used for balancing trees.',
-      ],
-      difficulty: Difficulty.Intermediate,
+      difficulty: Difficulty.Beginner,
     },
   ],
 };
 
-const stronglyConnectedData: LessonContent = {
-  title: 'Strongly Connected Components',
+const buildOrderData: LessonContent = {
+  title: 'Build Order Problems',
   content: `<p>
-Strongly connected components (SCCs) are a subset of vertices in a directed graph such that every vertex in the subset is reachable from every other vertex in the subset. Identifying SCCs is important for understanding the structure of a directed graph.
-</p>
-
-<ul>
-<li><strong>Kosaraju's Algorithm:</strong> A two-pass algorithm that finds SCCs by performing two DFS traversals.</li>
-<li><strong>Tarjan's Algorithm:</strong> A one-pass algorithm that finds SCCs using a single DFS traversal.</li>
-<li><strong>Applications:</strong> Social networks, dependency resolution, and circuit design.</li>
-</ul>`,
-  codeExample: `# Kosaraju's Algorithm Implementation
-def kosaraju(graph):
-    def dfs(node, visited, stack):
-        visited.add(node)
-        for neighbor in graph[node]:
-            if neighbor not in visited:
-                dfs(neighbor, visited, stack)
-        stack.append(node)
-
-    def reverse_graph(graph):
-        rev_graph = {vertex: [] for vertex in graph}
-        for vertex in graph:
-            for neighbor in graph[vertex]:
-                rev_graph[neighbor].append(vertex)
-        return rev_graph
-
-    def dfs_scc(node, visited, scc):
-        visited.add(node)
-        scc.append(node)
-        for neighbor in rev_graph[node]:
-            if neighbor not in visited:
-                dfs_scc(neighbor, visited, scc)
-
-    stack = []
-    visited = set()
-    for vertex in graph:
-        if vertex not in visited:
-            dfs(vertex, visited, stack)
-
-    rev_graph = reverse_graph(graph)
-    visited.clear()
-    sccs = []
-    while stack:
-        vertex = stack.pop()
-        if vertex not in visited:
-            scc = []
-            dfs_scc(vertex, visited, scc)
-            sccs.append(scc)
-    return sccs`,
+  Build order problems involve determining the order of building components or executing tasks with dependencies. 
+  This is similar to course scheduling and can be solved using topological sorting.
+  </p>
+  
+  <h3>Application in Build Systems</h3>
+  <p>
+  In software development, build systems use dependency graphs to determine the order of compiling modules or building components.
+  </p>
+  <p>
+  Time Complexity: O(V + E), where V is the number of tasks and E is the number of dependencies.
+  </p>`,
+  codeExample: `# Build Order using Kahn’s Algorithm
+  def build_order(projects, dependencies):
+      from collections import deque
+      graph = {project: [] for project in projects}
+      indegree = {project: 0 for project in projects}
+      
+      for prereq, course in dependencies:
+          graph[prereq].append(course)
+          indegree[course] += 1
+      
+      queue = deque([project for project in projects if indegree[project] == 0])
+      result = []
+      
+      while queue:
+          project = queue.popleft()
+          result.append(project)
+          for dependent in graph[project]:
+              indegree[dependent] -= 1
+              if indegree[dependent] == 0:
+                  queue.append(dependent)
+      
+      if len(result) == len(projects):
+          return result
+      else:
+          return None  # Cycle exists
+  `,
   exercises: [
     {
-      prompt: 'Implement Kosaraju\'s algorithm for finding strongly connected components (SCCs) in a directed graph.',
+      prompt: 'Implement a function to determine the build order given projects and dependencies.',
       initialCode: `# Write your solution here
-def kosaraju(graph):
-    def dfs(node, visited, stack):
-        visited.add(node)
-        for neighbor in graph[node]:
-            if neighbor not in visited:
-                dfs(neighbor, visited, stack)
-        stack.append(node)
-
-    def reverse_graph(graph):
-        rev_graph = {vertex: [] for vertex in graph}
-        for vertex in graph:
-            for neighbor in graph[vertex]:
-                rev_graph[neighbor].append(vertex)
-        return rev_graph
-
-    def dfs_scc(node, visited, scc):
-        visited.add(node)
-        scc.append(node)
-        for neighbor in rev_graph[node]:
-            if neighbor not in visited:
-                dfs_scc(neighbor, visited, scc)
-
-    stack = []
-    visited = set()
-    for vertex in graph:
-        if vertex not in visited:
-            dfs(vertex, visited, stack)
-
-    rev_graph = reverse_graph(graph)
-    visited.clear()
-    sccs = []
-    while stack:
-        vertex = stack.pop()
-        if vertex not in visited:
-            scc = []
-            dfs_scc(vertex, visited, scc)
-            sccs.append(scc)
-    return sccs`,
-      solution: `def kosaraju(graph):
-    def dfs(node, visited, stack):
-        visited.add(node)
-        for neighbor in graph[node]:
-            if neighbor not in visited:
-                dfs(neighbor, visited, stack)
-        stack.append(node)
-
-    def reverse_graph(graph):
-        rev_graph = {vertex: [] for vertex in graph}
-        for vertex in graph:
-            for neighbor in graph[vertex]:
-                rev_graph[neighbor].append(vertex)
-        return rev_graph
-
-    def dfs_scc(node, visited, scc):
-        visited.add(node)
-        scc.append(node)
-        for neighbor in rev_graph[node]:
-            if neighbor not in visited:
-                dfs_scc(neighbor, visited, scc)
-
-    stack = []
-    visited = set()
-    for vertex in graph:
-        if vertex not in visited:
-            dfs(vertex, visited, stack)
-
-    rev_graph = reverse_graph(graph)
-    visited.clear()
-    sccs = []
-    while stack:
-        vertex = stack.pop()
-        if vertex not in visited:
-            scc = []
-            dfs_scc(vertex, visited, scc)
-            sccs.append(scc)
-    return sccs`,
-      difficulty: Difficulty.Advanced,
-    },
-    {
-      prompt: 'Implement Tarjan\'s algorithm for finding strongly connected components (SCCs) in a directed graph.',
-      initialCode: `# Write your solution here
-def tarjan(graph):
-    index = 0
-    stack = []
-    indices = {}
-    low_links = {}
-    on_stack = set()
-    sccs = []
-
-    def strongconnect(node):
-        nonlocal index
-        indices[node] = index
-        low_links[node] = index
-        index += 1
-        stack.append(node)
-        on_stack.add(node)
-
-        for neighbor in graph[node]:
-            if neighbor not in indices:
-                strongconnect(neighbor)
-                low_links[node] = min(low_links[node], low_links[neighbor])
-            elif neighbor in on_stack:
-                low_links[node] = min(low_links[node], indices[neighbor])
-
-        if low_links[node] == indices[node]:
-            scc = []
-            while True:
-                v = stack.pop()
-                on_stack.remove(v)
-                scc.append(v)
-                if v == node:
-                    break
-            sccs.append(scc)
-
-    for vertex in graph:
-        if vertex not in indices:
-            strongconnect(vertex)
-
-    return sccs`,
-      solution: `def tarjan(graph):
-    index = 0
-    stack = []
-    indices = {}
-    low_links = {}
-    on_stack = set()
-    sccs = []
-
-    def strongconnect(node):
-        nonlocal index
-        indices[node] = index
-        low_links[node] = index
-        index += 1
-        stack.append(node)
-        on_stack.add(node)
-
-        for neighbor in graph[node]:
-            if neighbor not in indices:
-                strongconnect(neighbor)
-                low_links[node] = min(low_links[node], low_links[neighbor])
-            elif neighbor in on_stack:
-                low_links[node] = min(low_links[node], indices[neighbor])
-
-        if low_links[node] == indices[node]:
-            scc = []
-            while True:
-                v = stack.pop()
-                on_stack.remove(v)
-                scc.append(v)
-                if v == node:
-                    break
-            sccs.append(scc)
-
-    for vertex in graph:
-        if vertex not in indices:
-            strongconnect(vertex)
-
-    return sccs`,
-      difficulty: Difficulty.Advanced,
+      def build_order(projects, dependencies):
+          # Build graph and find order
+          return []`,
+      solution: `# Solution for Build Order
+      def build_order(projects, dependencies):
+          from collections import deque
+          graph = {project: [] for project in projects}
+          indegree = {project: 0 for project in projects}
+          
+          for prereq, course in dependencies:
+              graph[prereq].append(course)
+              indegree[course] += 1
+          
+          queue = deque([project for project in projects if indegree[project] == 0])
+          result = []
+          
+          while queue:
+              project = queue.popleft()
+              result.append(project)
+              for dependent in graph[project]:
+                  indegree[dependent] -= 1
+                  if indegree[dependent] == 0:
+                      queue.append(dependent)
+          
+          if len(result) == len(projects):
+              return result
+          else:
+              return None  # Cycle exists
+      `,
+      difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question: 'Which of the following is a characteristic of strongly connected components (SCCs)?',
+      question: 'Which algorithm is suitable for determining build order?',
       options: [
-        'Every vertex in the subset is reachable from every other vertex in the subset',
-        'Applicable to undirected graphs',
-        'Uses a stack',
-        'Explores nodes level-by-level',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. Every vertex in the subset is reachable from every other vertex in the subset.',
-        'This is incorrect. SCCs are applicable to directed graphs, not undirected graphs.',
-        'This is incorrect. SCCs do not use a stack.',
-        'This is incorrect. SCCs do not explore nodes level-by-level.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'What is a common application of strongly connected components (SCCs)?',
-      options: [
-        'Finding the shortest path in an unweighted graph',
-        'Finding the longest path in a graph',
-        'Social networks',
-        'Balancing trees',
-      ],
-      correctAnswer: 2,
-      explanations: [
-        'This is incorrect. SCCs are not used to find the shortest path in an unweighted graph.',
-        'This is incorrect. SCCs are not used to find the longest path in a graph.',
-        'This is correct. Social networks is a common application of SCCs.',
-        'This is incorrect. SCCs are not used for balancing trees.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const maxFlowData: LessonContent = {
-  title: 'Maximum Flow',
-  content: `<p>
-Maximum flow is a problem in graph theory where the goal is to find the maximum amount of flow that can be sent from a source node to a sink node in a directed graph with capacities on the edges.
-</p>
-
-<ul>
-<li><strong>Ford-Fulkerson Algorithm:</strong> A greedy algorithm that iteratively finds augmenting paths and increases the flow along these paths.</li>
-<li><strong>Edmonds-Karp Algorithm:</strong> A specific implementation of the Ford-Fulkerson algorithm that uses BFS to find the shortest augmenting path.</li>
-<li><strong>Applications:</strong> Network routing, resource allocation, and matching problems.</li>
-</ul>`,
-  codeExample: `# Ford-Fulkerson Algorithm Implementation
-def ford_fulkerson(graph, source, sink):
-    def bfs(graph, source, sink, parent):
-        visited = set()
-        queue = [source]
-        visited.add(source)
-        while queue:
-            u = queue.pop(0)
-            for v, capacity in graph[u].items():
-                if v not in visited and capacity > 0:
-                    queue.append(v)
-                    visited.add(v)
-                    parent[v] = u
-                    if v == sink:
-                        return True
-        return False
-
-    max_flow = 0
-    parent = {}
-    while bfs(graph, source, sink, parent):
-        path_flow = float('inf')
-        s = sink
-        while s != source:
-            path_flow = min(path_flow, graph[parent[s]][s])
-            s = parent[s]
-        max_flow += path_flow
-        v = sink
-        while v != source:
-            u = parent[v]
-            graph[u][v] -= path_flow
-            if u not in graph[v]:
-                graph[v][u] = 0
-            graph[v][u] += path_flow
-            v = parent[v]
-    return max_flow`,
-  exercises: [
-    {
-      prompt: 'Implement the Ford-Fulkerson algorithm for finding the maximum flow in a network.',
-      initialCode: `# Write your solution here
-def ford_fulkerson(graph, source, sink):
-    def bfs(graph, source, sink, parent):
-        visited = set()
-        queue = [source]
-        visited.add(source)
-        while queue:
-            u = queue.pop(0)
-            for v, capacity in graph[u].items():
-                if v not in visited and capacity > 0:
-                    queue.append(v)
-                    visited.add(v)
-                    parent[v] = u
-                    if v == sink:
-                        return True
-        return False
-
-    max_flow = 0
-    parent = {}
-    while bfs(graph, source, sink, parent):
-        path_flow = float('inf')
-        s = sink
-        while s != source:
-            path_flow = min(path_flow, graph[parent[s]][s])
-            s = parent[s]
-        max_flow += path_flow
-        v = sink
-        while v != source:
-            u = parent[v]
-            graph[u][v] -= path_flow
-            if u not in graph[v]:
-                graph[v][u] = 0
-            graph[v][u] += path_flow
-            v = parent[v]
-    return max_flow`,
-      solution: `def ford_fulkerson(graph, source, sink):
-    def bfs(graph, source, sink, parent):
-        visited = set()
-        queue = [source]
-        visited.add(source)
-        while queue:
-            u = queue.pop(0)
-            for v, capacity in graph[u].items():
-                if v not in visited and capacity > 0:
-                    queue.append(v)
-                    visited.add(v)
-                    parent[v] = u
-                    if v == sink:
-                        return True
-        return False
-
-    max_flow = 0
-    parent = {}
-    while bfs(graph, source, sink, parent):
-        path_flow = float('inf')
-        s = sink
-        while s != source:
-            path_flow = min(path_flow, graph[parent[s]][s])
-            s = parent[s]
-        max_flow += path_flow
-        v = sink
-        while v != source:
-            u = parent[v]
-            graph[u][v] -= path_flow
-            if u not in graph[v]:
-                graph[v][u] = 0
-            graph[v][u] += path_flow
-            v = parent[v]
-    return max_flow`,
-      difficulty: Difficulty.Advanced,
-    },
-    {
-      prompt: 'Implement the Edmonds-Karp algorithm for finding the maximum flow in a network.',
-      initialCode: `# Write your solution here
-def edmonds_karp(graph, source, sink):
-    def bfs(graph, source, sink, parent):
-        visited = set()
-        queue = [source]
-        visited.add(source)
-        while queue:
-            u = queue.pop(0)
-            for v, capacity in graph[u].items():
-                if v not in visited and capacity > 0:
-                    queue.append(v)
-                    visited.add(v)
-                    parent[v] = u
-                    if v == sink:
-                        return True
-        return False
-
-    max_flow = 0
-    parent = {}
-    while bfs(graph, source, sink, parent):
-        path_flow = float('inf')
-        s = sink
-        while s != source:
-            path_flow = min(path_flow, graph[parent[s]][s])
-            s = parent[s]
-        max_flow += path_flow
-        v = sink
-        while v != source:
-            u = parent[v]
-            graph[u][v] -= path_flow
-            if u not in graph[v]:
-                graph[v][u] = 0
-            graph[v][u] += path_flow
-            v = parent[v]
-    return max_flow`,
-      solution: `def edmonds_karp(graph, source, sink):
-    def bfs(graph, source, sink, parent):
-        visited = set()
-        queue = [source]
-        visited.add(source)
-        while queue:
-            u = queue.pop(0)
-            for v, capacity in graph[u].items():
-                if v not in visited and capacity > 0:
-                    queue.append(v)
-                    visited.add(v)
-                    parent[v] = u
-                    if v == sink:
-                        return True
-        return False
-
-    max_flow = 0
-    parent = {}
-    while bfs(graph, source, sink, parent):
-        path_flow = float('inf')
-        s = sink
-        while s != source:
-            path_flow = min(path_flow, graph[parent[s]][s])
-            s = parent[s]
-        max_flow += path_flow
-        v = sink
-        while v != source:
-            u = parent[v]
-            graph[u][v] -= path_flow
-            if u not in graph[v]:
-                graph[v][u] = 0
-            graph[v][u] += path_flow
-            v = parent[v]
-    return max_flow`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which of the following is a characteristic of the Ford-Fulkerson algorithm?',
-      options: [
-        'Uses a stack',
-        'Uses a priority queue',
-        'Iteratively finds augmenting paths',
-        'Explores nodes level-by-level',
-      ],
-      correctAnswer: 2,
-      explanations: [
-        'This is incorrect. The Ford-Fulkerson algorithm does not use a stack.',
-        'This is incorrect. The Ford-Fulkerson algorithm does not use a priority queue.',
-        'This is correct. The Ford-Fulkerson algorithm iteratively finds augmenting paths.',
-        'This is incorrect. The Ford-Fulkerson algorithm does not explore nodes level-by-level.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question: 'What is a common application of the maximum flow problem?',
-      options: [
-        'Finding the shortest path in an unweighted graph',
-        'Finding the longest path in a graph',
-        'Network routing',
-        'Balancing trees',
-      ],
-      correctAnswer: 2,
-      explanations: [
-        'This is incorrect. The maximum flow problem is not used to find the shortest path in an unweighted graph.',
-        'This is incorrect. The maximum flow problem is not used to find the longest path in a graph.',
-        'This is correct. Network routing is a common application of the maximum flow problem.',
-        'This is incorrect. The maximum flow problem is not used for balancing trees.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const minCutData: LessonContent = {
-  title: 'Minimum Cut',
-  content: `<p>
-The minimum cut problem is a problem in graph theory where the goal is to find the minimum cut, which is a partition of the vertices of a graph into two subsets such that the sum of the weights of the edges between the two subsets is minimized.
-</p>
-
-<ul>
-<li><strong>Min-cut Max-flow Theorem:</strong> The minimum cut is equal to the maximum flow in a network.</li>
-<li><strong>Applications:</strong> Network reliability, image segmentation, and clustering.</li>
-</ul>`,
-  codeExample: `# Minimum Cut Implementation
-def min_cut(graph, source, sink):
-    def bfs(graph, source, sink, parent):
-        visited = set()
-        queue = [source]
-        visited.add(source)
-        while queue:
-            u = queue.pop(0)
-            for v, capacity in graph[u].items():
-                if v not in visited and capacity > 0:
-                    queue.append(v)
-                    visited.add(v)
-                    parent[v] = u
-                    if v == sink:
-                        return True
-        return False
-
-    max_flow = 0
-    parent = {}
-    while bfs(graph, source, sink, parent):
-        path_flow = float('inf')
-        s = sink
-        while s != source:
-            path_flow = min(path_flow, graph[parent[s]][s])
-            s = parent[s]
-        max_flow += path_flow
-        v = sink
-        while v != source:
-            u = parent[v]
-            graph[u][v] -= path_flow
-            if u not in graph[v]:
-                graph[v][u] = 0
-            graph[v][u] += path_flow
-            v = parent[v]
-
-    def dfs(graph, source, visited):
-        stack = [source]
-        while stack:
-            u = stack.pop()
-            if u not in visited:
-                visited.add(u)
-                for v, capacity in graph[u].items():
-                    if capacity > 0 and v not in visited:
-                        stack.append(v)
-
-    visited = set()
-    dfs(graph, source, visited)
-    min_cut_edges = []
-    for u in visited:
-        for v, capacity in graph[u].items():
-            if v not in visited and capacity == 0:
-                min_cut_edges.append((u, v))
-    return min_cut_edges`,
-  exercises: [
-    {
-      prompt: 'Implement the minimum cut algorithm using the max-flow min-cut theorem.',
-      initialCode: `# Write your solution here
-def min_cut(graph, source, sink):
-    def bfs(graph, source, sink, parent):
-        visited = set()
-        queue = [source]
-        visited.add(source)
-        while queue:
-            u = queue.pop(0)
-            for v, capacity in graph[u].items():
-                if v not in visited and capacity > 0:
-                    queue.append(v)
-                    visited.add(v)
-                    parent[v] = u
-                    if v == sink:
-                        return True
-        return False
-
-    max_flow = 0
-    parent = {}
-    while bfs(graph, source, sink, parent):
-        path_flow = float('inf')
-        s = sink
-        while s != source:
-            path_flow = min(path_flow, graph[parent[s]][s])
-            s = parent[s]
-        max_flow += path_flow
-        v = sink
-        while v != source:
-            u = parent[v]
-            graph[u][v] -= path_flow
-            if u not in graph[v]:
-                graph[v][u] = 0
-            graph[v][u] += path_flow
-            v = parent[v]
-
-    def dfs(graph, source, visited):
-        stack = [source]
-        while stack:
-            u = stack.pop()
-            if u not in visited:
-                visited.add(u)
-                for v, capacity in graph[u].items():
-                    if capacity > 0 and v not in visited:
-                        stack.append(v)
-
-    visited = set()
-    dfs(graph, source, visited)
-    min_cut_edges = []
-    for u in visited:
-        for v, capacity in graph[u].items():
-            if v not in visited and capacity == 0:
-                min_cut_edges.append((u, v))
-    return min_cut_edges`,
-      solution: `def min_cut(graph, source, sink):
-    def bfs(graph, source, sink, parent):
-        visited = set()
-        queue = [source]
-        visited.add(source)
-        while queue:
-            u = queue.pop(0)
-            for v, capacity in graph[u].items():
-                if v not in visited and capacity > 0:
-                    queue.append(v)
-                    visited.add(v)
-                    parent[v] = u
-                    if v == sink:
-                        return True
-        return False
-
-    max_flow = 0
-    parent = {}
-    while bfs(graph, source, sink, parent):
-        path_flow = float('inf')
-        s = sink
-        while s != source:
-            path_flow = min(path_flow, graph[parent[s]][s])
-            s = parent[s]
-        max_flow += path_flow
-        v = sink
-        while v != source:
-            u = parent[v]
-            graph[u][v] -= path_flow
-            if u not in graph[v]:
-                graph[v][u] = 0
-            graph[v][u] += path_flow
-            v = parent[v]
-
-    def dfs(graph, source, visited):
-        stack = [source]
-        while stack:
-            u = stack.pop()
-            if u not in visited:
-                visited.add(u)
-                for v, capacity in graph[u].items():
-                    if capacity > 0 and v not in visited:
-                        stack.append(v)
-
-    visited = set()
-    dfs(graph, source, visited)
-    min_cut_edges = []
-    for u in visited:
-        for v, capacity in graph[u].items():
-            if v not in visited and capacity == 0:
-                min_cut_edges.append((u, v))
-    return min_cut_edges`,
-      difficulty: Difficulty.Advanced,
-    },
-    {
-      prompt: 'Implement a function to find the minimum cut in a network using the max-flow min-cut theorem.',
-      initialCode: `# Write your solution here
-def min_cut(graph, source, sink):
-    def bfs(graph, source, sink, parent):
-        visited = set()
-        queue = [source]
-        visited.add(source)
-        while queue:
-            u = queue.pop(0)
-            for v, capacity in graph[u].items():
-                if v not in visited and capacity > 0:
-                    queue.append(v)
-                    visited.add(v)
-                    parent[v] = u
-                    if v == sink:
-                        return True
-        return False
-
-    max_flow = 0
-    parent = {}
-    while bfs(graph, source, sink, parent):
-        path_flow = float('inf')
-        s = sink
-        while s != source:
-            path_flow = min(path_flow, graph[parent[s]][s])
-            s = parent[s]
-        max_flow += path_flow
-        v = sink
-        while v != source:
-            u = parent[v]
-            graph[u][v] -= path_flow
-            if u not in graph[v]:
-                graph[v][u] = 0
-            graph[v][u] += path_flow
-            v = parent[v]
-
-    def dfs(graph, source, visited):
-        stack = [source]
-        while stack:
-            u = stack.pop()
-            if u not in visited:
-                visited.add(u)
-                for v, capacity in graph[u].items():
-                    if capacity > 0 and v not in visited:
-                        stack.append(v)
-
-    visited = set()
-    dfs(graph, source, visited)
-    min_cut_edges = []
-    for u in visited:
-        for v, capacity in graph[u].items():
-            if v not in visited and capacity == 0:
-                min_cut_edges.append((u, v))
-    return min_cut_edges`,
-      solution: `def min_cut(graph, source, sink):
-    def bfs(graph, source, sink, parent):
-        visited = set()
-        queue = [source]
-        visited.add(source)
-        while queue:
-            u = queue.pop(0)
-            for v, capacity in graph[u].items():
-                if v not in visited and capacity > 0:
-                    queue.append(v)
-                    visited.add(v)
-                    parent[v] = u
-                    if v == sink:
-                        return True
-        return False
-
-    max_flow = 0
-    parent = {}
-    while bfs(graph, source, sink, parent):
-        path_flow = float('inf')
-        s = sink
-        while s != source:
-            path_flow = min(path_flow, graph[parent[s]][s])
-            s = parent[s]
-        max_flow += path_flow
-        v = sink
-        while v != source:
-            u = parent[v]
-            graph[u][v] -= path_flow
-            if u not in graph[v]:
-                graph[v][u] = 0
-            graph[v][u] += path_flow
-            v = parent[v]
-
-    def dfs(graph, source, visited):
-        stack = [source]
-        while stack:
-            u = stack.pop()
-            if u not in visited:
-                visited.add(u)
-                for v, capacity in graph[u].items():
-                    if capacity > 0 and v not in visited:
-                        stack.append(v)
-
-    visited = set()
-    dfs(graph, source, visited)
-    min_cut_edges = []
-    for u in visited:
-        for v, capacity in graph[u].items():
-            if v not in visited and capacity == 0:
-                min_cut_edges.append((u, v))
-    return min_cut_edges`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which of the following is a characteristic of the minimum cut problem?',
-      options: [
-        'Finds the maximum flow in a network',
-        'Finds the minimum cut in a network',
-        'Uses a stack',
-        'Explores nodes level-by-level',
+        'Dijkstra’s Algorithm',
+        'Topological Sort',
+        'DFS',
+        'BFS',
       ],
       correctAnswer: 1,
       explanations: [
-        'This is incorrect. The minimum cut problem finds the minimum cut, not the maximum flow.',
-        'This is correct. The minimum cut problem finds the minimum cut in a network.',
-        'This is incorrect. The minimum cut problem does not use a stack.',
-        'This is incorrect. The minimum cut problem does not explore nodes level-by-level.',
+        'Dijkstra’s is for shortest paths.',
+        'Correct. Topological sort applies to build order.',
+        'DFS is part of topological sort.',
+        'BFS is also used in topological sort (Kahn’s algorithm).',
       ],
-      difficulty: Difficulty.Intermediate,
+      difficulty: Difficulty.Beginner,
     },
+  ],
+};
+
+const parallelCoursesData: LessonContent = {
+  title: 'Parallel Execution',
+  content: `<p>
+  Parallel execution problems involve scheduling tasks with dependencies to minimize completion time. 
+  This can be approached by finding the critical path in a Directed Acyclic Graph (DAG).
+  </p>
+  
+  <h3>Critical Path Method</h3>
+  <p>
+  The critical path is the longest path in the DAG, determining the minimum time required to complete all tasks.
+  </p>
+  <p>
+  Time Complexity: O(V + E), where V is the number of tasks and E is the number of dependencies.
+  </p>`,
+  codeExample: `# Finding Critical Path
+  def critical_path(graph, start, end):
+      # Step 1: Topological sort
+      order = topological_sort(graph)
+      
+      # Step 2: Calculate longest path from start to end
+      dist = {node: 0 for node in graph}
+      for node in order:
+          for neighbor in graph[node]:
+              if dist[neighbor] < dist[node] + 1:
+                  dist[neighbor] = dist[node] + 1
+      
+      return dist[end]
+  
+  def topological_sort(graph):
+      from collections import deque
+      indegree = {node: 0 for node in graph}
+      for node in graph:
+          for neighbor in graph[node]:
+              indegree[neighbor] += 1
+              
+      queue = deque([node for node in graph if indegree[node] == 0])
+      result = []
+      
+      while queue:
+          node = queue.popleft()
+          result.append(node)
+          for neighbor in graph[node]:
+              indegree[neighbor] -= 1
+              if indegree[neighbor] == 0:
+                  queue.append(neighbor)
+                  
+      return result
+  `,
+  exercises: [
     {
-      question: 'What is a common application of the minimum cut problem?',
+      prompt: 'Implement a function to find the minimum time to complete tasks with dependencies.',
+      initialCode: `# Write your solution here
+      def min_time_to_complete_tasks(graph, start, end):
+          # Find critical path
+          return 0`,
+      solution: `# Solution for Minimum Time to Complete Tasks
+      def min_time_to_complete_tasks(graph, start, end):
+          # Step 1: Topological sort
+          order = topological_sort(graph)
+          
+          # Step 2: Calculate longest path from start to end
+          dist = {node: 0 for node in graph}
+          for node in order:
+              for neighbor in graph[node]:
+                  if dist[neighbor] < dist[node] + 1:
+                      dist[neighbor] = dist[node] + 1
+          
+          return dist[end]
+      
+      def topological_sort(graph):
+          from collections import deque
+          indegree = {node: 0 for node in graph}
+          for node in graph:
+              for neighbor in graph[node]:
+                  indegree[neighbor] += 1
+                  
+          queue = deque([node for node in graph if indegree[node] == 0])
+          result = []
+          
+          while queue:
+              node = queue.popleft()
+              result.append(node)
+              for neighbor in graph[node]:
+                  indegree[neighbor] -= 1
+                  if indegree[neighbor] == 0:
+                      queue.append(neighbor)
+                  
+          return result
+      `,
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'What is the critical path in task scheduling?',
       options: [
-        'Finding the shortest path in an unweighted graph',
-        'Finding the longest path in a graph',
-        'Network reliability',
-        'Balancing trees',
+        'The shortest path in the graph.',
+        'The path with the least number of tasks.',
+        'The longest path in the graph.',
+        'The path with the highest number of dependencies.',
       ],
       correctAnswer: 2,
       explanations: [
-        'This is incorrect. The minimum cut problem is not used to find the shortest path in an unweighted graph.',
-        'This is incorrect. The minimum cut problem is not used to find the longest path in a graph.',
-        'This is correct. Network reliability is a common application of the minimum cut problem.',
-        'This is incorrect. The minimum cut problem is not used for balancing trees.',
+        'The critical path is not necessarily the shortest path.',
+        'Incorrect. It is the longest path.',
+        'Correct. The critical path determines the minimum completion time.',
+        'Incorrect. It is about the duration, not the number of dependencies.',
       ],
       difficulty: Difficulty.Intermediate,
     },
   ],
 };
 
-const bipartiteMatchingData: LessonContent = {
-  title: 'Bipartite Matching',
+const redundantConnectionData: LessonContent = {
+  title: 'Redundant Connection Pattern',
   content: `<p>
-Bipartite matching is a problem in graph theory where the goal is to find a matching in a bipartite graph, which is a set of edges such that no two edges share a common vertex.
-</p>
-
-<ul>
-<li><strong>Maximum Bipartite Matching:</strong> Finding the maximum number of edges in a bipartite matching.</li>
-<li><strong>Applications:</strong> Job assignment, resource allocation, and matching problems.</li>
-</ul>`,
-  codeExample: `# Maximum Bipartite Matching Implementation
-def max_bipartite_matching(graph, left_nodes, right_nodes):
-    def bpm(u, matchR, seen):
-        for v in right_nodes:
-            if graph[u][v] and not seen[v]:
-                seen[v] = True
-                if matchR[v] == -1 or bpm(matchR[v], matchR, seen):
-                    matchR[v] = u
-                    return True
-        return False
-
-    matchR = {v: -1 for v in right_nodes}
-    result = 0
-    for u in left_nodes:
-        seen = {v: False for v in right_nodes}
-        if bpm(u, matchR, seen):
-            result += 1
-    return result`,
+  A redundant connection in a graph is an edge that creates a cycle. 
+  Union-Find helps detect such edges by grouping nodes into sets and checking if an edge connects nodes already in the same set.
+  </p>`,
+  codeExample: `function findRedundantConnection(n: number, edges: number[][]): number[] {
+      const parent: number[] = Array(n + 1).fill(0).map((_, i) => i);
+      const rank: number[] = Array(n + 1).fill(1);
+      
+      function find(u: number): number {
+          if (parent[u] !== u) {
+              parent[u] = find(parent[u]);
+          }
+          return parent[u];
+      }
+      
+      function union(u: number, v: number): boolean {
+          const pu = find(u);
+          const pv = find(v);
+          
+          if (pu === pv) return false;
+          
+          if (rank[pu] > rank[pv]) {
+              parent[pv] = pu;
+              rank[pu] += rank[pv];
+          } else {
+              parent[pu] = pv;
+              rank[pv] += rank[pu];
+          }
+          return true;
+      }
+      
+      for (const [u, v] of edges) {
+          if (!union(u, v)) {
+              return [u, v];
+          }
+      }
+      return [];
+  }`,
   exercises: [
     {
-      prompt: 'Implement the maximum bipartite matching algorithm.',
-      initialCode: `# Write your solution here
-def max_bipartite_matching(graph, left_nodes, right_nodes):
-    def bpm(u, matchR, seen):
-        for v in right_nodes:
-            if graph[u][v] and not seen[v]:
-                seen[v] = True
-                if matchR[v] == -1 or bpm(matchR[v], matchR, seen):
-                    matchR[v] = u
-                    return True
-        return False
-
-    matchR = {v: -1 for v in right_nodes}
-    result = 0
-    for u in left_nodes:
-        seen = {v: False for v in right_nodes}
-        if bpm(u, matchR, seen):
-            result += 1
-    return result`,
-      solution: `def max_bipartite_matching(graph, left_nodes, right_nodes):
-    def bpm(u, matchR, seen):
-        for v in right_nodes:
-            if graph[u][v] and not seen[v]:
-                seen[v] = True
-                if matchR[v] == -1 or bpm(matchR[v], matchR, seen):
-                    matchR[v] = u
-                    return True
-        return False
-
-    matchR = {v: -1 for v in right_nodes}
-    result = 0
-    for u in left_nodes:
-        seen = {v: False for v in right_nodes}
-        if bpm(u, matchR, seen):
-            result += 1
-    return result`,
-      difficulty: Difficulty.Advanced,
+      prompt: 'Implement the Union-Find data structure with path compression and union by rank.',
+      initialCode: `class UnionFind {
+    constructor(n: number) {}
+    find(u: number): number {}
+    union(u: number, v: number): boolean {}
+  }`,
+      solution: `class UnionFind {
+    private parent: number[];
+    private rank: number[];
+    
+    constructor(n: number) {
+        this.parent = Array(n).fill(0).map((_, i) => i);
+        this.rank = Array(n).fill(1);
+    }
+    
+    find(u: number): number {
+        if (this.parent[u] !== u) {
+            this.parent[u] = this.find(this.parent[u]);
+        }
+        return this.parent[u];
+    }
+    
+    union(u: number, v: number): boolean {
+        const pu = this.find(u);
+        const pv = this.find(v);
+        
+        if (pu === pv) return false;
+        
+        if (this.rank[pu] > this.rank[pv]) {
+            this.parent[pv] = pu;
+            this.rank[pu] += this.rank[pv];
+        } else {
+            this.parent[pu] = pv;
+            this.rank[pv] += this.rank[pu];
+        }
+        return true;
+    }
+}`,
+      difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function to find the maximum bipartite matching in a bipartite graph.',
-      initialCode: `# Write your solution here
-def max_bipartite_matching(graph, left_nodes, right_nodes):
-    def bpm(u, matchR, seen):
-        for v in right_nodes:
-            if graph[u][v] and not seen[v]:
-                seen[v] = True
-                if matchR[v] == -1 or bpm(matchR[v], matchR, seen):
-                    matchR[v] = u
-                    return True
-        return False
+      prompt: 'Find the redundant connection in a given list of edges.',
+      initialCode: `function findRedundantConnection(n: number, edges: number[][]): number[] {
+    // Implement using Union-Find
+}`,
+      solution: `function findRedundantConnection(n: number, edges: number[][]): number[] {
+    const parent: number[] = Array(n + 1).fill(0).map((_, i) => i);
+    const rank: number[] = Array(n + 1).fill(1);
+    
+    function find(u: number): number {
+        if (parent[u] !== u) {
+            parent[u] = find(parent[u]);
+        }
+        return parent[u];
+    }
+    
+    function union(u: number, v: number): boolean {
+        const pu = find(u);
+        const pv = find(v);
+        
+        if (pu === pv) return false;
+        
+        if (rank[pu] > rank[pv]) {
+            parent[pv] = pu;
+            rank[pu] += rank[pv];
+        } else {
+            parent[pu] = pv;
+            rank[pv] += rank[pu];
+        }
+        return true;
+    }
+    
+    for (const [u, v] of edges) {
+        if (!union(u, v)) {
+            return [u, v];
+        }
+    }
+    return [];
+}`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'What is the purpose of Union-Find in detecting redundant connections?',
+      options: [
+        'To find the shortest path between nodes',
+        'To group nodes into connected components',
+        'To calculate the number of provinces',
+        'To merge accounts based on shared emails',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Incorrect. Union-Find is not used for finding the shortest path.',
+        'Correct. Union-Find helps group nodes into connected components to detect cycles.',
+        'Incorrect. While Union-Find can count provinces, it’s not its primary purpose in redundant connection detection.',
+        'Incorrect. That is for a different pattern.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
 
-    matchR = {v: -1 for v in right_nodes}
-    result = 0
-    for u in left_nodes:
-        seen = {v: False for v in right_nodes}
-        if bpm(u, matchR, seen):
-            result += 1
-    return result`,
-      solution: `def max_bipartite_matching(graph, left_nodes, right_nodes):
-    def bpm(u, matchR, seen):
-        for v in right_nodes:
-            if graph[u][v] and not seen[v]:
-                seen[v] = True
-                if matchR[v] == -1 or bpm(matchR[v], matchR, seen):
-                    matchR[v] = u
-                    return True
-        return False
-
-    matchR = {v: -1 for v in right_nodes}
-    result = 0
-    for u in left_nodes:
-        seen = {v: False for v in right_nodes}
-        if bpm(u, matchR, seen):
-            result += 1
-    return result`,
+const provinceCountingData: LessonContent = {
+  title: 'Province Counting Pattern',
+  content: `<p>
+  Counting provinces involves finding the number of connected components in a graph. 
+  Union-Find efficiently groups nodes and counts the distinct sets.
+  </p>`,
+  codeExample: `function countProvinces(n: number, connections: number[][]): number {
+      const parent: number[] = Array(n).fill(0).map((_, i) => i);
+      
+      function find(u: number): number {
+          if (parent[u] !== u) {
+              parent[u] = find(parent[u]);
+          }
+          return parent[u];
+      }
+      
+      for (const [u, v] of connections) {
+          const pu = find(u);
+          const pv = find(v);
+          if (pu !== pv) {
+              parent[pu] = pv;
+          }
+      }
+      
+      const provinces = new Set<number>();
+      for (let i = 0; i < n; i++) {
+          provinces.add(find(i));
+      }
+      return provinces.size;
+  }`,
+  exercises: [
+    {
+      prompt: 'Implement Union-Find to count connected components in a graph.',
+      initialCode: `function countProvinces(n: number, connections: number[][]): number {
+    // Implement using Union-Find
+}`,
+      solution: `function countProvinces(n: number, connections: number[][]): number {
+    const parent: number[] = Array(n).fill(0).map((_, i) => i);
+    
+    function find(u: number): number {
+        if (parent[u] !== u) {
+            parent[u] = find(parent[u]);
+        }
+        return parent[u];
+    }
+    
+    for (const [u, v] of connections) {
+        const pu = find(u);
+        const pv = find(v);
+        if (pu !== pv) {
+            parent[pu] = pv;
+        }
+    }
+    
+    const provinces = new Set<number>();
+    for (let i = 0; i < n; i++) {
+        provinces.add(find(i));
+    }
+    return provinces.size;
+}`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt: 'Modify the function to handle large inputs efficiently.',
+      initialCode: `function countProvincesOptimized(n: number, connections: number[][]): number {
+    // Optimize for large inputs
+}`,
+      solution: `function countProvincesOptimized(n: number, connections: number[][]): number {
+    const parent: number[] = Array(n).fill(0).map((_, i) => i);
+    const rank: number[] = Array(n).fill(1);
+    
+    function find(u: number): number {
+        if (parent[u] !== u) {
+            parent[u] = find(parent[u]);
+        }
+        return parent[u];
+    }
+    
+    function union(u: number, v: number): void {
+        const pu = find(u);
+        const pv = find(v);
+        
+        if (pu === pv) return;
+        
+        if (rank[pu] > rank[pv]) {
+            parent[pv] = pu;
+            rank[pu] += rank[pv];
+        } else {
+            parent[pu] = pv;
+            rank[pv] += rank[pu];
+        }
+    }
+    
+    for (const [u, v] of connections) {
+        union(u, v);
+    }
+    
+    const provinces = new Set<number>();
+    for (let i = 0; i < n; i++) {
+        provinces.add(find(i));
+    }
+    return provinces.size;
+}`,
       difficulty: Difficulty.Advanced,
     },
   ],
   quizzes: [
     {
-      question: 'Which of the following is a characteristic of bipartite matching?',
+      question: 'How does Union-Find help in counting provinces?',
       options: [
-        'Finds the maximum flow in a network',
-        'Finds the maximum matching in a bipartite graph',
-        'Uses a stack',
-        'Explores nodes level-by-level',
+        'By finding the shortest path between provinces',
+        'By grouping nodes into connected components',
+        'By detecting redundant connections',
+        'By merging accounts based on shared emails',
       ],
       correctAnswer: 1,
       explanations: [
-        'This is incorrect. Bipartite matching finds the maximum matching in a bipartite graph, not the maximum flow in a network.',
-        'This is correct. Bipartite matching finds the maximum matching in a bipartite graph.',
-        'This is incorrect. Bipartite matching does not use a stack.',
-        'This is incorrect. Bipartite matching does not explore nodes level-by-level.',
+        'Incorrect. Union-Find is not used for finding the shortest path.',
+        'Correct. Union-Find groups nodes into connected components to count provinces.',
+        'Incorrect. That is for a different pattern.',
+        'Incorrect. That is for a different pattern.',
       ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const accountMergeData: LessonContent = {
+  title: 'Account Merge Pattern',
+  content: `<p>
+  Merging accounts based on shared emails can be modeled using Union-Find to group accounts into single entities.
+  </p>`,
+  codeExample: `function accountsMerge(accounts: string[][]): string[][] {
+      const emailToIndex: { [email: string]: number } = {};
+      const parent: number[] = [];
+      
+      function find(u: number): number {
+          if (parent[u] !== u) {
+              parent[u] = find(parent[u]);
+          }
+          return parent[u];
+      }
+      
+      function union(u: number, v: number): void {
+          const pu = find(u);
+          const pv = find(v);
+          if (pu !== pv) {
+              parent[pu] = pv;
+          }
+      }
+      
+      // Build email to index mapping
+      let index = 0;
+      for (const account of accounts) {
+          for (let i = 1; i < account.length; i++) {
+              const email = account[i];
+              if (!emailToIndex.hasOwnProperty(email)) {
+                  emailToIndex[email] = index++;
+              }
+          }
+      }
+      
+      // Initialize parent array
+      parent.length = index;
+      for (let i = 0; i < index; i++) {
+          parent[i] = i;
+      }
+      
+      // Union emails from the same account
+      for (const account of accounts) {
+          const firstEmailIndex = emailToIndex[account[1]];
+          for (let i = 2; i < account.length; i++) {
+              const emailIndex = emailToIndex[account[i]];
+              union(firstEmailIndex, emailIndex);
+          }
+      }
+      
+      // Group emails by root parent
+      const groups: { [root: number]: string[] } = {};
+      for (const email in emailToIndex) {
+          const root = find(emailToIndex[email]);
+          if (!groups.hasOwnProperty(root)) {
+              groups[root] = [];
+          }
+          groups[root].push(email);
+      }
+      
+      // Sort emails and prepend the name
+      const result: string[][] = [];
+      for (const group in groups) {
+          const name = accounts[Number(group)].[0];
+          const sortedEmails = groups[group].sort();
+          result.push([name, ...sortedEmails]);
+      }
+      
+      return result;
+  }`,
+  exercises: [
+    {
+      prompt: 'Implement the account merge function using Union-Find.',
+      initialCode: `function accountsMerge(accounts: string[][]): string[][] {
+    // Implement using Union-Find
+}`,
+      solution: `function accountsMerge(accounts: string[][]): string[][] {
+    const emailToIndex: { [email: string]: number } = {};
+    const parent: number[] = [];
+    
+    function find(u: number): number {
+        if (parent[u] !== u) {
+            parent[u] = find(parent[u]);
+        }
+        return parent[u];
+    }
+    
+    function union(u: number, v: number): void {
+        const pu = find(u);
+        const pv = find(v);
+        if (pu !== pv) {
+            parent[pu] = pv;
+        }
+    }
+    
+    // Build email to index mapping
+    let index = 0;
+    for (const account of accounts) {
+        for (let i = 1; i < account.length; i++) {
+            const email = account[i];
+            if (!emailToIndex.hasOwnProperty(email)) {
+                emailToIndex[email] = index++;
+            }
+        }
+    }
+    
+    // Initialize parent array
+    parent.length = index;
+    for (let i = 0; i < index; i++) {
+        parent[i] = i;
+    }
+    
+    // Union emails from the same account
+    for (const account of accounts) {
+        const firstEmailIndex = emailToIndex[account[1]];
+        for (let i = 2; i < account.length; i++) {
+            const emailIndex = emailToIndex[account[i]];
+            union(firstEmailIndex, emailIndex);
+        }
+    }
+    
+    // Group emails by root parent
+    const groups: { [root: number]: string[] } = {};
+    for (const email in emailToIndex) {
+        const root = find(emailToIndex[email]);
+        if (!groups.hasOwnProperty(root)) {
+            groups[root] = [];
+        }
+        groups[root].push(email);
+    }
+    
+    // Sort emails and prepend the name
+    const result: string[][] = [];
+    for (const group in groups) {
+        const name = accounts[Number(group)].[0];
+        const sortedEmails = groups[group].sort();
+        result.push([name, ...sortedEmails]);
+    }
+    
+    return result;
+}`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is a common application of bipartite matching?',
+      prompt: 'Handle edge cases like duplicate emails and multiple account overlaps.',
+      initialCode: `function accountsMergeEdgeCases(accounts: string[][]): string[][] {
+    // Handle edge cases
+}`,
+      solution: `function accountsMergeEdgeCases(accounts: string[][]): string[][] {
+    const emailToIndex: { [email: string]: number } = {};
+    const parent: number[] = [];
+    const emailToName: { [email: string]: string } = {};
+    
+    function find(u: number): number {
+        if (parent[u] !== u) {
+            parent[u] = find(parent[u]);
+        }
+        return parent[u];
+    }
+    
+    function union(u: number, v: number): void {
+        const pu = find(u);
+        const pv = find(v);
+        if (pu !== pv) {
+            parent[pu] = pv;
+        }
+    }
+    
+    // Build email to index and name mapping
+    let index = 0;
+    for (const account of accounts) {
+        const name = account[0];
+        for (let i = 1; i < account.length; i++) {
+            const email = account[i];
+            if (!emailToIndex.hasOwnProperty(email)) {
+                emailToIndex[email] = index++;
+                emailToName[email] = name;
+            }
+        }
+    }
+    
+    // Initialize parent array
+    parent.length = index;
+    for (let i = 0; i < index; i++) {
+        parent[i] = i;
+    }
+    
+    // Union emails from the same account
+    for (const account of accounts) {
+        const firstEmailIndex = emailToIndex[account[1]];
+        for (let i = 2; i < account.length; i++) {
+            const emailIndex = emailToIndex[account[i]];
+            union(firstEmailIndex, emailIndex);
+        }
+    }
+    
+    // Group emails by root parent
+    const groups: { [root: number]: string[] } = {};
+    for (const email in emailToIndex) {
+        const root = find(emailToIndex[email]);
+        if (!groups.hasOwnProperty(root)) {
+            groups[root] = [];
+        }
+        groups[root].push(email);
+    }
+    
+    // Sort emails and prepend the name
+    const result: string[][] = [];
+    for (const group in groups) {
+        const name = emailToName[groups[group][0]];
+        const sortedEmails = groups[group].sort();
+        result.push([name, ...sortedEmails]);
+    }
+    
+    return result;
+}`,
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'How is the account merge problem modeled using Union-Find?',
       options: [
-        'Finding the shortest path in an unweighted graph',
-        'Finding the longest path in a graph',
-        'Job assignment',
-        'Balancing trees',
+        'As a shortest path problem',
+        'As a cycle detection problem',
+        'As a connected components problem',
+        'As a tree traversal problem',
       ],
       correctAnswer: 2,
       explanations: [
-        'This is incorrect. Bipartite matching is not used to find the shortest path in an unweighted graph.',
-        'This is incorrect. Bipartite matching is not used to find the longest path in a graph.',
-        'This is correct. Job assignment is a common application of bipartite matching.',
-        'This is incorrect. Bipartite matching is not used for balancing trees.',
+        'Incorrect. It is not modeled as a shortest path problem.',
+        'Incorrect. While cycles can be detected, the primary model is connected components.',
+        'Correct. Accounts are grouped into connected components based on shared emails.',
+        'Incorrect. It is not primarily a tree traversal problem.',
       ],
-      difficulty: Difficulty.Intermediate,
+      difficulty: Difficulty.Beginner,
     },
   ],
 };
 
-const articulationBridgesData: LessonContent = {
-  title: 'Articulation Points and Bridges',
+const wordTransformationData: LessonContent = {
+  title: 'Word Transformation',
   content: `<p>
-Articulation points and bridges are critical components in graph theory, particularly in identifying vulnerabilities in network structures.
-</p>
-
-<ul>
-<li><strong>Articulation Points:</strong> Vertices whose removal increases the number of connected components in a graph.</li>
-<li><strong>Bridges:</strong> Edges whose removal increases the number of connected components in a graph.</li>
-</ul>
-
-<p>
-These concepts are crucial in network reliability and vulnerability analysis.
-</p>`,
-  codeExample: `# Finding Articulation Points and Bridges in a graph
-def find_articulation_points_and_bridges(graph):
-    n = len(graph)
-    low = [0] * n
-    disc = [0] * n
-    time = [0]
-    ap = [False] * n
-    bridges = []
-
-    def dfs(u, parent):
-        children = 0
-        disc[u] = time[0]
-        low[u] = time[0]
-        time[0] += 1
-
-        for v in graph[u]:
-            if disc[v] == 0:  # If v is not visited yet, then make it a child of u
-                children += 1
-                dfs(v, u)
-                low[u] = min(low[u], low[v])
-
-                if parent != -1 and low[v] >= disc[u]:
-                    ap[u] = True
-                if low[v] > disc[u]:
-                    bridges.append((u, v))
-            elif v != parent:  # Update low value of u for parent function calls
-                low[u] = min(low[u], disc[v])
-
-        if parent == -1 and children > 1:
-            ap[u] = True
-
-    for i in range(n):
-        if disc[i] == 0:
-            dfs(i, -1)
-
-    articulation_points = [i for i, x in enumerate(ap) if x]
-    return articulation_points, bridges
-
-# Example usage
-graph = {
-    0: [1, 2],
-    1: [0, 2],
-    2: [0, 1, 3],
-    3: [2]
-}
-articulation_points, bridges = find_articulation_points_and_bridges(graph)
-print("Articulation Points:", articulation_points)
-print("Bridges:", bridges)`,
+  Word ladder problems involve transforming one word into another by changing one letter at a time, with each intermediate word being valid. 
+  This can be solved using BFS to find the shortest transformation sequence.
+  </p>`,
+  codeExample: `function ladderLength(beginWord: string, endWord: string, wordList: string[]): number {
+      const wordSet = new Set(wordList);
+      if (!wordSet.has(endWord)) return 0;
+      
+      const queue: [string, number][] = [[beginWord, 1]];
+      const visited: Set<string> = new Set([beginWord]);
+      
+      while (queue.length > 0) {
+          const [currentWord, steps] = queue.shift()!;
+          if (currentWord === endWord) return steps;
+          
+          for (let i = 0; i < currentWord.length; i++) {
+              const chars = currentWord.split('');
+              for (let c = 'a'; c <= 'z'; c++) {
+                  chars[i] = c;
+                  const nextWord = chars.join('');
+                  if (wordSet.has(nextWord) && !visited.has(nextWord)) {
+                      visited.add(nextWord);
+                      queue.push([nextWord, steps + 1]);
+                  }
+              }
+          }
+      }
+      return 0;
+  }`,
   exercises: [
     {
-      prompt: 'Identify the articulation points and bridges in the given graph.',
-      initialCode: `# Write your solution here
-graph = {
-    0: [1, 2],
-    1: [0, 2],
-    2: [0, 1, 3],
-    3: [2]
-}
-articulation_points, bridges = find_articulation_points_and_bridges(graph)
-print("Articulation Points:", articulation_points)
-print("Bridges:", bridges)`,
-      solution: `def find_articulation_points_and_bridges(graph):
-    n = len(graph)
-    low = [0] * n
-    disc = [0] * n
-    time = [0]
-    ap = [False] * n
-    bridges = []
-
-    def dfs(u, parent):
-        children = 0
-        disc[u] = time[0]
-        low[u] = time[0]
-        time[0] += 1
-
-        for v in graph[u]:
-            if disc[v] == 0:
-                children += 1
-                dfs(v, u)
-                low[u] = min(low[u], low[v])
-
-                if parent != -1 and low[v] >= disc[u]:
-                    ap[u] = True
-                if low[v] > disc[u]:
-                    bridges.append((u, v))
-            elif v != parent:
-                low[u] = min(low[u], disc[v])
-
-        if parent == -1 and children > 1:
-            ap[u] = True
-
-    for i in range(n):
-        if disc[i] == 0:
-            dfs(i, -1)
-
-    articulation_points = [i for i, x in enumerate(ap) if x]
-    return articulation_points, bridges
-
-graph = {
-    0: [1, 2],
-    1: [0, 2],
-    2: [0, 1, 3],
-    3: [2]
-}
-articulation_points, bridges = find_articulation_points_and_bridges(graph)
-print("Articulation Points:", articulation_points)
-print("Bridges:", bridges)`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is an articulation point in a graph?',
-      options: [
-        'A vertex whose removal increases the number of connected components.',
-        'An edge whose removal increases the number of connected components.',
-        'A vertex with the highest degree.',
-        'An edge with the highest weight.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. An articulation point is a vertex whose removal increases the number of connected components.',
-        'This is incorrect. An edge whose removal increases the number of connected components is called a bridge.',
-        'This is incorrect. The degree of a vertex is not related to articulation points.',
-        'This is incorrect. The weight of an edge is not related to articulation points.',
-      ],
+      prompt: 'Implement the word ladder algorithm to find the shortest transformation sequence.',
+      initialCode: `function ladderLength(beginWord: string, endWord: string, wordList: string[]): number {
+    // Implement using BFS
+}`,
+      solution: `function ladderLength(beginWord: string, endWord: string, wordList: string[]): number {
+    const wordSet = new Set(wordList);
+    if (!wordSet.has(endWord)) return 0;
+    
+    const queue: [string, number][] = [[beginWord, 1]];
+    const visited: Set<string> = new Set([beginWord]);
+    
+    while (queue.length > 0) {
+        const [currentWord, steps] = queue.shift()!;
+        if (currentWord === endWord) return steps;
+        
+        for (let i = 0; i < currentWord.length; i++) {
+            const chars = currentWord.split('');
+            for (let c = 'a'; c <= 'z'; c++) {
+                chars[i] = c;
+                const nextWord = chars.join('');
+                if (wordSet.has(nextWord) && !visited.has(nextWord)) {
+                    visited.add(nextWord);
+                    queue.push([nextWord, steps + 1]);
+                }
+            }
+        }
+    }
+    return 0;
+}`,
       difficulty: Difficulty.Intermediate,
     },
   ],
-};
-
-const eulerHamiltonianData: LessonContent = {
-  title: 'Euler and Hamiltonian Paths',
-  content: `<p>
-Euler and Hamiltonian paths are special types of paths in graph theory that visit all vertices or edges in a graph.
-</p>
-
-<ul>
-<li><strong>Euler Path:</strong> A path that visits every edge exactly once.</li>
-<li><strong>Euler Circuit:</strong> An Euler path that starts and ends at the same vertex.</li>
-<li><strong>Hamiltonian Path:</strong> A path that visits every vertex exactly once.</li>
-<li><strong>Hamiltonian Circuit:</strong> A Hamiltonian path that starts and ends at the same vertex.</li>
-</ul>
-
-<p>
-These paths are important in various applications, such as circuit design and logistics.
-</p>`,
-  codeExample: `# Finding Eulerian Path in a graph
-def find_eulerian_path(graph):
-    from collections import defaultdict
-    in_degree = defaultdict(int)
-    out_degree = defaultdict(int)
-    edge_count = 0
-
-    for u in graph:
-        for v in graph[u]:
-            out_degree[u] += 1
-            in_degree[v] += 1
-            edge_count += 1
-
-    start = None
-    for u in graph:
-        if out_degree[u] - in_degree[u] == 1:
-            start = u
-            break
-
-    if start is None:
-        start = next(iter(graph))
-
-    path = []
-    def dfs(u):
-        while out_degree[u] > 0:
-            out_degree[u] -= 1
-            v = graph[u].pop()
-            dfs(v)
-        path.append(u)
-
-    dfs(start)
-    path.reverse()
-    return path if len(path) == edge_count + 1 else None
-
-# Example usage
-graph = {
-    0: [1],
-    1: [2],
-    2: [0, 3],
-    3: [4],
-    4: [2]
-}
-eulerian_path = find_eulerian_path(graph)
-print("Eulerian Path:", eulerian_path)`,
-  exercises: [
-    {
-      prompt: 'Find the Eulerian path in the given graph.',
-      initialCode: `# Write your solution here
-graph = {
-    0: [1],
-    1: [2],
-    2: [0, 3],
-    3: [4],
-    4: [2]
-}
-eulerian_path = find_eulerian_path(graph)
-print("Eulerian Path:", eulerian_path)`,
-      solution: `def find_eulerian_path(graph):
-    from collections import defaultdict
-    in_degree = defaultdict(int)
-    out_degree = defaultdict(int)
-    edge_count = 0
-
-    for u in graph:
-        for v in graph[u]:
-            out_degree[u] += 1
-            in_degree[v] += 1
-            edge_count += 1
-
-    start = None
-    for u in graph:
-        if out_degree[u] - in_degree[u] == 1:
-            start = u
-            break
-
-    if start is None:
-        start = next(iter(graph))
-
-    path = []
-    def dfs(u):
-        while out_degree[u] > 0:
-            out_degree[u] -= 1
-            v = graph[u].pop()
-            dfs(v)
-        path.append(u)
-
-    dfs(start)
-    path.reverse()
-    return path if len(path) == edge_count + 1 else None
-
-graph = {
-    0: [1],
-    1: [2],
-    2: [0, 3],
-    3: [4],
-    4: [2]
-}
-eulerian_path = find_eulerian_path(graph)
-print("Eulerian Path:", eulerian_path)`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
   quizzes: [
     {
-      question: 'What is an Eulerian path in a graph?',
+      question: 'Which algorithm is best suited for solving word ladder problems?',
       options: [
-        'A path that visits every vertex exactly once.',
-        'A path that visits every edge exactly once.',
-        'A path that visits every vertex and edge exactly once.',
-        'A path that visits every vertex and edge at least once.',
+        'DFS',
+        'BFS',
+        'Dijkstra’s Algorithm',
+        'A* Search',
       ],
       correctAnswer: 1,
       explanations: [
-        'This is incorrect. An Eulerian path visits every edge exactly once, not every vertex.',
-        'This is correct. An Eulerian path visits every edge exactly once.',
-        'This is incorrect. An Eulerian path visits every edge exactly once, not every vertex and edge.',
-        'This is incorrect. An Eulerian path visits every edge exactly once, not every vertex and edge at least once.',
+        'DFS can get stuck in long paths.',
+        'Correct. BFS finds the shortest path in unweighted graphs.',
+        'Dijkstra’s is unnecessary for unweighted graphs.',
+        'A* is suitable for weighted graphs with heuristics.',
       ],
-      difficulty: Difficulty.Intermediate,
+      difficulty: Difficulty.Beginner,
     },
   ],
 };
 
-const travelingSalesmanData: LessonContent = {
-  title: 'Traveling Salesman Problem',
+const graphCloneData: LessonContent = {
+  title: 'Graph Clone Pattern',
   content: `<p>
-The Traveling Salesman Problem (TSP) is a classic optimization problem in computer science and operations research.
-</p>
+  Cloning a graph involves creating a deep copy of the graph, ensuring that all nodes and edges are duplicated without referencing the original graph.
+  This can be achieved using DFS or BFS.
+  </p>`,
+  codeExample: `class Node {
+    val: number;
+    neighbors: Node[];
+    constructor(val?: number) {
+        this.val = (val === undefined ? 0 : val);
+        this.neighbors = [];
+    }
+}
 
-<ul>
-<li><strong>Exact Solutions:</strong> Techniques like dynamic programming and branch and bound to find the optimal solution.</li>
-<li><strong>Approximate Solutions:</strong> Heuristics and approximation algorithms to find near-optimal solutions efficiently.</li>
-</ul>
-
-<p>
-TSP is NP-hard, meaning there is no known polynomial-time algorithm to solve it exactly for large instances.
-</p>`,
-  codeExample: `# Approximate solution for TSP using Nearest Neighbor algorithm
-def tsp_nearest_neighbor(graph, start):
-    n = len(graph)
-    visited = [False] * n
-    path = [start]
-    visited[start] = True
-    current = start
-
-    for _ in range(n - 1):
-        next_city = None
-        min_distance = float('inf')
-        for v in range(n):
-            if not visited[v] and graph[current][v] < min_distance:
-                min_distance = graph[current][v]
-                next_city = v
-        path.append(next_city)
-        visited[next_city] = True
-        current = next_city
-
-    path.append(start)
-    return path
-
-# Example usage
-graph = [
-    [0, 10, 15, 20],
-    [10, 0, 35, 25],
-    [15, 35, 0, 30],
-    [20, 25, 30, 0]
-]
-start_city = 0
-tsp_path = tsp_nearest_neighbor(graph, start_city)
-print("TSP Path:", tsp_path)`,
+function cloneGraph(node: Node | null): Node | null {
+    if (!node) return null;
+    
+    const visited: { [key: number]: Node } = {};
+    
+    function dfs(original: Node): Node {
+        if (visited[original.val]) return visited[original.val];
+        
+        const clone = new Node(original.val);
+        visited[original.val] = clone;
+        
+        for (const neighbor of original.neighbors) {
+            clone.neighbors.push(dfs(neighbor));
+        }
+        
+        return clone;
+    }
+    
+    return dfs(node);
+}`,
   exercises: [
     {
-      prompt: 'Find the approximate solution for TSP using the Nearest Neighbor algorithm.',
-      initialCode: `# Write your solution here
-graph = [
-    [0, 10, 15, 20],
-    [10, 0, 35, 25],
-    [15, 35, 0, 30],
-    [20, 25, 30, 0]
-]
-start_city = 0
-tsp_path = tsp_nearest_neighbor(graph, start_city)
-print("TSP Path:", tsp_path)`,
-      solution: `def tsp_nearest_neighbor(graph, start):
-    n = len(graph)
-    visited = [False] * n
-    path = [start]
-    visited[start] = True
-    current = start
+      prompt: 'Implement a function to clone a graph using DFS.',
+      initialCode: `function cloneGraph(node: Node | null): Node | null {
+    // Implement using DFS
+}`,
+      solution: `function cloneGraph(node: Node | null): Node | null {
+    if (!node) return null;
+    
+    const visited: { [key: number]: Node } = {};
+    
+    function dfs(original: Node): Node {
+        if (visited[original.val]) return visited[original.val];
+        
+        const clone = new Node(original.val);
+        visited[original.val] = clone;
+        
+        for (const neighbor of original.neighbors) {
+            clone.neighbors.push(dfs(neighbor));
+        }
+        
+        return clone;
+    }
+    
+    return dfs(node);
+}`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'What is the best approach to clone a graph?',
+      options: [
+        'DFS',
+        'BFS',
+        'Both DFS and BFS',
+        'Neither DFS nor BFS',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'DFS can be used to traverse and clone the graph.',
+        'BFS can also be used to traverse and clone the graph.',
+        'Correct. Both DFS and BFS are suitable for cloning a graph.',
+        'Incorrect. Both DFS and BFS can be used.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
 
-    for _ in range(n - 1):
-        next_city = None
-        min_distance = float('inf')
-        for v in range(n):
-            if not visited[v] and graph[current][v] < min_distance:
-                min_distance = graph[current][v]
-                next_city = v
-        path.append(next_city)
-        visited[next_city] = True
-        current = next_city
+const minHeightTreesData: LessonContent = {
+  title: 'Minimum Height Trees',
+  content: `<p>
+  Finding minimum height trees involves identifying the centroids of a tree. 
+  Centroids are nodes that, when removed, divide the tree into subtrees of minimal size.
+  </p>`,
+  codeExample: `function findMinHeightTrees(n: number, edges: number[][]): number[] {
+      if (n === 1) return [0];
+      
+      const adj: number[][] = Array(n).fill([]).map(() => []);
+      const degree: number[] = Array(n).fill(0);
+      
+      for (const [u, v] of edges) {
+          adj[u].push(v);
+          adj[v].push(u);
+          degree[u]++;
+          degree[v]++;
+      }
+      
+      const leaves: number[] = [];
+      for (let i = 0; i < n; i++) {
+          if (degree[i] === 1) leaves.push(i);
+      }
+      
+      let remaining = n;
+      while (remaining > 2) {
+          const size = leaves.length;
+          remaining -= size;
+          for (const u of leaves) {
+              for (const v of adj[u]) {
+                  degree[v]--;
+                  if (degree[v] === 1) leaves.push(v);
+              }
+          }
+          leaves.splice(0, size);
+      }
+      
+      return leaves;
+  }`,
+  exercises: [
+    {
+      prompt: 'Implement a function to find the minimum height trees in a given tree.',
+      initialCode: `function findMinHeightTrees(n: number, edges: number[][]): number[] {
+    // Implement to find centroids
+}`,
+      solution: `function findMinHeightTrees(n: number, edges: number[][]): number[] {
+    if (n === 1) return [0];
+    
+    const adj: number[][] = Array(n).fill([]).map(() => []);
+    const degree: number[] = Array(n).fill(0);
+    
+    for (const [u, v] of edges) {
+        adj[u].push(v);
+        adj[v].push(u);
+        degree[u]++;
+        degree[v]++;
+    }
+    
+    const leaves: number[] = [];
+    for (let i = 0; i < n; i++) {
+        if (degree[i] === 1) leaves.push(i);
+    }
+    
+    let remaining = n;
+    while (remaining > 2) {
+        const size = leaves.length;
+        remaining -= size;
+        for (const u of leaves) {
+            for (const v of adj[u]) {
+                degree[v]--;
+                if (degree[v] === 1) leaves.push(v);
+            }
+        }
+        leaves.splice(0, size);
+    }
+    
+    return leaves;
+}`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'What is a centroid in a tree?',
+      options: [
+        'A node with the highest value',
+        'A node that minimizes the height of the tree',
+        'A node with the most neighbors',
+        'A node in the middle of the tree',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Incorrect. Centroids are not about node values.',
+        'Correct. Centroids minimize the height when removed.',
+        'Incorrect. Centroids are not necessarily high-degree nodes.',
+        'Incorrect. Centroids are about subtree sizes, not position.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
 
-    path.append(start)
-    return path
+const stateTrackingData: LessonContent = {
+  title: 'State Tracking',
+  content: `<p>
+  State tracking is crucial in graph traversal to manage visited nodes, prevent infinite loops, and ensure correct processing in algorithms like DFS and BFS.
+  </p>`,
+  codeExample: `function dfs(graph: number[][], start: number): void {
+      const visited: boolean[] = new Array(graph.length).fill(false);
+      function traverse(node: number): void {
+          visited[node] = true;
+          console.log(node);
+          for (const neighbor of graph[node]) {
+              if (!visited[neighbor]) {
+                  traverse(neighbor);
+              }
+          }
+      }
+      traverse(start);
+  }`,
+  exercises: [
+    {
+      prompt: 'Implement DFS with state tracking to avoid revisiting nodes.',
+      initialCode: `function dfs(graph: number[][], start: number): void {
+    // Implement DFS with visited tracking
+}`,
+      solution: `function dfs(graph: number[][], start: number): void {
+    const visited: boolean[] = new Array(graph.length).fill(false);
+    function traverse(node: number): void {
+        visited[node] = true;
+        console.log(node);
+        for (const neighbor of graph[node]) {
+            if (!visited[neighbor]) {
+                traverse(neighbor);
+            }
+        }
+    }
+    traverse(start);
+}`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'Why is state tracking important in graph traversal?',
+      options: [
+        'To increase the speed of traversal',
+        'To prevent infinite loops and ensure each node is processed correctly',
+        'To mark nodes with the highest priority',
+        'To color nodes for visualization',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Incorrect. State tracking primarily prevents infinite loops.',
+        'Correct. It prevents revisiting nodes and ensures correct traversal.',
+        'Incorrect. State tracking is not about priority marking.',
+        'Incorrect. Coloring is not related to state tracking in traversal.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
 
-graph = [
-    [0, 10, 15, 20],
-    [10, 0, 35, 25],
-    [15, 35, 0, 30],
-    [20, 25, 30, 0]
-]
-start_city = 0
-tsp_path = tsp_nearest_neighbor(graph, start_city)
-print("TSP Path:", tsp_path)`,
+const optimizationData: LessonContent = {
+  title: 'Space-Time Optimization',
+  content: `<p>
+  Optimizing graph algorithms involves enhancing efficiency in terms of time and space, such as choosing appropriate data structures and reducing algorithm complexity.
+  </p>`,
+  codeExample: `function bfsLevelOrder(graph: number[][], start: number): number[] {
+      const visited: boolean[] = new Array(graph.length).fill(false);
+      const queue: number[] = [start];
+      visited[start] = true;
+      const levels: number[] = new Array(graph.length).fill(0);
+      let level = 1;
+      while (queue.length > 0) {
+          const levelSize = queue.length;
+          for (let i = 0; i < levelSize; i++) {
+              const current = queue.shift()!;
+              levels[current] = level;
+              for (const neighbor of graph[current]) {
+                  if (!visited[neighbor]) {
+                      visited[neighbor] = true;
+                      queue.push(neighbor);
+                  }
+              }
+          }
+          level++;
+      }
+      return levels;
+  }`,
+  exercises: [
+    {
+      prompt: 'Optimize BFS to track the level of each node in a graph.',
+      initialCode: `function bfsLevelOrder(graph: number[][], start: number): number[] {
+    // Optimize BFS for level-wise traversal
+}`,
+      solution: `function bfsLevelOrder(graph: number[][], start: number): number[] {
+    const visited: boolean[] = new Array(graph.length).fill(false);
+    const queue: number[] = [start];
+    visited[start] = true;
+    const levels: number[] = new Array(graph.length).fill(0);
+    let level = 1;
+    while (queue.length > 0) {
+        const levelSize = queue.length;
+        for (let i = 0; i < levelSize; i++) {
+            const current = queue.shift()!;
+            levels[current] = level;
+            for (const neighbor of graph[current]) {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    queue.push(neighbor);
+                }
+            }
+        }
+        level++;
+    }
+    return levels;
+}`,
       difficulty: Difficulty.Advanced,
     },
   ],
   quizzes: [
     {
-      question: 'What is the Traveling Salesman Problem (TSP)?',
+      question: 'Which of the following is a common optimization technique in graph algorithms?',
       options: [
-        'Finding the shortest path that visits every vertex exactly once and returns to the starting vertex.',
-        'Finding the shortest path that visits every edge exactly once.',
-        'Finding the shortest path that visits every vertex and edge exactly once.',
-        'Finding the shortest path that visits every vertex at least once.',
+        'Using a priority queue in DFS',
+        'Increasing recursion depth',
+        'Reducing space complexity by avoiding visited arrays',
+        'Choosing appropriate data structures for adjacency representation',
       ],
-      correctAnswer: 0,
+      correctAnswer: 3,
       explanations: [
-        'This is correct. TSP is about finding the shortest path that visits every vertex exactly once and returns to the starting vertex.',
-        'This is incorrect. TSP is about visiting vertices, not edges.',
-        'This is incorrect. TSP is about visiting vertices exactly once, not edges.',
-        'This is incorrect. TSP is about visiting vertices exactly once, not at least once.',
+        'Incorrect. Priority queues are typically used in Dijkstra’s algorithm, not DFS.',
+        'Incorrect. Increasing recursion depth can lead to stack overflow.',
+        'Incorrect. Avoiding visited arrays can lead to incorrect traversal.',
+        'Correct. Choosing appropriate data structures can optimize space and time.',
       ],
       difficulty: Difficulty.Intermediate,
     },
   ],
 };
 
-const graphColoringData: LessonContent = {
-  title: 'Graph Coloring',
+const edgeCasesData: LessonContent = {
+  title: 'Edge Cases',
   content: `<p>
-Graph coloring is a fundamental problem in graph theory where the goal is to assign colors to the vertices of a graph such that no two adjacent vertices share the same color.
-</p>
-
-<ul>
-<li><strong>Vertex Coloring:</strong> Assigning colors to vertices such that no two adjacent vertices have the same color.</li>
-<li><strong>Edge Coloring:</strong> Assigning colors to edges such that no two adjacent edges have the same color.</li>
-</ul>
-
-<p>
-Graph coloring has applications in various fields, including scheduling, register allocation, and map coloring.
-</p>`,
-  codeExample: `# Greedy algorithm for vertex coloring
-def graph_coloring(graph):
-    colors = {}
-    for vertex in graph:
-        used_colors = set(colors.get(neighbor) for neighbor in graph[vertex] if neighbor in colors)
-        for color in range(len(graph)):
-            if color not in used_colors:
-                colors[vertex] = color
-                break
-    return colors
-
-# Example usage
-graph = {
-    0: [1, 2],
-    1: [0, 2],
-    2: [0, 1, 3],
-    3: [2]
-}
-vertex_colors = graph_coloring(graph)
-print("Vertex Colors:", vertex_colors)`,
+  Handling edge cases in graph problems ensures robustness, such as managing empty graphs, single-node graphs, and disconnected components.
+  </p>`,
+  codeExample: `function isGraphEmpty(graph: number[][]): boolean {
+      for (const neighbors of graph) {
+          if (neighbors.length > 0) {
+              return false;
+          }
+      }
+      return true;
+  }`,
   exercises: [
     {
-      prompt: 'Color the vertices of the given graph using the greedy algorithm.',
-      initialCode: `# Write your solution here
-graph = {
-    0: [1, 2],
-    1: [0, 2],
-    2: [0, 1, 3],
-    3: [2]
-}
-vertex_colors = graph_coloring(graph)
-print("Vertex Colors:", vertex_colors)`,
-      solution: `def graph_coloring(graph):
-    colors = {}
-    for vertex in graph:
-        used_colors = set(colors.get(neighbor) for neighbor in graph[vertex] if neighbor in colors)
-        for color in range(len(graph)):
-            if color not in used_colors:
-                colors[vertex] = color
-                break
-    return colors
-
-graph = {
-    0: [1, 2],
-    1: [0, 2],
-    2: [0, 1, 3],
-    3: [2]
-}
-vertex_colors = graph_coloring(graph)
-print("Vertex Colors:", vertex_colors)`,
+      prompt: 'Implement a function to check if a graph is empty or contains disconnected components.',
+      initialCode: `function checkGraphEdgeCases(graph: number[][]): string {
+    // Handle empty graphs and disconnected components
+}`,
+      solution: `function checkGraphEdgeCases(graph: number[][]): string {
+    const visited: boolean[] = new Array(graph.length).fill(false);
+    const queue: number[] = [];
+    let hasDisconnected = false;
+    
+    // Check for empty graph
+    let isEmpty = true;
+    for (const neighbors of graph) {
+        if (neighbors.length > 0) {
+            isEmpty = false;
+            break;
+        }
+    }
+    if (isEmpty) return 'Empty graph';
+    
+    // Perform BFS to check for disconnected components
+    for (let i = 0; i < graph.length; i++) {
+        if (!visited[i]) {
+            if (queue.length > 0) {
+                hasDisconnected = true;
+                break;
+            }
+            queue.push(i);
+            visited[i] = true;
+            while (queue.length > 0) {
+                const current = queue.shift()!;
+                for (const neighbor of graph[current]) {
+                    if (!visited[neighbor]) {
+                        visited[neighbor] = true;
+                        queue.push(neighbor);
+                    }
+                }
+            }
+        }
+    }
+    if (hasDisconnected) return 'Graph has disconnected components';
+    return 'Graph is connected';
+}`,
       difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question: 'What is the goal of vertex coloring in graph theory?',
+      question: 'Which of the following is an example of an edge case in graph problems?',
       options: [
-        'To assign colors to vertices such that no two adjacent vertices share the same color.',
-        'To assign colors to edges such that no two adjacent edges share the same color.',
-        'To assign colors to vertices such that every vertex has a unique color.',
-        'To assign colors to edges such that every edge has a unique color.',
+        'A graph with a single node',
+        'A graph with all nodes connected',
+        'A graph with weighted edges',
+        'A graph with cycles',
       ],
       correctAnswer: 0,
       explanations: [
-        'This is correct. The goal of vertex coloring is to assign colors to vertices such that no two adjacent vertices share the same color.',
-        'This is incorrect. This describes edge coloring, not vertex coloring.',
-        'This is incorrect. This is not a requirement for vertex coloring.',
-        'This is incorrect. This describes edge coloring, not vertex coloring.',
+        'Correct. A single-node graph is a common edge case.',
+        'Incorrect. All nodes connected is a standard case.',
+        'Incorrect. Weighted edges are part of general graph problems.',
+        'Incorrect. Cycles are part of general graph structures.',
       ],
       difficulty: Difficulty.Beginner,
-    },
-  ],
-};
-
-const independentSetsData: LessonContent = {
-  title: 'Independent Sets',
-  content: `<p>
-An independent set in a graph is a set of vertices such that no two vertices in the set are adjacent.
-</p>
-
-<ul>
-<li><strong>Maximum Independent Set:</strong> The largest possible independent set in a graph.</li>
-<li><strong>Finding Independent Sets:</strong> Algorithms to find or approximate the maximum independent set.</li>
-</ul>
-
-<p>
-Independent sets are important in various applications, such as scheduling and resource allocation.
-</p>`,
-  codeExample: `# Greedy algorithm to find a large independent set
-def find_independent_set(graph):
-    independent_set = set()
-    vertices = list(graph.keys())
-    vertices.sort(key=lambda v: len(graph[v]), reverse=True)
-
-    for vertex in vertices:
-        if all(neighbor not in independent_set for neighbor in graph[vertex]):
-            independent_set.add(vertex)
-
-    return independent_set
-
-# Example usage
-graph = {
-    0: [1, 2],
-    1: [0, 2],
-    2: [0, 1, 3],
-    3: [2]
-}
-independent_set = find_independent_set(graph)
-print("Independent Set:", independent_set)`,
-  exercises: [
-    {
-      prompt: 'Find a large independent set in the given graph using the greedy algorithm.',
-      initialCode: `# Write your solution here
-graph = {
-    0: [1, 2],
-    1: [0, 2],
-    2: [0, 1, 3],
-    3: [2]
-}
-independent_set = find_independent_set(graph)
-print("Independent Set:", independent_set)`,
-      solution: `def find_independent_set(graph):
-    independent_set = set()
-    vertices = list(graph.keys())
-    vertices.sort(key=lambda v: len(graph[v]), reverse=True)
-
-    for vertex in vertices:
-        if all(neighbor not in independent_set for neighbor in graph[vertex]):
-            independent_set.add(vertex)
-
-    return independent_set
-
-graph = {
-    0: [1, 2],
-    1: [0, 2],
-    2: [0, 1, 3],
-    3: [2]
-}
-independent_set = find_independent_set(graph)
-print("Independent Set:", independent_set)`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is an independent set in a graph?',
-      options: [
-        'A set of vertices such that no two vertices in the set are adjacent.',
-        'A set of edges such that no two edges in the set are adjacent.',
-        'A set of vertices such that every vertex in the set is adjacent to every other vertex.',
-        'A set of edges such that every edge in the set is adjacent to every other edge.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. An independent set is a set of vertices such that no two vertices in the set are adjacent.',
-        'This is incorrect. This describes an independent set of edges, not vertices.',
-        'This is incorrect. This describes a clique, not an independent set.',
-        'This is incorrect. This describes a clique of edges, not an independent set.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-  ],
-};
-
-const vertexCoverData: LessonContent = {
-  title: 'Vertex Cover',
-  content: `<p>
-A vertex cover in a graph is a set of vertices such that each edge of the graph is incident to at least one vertex in the set.
-</p>
-
-<ul>
-<li><strong>Minimum Vertex Cover:</strong> The smallest possible vertex cover in a graph.</li>
-<li><strong>Finding Vertex Covers:</strong> Algorithms to find or approximate the minimum vertex cover.</li>
-</ul>
-
-<p>
-Vertex cover is important in various applications, such as network design and computational biology.
-</p>`,
-  codeExample: `# Greedy algorithm to find a small vertex cover
-def find_vertex_cover(graph):
-    vertex_cover = set()
-    edges = [(u, v) for u in graph for v in graph[u]]
-
-    while edges:
-        u, v = edges.pop()
-        vertex_cover.add(u)
-        vertex_cover.add(v)
-        edges = [(x, y) for x, y in edges if x not in vertex_cover and y not in vertex_cover]
-
-    return vertex_cover
-
-# Example usage
-graph = {
-    0: [1, 2],
-    1: [0, 2],
-    2: [0, 1, 3],
-    3: [2]
-}
-vertex_cover = find_vertex_cover(graph)
-print("Vertex Cover:", vertex_cover)`,
-  exercises: [
-    {
-      prompt: 'Find a small vertex cover in the given graph using the greedy algorithm.',
-      initialCode: `# Write your solution here
-graph = {
-    0: [1, 2],
-    1: [0, 2],
-    2: [0, 1, 3],
-    3: [2]
-}
-vertex_cover = find_vertex_cover(graph)
-print("Vertex Cover:", vertex_cover)`,
-      solution: `def find_vertex_cover(graph):
-    vertex_cover = set()
-    edges = [(u, v) for u in graph for v in graph[u]]
-
-    while edges:
-        u, v = edges.pop()
-        vertex_cover.add(u)
-        vertex_cover.add(v)
-        edges = [(x, y) for x, y in edges if x not in vertex_cover and y not in vertex_cover]
-
-    return vertex_cover
-
-graph = {
-    0: [1, 2],
-    1: [0, 2],
-    2: [0, 1, 3],
-    3: [2]
-}
-vertex_cover = find_vertex_cover(graph)
-print("Vertex Cover:", vertex_cover)`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is a vertex cover in a graph?',
-      options: [
-        'A set of vertices such that each edge of the graph is incident to at least one vertex in the set.',
-        'A set of edges such that each vertex of the graph is incident to at least one edge in the set.',
-        'A set of vertices such that no two vertices in the set are adjacent.',
-        'A set of edges such that no two edges in the set are adjacent.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. A vertex cover is a set of vertices such that each edge of the graph is incident to at least one vertex in the set.',
-        'This is incorrect. This describes an edge cover, not a vertex cover.',
-        'This is incorrect. This describes an independent set, not a vertex cover.',
-        'This is incorrect. This describes an independent set of edges, not a vertex cover.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-  ],
-};
-
-const bipartiteGraphsData: LessonContent = {
-  title: 'Bipartite Graphs',
-  content: `<p>
-A bipartite graph is a graph whose vertices can be divided into two disjoint and independent sets such that no two graph vertices within the same set are adjacent.
-</p>
-
-<ul>
-<li><strong>Properties:</strong> A graph is bipartite if and only if it contains no odd-length cycles.</li>
-<li><strong>Algorithms:</strong> Techniques to determine if a graph is bipartite, such as graph coloring and BFS/DFS.</li>
-</ul>
-
-<p>
-Bipartite graphs have applications in various fields, including matching problems and network flows.
-</p>`,
-  codeExample: `# Check if a graph is bipartite using BFS
-def is_bipartite(graph):
-    color = {}
-    for vertex in graph:
-        if vertex not in color:
-            queue = [vertex]
-            color[vertex] = 0
-            while queue:
-                u = queue.pop(0)
-                for v in graph[u]:
-                    if v not in color:
-                        color[v] = 1 - color[u]
-                        queue.append(v)
-                    elif color[v] == color[u]:
-                        return False
-    return True
-
-# Example usage
-graph = {
-    0: [1, 2],
-    1: [0, 3],
-    2: [0, 3],
-    3: [1, 2]
-}
-print("Is Bipartite:", is_bipartite(graph))`,
-  exercises: [
-    {
-      prompt: 'Determine if the given graph is bipartite using the BFS algorithm.',
-      initialCode: `# Write your solution here
-graph = {
-    0: [1, 2],
-    1: [0, 3],
-    2: [0, 3],
-    3: [1, 2]
-}
-print("Is Bipartite:", is_bipartite(graph))`,
-      solution: `def is_bipartite(graph):
-    color = {}
-    for vertex in graph:
-        if vertex not in color:
-            queue = [vertex]
-            color[vertex] = 0
-            while queue:
-                u = queue.pop(0)
-                for v in graph[u]:
-                    if v not in color:
-                        color[v] = 1 - color[u]
-                        queue.append(v)
-                    elif color[v] == color[u]:
-                        return False
-    return True
-
-graph = {
-    0: [1, 2],
-    1: [0, 3],
-    2: [0, 3],
-    3: [1, 2]
-}
-print("Is Bipartite:", is_bipartite(graph))`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is a bipartite graph?',
-      options: [
-        'A graph whose vertices can be divided into two disjoint and independent sets such that no two graph vertices within the same set are adjacent.',
-        'A graph with only even-length cycles.',
-        'A graph with only odd-length cycles.',
-        'A graph with no cycles.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. A bipartite graph is a graph whose vertices can be divided into two disjoint and independent sets such that no two graph vertices within the same set are adjacent.',
-        'This is incorrect. A bipartite graph can have both even and odd-length cycles.',
-        'This is incorrect. A bipartite graph cannot have odd-length cycles.',
-        'This is incorrect. A bipartite graph can have cycles.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-  ],
-};
-
-const planarGraphsData: LessonContent = {
-  title: 'Planar Graphs',
-  content: `<p>
-A planar graph is a graph that can be embedded in the plane, i.e., it can be drawn on the plane in such a way that its edges intersect only at their endpoints.
-</p>
-
-<ul>
-<li><strong>Properties:</strong> Planar graphs have specific properties, such as the Euler's formula, which relates the number of vertices, edges, and faces.</li>
-<li><strong>Algorithms:</strong> Techniques to determine if a graph is planar, such as Kuratowski's theorem and the Hopcroft-Tarjan planarity testing algorithm.</li>
-</ul>
-
-<p>
-Planar graphs are important in various applications, including circuit design and geographic information systems.
-</p>`,
-  codeExample: `# Check if a graph is planar using Kuratowski's theorem
-def is_planar(graph):
-    # Simplified check for demonstration purposes
-    # In practice, this would involve more complex algorithms
-    if len(graph) > 4:
-        return False
-    return True
-
-# Example usage
-graph = {
-    0: [1, 2],
-    1: [0, 2],
-    2: [0, 1]
-}
-print("Is Planar:", is_planar(graph))`,
-  exercises: [
-    {
-      prompt: 'Determine if the given graph is planar using a simplified version of Kuratowski\'s theorem.',
-      initialCode: `# Write your solution here
-graph = {
-    0: [1, 2],
-    1: [0, 2],
-    2: [0, 1]
-}
-print("Is Planar:", is_planar(graph))`,
-      solution: `def is_planar(graph):
-    # Simplified check for demonstration purposes
-    # In practice, this would involve more complex algorithms
-    if len(graph) > 4:
-        return False
-    return True
-
-graph = {
-    0: [1, 2],
-    1: [0, 2],
-    2: [0, 1]
-}
-print("Is Planar:", is_planar(graph))`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is a planar graph?',
-      options: [
-        'A graph that can be embedded in the plane, i.e., it can be drawn on the plane in such a way that its edges intersect only at their endpoints.',
-        'A graph with no edges.',
-        'A graph with only one vertex.',
-        'A graph with no vertices.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. A planar graph is a graph that can be embedded in the plane, i.e., it can be drawn on the plane in such a way that its edges intersect only at their endpoints.',
-        'This is incorrect. A graph with no edges can be considered planar, but it is not the definition of a planar graph.',
-        'This is incorrect. A graph with only one vertex can be considered planar, but it is not the definition of a planar graph.',
-        'This is incorrect. A graph with no vertices is not a valid graph.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-  ],
-};
-
-const directedAcyclicGraphsData: LessonContent = {
-  title: 'Directed Acyclic Graphs',
-  content: `<p>
-A Directed Acyclic Graph (DAG) is a directed graph with no directed cycles.
-</p>
-
-<ul>
-<li><strong>Properties:</strong> DAGs have specific properties, such as the ability to perform topological sorting.</li>
-<li><strong>Algorithms:</strong> Techniques to work with DAGs, such as topological sorting, shortest path algorithms (e.g., Dijkstra's and Bellman-Ford), and dynamic programming.</li>
-</ul>
-
-<p>
-DAGs are important in various applications, including scheduling, data processing, and dependency resolution.
-</p>`,
-  codeExample: `# Topological sort using DFS
-def topological_sort(graph):
-    visited = set()
-    stack = []
-
-    def dfs(vertex):
-        visited.add(vertex)
-        for neighbor in graph.get(vertex, []):
-            if neighbor not in visited:
-                dfs(neighbor)
-        stack.append(vertex)
-
-    for vertex in graph:
-        if vertex not in visited:
-            dfs(vertex)
-
-    return stack[::-1]
-
-# Example usage
-graph = {
-    0: [1, 2],
-    1: [3],
-    2: [3],
-    3: []
-}
-print("Topological Sort:", topological_sort(graph))`,
-  exercises: [
-    {
-      prompt: 'Perform a topological sort on the given DAG using DFS.',
-      initialCode: `# Write your solution here
-graph = {
-    0: [1, 2],
-    1: [3],
-    2: [3],
-    3: []
-}
-print("Topological Sort:", topological_sort(graph))`,
-      solution: `def topological_sort(graph):
-    visited = set()
-    stack = []
-
-    def dfs(vertex):
-        visited.add(vertex)
-        for neighbor in graph.get(vertex, []):
-            if neighbor not in visited:
-                dfs(neighbor)
-        stack.append(vertex)
-
-    for vertex in graph:
-        if vertex not in visited:
-            dfs(vertex)
-
-    return stack[::-1]
-
-graph = {
-    0: [1, 2],
-    1: [3],
-    2: [3],
-    3: []
-}
-print("Topological Sort:", topological_sort(graph))`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is a Directed Acyclic Graph (DAG)?',
-      options: [
-        'A directed graph with no directed cycles.',
-        'A graph with no edges.',
-        'A graph with only one vertex.',
-        'A graph with no vertices.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. A Directed Acyclic Graph (DAG) is a directed graph with no directed cycles.',
-        'This is incorrect. A graph with no edges can be considered a DAG, but it is not the definition of a DAG.',
-        'This is incorrect. A graph with only one vertex can be considered a DAG, but it is not the definition of a DAG.',
-        'This is incorrect. A graph with no vertices is not a valid graph.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-  ],
-};
-
-const graphDpData: LessonContent = {
-  title: 'Dynamic Programming on Graphs',
-  content: `<p>
-Dynamic Programming (DP) is a powerful technique for solving complex problems by breaking them down into simpler subproblems. When applied to graphs, DP can solve a variety of problems efficiently.
-</p>
-
-<ul>
-<li><strong>Shortest Path Problems:</strong> Using DP to solve problems like the Floyd-Warshall algorithm for all-pairs shortest paths.</li>
-<li><strong>Maximum Flow Problems:</strong> Techniques like the Ford-Fulkerson method and Edmonds-Karp algorithm.</li>
-<li><strong>Graph Traversal:</strong> DP can be used in conjunction with graph traversal algorithms like DFS and BFS to solve problems such as finding the longest path in a DAG.</li>
-</ul>
-
-<p>
-DP on graphs is crucial for optimizing solutions to complex graph problems.
-</p>`,
-  codeExample: `# Floyd-Warshall algorithm for all-pairs shortest paths
-def floyd_warshall(graph):
-    n = len(graph)
-    dist = [[float('inf')] * n for _ in range(n)]
-
-    for i in range(n):
-        dist[i][i] = 0
-
-    for u in graph:
-        for v, weight in graph[u]:
-            dist[u][v] = weight
-
-    for k in range(n):
-        for i in range(n):
-            for j in range(n):
-                if dist[i][j] > dist[i][k] + dist[k][j]:
-                    dist[i][j] = dist[i][k] + dist[k][j]
-
-    return dist
-
-# Example usage
-graph = {
-    0: [(1, 5), (2, 3)],
-    1: [(2, 2), (3, 6)],
-    2: [(3, 7)],
-    3: []
-}
-shortest_paths = floyd_warshall(graph)
-print("Shortest Paths:", shortest_paths)`,
-  exercises: [
-    {
-      prompt: 'Implement the Floyd-Warshall algorithm to find the shortest paths between all pairs of vertices in the given graph.',
-      initialCode: `# Write your solution here
-graph = {
-    0: [(1, 5), (2, 3)],
-    1: [(2, 2), (3, 6)],
-    2: [(3, 7)],
-    3: []
-}
-shortest_paths = floyd_warshall(graph)
-print("Shortest Paths:", shortest_paths)`,
-      solution: `def floyd_warshall(graph):
-    n = len(graph)
-    dist = [[float('inf')] * n for _ in range(n)]
-
-    for i in range(n):
-        dist[i][i] = 0
-
-    for u in graph:
-        for v, weight in graph[u]:
-            dist[u][v] = weight
-
-    for k in range(n):
-        for i in range(n):
-            for j in range(n):
-                if dist[i][j] > dist[i][k] + dist[k][j]:
-                    dist[i][j] = dist[i][k] + dist[k][j]
-
-    return dist
-
-graph = {
-    0: [(1, 5), (2, 3)],
-    1: [(2, 2), (3, 6)],
-    2: [(3, 7)],
-    3: []
-}
-shortest_paths = floyd_warshall(graph)
-print("Shortest Paths:", shortest_paths)`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary advantage of using Dynamic Programming on graphs?',
-      options: [
-        'It allows for efficient computation of complex graph problems by breaking them down into simpler subproblems.',
-        'It guarantees the shortest path in all cases.',
-        'It can solve any graph problem in constant time.',
-        'It is the only method for solving graph problems.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. DP on graphs allows for efficient computation of complex graph problems by breaking them down into simpler subproblems.',
-        'This is incorrect. While DP can find the shortest path in many cases, it does not guarantee the shortest path in all cases.',
-        'This is incorrect. DP does not solve all graph problems in constant time.',
-        'This is incorrect. There are other methods for solving graph problems.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const networkDesignProblemsData: LessonContent = {
-  title: 'Network Design Problems',
-  content: `<p>
-Network design problems involve optimizing the structure and flow of networks to meet specific objectives, such as minimizing costs or maximizing efficiency.
-</p>
-
-<ul>
-<li><strong>Minimum Spanning Tree (MST):</strong> Algorithms like Kruskal's and Prim's to find the MST.</li>
-<li><strong>Shortest Path Problems:</strong> Algorithms like Dijkstra's and Bellman-Ford to find the shortest paths.</li>
-<li><strong>Maximum Flow Problems:</strong> Techniques like the Ford-Fulkerson method and Edmonds-Karp algorithm.</li>
-</ul>
-
-<p>
-Network design problems are essential in various applications, including telecommunications, transportation, and logistics.
-</p>`,
-  codeExample: `# Kruskal's algorithm for Minimum Spanning Tree
-def find(parent, i):
-    if parent[i] == i:
-        return i
-    return find(parent, parent[i])
-
-def union(parent, rank, x, y):
-    root_x = find(parent, x)
-    root_y = find(parent, y)
-
-    if rank[root_x] < rank[root_y]:
-        parent[root_x] = root_y
-    elif rank[root_x] > rank[root_y]:
-        parent[root_y] = root_x
-    else:
-        parent[root_y] = root_x
-        rank[root_x] += 1
-
-def kruskal_mst(graph):
-    result = []
-    i, e = 0, 0
-    graph = sorted(graph, key=lambda item: item[2])
-    parent = []
-    rank = []
-
-    for node in range(len(graph)):
-        parent.append(node)
-        rank.append(0)
-
-    while e < len(graph) - 1:
-        u, v, w = graph[i]
-        i += 1
-        x = find(parent, u)
-        y = find(parent, v)
-
-        if x != y:
-            e += 1
-            result.append([u, v, w])
-            union(parent, rank, x, y)
-
-    return result
-
-# Example usage
-graph = [
-    [0, 1, 5],
-    [0, 2, 3],
-    [1, 2, 2],
-    [1, 3, 6],
-    [2, 3, 7]
-]
-mst = kruskal_mst(graph)
-print("Minimum Spanning Tree:", mst)`,
-  exercises: [
-    {
-      prompt: 'Implement Kruskal\'s algorithm to find the Minimum Spanning Tree (MST) for the given graph.',
-      initialCode: `# Write your solution here
-graph = [
-    [0, 1, 5],
-    [0, 2, 3],
-    [1, 2, 2],
-    [1, 3, 6],
-    [2, 3, 7]
-]
-mst = kruskal_mst(graph)
-print("Minimum Spanning Tree:", mst)`,
-      solution: `def find(parent, i):
-    if parent[i] == i:
-        return i
-    return find(parent, parent[i])
-
-def union(parent, rank, x, y):
-    root_x = find(parent, x)
-    root_y = find(parent, y)
-
-    if rank[root_x] < rank[root_y]:
-        parent[root_x] = root_y
-    elif rank[root_x] > rank[root_y]:
-        parent[root_y] = root_x
-    else:
-        parent[root_y] = root_x
-        rank[root_x] += 1
-
-def kruskal_mst(graph):
-    result = []
-    i, e = 0, 0
-    graph = sorted(graph, key=lambda item: item[2])
-    parent = []
-    rank = []
-
-    for node in range(len(graph)):
-        parent.append(node)
-        rank.append(0)
-
-    while e < len(graph) - 1:
-        u, v, w = graph[i]
-        i += 1
-        x = find(parent, u)
-        y = find(parent, v)
-
-        if x != y:
-            e += 1
-            result.append([u, v, w])
-            union(parent, rank, x, y)
-
-    return result
-
-graph = [
-    [0, 1, 5],
-    [0, 2, 3],
-    [1, 2, 2],
-    [1, 3, 6],
-    [2, 3, 7]
-]
-mst = kruskal_mst(graph)
-print("Minimum Spanning Tree:", mst)`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary objective of network design problems?',
-      options: [
-        'Optimizing the structure and flow of networks to meet specific objectives, such as minimizing costs or maximizing efficiency.',
-        'Finding the shortest path between two nodes.',
-        'Finding the maximum flow in a network.',
-        'Determining the minimum spanning tree of a graph.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The primary objective of network design problems is to optimize the structure and flow of networks to meet specific objectives.',
-        'This is incorrect. While finding the shortest path is a part of network design, it is not the primary objective.',
-        'This is incorrect. Finding the maximum flow is a part of network design, but it is not the primary objective.',
-        'This is incorrect. Finding the minimum spanning tree is a part of network design, but it is not the primary objective.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const socialNetworkAnalysisData: LessonContent = {
-  title: 'Social Network Analysis',
-  content: `<p>
-Social Network Analysis (SNA) is the process of investigating social structures through the use of networks and graph theory.
-</p>
-
-<ul>
-<li><strong>Centrality Measures:</strong> Techniques like degree centrality, betweenness centrality, and closeness centrality to identify important nodes.</li>
-<li><strong>Community Detection:</strong> Algorithms like the Girvan-Newman algorithm and modularity-based methods to identify communities within a network.</li>
-<li><strong>Influence Models:</strong> Techniques to model and predict the spread of influence in a network.</li>
-</ul>
-
-<p>
-SNA is important in various applications, including marketing, epidemiology, and social science research.
-</p>`,
-  codeExample: `# Degree centrality calculation
-def degree_centrality(graph):
-    centrality = {}
-    for node in graph:
-        centrality[node] = len(graph[node])
-    return centrality
-
-# Example usage
-graph = {
-    0: [1, 2],
-    1: [0, 2, 3],
-    2: [0, 1, 3],
-    3: [1, 2]
-}
-centrality = degree_centrality(graph)
-print("Degree Centrality:", centrality)`,
-  exercises: [
-    {
-      prompt: 'Calculate the degree centrality for each node in the given social network graph.',
-      initialCode: `# Write your solution here
-graph = {
-    0: [1, 2],
-    1: [0, 2, 3],
-    2: [0, 1, 3],
-    3: [1, 2]
-}
-centrality = degree_centrality(graph)
-print("Degree Centrality:", centrality)`,
-      solution: `def degree_centrality(graph):
-    centrality = {}
-    for node in graph:
-        centrality[node] = len(graph[node])
-    return centrality
-
-graph = {
-    0: [1, 2],
-    1: [0, 2, 3],
-    2: [0, 1, 3],
-    3: [1, 2]
-}
-centrality = degree_centrality(graph)
-print("Degree Centrality:", centrality)`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary goal of Social Network Analysis (SNA)?',
-      options: [
-        'Investigating social structures through the use of networks and graph theory.',
-        'Finding the shortest path between two nodes.',
-        'Finding the maximum flow in a network.',
-        'Determining the minimum spanning tree of a graph.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The primary goal of SNA is to investigate social structures through the use of networks and graph theory.',
-        'This is incorrect. While finding the shortest path is a part of SNA, it is not the primary goal.',
-        'This is incorrect. Finding the maximum flow is not the primary goal of SNA.',
-        'This is incorrect. Determining the minimum spanning tree is not the primary goal of SNA.',
-      ],
-      difficulty: Difficulty.Intermediate,
     },
   ],
 };
@@ -4492,34 +4429,29 @@ print("Degree Centrality:", centrality)`,
 const graphLessons: Record<string, LessonContent> = {
   'graph-concepts': basicGraphConceptsData,
   'graph-representation': graphRepresentationData,
+  'graph-building': buildingGraphsData,
   'graph-properties': graphPropertiesData,
-  'bfs': bfsData,
-  'dfs': dfsData,
-  'traversal-applications': traversalApplicationsData,
-  'dijkstra': dijkstraData,
-  'bellman-ford': bellmanFordData,
-  'floyd-warshall': floydWarshallData,
-  'kruskal': kruskalData,
-  'prim': primData,
-  'union-find': unionFindData,
+  'bfs-pattern': bfsPatternData,
+  'dfs-pattern': dfsPatternData,
+  'matrix-traversal': matrixTraversalData,
+  'island-problems': islandProblemsData,
+  'graph-connectivity': graphConnectivityData,
+  'bipartite-check': bipartiteGraphData,
+  'shortest-path': shortestPathData,
+  'path-existence': pathExistenceData,
   'cycle-detection': cycleDetectionData,
-  'topological-sort': topologicalSortData,
-  'strongly-connected': stronglyConnectedData,
-  'max-flow': maxFlowData,
-  'min-cut': minCutData,
-  'bipartite-matching': bipartiteMatchingData,
-  'articulation-bridges': articulationBridgesData,
-  'euler-hamilton': eulerHamiltonianData,
-  'traveling-salesman': travelingSalesmanData,
-  'graph-coloring': graphColoringData,
-  'independent-sets': independentSetsData,
-  'vertex-cover': vertexCoverData,
-  'bipartite-graphs': bipartiteGraphsData,
-  'planar-graphs': planarGraphsData,
-  'directed-acyclic': directedAcyclicGraphsData,
-  'graph-dp': graphDpData,
-  'network-design': networkDesignProblemsData,
-  'social-networks': socialNetworkAnalysisData,
+  'course-schedule': courseScheduleData,
+  'build-order': buildOrderData,
+  'parallel-courses': parallelCoursesData,
+  'redundant-connection': redundantConnectionData,
+  'number-of-provinces': provinceCountingData,
+  'accounts-merge': accountMergeData,
+  'word-ladder': wordTransformationData,
+  'graph-clone': graphCloneData,
+  'min-height-trees': minHeightTreesData,
+  'state-tracking': stateTrackingData,
+  'optimization': optimizationData,
+  'edge-cases': edgeCasesData,
 
 };
 export const graphLessonsTab: LessonsTab = {

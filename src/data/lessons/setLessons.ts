@@ -1,5 +1,5 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab } from '@/common/commonLesson';
+import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
 
 const setCurriculum: Curriculum = {
   title: 'Set Curriculum',
@@ -14,17 +14,19 @@ const setCurriculum: Curriculum = {
           id: 'set-introduction',
           title: 'Introduction to Sets',
           description: 'Understanding sets and their unique characteristics',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'set-creation',
           title: 'Creating and Initializing Sets',
           description: 'Different ways to create sets and add initial elements',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'set-properties',
           title: 'Set Properties',
-          description:
-            'Understanding uniqueness, unordered nature, and mutability',
+          description: 'Understanding uniqueness, unordered nature, and mutability',
+          priority: PriorityLevel.Essential
         },
       ],
     },
@@ -36,16 +38,19 @@ const setCurriculum: Curriculum = {
           id: 'element-operations',
           title: 'Element Operations',
           description: 'Adding, removing, and checking for element existence',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'set-methods',
           title: 'Built-in Set Methods',
           description: 'Using add(), remove(), discard(), pop(), and clear()',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'membership-testing',
           title: 'Membership Testing',
-          description: 'Efficient element lookup using "in" operator',
+          description: 'Efficient O(1) element lookup using "in" operator',
+          priority: PriorityLevel.Essential
         },
       ],
     },
@@ -57,23 +62,25 @@ const setCurriculum: Curriculum = {
           id: 'set-union',
           title: 'Union Operations',
           description: 'Combining sets using union() and | operator',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'set-intersection',
           title: 'Intersection Operations',
-          description:
-            'Finding common elements using intersection() and & operator',
+          description: 'Finding common elements using intersection() and & operator',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'set-difference',
           title: 'Difference Operations',
-          description:
-            'Finding unique elements using difference() and - operator',
+          description: 'Finding unique elements using difference() and - operator',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'symmetric-difference',
           title: 'Symmetric Difference',
           description: 'Finding elements in either set but not both',
+          priority: PriorityLevel.Important
         },
       ],
     },
@@ -84,17 +91,20 @@ const setCurriculum: Curriculum = {
         {
           id: 'subset-superset',
           title: 'Subsets and Supersets',
-          description: 'Understanding set containment relationships',
+          description: 'Understanding and using set containment relationships',
+          priority: PriorityLevel.Important
         },
         {
           id: 'disjoint-sets',
           title: 'Disjoint Sets',
           description: 'Working with sets that have no elements in common',
+          priority: PriorityLevel.Important
         },
         {
           id: 'set-equality',
           title: 'Set Equality',
           description: 'Comparing sets and understanding equality',
+          priority: PriorityLevel.Important
         },
       ],
     },
@@ -107,112 +117,101 @@ const setCurriculum: Curriculum = {
           title: 'HashSet Implementation',
           description:
             'Understanding how sets are implemented using hash tables',
+          priority: PriorityLevel.Important 
         },
         {
           id: 'set-complexity',
           title: 'Time Complexity Analysis',
           description:
             'Understanding performance characteristics of set operations',
+          priority: PriorityLevel.Essential
         },
         {
-          id: 'ordered-sets',
-          title: 'Ordered Sets',
-          description: 'Working with sorted sets and their applications',
+          id: 'set-vs-others',
+          title: 'Sets vs Other Data Structures',
+          description: 'Choosing between sets, lists, and dictionaries for optimal performance',
+          priority: PriorityLevel.Essential
         },
+        // {
+        //   id: 'ordered-sets',
+        //   title: 'Ordered Sets',
+        //   description: 'Working with sorted sets and their applications',
+        // },
       ],
     },
     {
       id: 6,
-      title: 'Common Set Patterns',
+      title: 'Common Interview Patterns',
       topics: [
         {
           id: 'duplicate-detection',
-          title: 'Duplicate Detection',
-          description: 'Using sets to find and handle duplicates',
+          title: 'Duplicate Detection Pattern',
+          description: 'Using sets to efficiently find and handle duplicates',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'unique-elements',
           title: 'Unique Element Problems',
-          description: 'Solving problems involving unique values',
+          description: 'Solving problems involving unique values and deduplication',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'set-conversion',
-          title: 'Set Conversion Techniques',
-          description: 'Converting between sets and other data structures',
+          title: 'Data Structure Conversion',
+          description: 'Strategic conversion between sets and other structures',
+          priority: PriorityLevel.Important
         },
       ],
     },
     {
       id: 7,
-      title: 'Advanced Set Applications',
+      title: 'Advanced Applications',
       topics: [
         {
           id: 'multisets',
-          title: 'Multisets and Counting',
-          description: 'Handling duplicate elements with Counter objects',
-        },
-        {
-          id: 'frozen-sets',
-          title: 'Immutable Sets',
-          description: 'Working with frozenset and immutable set operations',
+          title: 'Multisets with Counter',
+          description: 'Using Counter objects for duplicate element handling',
+          priority: PriorityLevel.Beneficial
         },
         {
           id: 'set-comprehension',
           title: 'Set Comprehensions',
           description: 'Creating sets using comprehension syntax',
+          priority: PriorityLevel.Important
+        },
+        {
+          id: 'common-mistakes',
+          title: 'Common Interview Pitfalls',
+          description: 'Avoiding common mistakes when using sets in interviews',
+          priority: PriorityLevel.Essential
         },
       ],
     },
     {
       id: 8,
-      title: 'Set-based Algorithms',
+      title: 'Interview Problem Patterns',
       topics: [
         {
-          id: 'set-cover',
-          title: 'Set Cover Problems',
-          description: 'Solving minimum set cover and related problems',
+          id: 'array-intersection',
+          title: 'Array Intersection/Union',
+          description: 'Efficiently finding common or combined elements',
+          priority: PriorityLevel.Essential
         },
         {
-          id: 'set-partitioning',
-          title: 'Set Partitioning',
-          description: 'Dividing elements into distinct sets',
+          id: 'string-problems',
+          title: 'String Manipulation with Sets',
+          description: 'Solving string problems using set operations',
+          priority: PriorityLevel.Essential
+        },
+        {
+          id: 'graph-problems',
+          title: 'Graph Problems with Sets',
+          description: 'Using sets in graph traversal and cycle detection',
+          priority: PriorityLevel.Important
         },
       ],
     },
-    {
-      id: 9,
-      title: 'Performance Optimization',
-      topics: [
-        {
-          id: 'memory-efficiency',
-          title: 'Memory Optimization',
-          description: 'Optimizing memory usage with sets',
-        },
-        {
-          id: 'set-vs-list',
-          title: 'Sets vs Lists Performance',
-          description:
-            'Choosing between sets and lists for optimal performance',
-        },
-      ],
-    },
-    {
-      id: 10,
-      title: 'Real-world Applications',
-      topics: [
-        {
-          id: 'deduplication',
-          title: 'Data Deduplication',
-          description: 'Using sets for efficient data deduplication',
-        },
-        {
-          id: 'set-operations-algorithms',
-          title: 'Set-based Algorithms',
-          description: 'Implementing algorithms using set operations',
-        },
-      ],
-    },
-  ],
+  ]
 } as const;
 
 const setIntroductionData: LessonContent = {
@@ -1418,6 +1417,171 @@ symmetric_difference_set = set1.symmetric_difference(set2)  # O(n + m)`,
   ],
 };
 
+const setsVsOtherDataStructuresData: LessonContent = {
+  title: 'Sets vs Other Data Structures',
+  content: `<p>
+Choosing the right data structure is crucial for optimal performance in Python. 
+Sets, lists, and dictionaries each have their own strengths and weaknesses, and understanding when to use each can significantly impact the efficiency of your code.
+</p>
+
+<ul>
+<li><strong>Sets:</strong> Unordered collections of unique elements. Ideal for membership tests and eliminating duplicates.</li>
+<li><strong>Lists:</strong> Ordered collections that can contain duplicates. Ideal for sequences where order matters.</li>
+<li><strong>Dictionaries:</strong> Unordered collections of key-value pairs. Ideal for fast lookups and mappings.</li>
+<li><strong>Membership Tests:</strong> Comparing the efficiency of membership tests in sets, lists, and dictionaries.</li>
+<li><strong>Insertion and Deletion:</strong> Comparing the efficiency of insertion and deletion operations in sets, lists, and dictionaries.</li>
+<li><strong>Space Complexity:</strong> Understanding how memory usage scales with the number of elements in each data structure.</li>
+</ul>`,
+  codeExample: `# Membership Test in Sets
+my_set = {1, 2, 3, 4, 5}
+print(3 in my_set)  # O(1) time complexity
+
+# Membership Test in Lists
+my_list = [1, 2, 3, 4, 5]
+print(3 in my_list)  # O(n) time complexity, where n is the number of elements
+
+# Membership Test in Dictionaries
+my_dict = {1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e'}
+print(3 in my_dict)  # O(1) time complexity
+
+# Insertion in Sets
+my_set.add(6)  # O(1) time complexity
+
+# Insertion in Lists
+my_list.append(6)  # O(1) time complexity
+
+# Insertion in Dictionaries
+my_dict[6] = 'f'  # O(1) time complexity
+
+# Deletion in Sets
+my_set.remove(6)  # O(1) time complexity
+
+# Deletion in Lists
+my_list.remove(6)  # O(n) time complexity, where n is the number of elements
+
+# Deletion in Dictionaries
+del my_dict[6]  # O(1) time complexity
+
+# Space Complexity
+# Sets and dictionaries have O(n) space complexity, where n is the number of elements
+# Lists have O(n) space complexity, where n is the number of elements`,
+  exercises: [
+    {
+      prompt:
+        'Given a list of elements, convert it to a set to remove duplicates. Analyze the time complexity of the conversion.',
+      initialCode: `# Write your solution here
+my_list = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+# Convert the list to a set to remove duplicates`,
+      solution: `my_list = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+# Convert the list to a set to remove duplicates
+my_set = set(my_list)  # O(n) time complexity, where n is the number of elements
+
+print(my_set)`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Given a dictionary, check if a key exists. Analyze the time complexity of the lookup operation.',
+      initialCode: `# Write your solution here
+my_dict = {'key1': 'value1', 'key2': 'value2'}
+# Check if 'key1' exists in the dictionary`,
+      solution: `my_dict = {'key1': 'value1', 'key2': 'value2'}
+# Check if 'key1' exists in the dictionary
+exists = 'key1' in my_dict  # O(1) time complexity
+
+print(exists)`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Given a list, check if an element exists. Analyze the time complexity of the membership test.',
+      initialCode: `# Write your solution here
+my_list = [1, 2, 3, 4, 5]
+# Check if 3 exists in the list`,
+      solution: `my_list = [1, 2, 3, 4, 5]
+# Check if 3 exists in the list
+exists = 3 in my_list  # O(n) time complexity, where n is the number of elements
+
+print(exists)`,
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which data structure is best for membership tests in Python?',
+      options: [
+        'Sets',
+        'Lists',
+        'Dictionaries',
+        'Tuples',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. Sets provide O(1) time complexity for membership tests.',
+        'This is incorrect. Lists provide O(n) time complexity for membership tests.',
+        'This is incorrect. Dictionaries provide O(1) time complexity for membership tests, but they are more suited for key-value lookups.',
+        'This is incorrect. Tuples provide O(n) time complexity for membership tests, similar to lists.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'Which data structure is best for fast lookups and mappings in Python?',
+      options: [
+        'Sets',
+        'Lists',
+        'Dictionaries',
+        'Tuples',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'This is incorrect. Sets are not designed for key-value lookups.',
+        'This is incorrect. Lists are not designed for fast lookups.',
+        'This is correct. Dictionaries provide O(1) time complexity for key-value lookups.',
+        'This is incorrect. Tuples are not designed for fast lookups.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'Which data structure is best for maintaining order and allowing duplicates in Python?',
+      options: [
+        'Sets',
+        'Lists',
+        'Dictionaries',
+        'Tuples',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'This is incorrect. Sets do not maintain order and do not allow duplicates.',
+        'This is correct. Lists maintain order and allow duplicates.',
+        'This is incorrect. Dictionaries do not maintain order and are designed for key-value pairs.',
+        'This is incorrect. Tuples maintain order and allow duplicates, but they are immutable.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'Which data structure is best for eliminating duplicates in Python?',
+      options: [
+        'Sets',
+        'Lists',
+        'Dictionaries',
+        'Tuples',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. Sets automatically eliminate duplicates.',
+        'This is incorrect. Lists allow duplicates.',
+        'This is incorrect. Dictionaries are designed for key-value pairs and do not automatically eliminate duplicates.',
+        'This is incorrect. Tuples allow duplicates.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
 const orderedSetsData: LessonContent = {
   title: 'Ordered Sets',
   content: `<p>
@@ -1868,88 +2032,6 @@ print("Count of 3:", counter[3])  # Output: Count of 3: 2`,
   ],
 };
 
-const frozenSetsData: LessonContent = {
-  title: 'Immutable Sets',
-  content: `<p>
-Immutable sets, also known as frozensets, are sets that cannot be modified after they are created. 
-In Python, the frozenset type provides this functionality. 
-Immutable sets are useful in scenarios where you need to ensure that the set remains unchanged. 
-Here's how you can work with frozensets:
-</p>
-
-<ul>
-<li><strong>Creating a Frozenset:</strong> Use the frozenset() constructor to create an immutable set.</li>
-<li><strong>Operations:</strong> Frozensets support all the standard set operations like union, intersection, and difference.</li>
-<li><strong>Immutable:</strong> Frozensets cannot be modified after creation, so methods like add() and remove() are not available.</li>
-</ul>`,
-  codeExample: `# Example of immutable sets in Python
-# Creating a frozenset
-my_frozenset = frozenset([1, 2, 3, 4, 5])
-
-# Operations on frozensets
-set1 = {3, 4, 5, 6}
-union_set = my_frozenset.union(set1)
-print("Union:", union_set)  # Output: Union: frozenset({1, 2, 3, 4, 5, 6})
-
-intersection_set = my_frozenset.intersection(set1)
-print("Intersection:", intersection_set)  # Output: Intersection: frozenset({3, 4, 5})
-
-difference_set = my_frozenset.difference(set1)
-print("Difference:", difference_set)  # Output: Difference: frozenset({1, 2})`,
-  exercises: [
-    {
-      prompt: 'Create and perform operations on a frozenset.',
-      initialCode: `# Write your solution here
-# Creating a frozenset
-my_frozenset = frozenset([1, 2, 3, 4, 5])
-
-# Operations on frozensets
-set1 = {3, 4, 5, 6}
-union_set = my_frozenset.union(set1)
-print("Union:", union_set)  # Output: Union: frozenset({1, 2, 3, 4, 5, 6})
-
-intersection_set = my_frozenset.intersection(set1)
-print("Intersection:", intersection_set)  # Output: Intersection: frozenset({3, 4, 5})
-
-difference_set = my_frozenset.difference(set1)
-print("Difference:", difference_set)  # Output: Difference: frozenset({1, 2})`,
-      solution: `# Creating a frozenset
-my_frozenset = frozenset([1, 2, 3, 4, 5])
-
-# Operations on frozensets
-set1 = {3, 4, 5, 6}
-union_set = my_frozenset.union(set1)
-print("Union:", union_set)  # Output: Union: frozenset({1, 2, 3, 4, 5, 6})
-
-intersection_set = my_frozenset.intersection(set1)
-print("Intersection:", intersection_set)  # Output: Intersection: frozenset({3, 4, 5})
-
-difference_set = my_frozenset.difference(set1)
-print("Difference:", difference_set)  # Output: Difference: frozenset({1, 2})`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which of the following methods is not available for frozensets in Python?',
-      options: [
-        'union()',
-        'intersection()',
-        'add()',
-        'difference()',
-      ],
-      correctAnswer: 2,
-      explanations: [
-        'This is incorrect. `union()` is available for frozensets.',
-        'This is incorrect. `intersection()` is available for frozensets.',
-        'This is correct. `add()` is not available for frozensets because they are immutable.',
-        'This is incorrect. `difference()` is available for frozensets.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
 const setComprehensionData: LessonContent = {
   title: 'Set Comprehensions',
   content: `<p>
@@ -2025,552 +2107,87 @@ print("Nested set:", nested_set)  # Output: Nested set: {0, 1, 2, 3, 4}`,
     },
   ],
 };
-
-const setCoverData: LessonContent = {
-  title: 'Set Cover Problems',
+const commonInterviewPitfallsData: LessonContent = {
+  title: 'Common Interview Pitfalls',
   content: `<p>
-Set cover problems are a class of optimization problems where the goal is to find the smallest set of subsets that cover all elements of a given universe. 
-These problems are often NP-hard, meaning that they are computationally difficult to solve exactly for large instances. 
-Here's how you can approach set cover problems:
+Avoiding common mistakes when using sets in interviews is crucial for demonstrating your problem-solving skills effectively. 
+This lesson covers common pitfalls and how to avoid them.
 </p>
 
 <ul>
-<li><strong>Greedy Algorithm:</strong> A common approach to approximate the solution is to use a greedy algorithm that iteratively selects the subset that covers the most uncovered elements.</li>
-<li><strong>Exact Algorithms:</strong> For small instances, exact algorithms like integer linear programming (ILP) can be used to find the optimal solution.</li>
+<li><strong>Misunderstanding Set Operations:</strong> Avoiding common misconceptions about set operations like union, intersection, and difference.</li>
+<li><strong>Edge Cases:</strong> Handling edge cases such as empty sets, single-element sets, and sets with duplicate elements.</li>
+<li><strong>Performance Considerations:</strong> Understanding the time and space complexity of set operations and choosing the right data structure.</li>
+<li><strong>Syntax Errors:</strong> Avoiding syntax errors when working with sets in Python.</li>
+<li><strong>Logical Errors:</strong> Avoiding logical errors in set operations and membership tests.</li>
 </ul>`,
-  codeExample: `# Example of a greedy algorithm for set cover in Python
-def greedy_set_cover(universe, subsets):
-    elements = set(e for s in subsets for e in s)
-    if elements != universe:
-        return None
-    covered = set()
-    cover = []
-    while covered != universe:
-        subset = max(subsets, key=lambda s: len(s - covered))
-        cover.append(subset)
-        covered |= subset
-    return cover
-
-# Example usage
-universe = {1, 2, 3, 4, 5}
-subsets = [
-    {1, 2, 3},
-    {2, 4},
-    {3, 4},
-    {4, 5}
-]
-cover = greedy_set_cover(universe, subsets)
-print("Set cover:", cover)  # Output: Set cover: [{1, 2, 3}, {4, 5}]`,
-  exercises: [
-    {
-      prompt: 'Implement a greedy algorithm to solve a set cover problem.',
-      initialCode: `# Write your solution here
-def greedy_set_cover(universe, subsets):
-    elements = set(e for s in subsets for e in s)
-    if elements != universe:
-        return None
-    covered = set()
-    cover = []
-    while covered != universe:
-        subset = max(subsets, key=lambda s: len(s - covered))
-        cover.append(subset)
-        covered |= subset
-    return cover
-
-# Example usage
-universe = {1, 2, 3, 4, 5}
-subsets = [
-    {1, 2, 3},
-    {2, 4},
-    {3, 4},
-    {4, 5}
-]
-cover = greedy_set_cover(universe, subsets)
-print("Set cover:", cover)  # Output: Set cover: [{1, 2, 3}, {4, 5}]`,
-      solution: `def greedy_set_cover(universe, subsets):
-    elements = set(e for s in subsets for e in s)
-    if elements != universe:
-        return None
-    covered = set()
-    cover = []
-    while covered != universe:
-        subset = max(subsets, key=lambda s: len(s - covered))
-        cover.append(subset)
-        covered |= subset
-    return cover
-
-# Example usage
-universe = {1, 2, 3, 4, 5}
-subsets = [
-    {1, 2, 3},
-    {2, 4},
-    {3, 4},
-    {4, 5}
-]
-cover = greedy_set_cover(universe, subsets)
-print("Set cover:", cover)  # Output: Set cover: [{1, 2, 3}, {4, 5}]`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary approach to approximate the solution for set cover problems?',
-      options: [
-        'Dynamic programming',
-        'Greedy algorithm',
-        'Backtracking',
-        'Divide and conquer',
-      ],
-      correctAnswer: 1,
-      explanations: [
-        'This is incorrect. Dynamic programming is not typically used for set cover problems.',
-        'This is correct. A greedy algorithm is commonly used to approximate the solution.',
-        'This is incorrect. Backtracking is not typically used for set cover problems.',
-        'This is incorrect. Divide and conquer is not typically used for set cover problems.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const setPartitioningData: LessonContent = {
-  title: 'Set Partitioning',
-  content: `<p>
-Set partitioning problems involve dividing a set of elements into disjoint subsets that satisfy certain conditions. 
-These problems are often NP-hard and can be approached using various techniques. 
-Here's how you can approach set partitioning problems:
-</p>
-
-<ul>
-<li><strong>Dynamic Programming:</strong> For small instances, dynamic programming can be used to find the optimal solution.</li>
-<li><strong>Heuristic Algorithms:</strong> For larger instances, heuristic algorithms like greedy algorithms or genetic algorithms can be used to find approximate solutions.</li>
-</ul>`,
-  codeExample: `# Example of a dynamic programming approach for set partitioning in Python
-def subset_sum(numbers, target, partial=[]):
-    s = sum(partial)
-    if s == target:
-        print("Subset found:", partial)
-    if s >= target:
-        return
-    for i in range(len(numbers)):
-        n = numbers[i]
-        remaining = numbers[i+1:]
-        subset_sum(remaining, target, partial + [n])
-
-# Example usage
-numbers = [1, 2, 3, 4, 5]
-target = 5
-subset_sum(numbers, target)  # Output: Subset found: [1, 4], Subset found: [2, 3], Subset found: [5]`,
-  exercises: [
-    {
-      prompt: 'Implement a dynamic programming approach to solve a set partitioning problem.',
-      initialCode: `# Write your solution here
-def subset_sum(numbers, target, partial=[]):
-    s = sum(partial)
-    if s == target:
-        print("Subset found:", partial)
-    if s >= target:
-        return
-    for i in range(len(numbers)):
-        n = numbers[i]
-        remaining = numbers[i+1:]
-        subset_sum(remaining, target, partial + [n])
-
-# Example usage
-numbers = [1, 2, 3, 4, 5]
-target = 5
-subset_sum(numbers, target)  # Output: Subset found: [1, 4], Subset found: [2, 3], Subset found: [5]`,
-      solution: `def subset_sum(numbers, target, partial=[]):
-    s = sum(partial)
-    if s == target:
-        print("Subset found:", partial)
-    if s >= target:
-        return
-    for i in range(len(numbers)):
-        n = numbers[i]
-        remaining = numbers[i+1:]
-        subset_sum(remaining, target, partial + [n])
-
-# Example usage
-numbers = [1, 2, 3, 4, 5]
-target = 5
-subset_sum(numbers, target)  # Output: Subset found: [1, 4], Subset found: [2, 3], Subset found: [5]`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary approach to solve set partitioning problems for small instances?',
-      options: [
-        'Dynamic programming',
-        'Greedy algorithm',
-        'Backtracking',
-        'Divide and conquer',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. Dynamic programming can be used to find the optimal solution for small instances.',
-        'This is incorrect. A greedy algorithm is not typically used for small instances.',
-        'This is incorrect. Backtracking is not typically used for set partitioning problems.',
-        'This is incorrect. Divide and conquer is not typically used for set partitioning problems.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const memoryEfficiencyData: LessonContent = {
-  title: 'Memory Optimization',
-  content: `<p>
-Memory optimization is crucial for improving the performance of your code, especially when dealing with large datasets. 
-Sets are particularly useful for memory optimization due to their efficient use of hash tables. 
-Here's how you can optimize memory usage with sets:
-</p>
-
-<ul>
-<li><strong>Using Sets:</strong> Sets use hash tables, which provide efficient memory usage compared to other data structures like lists.</li>
-<li><strong>Avoiding Duplicates:</strong> Sets inherently do not allow duplicate elements, which can save memory by avoiding redundant storage.</li>
-<li><strong>Efficient Storage:</strong> Sets store elements in a way that minimizes memory overhead, making them ideal for large datasets.</li>
-</ul>`,
-  codeExample: `# Example of memory optimization with sets in Python
-# Creating a large list with duplicates
-large_list = [i % 1000 for i in range(1000000)]
-
-# Converting the list to a set to remove duplicates
-large_set = set(large_list)
-
-# Comparing memory usage
-import sys
-list_memory = sys.getsizeof(large_list)
-set_memory = sys.getsizeof(large_set)
-
-print("Memory usage of list:", list_memory)  # Output: Memory usage of list: 8000056
-print("Memory usage of set:", set_memory)  # Output: Memory usage of set: 32768`,
-  exercises: [
-    {
-      prompt: 'Optimize memory usage by converting a large list with duplicates to a set.',
-      initialCode: `# Write your solution here
-# Creating a large list with duplicates
-large_list = [i % 1000 for i in range(1000000)]
-
-# Converting the list to a set to remove duplicates
-large_set = set(large_list)
-
-# Comparing memory usage
-import sys
-list_memory = sys.getsizeof(large_list)
-set_memory = sys.getsizeof(large_set)
-
-print("Memory usage of list:", list_memory)  # Output: Memory usage of list: 8000056
-print("Memory usage of set:", set_memory)  # Output: Memory usage of set: 32768`,
-      solution: `# Creating a large list with duplicates
-large_list = [i % 1000 for i in range(1000000)]
-
-# Converting the list to a set to remove duplicates
-large_set = set(large_list)
-
-# Comparing memory usage
-import sys
-list_memory = sys.getsizeof(large_list)
-set_memory = sys.getsizeof(large_set)
-
-print("Memory usage of list:", list_memory)  # Output: Memory usage of list: 8000056
-print("Memory usage of set:", set_memory)  # Output: Memory usage of set: 32768`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary advantage of using sets for memory optimization?',
-      options: [
-        'Sets allow duplicate elements.',
-        'Sets are ordered collections.',
-        'Sets do not allow duplicate elements.',
-        'Sets are immutable.',
-      ],
-      correctAnswer: 2,
-      explanations: [
-        'This is incorrect. Sets do not allow duplicate elements.',
-        'This is incorrect. Sets are unordered collections.',
-        'This is correct. Sets do not allow duplicate elements, making them ideal for memory optimization.',
-        'This is incorrect. Sets are mutable.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const setVsListPerformanceData: LessonContent = {
-  title: 'Sets vs Lists Performance',
-  content: `<p>
-Choosing between sets and lists for optimal performance depends on the specific operations you need to perform. 
-Sets are optimized for membership testing and avoiding duplicates, while lists are optimized for sequential access and ordered storage. 
-Here's a comparison of the performance characteristics of sets and lists:
-</p>
-
-<ul>
-<li><strong>Membership Testing:</strong> Sets provide average O(1) time complexity for membership testing, while lists provide O(n) time complexity.</li>
-<li><strong>Insertion:</strong> Sets provide average O(1) time complexity for insertion, while lists provide O(n) time complexity for insertion at the end and O(n) time complexity for insertion at the beginning.</li>
-<li><strong>Deletion:</strong> Sets provide average O(1) time complexity for deletion, while lists provide O(n) time complexity for deletion.</li>
-<li><strong>Memory Usage:</strong> Sets generally use more memory than lists due to the overhead of the hash table.</li>
-</ul>`,
-  codeExample: `# Example of performance comparison between sets and lists in Python
-import time
-
-# Creating a large list and a set
-large_list = list(range(1000000))
-large_set = set(range(1000000))
-
-# Membership testing
-start_time = time.time()
-for i in range(1000000):
-    i in large_list
-list_membership_time = time.time() - start_time
-
-start_time = time.time()
-for i in range(1000000):
-    i in large_set
-set_membership_time = time.time() - start_time
-
-print("List membership time:", list_membership_time)  # Output: List membership time: 0.123456789
-print("Set membership time:", set_membership_time)  # Output: Set membership time: 0.0123456789`,
-  exercises: [
-    {
-      prompt: 'Compare the performance of membership testing between sets and lists.',
-      initialCode: `# Write your solution here
-import time
-
-# Creating a large list and a set
-large_list = list(range(1000000))
-large_set = set(range(1000000))
-
-# Membership testing
-start_time = time.time()
-for i in range(1000000):
-    i in large_list
-list_membership_time = time.time() - start_time
-
-start_time = time.time()
-for i in range(1000000):
-    i in large_set
-set_membership_time = time.time() - start_time
-
-print("List membership time:", list_membership_time)  # Output: List membership time: 0.123456789
-print("Set membership time:", set_membership_time)  # Output: Set membership time: 0.0123456789`,
-      solution: `import time
-
-# Creating a large list and a set
-large_list = list(range(1000000))
-large_set = set(range(1000000))
-
-# Membership testing
-start_time = time.time()
-for i in range(1000000):
-    i in large_list
-list_membership_time = time.time() - start_time
-
-start_time = time.time()
-for i in range(1000000):
-    i in large_set
-set_membership_time = time.time() - start_time
-
-print("List membership time:", list_membership_time)  # Output: List membership time: 0.123456789
-print("Set membership time:", set_membership_time)  # Output: Set membership time: 0.0123456789`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which data structure provides better performance for membership testing?',
-      options: [
-        'List',
-        'Set',
-        'Both have the same performance',
-        'None of the above',
-      ],
-      correctAnswer: 1,
-      explanations: [
-        'This is incorrect. Lists provide O(n) time complexity for membership testing.',
-        'This is correct. Sets provide average O(1) time complexity for membership testing.',
-        'This is incorrect. Sets provide better performance for membership testing.',
-        'This is incorrect. Sets provide better performance for membership testing.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const deduplicationData: LessonContent = {
-  title: 'Data Deduplication',
-  content: `<p>
-Data deduplication is a process used to eliminate duplicate copies of repeating data. 
-In Python, this can be efficiently achieved using <strong>sets</strong>, which are collections of unique elements. 
-Sets automatically handle duplicates, making them ideal for deduplication tasks.
-</p>
-
-<ul>
-<li><strong>Creating a set from a list:</strong> Convert a list to a set to remove duplicates.</li>
-<li><strong>Checking for duplicates:</strong> Use set operations to identify and remove duplicates.</li>
-<li><strong>Union and intersection:</strong> Use set operations to combine and find common elements between sets.</li>
-</ul>`,
-  codeExample: `# Creating a set from a list to remove duplicates
-duplicates = [1, 2, 2, 3, 4, 4, 5]
-unique_elements = set(duplicates)  # O(n) time & space, where n is the number of elements
-
-# Checking for duplicates
-def has_duplicates(lst):
-    return len(lst) != len(set(lst))  # O(n) time & space
-
-# Union and intersection
+  codeExample: `# Misunderstanding Set Operations
 set1 = {1, 2, 3}
 set2 = {3, 4, 5}
-union_set = set1.union(set2)  # {1, 2, 3, 4, 5}
-intersection_set = set1.intersection(set2)  # {3}`,
+
+# Correct union operation
+union_set = set1 | set2  # {1, 2, 3, 4, 5}
+
+# Incorrect union operation
+incorrect_union_set = set1 + set2  # TypeError: unsupported operand type(s) for +: 'set' and 'set'
+
+# Edge Cases
+empty_set = set()
+single_element_set = {1}
+
+# Performance Considerations
+large_set = set(range(1000000))
+
+# Syntax Errors
+# Incorrect: set = {1, 2, 3}  # SyntaxError: invalid syntax
+# Correct: my_set = {1, 2, 3}
+
+# Logical Errors
+# Incorrect: if 1 in set1 and set2:  # Logical error: should be 'or' instead of 'and'
+# Correct: if 1 in set1 or set2:`,
   exercises: [
     {
       prompt:
-        'Create a function that takes a list as input and returns a list with all duplicates removed.',
+        'Given two sets, find their union and handle the case where one of the sets is empty.',
       initialCode: `# Write your solution here
-def remove_duplicates(lst):
-    return `,
-      solution: `def remove_duplicates(lst):
-    return list(set(lst))`,
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      prompt:
-        'Create a function that takes two lists as input and returns a list of elements that are present in both lists.',
-      initialCode: `# Write your solution here
-def common_elements(lst1, lst2):
-    return `,
-      solution: `def common_elements(lst1, lst2):
-    return list(set(lst1) & set(lst2))`,
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      prompt:
-        'Create a function that takes two lists as input and returns a list of elements that are unique to each list.',
-      initialCode: `# Write your solution here
-def unique_elements(lst1, lst2):
-    return `,
-      solution: `def unique_elements(lst1, lst2):
-    return list(set(lst1) ^ set(lst2))`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question:
-        'Which of the following is the correct way to remove duplicates from a list in Python?',
-      options: [
-        'list(set(my_list))',
-        'set(my_list)',
-        'list.remove_duplicates(my_list)',
-        'list.unique(my_list)',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. It converts the list to a set to remove duplicates and then back to a list.',
-        'This is incorrect because it returns a set, not a list.',
-        'This is incorrect because there is no remove_duplicates method in the list class.',
-        'This is incorrect because there is no unique method in the list class.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      question:
-        'Which of the following is the correct way to find common elements between two lists in Python?',
-      options: [
-        'list(set(list1) & set(list2))',
-        'list(set(list1) | set(list2))',
-        'list(set(list1) - set(list2))',
-        'list(set(list1) ^ set(list2))',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. It finds the intersection of two sets.',
-        'This is incorrect because it finds the union of two sets.',
-        'This is incorrect because it finds the difference between two sets.',
-        'This is incorrect because it finds the symmetric difference between two sets.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question:
-        'Which of the following is the correct way to find elements that are unique to each list in Python?',
-      options: [
-        'list(set(list1) & set(list2))',
-        'list(set(list1) | set(list2))',
-        'list(set(list1) - set(list2))',
-        'list(set(list1) ^ set(list2))',
-      ],
-      correctAnswer: 3,
-      explanations: [
-        'This is incorrect because it finds the intersection of two sets.',
-        'This is incorrect because it finds the union of two sets.',
-        'This is incorrect because it finds the difference between two sets.',
-        'This is correct. It finds the symmetric difference between two sets.',
-      ],
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-};
-
-const setOperationsAlgorithmsData: LessonContent = {
-  title: 'Set-based Algorithms',
-  content: `<p>
-Set operations are powerful tools in Python that can be used to implement various algorithms efficiently. 
-Sets allow for fast membership tests, unions, intersections, and differences, making them ideal for problems that require these operations.
-</p>
-
-<ul>
-<li><strong>Union and intersection:</strong> Use set operations to combine and find common elements between sets.</li>
-<li><strong>Difference and symmetric difference:</strong> Use set operations to find elements that are unique to each set.</li>
-<li><strong>Subset and superset:</strong> Use set operations to check if one set is contained within another.</li>
-</ul>`,
-  codeExample: `# Union and intersection
 set1 = {1, 2, 3}
-set2 = {3, 4, 5}
-union_set = set1.union(set2)  # {1, 2, 3, 4, 5}
-intersection_set = set1.intersection(set2)  # {3}
+set2 = set()
+# Find the union of set1 and set2`,
+      solution: `set1 = {1, 2, 3}
+set2 = set()
+# Find the union of set1 and set2
+union_set = set1 | set2
 
-# Difference and symmetric difference
-difference_set = set1.difference(set2)  # {1, 2}
-symmetric_difference_set = set1.symmetric_difference(set2)  # {1, 2, 4, 5}
-
-# Subset and superset
-is_subset = set1.issubset(set2)  # False
-is_superset = set1.issuperset(set2)  # False`,
-  exercises: [
-    {
-      prompt:
-        'Create a function that takes two sets as input and returns a set of elements that are present in both sets.',
-      initialCode: `# Write your solution here
-def common_elements(set1, set2):
-    return `,
-      solution: `def common_elements(set1, set2):
-    return set1.intersection(set2)`,
+print(union_set)`,
       difficulty: Difficulty.Beginner,
     },
     {
       prompt:
-        'Create a function that takes two sets as input and returns a set of elements that are unique to each set.',
+        'Given a set, check if an element exists in the set and handle the case where the set is empty.',
       initialCode: `# Write your solution here
-def unique_elements(set1, set2):
-    return `,
-      solution: `def unique_elements(set1, set2):
-    return set1.symmetric_difference(set2)`,
-      difficulty: Difficulty.Intermediate,
+my_set = set()
+# Check if 1 exists in my_set`,
+      solution: `my_set = set()
+# Check if 1 exists in my_set
+exists = 1 in my_set
+
+print(exists)`,
+      difficulty: Difficulty.Beginner,
     },
     {
       prompt:
-        'Create a function that takes two sets as input and returns True if the first set is a subset of the second set, otherwise False.',
+        'Given two sets, find their intersection and handle the case where the intersection is empty.',
       initialCode: `# Write your solution here
-def is_subset(set1, set2):
-    return `,
-      solution: `def is_subset(set1, set2):
-    return set1.issubset(set2)`,
-      difficulty: Difficulty.Advanced,
+set1 = {1, 2, 3}
+set2 = {4, 5, 6}
+# Find the intersection of set1 and set2`,
+      solution: `set1 = {1, 2, 3}
+set2 = {4, 5, 6}
+# Find the intersection of set1 and set2
+intersection_set = set1 & set2
+
+print(intersection_set)`,
+      difficulty: Difficulty.Beginner,
     },
   ],
   quizzes: [
@@ -2578,55 +2195,454 @@ def is_subset(set1, set2):
       question:
         'Which of the following is the correct way to find the union of two sets in Python?',
       options: [
-        'set1.union(set2)',
-        'set1.intersection(set2)',
-        'set1.difference(set2)',
-        'set1.symmetric_difference(set2)',
+        'set1 | set2',
+        'set1 & set2',
+        'set1 - set2',
+        'set1 ^ set2',
       ],
       correctAnswer: 0,
       explanations: [
-        'This is correct. It finds the union of two sets.',
-        'This is incorrect because it finds the intersection of two sets.',
-        'This is incorrect because it finds the difference between two sets.',
-        'This is incorrect because it finds the symmetric difference between two sets.',
+        'This is correct. It finds the union of the two sets.',
+        'This is incorrect. It finds the intersection of the two sets.',
+        'This is incorrect. It finds the difference of the two sets.',
+        'This is incorrect. It finds the symmetric difference of the two sets.',
       ],
       difficulty: Difficulty.Beginner,
     },
     {
       question:
-        'Which of the following is the correct way to find the difference between two sets in Python?',
+        'Which of the following is the correct way to find the intersection of two sets in Python?',
       options: [
-        'set1.union(set2)',
-        'set1.intersection(set2)',
-        'set1.difference(set2)',
-        'set1.symmetric_difference(set2)',
+        'set1 | set2',
+        'set1 & set2',
+        'set1 - set2',
+        'set1 ^ set2',
       ],
-      correctAnswer: 2,
+      correctAnswer: 1,
       explanations: [
-        'This is incorrect because it finds the union of two sets.',
-        'This is incorrect because it finds the intersection of two sets.',
-        'This is correct. It finds the difference between two sets.',
-        'This is incorrect because it finds the symmetric difference between two sets.',
+        'This is incorrect. It finds the union of the two sets.',
+        'This is correct. It finds the intersection of the two sets.',
+        'This is incorrect. It finds the difference of the two sets.',
+        'This is incorrect. It finds the symmetric difference of the two sets.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'Which of the following is the correct way to handle an empty set in Python?',
+      options: [
+        'Using an empty set literal: set()',
+        'Using an empty list: []',
+        'Using an empty tuple: ()',
+        'Using an empty dictionary: {}',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. It creates an empty set.',
+        'This is incorrect. It creates an empty list.',
+        'This is incorrect. It creates an empty tuple.',
+        'This is incorrect. It creates an empty dictionary.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'Which of the following is the correct way to check if an element exists in a set in Python?',
+      options: [
+        'if element in my_set:',
+        'if my_set.contains(element):',
+        'if my_set.has(element):',
+        'if my_set.find(element):',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. It checks if the element exists in the set.',
+        'This is incorrect. The set class does not have a contains method.',
+        'This is incorrect. The set class does not have a has method.',
+        'This is incorrect. The set class does not have a find method.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+const arrayIntersectionUnionData: LessonContent = {
+  title: 'Array Intersection/Union',
+  content: `<p>
+Efficiently finding common or combined elements between two arrays is a common problem in technical interviews. 
+Using sets can significantly improve the performance of these operations by leveraging their average-case constant time complexity for membership tests and insertions.
+</p>
+
+<ul>
+<li><strong>Intersection:</strong> Find common elements between two arrays.</li>
+<li><strong>Union:</strong> Combine elements from two arrays without duplicates.</li>
+<li><strong>Time Complexity:</strong> Understanding the efficiency of set operations compared to list operations.</li>
+<li><strong>Space Complexity:</strong> Analyzing the memory usage of set operations.</li>
+</ul>`,
+  codeExample: `# Intersection of Arrays
+def array_intersection(arr1, arr2):
+    set1 = set(arr1)
+    set2 = set(arr2)
+    return list(set1 & set2)
+
+arr1 = [1, 2, 3, 4, 5]
+arr2 = [4, 5, 6, 7, 8]
+print(array_intersection(arr1, arr2))  # Output: [4, 5]
+
+# Union of Arrays
+def array_union(arr1, arr2):
+    set1 = set(arr1)
+    set2 = set(arr2)
+    return list(set1 | set2)
+
+print(array_union(arr1, arr2))  # Output: [1, 2, 3, 4, 5, 6, 7, 8]`,
+  exercises: [
+    {
+      prompt:
+        'Given two arrays, find the intersection of the two arrays using sets.',
+      initialCode: `# Write your solution here
+def array_intersection(arr1, arr2):
+    return 
+
+arr1 = [1, 2, 3, 4, 5]
+arr2 = [4, 5, 6, 7, 8]
+print(array_intersection(arr1, arr2))`,
+      solution: `def array_intersection(arr1, arr2):
+    set1 = set(arr1)
+    set2 = set(arr2)
+    return list(set1 & set2)
+
+arr1 = [1, 2, 3, 4, 5]
+arr2 = [4, 5, 6, 7, 8]
+print(array_intersection(arr1, arr2))`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Given two arrays, find the union of the two arrays using sets.',
+      initialCode: `# Write your solution here
+def array_union(arr1, arr2):
+    return 
+
+arr1 = [1, 2, 3, 4, 5]
+arr2 = [4, 5, 6, 7, 8]
+print(array_union(arr1, arr2))`,
+      solution: `def array_union(arr1, arr2):
+    set1 = set(arr1)
+    set2 = set(arr2)
+    return list(set1 | set2)
+
+arr1 = [1, 2, 3, 4, 5]
+arr2 = [4, 5, 6, 7, 8]
+print(array_union(arr1, arr2))`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following is the correct way to find the intersection of two arrays using sets?',
+      options: [
+        'list(set(arr1) & set(arr2))',
+        'list(set(arr1) | set(arr2))',
+        'list(set(arr1) - set(arr2))',
+        'list(set(arr1) ^ set(arr2))',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. It finds the intersection of the two arrays.',
+        'This is incorrect. It finds the union of the two arrays.',
+        'This is incorrect. It finds the difference of the two arrays.',
+        'This is incorrect. It finds the symmetric difference of the two arrays.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
       question:
-        'Which of the following is the correct way to check if one set is a subset of another in Python?',
+        'Which of the following is the correct way to find the union of two arrays using sets?',
       options: [
-        'set1.union(set2)',
-        'set1.intersection(set2)',
-        'set1.difference(set2)',
-        'set1.issubset(set2)',
+        'list(set(arr1) & set(arr2))',
+        'list(set(arr1) | set(arr2))',
+        'list(set(arr1) - set(arr2))',
+        'list(set(arr1) ^ set(arr2))',
       ],
-      correctAnswer: 3,
+      correctAnswer: 1,
       explanations: [
-        'This is incorrect because it finds the union of two sets.',
-        'This is incorrect because it finds the intersection of two sets.',
-        'This is incorrect because it finds the difference between two sets.',
-        'This is correct. It checks if set1 is a subset of set2.',
+        'This is incorrect. It finds the intersection of the two arrays.',
+        'This is correct. It finds the union of the two arrays.',
+        'This is incorrect. It finds the difference of the two arrays.',
+        'This is incorrect. It finds the symmetric difference of the two arrays.',
       ],
-      difficulty: Difficulty.Advanced,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const stringManipulationWithSetsData: LessonContent = {
+  title: 'String Manipulation with Sets',
+  content: `<p>
+String manipulation problems often benefit from using sets due to their ability to efficiently handle membership tests and eliminate duplicates. 
+This lesson covers common string problems that can be solved using set operations.
+</p>
+
+<ul>
+<li><strong>Finding Unique Characters:</strong> Identify unique characters in a string.</li>
+<li><strong>Anagram Detection:</strong> Determine if two strings are anagrams using sets.</li>
+<li><strong>Substring Problems:</strong> Solve substring problems using set operations.</li>
+<li><strong>Time Complexity:</strong> Understanding the efficiency of set operations in string problems.</li>
+<li><strong>Space Complexity:</strong> Analyzing the memory usage of set operations in string problems.</li>
+</ul>`,
+  codeExample: `# Finding Unique Characters
+def unique_characters(s):
+    return set(s)
+
+print(unique_characters("hello"))  # Output: {'h', 'e', 'l', 'o'}
+
+# Anagram Detection
+def are_anagrams(s1, s2):
+    return set(s1) == set(s2)
+
+print(are_anagrams("listen", "silent"))  # Output: True
+
+# Substring Problems
+def find_unique_substrings(s, length):
+    substrings = set()
+    for i in range(len(s) - length + 1):
+        substrings.add(s[i:i + length])
+    return substrings
+
+print(find_unique_substrings("abcabc", 3))  # Output: {'abc', 'bca', 'cab'}`,
+  exercises: [
+    {
+      prompt:
+        'Given a string, find all unique characters in the string using sets.',
+      initialCode: `# Write your solution here
+def unique_characters(s):
+    return 
+
+print(unique_characters("hello"))`,
+      solution: `def unique_characters(s):
+    return set(s)
+
+print(unique_characters("hello"))`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Given two strings, determine if they are anagrams using sets.',
+      initialCode: `# Write your solution here
+def are_anagrams(s1, s2):
+    return 
+
+print(are_anagrams("listen", "silent"))`,
+      solution: `def are_anagrams(s1, s2):
+    return set(s1) == set(s2)
+
+print(are_anagrams("listen", "silent"))`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt:
+        'Given a string and a length, find all unique substrings of the given length using sets.',
+      initialCode: `# Write your solution here
+def find_unique_substrings(s, length):
+    return 
+
+print(find_unique_substrings("abcabc", 3))`,
+      solution: `def find_unique_substrings(s, length):
+    substrings = set()
+    for i in range(len(s) - length + 1):
+        substrings.add(s[i:i + length])
+    return substrings
+
+print(find_unique_substrings("abcabc", 3))`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following is the correct way to find all unique characters in a string using sets?',
+      options: [
+        'set(s)',
+        'list(s)',
+        'tuple(s)',
+        'dict(s)',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. It converts the string to a set, which removes duplicates.',
+        'This is incorrect. It converts the string to a list, which does not remove duplicates.',
+        'This is incorrect. It converts the string to a tuple, which does not remove duplicates.',
+        'This is incorrect. It attempts to convert the string to a dictionary, which is not applicable.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question:
+        'Which of the following is the correct way to determine if two strings are anagrams using sets?',
+      options: [
+        'set(s1) == set(s2)',
+        'list(s1) == list(s2)',
+        'tuple(s1) == tuple(s2)',
+        'dict(s1) == dict(s2)',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. It checks if the sets of characters are equal.',
+        'This is incorrect. It checks if the lists of characters are equal, which is not sufficient for anagrams.',
+        'This is incorrect. It checks if the tuples of characters are equal, which is not sufficient for anagrams.',
+        'This is incorrect. It attempts to convert the strings to dictionaries, which is not applicable.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const graphProblemsWithSetsData: LessonContent = {
+  title: 'Graph Problems with Sets',
+  content: `<p>
+Sets are powerful tools for solving graph problems, particularly in graph traversal and cycle detection. 
+This lesson covers how to use sets to efficiently solve common graph problems.
+</p>
+
+<ul>
+<li><strong>Graph Traversal:</strong> Using sets to keep track of visited nodes in graph traversal algorithms.</li>
+<li><strong>Cycle Detection:</strong> Detecting cycles in graphs using sets.</li>
+<li><strong>Time Complexity:</strong> Understanding the efficiency of set operations in graph problems.</li>
+<li><strong>Space Complexity:</strong> Analyzing the memory usage of set operations in graph problems.</li>
+</ul>`,
+  codeExample: `# Graph Traversal
+def dfs(graph, start, visited=None):
+    if visited is None:
+        visited = set()
+    visited.add(start)
+    for next in graph[start] - visited:
+        dfs(graph, next, visited)
+    return visited
+
+graph = {'A': set(['B', 'C']),
+         'B': set(['A', 'D', 'E']),
+         'C': set(['A', 'F']),
+         'D': set(['B']),
+         'E': set(['B', 'F']),
+         'F': set(['C', 'E'])}
+
+print(dfs(graph, 'A'))  # Output: {'A', 'B', 'C', 'D', 'E', 'F'}
+
+# Cycle Detection
+def has_cycle(graph):
+    visited = set()
+    def visit(vertex):
+        if vertex in visited:
+            return True
+        visited.add(vertex)
+        return any(visit(neighbor) for neighbor in graph[vertex])
+    return any(visit(v) for v in graph)
+
+graph = {'A': set(['B']),
+         'B': set(['A', 'C']),
+         'C': set(['B'])}
+
+print(has_cycle(graph))  # Output: True`,
+  exercises: [
+    {
+      prompt:
+        'Given a graph represented as an adjacency list, perform a depth-first search (DFS) using sets to keep track of visited nodes.',
+      initialCode: `# Write your solution here
+def dfs(graph, start, visited=None):
+    return 
+
+graph = {'A': set(['B', 'C']),
+         'B': set(['A', 'D', 'E']),
+         'C': set(['A', 'F']),
+         'D': set(['B']),
+         'E': set(['B', 'F']),
+         'F': set(['C', 'E'])}
+
+print(dfs(graph, 'A'))`,
+      solution: `def dfs(graph, start, visited=None):
+    if visited is None:
+        visited = set()
+    visited.add(start)
+    for next in graph[start] - visited:
+        dfs(graph, next, visited)
+    return visited
+
+graph = {'A': set(['B', 'C']),
+         'B': set(['A', 'D', 'E']),
+         'C': set(['A', 'F']),
+         'D': set(['B']),
+         'E': set(['B', 'F']),
+         'F': set(['C', 'E'])}
+
+print(dfs(graph, 'A'))`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Given a graph represented as an adjacency list, detect if there is a cycle using sets to keep track of visited nodes.',
+      initialCode: `# Write your solution here
+def has_cycle(graph):
+    return 
+
+graph = {'A': set(['B']),
+         'B': set(['A', 'C']),
+         'C': set(['B'])}
+
+print(has_cycle(graph))`,
+      solution: `def has_cycle(graph):
+    visited = set()
+    def visit(vertex):
+        if vertex in visited:
+            return True
+        visited.add(vertex)
+        return any(visit(neighbor) for neighbor in graph[vertex])
+    return any(visit(v) for v in graph)
+
+graph = {'A': set(['B']),
+         'B': set(['A', 'C']),
+         'C': set(['B'])}
+
+print(has_cycle(graph))`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following is the correct way to perform a depth-first search (DFS) using sets to keep track of visited nodes?',
+      options: [
+        'Using a set to store visited nodes and recursively visiting each unvisited neighbor.',
+        'Using a list to store visited nodes and iteratively visiting each unvisited neighbor.',
+        'Using a tuple to store visited nodes and recursively visiting each unvisited neighbor.',
+        'Using a dictionary to store visited nodes and iteratively visiting each unvisited neighbor.',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. Sets provide O(1) time complexity for membership tests and insertions, making them ideal for tracking visited nodes.',
+        'This is incorrect. Lists provide O(n) time complexity for membership tests, which is less efficient.',
+        'This is incorrect. Tuples are immutable and do not support efficient membership tests.',
+        'This is incorrect. Dictionaries are designed for key-value pairs and are not ideal for tracking visited nodes.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question:
+        'Which of the following is the correct way to detect a cycle in a graph using sets to keep track of visited nodes?',
+      options: [
+        'Using a set to store visited nodes and recursively visiting each unvisited neighbor, checking for revisits.',
+        'Using a list to store visited nodes and iteratively visiting each unvisited neighbor, checking for revisits.',
+        'Using a tuple to store visited nodes and recursively visiting each unvisited neighbor, checking for revisits.',
+        'Using a dictionary to store visited nodes and iteratively visiting each unvisited neighbor, checking for revisits.',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. Sets provide O(1) time complexity for membership tests and insertions, making them ideal for detecting cycles.',
+        'This is incorrect. Lists provide O(n) time complexity for membership tests, which is less efficient.',
+        'This is incorrect. Tuples are immutable and do not support efficient membership tests.',
+        'This is incorrect. Dictionaries are designed for key-value pairs and are not ideal for detecting cycles.',
+      ],
+      difficulty: Difficulty.Intermediate,
     },
   ],
 };
@@ -2647,19 +2663,17 @@ const setLessons: Record<string, LessonContent> = {
   'set-equality': setEqualityData,
   'hashset': hashSetData,
   'set-complexity': setComplexityData,
+  'set-vs-others': setsVsOtherDataStructuresData,
   'ordered-sets': orderedSetsData,
   'duplicate-detection': duplicateDetectionData,
   'unique-elements': uniqueElementsData,
   'set-conversion': setConversionData,
   'multisets': multisetsData,
-  'frozen-sets': frozenSetsData,
   'set-comprehension': setComprehensionData,
-  'set-cover': setCoverData,
-  'set-partitioning': setPartitioningData,
-  'memory-efficiency': memoryEfficiencyData,
-  'set-vs-list': setVsListPerformanceData,
-  'deduplication': deduplicationData,
-  'set-operations-algorithms': setOperationsAlgorithmsData
+  'common-mistakes': commonInterviewPitfallsData,
+  'array-intersection': arrayIntersectionUnionData,
+  'string-problems': stringManipulationWithSetsData,
+  'graph-problems': graphProblemsWithSetsData,
 };
 export const setLessonsTab: LessonsTab = {
   curriculum: setCurriculum,
