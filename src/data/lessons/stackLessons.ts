@@ -1,10 +1,9 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab } from '@/common/commonLesson';
+import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
 
 const stackCurriculum: Curriculum = {
   title: 'Stack Curriculum',
-  description:
-    'A comprehensive guide to mastering stack data structure and its applications',
+  description: 'A comprehensive guide to mastering stack data structure and its applications in technical interviews',
   sections: [
     {
       id: 1,
@@ -13,155 +12,139 @@ const stackCurriculum: Curriculum = {
         {
           id: 'stack-concept',
           title: 'Stack Concept and Properties',
-          description:
-            'Understanding LIFO principle and basic stack operations',
+          description: 'Understanding LIFO principle, time complexities, and use cases',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'stack-implementation',
           title: 'Stack Implementation',
-          description: 'Implementing stack using arrays and linked lists',
+          description: 'Implementing stack using arrays and linked lists, comparing trade-offs',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'stack-operations',
           title: 'Basic Stack Operations',
-          description: 'Push, pop, peek, and isEmpty operations',
-        },
-      ],
+          description: 'Push, pop, peek, isEmpty operations with edge cases and error handling',
+          priority: PriorityLevel.Essential
+        }
+      ]
     },
     {
       id: 2,
-      title: 'Stack Applications',
+      title: 'Common Interview Problems',
       topics: [
-        {
-          id: 'expression-evaluation',
-          title: 'Expression Evaluation',
-          description:
-            'Evaluating arithmetic and boolean expressions using stack',
-        },
         {
           id: 'parentheses-matching',
           title: 'Parentheses Matching',
-          description: 'Validating and matching different types of brackets',
+          description: 'Validating and matching different types of brackets, handling nested structures',
+          priority: PriorityLevel.Essential
         },
         {
-          id: 'function-calls',
-          title: 'Function Call Management',
-          description: 'Understanding function call stack and recursion',
+          id: 'expression-evaluation',
+          title: 'Expression Evaluation',
+          description: 'Evaluating arithmetic expressions, handling operators precedence',
+          priority: PriorityLevel.Important
         },
-      ],
+        {
+          id: 'next-greater-element',
+          title: 'Next Greater Element',
+          description: 'Finding next greater elements using monotonic stack pattern',
+          priority: PriorityLevel.Important
+        }
+      ]
     },
     {
       id: 3,
       title: 'String Manipulation with Stacks',
       topics: [
         {
-          id: 'string-reversal',
-          title: 'String Reversal',
-          description: 'Using stack to reverse strings and sequences',
-        },
-        {
           id: 'backspace-string',
           title: 'Backspace String Compare',
-          description: 'Handling backspace characters in strings',
+          description: 'Handling backspace characters in strings, optimizing space usage',
+          priority: PriorityLevel.Important
+        },
+        {
+          id: 'string-reversal',
+          title: 'String Reversal and Manipulation',
+          description: 'Using stack for string operations and transformations',
+          priority: PriorityLevel.Important
         },
         {
           id: 'text-editor-operations',
           title: 'Text Editor Operations',
-          description: 'Implementing undo/redo functionality using stacks',
-        },
-      ],
+          description: 'Implementing undo/redo functionality, handling complex operations',
+          priority: PriorityLevel.Beneficial
+        }
+      ]
     },
     {
       id: 4,
-      title: 'Monotonic Stack',
+      title: 'Monotonic Stack Patterns',
       topics: [
         {
           id: 'monotonic-concept',
           title: 'Monotonic Stack Concept',
-          description:
-            'Understanding increasing and decreasing monotonic stacks',
-        },
-        {
-          id: 'next-greater-element',
-          title: 'Next Greater Element',
-          description: 'Finding next greater elements using monotonic stack',
+          description: 'Understanding and implementing increasing/decreasing monotonic stacks',
+          priority: PriorityLevel.Important
         },
         {
           id: 'histogram-problems',
           title: 'Histogram Problems',
-          description:
-            'Solving rectangle and area problems using monotonic stack',
+          description: 'Solving largest rectangle and area problems using monotonic stack',
+          priority: PriorityLevel.Important
         },
-      ],
+        {
+          id: 'temperature-problems',
+          title: 'Daily Temperatures Pattern',
+          description: 'Solving next warmer/cooler day type problems using monotonic stack',
+          priority: PriorityLevel.Important
+        }
+      ]
     },
     {
       id: 5,
-      title: 'Stack with Special Operations',
+      title: 'Advanced Stack Implementations',
       topics: [
         {
           id: 'min-max-stack',
           title: 'Min/Max Stack',
-          description:
-            'Implementing stack with constant time minimum/maximum operations',
+          description: 'Implementing stack with O(1) minimum/maximum operations',
+          priority: PriorityLevel.Important
         },
-        {
-          id: 'stack-with-increment',
-          title: 'Stack with Increment Operation',
-          description: 'Implementing stack with bulk increment operations',
-        },
-      ],
-    },
-    {
-      id: 6,
-      title: 'Multiple Stacks',
-      topics: [
         {
           id: 'two-stacks',
-          title: 'Two Stacks',
-          description: 'Problems involving operations with two stacks',
+          title: 'Two Stacks Problems',
+          description: 'Solving problems involving operations with two stacks',
+          priority: PriorityLevel.Beneficial
         },
         {
           id: 'stack-sequences',
           title: 'Stack Sequences',
-          description: 'Validating push and pop sequences',
-        },
-      ],
+          description: 'Validating push and pop sequences, understanding stack permutations',
+          priority: PriorityLevel.Beneficial
+        }
+      ]
     },
     {
-      id: 7,
-      title: 'Stack and Tree Problems',
+      id: 6,
+      title: 'Stack in Tree Traversal',
       topics: [
         {
           id: 'tree-traversal',
-          title: 'Tree Traversal using Stack',
-          description: 'Implementing iterative tree traversals using stack',
+          title: 'Iterative Tree Traversal',
+          description: 'Implementing inorder, preorder, and postorder traversals using stack',
+          priority: PriorityLevel.Important
         },
         {
           id: 'expression-tree',
           title: 'Expression Tree Evaluation',
           description: 'Building and evaluating expression trees using stack',
-        },
-      ],
-    },
-    {
-      id: 8,
-      title: 'Advanced Stack Techniques',
-      topics: [
-        {
-          id: 'stack-sorting',
-          title: 'Stack Sorting',
-          description: 'Techniques for sorting elements in a stack',
-        },
-        {
-          id: 'stack-optimization',
-          title: 'Stack Optimization',
-          description:
-            'Space and time optimization techniques for stack operations',
-        },
-      ],
-    },
-  ],
-};
+          priority: PriorityLevel.Beneficial
+        }
+      ]
+    }
+  ]
+} as const;
 const stackConceptData: LessonContent = {
   title: 'Stack Concept and Properties',
   content: `<p>
@@ -1362,6 +1345,148 @@ const histogramProblemsData: LessonContent = {
     },
   ],
 };
+
+const dailyTemperaturesPatternData: LessonContent = {
+  title: 'Daily Temperatures Pattern',
+  content: `<p>
+Solving next warmer/cooler day type problems using a monotonic stack is a common technique in technical interviews. 
+A monotonic stack is a stack that maintains a strictly increasing or decreasing order of elements. 
+This pattern is particularly useful for problems where you need to find the next greater or smaller element in an array.
+</p>
+
+<ul>
+<li><strong>Monotonic Stack:</strong> Understanding the concept and implementation of a monotonic stack.</li>
+<li><strong>Next Warmer Day:</strong> Finding the next warmer day for each day in a list of temperatures.</li>
+<li><strong>Next Cooler Day:</strong> Finding the next cooler day for each day in a list of temperatures.</li>
+<li><strong>Time Complexity:</strong> Analyzing the efficiency of the monotonic stack approach.</li>
+<li><strong>Space Complexity:</strong> Understanding the memory usage of the monotonic stack approach.</li>
+</ul>`,
+  codeExample: `# Next Warmer Day Problem
+def dailyTemperatures(temperatures):
+    n = len(temperatures)
+    result = [0] * n
+    stack = []
+    
+    for i in range(n):
+        while stack and temperatures[i] > temperatures[stack[-1]]:
+            prev_index = stack.pop()
+            result[prev_index] = i - prev_index
+        stack.append(i)
+    
+    return result
+
+temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
+print(dailyTemperatures(temperatures))  # Output: [1, 1, 4, 2, 1, 1, 0, 0]
+
+# Next Cooler Day Problem
+def dailyCoolerTemperatures(temperatures):
+    n = len(temperatures)
+    result = [0] * n
+    stack = []
+    
+    for i in range(n):
+        while stack and temperatures[i] < temperatures[stack[-1]]:
+            prev_index = stack.pop()
+            result[prev_index] = i - prev_index
+        stack.append(i)
+    
+    return result
+
+temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
+print(dailyCoolerTemperatures(temperatures))  # Output: [3, 2, 1, 1, 1, 1, 0, 0]`,
+  exercises: [
+    {
+      prompt:
+        'Given a list of daily temperatures, return a list such that for each day, it tells you how many days you would have to wait until a warmer temperature. If there is no future day for which this is possible, put 0 instead.',
+      initialCode: `# Write your solution here
+def dailyTemperatures(temperatures):
+    return 
+
+temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
+print(dailyTemperatures(temperatures))`,
+      solution: `def dailyTemperatures(temperatures):
+    n = len(temperatures)
+    result = [0] * n
+    stack = []
+    
+    for i in range(n):
+        while stack and temperatures[i] > temperatures[stack[-1]]:
+            prev_index = stack.pop()
+            result[prev_index] = i - prev_index
+        stack.append(i)
+    
+    return result
+
+temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
+print(dailyTemperatures(temperatures))`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt:
+        'Given a list of daily temperatures, return a list such that for each day, it tells you how many days you would have to wait until a cooler temperature. If there is no future day for which this is possible, put 0 instead.',
+      initialCode: `# Write your solution here
+def dailyCoolerTemperatures(temperatures):
+    return 
+
+temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
+print(dailyCoolerTemperatures(temperatures))`,
+      solution: `def dailyCoolerTemperatures(temperatures):
+    n = len(temperatures)
+    result = [0] * n
+    stack = []
+    
+    for i in range(n):
+        while stack and temperatures[i] < temperatures[stack[-1]]:
+            prev_index = stack.pop()
+            result[prev_index] = i - prev_index
+        stack.append(i)
+    
+    return result
+
+temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
+print(dailyCoolerTemperatures(temperatures))`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Which of the following is the correct way to implement a monotonic stack for the next warmer day problem?',
+      options: [
+        'Using a stack to store indices and popping elements when a warmer temperature is found.',
+        'Using a queue to store indices and popping elements when a warmer temperature is found.',
+        'Using a stack to store temperatures and popping elements when a cooler temperature is found.',
+        'Using a queue to store temperatures and popping elements when a cooler temperature is found.',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. A stack is used to store indices, and elements are popped when a warmer temperature is found.',
+        'This is incorrect. A queue does not maintain the order needed for this problem.',
+        'This is incorrect. Storing temperatures directly is not efficient for this problem.',
+        'This is incorrect. A queue does not maintain the order needed for this problem.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question:
+        'Which of the following is the correct way to implement a monotonic stack for the next cooler day problem?',
+      options: [
+        'Using a stack to store indices and popping elements when a cooler temperature is found.',
+        'Using a queue to store indices and popping elements when a cooler temperature is found.',
+        'Using a stack to store temperatures and popping elements when a warmer temperature is found.',
+        'Using a queue to store temperatures and popping elements when a warmer temperature is found.',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'This is correct. A stack is used to store indices, and elements are popped when a cooler temperature is found.',
+        'This is incorrect. A queue does not maintain the order needed for this problem.',
+        'This is incorrect. Storing temperatures directly is not efficient for this problem.',
+        'This is incorrect. A queue does not maintain the order needed for this problem.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
 const minMaxStackData: LessonContent = {
   title: 'Min/Max Stack',
   content: `<p>
@@ -1414,61 +1539,6 @@ const minMaxStackData: LessonContent = {
       correctAnswer: 0,
       explanations: [
         'Correct. Min and max values are updated on each push, making these operations O(1).',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const stackWithIncrementData: LessonContent = {
-  title: 'Stack with Increment Operation',
-  content: `<p>
-  In a stack with increment operation, you can increment the bottom k elements by a specified value in constant time.
-  This is achieved by maintaining an auxiliary array to track the increment for each level.
-  </p>`,
-  codeExample: `# Stack with Increment Operation
-  class StackWithIncrement:
-      def __init__(self):
-          self.stack = []
-          self.increment = []  # Tracks increments at each level
-  
-      def push(self, value):
-          self.stack.append(value)
-          self.increment.append(0)
-  
-      def pop(self):
-          if not self.stack:
-              return None
-          if len(self.increment) > 1:
-              self.increment[-2] += self.increment[-1]
-          return self.stack.pop() + self.increment.pop()
-  
-      def increment_bottom_k(self, k, value):
-          if self.increment:
-              self.increment[min(k, len(self.increment)) - 1] += value`,
-  exercises: [
-    {
-      prompt:
-        'Implement StackWithIncrement and test increment_bottom_k operation on [1, 2, 3] with k=2 and value=5.',
-      initialCode: `# Write your solution here
-  stack_increment = StackWithIncrement()
-  # Push values, call increment_bottom_k, and test pop`,
-      solution: `stack_increment.push(1)
-  stack_increment.push(2)
-  stack_increment.push(3)
-  stack_increment.increment_bottom_k(2, 5)
-  value = stack_increment.pop()`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question:
-        'Which auxiliary data structure is used in a stack with increment operation to handle increments?',
-      options: ['Auxiliary Stack', 'Queue', 'Increment Array', 'Linked List'],
-      correctAnswer: 2,
-      explanations: [
-        'Correct. The increment array keeps track of increments for each stack level.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -1692,110 +1762,6 @@ const expressionTreeData: LessonContent = {
   ],
 };
 
-const stackSortingData: LessonContent = {
-  title: 'Stack Sorting',
-  content: `<p>
-  Sorting a stack involves rearranging elements such that the minimum (or maximum) element is at the top.
-  This can be achieved using auxiliary stacks or recursion.
-  </p>`,
-  codeExample: `# Sorting a Stack using an Auxiliary Stack
-  def sort_stack(stack):
-      auxiliary_stack = []
-      while stack:
-          temp = stack.pop()
-          while auxiliary_stack and auxiliary_stack[-1] > temp:
-              stack.append(auxiliary_stack.pop())
-          auxiliary_stack.append(temp)
-      return auxiliary_stack`,
-  exercises: [
-    {
-      prompt:
-        'Sort the stack [34, 3, 31, 98, 92, 23] using an auxiliary stack.',
-      initialCode: `# Write your solution here
-  stack = [34, 3, 31, 98, 92, 23]
-  # Sort and print sorted stack`,
-      solution: `# Expected sorted stack: [3, 23, 31, 34, 92, 98]`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the purpose of an auxiliary stack in stack sorting?',
-      options: [
-        'To hold elements temporarily for comparison',
-        'To store duplicates',
-        'To reverse the stack',
-        'To reduce sorting time',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'Correct. The auxiliary stack holds values temporarily to order elements.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const stackOptimizationData: LessonContent = {
-  title: 'Stack Optimization',
-  content: `<p>
-  Stack optimization focuses on improving both space and time efficiency in stack operations, especially in high-performance applications.
-  Common techniques include reducing unnecessary stack operations and using data structures like sparse stacks.
-  </p>`,
-  codeExample: `# Optimizing Stack Operations with Lazy Evaluation
-  class OptimizedStack:
-      def __init__(self):
-          self.stack = []
-          self.lazy_increments = []
-  
-      def push(self, value):
-          self.stack.append(value)
-          self.lazy_increments.append(0)
-  
-      def pop(self):
-          if not self.stack:
-              return None
-          if len(self.lazy_increments) > 1:
-              self.lazy_increments[-2] += self.lazy_increments[-1]
-          return self.stack.pop() + self.lazy_increments.pop()
-  
-      def increment(self, k, val):
-          if self.lazy_increments:
-              self.lazy_increments[min(k, len(self.lazy_increments)) - 1] += val`,
-  exercises: [
-    {
-      prompt:
-        'Optimize stack operations by implementing lazy increments on the stack [5, 2, 8] with k=2 and increment=3.',
-      initialCode: `# Write your solution here
-  opt_stack = OptimizedStack()
-  # Push values, call increment, and test pop`,
-      solution: `opt_stack.push(5)
-  opt_stack.push(2)
-  opt_stack.push(8)
-  opt_stack.increment(2, 3)
-  value = opt_stack.pop()`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question:
-        'Which technique helps to optimize bulk increment operations in stacks?',
-      options: [
-        'Lazy Evaluation',
-        'Recursive Calls',
-        'Auxiliary Arrays',
-        'Double Stacking',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'Correct. Lazy Evaluation delays updates, reducing unnecessary operations.',
-      ],
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-};
-
 const stackLessons: Record<string, LessonContent> = {
   'stack-concept': stackConceptData,
   'stack-implementation': stackImplementationData,
@@ -1810,13 +1776,11 @@ const stackLessons: Record<string, LessonContent> = {
   'next-greater-element': nextGreaterElementData,
   'histogram-problems': histogramProblemsData,
   'min-max-stack': minMaxStackData,
-  'stack-with-increment': stackWithIncrementData,
+  'temperature-problems': dailyTemperaturesPatternData,
   'two-stacks': twoStacksData,
   'stack-sequences': stackSequencesData,
   'tree-traversal': treeTraversalData,
   'expression-tree': expressionTreeData,
-  'stack-sorting': stackSortingData,
-  'stack-optimization': stackOptimizationData,
 };
 export const stackLessonsTab: LessonsTab = {
   curriculum: stackCurriculum,

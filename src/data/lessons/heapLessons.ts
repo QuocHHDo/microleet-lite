@@ -1,10 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab } from '@/common/commonLesson';
+import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
 
 const heapCurriculum: Curriculum = {
   title: 'Heap Curriculum',
   description:
-    'A comprehensive guide to mastering heap data structure and its applications',
+    'Master heap data structures and common patterns to solve LeetCode problems and ace technical interviews',
   sections: [
     {
       id: 1,
@@ -13,18 +13,20 @@ const heapCurriculum: Curriculum = {
         {
           id: 'heap-concept',
           title: 'Heap Concepts',
-          description: 'Understanding heap properties, types, and structure',
+          description: 'Understanding heap properties and structure with LeetCode examples',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'heap-implementation',
           title: 'Basic Heap Implementation',
-          description: 'Implementing binary heap using arrays',
+          description: 'Implementing a binary heap using arrays - a common interview requirement',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'heap-properties',
           title: 'Heap Properties',
-          description:
-            'Complete binary tree, heap order property, shape property',
+          description: 'Complete binary tree and heap properties with visualization',
+          priority: PriorityLevel.Essential
         },
       ],
     },
@@ -35,191 +37,146 @@ const heapCurriculum: Curriculum = {
         {
           id: 'heap-insertion',
           title: 'Insertion Operation',
-          description: 'Adding elements and maintaining heap property',
+          description: 'Adding elements while maintaining heap property - common subproblem in interviews',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'heap-extraction',
           title: 'Extraction Operation',
-          description: 'Removing elements and restructuring heap',
+          description: 'Removing elements and restructuring heap - fundamental for K-element problems',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'heapify',
           title: 'Heapify Process',
-          description: 'Converting arrays into valid heaps',
+          description: 'Converting arrays into heaps - crucial for heap sort and K-largest problems',
+          priority: PriorityLevel.Essential
         },
         {
           id: 'heap-update',
           title: 'Update Operations',
-          description: 'Modifying elements and maintaining structure',
+          description: 'Modifying elements in place - used in priority queue problems',
+          priority: PriorityLevel.Important
         },
       ],
     },
     {
       id: 3,
-      title: 'Heap Types',
+      title: 'Common LeetCode Patterns',
       topics: [
         {
-          id: 'min-heap',
-          title: 'Min Heap',
-          description: 'Implementation and applications of min heap',
+          id: 'top-k-pattern',
+          title: 'Top-K Pattern',
+          description: 'Solving Top-K problems using heaps with example problems and solutions',
+          priority: PriorityLevel.Essential
         },
         {
-          id: 'max-heap',
-          title: 'Max Heap',
-          description: 'Implementation and applications of max heap',
+          id: 'k-way-merge',
+          title: 'K-Way Merge Pattern',
+          description: 'Techniques for merging K sorted arrays/lists using heaps',
+          priority: PriorityLevel.Essential
         },
         {
-          id: 'dual-heap',
-          title: 'Dual Heap',
-          description: 'Managing two heaps for median finding',
+          id: 'two-heaps',
+          title: 'Two Heaps Pattern',
+          description: 'Using min and max heaps together to solve median and interval problems',
+          priority: PriorityLevel.Essential
         },
       ],
     },
     {
       id: 4,
-      title: 'Heap Sort',
+      title: 'Priority Queue Applications',
       topics: [
         {
-          id: 'heapsort-implementation',
-          title: 'HeapSort Implementation',
-          description: 'Understanding and implementing heapsort',
+          id: 'stream-processing',
+          title: 'Stream Processing',
+          description: 'Handling data streams using heaps - median finding and running statistics',
+          priority: PriorityLevel.Important
         },
         {
-          id: 'heapsort-analysis',
-          title: 'HeapSort Analysis',
-          description: 'Time complexity and comparison with other sorts',
+          id: 'scheduling-problems',
+          title: 'Scheduling Problems',
+          description: 'Solving task scheduling and interval problems using priority queues',
+          priority: PriorityLevel.Important
         },
         {
-          id: 'heapsort-variations',
-          title: 'HeapSort Variations',
-          description: 'Optimizations and special cases',
+          id: 'k-closest-points',
+          title: 'K-Closest Points',
+          description: 'Finding K-closest points and similar distance-based problems',
+          priority: PriorityLevel.Essential
         },
       ],
     },
     {
       id: 5,
-      title: 'Priority Queue',
+      title: 'Advanced Problem Patterns',
       topics: [
         {
-          id: 'priority-queue-concept',
-          title: 'Priority Queue Concepts',
-          description:
-            'Understanding priority queue implementation using heaps',
+          id: 'sliding-window-heap',
+          title: 'Sliding Window with Heap',
+          description: 'Combining sliding window and heap techniques for optimization problems',
+          priority: PriorityLevel.Important
         },
         {
-          id: 'priority-queue-operations',
-          title: 'Priority Queue Operations',
-          description: 'Implementing core priority queue functionality',
+          id: 'multiple-heaps',
+          title: 'Multiple Heaps Strategy',
+          description: 'Using multiple heaps to solve complex scheduling and interval problems',
+          priority: PriorityLevel.Beneficial
         },
         {
-          id: 'priority-applications',
-          title: 'Priority Queue Applications',
-          description: 'Real-world applications and problem solving',
+          id: 'heap-with-hashmap',
+          title: 'Heap with HashMap',
+          description: 'Combining heap with hash map for optimized lookup and updates',
+          priority: PriorityLevel.Important
         },
       ],
     },
     {
       id: 6,
-      title: 'Advanced Heap Variations',
+      title: 'Problem-Solving Techniques',
       topics: [
         {
-          id: 'binomial-heap',
-          title: 'Binomial Heap',
-          description: 'Understanding and implementing binomial heaps',
+          id: 'when-to-use',
+          title: 'When to Use Heaps',
+          description: 'Identifying problems that require heaps vs. other data structures',
+          priority: PriorityLevel.Essential
         },
         {
-          id: 'fibonacci-heap',
-          title: 'Fibonacci Heap',
-          description: 'Understanding and implementing Fibonacci heaps',
+          id: 'optimization',
+          title: 'Optimization Techniques',
+          description: 'Common optimization patterns and time/space complexity trade-offs',
+          priority: PriorityLevel.Essential
         },
         {
-          id: 'leftist-heap',
-          title: 'Leftist Heap',
-          description: 'Understanding and implementing leftist heaps',
+          id: 'common-mistakes',
+          title: 'Common Mistakes',
+          description: 'Avoiding common pitfalls in heap-based solutions and edge cases',
+          priority: PriorityLevel.Essential
         },
       ],
     },
     {
       id: 7,
-      title: 'K-Way Operations',
+      title: 'Implementation Patterns',
       topics: [
         {
-          id: 'k-way-merge',
-          title: 'K-Way Merge',
-          description: 'Merging k sorted arrays using heaps',
+          id: 'custom-comparator',
+          title: 'Custom Comparators',
+          description: 'Implementing custom comparison logic for complex heap problems',
+          priority: PriorityLevel.Important
         },
         {
-          id: 'k-smallest',
-          title: 'K Smallest Elements',
-          description: 'Finding k smallest elements in arrays/streams',
+          id: 'language-specifics',
+          title: 'Language-Specific Tools',
+          description: 'Using built-in heap/priority queue implementations effectively',
+          priority: PriorityLevel.Essential
         },
         {
-          id: 'k-closest',
-          title: 'K Closest Points',
-          description: 'Finding k closest points using heaps',
-        },
-      ],
-    },
-    {
-      id: 8,
-      title: 'Heap in Graph Algorithms',
-      topics: [
-        {
-          id: 'dijkstra-heap',
-          title: "Dijkstra's Algorithm with Heap",
-          description: 'Using heap in shortest path algorithms',
-        },
-        {
-          id: 'prim-heap',
-          title: "Prim's Algorithm with Heap",
-          description: 'Using heap in minimum spanning tree',
-        },
-        {
-          id: 'network-optimization',
-          title: 'Network Optimization',
-          description: 'Heap applications in network algorithms',
-        },
-      ],
-    },
-    {
-      id: 9,
-      title: 'Advanced Applications',
-      topics: [
-        {
-          id: 'stream-median',
-          title: 'Stream Median',
-          description: 'Finding median in data streams',
-        },
-        {
-          id: 'scheduling',
-          title: 'Task Scheduling',
-          description: 'Solving scheduling problems using heaps',
-        },
-        {
-          id: 'stock-price',
-          title: 'Stock Price Operations',
-          description: 'Managing stock prices using heaps',
-        },
-      ],
-    },
-    {
-      id: 10,
-      title: 'System Design with Heaps',
-      topics: [
-        {
-          id: 'cache-implementation',
-          title: 'Cache Design',
-          description: 'Using heaps in cache implementations',
-        },
-        {
-          id: 'load-balancing',
-          title: 'Load Balancing',
-          description: 'Heap-based load balancing strategies',
-        },
-        {
-          id: 'resource-allocation',
-          title: 'Resource Allocation',
-          description: 'Managing system resources using heaps',
+          id: 'edge-cases',
+          title: 'Edge Cases',
+          description: 'Handling empty heaps, single elements, and other special cases',
+          priority: PriorityLevel.Essential
         },
       ],
     },
@@ -1072,346 +1029,6 @@ print("Heap after decreasing key:", heap.heap)`,
   ],
 };
 
-const minHeapData: LessonContent = {
-  title: 'Min Heap',
-  content: `<p>
-A min-heap is a binary heap where the parent node always has a smaller value than its children. This property ensures that the smallest element is always at the root of the heap.
-</p>
-
-<ul>
-<li><strong>Implementation:</strong> A min-heap can be implemented using an array, where the root is at index 0, and for any node at index i, its left child is at index 2*i + 1 and its right child is at index 2*i + 2.</li>
-<li><strong>Applications:</strong> Min-heaps are commonly used in priority queues, where the highest priority element (smallest value) needs to be accessed quickly.</li>
-</ul>
-
-<p>
-Understanding min-heaps is essential for efficient data manipulation and algorithm design.
-</p>`,
-  codeExample: `# Min-heap implementation using an array
-class MinHeap:
-    def __init__(self):
-        self.heap = []
-
-    def insert(self, value):
-        self.heap.append(value)
-        self._bubble_up(len(self.heap) - 1)
-
-    def extract_min(self):
-        if len(self.heap) == 0:
-            return None
-        if len(self.heap) == 1:
-            return self.heap.pop()
-        root = self.heap[0]
-        self.heap[0] = self.heap.pop()
-        self._bubble_down(0)
-        return root
-
-    def _bubble_up(self, index):
-        while index > 0:
-            parent_index = (index - 1) // 2
-            if self.heap[index] < self.heap[parent_index]:
-                self.heap[index], self.heap[parent_index] = self.heap[parent_index], self.heap[index]
-                index = parent_index
-            else:
-                break
-
-    def _bubble_down(self, index):
-        while True:
-            left_child_index = 2 * index + 1
-            right_child_index = 2 * index + 2
-            smallest = index
-
-            if left_child_index < len(self.heap) and self.heap[left_child_index] < self.heap[smallest]:
-                smallest = left_child_index
-
-            if right_child_index < len(self.heap) and self.heap[right_child_index] < self.heap[smallest]:
-                smallest = right_child_index
-
-            if smallest != index:
-                self.heap[index], self.heap[smallest] = self.heap[smallest], self.heap[index]
-                index = smallest
-            else:
-                break
-
-# Example usage
-heap = MinHeap()
-heap.insert(3)
-heap.insert(2)
-heap.insert(1)
-print("Min element:", heap.extract_min())
-print("Heap after extraction:", heap.heap)`,
-  exercises: [
-    {
-      prompt: 'Implement a min-heap and perform insertion and extraction operations.',
-      initialCode: `# Write your solution here
-class MinHeap:
-    def __init__(self):
-        self.heap = []
-
-    def insert(self, value):
-        # Implement insertion
-
-    def extract_min(self):
-        # Implement extraction
-
-    def _bubble_up(self, index):
-        # Implement bubble up
-
-    def _bubble_down(self, index):
-        # Implement bubble down
-
-# Example usage
-heap = MinHeap()
-heap.insert(3)
-heap.insert(2)
-heap.insert(1)
-print("Min element:", heap.extract_min())
-print("Heap after extraction:", heap.heap)`,
-      solution: `class MinHeap:
-    def __init__(self):
-        self.heap = []
-
-    def insert(self, value):
-        self.heap.append(value)
-        self._bubble_up(len(self.heap) - 1)
-
-    def extract_min(self):
-        if len(self.heap) == 0:
-            return None
-        if len(self.heap) == 1:
-            return self.heap.pop()
-        root = self.heap[0]
-        self.heap[0] = self.heap.pop()
-        self._bubble_down(0)
-        return root
-
-    def _bubble_up(self, index):
-        while index > 0:
-            parent_index = (index - 1) // 2
-            if self.heap[index] < self.heap[parent_index]:
-                self.heap[index], self.heap[parent_index] = self.heap[parent_index], self.heap[index]
-                index = parent_index
-            else:
-                break
-
-    def _bubble_down(self, index):
-        while True:
-            left_child_index = 2 * index + 1
-            right_child_index = 2 * index + 2
-            smallest = index
-
-            if left_child_index < len(self.heap) and self.heap[left_child_index] < self.heap[smallest]:
-                smallest = left_child_index
-
-            if right_child_index < len(self.heap) and self.heap[right_child_index] < self.heap[smallest]:
-                smallest = right_child_index
-
-            if smallest != index:
-                self.heap[index], self.heap[smallest] = self.heap[smallest], self.heap[index]
-                index = smallest
-            else:
-                break
-
-# Example usage
-heap = MinHeap()
-heap.insert(3)
-heap.insert(2)
-heap.insert(1)
-print("Min element:", heap.extract_min())
-print("Heap after extraction:", heap.heap)`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary property of a min-heap?',
-      options: [
-        'The parent node always has a smaller value than its children.',
-        'The parent node always has a larger value than its children.',
-        'The heap is always balanced.',
-        'The heap is always sorted.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. In a min-heap, the parent node always has a smaller value than its children.',
-        'This is incorrect. This describes a max-heap, not a min-heap.',
-        'This is incorrect. While a heap is balanced in terms of height, this is not the primary property of a min-heap.',
-        'This is incorrect. A heap is not necessarily sorted; it only maintains the heap property.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-  ],
-};
-
-const maxHeapData: LessonContent = {
-  title: 'Max Heap',
-  content: `<p>
-A max-heap is a binary heap where the parent node always has a larger value than its children. This property ensures that the largest element is always at the root of the heap.
-</p>
-
-<ul>
-<li><strong>Implementation:</strong> A max-heap can be implemented using an array, where the root is at index 0, and for any node at index i, its left child is at index 2*i + 1 and its right child is at index 2*i + 2.</li>
-<li><strong>Applications:</strong> Max-heaps are commonly used in priority queues, where the highest priority element (largest value) needs to be accessed quickly.</li>
-</ul>
-
-<p>
-Understanding max-heaps is essential for efficient data manipulation and algorithm design.
-</p>`,
-  codeExample: `# Max-heap implementation using an array
-class MaxHeap:
-    def __init__(self):
-        self.heap = []
-
-    def insert(self, value):
-        self.heap.append(value)
-        self._bubble_up(len(self.heap) - 1)
-
-    def extract_max(self):
-        if len(self.heap) == 0:
-            return None
-        if len(self.heap) == 1:
-            return self.heap.pop()
-        root = self.heap[0]
-        self.heap[0] = self.heap.pop()
-        self._bubble_down(0)
-        return root
-
-    def _bubble_up(self, index):
-        while index > 0:
-            parent_index = (index - 1) // 2
-            if self.heap[index] > self.heap[parent_index]:
-                self.heap[index], self.heap[parent_index] = self.heap[parent_index], self.heap[index]
-                index = parent_index
-            else:
-                break
-
-    def _bubble_down(self, index):
-        while True:
-            left_child_index = 2 * index + 1
-            right_child_index = 2 * index + 2
-            largest = index
-
-            if left_child_index < len(self.heap) and self.heap[left_child_index] > self.heap[largest]:
-                largest = left_child_index
-
-            if right_child_index < len(self.heap) and self.heap[right_child_index] > self.heap[largest]:
-                largest = right_child_index
-
-            if largest != index:
-                self.heap[index], self.heap[largest] = self.heap[largest], self.heap[index]
-                index = largest
-            else:
-                break
-
-# Example usage
-heap = MaxHeap()
-heap.insert(3)
-heap.insert(2)
-heap.insert(1)
-print("Max element:", heap.extract_max())
-print("Heap after extraction:", heap.heap)`,
-  exercises: [
-    {
-      prompt: 'Implement a max-heap and perform insertion and extraction operations.',
-      initialCode: `# Write your solution here
-class MaxHeap:
-    def __init__(self):
-        self.heap = []
-
-    def insert(self, value):
-        # Implement insertion
-
-    def extract_max(self):
-        # Implement extraction
-
-    def _bubble_up(self, index):
-        # Implement bubble up
-
-    def _bubble_down(self, index):
-        # Implement bubble down
-
-# Example usage
-heap = MaxHeap()
-heap.insert(3)
-heap.insert(2)
-heap.insert(1)
-print("Max element:", heap.extract_max())
-print("Heap after extraction:", heap.heap)`,
-      solution: `class MaxHeap:
-    def __init__(self):
-        self.heap = []
-
-    def insert(self, value):
-        self.heap.append(value)
-        self._bubble_up(len(self.heap) - 1)
-
-    def extract_max(self):
-        if len(self.heap) == 0:
-            return None
-        if len(self.heap) == 1:
-            return self.heap.pop()
-        root = self.heap[0]
-        self.heap[0] = self.heap.pop()
-        self._bubble_down(0)
-        return root
-
-    def _bubble_up(self, index):
-        while index > 0:
-            parent_index = (index - 1) // 2
-            if self.heap[index] > self.heap[parent_index]:
-                self.heap[index], self.heap[parent_index] = self.heap[parent_index], self.heap[index]
-                index = parent_index
-            else:
-                break
-
-    def _bubble_down(self, index):
-        while True:
-            left_child_index = 2 * index + 1
-            right_child_index = 2 * index + 2
-            largest = index
-
-            if left_child_index < len(self.heap) and self.heap[left_child_index] > self.heap[largest]:
-                largest = left_child_index
-
-            if right_child_index < len(self.heap) and self.heap[right_child_index] > self.heap[largest]:
-                largest = right_child_index
-
-            if largest != index:
-                self.heap[index], self.heap[largest] = self.heap[largest], self.heap[index]
-                index = largest
-            else:
-                break
-
-# Example usage
-heap = MaxHeap()
-heap.insert(3)
-heap.insert(2)
-heap.insert(1)
-print("Max element:", heap.extract_max())
-print("Heap after extraction:", heap.heap)`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary property of a max-heap?',
-      options: [
-        'The parent node always has a larger value than its children.',
-        'The parent node always has a smaller value than its children.',
-        'The heap is always balanced.',
-        'The heap is always sorted.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. In a max-heap, the parent node always has a larger value than its children.',
-        'This is incorrect. This describes a min-heap, not a max-heap.',
-        'This is incorrect. While a heap is balanced in terms of height, this is not the primary property of a max-heap.',
-        'This is incorrect. A heap is not necessarily sorted; it only maintains the heap property.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-  ],
-};
-
 const dualHeapData: LessonContent = {
   title: 'Dual Heap',
   content: `<p>
@@ -1560,2791 +1177,1324 @@ print("Median:", dual_heap.get_median())`,
   ],
 };
 
-const heapSortImplementationData: LessonContent = {
-  title: 'HeapSort Implementation',
+const topKPatternData: LessonContent = {
+  title: 'Top-K Pattern',
   content: `<p>
-HeapSort is a comparison-based sorting algorithm that uses a binary heap data structure. It is an in-place algorithm with a worst-case time complexity of O(n log n).
+The Top-K Pattern is commonly used to find the top K elements from a large set of items. 
+This pattern is frequently applied in problems where you need to identify the most frequent elements, 
+largest or smallest numbers, or top candidates based on certain criteria. 
+Heaps, especially max-heaps and min-heaps, are efficient data structures for implementing the Top-K Pattern.
 </p>
 
-<ul>
-<li><strong>Heapify:</strong> Convert the array into a max-heap.</li>
-<li><strong>Sorting:</strong> Repeatedly extract the maximum element from the heap and place it at the end of the array.</li>
-</ul>
-
 <p>
-Understanding and implementing HeapSort is crucial for efficient sorting of large datasets.
-</p>`,
-  codeExample: `# HeapSort implementation
-def heapify(arr, n, i):
-    largest = i
-    left = 2 * i + 1
-    right = 2 * i + 2
-
-    if left < n and arr[left] > arr[largest]:
-        largest = left
-
-    if right < n and arr[right] > arr[largest]:
-        largest = right
-
-    if largest != i:
-        arr[i], arr[largest] = arr[largest], arr[i]
-        heapify(arr, n, largest)
-
-def heap_sort(arr):
-    n = len(arr)
-
-    # Build a max-heap
-    for i in range(n // 2 - 1, -1, -1):
-        heapify(arr, n, i)
-
-    # Extract elements one by one
-    for i in range(n - 1, 0, -1):
-        arr[i], arr[0] = arr[0], arr[i]
-        heapify(arr, i, 0)
-
-# Example usage
-arr = [12, 11, 13, 5, 6, 7]
-heap_sort(arr)
-print("Sorted array:", arr)`,
-  exercises: [
-    {
-      prompt: 'Implement the HeapSort algorithm and sort the given array.',
-      initialCode: `# Write your solution here
-def heapify(arr, n, i):
-    # Implement heapify
-
-def heap_sort(arr):
-    # Implement heap sort
-
-# Example usage
-arr = [12, 11, 13, 5, 6, 7]
-heap_sort(arr)
-print("Sorted array:", arr)`,
-      solution: `def heapify(arr, n, i):
-    largest = i
-    left = 2 * i + 1
-    right = 2 * i + 2
-
-    if left < n and arr[left] > arr[largest]:
-        largest = left
-
-    if right < n and arr[right] > arr[largest]:
-        largest = right
-
-    if largest != i:
-        arr[i], arr[largest] = arr[largest], arr[i]
-        heapify(arr, n, largest)
-
-def heap_sort(arr):
-    n = len(arr)
-
-    # Build a max-heap
-    for i in range(n // 2 - 1, -1, -1):
-        heapify(arr, n, i)
-
-    # Extract elements one by one
-    for i in range(n - 1, 0, -1):
-        arr[i], arr[0] = arr[0], arr[i]
-        heapify(arr, i, 0)
-
-# Example usage
-arr = [12, 11, 13, 5, 6, 7]
-heap_sort(arr)
-print("Sorted array:", arr)`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary step in implementing HeapSort?',
-      options: [
-        'Convert the array into a max-heap.',
-        'Sort the array using a bubble sort algorithm.',
-        'Find the minimum element in the array.',
-        'Use a merge sort algorithm.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The primary step in implementing HeapSort is to convert the array into a max-heap.',
-        'This is incorrect. HeapSort does not use a bubble sort algorithm.',
-        'This is incorrect. Finding the minimum element is not the primary step in HeapSort.',
-        'This is incorrect. HeapSort does not use a merge sort algorithm.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-  ],
-};
-
-const heapSortAnalysisData: LessonContent = {
-  title: 'HeapSort Analysis',
-  content: `<p>
-HeapSort is known for its efficiency and stability. It has a time complexity of O(n log n) in the worst, average, and best cases, making it suitable for large datasets.
+The general approach involves:
 </p>
 
-<ul>
-<li><strong>Time Complexity:</strong> O(n log n) for all cases.</li>
-<li><strong>Space Complexity:</strong> O(1) for in-place sorting.</li>
-<li><strong>Comparison with Other Sorts:</strong> HeapSort is often compared with QuickSort and MergeSort. While QuickSort has a better average-case time complexity, HeapSort is more stable and has a guaranteed worst-case performance.</li>
-</ul>
-
-<p>
-Analyzing HeapSort helps in understanding its efficiency and suitability for different scenarios.
-</p>`,
-  codeExample: `# Time complexity analysis of HeapSort
-import time
-import random
-
-def heapify(arr, n, i):
-    largest = i
-    left = 2 * i + 1
-    right = 2 * i + 2
-
-    if left < n and arr[left] > arr[largest]:
-        largest = left
-
-    if right < n and arr[right] > arr[largest]:
-        largest = right
-
-    if largest != i:
-        arr[i], arr[largest] = arr[largest], arr[i]
-        heapify(arr, n, largest)
-
-def heap_sort(arr):
-    n = len(arr)
-
-    # Build a max-heap
-    for i in range(n // 2 - 1, -1, -1):
-        heapify(arr, n, i)
-
-    # Extract elements one by one
-    for i in range(n - 1, 0, -1):
-        arr[i], arr[0] = arr[0], arr[i]
-        heapify(arr, i, 0)
-
-# Example usage
-arr = [random.randint(0, 1000) for _ in range(10000)]
-start_time = time.time()
-heap_sort(arr)
-end_time = time.time()
-print("Time taken for HeapSort:", end_time - start_time)`,
-  exercises: [
-    {
-      prompt: 'Analyze the time complexity of HeapSort by measuring the time taken to sort a large array.',
-      initialCode: `# Write your solution here
-import time
-import random
-
-def heapify(arr, n, i):
-    # Implement heapify
-
-def heap_sort(arr):
-    # Implement heap sort
-
-# Example usage
-arr = [random.randint(0, 1000) for _ in range(10000)]
-start_time = time.time()
-heap_sort(arr)
-end_time = time.time()
-print("Time taken for HeapSort:", end_time - start_time)`,
-      solution: `import time
-import random
-
-def heapify(arr, n, i):
-    largest = i
-    left = 2 * i + 1
-    right = 2 * i + 2
-
-    if left < n and arr[left] > arr[largest]:
-        largest = left
-
-    if right < n and arr[right] > arr[largest]:
-        largest = right
-
-    if largest != i:
-        arr[i], arr[largest] = arr[largest], arr[i]
-        heapify(arr, n, largest)
-
-def heap_sort(arr):
-    n = len(arr)
-
-    # Build a max-heap
-    for i in range(n // 2 - 1, -1, -1):
-        heapify(arr, n, i)
-
-    # Extract elements one by one
-    for i in range(n - 1, 0, -1):
-        arr[i], arr[0] = arr[0], arr[i]
-        heapify(arr, i, 0)
-
-# Example usage
-arr = [random.randint(0, 1000) for _ in range(10000)]
-start_time = time.time()
-heap_sort(arr)
-end_time = time.time()
-print("Time taken for HeapSort:", end_time - start_time)`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the time complexity of HeapSort in the worst case?',
-      options: [
-        'O(n log n)',
-        'O(n^2)',
-        'O(n)',
-        'O(log n)',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The time complexity of HeapSort in the worst case is O(n log n).',
-        'This is incorrect. The time complexity of HeapSort is not O(n^2).',
-        'This is incorrect. The time complexity of HeapSort is not O(n).',
-        'This is incorrect. The time complexity of HeapSort is not O(log n).',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-  ],
-};
-
-const heapSortVariationsData: LessonContent = {
-  title: 'HeapSort Variations',
-  content: `<p>
-HeapSort can be optimized and adapted for special cases to improve its performance. Some variations include:
-</p>
-
-<ul>
-<li><strong>Bottom-Up HeapSort:</strong> A variation that reduces the number of comparisons by using a bottom-up heap construction.</li>
-<li><strong>Dual-Pivot HeapSort:</strong> A variation that uses two pivots to improve the performance of the sorting process.</li>
-<li><strong>Adaptive HeapSort:</strong> A variation that adapts to the input data to improve performance on partially sorted arrays.</li>
-</ul>
-
-<p>
-Understanding these variations helps in optimizing HeapSort for specific use cases.
-</p>`,
-  codeExample: `# Bottom-Up HeapSort implementation
-def heapify_bottom_up(arr, n, i):
-    while True:
-        largest = i
-        left = 2 * i + 1
-        right = 2 * i + 2
-
-        if left < n and arr[left] > arr[largest]:
-            largest = left
-
-        if right < n and arr[right] > arr[largest]:
-            largest = right
-
-        if largest == i:
-            break
-
-        arr[i], arr[largest] = arr[largest], arr[i]
-        i = largest
-
-def heap_sort_bottom_up(arr):
-    n = len(arr)
-
-    # Build a max-heap using bottom-up approach
-    for i in range(n // 2 - 1, -1, -1):
-        heapify_bottom_up(arr, n, i)
-
-    # Extract elements one by one
-    for i in range(n - 1, 0, -1):
-        arr[i], arr[0] = arr[0], arr[i]
-        heapify_bottom_up(arr, i, 0)
-
-# Example usage
-arr = [12, 11, 13, 5, 6, 7]
-heap_sort_bottom_up(arr)
-print("Sorted array using Bottom-Up HeapSort:", arr)`,
-  exercises: [
-    {
-      prompt: 'Implement the Bottom-Up HeapSort variation and sort the given array.',
-      initialCode: `# Write your solution here
-def heapify_bottom_up(arr, n, i):
-    # Implement bottom-up heapify
-
-def heap_sort_bottom_up(arr):
-    # Implement bottom-up heap sort
-
-# Example usage
-arr = [12, 11, 13, 5, 6, 7]
-heap_sort_bottom_up(arr)
-print("Sorted array using Bottom-Up HeapSort:", arr)`,
-      solution: `def heapify_bottom_up(arr, n, i):
-    while True:
-        largest = i
-        left = 2 * i + 1
-        right = 2 * i + 2
-
-        if left < n and arr[left] > arr[largest]:
-            largest = left
-
-        if right < n and arr[right] > arr[largest]:
-            largest = right
-
-        if largest == i:
-            break
-
-        arr[i], arr[largest] = arr[largest], arr[i]
-        i = largest
-
-def heap_sort_bottom_up(arr):
-    n = len(arr)
-
-    # Build a max-heap using bottom-up approach
-    for i in range(n // 2 - 1, -1, -1):
-        heapify_bottom_up(arr, n, i)
-
-    # Extract elements one by one
-    for i in range(n - 1, 0, -1):
-        arr[i], arr[0] = arr[0], arr[i]
-        heapify_bottom_up(arr, i, 0)
-
-# Example usage
-arr = [12, 11, 13, 5, 6, 7]
-heap_sort_bottom_up(arr)
-print("Sorted array using Bottom-Up HeapSort:", arr)`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary advantage of the Bottom-Up HeapSort variation?',
-      options: [
-        'Reduces the number of comparisons by using a bottom-up heap construction.',
-        'Improves the worst-case time complexity to O(n).',
-        'Eliminates the need for heapify operations.',
-        'Allows for parallel processing of the heap.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The primary advantage of the Bottom-Up HeapSort variation is that it reduces the number of comparisons by using a bottom-up heap construction.',
-        'This is incorrect. The worst-case time complexity of Bottom-Up HeapSort remains O(n log n).',
-        'This is incorrect. Bottom-Up HeapSort still requires heapify operations.',
-        'This is incorrect. Bottom-Up HeapSort does not inherently allow for parallel processing.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const priorityQueueConceptsData: LessonContent = {
-  title: 'Priority Queue Concepts',
-  content: `<p>
-A priority queue is an abstract data type that operates similar to a regular queue but with each element having a priority value. Elements with higher priority are served before elements with lower priority.
-</p>
-
-<ul>
-<li><strong>Implementation:</strong> Priority queues can be implemented using heaps, specifically min-heaps or max-heaps, depending on whether the highest or lowest priority element should be served first.</li>
-<li><strong>Heap-based Priority Queue:</strong> Using a heap allows for efficient insertion and extraction operations, both with a time complexity of O(log n).</li>
-</ul>
-
-<p>
-Understanding priority queue concepts is crucial for efficient handling of tasks with varying priorities.
-</p>`,
-  codeExample: `# Priority queue implementation using a min-heap
+<ol>
+  <li>
+    <strong>Use a Min-Heap of Size K:</strong> 
+    Iterate through the elements, maintaining a min-heap of the top K elements. 
+    If a new element is better than the smallest in the heap, replace it.
+  </li>
+  <li>
+    <strong>Time Complexity:</strong> 
+    O(N log K), where N is the total number of elements.
+  </li>
+</ol>`,
+  codeExample: `# Example: Top K Frequent Elements
+from collections import Counter
 import heapq
 
-class PriorityQueue:
-    def __init__(self):
-        self.heap = []
+def topKFrequent(nums, k):
+    # Count the frequency of each number
+    freq_map = Counter(nums)
+    # Use a min-heap to keep track of the top k frequent elements
+    heap = []
+    for num, freq in freq_map.items():
+        heapq.heappush(heap, (freq, num))
+        if len(heap) > k:
+            heapq.heappop(heap)
+    # Extract the top k elements
+    top_k = [heapq.heappop(heap)[1] for _ in range(k)]
+    return top_k[::-1]
 
-    def insert(self, item, priority):
-        heapq.heappush(self.heap, (priority, item))
-
-    def extract_min(self):
-        if len(self.heap) == 0:
-            return None
-        return heapq.heappop(self.heap)[1]
-
-# Example usage
-pq = PriorityQueue()
-pq.insert("Task 1", 3)
-pq.insert("Task 2", 1)
-pq.insert("Task 3", 2)
-print("Extracted min:", pq.extract_min())`,
+# Example usage:
+nums = [1,1,1,2,2,3]
+k = 2
+print(topKFrequent(nums, k))  # Output: [1, 2]`,
   exercises: [
     {
-      prompt: 'Implement a priority queue using a min-heap and perform insertion and extraction operations.',
+      prompt: 'Implement a function to find the top K largest numbers in an array using a min-heap.',
       initialCode: `# Write your solution here
-import heapq
-
-class PriorityQueue:
-    def __init__(self):
-        self.heap = []
-
-    def insert(self, item, priority):
-        # Implement insertion
-
-    def extract_min(self):
-        # Implement extraction
-
-# Example usage
-pq = PriorityQueue()
-pq.insert("Task 1", 3)
-pq.insert("Task 2", 1)
-pq.insert("Task 3", 2)
-print("Extracted min:", pq.extract_min())`,
+def top_k_largest(nums, k):
+    pass`,
       solution: `import heapq
 
-class PriorityQueue:
-    def __init__(self):
-        self.heap = []
-
-    def insert(self, item, priority):
-        heapq.heappush(self.heap, (priority, item))
-
-    def extract_min(self):
-        if len(self.heap) == 0:
-            return None
-        return heapq.heappop(self.heap)[1]
-
-# Example usage
-pq = PriorityQueue()
-pq.insert("Task 1", 3)
-pq.insert("Task 2", 1)
-pq.insert("Task 3", 2)
-print("Extracted min:", pq.extract_min())`,
+def top_k_largest(nums, k):
+    # Use a min-heap to keep track of the top k largest elements
+    heap = []
+    for num in nums:
+        heapq.heappush(heap, num)
+        if len(heap) > k:
+            heapq.heappop(heap)
+    # Extract the elements from the heap
+    top_k = []
+    while heap:
+        top_k.append(heapq.heappop(heap))
+    return top_k[::-1]`,
       difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question: 'What is the primary advantage of using a heap for implementing a priority queue?',
+      question: 'What is the time complexity of finding the top K elements using a heap?',
       options: [
-        'Efficient insertion and extraction operations with a time complexity of O(log n).',
-        'Guaranteed O(1) time complexity for all operations.',
-        'Ability to handle a large number of elements with constant time complexity.',
-        'Simplified implementation compared to other data structures.',
+        'O(N)',
+        'O(N log K)',
+        'O(K log N)',
+        'O(N log N)',
       ],
-      correctAnswer: 0,
+      correctAnswer: 1,
       explanations: [
-        'This is correct. Using a heap for implementing a priority queue allows for efficient insertion and extraction operations with a time complexity of O(log n).',
-        'This is incorrect. The time complexity for insertion and extraction in a heap-based priority queue is O(log n), not O(1).',
-        'This is incorrect. While heaps can handle a large number of elements, the time complexity is not constant.',
-        'This is incorrect. While the implementation is relatively straightforward, it is not necessarily simpler than other data structures.',
+        'Incorrect. O(N) is too optimistic for this problem.',
+        'Correct. O(N log K) is the time complexity when using a heap of size K.',
+        'Incorrect. O(K log N) is not the standard complexity for this approach.',
+        'Incorrect. O(N log N) would be if you sort the entire array.',
       ],
       difficulty: Difficulty.Beginner,
-    },
-  ],
-};
-
-const priorityQueueOperationsData: LessonContent = {
-  title: 'Priority Queue Operations',
-  content: `<p>
-Priority queues support several core operations, including insertion, extraction, and sometimes updating the priority of an element.
-</p>
-
-<ul>
-<li><strong>Insertion:</strong> Add an element with a specified priority to the queue.</li>
-<li><strong>Extraction:</strong> Remove and return the element with the highest (or lowest) priority.</li>
-<li><strong>Update Priority:</strong> Change the priority of an existing element in the queue.</li>
-</ul>
-
-<p>
-Implementing these operations efficiently is crucial for the performance of priority queue-based applications.
-</p>`,
-  codeExample: `# Priority queue operations implementation using a min-heap
-import heapq
-
-class PriorityQueue:
-    def __init__(self):
-        self.heap = []
-        self.entry_finder = {}
-        self.REMOVED = '<removed-task>'
-
-    def insert(self, item, priority):
-        if item in self.entry_finder:
-            self.remove_item(item)
-        entry = [priority, item]
-        self.entry_finder[item] = entry
-        heapq.heappush(self.heap, entry)
-
-    def remove_item(self, item):
-        entry = self.entry_finder.pop(item)
-        entry[-1] = self.REMOVED
-
-    def extract_min(self):
-        while self.heap:
-            priority, item = heapq.heappop(self.heap)
-            if item is not self.REMOVED:
-                del self.entry_finder[item]
-                return item
-        return None
-
-# Example usage
-pq = PriorityQueue()
-pq.insert("Task 1", 3)
-pq.insert("Task 2", 1)
-pq.insert("Task 3", 2)
-pq.remove_item("Task 2")
-print("Extracted min:", pq.extract_min())`,
-  exercises: [
-    {
-      prompt: 'Implement the priority queue operations including insertion, extraction, and updating the priority of an element.',
-      initialCode: `# Write your solution here
-import heapq
-
-class PriorityQueue:
-    def __init__(self):
-        self.heap = []
-        self.entry_finder = {}
-        self.REMOVED = '<removed-task>'
-
-    def insert(self, item, priority):
-        # Implement insertion
-
-    def remove_item(self, item):
-        # Implement removal
-
-    def extract_min(self):
-        # Implement extraction
-
-# Example usage
-pq = PriorityQueue()
-pq.insert("Task 1", 3)
-pq.insert("Task 2", 1)
-pq.insert("Task 3", 2)
-pq.remove_item("Task 2")
-print("Extracted min:", pq.extract_min())`,
-      solution: `import heapq
-
-class PriorityQueue:
-    def __init__(self):
-        self.heap = []
-        self.entry_finder = {}
-        self.REMOVED = '<removed-task>'
-
-    def insert(self, item, priority):
-        if item in self.entry_finder:
-            self.remove_item(item)
-        entry = [priority, item]
-        self.entry_finder[item] = entry
-        heapq.heappush(self.heap, entry)
-
-    def remove_item(self, item):
-        entry = self.entry_finder.pop(item)
-        entry[-1] = self.REMOVED
-
-    def extract_min(self):
-        while self.heap:
-            priority, item = heapq.heappop(self.heap)
-            if item is not self.REMOVED:
-                del self.entry_finder[item]
-                return item
-        return None
-
-# Example usage
-pq = PriorityQueue()
-pq.insert("Task 1", 3)
-pq.insert("Task 2", 1)
-pq.insert("Task 3", 2)
-pq.remove_item("Task 2")
-print("Extracted min:", pq.extract_min())`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary purpose of the update priority operation in a priority queue?',
-      options: [
-        'To change the priority of an existing element in the queue.',
-        'To insert a new element into the queue.',
-        'To remove the highest priority element from the queue.',
-        'To sort the entire queue.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The primary purpose of the update priority operation is to change the priority of an existing element in the queue.',
-        'This is incorrect. Inserting a new element is handled by the insertion operation.',
-        'This is incorrect. Removing the highest priority element is handled by the extraction operation.',
-        'This is incorrect. The priority queue does not need to sort the entire queue.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-  ],
-};
-
-const priorityQueueApplicationsData: LessonContent = {
-  title: 'Priority Queue Applications',
-  content: `<p>
-Priority queues have a wide range of applications in various fields, including computer science, operations research, and real-time systems.
-</p>
-
-<ul>
-<li><strong>Dijkstra's Algorithm:</strong> Used in finding the shortest path in a graph.</li>
-<li><strong>Huffman Coding:</strong> Used in data compression.</li>
-<li><strong>Job Scheduling:</strong> Used in operating systems to manage tasks with different priorities.</li>
-<li><strong>Event-driven Simulation:</strong> Used in simulations where events need to be processed in order of their occurrence.</li>
-</ul>
-
-<p>
-Understanding these applications helps in leveraging priority queues for solving real-world problems.
-</p>`,
-  codeExample: `# Example of using a priority queue in Dijkstra's algorithm
-import heapq
-
-def dijkstra(graph, start):
-    pq = []
-    heapq.heappush(pq, (0, start))
-    distances = {vertex: float('infinity') for vertex in graph}
-    distances[start] = 0
-
-    while pq:
-        current_distance, current_vertex = heapq.heappop(pq)
-
-        if current_distance > distances[current_vertex]:
-            continue
-
-        for neighbor, weight in graph[current_vertex].items():
-            distance = current_distance + weight
-
-            if distance < distances[neighbor]:
-                distances[neighbor] = distance
-                heapq.heappush(pq, (distance, neighbor))
-
-    return distances
-
-# Example usage
-graph = {
-    'A': {'B': 1, 'C': 4},
-    'B': {'A': 1, 'C': 2, 'D': 5},
-    'C': {'A': 4, 'B': 2, 'D': 1},
-    'D': {'B': 5, 'C': 1}
-}
-print("Shortest distances from A:", dijkstra(graph, 'A'))`,
-  exercises: [
-    {
-      prompt: 'Implement Dijkstra\'s algorithm using a priority queue and find the shortest path in the given graph.',
-      initialCode: `# Write your solution here
-import heapq
-
-def dijkstra(graph, start):
-    pq = []
-    heapq.heappush(pq, (0, start))
-    distances = {vertex: float('infinity') for vertex in graph}
-    distances[start] = 0
-
-    while pq:
-        current_distance, current_vertex = heapq.heappop(pq)
-
-        if current_distance > distances[current_vertex]:
-            continue
-
-        for neighbor, weight in graph[current_vertex].items():
-            distance = current_distance + weight
-
-            if distance < distances[neighbor]:
-                distances[neighbor] = distance
-                heapq.heappush(pq, (distance, neighbor))
-
-    return distances
-
-# Example usage
-graph = {
-    'A': {'B': 1, 'C': 4},
-    'B': {'A': 1, 'C': 2, 'D': 5},
-    'C': {'A': 4, 'B': 2, 'D': 1},
-    'D': {'B': 5, 'C': 1}
-}
-print("Shortest distances from A:", dijkstra(graph, 'A'))`,
-      solution: `import heapq
-
-def dijkstra(graph, start):
-    pq = []
-    heapq.heappush(pq, (0, start))
-    distances = {vertex: float('infinity') for vertex in graph}
-    distances[start] = 0
-
-    while pq:
-        current_distance, current_vertex = heapq.heappop(pq)
-
-        if current_distance > distances[current_vertex]:
-            continue
-
-        for neighbor, weight in graph[current_vertex].items():
-            distance = current_distance + weight
-
-            if distance < distances[neighbor]:
-                distances[neighbor] = distance
-                heapq.heappush(pq, (distance, neighbor))
-
-    return distances
-
-# Example usage
-graph = {
-    'A': {'B': 1, 'C': 4},
-    'B': {'A': 1, 'C': 2, 'D': 5},
-    'C': {'A': 4, 'B': 2, 'D': 1},
-    'D': {'B': 5, 'C': 1}
-}
-print("Shortest distances from A:", dijkstra(graph, 'A'))`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'Which of the following is a common application of priority queues?',
-      options: [
-        'Dijkstra\'s Algorithm',
-        'Binary Search',
-        'Bubble Sort',
-        'Linear Search',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. Priority queues are commonly used in Dijkstra\'s Algorithm for finding the shortest path in a graph.',
-        'This is incorrect. Binary Search is not an application of priority queues.',
-        'This is incorrect. Bubble Sort is not an application of priority queues.',
-        'This is incorrect. Linear Search is not an application of priority queues.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-  ],
-};
-
-const binomialHeapData: LessonContent = {
-  title: 'Binomial Heap',
-  content: `<p>
-A binomial heap is a collection of binomial trees that satisfy the heap property. Binomial heaps support efficient merge operations, making them suitable for applications that require frequent merging of heaps.
-</p>
-
-<ul>
-<li><strong>Binomial Tree:</strong> A specific type of tree that has properties useful for creating heaps.</li>
-<li><strong>Operations:</strong> Insertion, deletion, merging, and finding the minimum element.</li>
-</ul>
-
-<p>
-Understanding and implementing binomial heaps is crucial for efficient heap operations in scenarios requiring frequent merging.
-</p>`,
-  codeExample: `# Binomial heap implementation
-class BinomialHeapNode:
-    def __init__(self, key):
-        self.key = key
-        self.degree = 0
-        self.parent = None
-        self.child = None
-        self.sibling = None
-
-class BinomialHeap:
-    def __init__(self):
-        self.head = None
-
-    def insert(self, key):
-        temp_heap = BinomialHeap()
-        temp_heap.head = BinomialHeapNode(key)
-        self.head = self.merge(self, temp_heap)
-
-    def merge(self, heap1, heap2):
-        if heap1.head is None:
-            return heap2.head
-        if heap2.head is None:
-            return heap1.head
-
-        if heap1.head.degree <= heap2.head.degree:
-            result = heap1.head
-            heap1.head = heap1.head.sibling
-        else:
-            result = heap2.head
-            heap2.head = heap2.head.sibling
-
-        current = result
-
-        while heap1.head is not None and heap2.head is not None:
-            if heap1.head.degree <= heap2.head.degree:
-                current.sibling = heap1.head
-                heap1.head = heap1.head.sibling
-            else:
-                current.sibling = heap2.head
-                heap2.head = heap2.head.sibling
-            current = current.sibling
-
-        if heap1.head is not None:
-            current.sibling = heap1.head
-        else:
-            current.sibling = heap2.head
-
-        return result
-
-# Example usage
-heap = BinomialHeap()
-heap.insert(3)
-heap.insert(2)
-heap.insert(1)
-print("Binomial Heap after insertions")`,
-  exercises: [
-    {
-      prompt: 'Implement the insertion operation for a binomial heap and insert the given elements.',
-      initialCode: `# Write your solution here
-class BinomialHeapNode:
-    def __init__(self, key):
-        self.key = key
-        self.degree = 0
-        self.parent = None
-        self.child = None
-        self.sibling = None
-
-class BinomialHeap:
-    def __init__(self):
-        self.head = None
-
-    def insert(self, key):
-        # Implement insertion
-
-    def merge(self, heap1, heap2):
-        # Implement merge
-
-# Example usage
-heap = BinomialHeap()
-heap.insert(3)
-heap.insert(2)
-heap.insert(1)
-print("Binomial Heap after insertions")`,
-      solution: `class BinomialHeapNode:
-    def __init__(self, key):
-        self.key = key
-        self.degree = 0
-        self.parent = None
-        self.child = None
-        self.sibling = None
-
-class BinomialHeap:
-    def __init__(self):
-        self.head = None
-
-    def insert(self, key):
-        temp_heap = BinomialHeap()
-        temp_heap.head = BinomialHeapNode(key)
-        self.head = self.merge(self, temp_heap)
-
-    def merge(self, heap1, heap2):
-        if heap1.head is None:
-            return heap2.head
-        if heap2.head is None:
-            return heap1.head
-
-        if heap1.head.degree <= heap2.head.degree:
-            result = heap1.head
-            heap1.head = heap1.head.sibling
-        else:
-            result = heap2.head
-            heap2.head = heap2.head.sibling
-
-        current = result
-
-        while heap1.head is not None and heap2.head is not None:
-            if heap1.head.degree <= heap2.head.degree:
-                current.sibling = heap1.head
-                heap1.head = heap1.head.sibling
-            else:
-                current.sibling = heap2.head
-                heap2.head = heap2.head.sibling
-            current = current.sibling
-
-        if heap1.head is not None:
-            current.sibling = heap1.head
-        else:
-            current.sibling = heap2.head
-
-        return result
-
-# Example usage
-heap = BinomialHeap()
-heap.insert(3)
-heap.insert(2)
-heap.insert(1)
-print("Binomial Heap after insertions")`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary advantage of a binomial heap over a binary heap?',
-      options: [
-        'Efficient merging of heaps.',
-        'Faster insertion and deletion operations.',
-        'Guaranteed O(1) time complexity for all operations.',
-        'Simpler implementation.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The primary advantage of a binomial heap over a binary heap is its efficient merging of heaps.',
-        'This is incorrect. While binomial heaps have efficient merging, their insertion and deletion operations are not necessarily faster than those of binary heaps.',
-        'This is incorrect. Binomial heaps do not guarantee O(1) time complexity for all operations.',
-        'This is incorrect. Binomial heaps are generally more complex to implement than binary heaps.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const fibonacciHeapData: LessonContent = {
-  title: 'Fibonacci Heap',
-  content: `<p>
-A Fibonacci heap is a collection of trees that satisfy the min-heap or max-heap property. Fibonacci heaps are particularly useful in algorithms that require efficient decrease-key operations, such as Dijkstra's algorithm.
-</p>
-
-<ul>
-<li><strong>Operations:</strong> Insertion, deletion, merging, finding the minimum element, and decreasing the key.</li>
-<li><strong>Amortized Time Complexity:</strong> Many operations have better amortized time complexity compared to binary heaps.</li>
-</ul>
-
-<p>
-Understanding and implementing Fibonacci heaps is crucial for optimizing algorithms that require frequent decrease-key operations.
-</p>`,
-  codeExample: `# Fibonacci heap implementation
-class FibonacciHeapNode:
-    def __init__(self, key):
-        self.key = key
-        self.degree = 0
-        self.parent = None
-        self.child = None
-        self.left = self
-        self.right = self
-        self.mark = False
-
-class FibonacciHeap:
-    def __init__(self):
-        self.min_node = None
-        self.n = 0
-
-    def insert(self, key):
-        node = FibonacciHeapNode(key)
-        if self.min_node is None:
-            self.min_node = node
-        else:
-            self._add_node(node, self.min_node)
-            if node.key < self.min_node.key:
-                self.min_node = node
-        self.n += 1
-
-    def _add_node(self, node, root):
-        node.left = root.left
-        node.right = root
-        root.left.right = node
-        root.left = node
-
-# Example usage
-heap = FibonacciHeap()
-heap.insert(3)
-heap.insert(2)
-heap.insert(1)
-print("Fibonacci Heap after insertions")`,
-  exercises: [
-    {
-      prompt: 'Implement the insertion operation for a Fibonacci heap and insert the given elements.',
-      initialCode: `# Write your solution here
-class FibonacciHeapNode:
-    def __init__(self, key):
-        self.key = key
-        self.degree = 0
-        self.parent = None
-        self.child = None
-        self.left = self
-        self.right = self
-        self.mark = False
-
-class FibonacciHeap:
-    def __init__(self):
-        self.min_node = None
-        self.n = 0
-
-    def insert(self, key):
-        # Implement insertion
-
-    def _add_node(self, node, root):
-        # Implement adding node to root list
-
-# Example usage
-heap = FibonacciHeap()
-heap.insert(3)
-heap.insert(2)
-heap.insert(1)
-print("Fibonacci Heap after insertions")`,
-      solution: `class FibonacciHeapNode:
-    def __init__(self, key):
-        self.key = key
-        self.degree = 0
-        self.parent = None
-        self.child = None
-        self.left = self
-        self.right = self
-        self.mark = False
-
-class FibonacciHeap:
-    def __init__(self):
-        self.min_node = None
-        self.n = 0
-
-    def insert(self, key):
-        node = FibonacciHeapNode(key)
-        if self.min_node is None:
-            self.min_node = node
-        else:
-            self._add_node(node, self.min_node)
-            if node.key < self.min_node.key:
-                self.min_node = node
-        self.n += 1
-
-    def _add_node(self, node, root):
-        node.left = root.left
-        node.right = root
-        root.left.right = node
-        root.left = node
-
-# Example usage
-heap = FibonacciHeap()
-heap.insert(3)
-heap.insert(2)
-heap.insert(1)
-print("Fibonacci Heap after insertions")`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary advantage of a Fibonacci heap over a binary heap?',
-      options: [
-        'Better amortized time complexity for decrease-key operations.',
-        'Faster insertion and deletion operations.',
-        'Guaranteed O(1) time complexity for all operations.',
-        'Simpler implementation.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The primary advantage of a Fibonacci heap over a binary heap is its better amortized time complexity for decrease-key operations.',
-        'This is incorrect. While Fibonacci heaps have better amortized time complexity for certain operations, their insertion and deletion operations are not necessarily faster than those of binary heaps.',
-        'This is incorrect. Fibonacci heaps do not guarantee O(1) time complexity for all operations.',
-        'This is incorrect. Fibonacci heaps are generally more complex to implement than binary heaps.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const leftistHeapData: LessonContent = {
-  title: 'Leftist Heap',
-  content: `<p>
-A leftist heap is a binary tree that satisfies the heap property and the leftist property. The leftist property ensures that the null path length of the left child is always greater than or equal to the null path length of the right child.
-</p>
-
-<ul>
-<li><strong>Operations:</strong> Insertion, deletion, merging, and finding the minimum element.</li>
-<li><strong>Leftist Property:</strong> Ensures that the tree is skewed to the left, which helps in maintaining the balance of the tree.</li>
-</ul>
-
-<p>
-Understanding and implementing leftist heaps is crucial for efficient heap operations in scenarios requiring frequent merging.
-</p>`,
-  codeExample: `# Leftist heap implementation
-class LeftistHeapNode:
-    def __init__(self, key):
-        self.key = key
-        self.left = None
-        self.right = None
-        self.npl = 0
-
-class LeftistHeap:
-    def __init__(self):
-        self.root = None
-
-    def insert(self, key):
-        self.root = self.merge(self.root, LeftistHeapNode(key))
-
-    def merge(self, heap1, heap2):
-        if heap1 is None:
-            return heap2
-        if heap2 is None:
-            return heap1
-
-        if heap1.key > heap2.key:
-            heap1, heap2 = heap2, heap1
-
-        heap1.right = self.merge(heap1.right, heap2)
-
-        if heap1.left is None or heap1.left.npl < heap1.right.npl:
-            heap1.left, heap1.right = heap1.right, heap1.left
-
-        heap1.npl = 0 if heap1.right is None else heap1.right.npl + 1
-
-        return heap1
-
-# Example usage
-heap = LeftistHeap()
-heap.insert(3)
-heap.insert(2)
-heap.insert(1)
-print("Leftist Heap after insertions")`,
-  exercises: [
-    {
-      prompt: 'Implement the insertion operation for a leftist heap and insert the given elements.',
-      initialCode: `# Write your solution here
-class LeftistHeapNode:
-    def __init__(self, key):
-        self.key = key
-        self.left = None
-        self.right = None
-        self.npl = 0
-
-class LeftistHeap:
-    def __init__(self):
-        self.root = None
-
-    def insert(self, key):
-        # Implement insertion
-
-    def merge(self, heap1, heap2):
-        # Implement merge
-
-# Example usage
-heap = LeftistHeap()
-heap.insert(3)
-heap.insert(2)
-heap.insert(1)
-print("Leftist Heap after insertions")`,
-      solution: `class LeftistHeapNode:
-    def __init__(self, key):
-        self.key = key
-        self.left = None
-        self.right = None
-        self.npl = 0
-
-class LeftistHeap:
-    def __init__(self):
-        self.root = None
-
-    def insert(self, key):
-        self.root = self.merge(self.root, LeftistHeapNode(key))
-
-    def merge(self, heap1, heap2):
-        if heap1 is None:
-            return heap2
-        if heap2 is None:
-            return heap1
-
-        if heap1.key > heap2.key:
-            heap1, heap2 = heap2, heap1
-
-        heap1.right = self.merge(heap1.right, heap2)
-
-        if heap1.left is None or heap1.left.npl < heap1.right.npl:
-            heap1.left, heap1.right = heap1.right, heap1.left
-
-        heap1.npl = 0 if heap1.right is None else heap1.right.npl + 1
-
-        return heap1
-
-# Example usage
-heap = LeftistHeap()
-heap.insert(3)
-heap.insert(2)
-heap.insert(1)
-print("Leftist Heap after insertions")`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary advantage of a leftist heap over a binary heap?',
-      options: [
-        'Efficient merging of heaps.',
-        'Faster insertion and deletion operations.',
-        'Guaranteed O(1) time complexity for all operations.',
-        'Simpler implementation.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The primary advantage of a leftist heap over a binary heap is its efficient merging of heaps.',
-        'This is incorrect. While leftist heaps have efficient merging, their insertion and deletion operations are not necessarily faster than those of binary heaps.',
-        'This is incorrect. Leftist heaps do not guarantee O(1) time complexity for all operations.',
-        'This is incorrect. Leftist heaps are generally more complex to implement than binary heaps.',
-      ],
-      difficulty: Difficulty.Intermediate,
     },
   ],
 };
 
 const kWayMergeData: LessonContent = {
-  title: 'K-Way Merge',
+  title: 'K-Way Merge Pattern',
   content: `<p>
-K-Way Merge is a technique used to merge k sorted arrays into a single sorted array. This can be efficiently achieved using a min-heap, which allows for the extraction of the smallest element from k arrays in logarithmic time.
+The K-Way Merge Pattern is used to merge K sorted arrays or lists into a single sorted array. 
+This pattern is useful in scenarios where you have multiple sorted inputs and need to combine them efficiently.
 </p>
 
-<ul>
-<li><strong>Min-Heap:</strong> Used to keep track of the smallest elements from each of the k arrays.</li>
-<li><strong>Extraction:</strong> Extract the smallest element from the heap and insert the next element from the same array into the heap.</li>
-</ul>
-
 <p>
-Understanding and implementing K-Way Merge is crucial for efficient merging of multiple sorted datasets.
-</p>`,
-  codeExample: `# K-Way Merge implementation using a min-heap
+The typical approach involves:
+</p>
+
+<ol>
+  <li>
+    <strong>Use a Min-Heap to Track the Smallest Elements:</strong> 
+    Initialize the heap with the first element of each array. 
+    Then, repeatedly extract the smallest element and insert the next element from the corresponding array.
+  </li>
+  <li>
+    <strong>Time Complexity:</strong> 
+    O(N log K), where N is the total number of elements across all arrays.
+  </li>
+</ol>`,
+  codeExample: `# Example: Merge K Sorted Arrays
 import heapq
 
-def k_way_merge(arrays):
-    min_heap = []
-    result = []
+def merge_k_sorted_arrays(arrays):
+    # Initialize a heap with the first element of each array
+    heap = []
+    for i, arr in enumerate(arrays):
+        if arr:
+            heap.append((arr[0], i, 0))
+    heapq.heapify(heap)
+    
+    merged = []
+    while heap:
+        val, array_idx, element_idx = heapq.heappop(heap)
+        merged.append(val)
+        if element_idx + 1 < len(arrays[array_idx]):
+            next_val = arrays[array_idx][element_idx + 1]
+            heapq.heappush(heap, (next_val, array_idx, element_idx + 1))
+    return merged
 
-    # Initialize the heap with the first element from each array
-    for i, array in enumerate(arrays):
-        if array:
-            heapq.heappush(min_heap, (array[0], i, 0))
-
-    while min_heap:
-        val, array_index, element_index = heapq.heappop(min_heap)
-        result.append(val)
-
-        # If there are more elements in the same array, push the next element
-        if element_index + 1 < len(arrays[array_index]):
-            next_val = arrays[array_index][element_index + 1]
-            heapq.heappush(min_heap, (next_val, array_index, element_index + 1))
-
-    return result
-
-# Example usage
+# Example usage:
 arrays = [
-    [1, 3, 5],
-    [2, 4, 6],
-    [0, 7, 8]
+    [1, 4, 7],
+    [2, 5, 8],
+    [3, 6, 9]
 ]
-merged_array = k_way_merge(arrays)
-print("Merged array:", merged_array)`,
+print(merge_k_sorted_arrays(arrays))  # Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]`,
   exercises: [
     {
-      prompt: 'Implement the K-Way Merge algorithm and merge the given sorted arrays.',
+      prompt: 'Implement a function to merge K sorted arrays into one sorted array using a min-heap.',
       initialCode: `# Write your solution here
-import heapq
-
-def k_way_merge(arrays):
-    min_heap = []
-    result = []
-
-    # Initialize the heap with the first element from each array
-    for i, array in enumerate(arrays):
-        if array:
-            heapq.heappush(min_heap, (array[0], i, 0))
-
-    while min_heap:
-        val, array_index, element_index = heapq.heappop(min_heap)
-        result.append(val)
-
-        # If there are more elements in the same array, push the next element
-        if element_index + 1 < len(arrays[array_index]):
-            next_val = arrays[array_index][element_index + 1]
-            heapq.heappush(min_heap, (next_val, array_index, element_index + 1))
-
-    return result
-
-# Example usage
-arrays = [
-    [1, 3, 5],
-    [2, 4, 6],
-    [0, 7, 8]
-]
-merged_array = k_way_merge(arrays)
-print("Merged array:", merged_array)`,
+def merge_k_sorted_arrays(arrays):
+    pass`,
       solution: `import heapq
 
-def k_way_merge(arrays):
-    min_heap = []
-    result = []
-
-    # Initialize the heap with the first element from each array
-    for i, array in enumerate(arrays):
-        if array:
-            heapq.heappush(min_heap, (array[0], i, 0))
-
-    while min_heap:
-        val, array_index, element_index = heapq.heappop(min_heap)
-        result.append(val)
-
-        # If there are more elements in the same array, push the next element
-        if element_index + 1 < len(arrays[array_index]):
-            next_val = arrays[array_index][element_index + 1]
-            heapq.heappush(min_heap, (next_val, array_index, element_index + 1))
-
-    return result
-
-# Example usage
-arrays = [
-    [1, 3, 5],
-    [2, 4, 6],
-    [0, 7, 8]
-]
-merged_array = k_way_merge(arrays)
-print("Merged array:", merged_array)`,
+def merge_k_sorted_arrays(arrays):
+    heap = []
+    # Initialize the heap with the first element of each array
+    for i, arr in enumerate(arrays):
+        if arr:
+            heapq.heappush(heap, (arr[0], i, 0))
+    merged = []
+    while heap:
+        val, array_idx, element_idx = heapq.heappop(heap)
+        merged.append(val)
+        if element_idx + 1 < len(arrays[array_idx]):
+            next_val = arrays[array_idx][element_idx + 1]
+            heapq.heappush(heap, (next_val, array_idx, element_idx + 1))
+    return merged`,
       difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question: 'What is the primary advantage of using a min-heap for K-Way Merge?',
+      question: 'Which data structure is most efficient for merging K sorted arrays?',
       options: [
-        'Efficient extraction of the smallest element from k arrays.',
-        'Guaranteed O(1) time complexity for all operations.',
-        'Simpler implementation compared to other data structures.',
-        'Ability to handle a large number of elements with constant time complexity.',
+        'Linked List',
+        'Min-Heap',
+        'Max-Heap',
+        'Stack',
       ],
-      correctAnswer: 0,
+      correctAnswer: 1,
       explanations: [
-        'This is correct. The primary advantage of using a min-heap for K-Way Merge is its efficient extraction of the smallest element from k arrays.',
-        'This is incorrect. The time complexity for extraction in a min-heap is O(log k), not O(1).',
-        'This is incorrect. While the implementation is relatively straightforward, it is not necessarily simpler than other data structures.',
-        'This is incorrect. The time complexity for handling a large number of elements is not constant.',
+        'Incorrect. While possible, it is not the most efficient method.',
+        'Correct. A min-heap efficiently retrieves the smallest elements.',
+        'Incorrect. A max-heap is not suitable for this purpose.',
+        'Incorrect. A stack does not help in merging sorted arrays.',
       ],
       difficulty: Difficulty.Beginner,
     },
   ],
 };
 
-const kSmallestElementsData: LessonContent = {
-  title: 'K Smallest Elements',
+const twoHeapsData: LessonContent = {
+  title: 'Two Heaps Pattern',
   content: `<p>
-Finding the k smallest elements in an array or a stream can be efficiently achieved using a max-heap. The max-heap allows for the extraction of the largest element among the k smallest elements, ensuring that the heap always contains the k smallest elements.
+The Two Heaps Pattern involves using a max-heap and a min-heap together to maintain a window of elements, 
+often used to find the median of a data stream in real-time. This pattern helps in balancing the heaps 
+to ensure that the median can be quickly retrieved.
 </p>
 
-<ul>
-<li><strong>Max-Heap:</strong> Used to keep track of the k smallest elements.</li>
-<li><strong>Insertion:</strong> Insert elements into the heap and maintain the heap size to be at most k.</li>
-</ul>
-
 <p>
-Understanding and implementing this technique is crucial for efficient selection of the k smallest elements.
-</p>`,
-  codeExample: `# Finding k smallest elements using a max-heap
+The typical approach includes:
+</p>
+
+<ol>
+  <li>
+    <strong>Max-Heap for the Lower Half:</strong> 
+    Stores the smaller half of the numbers.
+  </li>
+  <li>
+    <strong>Min-Heap for the Upper Half:</strong> 
+    Stores the larger half of the numbers.
+  </li>
+  <li>
+    <strong>Balance the Heaps:</strong> 
+    Ensure that the heaps are of equal size (or differ by at most one element).
+  </li>
+</ol>`,
+  codeExample: `# Example: Median Finder using Two Heaps
 import heapq
 
-def k_smallest_elements(arr, k):
-    max_heap = []
+class MedianFinder:
+    def __init__(self):
+        self.max_heap = []  # stores the smaller half
+        self.min_heap = []  # stores the larger half
 
-    for num in arr:
-        if len(max_heap) < k:
-            heapq.heappush(max_heap, -num)
+    def add_num(self, num):
+        # Add to max_heap
+        heapq.heappush(self.max_heap, -num)
+        # Balance: move the largest of max_heap to min_heap
+        if self.max_heap and self.min_heap and (-self.max_heap[0] > self.min_heap[0]):
+            val = -heapq.heappop(self.max_heap)
+            heapq.heappush(self.min_heap, val)
+        # If max_heap has more than one element than min_heap
+        if len(self.max_heap) > len(self.min_heap) + 1:
+            val = -heapq.heappop(self.max_heap)
+            heapq.heappush(self.min_heap, val)
+        # If min_heap has more elements than max_heap
+        if len(self.min_heap) > len(self.max_heap):
+            val = heapq.heappop(self.min_heap)
+            heapq.heappush(self.max_heap, -val)
+
+    def find_median(self):
+        if not self.max_heap and not self.min_heap:
+            return 0.0
+        if len(self.max_heap) > len(self.min_heap):
+            return -self.max_heap[0]
         else:
-            if -max_heap[0] > num:
-                heapq.heappop(max_heap)
-                heapq.heappush(max_heap, -num)
+            return (-self.max_heap[0] + self.min_heap[0]) / 2.0
 
-    return [-x for x in max_heap]
-
-# Example usage
-arr = [3, 2, 1, 5, 4]
-k = 3
-smallest_elements = k_smallest_elements(arr, k)
-print("K smallest elements:", smallest_elements)`,
+# Example usage:
+mf = MedianFinder()
+mf.add_num(1)
+mf.add_num(2)
+print(mf.find_median())  # Output: 1.5
+mf.add_num(3)
+print(mf.find_median())  # Output: 2.0`,
   exercises: [
     {
-      prompt: 'Implement the algorithm to find the k smallest elements in the given array using a max-heap.',
+      prompt: 'Implement a MedianFinder class that allows adding numbers and finding the current median using two heaps.',
       initialCode: `# Write your solution here
-import heapq
-
-def k_smallest_elements(arr, k):
-    max_heap = []
-
-    for num in arr:
-        if len(max_heap) < k:
-            heapq.heappush(max_heap, -num)
-        else:
-            if -max_heap[0] > num:
-                heapq.heappop(max_heap)
-                heapq.heappush(max_heap, -num)
-
-    return [-x for x in max_heap]
-
-# Example usage
-arr = [3, 2, 1, 5, 4]
-k = 3
-smallest_elements = k_smallest_elements(arr, k)
-print("K smallest elements:", smallest_elements)`,
+class MedianFinder:
+    def __init__(self):
+        pass
+    def add_num(self, num):
+        pass
+    def find_median(self):
+        pass`,
       solution: `import heapq
 
-def k_smallest_elements(arr, k):
-    max_heap = []
+class MedianFinder:
+    def __init__(self):
+        self.max_heap = []
+        self.min_heap = []
 
-    for num in arr:
-        if len(max_heap) < k:
-            heapq.heappush(max_heap, -num)
+    def add_num(self, num):
+        heapq.heappush(self.max_heap, -num)
+        if self.max_heap and self.min_heap and (-self.max_heap[0] > self.min_heap[0]):
+            val = -heapq.heappop(self.max_heap)
+            heapq.heappush(self.min_heap, val)
+        if len(self.max_heap) > len(self.min_heap) + 1:
+            val = -heapq.heappop(self.max_heap)
+            heapq.heappush(self.min_heap, val)
+        if len(self.min_heap) > len(self.max_heap):
+            val = heapq.heappop(self.min_heap)
+            heapq.heappush(self.max_heap, -val)
+
+    def find_median(self):
+        if not self.max_heap and not self.min_heap:
+            return 0.0
+        if len(self.max_heap) > len(self.min_heap):
+            return -self.max_heap[0]
         else:
-            if -max_heap[0] > num:
-                heapq.heappop(max_heap)
-                heapq.heappush(max_heap, -num)
-
-    return [-x for x in max_heap]
-
-# Example usage
-arr = [3, 2, 1, 5, 4]
-k = 3
-smallest_elements = k_smallest_elements(arr, k)
-print("K smallest elements:", smallest_elements)`,
+            return (-self.max_heap[0] + self.min_heap[0]) / 2.0`,
       difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question: 'What is the primary advantage of using a max-heap for finding the k smallest elements?',
+      question: 'What is the purpose of using two heaps in the Two Heaps Pattern?',
       options: [
-        'Efficient extraction of the largest element among the k smallest elements.',
-        'Guaranteed O(1) time complexity for all operations.',
-        'Simpler implementation compared to other data structures.',
-        'Ability to handle a large number of elements with constant time complexity.',
+        'To find the minimum element efficiently',
+        'To find the maximum element efficiently',
+        'To maintain a balanced data structure for median finding',
+        'To sort the elements in ascending order',
       ],
-      correctAnswer: 0,
+      correctAnswer: 2,
       explanations: [
-        'This is correct. The primary advantage of using a max-heap for finding the k smallest elements is its efficient extraction of the largest element among the k smallest elements.',
-        'This is incorrect. The time complexity for extraction in a max-heap is O(log k), not O(1).',
-        'This is incorrect. While the implementation is relatively straightforward, it is not necessarily simpler than other data structures.',
-        'This is incorrect. The time complexity for handling a large number of elements is not constant.',
+        'Incorrect. While possible, it is not the main purpose.',
+        'Incorrect. Similarly, not the main purpose.',
+        'Correct. The two heaps help maintain the median efficiently.',
+        'Incorrect. Sorting is not the primary use case here.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const streamProcessingData: LessonContent = {
+  title: 'Stream Processing',
+  content: `<p>
+Stream Processing involves handling continuous data streams in real-time using data structures like heaps. 
+A common application is finding the median in a data stream, which can be efficiently managed using two heaps: 
+a max-heap for the lower half and a min-heap for the upper half.
+</p>
+
+<p>
+This approach allows for efficient insertion and retrieval of the median with a time complexity of O(log N) per operation.
+</p>`,
+  codeExample: `# Median Finder in Data Stream
+import heapq
+
+class MedianFinder:
+    def __init__(self):
+        self.max_heap = []  # stores the smaller half
+        self.min_heap = []  # stores the larger half
+
+    def add_num(self, num):
+        if not self.max_heap or num <= -self.max_heap[0]:
+            heapq.heappush(self.max_heap, -num)
+        else:
+            heapq.heappush(self.min_heap, num)
+        # Balance the heaps
+        if len(self.max_heap) > len(self.min_heap) + 1:
+            val = -heapq.heappop(self.max_heap)
+            heapq.heappush(self.min_heap, val)
+        elif len(self.min_heap) > len(self.max_heap):
+            val = heapq.heappop(self.min_heap)
+            heapq.heappush(self.max_heap, -val)
+
+    def find_median(self):
+        if len(self.max_heap) == len(self.min_heap):
+            return (-self.max_heap[0] + self.min_heap[0]) / 2.0
+        else:
+            return -self.max_heap[0]
+
+# Example usage:
+mf = MedianFinder()
+mf.add_num(1)
+mf.add_num(2)
+print(mf.find_median())  # Output: 1.5
+mf.add_num(3)
+print(mf.find_median())  # Output: 2.0`,
+  exercises: [
+    {
+      prompt: 'Implement a running average calculator using a queue and a sum tracker.',
+      initialCode: `# Write your solution here
+class RunningAverage:
+    def __init__(self):
+        pass
+    def add_num(self, num):
+        pass
+    def get_average(self):
+        pass`,
+      solution: `from collections import deque
+
+class RunningAverage:
+    def __init__(self):
+        self.queue = deque()
+        self.sum = 0
+        self.count = 0
+
+    def add_num(self, num):
+        self.queue.append(num)
+        self.sum += num
+        self.count += 1
+
+    def get_average(self):
+        return self.sum / self.count if self.count > 0 else 0.0`,
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'What is the time complexity of inserting an element into a heap?',
+      options: [
+        'O(1)',
+        'O(log N)',
+        'O(N)',
+        'O(N log N)',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Incorrect. Heap insertion is not constant time.',
+        'Correct. Insertion into a heap is O(log N).',
+        'Incorrect. O(N) is the time complexity for heapify.',
+        'Incorrect. O(N log N) is for heap sort.',
       ],
       difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const schedulingProblemsData: LessonContent = {
+  title: 'Scheduling Problems',
+  content: `<p>
+Scheduling Problems involve managing tasks based on priorities or deadlines. 
+Priority queues (heaps) are useful for scheduling tasks where the task with the highest priority is executed first.
+</p>
+
+<p>
+Common scenarios include CPU scheduling and interval scheduling to maximize resource utilization.
+</p>`,
+  codeExample: `# Task Scheduler using Priority Queue
+import heapq
+
+class Task:
+    def __init__(self, name, priority):
+        self.name = name
+        self.priority = priority
+    def __lt__(self, other):
+        return self.priority < other.priority  # Min-heap based on priority
+
+def schedule_tasks(tasks):
+    heapq.heapify(tasks)
+    scheduled = []
+    while tasks:
+        task = heapq.heappop(tasks)
+        scheduled.append(task.name)
+    return scheduled
+
+# Example usage:
+tasks = [Task('Task1', 3), Task('Task2', 1), Task('Task3', 2)]
+print(schedule_tasks(tasks))  # Output: ['Task2', 'Task3', 'Task1']`,
+  exercises: [
+    {
+      prompt: 'Implement a task scheduler that executes tasks based on their priority.',
+      initialCode: `# Write your solution here
+class Task:
+    def __init__(self, name, priority):
+        pass
+    def __lt__(self, other):
+        pass
+
+def schedule_tasks(tasks):
+    pass`,
+      solution: `import heapq
+
+class Task:
+    def __init__(self, name, priority):
+        self.name = name
+        self.priority = priority
+    def __lt__(self, other):
+        return self.priority < other.priority
+
+def schedule_tasks(tasks):
+    heapq.heapify(tasks)
+    scheduled = []
+    while tasks:
+        task = heapq.heappop(tasks)
+        scheduled.append(task.name)
+    return scheduled`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'Which scheduling algorithm uses a priority queue to select the next task?',
+      options: [
+        'First-Come, First-Served (FCFS)',
+        'Shortest Job First (SJF)',
+        'Priority Scheduling',
+        'Round Robin (RR)',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'Incorrect. FCFS does not use priorities.',
+        'Incorrect. SJF schedules based on job length.',
+        'Correct. Priority Scheduling uses a priority queue.',
+        'Incorrect. RR uses a queue but not based on priority.',
+      ],
+      difficulty: Difficulty.Intermediate,
     },
   ],
 };
 
 const kClosestPointsData: LessonContent = {
-  title: 'K Closest Points',
+  title: 'K-Closest Points',
   content: `<p>
-Finding the k closest points to a given point in a 2D plane can be efficiently achieved using a min-heap. The min-heap allows for the extraction of the closest points based on their Euclidean distance.
+The K-Closest Points problem involves finding the k points closest to a given origin from a set of points. 
+This can be efficiently solved using a max-heap to maintain the top k closest points.
 </p>
 
-<ul>
-<li><strong>Min-Heap:</strong> Used to keep track of the k closest points.</li>
-<li><strong>Insertion:</strong> Insert points into the heap and maintain the heap size to be at most k.</li>
-</ul>
-
 <p>
-Understanding and implementing this technique is crucial for efficient selection of the k closest points.
+The algorithm maintains a heap of size k, ensuring that only the closest points are retained.
 </p>`,
-  codeExample: `# Finding k closest points using a min-heap
+  codeExample: `# Finding K-Closest Points to Origin
 import heapq
-import math
 
 def k_closest_points(points, k):
-    min_heap = []
-
+    heap = []
     for point in points:
-        distance = math.sqrt(point[0]**2 + point[1]**2)
-        heapq.heappush(min_heap, (distance, point))
+        dist = point[0]**2 + point[1]**2
+        heapq.heappush(heap, (-dist, point))
+        if len(heap) > k:
+            heapq.heappop(heap)
+    closest = [p for (_, p) in heap]
+    return closest
 
-    return [heapq.heappop(min_heap)[1] for _ in range(k)]
-
-# Example usage
-points = [(1, 3), (-2, 2), (5, -1), (0, 2)]
+# Example usage:
+points = [[1,3],[2,2],[3,1],[0,0]]
 k = 2
-closest_points = k_closest_points(points, k)
-print("K closest points:", closest_points)`,
+print(k_closest_points(points, k))  # Output: [[0, 0], [2, 2]]`,
   exercises: [
     {
-      prompt: 'Implement the algorithm to find the k closest points to the origin in the given array using a min-heap.',
+      prompt: 'Implement a function to find the k closest points to the origin using a max-heap.',
       initialCode: `# Write your solution here
-import heapq
-import math
-
 def k_closest_points(points, k):
-    min_heap = []
-
-    for point in points:
-        distance = math.sqrt(point[0]**2 + point[1]**2)
-        heapq.heappush(min_heap, (distance, point))
-
-    return [heapq.heappop(min_heap)[1] for _ in range(k)]
-
-# Example usage
-points = [(1, 3), (-2, 2), (5, -1), (0, 2)]
-k = 2
-closest_points = k_closest_points(points, k)
-print("K closest points:", closest_points)`,
+    pass`,
       solution: `import heapq
-import math
 
 def k_closest_points(points, k):
-    min_heap = []
-
+    heap = []
     for point in points:
-        distance = math.sqrt(point[0]**2 + point[1]**2)
-        heapq.heappush(min_heap, (distance, point))
-
-    return [heapq.heappop(min_heap)[1] for _ in range(k)]
-
-# Example usage
-points = [(1, 3), (-2, 2), (5, -1), (0, 2)]
-k = 2
-closest_points = k_closest_points(points, k)
-print("K closest points:", closest_points)`,
+        dist = point[0]**2 + point[1]**2
+        heapq.heappush(heap, (-dist, point))
+        if len(heap) > k:
+            heapq.heappop(heap)
+    closest = [p for (_, p) in heap]
+    return closest`,
       difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question: 'What is the primary advantage of using a min-heap for finding the k closest points?',
+      question: 'Why is a max-heap used in finding the k closest points?',
       options: [
-        'Efficient extraction of the closest points based on their Euclidean distance.',
-        'Guaranteed O(1) time complexity for all operations.',
-        'Simpler implementation compared to other data structures.',
-        'Ability to handle a large number of elements with constant time complexity.',
+        'To keep track of the largest distances',
+        'To keep track of the smallest distances',
+        'To sort the points based on their coordinates',
+        'To maintain a queue of points',
       ],
       correctAnswer: 0,
       explanations: [
-        'This is correct. The primary advantage of using a min-heap for finding the k closest points is its efficient extraction of the closest points based on their Euclidean distance.',
-        'This is incorrect. The time complexity for extraction in a min-heap is O(log k), not O(1).',
-        'This is incorrect. While the implementation is relatively straightforward, it is not necessarily simpler than other data structures.',
-        'This is incorrect. The time complexity for handling a large number of elements is not constant.',
+        'Correct. A max-heap keeps the largest distances, allowing us to discard them when not needed.',
+        'Incorrect. We need a max-heap to remove larger distances.',
+        'Incorrect. Sorting is not the primary use here.',
+        'Incorrect. It is not used as a simple queue.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const multipleHeapsData: LessonContent = {
+  title: 'Multiple Heaps Strategy',
+  content: `<p>
+    Using multiple heaps, such as a max-heap and a min-heap, can solve complex problems like median maintenance and task scheduling efficiently.
+  </p>
+  <h2>Concepts</h2>
+  <p>
+    - Max-heap: For accessing the largest element.
+    - Min-heap: For accessing the smallest element.
+  </p>
+  <h2>Example Problem</h2>
+  <p>
+    Maintain the median of a stream of numbers using two heaps.
+  </p>`,
+  codeExample: `// Code to maintain median using two heaps
+function medianStream(stream) {
+  // Implementation using max-heap and min-heap
+}`,
+  exercises: [
+    {
+      prompt: 'Implement a median stream using two heaps.',
+      initialCode: `function medianStream(stream) {
+  // Your code here
+}`,
+      solution: `// Complete solution code`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'What is the advantage of using multiple heaps?',
+      options: ['Efficient median calculation', 'Easy implementation', 'Faster access to extremes'],
+      correctAnswer: 0,
+      explanations: ['Correct answer', 'Partial answer', 'Partial answer'],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+
+const slidingWindowHeapData: LessonContent = {
+  title: 'Sliding Window with Heap',
+  content: `<p>
+    The sliding window technique is used to process sequences efficiently. Combining it with a heap allows optimization in problems requiring frequent maximum or minimum queries within a window.
+  </p>
+  <h2>Concepts</h2>
+  <p>
+    - Sliding window: A moving subarray of fixed size.
+    - Heap: A complete binary tree used for quick access to max or min elements.
+  </p>
+  <h2>Example Problem</h2>
+  <p>
+    Find the maximum of each sliding window of size k in an array.
+  </p>`,
+  codeExample: `// Code to find maximum in each sliding window using a heap
+function slidingWindowMax(arr, k) {
+  // Implementation using a max-heap
+}`,
+  exercises: [
+    {
+      prompt: 'Implement a function to find the maximum of each sliding window using a heap.',
+      initialCode: `function slidingWindowMax(arr, k) {
+  // Your code here
+}`,
+      solution: `// Complete solution code`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'Why use a heap in a sliding window?',
+      options: ['To maintain sorted order', 'To find max/min efficiently', 'Both A and B'],
+      correctAnswer: 2,
+      explanations: ['Partial answer', 'Partial answer', 'Correct answer'],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const heapWithHashMapData: LessonContent = {
+  title: 'Heap with HashMap',
+  content: `<p>
+    Combining a heap with a hash map allows efficient updates and deletions, useful in problems like top K frequent elements.
+  </p>
+  <h2>Concepts</h2>
+  <p>
+    - Heap: For priority queue operations.
+    - HashMap: For tracking element positions and frequencies.
+  </p>
+  <h2>Example Problem</h2>
+  <p>
+    Find the top K frequent elements in an array.
+  </p>`,
+  codeExample: `// Code to find top K frequent elements using heap and hashmap
+function topKFrequent(arr, k) {
+  // Implementation using heap and hashmap
+}`,
+  exercises: [
+    {
+      prompt: 'Implement a function to find the top K frequent elements using a heap and a hashmap.',
+      initialCode: `function topKFrequent(arr, k) {
+  // Your code here
+}`,
+      solution: `// Complete solution code`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'How does a hashmap help in heap operations?',
+      options: ['By storing frequencies', 'By tracking element positions', 'Both A and B'],
+      correctAnswer: 2,
+      explanations: ['Partial answer', 'Partial answer', 'Correct answer'],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const whenToUseHeapsData: LessonContent = {
+  title: 'When to Use Heaps',
+  content: `<p>
+    Heaps are particularly useful in scenarios where you need efficient access to the maximum or minimum element. They are ideal for implementing priority queues, finding top K elements, and maintaining medians.
+  </p>
+  <h2>Scenarios</h2>
+  <ul>
+    <li><strong>Priority Queues:</strong> When elements have different priorities and you need to process the highest (or lowest) priority first.</li>
+    <li><strong>Top K Problems:</strong> Finding the top K elements in a dataset, such as top K frequent elements.</li>
+    <li><strong>Median Maintenance:</strong> Keeping track of the median in a stream of numbers using two heaps.</li>
+  </ul>`,
+  codeExample: `// Priority Queue using a min-heap
+class PriorityQueue {
+  constructor() {
+    this.heap = [];
+  }
+  insert(element, priority) {
+    this.heap.push({ element, priority });
+    this.bubbleUp(this.heap.length - 1);
+  }
+  extractMin() {
+    if (this.heap.length === 0) return null;
+    const min = this.heap[0];
+    const last = this.heap.pop();
+    if (this.heap.length > 0) {
+      this.heap[0] = last;
+      this.sinkDown(0);
+    }
+    return min.element;
+  }
+  // Additional heap methods
+}`,
+  exercises: [
+    {
+      prompt: 'Implement a priority queue using a heap.',
+      initialCode: `class PriorityQueue {
+  constructor() {
+    this.heap = [];
+  }
+  // Implement insert and extractMin methods
+}`,
+      solution: `// Complete solution code`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt: 'Identify which of the following problems is best solved with a heap: sorting, priority scheduling, linked list manipulation.',
+      initialCode: `// Write your answer here`,
+      solution: `// Priority scheduling is best solved with a heap.`,
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'Which scenario is best suited for a heap?',
+      options: ['Frequent access to the minimum element', 'Fast insertion and deletion', 'Both A and B'],
+      correctAnswer: 2,
+      explanations: ['Partial answer', 'Partial answer', 'Correct answer'],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const optimizationTechniquesData: LessonContent = {
+  title: 'Optimization Techniques',
+  content: `<p>
+    Optimizing heap-based solutions often involves combining heaps with other data structures or minimizing operations to reduce time and space complexity.
+  </p>
+  <h2>Techniques</h2>
+  <ul>
+    <li><strong>Heap with HashMap:</strong> For efficient updates and deletions.</li>
+    <li><strong>Reducing Operations:</strong> Avoid unnecessary heap operations to save time.</li>
+    <li><strong>Space Optimization:</strong> Use heaps when space is a concern but quick access to min or max is needed.</li>
+  </ul>`,
+  codeExample: `// Top K frequent elements using heap and hashmap
+function topKFrequent(arr, k) {
+  const freqMap = new Map();
+  arr.forEach(num => freqMap.set(num, (freqMap.get(num) || 0) + 1));
+  const heap = [];
+  freqMap.forEach((freq, num) => {
+    heap.push({ freq, num });
+  });
+  heap.sort((a, b) => b.freq - a.freq);
+  return heap.slice(0, k).map(item => item.num);
+}`,
+  exercises: [
+    {
+      prompt: 'Optimize the top K frequent elements algorithm using a heap and a hashmap.',
+      initialCode: `function topKFrequent(arr, k) {
+  // Your code here
+}`,
+      solution: `// Complete solution code`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'What is a common optimization when using heaps?',
+      options: ['Using a hashmap for tracking', 'Minimizing heap operations', 'Both A and B'],
+      correctAnswer: 2,
+      explanations: ['Partial answer', 'Partial answer', 'Correct answer'],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const commonMistakesData: LessonContent = {
+  title: 'Common Mistakes',
+  content: `<p>
+    Common pitfalls in heap-based solutions include incorrect heap property maintenance, handling edge cases, and misunderstanding time complexities.
+  </p>
+  <h2>Mistakes to Avoid</h2>
+  <ul>
+    <li><strong>Heap Property Violations:</strong> Ensuring the heap property is maintained after insertions and deletions.</li>
+    <li><strong>Edge Cases:</strong> Handling empty heaps, duplicate elements, or single-element heaps.</li>
+    <li><strong>Time Complexity Misunderstandings:</strong> Assuming all heap operations are O(1), which they are not.</li>
+  </ul>`,
+  codeExample: `// Incorrect heap implementation
+class IncorrectHeap {
+  constructor() {
+    this.heap = [];
+  }
+  insert(element) {
+    this.heap.push(element);
+    // Forgot to bubble up
+  }
+  extractMin() {
+    const min = this.heap[0];
+    this.heap.shift();
+    return min;
+  }
+}`,
+  exercises: [
+    {
+      prompt: 'Identify and fix mistakes in the provided heap implementation.',
+      initialCode: `class IncorrectHeap {
+  constructor() {
+    this.heap = [];
+  }
+  insert(element) {
+    this.heap.push(element);
+    // Fix this method
+  }
+  extractMin() {
+    const min = this.heap[0];
+    this.heap.shift();
+    return min;
+  }
+}`,
+      solution: `// Corrected heap implementation with bubble up and sink down methods`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'What is a common mistake in heap implementations?',
+      options: ['Not maintaining heap property', 'Ignoring edge cases', 'Both A and B'],
+      correctAnswer: 2,
+      explanations: ['Partial answer', 'Partial answer', 'Correct answer'],
+      difficulty: Difficulty.Beginner,
+    },
+  ],
+};
+
+const customComparatorData: LessonContent = {
+  title: 'Custom Comparators',
+  content: `<p>
+Custom comparators allow you to define your own comparison logic when working with heaps, 
+which is essential for solving complex heap problems. By default, Python's <code>heapq</code> 
+module uses the natural ordering of elements, but you can override this behavior using custom 
+comparators. This is particularly useful when dealing with objects or when you need a different 
+ordering criterion.
+</p>
+
+<p>
+To implement a custom comparator, you can use the <code>functools</code> module, specifically 
+<code>functools.total_ordering</code> or <code>functools.cmp_to_key</code>, depending on your needs.
+</p>`,
+  codeExample: `import heapq
+from functools import total_ordering
+
+@total_ordering
+class CustomObject:
+    def __init__(self, value):
+        self.value = value
+    def __eq__(self, other):
+        return self.value == other.value
+    def __lt__(self, other):
+        return self.value < other.value
+
+# Create a heap of CustomObject instances
+heap = []
+heapq.heappush(heap, CustomObject(5))
+heapq.heappush(heap, CustomObject(3))
+heapq.heappush(heap, CustomObject(7))
+
+# Pop elements from the heap
+while heap:
+    print(heapq.heappop(heap).value)  # Output: 3, 5, 7
+
+# Custom comparator using functools.cmp_to_key
+def compare(a, b):
+    if a.value < b.value:
+        return -1
+    elif a.value > b.value:
+        return 1
+    else:
+        return 0
+
+heap = []
+heapq.heappush(heap, CustomObject(5))
+heapq.heappush(heap, CustomObject(3))
+heapq.heappush(heap, CustomObject(7))
+
+# Use a custom comparator with heapq
+heap_sorted = sorted(heap, key=cmp_to_key(compare))
+
+for obj in heap_sorted:
+    print(obj.value)  # Output: 3, 5, 7`,
+  exercises: [
+    {
+      prompt: 'Implement a custom comparator for a heap that orders strings by their length.',
+      initialCode: `import heapq
+from functools import cmp_to_key
+
+class StringItem:
+    def __init__(self, s):
+        self.s = s
+
+# Define the custom comparator function here
+
+# Create a heap and push some strings
+heap = []
+heapq.heappush(heap, StringItem("apple"))
+heapq.heappush(heap, StringItem("banana"))
+heapq.heappush(heap, StringItem("cherry"))
+
+# Use the custom comparator to pop strings ordered by length`,
+      solution: `import heapq
+from functools import cmp_to_key
+
+class StringItem:
+    def __init__(self, s):
+        self.s = s
+
+def compare(a, b):
+    if len(a.s) < len(b.s):
+        return -1
+    elif len(a.s) > len(b.s):
+        return 1
+    else:
+        return 0
+
+# Create a heap and push some strings
+heap = []
+heapq.heappush(heap, StringItem("apple"))
+heapq.heappush(heap, StringItem("banana"))
+heapq.heappush(heap, StringItem("cherry"))
+
+# Use the custom comparator to pop strings ordered by length
+heap_sorted = sorted(heap, key=cmp_to_key(compare))
+
+for item in heap_sorted:
+    print(item.s)  # Output: apple, cherry, banana`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt: 'Create a heap that orders tuples based on the second element in descending order using a custom comparator.',
+      initialCode: `import heapq
+from functools import cmp_to_key
+
+# Define the custom comparator function here
+
+# Create a heap and push some tuples
+heap = []
+heapq.heappush(heap, (1, 5))
+heapq.heappush(heap, (2, 3))
+heapq.heappush(heap, (3, 7))
+
+# Use the custom comparator to pop tuples ordered by the second element in descending order`,
+      solution: `import heapq
+from functools import cmp_to_key
+
+def compare(a, b):
+    if a[1] > b[1]:
+        return -1
+    elif a[1] < b[1]:
+        return 1
+    else:
+        return 0
+
+# Create a heap and push some tuples
+heap = []
+heapq.heappush(heap, (1, 5))
+heapq.heappush(heap, (2, 3))
+heapq.heappush(heap, (3, 7))
+
+# Use the custom comparator to pop tuples ordered by the second element in descending order
+heap_sorted = sorted(heap, key=cmp_to_key(compare))
+
+for tuple_item in heap_sorted:
+    print(tuple_item)  # Output: (3, 7), (1, 5), (2, 3)`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'Which module in Python allows you to create custom comparators for heap operations?',
+      options: [
+        'heapq',
+        'functools',
+        'operator',
+        'collections',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'heapq is used for heap operations, not for comparators.',
+        'functools provides tools like cmp_to_key for creating custom comparators.',
+        'operator provides functions for working with operators, not custom comparators.',
+        'collections provides container data types, not custom comparators.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question: 'What decorator can be used to simplify the creation of comparison methods in a class?',
+      options: [
+        '@staticmethod',
+        '@classmethod',
+        '@total_ordering',
+        '@property',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        '@staticmethod is used for static methods, not comparisons.',
+        '@classmethod is used for class methods, not comparisons.',
+        '@total_ordering automatically generates comparison methods based on the ones defined.',
+        '@property is used for getter methods, not comparisons.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
+
+const languageSpecificToolsData: LessonContent = {
+  title: 'Language-Specific Tools',
+  content: `<p>
+Python provides built-in modules and functions to work with heaps efficiently. The most commonly used 
+module is <code>heapq</code>, which provides an implementation of the heap queue algorithm, also known 
+as the priority queue algorithm.
+</p>
+
+<p>
+The <code>heapq</code> module offers functions to create and manage heaps, as well as perform common 
+operations like pushing and popping elements. Understanding how to use these tools effectively is crucial 
+for solving problems that involve priority queues or need efficient access to the smallest (or largest) 
+elements.
+</p>`,
+  codeExample: `import heapq
+
+# Creating a heap
+heap = []
+heapq.heappush(heap, 10)
+heapq.heappush(heap, 20)
+heapq.heappush(heap, 5)
+heapq.heappush(heap, 15)
+
+# Pop elements from the heap in ascending order
+while heap:
+    print(heapq.heappop(heap))  # Output: 5, 10, 15, 20
+
+# Convert a list into a heap in-place
+list_heap = [4, 10, 3, 5, 1]
+heapq.heapify(list_heap)
+print(list_heap)  # Output: [1, 5, 3, 10, 4]
+
+# Accessing the smallest element
+print(heapq.nsmallest(2, list_heap))  # Output: [1, 3]
+
+# Accessing the largest elements
+print(heapq.nlargest(2, list_heap))  # Output: [10, 5]
+
+# Heap operations with tuples
+heap_tuples = []
+heapq.heappush(heap_tuples, (5, 'apple'))
+heapq.heappush(heap_tuples, (3, 'banana'))
+heapq.heappush(heap_tuples, (7, 'cherry'))
+
+# Pop elements ordered by the first element of the tuple
+while heap_tuples:
+    print(heapq.heappop(heap_tuples))  # Output: (3, 'banana'), (5, 'apple'), (7, 'cherry')`,
+  exercises: [
+    {
+      prompt: 'Use the <code>heapq</code> module to find the three smallest numbers in a list.',
+      initialCode: `import heapq
+
+numbers = [15, 22, 8, 10, 3, 6, 12]
+
+# Find the three smallest numbers using heapq`,
+      solution: `import heapq
+
+numbers = [15, 22, 8, 10, 3, 6, 12]
+
+smallest_three = heapq.nsmallest(3, numbers)
+print(smallest_three)  # Output: [3, 6, 8]`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt: 'Implement a priority queue using <code>heapq</code> where tasks are ordered by priority.',
+      initialCode: `import heapq
+
+class Task:
+    def __init__(self, priority, description):
+        self.priority = priority
+        self.description = description
+
+# Create a priority queue and add some tasks`,
+      solution: `import heapq
+
+class Task:
+    def __init__(self, priority, description):
+        self.priority = priority
+        self.description = description
+
+    def __lt__(self, other):
+        return self.priority < other.priority
+
+# Create a priority queue and add some tasks
+priority_queue = []
+heapq.heappush(priority_queue, Task(5, 'Task 1'))
+heapq.heappush(priority_queue, Task(3, 'Task 2'))
+heapq.heappush(priority_queue, Task(7, 'Task 3'))
+
+# Pop tasks in order of priority
+while priority_queue:
+    task = heapq.heappop(priority_queue)
+    print(f'Priority: {task.priority}, Description: {task.description}')`,
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question: 'Which function converts a list into a heap in-place?',
+      options: [
+        'heapq.push()',
+        'heapq.heapify()',
+        'heapq.insert()',
+        'heapq.add()',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'heapq.push() is not a function; use heapq.heappush().',
+        'heapq.heapify() converts a list into a heap in-place.',
+        'heapq.insert() is not a function; use heapq.heappush().',
+        'heapq.add() is not a function; use heapq.heappush().',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question: 'What does <code>heapq.nlargest(n, iterable)</code> return?',
+      options: [
+        'The n smallest elements from the iterable.',
+        'The n largest elements from the iterable.',
+        'A heap with the n largest elements.',
+        'An error if n is larger than the length of the iterable.',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'heapq.nsmallest(n, iterable) returns the n smallest elements.',
+        'heapq.nlargest(n, iterable) returns the n largest elements.',
+        'heapq.nlargest(n, iterable) returns a list of the n largest elements, not a heap.',
+        'If n is larger than the length of the iterable, it returns as many elements as available, not an error.',
       ],
       difficulty: Difficulty.Beginner,
     },
   ],
 };
 
-const dijkstraHeapData: LessonContent = {
-  title: "Dijkstra's Algorithm with Heap",
+const edgeCasesData: LessonContent = {
+  title: 'Edge Cases',
   content: `<p>
-Dijkstra's Algorithm is a graph search algorithm that solves the single-source shortest path problem for a graph with non-negative edge weights. Using a min-heap (priority queue) significantly improves the efficiency of the algorithm by allowing for the extraction of the minimum distance node in logarithmic time.
+Handling edge cases is crucial when working with heaps to ensure your program behaves correctly in all scenarios. 
+Common edge cases include dealing with empty heaps, heaps with a single element, and handling heaps where all 
+elements are identical.
 </p>
 
-<ul>
-<li><strong>Min-Heap:</strong> Used to keep track of the node with the smallest known distance from the source.</li>
-<li><strong>Relaxation:</strong> Update the distance of neighboring nodes if a shorter path is found.</li>
-</ul>
-
 <p>
-Understanding and implementing Dijkstra's Algorithm with a heap is crucial for efficient shortest path calculations.
+By anticipating these scenarios and writing code to handle them, you can make your heap operations more robust 
+and avoid runtime errors or unexpected behavior.
 </p>`,
-  codeExample: `# Dijkstra's Algorithm implementation using a min-heap
-import heapq
+  codeExample: `import heapq
 
-def dijkstra(graph, start):
-    min_heap = []
-    distances = {vertex: float('infinity') for vertex in graph}
-    distances[start] = 0
-    heapq.heappush(min_heap, (0, start))
+# Handling an empty heap
+heap_empty = []
+try:
+    heapq.heappop(heap_empty)
+except IndexError as e:
+    print(f'Error: {e}')  # Output: Error: pop from an empty heap
 
-    while min_heap:
-        current_distance, current_vertex = heapq.heappop(min_heap)
+# Handling a heap with a single element
+heap_single = []
+heapq.heappush(heap_single, 10)
+print(heapq.heappop(heap_single))  # Output: 10
 
-        if current_distance > distances[current_vertex]:
-            continue
+# Handling a heap with identical elements
+heap_identical = []
+heapq.heappush(heap_identical, 5)
+heapq.heappush(heap_identical, 5)
+heapq.heappush(heap_identical, 5)
+print(heapq.heappop(heap_identical))  # Output: 5
+print(heapq.heappop(heap_identical))  # Output: 5
+print(heapq.heappop(heap_identical))  # Output: 5
 
-        for neighbor, weight in graph[current_vertex].items():
-            distance = current_distance + weight
+# Checking if a heap is empty
+if not heap_empty:
+    print('Heap is empty')  # Output: Heap is empty
 
-            if distance < distances[neighbor]:
-                distances[neighbor] = distance
-                heapq.heappush(min_heap, (distance, neighbor))
-
-    return distances
-
-# Example usage
-graph = {
-    'A': {'B': 1, 'C': 4},
-    'B': {'A': 1, 'C': 2, 'D': 5},
-    'C': {'A': 4, 'B': 2, 'D': 1},
-    'D': {'B': 5, 'C': 1}
-}
-print("Shortest distances from A:", dijkstra(graph, 'A'))`,
+# Handling a heap with negative numbers
+heap_negative = []
+heapq.heappush(heap_negative, -10)
+heapq.heappush(heap_negative, -5)
+heapq.heappush(heap_negative, -7)
+print(heapq.heappop(heap_negative))  # Output: -10`,
   exercises: [
     {
-      prompt: 'Implement Dijkstra\'s Algorithm using a min-heap and find the shortest path in the given graph.',
-      initialCode: `# Write your solution here
-import heapq
+      prompt: 'Write a function that checks if a heap is empty and handles the case of popping from an empty heap.',
+      initialCode: `import heapq
 
-def dijkstra(graph, start):
-    min_heap = []
-    distances = {vertex: float('infinity') for vertex in graph}
-    distances[start] = 0
-    heapq.heappush(min_heap, (0, start))
+def pop_from_heap(heap):
+    # Your code here
 
-    while min_heap:
-        current_distance, current_vertex = heapq.heappop(min_heap)
-
-        if current_distance > distances[current_vertex]:
-            continue
-
-        for neighbor, weight in graph[current_vertex].items():
-            distance = current_distance + weight
-
-            if distance < distances[neighbor]:
-                distances[neighbor] = distance
-                heapq.heappush(min_heap, (distance, neighbor))
-
-    return distances
-
-# Example usage
-graph = {
-    'A': {'B': 1, 'C': 4},
-    'B': {'A': 1, 'C': 2, 'D': 5},
-    'C': {'A': 4, 'B': 2, 'D': 1},
-    'D': {'B': 5, 'C': 1}
-}
-print("Shortest distances from A:", dijkstra(graph, 'A'))`,
+# Test the function
+heap_empty = []
+pop_from_heap(heap_empty)`,
       solution: `import heapq
 
-def dijkstra(graph, start):
-    min_heap = []
-    distances = {vertex: float('infinity') for vertex in graph}
-    distances[start] = 0
-    heapq.heappush(min_heap, (0, start))
+def pop_from_heap(heap):
+    if heap:
+        return heapq.heappop(heap)
+    else:
+        print('Heap is empty')
+        return None
 
-    while min_heap:
-        current_distance, current_vertex = heapq.heappop(min_heap)
+# Test the function
+heap_empty = []
+pop_from_heap(heap_empty)  # Output: Heap is empty
 
-        if current_distance > distances[current_vertex]:
-            continue
+heap_with_elements = []
+heapq.heappush(heap_with_elements, 5)
+heapq.heappush(heap_with_elements, 10)
+print(pop_from_heap(heap_with_elements))  # Output: 5
+print(pop_from_heap(heap_with_elements))  # Output: 10
+print(pop_from_heap(heap_with_elements))  # Output: Heap is empty`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt: 'Implement a heap that handles insertion and deletion, including cases where all elements are identical.',
+      initialCode: `import heapq
 
-        for neighbor, weight in graph[current_vertex].items():
-            distance = current_distance + weight
+heap = []
+heapq.heappush(heap, 5)
+heapq.heappush(heap, 5)
+heapq.heappush(heap, 5)
 
-            if distance < distances[neighbor]:
-                distances[neighbor] = distance
-                heapq.heappush(min_heap, (distance, neighbor))
+# Delete elements from the heap`,
+      solution: `import heapq
 
-    return distances
+heap = []
+heapq.heappush(heap, 5)
+heapq.heappush(heap, 5)
+heapq.heappush(heap, 5)
 
-# Example usage
-graph = {
-    'A': {'B': 1, 'C': 4},
-    'B': {'A': 1, 'C': 2, 'D': 5},
-    'C': {'A': 4, 'B': 2, 'D': 1},
-    'D': {'B': 5, 'C': 1}
-}
-print("Shortest distances from A:", dijkstra(graph, 'A'))`,
-      difficulty: Difficulty.Advanced,
+# Delete elements from the heap
+while heap:
+    print(heapq.heappop(heap))  # Output: 5, 5, 5`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt: 'Write a program that handles a heap containing only one element and performs operations on it.',
+      initialCode: `import heapq
+
+heap_single = []
+heapq.heappush(heap_single, 10)
+
+# Perform operations on the heap`,
+      solution: `import heapq
+
+heap_single = []
+heapq.heappush(heap_single, 10)
+
+# Perform operations on the heap
+print(heap_single)  # Output: [10]
+print(heapq.heappop(heap_single))  # Output: 10
+print(heap_single)  # Output: []`,
+      difficulty: Difficulty.Beginner,
     },
   ],
   quizzes: [
     {
-      question: 'What is the primary advantage of using a min-heap in Dijkstra\'s Algorithm?',
+      question: 'What error is raised when you try to pop from an empty heap?',
       options: [
-        'Efficient extraction of the node with the smallest known distance from the source.',
-        'Guaranteed O(1) time complexity for all operations.',
-        'Simpler implementation compared to other data structures.',
-        'Ability to handle a large number of elements with constant time complexity.',
+        'ValueError',
+        'TypeError',
+        'IndexError',
+        'KeyError',
       ],
-      correctAnswer: 0,
+      correctAnswer: 2,
       explanations: [
-        'This is correct. The primary advantage of using a min-heap in Dijkstra\'s Algorithm is its efficient extraction of the node with the smallest known distance from the source.',
-        'This is incorrect. The time complexity for extraction in a min-heap is O(log V), not O(1).',
-        'This is incorrect. While the implementation is relatively straightforward, it is not necessarily simpler than other data structures.',
-        'This is incorrect. The time complexity for handling a large number of elements is not constant.',
+        'ValueError is raised for invalid values, not for empty heaps.',
+        'TypeError is raised for type mismatches, not for empty heaps.',
+        'IndexError is raised when trying to pop from an empty heap.',
+        'KeyError is raised for dictionary key errors, not for heaps.',
       ],
-      difficulty: Difficulty.Intermediate,
+      difficulty: Difficulty.Beginner,
     },
-  ],
-};
-
-const primHeapData: LessonContent = {
-  title: "Prim's Algorithm with Heap",
-  content: `<p>
-Prim's Algorithm is a greedy algorithm that finds a minimum spanning tree for a weighted undirected graph. Using a min-heap (priority queue) significantly improves the efficiency of the algorithm by allowing for the extraction of the minimum weight edge in logarithmic time.
-</p>
-
-<ul>
-<li><strong>Min-Heap:</strong> Used to keep track of the edge with the smallest weight.</li>
-<li><strong>Relaxation:</strong> Add the edge to the minimum spanning tree if it connects a new vertex.</li>
-</ul>
-
-<p>
-Understanding and implementing Prim's Algorithm with a heap is crucial for efficient minimum spanning tree calculations.
-</p>`,
-  codeExample: `# Prim's Algorithm implementation using a min-heap
-import heapq
-
-def prim(graph, start):
-    min_heap = []
-    mst = []
-    visited = set()
-    total_weight = 0
-
-    heapq.heappush(min_heap, (0, start))
-
-    while min_heap:
-        weight, vertex = heapq.heappop(min_heap)
-
-        if vertex in visited:
-            continue
-
-        visited.add(vertex)
-        total_weight += weight
-
-        for neighbor, edge_weight in graph[vertex].items():
-            if neighbor not in visited:
-                heapq.heappush(min_heap, (edge_weight, neighbor))
-
-    return total_weight, mst
-
-# Example usage
-graph = {
-    'A': {'B': 1, 'C': 4},
-    'B': {'A': 1, 'C': 2, 'D': 5},
-    'C': {'A': 4, 'B': 2, 'D': 1},
-    'D': {'B': 5, 'C': 1}
-}
-print("Minimum Spanning Tree weight:", prim(graph, 'A')[0])`,
-  exercises: [
     {
-      prompt: 'Implement Prim\'s Algorithm using a min-heap and find the minimum spanning tree in the given graph.',
-      initialCode: `# Write your solution here
-import heapq
-
-def prim(graph, start):
-    min_heap = []
-    mst = []
-    visited = set()
-    total_weight = 0
-
-    heapq.heappush(min_heap, (0, start))
-
-    while min_heap:
-        weight, vertex = heapq.heappop(min_heap)
-
-        if vertex in visited:
-            continue
-
-        visited.add(vertex)
-        total_weight += weight
-
-        for neighbor, edge_weight in graph[vertex].items():
-            if neighbor not in visited:
-                heapq.heappush(min_heap, (edge_weight, neighbor))
-
-    return total_weight, mst
-
-# Example usage
-graph = {
-    'A': {'B': 1, 'C': 4},
-    'B': {'A': 1, 'C': 2, 'D': 5},
-    'C': {'A': 4, 'B': 2, 'D': 1},
-    'D': {'B': 5, 'C': 1}
-}
-print("Minimum Spanning Tree weight:", prim(graph, 'A')[0])`,
-      solution: `import heapq
-
-def prim(graph, start):
-    min_heap = []
-    mst = []
-    visited = set()
-    total_weight = 0
-
-    heapq.heappush(min_heap, (0, start))
-
-    while min_heap:
-        weight, vertex = heapq.heappop(min_heap)
-
-        if vertex in visited:
-            continue
-
-        visited.add(vertex)
-        total_weight += weight
-
-        for neighbor, edge_weight in graph[vertex].items():
-            if neighbor not in visited:
-                heapq.heappush(min_heap, (edge_weight, neighbor))
-
-    return total_weight, mst
-
-# Example usage
-graph = {
-    'A': {'B': 1, 'C': 4},
-    'B': {'A': 1, 'C': 2, 'D': 5},
-    'C': {'A': 4, 'B': 2, 'D': 1},
-    'D': {'B': 5, 'C': 1}
-}
-print("Minimum Spanning Tree weight:", prim(graph, 'A')[0])`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary advantage of using a min-heap in Prim\'s Algorithm?',
+      question: 'How can you check if a heap is empty?',
       options: [
-        'Efficient extraction of the edge with the smallest weight.',
-        'Guaranteed O(1) time complexity for all operations.',
-        'Simpler implementation compared to other data structures.',
-        'Ability to handle a large number of elements with constant time complexity.',
+        'if heap == None:',
+        'if heap.size() == 0:',
+        'if not heap:',
+        'if heap.isEmpty():',
       ],
-      correctAnswer: 0,
+      correctAnswer: 2,
       explanations: [
-        'This is correct. The primary advantage of using a min-heap in Prim\'s Algorithm is its efficient extraction of the edge with the smallest weight.',
-        'This is incorrect. The time complexity for extraction in a min-heap is O(log V), not O(1).',
-        'This is incorrect. While the implementation is relatively straightforward, it is not necessarily simpler than other data structures.',
-        'This is incorrect. The time complexity for handling a large number of elements is not constant.',
+        'Checking if heap == None is incorrect; heaps can be empty lists.',
+        'heap.size() is not a valid method in Python.',
+        'Using if not heap: correctly checks if the heap (list) is empty.',
+        'heap.isEmpty() is not a valid method in Python.',
       ],
-      difficulty: Difficulty.Intermediate,
+      difficulty: Difficulty.Beginner,
     },
-  ],
-};
-
-const networkOptimizationData: LessonContent = {
-  title: 'Network Optimization',
-  content: `<p>
-Heap data structures are widely used in network optimization algorithms to efficiently manage and prioritize network elements such as packets, flows, and routes.
-</p>
-
-<ul>
-<li><strong>Packet Scheduling:</strong> Using priority queues to manage packet transmission based on priority.</li>
-<li><strong>Flow Control:</strong> Using heaps to manage flow rates and ensure efficient network utilization.</li>
-<li><strong>Route Optimization:</strong> Using heaps to find the shortest path or optimal routes in network graphs.</li>
-</ul>
-
-<p>
-Understanding heap applications in network optimization is crucial for designing efficient and scalable network algorithms.
-</p>`,
-  codeExample: `# Example of packet scheduling using a priority queue
-import heapq
-
-class Packet:
-    def __init__(self, data, priority):
-        self.data = data
-        self.priority = priority
-
-    def __lt__(self, other):
-        return self.priority < other.priority
-
-class PacketScheduler:
-    def __init__(self):
-        self.queue = []
-
-    def enqueue(self, packet):
-        heapq.heappush(self.queue, packet)
-
-    def dequeue(self):
-        if self.queue:
-            return heapq.heappop(self.queue)
-        return None
-
-# Example usage
-scheduler = PacketScheduler()
-scheduler.enqueue(Packet("Data 1", 3))
-scheduler.enqueue(Packet("Data 2", 1))
-scheduler.enqueue(Packet("Data 3", 2))
-
-print("Dequeued packet:", scheduler.dequeue().data)`,
-  exercises: [
     {
-      prompt: 'Implement a packet scheduler using a priority queue and manage packet transmission based on priority.',
-      initialCode: `# Write your solution here
-import heapq
-
-class Packet:
-    def __init__(self, data, priority):
-        self.data = data
-        self.priority = priority
-
-    def __lt__(self, other):
-        return self.priority < other.priority
-
-class PacketScheduler:
-    def __init__(self):
-        self.queue = []
-
-    def enqueue(self, packet):
-        heapq.heappush(self.queue, packet)
-
-    def dequeue(self):
-        if self.queue:
-            return heapq.heappop(self.queue)
-        return None
-
-# Example usage
-scheduler = PacketScheduler()
-scheduler.enqueue(Packet("Data 1", 3))
-scheduler.enqueue(Packet("Data 2", 1))
-scheduler.enqueue(Packet("Data 3", 2))
-
-print("Dequeued packet:", scheduler.dequeue().data)`,
-      solution: `import heapq
-
-class Packet:
-    def __init__(self, data, priority):
-        self.data = data
-        self.priority = priority
-
-    def __lt__(self, other):
-        return self.priority < other.priority
-
-class PacketScheduler:
-    def __init__(self):
-        self.queue = []
-
-    def enqueue(self, packet):
-        heapq.heappush(self.queue, packet)
-
-    def dequeue(self):
-        if self.queue:
-            return heapq.heappop(self.queue)
-        return None
-
-# Example usage
-scheduler = PacketScheduler()
-scheduler.enqueue(Packet("Data 1", 3))
-scheduler.enqueue(Packet("Data 2", 1))
-scheduler.enqueue(Packet("Data 3", 2))
-
-print("Dequeued packet:", scheduler.dequeue().data)`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary advantage of using a priority queue in network optimization?',
+      question: 'What is the output of the following code snippet?\n\n<code>import heapq\nheap = []\nheapq.heappush(heap, 5)\nheapq.heappush(heap, 3)\nheapq.heappush(heap, 7)\nprint(heapq.heappop(heap))</code>',
       options: [
-        'Efficient management and prioritization of network elements.',
-        'Guaranteed O(1) time complexity for all operations.',
-        'Simpler implementation compared to other data structures.',
-        'Ability to handle a large number of elements with constant time complexity.',
+        '3',
+        '5',
+        '7',
+        'The code will raise an error.',
       ],
-      correctAnswer: 0,
+      correctAnswer: 1,
       explanations: [
-        'This is correct. The primary advantage of using a priority queue in network optimization is its efficient management and prioritization of network elements.',
-        'This is incorrect. The time complexity for extraction in a priority queue is O(log n), not O(1).',
-        'This is incorrect. While the implementation is relatively straightforward, it is not necessarily simpler than other data structures.',
-        'This is incorrect. The time complexity for handling a large number of elements is not constant.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const streamMedianData: LessonContent = {
-  title: 'Stream Median',
-  content: `<p>
-Finding the median in a data stream is a common problem in data processing. The median is the middle value in a sorted list of numbers. Using two heaps (a max-heap and a min-heap) allows for efficient insertion and median retrieval.
-</p>
-
-<ul>
-<li><strong>Max-Heap:</strong> Stores the smaller half of the numbers.</li>
-<li><strong>Min-Heap:</strong> Stores the larger half of the numbers.</li>
-<li><strong>Median Calculation:</strong> The median is either the root of the max-heap (if the heaps are balanced) or the average of the roots of both heaps (if the heaps are unbalanced).</li>
-</ul>
-
-<p>
-Understanding and implementing this technique is crucial for efficient median calculations in data streams.
-</p>`,
-  codeExample: `# Stream median implementation using two heaps
-import heapq
-
-class StreamMedian:
-    def __init__(self):
-        self.max_heap = []
-        self.min_heap = []
-
-    def insert(self, num):
-        if len(self.max_heap) == 0 or num <= -self.max_heap[0]:
-            heapq.heappush(self.max_heap, -num)
-        else:
-            heapq.heappush(self.min_heap, num)
-
-        self._balance_heaps()
-
-    def get_median(self):
-        if len(self.max_heap) == len(self.min_heap):
-            return (-self.max_heap[0] + self.min_heap[0]) / 2
-        elif len(self.max_heap) > len(self.min_heap):
-            return -self.max_heap[0]
-        else:
-            return self.min_heap[0]
-
-    def _balance_heaps(self):
-        if len(self.max_heap) > len(self.min_heap) + 1:
-            heapq.heappush(self.min_heap, -heapq.heappop(self.max_heap))
-        elif len(self.min_heap) > len(self.max_heap) + 1:
-            heapq.heappush(self.max_heap, -heapq.heappop(self.min_heap))
-
-# Example usage
-stream = StreamMedian()
-stream.insert(3)
-stream.insert(1)
-stream.insert(2)
-print("Median:", stream.get_median())`,
-  exercises: [
-    {
-      prompt: 'Implement the stream median algorithm using two heaps and find the median for the given data stream.',
-      initialCode: `# Write your solution here
-import heapq
-
-class StreamMedian:
-    def __init__(self):
-        self.max_heap = []
-        self.min_heap = []
-
-    def insert(self, num):
-        if len(self.max_heap) == 0 or num <= -self.max_heap[0]:
-            heapq.heappush(self.max_heap, -num)
-        else:
-            heapq.heappush(self.min_heap, num)
-
-        self._balance_heaps()
-
-    def get_median(self):
-        if len(self.max_heap) == len(self.min_heap):
-            return (-self.max_heap[0] + self.min_heap[0]) / 2
-        elif len(self.max_heap) > len(self.min_heap):
-            return -self.max_heap[0]
-        else:
-            return self.min_heap[0]
-
-    def _balance_heaps(self):
-        if len(self.max_heap) > len(self.min_heap) + 1:
-            heapq.heappush(self.min_heap, -heapq.heappop(self.max_heap))
-        elif len(self.min_heap) > len(self.max_heap) + 1:
-            heapq.heappush(self.max_heap, -heapq.heappop(self.min_heap))
-
-# Example usage
-stream = StreamMedian()
-stream.insert(3)
-stream.insert(1)
-stream.insert(2)
-print("Median:", stream.get_median())`,
-      solution: `import heapq
-
-class StreamMedian:
-    def __init__(self):
-        self.max_heap = []
-        self.min_heap = []
-
-    def insert(self, num):
-        if len(self.max_heap) == 0 or num <= -self.max_heap[0]:
-            heapq.heappush(self.max_heap, -num)
-        else:
-            heapq.heappush(self.min_heap, num)
-
-        self._balance_heaps()
-
-    def get_median(self):
-        if len(self.max_heap) == len(self.min_heap):
-            return (-self.max_heap[0] + self.min_heap[0]) / 2
-        elif len(self.max_heap) > len(self.min_heap):
-            return -self.max_heap[0]
-        else:
-            return self.min_heap[0]
-
-    def _balance_heaps(self):
-        if len(self.max_heap) > len(self.min_heap) + 1:
-            heapq.heappush(self.min_heap, -heapq.heappop(self.max_heap))
-        elif len(self.min_heap) > len(self.max_heap) + 1:
-            heapq.heappush(self.max_heap, -heapq.heappop(self.min_heap))
-
-# Example usage
-stream = StreamMedian()
-stream.insert(3)
-stream.insert(1)
-stream.insert(2)
-print("Median:", stream.get_median())`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary advantage of using two heaps for finding the median in a data stream?',
-      options: [
-        'Efficient insertion and median retrieval.',
-        'Guaranteed O(1) time complexity for all operations.',
-        'Simpler implementation compared to other data structures.',
-        'Ability to handle a large number of elements with constant time complexity.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The primary advantage of using two heaps for finding the median in a data stream is its efficient insertion and median retrieval.',
-        'This is incorrect. The time complexity for insertion and retrieval in two heaps is O(log n), not O(1).',
-        'This is incorrect. While the implementation is relatively straightforward, it is not necessarily simpler than other data structures.',
-        'This is incorrect. The time complexity for handling a large number of elements is not constant.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const taskSchedulingData: LessonContent = {
-  title: 'Task Scheduling',
-  content: `<p>
-Task scheduling is a common problem in computer science and operations research. Using a priority queue (min-heap) allows for efficient scheduling of tasks based on their priority or deadline.
-</p>
-
-<ul>
-<li><strong>Min-Heap:</strong> Used to keep track of the task with the earliest deadline or highest priority.</li>
-<li><strong>Scheduling:</strong> Extract the task with the earliest deadline or highest priority and process it.</li>
-</ul>
-
-<p>
-Understanding and implementing this technique is crucial for efficient task scheduling.
-</p>`,
-  codeExample: `# Task scheduling implementation using a min-heap
-import heapq
-
-class Task:
-    def __init__(self, name, deadline):
-        self.name = name
-        self.deadline = deadline
-
-    def __lt__(self, other):
-        return self.deadline < other.deadline
-
-class TaskScheduler:
-    def __init__(self):
-        self.queue = []
-
-    def add_task(self, task):
-        heapq.heappush(self.queue, task)
-
-    def get_next_task(self):
-        if self.queue:
-            return heapq.heappop(self.queue)
-        return None
-
-# Example usage
-scheduler = TaskScheduler()
-scheduler.add_task(Task("Task 1", 3))
-scheduler.add_task(Task("Task 2", 1))
-scheduler.add_task(Task("Task 3", 2))
-
-print("Next task:", scheduler.get_next_task().name)`,
-  exercises: [
-    {
-      prompt: 'Implement a task scheduler using a min-heap and schedule tasks based on their deadline.',
-      initialCode: `# Write your solution here
-import heapq
-
-class Task:
-    def __init__(self, name, deadline):
-        self.name = name
-        self.deadline = deadline
-
-    def __lt__(self, other):
-        return self.deadline < other.deadline
-
-class TaskScheduler:
-    def __init__(self):
-        self.queue = []
-
-    def add_task(self, task):
-        heapq.heappush(self.queue, task)
-
-    def get_next_task(self):
-        if self.queue:
-            return heapq.heappop(self.queue)
-        return None
-
-# Example usage
-scheduler = TaskScheduler()
-scheduler.add_task(Task("Task 1", 3))
-scheduler.add_task(Task("Task 2", 1))
-scheduler.add_task(Task("Task 3", 2))
-
-print("Next task:", scheduler.get_next_task().name)`,
-      solution: `import heapq
-
-class Task:
-    def __init__(self, name, deadline):
-        self.name = name
-        self.deadline = deadline
-
-    def __lt__(self, other):
-        return self.deadline < other.deadline
-
-class TaskScheduler:
-    def __init__(self):
-        self.queue = []
-
-    def add_task(self, task):
-        heapq.heappush(self.queue, task)
-
-    def get_next_task(self):
-        if self.queue:
-            return heapq.heappop(self.queue)
-        return None
-
-# Example usage
-scheduler = TaskScheduler()
-scheduler.add_task(Task("Task 1", 3))
-scheduler.add_task(Task("Task 2", 1))
-scheduler.add_task(Task("Task 3", 2))
-
-print("Next task:", scheduler.get_next_task().name)`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary advantage of using a min-heap for task scheduling?',
-      options: [
-        'Efficient extraction of the task with the earliest deadline or highest priority.',
-        'Guaranteed O(1) time complexity for all operations.',
-        'Simpler implementation compared to other data structures.',
-        'Ability to handle a large number of elements with constant time complexity.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The primary advantage of using a min-heap for task scheduling is its efficient extraction of the task with the earliest deadline or highest priority.',
-        'This is incorrect. The time complexity for extraction in a min-heap is O(log n), not O(1).',
-        'This is incorrect. While the implementation is relatively straightforward, it is not necessarily simpler than other data structures.',
-        'This is incorrect. The time complexity for handling a large number of elements is not constant.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const stockPriceOperationsData: LessonContent = {
-  title: 'Stock Price Operations',
-  content: `<p>
-Managing stock prices efficiently is crucial for financial applications. Using a heap allows for efficient operations such as finding the highest or lowest stock prices, and maintaining a sorted list of stock prices.
-</p>
-
-<ul>
-<li><strong>Max-Heap:</strong> Used to keep track of the highest stock prices.</li>
-<li><strong>Min-Heap:</strong> Used to keep track of the lowest stock prices.</li>
-<li><strong>Operations:</strong> Insertion, extraction, and finding the highest or lowest stock prices.</li>
-</ul>
-
-<p>
-Understanding and implementing this technique is crucial for efficient stock price management.
-</p>`,
-  codeExample: `# Stock price operations implementation using heaps
-import heapq
-
-class StockPriceTracker:
-    def __init__(self):
-        self.max_heap = []
-        self.min_heap = []
-
-    def add_price(self, price):
-        heapq.heappush(self.max_heap, -price)
-        heapq.heappush(self.min_heap, price)
-
-    def get_highest_price(self):
-        if self.max_heap:
-            return -self.max_heap[0]
-        return None
-
-    def get_lowest_price(self):
-        if self.min_heap:
-            return self.min_heap[0]
-        return None
-
-# Example usage
-tracker = StockPriceTracker()
-tracker.add_price(100)
-tracker.add_price(200)
-tracker.add_price(150)
-
-print("Highest price:", tracker.get_highest_price())
-print("Lowest price:", tracker.get_lowest_price())`,
-  exercises: [
-    {
-      prompt: 'Implement a stock price tracker using heaps and perform operations to find the highest and lowest stock prices.',
-      initialCode: `# Write your solution here
-import heapq
-
-class StockPriceTracker:
-    def __init__(self):
-        self.max_heap = []
-        self.min_heap = []
-
-    def add_price(self, price):
-        heapq.heappush(self.max_heap, -price)
-        heapq.heappush(self.min_heap, price)
-
-    def get_highest_price(self):
-        if self.max_heap:
-            return -self.max_heap[0]
-        return None
-
-    def get_lowest_price(self):
-        if self.min_heap:
-            return self.min_heap[0]
-        return None
-
-# Example usage
-tracker = StockPriceTracker()
-tracker.add_price(100)
-tracker.add_price(200)
-tracker.add_price(150)
-
-print("Highest price:", tracker.get_highest_price())
-print("Lowest price:", tracker.get_lowest_price())`,
-      solution: `import heapq
-
-class StockPriceTracker:
-    def __init__(self):
-        self.max_heap = []
-        self.min_heap = []
-
-    def add_price(self, price):
-        heapq.heappush(self.max_heap, -price)
-        heapq.heappush(self.min_heap, price)
-
-    def get_highest_price(self):
-        if self.max_heap:
-            return -self.max_heap[0]
-        return None
-
-    def get_lowest_price(self):
-        if self.min_heap:
-            return self.min_heap[0]
-        return None
-
-# Example usage
-tracker = StockPriceTracker()
-tracker.add_price(100)
-tracker.add_price(200)
-tracker.add_price(150)
-
-print("Highest price:", tracker.get_highest_price())
-print("Lowest price:", tracker.get_lowest_price())`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary advantage of using heaps for managing stock prices?',
-      options: [
-        'Efficient insertion and extraction of the highest and lowest stock prices.',
-        'Guaranteed O(1) time complexity for all operations.',
-        'Simpler implementation compared to other data structures.',
-        'Ability to handle a large number of elements with constant time complexity.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The primary advantage of using heaps for managing stock prices is its efficient insertion and extraction of the highest and lowest stock prices.',
-        'This is incorrect. The time complexity for insertion and extraction in heaps is O(log n), not O(1).',
-        'This is incorrect. While the implementation is relatively straightforward, it is not necessarily simpler than other data structures.',
-        'This is incorrect. The time complexity for handling a large number of elements is not constant.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const cacheImplementationData: LessonContent = {
-  title: 'Cache Design',
-  content: `<p>
-Cache design is a critical aspect of system performance optimization. Using heaps, particularly min-heaps or max-heaps, allows for efficient management of cache entries based on various criteria such as access frequency, recency, or priority.
-</p>
-
-<ul>
-<li><strong>Min-Heap:</strong> Used to evict the least recently used (LRU) or least frequently used (LFU) cache entries.</li>
-<li><strong>Max-Heap:</strong> Used to prioritize cache entries based on their importance or priority.</li>
-<li><strong>Operations:</strong> Insertion, eviction, and retrieval of cache entries.</li>
-</ul>
-
-<p>
-Understanding and implementing heap-based cache designs is crucial for efficient cache management.
-</p>`,
-  codeExample: `# Cache design implementation using a min-heap
-import heapq
-
-class CacheEntry:
-    def __init__(self, key, value, priority):
-        self.key = key
-        self.value = value
-        self.priority = priority
-
-    def __lt__(self, other):
-        return self.priority < other.priority
-
-class Cache:
-    def __init__(self, capacity):
-        self.capacity = capacity
-        self.cache = {}
-        self.min_heap = []
-
-    def get(self, key):
-        if key in self.cache:
-            entry = self.cache[key]
-            entry.priority += 1
-            heapq.heapify(self.min_heap)
-            return entry.value
-        return None
-
-    def put(self, key, value):
-        if len(self.cache) >= self.capacity:
-            evict_entry = heapq.heappop(self.min_heap)
-            del self.cache[evict_entry.key]
-
-        new_entry = CacheEntry(key, value, 0)
-        self.cache[key] = new_entry
-        heapq.heappush(self.min_heap, new_entry)
-
-# Example usage
-cache = Cache(capacity=2)
-cache.put("key1", "value1")
-cache.put("key2", "value2")
-cache.put("key3", "value3")
-print("Cache after insertions:", cache.cache)`,
-  exercises: [
-    {
-      prompt: 'Implement a cache design using a min-heap and manage cache entries based on their priority.',
-      initialCode: `# Write your solution here
-import heapq
-
-class CacheEntry:
-    def __init__(self, key, value, priority):
-        self.key = key
-        self.value = value
-        self.priority = priority
-
-    def __lt__(self, other):
-        return self.priority < other.priority
-
-class Cache:
-    def __init__(self, capacity):
-        self.capacity = capacity
-        self.cache = {}
-        self.min_heap = []
-
-    def get(self, key):
-        if key in self.cache:
-            entry = self.cache[key]
-            entry.priority += 1
-            heapq.heapify(self.min_heap)
-            return entry.value
-        return None
-
-    def put(self, key, value):
-        if len(self.cache) >= self.capacity:
-            evict_entry = heapq.heappop(self.min_heap)
-            del self.cache[evict_entry.key]
-
-        new_entry = CacheEntry(key, value, 0)
-        self.cache[key] = new_entry
-        heapq.heappush(self.min_heap, new_entry)
-
-# Example usage
-cache = Cache(capacity=2)
-cache.put("key1", "value1")
-cache.put("key2", "value2")
-cache.put("key3", "value3")
-print("Cache after insertions:", cache.cache)`,
-      solution: `import heapq
-
-class CacheEntry:
-    def __init__(self, key, value, priority):
-        self.key = key
-        self.value = value
-        self.priority = priority
-
-    def __lt__(self, other):
-        return self.priority < other.priority
-
-class Cache:
-    def __init__(self, capacity):
-        self.capacity = capacity
-        self.cache = {}
-        self.min_heap = []
-
-    def get(self, key):
-        if key in self.cache:
-            entry = self.cache[key]
-            entry.priority += 1
-            heapq.heapify(self.min_heap)
-            return entry.value
-        return None
-
-    def put(self, key, value):
-        if len(self.cache) >= self.capacity:
-            evict_entry = heapq.heappop(self.min_heap)
-            del self.cache[evict_entry.key]
-
-        new_entry = CacheEntry(key, value, 0)
-        self.cache[key] = new_entry
-        heapq.heappush(self.min_heap, new_entry)
-
-# Example usage
-cache = Cache(capacity=2)
-cache.put("key1", "value1")
-cache.put("key2", "value2")
-cache.put("key3", "value3")
-print("Cache after insertions:", cache.cache)`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary advantage of using a heap for cache design?',
-      options: [
-        'Efficient eviction of the least recently used or least frequently used cache entries.',
-        'Guaranteed O(1) time complexity for all operations.',
-        'Simpler implementation compared to other data structures.',
-        'Ability to handle a large number of elements with constant time complexity.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The primary advantage of using a heap for cache design is its efficient eviction of the least recently used or least frequently used cache entries.',
-        'This is incorrect. The time complexity for eviction in a heap is O(log n), not O(1).',
-        'This is incorrect. While the implementation is relatively straightforward, it is not necessarily simpler than other data structures.',
-        'This is incorrect. The time complexity for handling a large number of elements is not constant.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const loadBalancingData: LessonContent = {
-  title: 'Load Balancing',
-  content: `<p>
-Load balancing is a critical aspect of system design to distribute workloads evenly across multiple servers or resources. Using heaps allows for efficient load balancing strategies based on various criteria such as server load, response time, or availability.
-</p>
-
-<ul>
-<li><strong>Min-Heap:</strong> Used to distribute workloads to the least loaded server.</li>
-<li><strong>Max-Heap:</strong> Used to prioritize workloads based on their importance or priority.</li>
-<li><strong>Operations:</strong> Insertion, extraction, and balancing of workloads.</li>
-</ul>
-
-<p>
-Understanding and implementing heap-based load balancing strategies is crucial for efficient workload distribution.
-</p>`,
-  codeExample: `# Load balancing implementation using a min-heap
-import heapq
-
-class Server:
-    def __init__(self, name, load):
-        self.name = name
-        self.load = load
-
-    def __lt__(self, other):
-        return self.load < other.load
-
-class LoadBalancer:
-    def __init__(self):
-        self.servers = []
-
-    def add_server(self, server):
-        heapq.heappush(self.servers, server)
-
-    def get_least_loaded_server(self):
-        if self.servers:
-            return heapq.heappop(self.servers)
-        return None
-
-# Example usage
-load_balancer = LoadBalancer()
-load_balancer.add_server(Server("Server 1", 3))
-load_balancer.add_server(Server("Server 2", 1))
-load_balancer.add_server(Server("Server 3", 2))
-
-print("Least loaded server:", load_balancer.get_least_loaded_server().name)`,
-  exercises: [
-    {
-      prompt: 'Implement a load balancer using a min-heap and distribute workloads to the least loaded server.',
-      initialCode: `# Write your solution here
-import heapq
-
-class Server:
-    def __init__(self, name, load):
-        self.name = name
-        self.load = load
-
-    def __lt__(self, other):
-        return self.load < other.load
-
-class LoadBalancer:
-    def __init__(self):
-        self.servers = []
-
-    def add_server(self, server):
-        heapq.heappush(self.servers, server)
-
-    def get_least_loaded_server(self):
-        if self.servers:
-            return heapq.heappop(self.servers)
-        return None
-
-# Example usage
-load_balancer = LoadBalancer()
-load_balancer.add_server(Server("Server 1", 3))
-load_balancer.add_server(Server("Server 2", 1))
-load_balancer.add_server(Server("Server 3", 2))
-
-print("Least loaded server:", load_balancer.get_least_loaded_server().name)`,
-      solution: `import heapq
-
-class Server:
-    def __init__(self, name, load):
-        self.name = name
-        self.load = load
-
-    def __lt__(self, other):
-        return self.load < other.load
-
-class LoadBalancer:
-    def __init__(self):
-        self.servers = []
-
-    def add_server(self, server):
-        heapq.heappush(self.servers, server)
-
-    def get_least_loaded_server(self):
-        if self.servers:
-            return heapq.heappop(self.servers)
-        return None
-
-# Example usage
-load_balancer = LoadBalancer()
-load_balancer.add_server(Server("Server 1", 3))
-load_balancer.add_server(Server("Server 2", 1))
-load_balancer.add_server(Server("Server 3", 2))
-
-print("Least loaded server:", load_balancer.get_least_loaded_server().name)`,
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary advantage of using a heap for load balancing?',
-      options: [
-        'Efficient distribution of workloads to the least loaded server.',
-        'Guaranteed O(1) time complexity for all operations.',
-        'Simpler implementation compared to other data structures.',
-        'Ability to handle a large number of elements with constant time complexity.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The primary advantage of using a heap for load balancing is its efficient distribution of workloads to the least loaded server.',
-        'This is incorrect. The time complexity for distribution in a heap is O(log n), not O(1).',
-        'This is incorrect. While the implementation is relatively straightforward, it is not necessarily simpler than other data structures.',
-        'This is incorrect. The time complexity for handling a large number of elements is not constant.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
-};
-
-const resourceAllocationData: LessonContent = {
-  title: 'Resource Allocation',
-  content: `<p>
-Resource allocation is a critical aspect of system design to manage and distribute resources efficiently. Using heaps allows for efficient allocation strategies based on various criteria such as resource availability, priority, or deadline.
-</p>
-
-<ul>
-<li><strong>Min-Heap:</strong> Used to allocate resources to the task with the earliest deadline or highest priority.</li>
-<li><strong>Max-Heap:</strong> Used to prioritize resource allocation based on the importance of the task.</li>
-<li><strong>Operations:</strong> Insertion, extraction, and allocation of resources.</li>
-</ul>
-
-<p>
-Understanding and implementing heap-based resource allocation strategies is crucial for efficient resource management.
-</p>`,
-  codeExample: `# Resource allocation implementation using a min-heap
-import heapq
-
-class Task:
-    def __init__(self, name, resource_needed, deadline):
-        self.name = name
-        self.resource_needed = resource_needed
-        self.deadline = deadline
-
-    def __lt__(self, other):
-        return self.deadline < other.deadline
-
-class ResourceAllocator:
-    def __init__(self, total_resources):
-        self.total_resources = total_resources
-        self.available_resources = total_resources
-        self.tasks = []
-
-    def add_task(self, task):
-        heapq.heappush(self.tasks, task)
-
-    def allocate_resources(self):
-        while self.tasks and self.available_resources >= self.tasks[0].resource_needed:
-            task = heapq.heappop(self.tasks)
-            self.available_resources -= task.resource_needed
-            print(f"Allocated {task.resource_needed} resources to {task.name}")
-
-# Example usage
-allocator = ResourceAllocator(total_resources=10)
-allocator.add_task(Task("Task 1", 3, 2))
-allocator.add_task(Task("Task 2", 4, 1))
-allocator.add_task(Task("Task 3", 2, 3))
-
-allocator.allocate_resources()`,
-  exercises: [
-    {
-      prompt: 'Implement a resource allocator using a min-heap and allocate resources to tasks based on their deadline.',
-      initialCode: `# Write your solution here
-import heapq
-
-class Task:
-    def __init__(self, name, resource_needed, deadline):
-        self.name = name
-        self.resource_needed = resource_needed
-        self.deadline = deadline
-
-    def __lt__(self, other):
-        return self.deadline < other.deadline
-
-class ResourceAllocator:
-    def __init__(self, total_resources):
-        self.total_resources = total_resources
-        self.available_resources = total_resources
-        self.tasks = []
-
-    def add_task(self, task):
-        heapq.heappush(self.tasks, task)
-
-    def allocate_resources(self):
-        while self.tasks and self.available_resources >= self.tasks[0].resource_needed:
-            task = heapq.heappop(self.tasks)
-            self.available_resources -= task.resource_needed
-            print(f"Allocated {task.resource_needed} resources to {task.name}")
-
-# Example usage
-allocator = ResourceAllocator(total_resources=10)
-allocator.add_task(Task("Task 1", 3, 2))
-allocator.add_task(Task("Task 2", 4, 1))
-allocator.add_task(Task("Task 3", 2, 3))
-
-allocator.allocate_resources()`,
-      solution: `import heapq
-
-class Task:
-    def __init__(self, name, resource_needed, deadline):
-        self.name = name
-        self.resource_needed = resource_needed
-        self.deadline = deadline
-
-    def __lt__(self, other):
-        return self.deadline < other.deadline
-
-class ResourceAllocator:
-    def __init__(self, total_resources):
-        self.total_resources = total_resources
-        self.available_resources = total_resources
-        self.tasks = []
-
-    def add_task(self, task):
-        heapq.heappush(self.tasks, task)
-
-    def allocate_resources(self):
-        while self.tasks and self.available_resources >= self.tasks[0].resource_needed:
-            task = heapq.heappop(self.tasks)
-            self.available_resources -= task.resource_needed
-            print(f"Allocated {task.resource_needed} resources to {task.name}")
-
-# Example usage
-allocator = ResourceAllocator(total_resources=10)
-allocator.add_task(Task("Task 1", 3, 2))
-allocator.add_task(Task("Task 2", 4, 1))
-allocator.add_task(Task("Task 3", 2, 3))
-
-allocator.allocate_resources()`,
-      difficulty: Difficulty.Advanced,
-    },
-  ],
-  quizzes: [
-    {
-      question: 'What is the primary advantage of using a heap for resource allocation?',
-      options: [
-        'Efficient allocation of resources to tasks based on their deadline or priority.',
-        'Guaranteed O(1) time complexity for all operations.',
-        'Simpler implementation compared to other data structures.',
-        'Ability to handle a large number of elements with constant time complexity.',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. The primary advantage of using a heap for resource allocation is its efficient allocation of resources to tasks based on their deadline or priority.',
-        'This is incorrect. The time complexity for allocation in a heap is O(log n), not O(1).',
-        'This is incorrect. While the implementation is relatively straightforward, it is not necessarily simpler than other data structures.',
-        'This is incorrect. The time complexity for handling a large number of elements is not constant.',
+        'heapq is a min-heap, so the smallest element is popped first, which is 3.',
+        '5 is not the smallest element.',
+        '7 is larger than 3 and 5.',
+        'The code does not raise an error.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -4359,30 +2509,22 @@ const heapLessons: Record<string, LessonContent> = {
   'heap-extraction': heapExtractionData,
   'heapify': heapifyData,
   'heap-update': heapUpdateData,
-  'min-heap': minHeapData,
-  'max-heap': maxHeapData,
-  'dual-heap': dualHeapData,
-  'heapsort-implementation': heapSortImplementationData,
-  'heapsort-analysis': heapSortAnalysisData,
-  'heapsort-variations': heapSortVariationsData,
-  'priority-queue-concept': priorityQueueConceptsData,
-  'priority-queue-operations': priorityQueueOperationsData,
-  'priority-applications': priorityQueueApplicationsData,
-  'binomial-heap': binomialHeapData,
-  'fibonacci-heap': fibonacciHeapData,
-  'leftist-heap': leftistHeapData,
+  'top-k-pattern': topKPatternData,
   'k-way-merge': kWayMergeData,
-  'k-smallest': kSmallestElementsData,
-  'k-closest': kClosestPointsData,
-  'dijkstra-heap': dijkstraHeapData,
-  'prim-heap': primHeapData,
-  'network-optimization': networkOptimizationData,
-  'stream-median': streamMedianData,
-  'scheduling': taskSchedulingData,
-  'stock-price': stockPriceOperationsData,
-  'cache-implementation': cacheImplementationData,
-  'load-balancing': loadBalancingData,
-  'resource-allocation': resourceAllocationData
+  'two-heaps': twoHeapsData,
+  'stream-processing': streamProcessingData,
+  'scheduling-problems': schedulingProblemsData,
+  'k-closest-points': kClosestPointsData,
+  'sliding-window-heap': slidingWindowHeapData,
+  'multiple-heaps': multipleHeapsData,
+  'heap-with-hashmap': heapWithHashMapData,
+  'when-to-use': whenToUseHeapsData,
+  'optimization': optimizationTechniquesData,
+  'common-mistakes': commonMistakesData,
+  'custom-comparator': customComparatorData,
+  'language-specifics': languageSpecificToolsData,
+  'edge-cases': edgeCasesData,
+  'dual-heap': dualHeapData,
 };
 
 export const heapLessonsTab: LessonsTab = {

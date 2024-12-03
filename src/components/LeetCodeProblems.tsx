@@ -40,6 +40,12 @@ interface LeetCodeProblemsProps {
   problems: Problem[];
 }
 
+enum UnderstandingLevel {
+  FullyUnderstand = 'fully',
+  PartiallyUnderstand = 'partially',
+  NotUnderstand = 'not',
+}
+
 const LeetCodeProblems: React.FC<LeetCodeProblemsProps> = ({ problems }) => {
   const [expandedProblem, setExpandedProblem] = useState<string | null>(null);
   const [showSolutionIndex, setShowSolutionIndex] = useState<number | null>(
@@ -51,10 +57,10 @@ const LeetCodeProblems: React.FC<LeetCodeProblemsProps> = ({ problems }) => {
     number | null
   >(null);
   const [solvedProblems, setSolvedProblems] = useState<{
-    [key: number]: boolean;
+    [key: string]: boolean;
   }>({});
   const [understandingLevels, setUnderstandingLevels] = useState<{
-    [key: number]: string;
+    [key: string]: string;
   }>({});
 
   useEffect(() => {
@@ -82,14 +88,17 @@ const LeetCodeProblems: React.FC<LeetCodeProblemsProps> = ({ problems }) => {
     );
   };
 
-  const handleSolvedChange = (index: number, value: boolean) => {
-    const newSolvedProblems = { ...solvedProblems, [index]: value };
+  const handleSolvedChange = (problemTitle: string, value: boolean) => {
+    const newSolvedProblems = { ...solvedProblems, [problemTitle]: value };
     setSolvedProblems(newSolvedProblems);
     localStorage.setItem('solvedProblems', JSON.stringify(newSolvedProblems));
   };
 
-  const handleUnderstandingChange = (index: number, value: string) => {
-    const newUnderstandingLevels = { ...understandingLevels, [index]: value };
+  const handleUnderstandingChange = (problemTitle: string, value: string) => {
+    const newUnderstandingLevels = {
+      ...understandingLevels,
+      [problemTitle]: value,
+    };
     setUnderstandingLevels(newUnderstandingLevels);
     localStorage.setItem(
       'understandingLevels',
@@ -97,13 +106,16 @@ const LeetCodeProblems: React.FC<LeetCodeProblemsProps> = ({ problems }) => {
     );
   };
 
-  const getTitleColor = (index: number) => {
-    const isSolved = solvedProblems[index] || false;
-    const understandingLevel = understandingLevels[index] || 'fully';
+  const getTitleColor = (problemTitle: string) => {
+    const isSolved = solvedProblems[problemTitle] || false;
+    const understandingLevel =
+      understandingLevels[problemTitle] || UnderstandingLevel.FullyUnderstand;
 
     if (isSolved) {
-      if (understandingLevel === 'fully') return 'text-green-600';
-      if (understandingLevel === 'partially') return 'text-yellow-600';
+      if (understandingLevel === UnderstandingLevel.FullyUnderstand)
+        return 'text-green-600';
+      if (understandingLevel === UnderstandingLevel.PartiallyUnderstand)
+        return 'text-yellow-600';
       return 'text-red-600';
     }
     return 'text-gray-800';
@@ -144,7 +156,7 @@ const LeetCodeProblems: React.FC<LeetCodeProblemsProps> = ({ problems }) => {
               <AccordionTrigger className="hover:no-underline">
                 <div className="flex items-center justify-between w-full">
                   <h3
-                    className={`text-xl font-semibold ${getTitleColor(index)}`}
+                    className={`text-xl font-semibold ${getTitleColor(problem.title)}`}
                   >
                     {problem.title}
                   </h3>
@@ -285,9 +297,9 @@ const LeetCodeProblems: React.FC<LeetCodeProblemsProps> = ({ problems }) => {
                     <label className="flex items-center">
                       <input
                         type="checkbox"
-                        checked={solvedProblems[index] || false}
+                        checked={solvedProblems[problem.title] || false}
                         onChange={(e) =>
-                          handleSolvedChange(index, e.target.checked)
+                          handleSolvedChange(problem.title, e.target.checked)
                         }
                         className="mr-2"
                       />
@@ -296,28 +308,35 @@ const LeetCodeProblems: React.FC<LeetCodeProblemsProps> = ({ problems }) => {
                     <label className="flex items-center">
                       Understanding:
                       <Select
-                        value={understandingLevels[index] || 'fully'}
+                        value={
+                          understandingLevels[problem.title] ||
+                          UnderstandingLevel.FullyUnderstand
+                        }
                         onValueChange={(value) =>
-                          handleUnderstandingChange(index, value)
+                          handleUnderstandingChange(problem.title, value)
                         }
                       >
                         <SelectTrigger className="w-[180px] ml-2">
                           <SelectValue placeholder="Select understanding level" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="fully">
+                          <SelectItem
+                            value={UnderstandingLevel.FullyUnderstand}
+                          >
                             <div className="flex items-center">
                               <CheckCircle className="mr-2 h-4 w-4 text-green-500" />
                               Fully Understand
                             </div>
                           </SelectItem>
-                          <SelectItem value="partially">
+                          <SelectItem
+                            value={UnderstandingLevel.PartiallyUnderstand}
+                          >
                             <div className="flex items-center">
                               <HelpCircle className="mr-2 h-4 w-4 text-yellow-500" />
                               Partially Understand
                             </div>
                           </SelectItem>
-                          <SelectItem value="not">
+                          <SelectItem value={UnderstandingLevel.NotUnderstand}>
                             <div className="flex items-center">
                               <XCircle className="mr-2 h-4 w-4 text-red-500" />
                               Not Understand
