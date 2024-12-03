@@ -196,7 +196,6 @@ queue.enqueue(3)  # Queue: [1, 2, 3]
 print(queue.dequeue())  # Outputs: 1
 print(queue.front())    # Outputs: 2
 `,
-  difficulty: Difficulty.Beginner,
   exercises: [
     {
       prompt: 'Implement a method to check if a queue is full when using a fixed-size array.',
@@ -259,49 +258,161 @@ def size(self):
 const queueImplementationData: LessonContent = {
   title: 'Queue Implementation',
   content: `<p>
-  Queues can be implemented using various structures like arrays and linked lists. 
-  Array-based queues provide quick access but may need resizing, while linked list queues offer dynamic sizing without reallocation.
+    A queue is a linear data structure that follows the First-In-First-Out (FIFO) principle, where elements are added at the rear and removed from the front. Queues can be implemented using arrays or linked lists, each with its own advantages and trade-offs.
+  </p>
+  <p>
+    <strong>Array-based Queues:</strong>
+    <ul>
+      <li>Provide constant time access to the front and rear elements.</li>
+      <li>May require resizing if the queue grows beyond the initial array size, which can be inefficient.</li>
+      <li>Can lead to wasted space if the queue alternates between being full and empty.</li>
+    </ul>
+  </p>
+  <p>
+    <strong>Linked List-based Queues:</strong>
+    <ul>
+      <li>Offer dynamic sizing without the need for resizing, as nodes are allocated as needed.</li>
+      <li>Insertions and deletions can be performed in constant time without the need to shift elements.</li>
+      <li>May use more memory due to the overhead of storing pointers/references to the next nodes.</li>
+    </ul>
+  </p>
+  <p>
+    In this lesson, we will focus on implementing a queue using a linked list, which provides efficient enqueue and dequeue operations.
   </p>`,
   codeExample: `# Queue Implementation using Linked List
-  class Node:
-      def __init__(self, value):
-          self.value = value
-          self.next = None
-  
-  class LinkedListQueue:
-      def __init__(self):
-          self.front = self.rear = None
-  
-      def enqueue(self, value):
-          new_node = Node(value)
-          if self.rear:
-              self.rear.next = new_node
-          self.rear = new_node
-          if self.front is None:
-              self.front = new_node
-  
-      def dequeue(self):
-          if self.front:
-              value = self.front.value
-              self.front = self.front.next
-              if self.front is None:
-                  self.rear = None
-              return value`,
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class LinkedListQueue:
+    def __init__(self):
+        self.front = self.rear = None
+
+    def enqueue(self, value):
+        new_node = Node(value)
+        if self.rear:
+            self.rear.next = new_node
+        self.rear = new_node
+        if not self.front:
+            self.front = new_node
+
+    def dequeue(self):
+        if not self.front:
+            raise Exception('Queue is empty')
+        value = self.front.value
+        self.front = self.front.next
+        if not self.front:
+            self.rear = None
+        return value
+
+# Example usage:
+queue = LinkedListQueue()
+queue.enqueue(10)
+queue.enqueue(20)
+queue.enqueue(30)
+print(queue.dequeue()) # Output: 10
+print(queue.dequeue()) # Output: 20
+print(queue.dequeue()) # Output: 30`,
   exercises: [
     {
-      prompt:
-        'Implement a linked list queue and enqueue the values [10, 20, 30].',
+      prompt: 'Implement a linked list queue and enqueue the values [10, 20, 30].',
       initialCode: `# Write your solution here
-  queue = LinkedListQueue()
-  # Enqueue values, then test dequeue`,
-      solution: `# Expected order for dequeue is 10, 20, 30`,
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class LinkedListQueue:
+    def __init__(self):
+        self.front = self.rear = None
+
+    def enqueue(self, value):
+        # Enqueue functionality already implemented
+        pass
+
+    def dequeue(self):
+        # Dequeue functionality already implemented
+        pass
+
+    def is_empty(self):
+        # Implement is_empty functionality
+        pass
+
+queue = LinkedListQueue()
+# Enqueue values and test dequeue`,
+      solution: `# Solution
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class LinkedListQueue:
+    def __init__(self):
+        self.front = self.rear = None
+
+    def enqueue(self, value):
+        new_node = Node(value)
+        if self.rear:
+            self.rear.next = new_node
+        self.rear = new_node
+        if not self.front:
+            self.front = new_node
+
+    def dequeue(self):
+        if not self.front:
+            raise Exception('Queue is empty')
+        value = self.front.value
+        self.front = self.front.next
+        if not self.front:
+            self.rear = None
+        return value
+
+    def is_empty(self):
+        return self.front is None
+
+queue = LinkedListQueue()
+queue.enqueue(10)
+queue.enqueue(20)
+queue.enqueue(30)
+
+print(queue.dequeue()) # Output: 10
+print(queue.dequeue()) # Output: 20
+print(queue.dequeue()) # Output: 30`,
       difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt: 'Implement a function to check if the queue is empty.',
+      initialCode: `# Write your solution here
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class LinkedListQueue:
+    def __init__(self):
+        self.front = self.rear = None
+
+    def enqueue(self, value):
+        # Enqueue functionality already implemented
+        pass
+
+    def dequeue(self):
+        # Dequeue functionality already implemented
+        pass
+
+    def is_empty(self):
+        # Implement is_empty functionality
+        pass`,
+      solution: `# Solution
+def is_empty(self):
+    return self.front is None`,
+      difficulty: Difficulty.Beginner,
     },
   ],
   quizzes: [
     {
-      question:
-        'Which advantage does a linked list queue offer over an array-based queue?',
+      question: 'Which advantage does a linked list queue offer over an array-based queue?',
       options: [
         'Faster access time',
         'Dynamic sizing without reallocation',
@@ -310,7 +421,44 @@ const queueImplementationData: LessonContent = {
       ],
       correctAnswer: 1,
       explanations: [
-        'Correct. Linked list queues can grow dynamically, avoiding the need for resizing.',
+        'Incorrect. Arrays generally offer faster access time due to direct indexing.',
+        'Correct. Linked list queues can grow dynamically without the need for resizing.',
+        'Incorrect. Linked lists may use more memory due to pointer overhead.',
+        'Incorrect. Linked list queues can be more complex to implement compared to array-based queues.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question: 'What is the time complexity of enqueue and dequeue operations in a linked list queue?',
+      options: [
+        'O(1) for both enqueue and dequeue',
+        'O(n) for enqueue and O(1) for dequeue',
+        'O(1) for enqueue and O(n) for dequeue',
+        'O(n) for both enqueue and dequeue',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'Correct. Both enqueue and dequeue operations in a linked list queue can be performed in constant time, O(1).',
+        'Incorrect. Enqueue in a linked list queue is O(1), not O(n).',
+        'Incorrect. Dequeue in a linked list queue is O(1), not O(n).',
+        'Incorrect. Both operations are O(1) in a linked list queue.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question: 'Which of the following is a disadvantage of using a linked list for queue implementation?',
+      options: [
+        'Efficient insertion and deletion',
+        'Dynamic resizing',
+        'Higher memory usage due to node overhead',
+        'FIFO order',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'Incorrect. Efficient insertion and deletion are advantages, not disadvantages.',
+        'Incorrect. Dynamic resizing is an advantage.',
+        'Correct. Linked lists use more memory due to the storage of pointers or references to the next nodes.',
+        'Incorrect. FIFO order is a characteristic, not a disadvantage.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -320,31 +468,138 @@ const queueImplementationData: LessonContent = {
 const queueOperationsData: LessonContent = {
   title: 'Basic Queue Operations',
   content: `<p>
-  Queues support basic operations: enqueue (add an element to the end), dequeue (remove from the front), peek (view the front element),
-  and isEmpty (check if the queue is empty). These operations ensure efficient, controlled access.
+    A queue is a linear data structure that follows the First-In-First-Out (FIFO) principle. It supports several basic operations:
+    <ul>
+      <li><strong>Enqueue:</strong> Adds an element to the end of the queue. This operation maintains the FIFO order by ensuring that the newest element is placed after all existing elements.</li>
+      <li><strong>Dequeue:</strong> Removes the element from the front of the queue. This operation retrieves the oldest element in the queue.</li>
+      <li><strong>Peek:</strong> Views the element at the front of the queue without removing it. This is useful for checking the next element without altering the queue.</li>
+      <li><strong>IsEmpty:</strong> Checks whether the queue contains any elements. This is useful for avoiding operations on an empty queue.</li>
+    </ul>
+    It's important to note that the FIFO principle ensures that elements are processed in the order they are added.
+  </p>
+  <p>
+    In this implementation, the enqueue operation has a time complexity of O(1), while dequeue has a time complexity of O(n) because it removes an element from the beginning of the list. For better performance, consider using \`collections.deque\` for O(1) enqueue and dequeue operations.
   </p>`,
   codeExample: `# Queue Operations Example
-  class QueueOperations:
-      def __init__(self):
-          self.queue = []
-  
-      def enqueue(self, item):
-          self.queue.append(item)
-  
-      def dequeue(self):
-          return self.queue.pop(0) if self.queue else None
-  
-      def peek(self):
-          return self.queue[0] if self.queue else None
-  
-      def is_empty(self):
-          return len(self.queue) == 0`,
+class QueueOperations:
+    def __init__(self):
+        self.queue = []
+    
+    def enqueue(self, item):
+        self.queue.append(item)
+    
+    def dequeue(self):
+        if not self.is_empty():
+            return self.queue.pop(0)
+        else:
+            raise IndexError("Dequeue from empty queue")
+    
+    def peek(self):
+        if not self.is_empty():
+            return self.queue[0]
+        else:
+            return None
+    
+    def is_empty(self):
+        return len(self.queue) == 0
+    
+    def __str__(self):
+        return f"Queue: {self.queue}"
+`,
   exercises: [
     {
-      prompt:
-        'Using the QueueOperations class, enqueue values [5, 15, 25], then dequeue one and peek.',
-      initialCode: `# Implement enqueue, dequeue, and peek on a queue`,
-      solution: `# Expected output: Dequeued value: 5, Peek value: 15`,
+      prompt: 'Using the QueueOperations class, enqueue values [5, 15, 25], then dequeue one and peek.',
+      initialCode: `# Implement enqueue, dequeue, and peek on a queue
+class QueueOperations:
+    def __init__(self):
+        self.queue = []
+    
+    def enqueue(self, item):
+        self.queue.append(item)
+    
+    def dequeue(self):
+        if not self.is_empty():
+            return self.queue.pop(0)
+        else:
+            raise IndexError("Dequeue from empty queue")
+    
+    def peek(self):
+        if not self.is_empty():
+            return self.queue[0]
+        else:
+            return None
+    
+    def is_empty(self):
+        return len(self.queue) == 0
+    
+    def __str__(self):
+        return f"Queue: {self.queue}"
+
+# Your code here`,
+      solution: `# Solution code
+queue = QueueOperations()
+queue.enqueue(5)
+queue.enqueue(15)
+queue.enqueue(25)
+print("After enqueue operations:", queue)
+dequeued_value = queue.dequeue()
+print("Dequeued value:", dequeued_value)
+peek_value = queue.peek()
+print("Peek value:", peek_value)
+# Expected output:
+# After enqueue operations: Queue: [5, 15, 25]
+# Dequeued value: 5
+# Peek value: 15`,
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      prompt: 'Implement error handling for dequeue and peek operations when the queue is empty.',
+      initialCode: `# Modify the QueueOperations class to handle empty queue errors
+class QueueOperations:
+    def __init__(self):
+        self.queue = []
+    
+    def enqueue(self, item):
+        self.queue.append(item)
+    
+    def dequeue(self):
+        # Implement error handling here
+        pass
+    
+    def peek(self):
+        # Implement error handling here
+        pass
+    
+    def is_empty(self):
+        return len(self.queue) == 0
+    
+    def __str__(self):
+        return f"Queue: {self.queue}"`,
+      solution: `# Solution code
+class QueueOperations:
+    def __init__(self):
+        self.queue = []
+    
+    def enqueue(self, item):
+        self.queue.append(item)
+    
+    def dequeue(self):
+        if not self.is_empty():
+            return self.queue.pop(0)
+        else:
+            raise IndexError("Dequeue from empty queue")
+    
+    def peek(self):
+        if not self.is_empty():
+            return self.queue[0]
+        else:
+            raise IndexError("Peek on empty queue")
+    
+    def is_empty(self):
+        return len(self.queue) == 0
+    
+    def __str__(self):
+        return f"Queue: {self.queue}"`,
       difficulty: Difficulty.Beginner,
     },
   ],
@@ -363,8 +618,37 @@ const queueOperationsData: LessonContent = {
       ],
       difficulty: Difficulty.Beginner,
     },
+    {
+      question: 'What is the time complexity of the enqueue operation in this queue implementation?',
+      options: [
+        'O(1)',
+        'O(n)',
+        'O(log n)',
+        'O(1) for append, O(n) for pop(0)',
+      ],
+      correctAnswer: 3,
+      explanations: [
+        'Correct. Enqueue uses append, which is O(1), but dequeue uses pop(0), which is O(n).',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question: 'Which statement is true about a queue?',
+      options: [
+        'Elements are added to the front and removed from the end.',
+        'Elements are added to the end and removed from the front.',
+        'Elements can be added and removed from both ends.',
+        'A queue follows the Last-In-First-Out (LIFO) principle.',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Correct. A queue adds elements to the end and removes them from the front, following FIFO.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
   ],
 };
+
 const circularConceptData: LessonContent = {
   title: 'Circular Queue Concept',
   content: `<p>
@@ -430,36 +714,162 @@ const circularConceptData: LessonContent = {
 const graphBfsData: LessonContent = {
   title: 'Graph BFS',
   content: `<p>
-  When applied to graphs, BFS efficiently explores all reachable nodes starting from a specified node, handling each node and its neighbors sequentially.
-  This approach is useful for finding the shortest path in unweighted graphs.
+    Breadth-First Search (BFS) is a graph traversal algorithm that explores all the vertices of a graph in breadth-first order. It starts at a specified node and explores all its neighbors before moving to the next level of nodes. This method is particularly useful for finding the shortest path in unweighted graphs, as it explores all nodes level by level.
+  </p>
+  <p>
+    BFS uses a queue to keep track of nodes to visit and a set to keep track of visited nodes. By processing nodes in the order they are enqueued, BFS ensures that the shortest path to each node is found first.
+  </p>
+  <p>
+    Compared to Depth-First Search (DFS), which explores as far as possible along each branch before backtracking, BFS provides a more level-wise exploration, making it suitable for various applications such as finding the shortest path, checking bipartiteness of a graph, and level order traversal of trees.
   </p>`,
   codeExample: `# BFS Implementation for Graph Traversal
-  def bfs_graph(graph, start):
-      visited = set()
-      queue = deque([start])
-      visited.add(start)
-  
-      while queue:
-          node = queue.popleft()
-          print(node)  # Process the node
-  
-          for neighbor in graph[node]:
-              if neighbor not in visited:
-                  visited.add(neighbor)
-                  queue.append(neighbor)`,
+from collections import deque
+
+def bfs_graph(graph, start):
+    visited = set()
+    queue = deque([start])
+    visited.add(start)
+    
+    while queue:
+        node = queue.popleft()
+        print(node)  # Process the node
+        
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)
+
+# Sample graph representation
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': ['F'],
+    'F': []
+}
+
+# Example usage
+bfs_graph(graph, 'A')  # Output: A B C D E F`,
   exercises: [
     {
-      prompt:
-        'Modify the BFS graph traversal to keep track of the shortest path from the start node to each node.',
-      initialCode: `# Store path lengths or predecessors during BFS`,
-      solution: `# Expected solution stores distances or predecessor nodes to reconstruct shortest paths`,
+      prompt: 'Modify the BFS graph traversal to keep track of the shortest path from the start node to each node.',
+      initialCode: `# Store path lengths or predecessors during BFS
+from collections import deque
+
+def bfs_graph_shortest_path(graph, start):
+    visited = set()
+    queue = deque([start])
+    visited.add(start)
+    # Initialize a dictionary to store predecessors
+    predecessor = {start: None}
+    
+    while queue:
+        node = queue.popleft()
+        print(node)
+        
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)
+                # Set predecessor of neighbor to the current node
+                predecessor[neighbor] = node
+                
+    return predecessor
+
+# Example usage
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': ['F'],
+    'F': []
+}
+
+predecessor = bfs_graph_shortest_path(graph, 'A')
+# Reconstruct path to 'F'
+path = []
+node = 'F'
+while node is not None:
+    path.append(node)
+    node = predecessor[node]
+path.reverse()
+print("Path to F:", path)  # Output: Path to F: ['A', 'B', 'E', 'F']`,
+      solution: `# The solution is provided in the initialCode section above.`,
       difficulty: Difficulty.Advanced,
+    },
+    {
+      prompt: 'Implement BFS recursively.',
+      initialCode: `# Implement BFS recursively
+def bfs_graph_recursive(queue, visited, graph):
+    if not queue:
+        return
+    node = queue.popleft()
+    print(node)
+    for neighbor in graph[node]:
+        if neighbor not in visited:
+            visited.add(neighbor)
+            queue.append(neighbor)
+    bfs_graph_recursive(queue, visited, graph)
+
+# Example usage
+from collections import deque
+
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': ['F'],
+    'F': []
+}
+
+visited = set()
+queue = deque(['A'])
+visited.add('A')
+bfs_graph_recursive(queue, visited, graph)  # Output: A B C D E F`,
+      solution: `# The solution is provided in the initialCode section above.`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt: 'Detect if a graph is bipartite using BFS.',
+      initialCode: `# Detect if a graph is bipartite using BFS
+from collections import deque
+
+def is_bipartite(graph, start):
+    colors = {}
+    queue = deque([start])
+    colors[start] = 0
+    
+    while queue:
+        node = queue.popleft()
+        for neighbor in graph[node]:
+            if neighbor not in colors:
+                colors[neighbor] = colors[node] ^ 1
+                queue.append(neighbor)
+            elif colors[neighbor] == colors[node]:
+                return False
+    return True
+
+# Example usage
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': ['F'],
+    'F': []
+}
+
+print(is_bipartite(graph, 'A'))  # Output: True`,
+      solution: `# The solution is provided in the initialCode section above.`,
+      difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question:
-        'In an unweighted graph, what property does BFS guarantee if we start from a specific node?',
+      question: 'In an unweighted graph, what property does BFS guarantee if we start from a specific node?',
       options: [
         'It finds the shortest path to each reachable node',
         'It finds the longest path to each reachable node',
@@ -471,6 +881,62 @@ const graphBfsData: LessonContent = {
         'Correct. BFS ensures the shortest path in terms of the number of edges in an unweighted graph.',
       ],
       difficulty: Difficulty.Intermediate,
+    },
+    {
+      question: 'What is the time complexity of BFS when using an adjacency list?',
+      options: [
+        'O(V)',
+        'O(E)',
+        'O(V + E)',
+        'O(V * E)',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'Correct. The time complexity is O(V + E), where V is the number of vertices and E is the number of edges.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question: 'Which of the following is a use case for BFS?',
+      options: [
+        'Finding the shortest path in an unweighted graph',
+        'Checking if a graph is bipartite',
+        'Level order traversal of a tree',
+        'All of the above',
+      ],
+      correctAnswer: 3,
+      explanations: [
+        'Correct. BFS is applicable to all the mentioned scenarios.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question: 'How does BFS differ from DFS in graph traversal?',
+      options: [
+        'BFS explores nodes level by level; DFS explores as far as possible along each branch before backtracking',
+        'BFS uses a stack; DFS uses a queue',
+        'BFS is slower than DFS',
+        'BFS cannot be used to find connected components',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'Correct. BFS explores level by level, while DFS explores deeply along each branch.',
+      ],
+      difficulty: Difficulty.Beginner,
+    },
+    {
+      question: 'Can BFS be used to find connected components in a graph?',
+      options: [
+        'Yes, by iterating over all unvisited nodes and performing BFS from each unvisited node',
+        'No, BFS is only for finding shortest paths',
+        'Yes, but it requires modifying the algorithm to keep track of components',
+        'No, only DFS can find connected components',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'Correct. BFS can be used to find connected components by iterating over all unvisited nodes.',
+      ],
+      difficulty: Difficulty.Beginner,
     },
   ],
 };
@@ -1650,48 +2116,310 @@ const queueReconstructionData: LessonContent = {
 const treeBfsData: LessonContent = {
   title: 'Tree Level Order Traversal',
   content: `<p>
-  In trees, BFS is commonly used for level-order traversal, processing each level of the tree from top to bottom.
-  Using a queue to maintain nodes at each level, BFS visits each node layer by layer, making it ideal for tree-based operations.
+    Breadth-First Search (BFS) is commonly used for level-order traversal in trees, processing each level of the tree from top to bottom. Using a queue to maintain nodes at each level, BFS visits nodes layer by layer, making it ideal for operations such as finding the shortest path or checking if a tree is complete. Compared to Depth-First Search (DFS), which explores as far down a branch as possible, BFS explores nodes in a breadthward motion, ensuring level-by-level processing.
+  </p>
+  <p>
+    <strong>Time Complexity:</strong> O(n), where n is the number of nodes, as each node is visited exactly once.
+  </p>
+  <p>
+    <strong>Space Complexity:</strong> O(n) in the worst case, such as when the tree is a perfect binary tree and the last level contains n/2 nodes.
   </p>`,
   codeExample: `# Level Order Traversal for a Binary Tree
-  from collections import deque
-  
-  def level_order_traversal(root):
-      if not root:
-          return []
-  
-      queue = deque([root])
-      result = []
-  
-      while queue:
-          level = []
-          for _ in range(len(queue)):
-              node = queue.popleft()
-              level.append(node.val)
-              if node.left:
-                  queue.append(node.left)
-              if node.right:
-                  queue.append(node.right)
-          result.append(level)
-      
-      return result`,
+from collections import deque
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def level_order_traversal(root):
+    if not root:
+        return []
+    
+    queue = deque([root])
+    result = []
+    
+    while queue:
+        level = []
+        # Process all nodes at the current level
+        for _ in range(len(queue)):
+            node = queue.popleft()
+            level.append(node.val)
+            # Enqueue the children for the next level
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+        result.append(level)
+    
+    return result
+
+# Sample Tree:
+#     3
+#    / \
+#   9  20
+#     /  \
+#    15   7
+root = TreeNode(3)
+root.left = TreeNode(9)
+root.right = TreeNode(20)
+root.right.left = TreeNode(15)
+root.right.right = TreeNode(7)
+
+print(level_order_traversal(root))
+# Expected Output: [[3], [9, 20], [15, 7]]`,
   exercises: [
     {
-      prompt:
-        'Write a function to print each level of a binary tree in reverse order using BFS.',
-      initialCode: `# Use a queue to traverse levels in BFS and a stack to reverse levels`,
-      solution: `# Expected solution should use a stack to hold levels for reversed output`,
+      prompt: 'Write a function to print each level of a binary tree in reverse order using BFS.',
+      initialCode: `# Use a queue to traverse levels in BFS and a stack to reverse levels
+from collections import deque
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def reverse_level_order(root):
+    # Implement function to print levels in reverse order
+    pass`,
+      solution: `# Solution
+from collections import deque
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def reverse_level_order(root):
+    if not root:
+        return []
+    
+    queue = deque([root])
+    stack = []
+    result = []
+    
+    while queue:
+        level = []
+        level_size = len(queue)
+        for _ in range(level_size):
+            node = queue.popleft()
+            level.append(node.val)
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+        stack.append(level)
+    
+    while stack:
+        result.append(stack.pop())
+    
+    return result
+
+# Sample Tree:
+#     3
+#    / \
+#   9  20
+#     /  \
+#    15   7
+root = TreeNode(3)
+root.left = TreeNode(9)
+root.right = TreeNode(20)
+root.right.left = TreeNode(15)
+root.right.right = TreeNode(7)
+
+print(reverse_level_order(root))
+# Expected Output: [[15, 7], [9, 20], [3]]`,
       difficulty: Difficulty.Advanced,
+    },
+    {
+      prompt: 'Implement BFS iteratively and recursively.',
+      initialCode: `# Implement BFS iteratively and recursively
+from collections import deque
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+# Iterative BFS
+def bfs_iterative(root):
+    # Implement iterative BFS here
+    pass
+
+# Recursive BFS
+def bfs_recursive(root, queue=None, result=None):
+    # Implement recursive BFS here
+    pass`,
+      solution: `# Solution
+from collections import deque
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+# Iterative BFS
+def bfs_iterative(root):
+    if not root:
+        return []
+    queue = deque([root])
+    result = []
+    while queue:
+        node = queue.popleft()
+        result.append(node.val)
+        if node.left:
+            queue.append(node.left)
+        if node.right:
+            queue.append(node.right)
+    return result
+
+# Recursive BFS
+def bfs_recursive(root, queue=None, result=None):
+    if not root:
+        return []
+    if queue is None:
+        queue = deque([root])
+    if result is None:
+        result = []
+    if queue:
+        node = queue.popleft()
+        result.append(node.val)
+        if node.left:
+            queue.append(node.left)
+        if node.right:
+            queue.append(node.right)
+        bfs_recursive(root, queue, result)
+    return result
+
+# Sample Tree:
+#     3
+#    / \
+#   9  20
+#     /  \
+#    15   7
+root = TreeNode(3)
+root.left = TreeNode(9)
+root.right = TreeNode(20)
+root.left.left = TreeNode(15)
+root.left.right = TreeNode(7)
+print(bfs_iterative(root))  # Output: [3, 9, 20, 15, 7]
+print(bfs_recursive(root))  # Output: [3, 9, 20, 15, 7]`,
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      prompt: 'Check if a binary tree is a complete binary tree using BFS.',
+      initialCode: `# Implement function to check if the tree is complete
+from collections import deque
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def is_complete_tree(root):
+    # Implement function to check if the tree is complete
+    pass`,
+      solution: `# Solution
+from collections import deque
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def is_complete_tree(root):
+    if not root:
+        return True
+    queue = deque([root])
+    end = False
+    while queue:
+        node = queue.popleft()
+        if not node:
+            end = True
+        else:
+            if end:
+                return False
+            queue.append(node.left)
+            queue.append(node.right)
+    return True
+
+# Sample Tree 1:
+#     1
+#    / \
+#   2   3
+#  / \   \
+# 4  5    6
+root1 = TreeNode(1)
+root1.left = TreeNode(2)
+root1.right = TreeNode(3)
+root1.left.left = TreeNode(4)
+root1.left.right = TreeNode(5)
+root1.right.right = TreeNode(6)
+print(is_complete_tree(root1))  # Output: False
+
+# Sample Tree 2:
+#     1
+#    / \
+#   2   3
+#  / \  / \
+# 4 5  6  7
+root2 = TreeNode(1)
+root2.left = TreeNode(2)
+root2.right = TreeNode(3)
+root2.left.left = TreeNode(4)
+root2.left.right = TreeNode(5)
+root2.right.left = TreeNode(6)
+root2.right.right = TreeNode(7)
+print(is_complete_tree(root2))  # Output: True`,
+      difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
     {
-      question:
-        'Which structure ensures that BFS in trees processes nodes level by level?',
+      question: 'Which structure ensures that BFS in trees processes nodes level by level?',
       options: ['Stack', 'Priority queue', 'Queue', 'Linked list'],
       correctAnswer: 2,
       explanations: [
         'Correct. A queue enables BFS to explore nodes level by level, which is essential for level-order traversal.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question: 'What is the time complexity of BFS traversal in a binary tree?',
+      options: ['O(n)', 'O(n^2)', 'O(log n)', 'O(1)'],
+      correctAnswer: 0,
+      explanations: [
+        'Correct. BFS visits each node exactly once, resulting in O(n) time complexity.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question: 'What is the space complexity of BFS traversal in a binary tree in the worst case?',
+      options: ['O(n)', 'O(log n)', 'O(1)', 'O(n^2)'],
+      correctAnswer: 0,
+      explanations: [
+        'Correct. In the worst case, the queue can contain up to n/2 nodes, leading to O(n) space complexity.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question: 'Which of the following is a common application of BFS in trees?',
+      options: [
+        'Finding the shortest path in an unweighted tree',
+        'Checking if a tree is a binary search tree',
+        'Finding the height of a tree',
+        'All of the above',
+      ],
+      correctAnswer: 0,
+      explanations: [
+        'Correct. BFS is commonly used to find the shortest path in an unweighted tree, but not typically for checking if a tree is a binary search tree or finding the height.',
       ],
       difficulty: Difficulty.Intermediate,
     },

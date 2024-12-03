@@ -1611,319 +1611,270 @@ product_of_numbers = reduce(lambda acc, x: acc * x, numbers)`,
 
 const sortingAnalysisData: LessonContent = {
   title: 'Sorting Performance Analysis',
-  content: `<p>
-Sorting algorithms are fundamental to computer science and are used in a variety of applications. 
-Different sorting algorithms have different performance characteristics, and understanding these can help you choose the right algorithm for your specific needs.
-</p>
+  content: `<p>Performance analysis of sorting algorithms is critical for understanding their efficiency and selecting the right algorithm for specific scenarios.</p>
 
-<ul>
-<li><strong>Bubble Sort:</strong> Simple but inefficient for large datasets. Time complexity: O(n^2).</li>
-<li><strong>Selection Sort:</strong> Also simple but inefficient for large datasets. Time complexity: O(n^2).</li>
-<li><strong>Insertion Sort:</strong> Efficient for small datasets or nearly sorted arrays. Time complexity: O(n^2).</li>
-<li><strong>Merge Sort:</strong> Efficient and stable. Time complexity: O(n log n).</li>
-<li><strong>Quick Sort:</strong> Efficient and widely used. Time complexity: O(n log n) on average, O(n^2) in the worst case.</li>
-<li><strong>Heap Sort:</strong> Efficient and in-place. Time complexity: O(n log n).</li>
-</ul>
+<h3><u>Time Complexity Analysis</u></h3>
+<p>Time complexity describes how the runtime of an algorithm grows with increasing input size. For sorting algorithms, we analyze three scenarios:</p>
+<li>Best Case: Optimal scenario with minimum operations</li>
+<li>Average Case: Typical performance scenario</li>
+<li>Worst Case: Maximum number of operations</li>
 
-<p>
-Choosing the right sorting algorithm depends on the size of the dataset, the distribution of the data, and the specific requirements of your application.
-</p>`,
-  codeExample: `# Bubble Sort
-def bubble_sort(arr):
-    n = len(arr)
-    for i in range(n):
-        for j in range(0, n-i-1):
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
-    return arr
+<h3><u>Comparative Sorting Algorithm Performance</u></h3>
+<table>
+<tr><th>Algorithm</th><th>Best Case</th><th>Average Case</th><th>Worst Case</th><th>Space Complexity</th></tr>
+<tr><td>Bubble Sort</td><td>O(n)</td><td>O(n²)</td><td>O(n²)</td><td>O(1)</td></tr>
+<tr><td>Selection Sort</td><td>O(n²)</td><td>O(n²)</td><td>O(n²)</td><td>O(1)</td></tr>
+<tr><td>Insertion Sort</td><td>O(n)</td><td>O(n²)</td><td>O(n²)</td><td>O(1)</td></tr>
+<tr><td>Merge Sort</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n)</td></tr>
+<tr><td>Quick Sort</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n²)</td><td>O(log n)</td></tr>
+</table>
 
-# Merge Sort
-def merge_sort(arr):
-    if len(arr) > 1:
-        mid = len(arr) // 2
-        L = arr[:mid]
-        R = arr[mid:]
-        merge_sort(L)
-        merge_sort(R)
-        i = j = k = 0
-        while i < len(L) and j < len(R):
-            if L[i] < R[j]:
-                arr[k] = L[i]
-                i += 1
-            else:
-                arr[k] = R[j]
-                j += 1
-            k += 1
-        while i < len(L):
-            arr[k] = L[i]
-            i += 1
-            k += 1
-        while j < len(R):
-            arr[k] = R[j]
-            j += 1
-            k += 1
-    return arr`,
+<h3><u>Space Complexity Considerations</u></h3>
+<p>Space complexity measures the memory an algorithm uses relative to input size. In-place sorting algorithms like Bubble Sort, Selection Sort, and Insertion Sort use minimal extra space, while algorithms like Merge Sort require additional memory.</p>`,
+  
+  codeExample: `# Performance Measurement Function
+import time
+import random
+
+def measure_sorting_performance(sort_func, arr):
+    start_time = time.time()
+    sorted_arr = sort_func(arr.copy())
+    end_time = time.time()
+    return end_time - start_time
+
+# Generate test arrays of different sizes
+def generate_test_arrays(sizes):
+    return [random.sample(range(1, 10000), size) for size in sizes]
+
+# Compare sorting algorithm performance
+def compare_sorting_algorithms(algorithms, sizes):
+    test_arrays = generate_test_arrays(sizes)
+    
+    for size, arr in zip(sizes, test_arrays):
+        print(f"\nArray Size: {size}")
+        for name, algorithm in algorithms.items():
+            execution_time = measure_sorting_performance(algorithm, arr)
+            print(f"{name} Execution Time: {execution_time:.6f} seconds")
+
+# Example comparison
+algorithms = {
+    'Bubble Sort': bubble_sort,
+    'Selection Sort': selection_sort,
+    'Insertion Sort': insertion_sort
+}
+
+sizes = [100, 500, 1000]
+compare_sorting_algorithms(algorithms, sizes)`,
+  
   exercises: [
     {
-      prompt:
-        'Implement the Bubble Sort algorithm to sort an array of numbers.',
-      initialCode: `# Write your solution here
-def bubble_sort(arr):
-    `,
-      solution: `def bubble_sort(arr):
-    n = len(arr)
-    for i in range(n):
-        for j in range(0, n-i-1):
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
-    return arr`,
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      prompt:
-        'Implement the Merge Sort algorithm to sort an array of numbers.',
-      initialCode: `# Write your solution here
-def merge_sort(arr):
-    `,
-      solution: `def merge_sort(arr):
-    if len(arr) > 1:
-        mid = len(arr) // 2
-        L = arr[:mid]
-        R = arr[mid:]
-        merge_sort(L)
-        merge_sort(R)
-        i = j = k = 0
-        while i < len(L) and j < len(R):
-            if L[i] < R[j]:
-                arr[k] = L[i]
-                i += 1
-            else:
-                arr[k] = R[j]
-                j += 1
-            k += 1
-        while i < len(L):
-            arr[k] = L[i]
-            i += 1
-            k += 1
-        while j < len(R):
-            arr[k] = R[j]
-            j += 1
-            k += 1
-    return arr`,
-      difficulty: Difficulty.Intermediate,
-    },
+      prompt: 'Create a function to measure and compare the performance of different sorting algorithms on random arrays of varying sizes.',
+      initialCode: `def compare_sorting_performance(sizes):
+    # Your implementation here
+    pass`,
+      solution: `import time
+import random
+
+def compare_sorting_performance(sizes):
+    algorithms = {
+        'Bubble Sort': bubble_sort,
+        'Selection Sort': selection_sort,
+        'Insertion Sort': insertion_sort
+    }
+    
+    results = {}
+    for size in sizes:
+        arr = random.sample(range(1, 10000), size)
+        results[size] = {}
+        
+        for name, algorithm in algorithms.items():
+            start_time = time.time()
+            algorithm(arr.copy())
+            end_time = time.time()
+            results[size][name] = end_time - start_time
+    
+    return results`,
+      difficulty: Difficulty.Advanced,
+    }
   ],
+  
   quizzes: [
     {
-      question:
-        'Which of the following sorting algorithms has a time complexity of O(n log n) in the worst case?',
+      question: 'Which sorting algorithm has the most consistent time complexity across different scenarios?',
       options: [
         'Bubble Sort',
-        'Selection Sort',
-        'Insertion Sort',
         'Merge Sort',
+        'Quick Sort',
+        'Insertion Sort'
       ],
-      correctAnswer: 3,
+      correctAnswer: 1,
       explanations: [
-        'This is incorrect. Bubble Sort has a time complexity of O(n^2).',
-        'This is incorrect. Selection Sort has a time complexity of O(n^2).',
-        'This is incorrect. Insertion Sort has a time complexity of O(n^2).',
-        'This is correct. Merge Sort has a time complexity of O(n log n) in the worst case.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      question:
-        'Which of the following sorting algorithms is most efficient for nearly sorted arrays?',
-      options: [
-        'Bubble Sort',
-        'Selection Sort',
-        'Insertion Sort',
-        'Merge Sort',
-      ],
-      correctAnswer: 2,
-      explanations: [
-        'This is incorrect. Bubble Sort is not the most efficient for nearly sorted arrays.',
-        'This is incorrect. Selection Sort is not the most efficient for nearly sorted arrays.',
-        'This is correct. Insertion Sort is most efficient for nearly sorted arrays.',
-        'This is incorrect. Merge Sort is not the most efficient for nearly sorted arrays.',
+        'Incorrect. Bubble Sort has variable performance.',
+        'Correct! Merge Sort consistently performs at O(n log n) in all scenarios.',
+        'Incorrect. Quick Sort has O(n²) worst-case time complexity.',
+        'Incorrect. Insertion Sort varies based on input arrangement.'
       ],
       difficulty: Difficulty.Intermediate,
     },
-  ],
+    {
+      question: 'What is the primary advantage of in-place sorting algorithms?',
+      options: [
+        'They are always faster',
+        'They use minimal extra memory',
+        'They work with any data type',
+        'They are more stable'
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Incorrect. Performance depends on various factors.',
+        'Correct! In-place sorting algorithms use O(1) extra space, making them memory-efficient.',
+        'Incorrect. Data type compatibility is not related to in-place sorting.',
+        'Incorrect. Stability is a separate concept from space complexity.'
+      ],
+      difficulty: Difficulty.Beginner,
+    }
+  ]
 };
 
 const basicSortingData: LessonContent = {
   title: 'Basic Sorting Algorithms',
-  content: `<p>
-Sorting is a fundamental operation in computer science used to organize elements in a specific order, such as ascending or descending.
-Understanding basic sorting algorithms helps build intuition for more complex sorting and search techniques.
-</p>
+  content: `<p>Sorting algorithms are fundamental techniques for arranging data in a specific order, typically ascending or descending. They are crucial in computer science for organizing information efficiently.</p>
 
-<ul>
-<li><strong>Bubble Sort:</strong> A simple but inefficient sorting algorithm that repeatedly swaps adjacent elements if they are in the wrong order.</li>
-<li><strong>Selection Sort:</strong> Finds the minimum element in each pass and places it at the beginning of the unsorted part of the array.</li>
-<li><strong>Insertion Sort:</strong> Builds a sorted portion of the array element by element, inserting each new element into its correct position.</li>
-<li><strong>Python’s built-in sorted() function:</strong> Python's sorted() function uses Timsort, a hybrid sorting algorithm with efficient performance on many data types.</li>
-</ul>`,
-  codeExample: `# Bubble Sort - O(n^2) time, in-place
+<h3><u>Fundamental Sorting Algorithms</u></h3>
+
+<h4><b>Bubble Sort</b></h4>
+<p>Bubble Sort is the simplest sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. Think of it like bubbling the largest elements to the end of the array in each pass.</p>
+
+<h4><b>Selection Sort</b></h4>
+<p>Selection Sort works by repeatedly finding the minimum element from the unsorted part of the array and placing it at the beginning. Imagine sorting a hand of playing cards by always selecting the smallest card and moving it to the sorted portion.</p>
+
+<h4><b>Insertion Sort</b></h4>
+<p>Insertion Sort builds the final sorted array one item at a time. It's similar to how you might sort a hand of cards, inserting each new card into its correct position among the already sorted cards.</p>
+
+<h3><u>Sorting Algorithm Characteristics</u></h3>
+<table>
+<tr><th>Algorithm</th><th>Time Complexity</th><th>Space Complexity</th><th>Stability</th></tr>
+<tr><td>Bubble Sort</td><td>O(n²)</td><td>O(1)</td><td>Stable</td></tr>
+<tr><td>Selection Sort</td><td>O(n²)</td><td>O(1)</td><td>Not Stable</td></tr>
+<tr><td>Insertion Sort</td><td>O(n²)</td><td>O(1)</td><td>Stable</td></tr>
+</table>`,
+  
+  codeExample: `# Bubble Sort Implementation
 def bubble_sort(arr):
-    for i in range(len(arr)):
-        for j in range(0, len(arr) - i - 1):
-            if arr[j] > arr[j + 1]:
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    n = len(arr)
+    # Traverse through all array elements
+    for i in range(n):
+        # Last i elements are already in place, so we don't need to check them
+        for j in range(0, n-i-1):
+            # Swap if the element found is greater than the next element
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
 
-# Selection Sort - O(n^2) time, in-place
+# Selection Sort Implementation
 def selection_sort(arr):
-    for i in range(len(arr)):
+    n = len(arr)
+    # Traverse through all array elements
+    for i in range(n):
+        # Find the minimum element in remaining unsorted array
         min_idx = i
-        for j in range(i + 1, len(arr)):
+        for j in range(i+1, n):
             if arr[j] < arr[min_idx]:
                 min_idx = j
+        
+        # Swap the found minimum element with the first element
         arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    return arr
 
-# Insertion Sort - O(n^2) time, best case O(n) for nearly sorted lists, in-place
+# Insertion Sort Implementation
 def insertion_sort(arr):
+    # Traverse through 1 to len(arr)
     for i in range(1, len(arr)):
         key = arr[i]
-        j = i - 1
+        # Move elements of arr[0..i-1], that are greater than key,
+        # to one position ahead of their current position
+        j = i-1
         while j >= 0 and key < arr[j]:
-            arr[j + 1] = arr[j]
+            arr[j+1] = arr[j]
             j -= 1
-        arr[j + 1] = key
+        arr[j+1] = key
+    return arr
 
-# Python built-in sorted() - O(n log n) average case with Timsort
-arr = [64, 25, 12, 22, 11]
-sorted_arr = sorted(arr)  # Returns [11, 12, 22, 25, 64] without modifying the original`,
+# Example usage
+sample_array = [64, 34, 25, 12, 22, 11, 90]
+print("Bubble Sort:", bubble_sort(sample_array.copy()))
+print("Selection Sort:", selection_sort(sample_array.copy()))
+print("Insertion Sort:", insertion_sort(sample_array.copy()))`,
+  
   exercises: [
     {
-      prompt:
-        'Implement Bubble Sort on the array [5, 1, 4, 2, 8] and print the sorted array.',
-      initialCode: `# Write your solution here
-def bubble_sort(arr):
-    # Implement Bubble Sort here
-    pass
-
-array = [5, 1, 4, 2, 8]
-bubble_sort(array)
-print(array)  # Expected: [1, 2, 4, 5, 8]`,
+      prompt: 'Implement Bubble Sort for an array of integers in ascending order.',
+      initialCode: `def bubble_sort(arr):
+    # Your implementation here
+    pass`,
       solution: `def bubble_sort(arr):
-    for i in range(len(arr)):
-        for j in range(0, len(arr) - i - 1):
-            if arr[j] > arr[j + 1]:
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
-
-array = [5, 1, 4, 2, 8]
-bubble_sort(array)
-print(array)`,
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt:
-        'Use Selection Sort to sort an array [29, 10, 14, 37, 13] in ascending order. Print the result.',
-      initialCode: `# Write your solution here
-def selection_sort(arr):
-    # Implement Selection Sort here
-    pass
-
-array = [29, 10, 14, 37, 13]
-selection_sort(array)
-print(array)  # Expected: [10, 13, 14, 29, 37]`,
-      solution: `def selection_sort(arr):
-    for i in range(len(arr)):
+      prompt: 'Create a function that performs Selection Sort on a list of strings, sorting them alphabetically.',
+      initialCode: `def selection_sort_strings(arr):
+    # Your implementation here
+    pass`,
+      solution: `def selection_sort_strings(arr):
+    n = len(arr)
+    for i in range(n):
         min_idx = i
-        for j in range(i + 1, len(arr)):
+        for j in range(i+1, n):
             if arr[j] < arr[min_idx]:
                 min_idx = j
         arr[i], arr[min_idx] = arr[min_idx], arr[i]
-
-array = [29, 10, 14, 37, 13]
-selection_sort(array)
-print(array)`,
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      prompt:
-        'Use Insertion Sort to sort an array [9, 7, 5, 11, 12, 2, 14, 3, 10, 6] in ascending order.',
-      initialCode: `# Write your solution here
-def insertion_sort(arr):
-    # Implement Insertion Sort here
-    pass
-
-array = [9, 7, 5, 11, 12, 2, 14, 3, 10, 6]
-insertion_sort(array)
-print(array)  # Expected: [2, 3, 5, 6, 7, 9, 10, 11, 12, 14]`,
-      solution: `def insertion_sort(arr):
-    for i in range(1, len(arr)):
-        key = arr[i]
-        j = i - 1
-        while j >= 0 and key < arr[j]:
-            arr[j + 1] = arr[j]
-            j -= 1
-        arr[j + 1] = key
-
-array = [9, 7, 5, 11, 12, 2, 14, 3, 10, 6]
-insertion_sort(array)
-print(array)`,
+    return arr`,
       difficulty: Difficulty.Intermediate,
-    },
+    }
   ],
+  
   quizzes: [
     {
-      question:
-        'Which sorting algorithm has the best average-case time complexity among these basic algorithms?',
+      question: 'Which sorting algorithm has the best performance for nearly sorted arrays?',
       options: [
         'Bubble Sort',
         'Selection Sort',
         'Insertion Sort',
-        'Python’s sorted()',
-      ],
-      correctAnswer: 3,
-      explanations: [
-        'This is incorrect. Bubble Sort has O(n^2) time complexity on average.',
-        'This is incorrect. Selection Sort has O(n^2) time complexity on average.',
-        'This is incorrect. Insertion Sort has O(n^2) time complexity on average.',
-        'This is correct. Python’s sorted() function uses Timsort, which has O(n log n) average complexity.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-    {
-      question:
-        'Which of these sorting algorithms is stable, meaning that it preserves the relative order of equal elements?',
-      options: [
-        'Bubble Sort',
-        'Selection Sort',
-        'Insertion Sort',
-        'All of the above',
-      ],
-      correctAnswer: 3,
-      explanations: [
-        'This is incorrect because Bubble Sort does not consistently preserve order of equal elements.',
-        'This is incorrect because Selection Sort is not stable.',
-        'This is incorrect as Insertion Sort is stable, but not all are.',
-        'This is correct because Bubble Sort, Selection Sort, and Insertion Sort are all stable algorithms when implemented properly.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      question:
-        'If an array is nearly sorted, which sorting algorithm will likely perform best?',
-      options: [
-        'Bubble Sort',
-        'Selection Sort',
-        'Insertion Sort',
-        'Python’s sorted()',
+        'Quick Sort'
       ],
       correctAnswer: 2,
       explanations: [
-        'This is incorrect. Bubble Sort does not leverage the order of elements well.',
-        'This is incorrect. Selection Sort has O(n^2) time complexity and is inefficient even with nearly sorted arrays.',
-        'This is correct. Insertion Sort can perform in O(n) time on nearly sorted arrays.',
-        'This is incorrect. While efficient, Timsort would not be as fast as Insertion Sort in this specific scenario.',
+        'Incorrect. Bubble Sort has O(n²) complexity.',
+        'Incorrect. Selection Sort always has O(n²) complexity.',
+        'Correct! Insertion Sort performs best on nearly sorted arrays with O(n) time complexity in the best case.',
+        'Incorrect. While Quick Sort is efficient, it is not the best for nearly sorted arrays.'
       ],
       difficulty: Difficulty.Intermediate,
     },
-  ],
+    {
+      question: 'What does "stable" mean in the context of sorting algorithms?',
+      options: [
+        'The algorithm always completes quickly',
+        'The algorithm uses minimal memory',
+        'Equal elements maintain their relative order',
+        'The algorithm works for all data types'
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'Incorrect. Speed is not related to stability.',
+        'Incorrect. Stability is about preserving the original order of equal elements.',
+        'Correct! In a stable sort, elements with equal values appear in the same order in the sorted output as they do in the input.',
+        'Incorrect. Stability is about maintaining element order, not data type compatibility.'
+      ],
+      difficulty: Difficulty.Beginner,
+    }
+  ]
 };
 
 const builtInSortingData: LessonContent = {
