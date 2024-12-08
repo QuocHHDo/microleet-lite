@@ -3429,47 +3429,8 @@ At its core, the k-closest points problem asks us to find the k points that are 
 <p>
 The distance between points is typically calculated using the Euclidean distance formula: sqrt((x₂-x₁)² + (y₂-y₁)²). However, since we're only comparing distances, we can often optimize by using squared distances and avoiding the square root calculation.
 </p>
+<Visualization type="kClosest" data="{\"points\":[{\"x\":1,\"y\":0.75,\"distance\":1.25},{\"x\":3,\"y\":2,\"distance\":3.61}],\"kClosest\":[{\"x\":1,\"y\":0.75,\"distance\":1.25}]}">
 
-<div class="visualization">
-<svg viewBox="0 0 800 400">
-  <!-- Coordinate System -->
-  <g transform="translate(50,200)">
-    <!-- Axes -->
-    <line x1="0" y1="-150" x2="0" y2="150" stroke="black"/>
-    <line x1="-50" y1="0" x2="350" y2="0" stroke="black"/>
-    
-    <!-- Origin Point -->
-    <circle cx="0" cy="0" r="5" fill="#E64A19"/>
-    <text x="10" y="20" font-size="12">Origin</text>
-    
-    <!-- Sample Points -->
-    <circle cx="50" cy="-30" r="3" fill="#1976D2"/>
-    <circle cx="120" cy="80" r="3" fill="#1976D2"/>
-    <circle cx="80" cy="-90" r="3" fill="#1976D2"/>
-    <circle cx="180" cy="40" r="3" fill="#1976D2"/>
-    <circle cx="30" cy="60" r="3" fill="#1976D2"/>
-    
-    <!-- Distance Visualization for Closest Points -->
-    <line x1="0" y1="0" x2="50" y2="-30" stroke="#4CAF50" stroke-dasharray="4"/>
-    <line x1="0" y1="0" x2="30" y2="60" stroke="#4CAF50" stroke-dasharray="4"/>
-    <text x="60" y="-40" font-size="10">d₁ = 58.3</text>
-    <text x="40" y="50" font-size="10">d₂ = 67.1</text>
-  </g>
-
-  <!-- Max Heap Representation -->
-  <g transform="translate(500,100)">
-    <text x="0" y="0" font-size="14" fill="black">Max Heap of K Closest</text>
-    <circle cx="100" cy="40" r="20" fill="#1976D2"/>
-    <circle cx="60" cy="90" r="20" fill="#1976D2"/>
-    <circle cx="140" cy="90" r="20" fill="#1976D2"/>
-    <text x="90" y="45" font-size="10" fill="white">67.1</text>
-    <text x="50" y="95" font-size="10" fill="white">58.3</text>
-    <text x="130" y="95" font-size="10" fill="white">65.2</text>
-    <line x1="100" y1="60" x2="60" y2="70" stroke="black"/>
-    <line x1="100" y1="60" x2="140" y2="70" stroke="black"/>
-  </g>
-</svg>
-</div>
 
 <h3><u>The Heap Solution</u></h3>
 <p>

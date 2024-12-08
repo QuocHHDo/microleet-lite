@@ -4,7 +4,7 @@ import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/c
 const arrayCurriculum: Curriculum = {
   title: 'Array Curriculum',
   description:
-    'A comprehensive guide to mastering array operations and algorithms for coding interviews',
+    'A focused guide to mastering essential array operations and algorithms for coding interviews',
   sections: [
     {
       id: 1,
@@ -13,588 +13,752 @@ const arrayCurriculum: Curriculum = {
         {
           id: 'array-concepts',
           title: 'Array Concepts and Implementation',
-          description: 'Understanding static vs dynamic arrays and their implementations',
+          description: 'Understanding how arrays work in memory and their basic properties',
           priority: PriorityLevel.Essential
         },
         {
           id: 'array-complexity',
           title: 'Time and Space Complexity',
-          description: 'Understanding complexity of basic array operations',
+          description: 'Understanding the performance characteristics of array operations',
           priority: PriorityLevel.Essential
         },
         {
           id: 'array-initialization',
-          title: 'Defining and Initializing Arrays',
-          description: 'Different ways to create and initialize arrays in Python',
+          title: 'Array Creation and Initialization',
+          description: 'Different ways to create and initialize arrays with best practices',
           priority: PriorityLevel.Essential
         },
         {
-          id: 'array-access-modification',
-          title: 'Accessing and Modifying Array Elements',
-          description: 'Understanding array indexing and element modification',
+          id: 'array-traversal',
+          title: 'Array Traversal Techniques',
+          description: 'Methods for iterating through arrays efficiently',
           priority: PriorityLevel.Essential
-        },
-        {
-          id: 'array-iteration',
-          title: 'Iterating Through Arrays',
-          description: 'Different methods to traverse array elements',
-          priority: PriorityLevel.Essential
-        },
+        }
       ],
     },
     {
       id: 2,
-      title: 'Array Operations',
+      title: 'Basic Array Operations',
       topics: [
         {
           id: 'array-insert-delete',
           title: 'Insertion and Deletion',
-          description: 'Adding and removing elements from arrays',
+          description: 'Fundamental operations for modifying array contents',
           priority: PriorityLevel.Essential
         },
         {
           id: 'array-searching',
-          title: 'Searching',
-          description: 'Techniques for finding elements in arrays',
+          title: 'Searching Elements',
+          description: 'Basic and advanced searching techniques in arrays',
           priority: PriorityLevel.Essential
         },
         {
           id: 'array-slicing',
           title: 'Array Slicing',
-          description: 'Working with array segments',
+          description: 'Working with subarrays and array segments',
           priority: PriorityLevel.Important
         },
         {
-          id: 'array-concatenation',
-          title: 'Concatenation and Merging Arrays',
-          description: 'Combining multiple arrays',
-          priority: PriorityLevel.Important
-        },
-        {
-          id: 'array-transformations',
-          title: 'Array Transformations',
-          description: 'Functional operations like map, filter, reduce',
-          priority: PriorityLevel.Important
-        },
+          id: 'array-modification',
+          title: 'In-place Modifications',
+          description: 'Techniques for modifying arrays without extra space',
+          priority: PriorityLevel.Essential
+        }
       ],
     },
     {
       id: 3,
-      title: 'Array Sorting',
+      title: 'Array Sorting and Ordering',
       topics: [
         {
           id: 'basic-sorting',
-          title: 'Basic Sorting Algorithms',
-          description: 'Understanding fundamental sorting techniques',
+          title: 'Basic Sorting Concepts',
+          description: 'Understanding fundamental sorting approaches',
           priority: PriorityLevel.Essential
         },
         {
-          id: 'sorting-analysis',
-          title: 'Sorting Performance Analysis',
-          description: 'Comparing different sorting algorithms and their use cases',
-          priority: PriorityLevel.Important
-        },
-        {
           id: 'builtin-sorting',
-          title: 'Built-in Sorting Functions',
-          description: "Using Python's built-in sorting capabilities",
+          title: 'Built-in Sorting Methods',
+          description: 'Effective use of language-provided sorting capabilities',
           priority: PriorityLevel.Essential
         },
         {
           id: 'custom-sorting',
-          title: 'Sorting by Custom Conditions',
-          description: 'Implementing custom sorting logic',
+          title: 'Custom Sort Conditions',
+          description: 'Implementing specific sorting requirements',
           priority: PriorityLevel.Important
-        },
-        {
-          id: 'partial-sorting',
-          title: 'Partially Sorted Arrays',
-          description: 'Working with and optimizing partially sorted arrays',
-          priority: PriorityLevel.Optional
-        },
+        }
       ],
     },
     {
       id: 4,
-      title: 'Two-pointer Technique',
+      title: 'Two-Pointer Patterns',
       topics: [
         {
-          id: 'two-pointer-concept',
-          title: 'Concept of Two-pointers',
-          description: 'Understanding the two-pointer approach',
+          id: 'two-pointer-basics',
+          title: 'Two-Pointer Fundamentals',
+          description: 'Basic two-pointer techniques and applications',
           priority: PriorityLevel.Essential
         },
         {
-          id: 'two-pointer-problems',
-          title: 'Common Two-pointer Problems',
-          description: 'Solving problems using two-pointer technique',
+          id: 'two-pointer-variations',
+          title: 'Two-Pointer Variations',
+          description: 'Different ways to apply two-pointer technique',
           priority: PriorityLevel.Essential
         },
         {
-          id: 'dutch-national-flag',
-          title: 'Dutch National Flag Problem',
-          description: 'Understanding and implementing the three-way partitioning',
-          priority: PriorityLevel.Beneficial
-        },
+          id: 'array-partitioning',
+          title: 'Array Partitioning',
+          description: 'Partitioning arrays using two-pointer approach',
+          priority: PriorityLevel.Important
+        }
       ],
     },
     {
       id: 5,
-      title: 'Sliding Window',
+      title: 'Sliding Window Technique',
       topics: [
         {
           id: 'sliding-window-concept',
-          title: 'Sliding Window Concept',
-          description: 'Understanding the sliding window technique',
+          title: 'Sliding Window Basics',
+          description: 'Core concepts of the sliding window technique',
           priority: PriorityLevel.Essential
         },
         {
-          id: 'sliding-window-types',
-          title: 'Fixed and Dynamic Sliding Windows',
-          description: 'Different types of sliding window approaches',
+          id: 'window-variations',
+          title: 'Window Size Variations',
+          description: 'Fixed and dynamic window size applications',
           priority: PriorityLevel.Important
-        },
-        {
-          id: 'sliding-window-optimization',
-          title: 'Optimizing Sliding Window Solutions',
-          description: 'Advanced techniques and optimizations for sliding window problems',
-          priority: PriorityLevel.Beneficial
-        },
+        }
       ],
     },
     {
       id: 6,
-      title: 'Prefix Sum and Difference Arrays',
+      title: 'Prefix Sums',
       topics: [
         {
-          id: 'prefix-sum-concept',
-          title: 'Prefix Sum',
-          description: 'Understanding and implementing prefix sums',
+          id: 'prefix-sum-basics',
+          title: 'Prefix Sum Fundamentals',
+          description: 'Building and using prefix sum arrays',
           priority: PriorityLevel.Essential
         },
         {
-          id: 'difference-array',
-          title: 'Difference Array',
-          description: 'Working with difference arrays',
-          priority: PriorityLevel.Beneficial
-        },
-        {
           id: 'range-queries',
-          title: 'Range Queries',
-          description: 'Efficient range-based operations using prefix sums',
+          title: 'Range Query Operations',
+          description: 'Solving range-based problems using prefix sums',
           priority: PriorityLevel.Important
-        },
+        }
       ],
     },
     {
       id: 7,
-      title: 'Matrix Operations',
-      topics: [
-        {
-          id: 'matrix-basics',
-          title: 'Understanding Matrices',
-          description: 'Basics of working with 2D arrays',
-          priority: PriorityLevel.Essential
-        },
-        {
-          id: 'matrix-operations',
-          title: 'Row-wise and Column-wise Operations',
-          description: 'Performing operations on matrix rows and columns',
-          priority: PriorityLevel.Important
-        },
-        {
-          id: 'matrix-traversal',
-          title: 'Matrix Traversal Patterns',
-          description: 'Different ways to traverse matrices (spiral, diagonal)',
-          priority: PriorityLevel.Important
-        },
-        {
-          id: 'matrix-search',
-          title: 'Matrix Search Algorithms',
-          description: 'Efficient searching in sorted matrices',
-          priority: PriorityLevel.Important
-        },
-      ],
-    },
-    {
-      id: 8,
-      title: 'Common Array Patterns',
+      title: 'Common Interview Patterns',
       topics: [
         {
           id: 'kadane-algorithm',
           title: "Kadane's Algorithm",
-          description: 'Understanding and implementing maximum subarray solutions',
+          description: 'Solving maximum subarray problems',
           priority: PriorityLevel.Essential
         },
         {
-          id: 'boyer-moore',
-          title: 'Boyer-Moore Majority Vote',
-          description: 'Finding majority elements in arrays',
-          priority: PriorityLevel.Beneficial
-        },
-        {
           id: 'stock-patterns',
-          title: 'Stock Buy/Sell Patterns',
-          description: 'Solving stock price array problems',
+          title: 'Stock Buy/Sell Problems',
+          description: 'Solving common stock price array problems',
           priority: PriorityLevel.Essential
         },
         {
           id: 'subarray-problems',
-          title: 'Subarray Problems',
-          description: 'Common patterns in subarray-based problems',
+          title: 'Subarray Patterns',
+          description: 'Common subarray problem-solving techniques',
           priority: PriorityLevel.Important
-        },
+        }
       ],
-    },
-    {
-      id: 9,
-      title: 'Advanced Array Manipulations',
-      topics: [
-        {
-          id: 'array-rotation',
-          title: 'Array Rotation',
-          description: 'Techniques for rotating array elements',
-          priority: PriorityLevel.Beneficial
-        },
-        {
-          id: 'merging-intervals',
-          title: 'Merging Intervals',
-          description: 'Working with interval arrays',
-          priority: PriorityLevel.Important
-        },
-        {
-          id: 'array-rearrangement',
-          title: 'Complex Array Rearrangements',
-          description: 'Advanced techniques for array reorganization',
-          priority: PriorityLevel.Optional
-        },
-      ],
-    },
-    {
-      id: 10,
-      title: 'In-place Operations',
-      topics: [
-        {
-          id: 'in-place-modifications',
-          title: 'In-place Modifications',
-          description: 'Modifying arrays without extra space',
-          priority: PriorityLevel.Important
-        },
-        {
-          id: 'element-rearrangement',
-          title: 'Swapping and Rearranging Elements',
-          description: 'Techniques for rearranging array elements',
-          priority: PriorityLevel.Beneficial
-        },
-        {
-          id: 'space-optimization',
-          title: 'Space Optimization Techniques',
-          description: 'Methods to optimize space complexity in array operations',
-          priority: PriorityLevel.Important
-        },
-      ],
-    },
-    {
-      id: 11,
-      title: 'Multidimensional Arrays',
-      topics: [
-        {
-          id: 'multi-array-operations',
-          title: 'Working with Multidimensional Arrays',
-          description: 'Operations on multi-dimensional arrays',
-          priority: PriorityLevel.Beneficial
-        },
-        {
-          id: 'multi-array-patterns',
-          title: 'Common Multidimensional Patterns',
-          description: 'Solving problems involving multiple dimensions',
-          priority: PriorityLevel.Optional
-        },
-      ],
-    },
+    }
   ],
 } as const;
 
 const arrayConceptsData: LessonContent = {
-  title: 'Array Concepts and Implementation',
+  title: 'Understanding Array Fundamentals',
   content: `<p>
-Arrays are fundamental data structures that store collections of elements in <strong>contiguous memory locations</strong>. Think of an array like a row of lockers, where each locker:
+Arrays are one of the most fundamental data structures in computer science. Think of an array like a row of mailboxes in an apartment building - each box has a specific number, and you can instantly access any box if you know its number. This direct access capability makes arrays both powerful and widely used in practical programming.
 </p>
-<li>Has a unique number (index)</li>
-<li>Can store one item</li>
-<li>Can be accessed directly using its number</li>
 
-<p>There are two main types of arrays: <strong>static arrays</strong> and <strong>dynamic arrays</strong>.</p>
+<h3><u>Memory and Physical Structure</u></h3>
+<p>
+Unlike higher-level data structures, arrays have a direct connection to how computers physically store data. When you create an array, your computer allocates a continuous block of memory cells, each capable of holding one element. This continuity is crucial - it means all elements are stored right next to each other in memory, like books arranged sequentially on a shelf.
+</p>
 
-<h3><u>Types of Arrays</u></h3>
+<div class="visualization-container bg-white p-6 rounded-lg shadow-md my-8">
+  <h4 class="text-center text-gray-700 mb-4">Memory Layout of Array [10, 20, 30, 40, 50]</h4>
+  <div class="flex flex-col items-center space-y-4">
+    <!-- Array boxes container -->
+    <div class="flex">
+      <div class="w-20 h-16 border-2 border-gray-400 flex items-center justify-center bg-green-500 text-white font-semibold">10</div>
+      <div class="w-20 h-16 border-2 border-l-0 border-gray-400 flex items-center justify-center bg-green-500 text-white font-semibold">20</div>
+      <div class="w-20 h-16 border-2 border-l-0 border-gray-400 flex items-center justify-center bg-green-500 text-white font-semibold">30</div>
+      <div class="w-20 h-16 border-2 border-l-0 border-gray-400 flex items-center justify-center bg-green-500 text-white font-semibold">40</div>
+      <div class="w-20 h-16 border-2 border-l-0 border-gray-400 flex items-center justify-center bg-green-500 text-white font-semibold">50</div>
+    </div>
+    <!-- Index labels container -->
+    <div class="flex text-sm text-gray-600">
+      <div class="w-20 text-center">index 0</div>
+      <div class="w-20 text-center">index 1</div>
+      <div class="w-20 text-center">index 2</div>
+      <div class="w-20 text-center">index 3</div>
+      <div class="w-20 text-center">index 4</div>
+    </div>
+  </div>
+</div>
 
-<h4><b>Static Arrays</b></h4>
-<li>Fixed size (cannot grow or shrink)</li>
-<li>Memory efficient</li>
-<li>Best when size is known upfront</li>
+<h3><u>Key Properties of Arrays</u></h3>
 
-<h4><b>Dynamic Arrays</b></h4>
-<li>Flexible size (can grow or shrink)</li>
-<li>Automatically resizes when needed</li>
-<li>Slight memory overhead</li>
-<li>Example: Python lists, Java ArrayList</li>
+<h4><b>1. Fixed Size (in most implementations)</b></h4>
+<p>
+When you create an array, you typically need to specify its size upfront. This size usually can't be changed later because the memory is allocated as one continuous block. Think of it like reserving a specific number of parking spots - you can't easily add more spots in the middle of the parking lot! This property has important implications for how we handle growing collections of data.
+</p>
 
-<h3><u>Operation Complexities</u></h3>
-<table>
-<tr><th>Operation</th><th>Static Array</th><th>Dynamic Array</th></tr>
-<tr><td>Access</td><td>O(1)</td><td>O(1)</td></tr>
-<tr><td>Insert at end</td><td>O(1)*</td><td>O(1) amortized</td></tr>
-<tr><td>Insert at middle/start</td><td>O(n)</td><td>O(n)</td></tr>
-<tr><td>Delete from end</td><td>O(1)</td><td>O(1)</td></tr>
-<tr><td>Delete from middle/start</td><td>O(n)</td><td>O(n)</td></tr>
-<tr><td>Search (unsorted)</td><td>O(n)</td><td>O(n)</td></tr>
-<tr><td>Resize</td><td>Not possible</td><td>O(n)</td></tr>
-</table>
-<p><small>*Only if space is available</small></p>`,
-  codeExample: `# Static Array (Fixed Size)
-static_array = [None] * 5  # Creates an array of size 5
-print(f"Static array size: {len(static_array)}")  # Always 5
-static_array[0] = 10  # Direct index assignment
-print(f"Static array: {static_array}")  # [10, None, None, None, None]
+<h4><b>2. Constant-Time Access</b></h4>
+<p>
+One of the most powerful features of arrays is their O(1) access time to any element. This is possible because the computer can calculate the exact memory location of any element using its index. For example, if each element takes up 4 bytes of memory, and the array starts at memory address 1000, then element at index 3 will be at address 1000 + (3 × 4) = 1012. This direct calculation makes array access extremely efficient.
+</p>
 
-# Dynamic Array (Python List)
-dynamic_array = []  # Empty dynamic array
-print(f"Initial size: {len(dynamic_array)}")  # 0
+<h4><b>3. Memory Efficiency</b></h4>
+<p>
+Arrays are memory-efficient because they store elements contiguously and have minimal overhead. Unlike linked lists or trees, arrays don't need to store additional pointers or references between elements. This makes them particularly useful in systems with limited memory or when working with large datasets where memory overhead could become significant.
+</p>
 
-# Adding elements
-dynamic_array.append(1)  # [1]
-dynamic_array.append(2)  # [1, 2]
-print(f"Size after appends: {len(dynamic_array)}")  # 2
-print(f"Current array: {dynamic_array}")  # [1, 2]
+<h3><u>Understanding Time Complexities</u></h3>
+<p>
+Array operations have varying time complexities that directly impact performance in real-world applications. For instance, while accessing elements is lightning-fast at O(1), inserting or deleting elements in the middle requires shifting subsequent elements, resulting in O(n) time complexity. This trade-off between access speed and modification cost is a fundamental consideration when choosing array-based data structures for different scenarios.
+</p>`,
+  codeExample: `class Array:
+    def __init__(self, size):
+        """
+        Initialize a fixed-size array.
+        
+        Args:
+            size: The fixed size of the array
+            
+        Time Complexity: O(1)
+        Space Complexity: O(n) where n is the size
+        """
+        self.size = size
+        self.data = [None] * size
+        self.length = 0
+    
+    def insert(self, index, value):
+        """
+        Insert a value at a specific index.
+        
+        Args:
+            index: Position to insert the new value
+            value: Element to be inserted
+            
+        Time Complexity: O(n) - need to shift elements
+        Space Complexity: O(1)
+        """
+        if self.length >= self.size:
+            raise Exception("Array is full")
+        if index < 0 or index > self.length:
+            raise Exception("Index out of bounds")
+            
+        # Shift elements to make room
+        for i in range(self.length, index, -1):
+            self.data[i] = self.data[i-1]
+            
+        self.data[index] = value
+        self.length += 1
+    
+    def remove(self, index):
+        """
+        Remove an element at a specific index.
+        
+        Args:
+            index: Position of element to remove
+            
+        Time Complexity: O(n) - need to shift elements
+        Space Complexity: O(1)
+        """
+        if index < 0 or index >= self.length:
+            raise Exception("Index out of bounds")
+            
+        # Shift elements to fill the gap
+        for i in range(index, self.length - 1):
+            self.data[i] = self.data[i+1]
+            
+        self.data[self.length - 1] = None
+        self.length -= 1
+    
+    def get(self, index):
+        """
+        Get value at index.
+        
+        Args:
+            index: Position to retrieve value from
+            
+        Time Complexity: O(1)
+        Space Complexity: O(1)
+        """
+        if index < 0 or index >= self.length:
+            raise Exception("Index out of bounds")
+        return self.data[index]
 
-# Extending array
-dynamic_array.extend([3, 4, 5])  # [1, 2, 3, 4, 5]
-print(f"After extending: {dynamic_array}")  # [1, 2, 3, 4, 5]
-print(f"Final size: {len(dynamic_array)}")  # 5
-
-# Direct index access (both types)
-print(f"First element: {dynamic_array[0]}")  # 1
-print(f"Last element: {dynamic_array[-1]}")  # 5
-
-# Slicing (Python feature)
-print(f"First three elements: {dynamic_array[:3]}")  # [1, 2, 3]`,
+# Example usage:
+array = Array(5)
+array.insert(0, 10)  # [10]
+array.insert(1, 20)  # [10, 20]
+array.insert(1, 15)  # [10, 15, 20]
+print(array.get(1))  # Output: 15
+array.remove(1)      # [10, 20]`,
   exercises: [
     {
-      prompt: 'Create a static array of size 5 initialized with zeros and a dynamic array containing the numbers 1 through 5.',
-      initialCode: `# Write your solution here
-static_array = 
-dynamic_array = `,
-      solution: `static_array = [0] * 5
-dynamic_array = []
-for i in range(1, 6):
-    dynamic_array.append(i)`,
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      prompt: 'Create two arrays: a static array of size 3 with string values ["red", "green", "blue"] and a dynamic array. Then add "yellow" and "purple" to the dynamic array.',
-      initialCode: `# Write your solution here
-static_array = 
-dynamic_array = `,
-      solution: `static_array = ["red", "green", "blue"]
-dynamic_array = []
-dynamic_array.extend(["yellow", "purple"])`,
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      prompt: 'Create a static array of size 4 with initial values [10, 20, 30, 40]. Create a dynamic array and use extend() to add these elements in reverse order.',
-      initialCode: `# Write your solution here
-static_array = 
-dynamic_array = `,
-      solution: `static_array = [10, 20, 30, 40]
-dynamic_array = []
-dynamic_array.extend(static_array[::-1])`,
+      prompt: 'Implement a function that efficiently rotates an array to the right by k positions. For example, with input array [1,2,3,4,5] and k=2, the result should be [4,5,1,2,3].',
+      initialCode: `def rotate_array(arr, k):
+    """
+    Rotate array to the right by k positions.
+    
+    Args:
+        arr: List of integers
+        k: Number of positions to rotate
+    Returns:
+        Rotated array
+    """
+    # Implement array rotation
+    pass`,
+      solution: `def rotate_array(arr, k):
+    """
+    Rotate array to the right by k positions.
+    
+    Args:
+        arr: List of integers
+        k: Number of positions to rotate
+    Returns:
+        Rotated array
+    
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+    """
+    if not arr:
+        return arr
+        
+    n = len(arr)
+    k = k % n  # Handle case where k > n
+    
+    def reverse(start, end):
+        while start < end:
+            arr[start], arr[end] = arr[end], arr[start]
+            start += 1
+            end -= 1
+    
+    # Reverse entire array
+    reverse(0, n-1)
+    # Reverse first k elements
+    reverse(0, k-1)
+    # Reverse remaining elements
+    reverse(k, n-1)
+    
+    return arr`,
       difficulty: Difficulty.Intermediate,
     },
+    {
+      prompt: 'Implement a dynamic array (similar to Python\'s list) that automatically resizes when it reaches capacity. Include methods for append, insert, and remove.',
+      initialCode: `class DynamicArray:
+    def __init__(self):
+        """Initialize an empty dynamic array."""
+        pass
+        
+    def append(self, value):
+        """Add value to end of array."""
+        pass
+        
+    def insert(self, index, value):
+        """Insert value at index."""
+        pass
+        
+    def remove(self, index):
+        """Remove element at index."""
+        pass`,
+      solution: `class DynamicArray:
+    def __init__(self):
+        """
+        Initialize an empty dynamic array.
+        
+        Time Complexity: O(1)
+        Space Complexity: O(1)
+        """
+        self.size = 2  # Initial capacity
+        self.length = 0  # Current number of elements
+        self.data = [None] * self.size
+    
+    def append(self, value):
+        """
+        Add value to end of array.
+        
+        Time Complexity: O(1) amortized
+        Space Complexity: O(1)
+        """
+        if self.length == self.size:
+            self._resize(self.size * 2)
+        
+        self.data[self.length] = value
+        self.length += 1
+    
+    def insert(self, index, value):
+        """
+        Insert value at index.
+        
+        Time Complexity: O(n)
+        Space Complexity: O(1)
+        """
+        if index < 0 or index > self.length:
+            raise IndexError("Index out of bounds")
+            
+        if self.length == self.size:
+            self._resize(self.size * 2)
+            
+        # Shift elements right
+        for i in range(self.length, index, -1):
+            self.data[i] = self.data[i-1]
+            
+        self.data[index] = value
+        self.length += 1
+    
+    def remove(self, index):
+        """
+        Remove element at index.
+        
+        Time Complexity: O(n)
+        Space Complexity: O(1)
+        """
+        if index < 0 or index >= self.length:
+            raise IndexError("Index out of bounds")
+            
+        # Shift elements left
+        for i in range(index, self.length - 1):
+            self.data[i] = self.data[i+1]
+            
+        self.length -= 1
+        
+        # Shrink if too sparse
+        if self.length < self.size // 4:
+            self._resize(self.size // 2)
+    
+    def _resize(self, new_size):
+        """
+        Resize internal array to new capacity.
+        
+        Time Complexity: O(n)
+        Space Complexity: O(n)
+        """
+        new_data = [None] * new_size
+        for i in range(self.length):
+            new_data[i] = self.data[i]
+        self.data = new_data
+        self.size = new_size`,
+      difficulty: Difficulty.Advanced,
+    }
   ],
   quizzes: [
     {
-      question: 'What is the key difference between static and dynamic arrays?',
+      question: 'What is the time complexity of accessing an element at a given index in an array, and why?',
       options: [
-        'Static arrays are faster than dynamic arrays',
-        'Static arrays have a fixed size while dynamic arrays can grow',
-        'Dynamic arrays use less memory than static arrays',
-        'Static arrays can only store numbers',
+        'O(n), because we might need to scan through all elements',
+        'O(1), because we can calculate the memory address directly',
+        'O(log n), because we can use binary search',
+        'O(n log n), because we need to sort first',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Speed depends on the operation being performed.',
-        'Correct! Static arrays have a fixed size that cannot be changed after creation, while dynamic arrays can grow or shrink.',
-        'Incorrect. Dynamic arrays typically use more memory due to over-allocation.',
-        'Incorrect. Static arrays can store any type of data.',
+        'Incorrect. Array access doesn\'t require scanning through elements.',
+        'Correct! Arrays provide direct access through index arithmetic, making it constant time.',
+        'Incorrect. Binary search is for finding values, not accessing known indices.',
+        'Incorrect. Sorting isn\'t needed for accessing elements by index.',
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What happens when you try to add an element to a full static array?',
+      question: 'When inserting an element at index i in an array of size n, what is the worst-case number of elements that need to be shifted?',
       options: [
-        'The array automatically expands',
-        'The new element replaces the last element',
-        'An error occurs',
-        'The element is ignored',
-      ],
-      correctAnswer: 2,
-      explanations: [
-        'Incorrect. Static arrays cannot automatically expand.',
-        'Incorrect. Adding to a full static array causes an error.',
-        'Correct! Static arrays cannot grow, so adding to a full array results in an error.',
-        'Incorrect. The operation fails with an error.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      question: 'Which operation has O(1) time complexity for both static and dynamic arrays?',
-      options: [
-        'Inserting at the beginning',
-        'Accessing an element by index',
-        'Searching for an element',
-        'Inserting in the middle',
+        'i elements',
+        'n-i elements',
+        'n elements',
+        'log n elements',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Inserting at the beginning is O(n) for both.',
-        'Correct! Both array types provide constant-time access by index.',
-        'Incorrect. Searching is O(n) for unsorted arrays.',
-        'Incorrect. Inserting in the middle is O(n) for both.',
+        'Incorrect. We shift elements after the insertion point, not before.',
+        'Correct! We need to shift all elements from index i to the end, which is n-i elements.',
+        'Incorrect. We only need to shift elements after the insertion point, not all elements.',
+        'Incorrect. Array insertion requires linear shifting, not logarithmic.',
       ],
       difficulty: Difficulty.Intermediate,
-    },
+    }
   ],
 };
 
 const arrayComplexityData: LessonContent = {
-  title: 'Time and Space Complexity',
+  title: 'Understanding Array Time Complexity',
   content: `<p>
-Understanding the time and space complexity of array operations is crucial for writing efficient code. 
-Here are some common array operations and their corresponding complexities:
+Time complexity helps us understand how array operations perform as the data size grows. This knowledge is crucial for writing efficient code and choosing the right operations for your needs.
 </p>
 
-<ul>
-<li><strong>Accessing an element:</strong> O(1) time complexity. This is because arrays store elements in contiguous memory locations, allowing direct access using the index.</li>
-<li><strong>Inserting an element at the end:</strong> O(1) time complexity on average. For dynamic arrays, this operation may occasionally require resizing, which takes O(n) time, but on average, it is O(1).</li>
-<li><strong>Inserting an element at the beginning or middle:</strong> O(n) time complexity. This requires shifting all subsequent elements, which takes linear time.</li>
-<li><strong>Deleting an element:</strong> O(n) time complexity. Similar to insertion, deleting an element requires shifting subsequent elements.</li>
-<li><strong>Searching for an element:</strong> O(n) time complexity in the worst case. This requires iterating through the array to find the element.</li>
-</ul>
+<h3><u>Understanding Operation Costs</u></h3>
 
+<h4><b>Constant Time O(1) Operations</b></h4>
 <p>
-Knowing these complexities helps in choosing the right data structure and algorithm for your specific needs, ensuring optimal performance.
-</p>`,
-  codeExample: `# Accessing an element
-array = [1, 2, 3, 4, 5]
-element = array[2]  # Accessing the third element (O(1) time complexity)
+These operations take the same time regardless of array size, like checking your mailbox - it takes the same time whether you have 1 or 100 letters:
+</p>
+<li>Reading an element (arr[i])</li>
+<li>Writing an element (arr[i] = value)</li>
+<li>Adding to the end (with space available)</li>
+<li>Removing from the end</li>
 
-# Inserting an element at the end
-array.append(6)  # O(1) time complexity on average
+<h4><b>Linear Time O(n) Operations</b></h4>
+<p>
+These operations take longer as the array grows, like checking every seat in a theater - more seats mean more time:
+</p>
+<li>Finding an element without knowing its position</li>
+<li>Adding an element at the beginning or middle</li>
+<li>Removing an element from the beginning or middle</li>
+<li>Copying the array</li>
 
-# Inserting an element at the beginning
-array.insert(0, 0)  # O(n) time complexity
+<h3><u>Performance Patterns and Pitfalls</u></h3>
 
-# Deleting an element
-array.pop(2)  # Deleting the third element (O(n) time complexity)
+<h4><b>The Cost of Shifting Elements</b></h4>
+<p>
+When you insert an element at the beginning of an array, imagine a line of people where everyone must step back to make room for someone new at the front. The longer the line, the more people need to move:
+</p>
+<li>Inserting at position 0 means moving all n elements</li>
+<li>Inserting at position 1 means moving n-1 elements</li>
+<li>Inserting at the end means moving 0 elements</li>
 
-# Searching for an element
-index = array.index(4)  # Searching for the element 4 (O(n) time complexity in the worst case)`,
+<h4><b>Dynamic Array Growth</b></h4>
+<p>
+Dynamic arrays grow like this:
+</p>
+<li>When full, create a new larger array (typically 2x size)</li>
+<li>Copy all elements to the new array</li>
+<li>Add the new element</li>
+<li>Discard the old array</li>
+
+<table>
+<tr><th>Operation</th><th>Best Case</th><th>Average Case</th><th>Worst Case</th><th>Notes</th></tr>
+<tr><td>Read/Write</td><td>O(1)</td><td>O(1)</td><td>O(1)</td><td>Direct index access</td></tr>
+<tr><td>Insert End</td><td>O(1)</td><td>O(1)</td><td>O(n)</td><td>O(n) when resizing needed</td></tr>
+<tr><td>Insert Begin</td><td>O(n)</td><td>O(n)</td><td>O(n)</td><td>Must shift elements</td></tr>
+<tr><td>Delete End</td><td>O(1)</td><td>O(1)</td><td>O(1)</td><td>No shifting needed</td></tr>
+<tr><td>Delete Begin</td><td>O(n)</td><td>O(n)</td><td>O(n)</td><td>Must shift elements</td></tr>
+<tr><td>Search</td><td>O(1)</td><td>O(n)</td><td>O(n)</td><td>First vs last element</td></tr>
+</table>`,
+  codeExample: `# Demonstrating time complexity differences
+import time
+import random
+
+class ArrayOperationsTimer:
+    def __init__(self, sizes=[1000, 10000, 100000]):
+        self.sizes = sizes
+        
+    def measure_operation(self, operation_func, size):
+        """Measure time for a single operation."""
+        start_time = time.time()
+        operation_func(size)
+        end_time = time.time()
+        return (end_time - start_time) * 1000  # Convert to milliseconds
+
+    def test_insert_operations(self):
+        """Compare insertion times at different positions."""
+        results = []
+        
+        for size in self.sizes:
+            # Create test array
+            arr = list(range(size))
+            
+            # Test insertions
+            begin_time = self.measure_operation(
+                lambda s: arr.insert(0, -1), size)
+            middle_time = self.measure_operation(
+                lambda s: arr.insert(s//2, -1), size)
+            end_time = self.measure_operation(
+                lambda s: arr.append(-1), size)
+            
+            results.append({
+                'size': size,
+                'begin': begin_time,
+                'middle': middle_time,
+                'end': end_time
+            })
+            
+            print(f"\\nArray size: {size}")
+            print(f"Insert at beginning: {begin_time:.2f}ms")
+            print(f"Insert at middle: {middle_time:.2f}ms")
+            print(f"Insert at end: {end_time:.2f}ms")
+            
+        return results
+
+    def test_search_operations(self):
+        """Compare search times for different positions."""
+        results = []
+        
+        for size in self.sizes:
+            arr = list(range(size))
+            
+            # Search for first element
+            first_time = self.measure_operation(
+                lambda s: arr.index(0), size)
+            
+            # Search for last element
+            last_time = self.measure_operation(
+                lambda s: arr.index(size-1), size)
+            
+            results.append({
+                'size': size,
+                'first': first_time,
+                'last': last_time
+            })
+            
+            print(f"\\nArray size: {size}")
+            print(f"Search first element: {first_time:.2f}ms")
+            print(f"Search last element: {last_time:.2f}ms")
+            
+        return results
+
+# Run demonstrations
+timer = ArrayOperationsTimer()
+print("Testing insertion operations:")
+insert_results = timer.test_insert_operations()
+print("\\nTesting search operations:")
+search_results = timer.test_search_operations()`,
   exercises: [
     {
-      prompt:
-        'Given an array of 10 elements, access the 5th element and insert a new element at the end of the array.',
-      initialCode: `# Write your solution here
-array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-element = 
-array.append(`,
-      solution: `array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-element = array[4]
-array.append(10)`,
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      prompt:
-        'Given an array of 5 elements, insert a new element at the beginning of the array and delete the last element.',
-      initialCode: `# Write your solution here
-array = [1, 2, 3, 4, 5]
-array.insert(0, 
-array.pop(`,
-      solution: `array = [1, 2, 3, 4, 5]
-array.insert(0, 0)
-array.pop()`,
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      prompt:
-        'Given an array of 7 elements, insert a new element at the 3rd position and delete the 5th element.',
-      initialCode: `# Write your solution here
-array = [1, 2, 3, 4, 5, 6, 7]
-array.insert(2, 
-array.pop(`,
-      solution: `array = [1, 2, 3, 4, 5, 6, 7]
-array.insert(2, 10)
-array.pop(4)`,
+      prompt: 'Create a function that demonstrates the O(n) cost of inserting at the beginning versus O(1) cost of appending, using timing measurements.',
+      initialCode: `def compare_insert_costs(sizes=[1000, 10000, 100000]):
+    # Your code here
+    pass`,
+      solution: `def compare_insert_costs(sizes=[1000, 10000, 100000]):
+    results = []
+    
+    for size in sizes:
+        arr = list(range(size))
+        
+        # Measure insert at beginning
+        start_time = time.time()
+        arr.insert(0, -1)
+        insert_time = (time.time() - start_time) * 1000
+        
+        # Measure append
+        start_time = time.time()
+        arr.append(-1)
+        append_time = (time.time() - start_time) * 1000
+        
+        results.append({
+            'size': size,
+            'insert_time': insert_time,
+            'append_time': append_time,
+            'ratio': insert_time/append_time
+        })
+        
+    return results`,
       difficulty: Difficulty.Intermediate,
     },
+    {
+      prompt: 'Write a function that demonstrates how search time varies based on the position of the target element.',
+      initialCode: `def analyze_search_performance(size=10000):
+    # Your code here
+    pass`,
+      solution: `def analyze_search_performance(size=10000):
+    # Create test array
+    arr = list(range(size))
+    results = []
+    
+    # Test positions: beginning, quarter, middle, three-quarters, end
+    positions = [0, size//4, size//2, 3*size//4, size-1]
+    
+    for pos in positions:
+        start_time = time.time()
+        found_idx = arr.index(pos)
+        search_time = (time.time() - start_time) * 1000
+        
+        results.append({
+            'position': pos,
+            'position_percent': (pos/size) * 100,
+            'search_time': search_time
+        })
+    
+    return results`,
+      difficulty: Difficulty.Advanced,
+    }
   ],
   quizzes: [
     {
-      question:
-        'What is the time complexity of accessing an element in an array?',
+      question: 'Why is accessing an element by index O(1) time complexity?',
       options: [
-        'O(1)',
-        'O(n)',
-        'O(log n)',
-        'O(n^2)',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'This is correct. Accessing an element in an array is O(1) time complexity.',
-        'This is incorrect. Accessing an element in an array is not O(n) time complexity.',
-        'This is incorrect. Accessing an element in an array is not O(log n) time complexity.',
-        'This is incorrect. Accessing an element in an array is not O(n^2) time complexity.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      question:
-        'What is the time complexity of inserting an element at the beginning of an array?',
-      options: [
-        'O(1)',
-        'O(n)',
-        'O(log n)',
-        'O(n^2)',
+        'Because arrays are sorted',
+        'Because the memory address can be calculated directly',
+        'Because the size is known in advance',
+        'Because elements are stored sequentially'
       ],
       correctAnswer: 1,
-      explanations: [
-        'This is incorrect. Inserting an element at the beginning of an array is not O(1) time complexity.',
-        'This is correct. Inserting an element at the beginning of an array is O(n) time complexity.',
-        'This is incorrect. Inserting an element at the beginning of an array is not O(log n) time complexity.',
-        'This is incorrect. Inserting an element at the beginning of an array is not O(n^2) time complexity.',
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      question:
-        'What is the time complexity of deleting an element from an array?',
-      options: [
-        'O(1)',
-        'O(n)',
-        'O(log n)',
-        'O(n^2)',
-      ],
-      correctAnswer: 1,
-      explanations: [
-        'This is incorrect. Deleting an element from an array is not O(1) time complexity.',
-        'This is correct. Deleting an element from an array is O(n) time complexity.',
-        'This is incorrect. Deleting an element from an array is not O(log n) time complexity.',
-        'This is incorrect. Deleting an element from an array is not O(n^2) time complexity.',
+explanations: [
+        'Incorrect. Sorting status doesn\'t affect access time.',
+        'Correct! Array elements are stored in contiguous memory, so we can calculate the exact memory address using the index and element size, making access instant.',
+        'Incorrect. While size is important for bounds checking, it doesn\'t affect access time.',
+        'Incorrect. Sequential storage enables direct address calculation but isn\'t the immediate reason for O(1) access.'
       ],
       difficulty: Difficulty.Intermediate,
     },
-  ],
+    {
+      question: 'What makes adding elements to the end of a dynamic array "amortized O(1)" rather than just O(1)?',
+      options: [
+        'It means the operation is always fast',
+        'Sometimes we need to resize the array, making occasional operations O(n)',
+        'It refers to the memory usage, not the time complexity',
+        'It only applies to small arrays'
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Incorrect. Amortized O(1) acknowledges that some operations take longer.',
+        'Correct! While most append operations are O(1), occasionally we need to resize the array, copying all elements to a new location. However, these expensive operations happen so rarely that the average cost per operation remains constant.',
+        'Incorrect. Amortized analysis refers to the time complexity averaged over multiple operations.',
+        'Incorrect. The concept applies to arrays of any size.'
+      ],
+      difficulty: Difficulty.Advanced,
+    },
+    {
+      question: 'When inserting an element at the beginning of an array, why must we shift all existing elements?',
+      options: [
+        'To maintain array ordering',
+        'To ensure the array stays sorted',
+        'To maintain contiguous memory storage',
+        'To prevent memory leaks'
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'Incorrect. While ordering is preserved, this isn\'t the primary reason for shifting.',
+        'Incorrect. Shifting happens regardless of whether the array is sorted.',
+        'Correct! Arrays must maintain elements in contiguous memory locations. To insert at the beginning, we need to move each element one position further to make room while keeping all elements adjacent in memory.',
+        'Incorrect. Memory leaks aren\'t related to element shifting.'
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question: 'Why is removing from the end of an array O(1) while removing from the beginning is O(n)?',
+      options: [
+        'Because end elements are stored differently',
+        'Because we only need to update the array length for end removal',
+        'Because removing from the beginning requires shifting remaining elements',
+        'Because arrays are optimized for end operations'
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'Incorrect. All elements are stored the same way in memory.',
+        'Incorrect. While true, this isn\'t the main reason for the complexity difference.',
+        'Correct! When removing from the beginning, all remaining elements must be shifted left to maintain contiguous storage. The more elements, the more shifting required, making it O(n).',
+        'Incorrect. While arrays handle end operations efficiently, this is a consequence of their structure, not an optimization.'
+      ],
+      difficulty: Difficulty.Advanced,
+    }
+  ]
 };
-
 const arrayInitializationData: LessonContent = {
   title: 'Defining and Initializing Arrays',
   content: `<p>
