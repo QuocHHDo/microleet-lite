@@ -5681,7 +5681,364 @@ class ParallelScheduler:
     }
   ]
 };
-//   title: 'Redundant Connection Pattern',
+
+const redundantConnectionData = {
+  title: 'Understanding Redundant Connections and Cycle Detection',
+  content: `<p>
+Imagine you're designing a computer network where every machine needs to be connected to the network, either directly or through other machines. As you add connections, you might occasionally add one that's redundant - the machines it connects were already able to reach each other through other paths. Understanding these redundant connections is crucial for network optimization and troubleshooting.
+</p>
+
+<h3><u>Understanding Redundant Connections</u></h3>
+
+<p>
+Let's start with a simple example to build our intuition about redundant connections:
+</p>
+
+<pre>
+Initially:           After adding redundant edge:
+1 --- 2             1 --- 2
+    \                   \   \\
+     3                   3
+
+The second edge between 2 and 3 is redundant because 
+these nodes could already reach each other through node 1.
+</pre>
+
+<h3><u>Why Redundant Connections Matter</u></h3>
+
+<p>
+Understanding redundant connections helps us solve several important problems:
+</p>
+
+<h4><b>1. Network Design</b></h4>
+<p>
+In network planning, we might need to:
+</p>
+<li>Identify unnecessary connections</li>
+<li>Find backup paths for reliability</li>
+<li>Optimize network costs</li>
+<li>Manage network complexity</li>
+
+<h4><b>2. Cycle Detection</b></h4>
+<p>
+Redundant connections create cycles, which can:
+</p>
+<li>Cause infinite loops in routing</li>
+<li>Create broadcast storms</li>
+<li>Complicate path finding</li>
+<li>Impact network performance</li>
+
+<h3><u>Using Union-Find for Detection</u></h3>
+
+<p>
+Union-Find provides an elegant solution for finding redundant connections. Here's how it works:
+</p>
+
+<h4><b>1. Basic Approach</b></h4>
+<p>
+For each edge we encounter:
+</p>
+<li>Check if vertices are already connected</li>
+<li>If connected, edge is redundant</li>
+<li>If not, union the vertices</li>
+<li>Continue until all edges processed</li>
+
+<h4><b>2. Path Compression</b></h4>
+<p>
+We can optimize Union-Find with path compression:
+</p>
+<li>Flatten trees during find operations</li>
+<li>Reduce future lookup times</li>
+<li>Maintain near-constant time operations</li>
+<li>Preserve correctness guarantees</li>
+
+<h4><b>3. Union by Rank</b></h4>
+<p>
+Further optimization using ranks:
+</p>
+<li>Track tree depths</li>
+<li>Attach shorter trees under taller ones</li>
+<li>Keep trees balanced</li>
+<li>Minimize path lengths</li>`,
+
+  codeExample: `# Comprehensive implementation of redundant connection detection
+
+from typing import List, Set, Dict, Optional, Tuple
+
+class UnionFind:
+    """Optimized Union-Find implementation"""
+    
+    def __init__(self, size: int):
+        """Initialize with all nodes in separate sets"""
+        self.parent = list(range(size))
+        self.rank = [0] * size
+    
+    def find(self, x: int) -> int:
+        """Find set representative with path compression"""
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+    
+    def union(self, x: int, y: int) -> bool:
+        """
+        Unite sets containing x and y.
+        Returns False if already united, True if newly united.
+        """
+        px, py = self.find(x), self.find(y)
+        if px == py:
+            return False
+        
+        # Union by rank
+        if self.rank[px] < self.rank[py]:
+            px, py = py, px
+        self.parent[py] = px
+        if self.rank[px] == self.rank[py]:
+            self.rank[px] += 1
+        return True
+
+class RedundantConnectionFinder:
+    """Class for finding and analyzing redundant connections"""
+    
+    def find_redundant_connection(self, 
+                                edges: List[List[int]]) -> List[int]:
+        """
+        Find a redundant edge in the graph.
+        Returns last edge that creates a cycle.
+        Time: O(N * α(N)), Space: O(N)
+        """
+        n = len(edges)
+        uf = UnionFind(n + 1)  # +1 for 1-based indexing
+        
+        for edge in edges:
+            if not uf.union(edge[0], edge[1]):
+                return edge
+        return []
+    
+    def find_all_redundant_connections(self, 
+                                     edges: List[List[int]]) -> List[List[int]]:
+        """
+        Find all redundant edges that could be removed
+        while maintaining connectivity.
+        Returns edges in order they're found.
+        """
+        n = len(edges)
+        redundant = []
+        
+        # Try removing each edge and check connectivity
+        for i in range(n):
+            uf = UnionFind(n + 1)
+            connected = True
+            
+            # Process all edges except current one
+            for j, edge in enumerate(edges):
+                if i != j:
+                    uf.union(edge[0], edge[1])
+            
+            # Check if graph remains connected
+            root = uf.find(1)
+            for v in range(2, n + 1):
+                if uf.find(v) != root:
+                    connected = False
+                    break
+            
+            if connected:
+                redundant.append(edges[i])
+        
+        return redundant
+    
+    def find_critical_connections(self,
+                                n: int,
+                                edges: List[List[int]]) -> List[List[int]]:
+        """
+        Find edges that cannot be removed without
+        disconnecting the graph (bridges).
+        Returns list of critical edges.
+        """
+        # Build adjacency list
+        graph = [[] for _ in range(n)]
+        for u, v in edges:
+            graph[u].append(v)
+            graph[v].append(u)
+        
+        # Track discovery times and lowest reachable vertex
+        discovery = [-1] * n
+        low = [-1] * n
+        time = [0]
+        bridges = []
+        
+        def dfs(vertex: int, parent: int) -> None:
+            discovery[vertex] = low[vertex] = time[0]
+            time[0] += 1
+            
+            for neighbor in graph[vertex]:
+                if neighbor == parent:
+                    continue
+                    
+                if discovery[neighbor] == -1:
+                    dfs(neighbor, vertex)
+                    low[vertex] = min(low[vertex], low[neighbor])
+                    
+                    # Bridge found
+                    if low[neighbor] > discovery[vertex]:
+                        bridges.append([vertex, neighbor])
+                else:
+                    low[vertex] = min(low[vertex], discovery[neighbor])
+        
+        # Find bridges in each component
+        for vertex in range(n):
+            if discovery[vertex] == -1:
+                dfs(vertex, -1)
+        
+        return bridges`,
+
+  exercises: [
+    {
+      prompt: 'Implement a function that finds the minimum number of edges to remove to eliminate all cycles in the graph while keeping it connected.',
+      initialCode: `def min_edges_to_remove(n: int, 
+                        edges: List[List[int]]) -> List[List[int]]:
+    """
+    Find minimum set of edges to remove to make graph
+    a tree (connected and acyclic).
+    Return list of edges to remove.
+    """
+    # Your code here
+    pass`,
+      solution: `def min_edges_to_remove(n: int, 
+                        edges: List[List[int]]) -> List[List[int]]:
+    class UnionFind:
+        def __init__(self, size):
+            self.parent = list(range(size))
+            self.rank = [0] * size
+        
+        def find(self, x):
+            if self.parent[x] != x:
+                self.parent[x] = self.find(self.parent[x])
+            return self.parent[x]
+        
+        def union(self, x, y):
+            px, py = self.find(x), self.find(y)
+            if px == py:
+                return False
+            if self.rank[px] < self.rank[py]:
+                px, py = py, px
+            self.parent[py] = px
+            if self.rank[px] == self.rank[py]:
+                self.rank[px] += 1
+            return True
+    
+    uf = UnionFind(n)
+    edges_to_remove = []
+    
+    # Sort edges to prefer keeping lower weighted edges
+    edges.sort(key=lambda x: x[2] if len(x) > 2 else 0)
+    
+    # Try to add each edge
+    for edge in edges:
+        if not uf.union(edge[0], edge[1]):
+            edges_to_remove.append(edge)
+    
+    return edges_to_remove`,
+      difficulty: Difficulty.Advanced,
+    },
+    {
+      prompt: 'Implement a function that determines if removing a given edge would create more than two components in the graph.',
+      initialCode: `def would_create_components(n: int,
+                            edges: List[List[int]],
+                            edge_to_remove: List[int]) -> bool:
+    """
+    Return True if removing edge_to_remove would create
+    more than two components.
+    """
+    # Your code here
+    pass`,
+      solution: `def would_create_components(n: int,
+                            edges: List[List[int]],
+                            edge_to_remove: List[int]) -> bool:
+    def count_components(graph):
+        """Count number of components using DFS"""
+        visited = set()
+        count = 0
+        
+        def dfs(vertex):
+            visited.add(vertex)
+            for neighbor in graph[vertex]:
+                if neighbor not in visited:
+                    dfs(neighbor)
+        
+        for vertex in range(n):
+            if vertex not in visited:
+                count += 1
+                dfs(vertex)
+        
+        return count
+    
+    # Build graph without the edge to remove
+    graph = [[] for _ in range(n)]
+    for u, v in edges:
+        if [u, v] != edge_to_remove and [v, u] != edge_to_remove:
+            graph[u].append(v)
+            graph[v].append(u)
+    
+    # Count components after removal
+    components = count_components(graph)
+    return components > 2`,
+      difficulty: Difficulty.Intermediate,
+    }
+  ],
+  quizzes: [
+    {
+      question: 'Why is Union-Find particularly well-suited for finding redundant connections?',
+      options: [
+        'Because it uses less memory than other approaches',
+        'Because it can efficiently determine if vertices are already connected',
+        'Because it works better with large graphs',
+        'Because it handles disconnected components'
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Incorrect. Memory usage isn\'t the main advantage.',
+        'Correct! Union-Find can quickly determine if two vertices are already connected, making it perfect for identifying redundant edges that connect already-connected components.',
+        'Incorrect. While it scales well, this isn\'t the main advantage.',
+        'Incorrect. Other algorithms can handle disconnected components equally well.'
+      ],
+      difficulty: Difficulty.Beginner
+    },
+    {
+      question: 'What makes an edge redundant in terms of graph connectivity?',
+      options: [
+        'It connects to isolated vertices',
+        'It creates a cycle in an otherwise acyclic graph',
+        'It connects different components',
+        'It has a high weight'
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Incorrect. Edges to isolated vertices are essential for connectivity.',
+        'Correct! A redundant edge creates an alternative path between vertices that are already connected, forming a cycle.',
+        'Incorrect. Edges between components are essential for connectivity.',
+        'Incorrect. Edge weight doesn\'t determine redundancy.'
+      ],
+      difficulty: Difficulty.Intermediate
+    },
+    {
+      question: 'Why is path compression important when using Union-Find for redundant connection detection?',
+      options: [
+        'To save memory',
+        'To make the code simpler',
+        'To maintain near-constant time operations through tree balancing',
+        'To handle disconnected components'
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'Incorrect. Path compression doesn\'t significantly affect memory usage.',
+        'Incorrect. Path compression actually adds some complexity to the code.',
+        'Correct! Path compression helps maintain efficient operations by keeping trees balanced and shallow, leading to near-constant time operations.',
+        'Incorrect. Component handling isn\'t affected by path compression.'
+      ],
+      difficulty: Difficulty.Advanced
+    }
+  ]
+};
 //   content: `<p>
 //   A redundant connection in a graph is an edge that creates a cycle. 
 //   Union-Find helps detect such edges by grouping nodes into sets and checking if an edge connects nodes already in the same set.
@@ -9068,6 +9425,7 @@ const graphLessons: Record<string, LessonContent> = {
   'course-schedule': courseScheduleData,
   'build-order': buildOrderData,
   'parallel-courses': parallelCoursesData,
+  'redundant-connection': redundantConnectionData,
   'number-of-provinces': provinceCountingData,
   'accounts-merge': accountMergeData,
   'word-ladder': wordTransformationData,
