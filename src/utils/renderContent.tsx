@@ -1,24 +1,41 @@
-import React, { Suspense } from 'react';
+import React, { ReactNode } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import remarkHtml from 'remark-html';
 import rehypeRaw from 'rehype-raw';
 import { CodeBlockProps as CodeProps } from '../app/leetcode/topics/interfaces';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { getVisualizationComponent } from '../components/visualizations/registry';
+
+interface SVGRendererProps {
+  children: string | ReactNode;
+}
+
+const SVGRenderer: React.FC<SVGRendererProps> = ({ children }) => {
+  // If the content includes an SVG, render it directly
+  if (typeof children === 'string' && children.includes('<svg')) {
+    return <div dangerouslySetInnerHTML={{ __html: children }} />;
+  }
+  return <>{children}</>;
+};
 
 export const renderContent = (content: string | React.ReactNode) => {
   if (typeof content !== 'string') {
     return content;
   }
+
   const processContent = () => {
+    // Split content by visualization tags first
     const segments = content.split(/(<Visualization.*?>)/g);
 
     return segments.map((segment, index) => {
       const match = segment.match(/<Visualization type="([^"]*)" data="(.*?)">/);
 
       if (!match) {
+        // Check if the segment contains a visualization div
+        if (segment.includes('<div class="visualization">')) {
+          return <SVGRenderer key={`svg-${index}`}>{segment}</SVGRenderer>;
+        }
+
         return (
           <ReactMarkdown
             key={`md-${index}`}
@@ -51,46 +68,17 @@ export const renderContent = (content: string | React.ReactNode) => {
               p: ({children}) => (
                 <p className="mb-4 text-gray-700 leading-relaxed">{children}</p>
               ),
+              // Add special handling for div elements that contain SVGs
+              div: ({children, className}) => {
+                if (className === 'visualization') {
+                  return <SVGRenderer>{children}</SVGRenderer>;
+                }
+                return <div className={className}>{children}</div>;
+              }
             }}
           >
             {segment}
           </ReactMarkdown>
-        );
-      }
-
-      try {
-        // Extract the visualization type and data
-        const [_, type, dataString] = match;
-        const VisualizationComponent = getVisualizationComponent(type);
-
-        if (!VisualizationComponent) {
-          console.warn(`Visualization type "${type}" not found`);
-          return null;
-        }
-        const visualizationData = JSON.parse(dataString);
-        return (
-          <Suspense
-            key={`vis-${index}`}
-            fallback={
-              <div className="w-full h-32 flex items-center justify-center bg-gray-50 rounded-lg">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-              </div>
-            }
-          >
-            <div className="my-8">
-              <VisualizationComponent {...visualizationData} />
-            </div>
-          </Suspense>
-        );
-      } catch (error) {
-        console.error('Error processing visualization:', error);
-        console.error('Failed segment:', segment);
-        console.error('Parsed data:', match ? match[2] : 'No data found');
-        return (
-          <div key={`error-${index}`} className="p-4 my-4 border border-red-200 rounded-lg">
-            <p className="text-red-500">Failed to load visualization</p>
-            <p className="text-sm text-red-400">{error.message}</p>
-          </div>
         );
       }
     });
