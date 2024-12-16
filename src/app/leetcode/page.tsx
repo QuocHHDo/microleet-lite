@@ -4,16 +4,16 @@ import '../../styles/globals.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faTree,
-  faCode,
-  faChartBar,
   faPuzzlePiece,
   faCogs,
-  faGraduationCap,
   faChevronDown,
   faChevronUp,
   faSearch,
-  faCheck,
   faArrowRight,
+  faCubes,
+  faLightbulb,
+  faCalculator,
+  faChartLine,
 } from '@fortawesome/free-solid-svg-icons';
 import { config, dom } from '@fortawesome/fontawesome-svg-core';
 import { Progress } from '@/components/ui/progress';
@@ -28,6 +28,7 @@ config.autoAddCss = false;
 interface RoadmapSection {
   title: string;
   icon: any;
+  description?: string;
   items: string[];
   progress: number;
 }
@@ -68,6 +69,7 @@ const LeetcodePage: React.FC = () => {
     {
       title: '1. Fundamentals of Data Structures',
       icon: faTree,
+      description: 'Master the building blocks of programming and problem-solving',
       items: [
         'Arrays',
         'Strings',
@@ -82,76 +84,116 @@ const LeetcodePage: React.FC = () => {
         'Heaps',
         'Graphs',
       ],
-      progress: 0,
+      progress: 0
+    },
+    {
+      title: '2. Essential Problem-Solving Patterns',
+      icon: faPuzzlePiece,
+      description: 'Learn fundamental techniques for solving algorithmic problems',
+      items: [
+        'Two Pointers',
+        'Sliding Window',
+        'Binary Search',
+        'Fast and Slow Pointers',
+        'Merge Intervals',
+        'Cyclic Sort',
+        'In-place Reversal',
+        'Breadth-First Search',
+        'Depth-First Search',
+        'Recursion',
+        'Greedy Algorithm',
+        'Backtracking'
+      ],
+      progress: 0
+
+    },
+    {
+      title: '3. Advanced Data Structure Operations',
+      icon: faCubes,
+      description: 'Deep dive into complex operations and manipulations',
+      items: [
+        'Matrix Operations',
+        'Bit Manipulation',
+        'Complex Tree Operations',
+        'Advanced Graph Algorithms',
+        'Trie Operations',
+        'Union Find',
+        'Monotonic Stack/Queue',
+        'Segment Trees',
+        'Binary Index Trees',
+        'Suffix Trees/Arrays'
+      ],
+      progress: 0
+
+    },
+    {
+      title: '4. Dynamic Programming',
+      icon: faChartLine,
+      description: 'Master the art of solving problems through optimal substructure',
+      items: [
+        '0/1 Knapsack',
+        'Unbounded Knapsack',
+        'Fibonacci Numbers',
+        'Palindromic Sequences',
+        'Longest Common Substring',
+        'Longest Increasing Subsequence',
+        'Matrix Chain Multiplication',
+        'Game Theory',
+        'Coin Change',
+        'Subset Sum',
+        'Bitmask DP',
+      ],
+      progress: 0
+    },
+    {
+      title: '5. System Design Concepts',
+      icon: faCogs,
+      description: 'Learn to design scalable systems and optimize solutions',
+      items: [
+        'Object-Oriented Design',
+        'Database Schema Design',
+        'API Design',
+        'Microservices',
+        'Caching Strategies',
+        'Load Balancing',
+        'Distributed Systems',
+        'Message Queues',
+      ],
+      progress: 0
+
+    },
+    {
+      title: '6. Mathematical and Logical Concepts',
+      icon: faCalculator,
+      description: 'Develop strong mathematical foundations for problem-solving',
+      items: [
+        'Number Theory',
+        'Probability',
+        'Combinatorics',
+        'Geometric Algorithms',
+        'Game Theory',
+        'Mathematical Proofs',
+        'Bit Operations',
+      ],
+      progress: 0
     },
     // {
-    //   title: '2. Basic Algorithms and Problem-Solving Techniques',
-    //   icon: faCode,
+    //   title: '7. Interview Strategy and Optimization',
+    //   icon: faLightbulb,
+    //   description: 'Learn techniques for successful technical interviews',
     //   items: [
-    //     'Time and Space Complexity Analysis',
-    //     'Searching Algorithms',
-    //     'Sorting Algorithms',
-    //     'Two Pointers Technique',
-    //     'Sliding Window Technique',
-    //     'Frequency Counter Technique',
+    //     'Time Complexity Analysis',
+    //     'Space Optimization',
+    //     'Problem-Solving Framework',
+    //     'Code Organization',
+    //     'Testing Strategies',
+    //     'Edge Cases',
+    //     'Communication Skills',
+    //     'Whiteboarding Techniques',
     //   ],
-    //   progress: 0,
-    // },
-    // {
-    //   title: '3. Intermediate Data Structures',
-    //   icon: faChartBar,
-    //   items: [
-    //     'Advanced Linked List Operations',
-    //     'Tree Traversals and Operations',
-    //     'Graph Representations and Traversals',
-    //     'Advanced Heap Operations',
-    //   ],
-    //   progress: 0,
-    // },
-    // {
-    //   title: '4. Advanced Problem-Solving Techniques',
-    //   icon: faPuzzlePiece,
-    //   items: [
-    //     'Recursion',
-    //     'Dynamic Programming',
-    //     'Greedy Algorithms',
-    //     'Backtracking',
-    //   ],
-    //   progress: 0,
-    // },
-    // {
-    //   title: '5. Graph Algorithms',
-    //   icon: faChartBar,
-    //   items: [
-    //     'Depth-First Search (DFS)',
-    //     'Breadth-First Search (BFS)',
-    //     'Shortest Path Algorithms',
-    //     'Minimum Spanning Tree',
-    //   ],
-    //   progress: 0,
-    // },
-    // {
-    //   title: '6. Advanced Data Structures and Algorithms',
-    //   icon: faCogs,
-    //   items: [
-    //     'Trie',
-    //     'Disjoint Set (Union-Find)',
-    //     'Advanced Sorting and Searching',
-    //     'Binary Search Variations',
-    //   ],
-    //   progress: 0,
-    // },
-    // {
-    //   title: '7. System Design and Object-Oriented Design',
-    //   icon: faGraduationCap,
-    //   items: [
-    //     'Introduction to System Design',
-    //     'Object-Oriented Design',
-    //     'Designing Data Structures',
-    //   ],
-    //   progress: 0,
-    // },
-  ];
+    //   progress: 0
+    // }
+  ] as const;
 
   const filteredSections = roadmapSections.filter(
     (section) =>

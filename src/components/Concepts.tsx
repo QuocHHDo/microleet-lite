@@ -42,7 +42,7 @@ const Concepts: React.FC<ConceptsTabProps> = ({
       completedConcepts,
       debouncedSearchTerm,
     );
-  }, [filter, completedConcepts, debouncedSearchTerm]);
+  }, [concepts, filter, completedConcepts, debouncedSearchTerm]);
 
   return (
     <Card className="mt-4">
