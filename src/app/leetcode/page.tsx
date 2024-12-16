@@ -86,97 +86,97 @@ const LeetcodePage: React.FC = () => {
       ],
       progress: 0
     },
-    {
-      title: '2. Essential Problem-Solving Patterns',
-      icon: faPuzzlePiece,
-      description: 'Learn fundamental techniques for solving algorithmic problems',
-      items: [
-        'Two Pointers',
-        'Sliding Window',
-        'Binary Search',
-        'Fast and Slow Pointers',
-        'Merge Intervals',
-        'Cyclic Sort',
-        'In-place Reversal',
-        'Breadth-First Search',
-        'Depth-First Search',
-        'Recursion',
-        'Greedy Algorithm',
-        'Backtracking'
-      ],
-      progress: 0
+    // {
+    //   title: '2. Essential Problem-Solving Patterns',
+    //   icon: faPuzzlePiece,
+    //   description: 'Learn fundamental techniques for solving algorithmic problems',
+    //   items: [
+    //     'Two Pointers',
+    //     'Sliding Window',
+    //     'Binary Search',
+    //     'Fast and Slow Pointers',
+    //     'Merge Intervals',
+    //     'Cyclic Sort',
+    //     'In-place Reversal',
+    //     'Breadth-First Search',
+    //     'Depth-First Search',
+    //     'Recursion',
+    //     'Greedy Algorithm',
+    //     'Backtracking'
+    //   ],
+    //   progress: 0
 
-    },
-    {
-      title: '3. Advanced Data Structure Operations',
-      icon: faCubes,
-      description: 'Deep dive into complex operations and manipulations',
-      items: [
-        'Matrix Operations',
-        'Bit Manipulation',
-        'Complex Tree Operations',
-        'Advanced Graph Algorithms',
-        'Trie Operations',
-        'Union Find',
-        'Monotonic Stack/Queue',
-        'Segment Trees',
-        'Binary Index Trees',
-        'Suffix Trees/Arrays'
-      ],
-      progress: 0
+    // },
+    // {
+    //   title: '3. Advanced Data Structure Operations',
+    //   icon: faCubes,
+    //   description: 'Deep dive into complex operations and manipulations',
+    //   items: [
+    //     'Matrix Operations',
+    //     'Bit Manipulation',
+    //     'Complex Tree Operations',
+    //     'Advanced Graph Algorithms',
+    //     'Trie Operations',
+    //     'Union Find',
+    //     'Monotonic Stack/Queue',
+    //     'Segment Trees',
+    //     'Binary Index Trees',
+    //     'Suffix Trees/Arrays'
+    //   ],
+    //   progress: 0
 
-    },
-    {
-      title: '4. Dynamic Programming',
-      icon: faChartLine,
-      description: 'Master the art of solving problems through optimal substructure',
-      items: [
-        '0/1 Knapsack',
-        'Unbounded Knapsack',
-        'Fibonacci Numbers',
-        'Palindromic Sequences',
-        'Longest Common Substring',
-        'Longest Increasing Subsequence',
-        'Matrix Chain Multiplication',
-        'Game Theory',
-        'Coin Change',
-        'Subset Sum',
-        'Bitmask DP',
-      ],
-      progress: 0
-    },
-    {
-      title: '5. System Design Concepts',
-      icon: faCogs,
-      description: 'Learn to design scalable systems and optimize solutions',
-      items: [
-        'Object-Oriented Design',
-        'Database Schema Design',
-        'API Design',
-        'Microservices',
-        'Caching Strategies',
-        'Load Balancing',
-        'Distributed Systems',
-        'Message Queues',
-      ],
-      progress: 0
+    // },
+    // {
+    //   title: '4. Dynamic Programming',
+    //   icon: faChartLine,
+    //   description: 'Master the art of solving problems through optimal substructure',
+    //   items: [
+    //     '0/1 Knapsack',
+    //     'Unbounded Knapsack',
+    //     'Fibonacci Numbers',
+    //     'Palindromic Sequences',
+    //     'Longest Common Substring',
+    //     'Longest Increasing Subsequence',
+    //     'Matrix Chain Multiplication',
+    //     'Game Theory',
+    //     'Coin Change',
+    //     'Subset Sum',
+    //     'Bitmask DP',
+    //   ],
+    //   progress: 0
+    // },
+    // {
+    //   title: '5. System Design Concepts',
+    //   icon: faCogs,
+    //   description: 'Learn to design scalable systems and optimize solutions',
+    //   items: [
+    //     'Object-Oriented Design',
+    //     'Database Schema Design',
+    //     'API Design',
+    //     'Microservices',
+    //     'Caching Strategies',
+    //     'Load Balancing',
+    //     'Distributed Systems',
+    //     'Message Queues',
+    //   ],
+    //   progress: 0
 
-    },
-    {
-      title: '6. Mathematical and Logical Concepts',
-      icon: faCalculator,
-      description: 'Develop strong mathematical foundations for problem-solving',
-      items: [
-        'Number Theory',
-        'Probability',
-        'Combinatorics',
-        'Geometric Algorithms',
-        'Game Theory',
-        'Mathematical Proofs',
-        'Bit Operations',
-      ],
-      progress: 0
-    },
+    // },
+    // {
+    //   title: '6. Mathematical and Logical Concepts',
+    //   icon: faCalculator,
+    //   description: 'Develop strong mathematical foundations for problem-solving',
+    //   items: [
+    //     'Number Theory',
+    //     'Probability',
+    //     'Combinatorics',
+    //     'Geometric Algorithms',
+    //     'Game Theory',
+    //     'Mathematical Proofs',
+    //     'Bit Operations',
+    //   ],
+    //   progress: 0
+    // },
     // {
     //   title: '7. Interview Strategy and Optimization',
     //   icon: faLightbulb,

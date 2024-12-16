@@ -61,7 +61,7 @@ export const renderContent = (content: string | React.ReactNode) => {
                   <div className="my-6 rounded-lg overflow-hidden bg-[#1E2432] p-4">
                     <div className="rounded-md overflow-hidden">
                       <SyntaxHighlighter
-                        style={customStyle}
+                        style={customStyle as any}
                         language={language}
                         PreTag="div"
                         customStyle={{
