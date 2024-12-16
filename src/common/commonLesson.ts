@@ -25,7 +25,7 @@ export interface Quiz {
 export interface LessonContent {
   title: string;
   content: string;
-  codeExample: string;
+  codeExample?: string;
   exercises: Exercise[];
   quizzes: Quiz[];
 }
