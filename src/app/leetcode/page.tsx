@@ -101,6 +101,8 @@ const LeetcodePage: React.FC = () => {
         'Breadth-First Search',
         'Depth-First Search',
         'Recursion',
+        'Greedy Algorithm',
+        'Backtracking'
       ],
       progress: 0
 
@@ -119,6 +121,7 @@ const LeetcodePage: React.FC = () => {
         'Monotonic Stack/Queue',
         'Segment Trees',
         'Binary Index Trees',
+        'Suffix Trees/Arrays'
       ],
       progress: 0
 
@@ -136,9 +139,11 @@ const LeetcodePage: React.FC = () => {
         'Longest Increasing Subsequence',
         'Matrix Chain Multiplication',
         'Game Theory',
+        'Coin Change',
+        'Subset Sum',
+        'Bitmask DP',
       ],
       progress: 0
-
     },
     {
       title: '5. System Design Concepts',
@@ -171,7 +176,6 @@ const LeetcodePage: React.FC = () => {
         'Bit Operations',
       ],
       progress: 0
-
     },
     // {
     //   title: '7. Interview Strategy and Optimization',

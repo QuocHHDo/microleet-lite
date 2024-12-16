@@ -4,18 +4,31 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { CodeBlockProps as CodeProps } from '../app/leetcode/topics/interfaces';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { materialOceanic } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 interface SVGRendererProps {
   children: string | ReactNode;
 }
 
 const SVGRenderer: React.FC<SVGRendererProps> = ({ children }) => {
-  // If the content includes an SVG, render it directly
   if (typeof children === 'string' && children.includes('<svg')) {
     return <div dangerouslySetInnerHTML={{ __html: children }} />;
   }
   return <>{children}</>;
+};
+
+const customStyle = {
+  ...materialOceanic,
+  'code[class*="language-"]': {
+    ...materialOceanic['code[class*="language-"]'],
+    fontSize: '14px',
+    lineHeight: 1.5,
+    background: '#1E1E1E',
+  },
+  'comment': {
+    color: '#6A9955',
+    fontStyle: 'italic',
+  },
 };
 
 export const renderContent = (content: string | React.ReactNode) => {
@@ -24,14 +37,12 @@ export const renderContent = (content: string | React.ReactNode) => {
   }
 
   const processContent = () => {
-    // Split content by visualization tags first
     const segments = content.split(/(<Visualization.*?>)/g);
 
     return segments.map((segment, index) => {
       const match = segment.match(/<Visualization type="([^"]*)" data="(.*?)">/);
 
       if (!match) {
-        // Check if the segment contains a visualization div
         if (segment.includes('<div class="visualization">')) {
           return <SVGRenderer key={`svg-${index}`}>{segment}</SVGRenderer>;
         }
@@ -44,37 +55,68 @@ export const renderContent = (content: string | React.ReactNode) => {
             components={{
               code({ inline, className, children, ...props }: CodeProps) {
                 const match = /language-(\w+)/.exec(className || '');
+                const language = match ? match[1] : 'python';
+                
                 return !inline ? (
-                  <SyntaxHighlighter
-                    style={tomorrow as any}
-                    language={match ? match[1] : 'text'}
-                    PreTag="div"
+                  <div className="my-6 rounded-lg overflow-hidden bg-[#1E2432] p-4">
+                    <div className="rounded-md overflow-hidden">
+                      <SyntaxHighlighter
+                        style={customStyle}
+                        language={language}
+                        PreTag="div"
+                        customStyle={{
+                          padding: '16px',
+                          fontSize: '14px',
+                          lineHeight: 1.5,
+                          backgroundColor: '#1E1E1E',
+                          margin: 0,
+                        }}
+                        {...props}
+                      >
+                        {String(children).replace(/\n$/, '')}
+                      </SyntaxHighlighter>
+                    </div>
+                  </div>
+                ) : (
+                  <code 
+                    className={`${className} bg-gray-100 px-1.5 py-0.5 text-sm rounded font-mono`} 
                     {...props}
                   >
-                    {String(children).replace(/\n$/, '')}
-                  </SyntaxHighlighter>
-                ) : (
-                  <code className={className} {...props}>
                     {children}
                   </code>
                 );
               },
+              h1: ({children}) => (
+                <h1 className="text-2xl font-bold mt-8 mb-6">{children}</h1>
+              ),
+              h2: ({children}) => (
+                <h2 className="text-xl font-semibold mt-8 mb-4">{children}</h2>
+              ),
               h3: ({children}) => (
-                <h3 className="text-xl font-semibold mt-6 mb-4">{children}</h3>
+                <h3 className="text-lg font-semibold mt-6 mb-3">{children}</h3>
               ),
               h4: ({children}) => (
-                <h4 className="text-lg font-semibold mb-3">{children}</h4>
+                <h4 className="text-base font-semibold mt-4 mb-2">{children}</h4>
               ),
               p: ({children}) => (
-                <p className="mb-4 text-gray-700 leading-relaxed">{children}</p>
+                <p className="mb-4 text-gray-700 leading-relaxed text-base">{children}</p>
               ),
-              // Add special handling for div elements that contain SVGs
               div: ({children, className}) => {
                 if (className === 'visualization') {
                   return <SVGRenderer>{children}</SVGRenderer>;
                 }
-                return <div className={className}>{children}</div>;
-              }
+                return (
+                  <div className={`${className} my-4 text-base leading-relaxed`}>
+                    {children}
+                  </div>
+                );
+              },
+              ul: ({children}) => (
+                <ul className="list-disc pl-6 mb-4 text-gray-700">{children}</ul>
+              ),
+              li: ({children}) => (
+                <li className="mb-2 text-base">{children}</li>
+              )
             }}
           >
             {segment}
@@ -83,5 +125,9 @@ export const renderContent = (content: string | React.ReactNode) => {
       }
     });
   };
-  return <>{processContent()}</>;
+  return (
+    <div className="prose max-w-none">
+      {processContent()}
+    </div>
+  );
 };
