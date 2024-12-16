@@ -3828,7 +3828,7 @@ class XORTrie:
         k -= 1
         
     return heap[0][0] if heap else 0`,
-      difficulty: Difficulty.Expert,
+      difficulty: Difficulty.Advanced,
     }
   ],
 

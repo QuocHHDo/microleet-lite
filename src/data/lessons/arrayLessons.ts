@@ -10226,7 +10226,7 @@ test_array = [1, 1, 1, 2, 2, 3, 4]
 k = 3
 result = find_elements_above_k_fraction(test_array, k)
 print(f"Elements appearing more than n/{k} times: {result}")`,
-      difficulty: Difficulty.Expert,
+      difficulty: Difficulty.Advanced,
     }
   ],
   quizzes: [
@@ -10751,7 +10751,83 @@ test_matrix = [
 result = conditional_spiral_traverse(test_matrix, lambda x: x % 2 == 0)
 print(f"Spiral order of even numbers: {result}")`,
       difficulty: Difficulty.Advanced,
-    }
+      solution: `def conditional_spiral_traverse(matrix, condition):
+    """
+    Traverse matrix in spiral order, only including elements that satisfy the given condition.
+    
+    Args:
+        matrix: 2D list of elements
+        condition: Function that takes an element and returns boolean
+        
+    Returns:
+        List of elements in spiral order that meet the condition
+        
+    Example:
+        matrix = [[1,2,3],
+                 [4,5,6],
+                 [7,8,9]]
+        condition = lambda x: x % 2 == 0  # Only even numbers
+        Result: [2, 6, 8, 4]
+    
+    Time Complexity: O(m * n) where m and n are matrix dimensions
+    Space Complexity: O(1) excluding the result array
+    """
+    if not matrix or not matrix[0]:
+        return []
+    
+    # Initialize our boundaries
+    top, bottom = 0, len(matrix) - 1
+    left, right = 0, len(matrix[0]) - 1
+    result = []
+    
+    while top <= bottom and left <= right:
+        # Traverse right
+        for j in range(left, right + 1):
+            if condition(matrix[top][j]):
+                result.append(matrix[top][j])
+        top += 1
+        
+        # Traverse down
+        for i in range(top, bottom + 1):
+            if condition(matrix[i][right]):
+                result.append(matrix[i][right])
+        right -= 1
+        
+        # Traverse left, if there are still rows to traverse
+        if top <= bottom:
+            for j in range(right, left - 1, -1):
+                if condition(matrix[bottom][j]):
+                    result.append(matrix[bottom][j])
+            bottom -= 1
+        
+        # Traverse up, if there are still columns to traverse
+        if left <= right:
+            for i in range(bottom, top - 1, -1):
+                if condition(matrix[i][left]):
+                    result.append(matrix[i][left])
+            left += 1
+    
+    return result
+
+# Example usage to demonstrate the function
+def demonstrate():
+    # Example matrix
+    matrix = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ]
+    
+    # Example condition: only include even numbers
+    even_numbers = conditional_spiral_traverse(matrix, lambda x: x % 2 == 0)
+    print("Even numbers in spiral order:", even_numbers)
+    
+    # Example condition: only include numbers greater than 5
+    greater_than_five = conditional_spiral_traverse(matrix, lambda x: x > 5)
+    print("Numbers greater than 5 in spiral order:", greater_than_five)
+
+demonstrate()`
+    },
   ],
   quizzes: [
     {
@@ -11212,7 +11288,7 @@ for row in result:
             matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
     
     # Step 2: Rotate in specified direction
-if clockwise:
+    if clockwise:
         # For clockwise: reverse rows
         for i in range(n):
             left, right = 0, n - 1
@@ -11245,7 +11321,7 @@ result = diagonal_flip_and_rotate([row[:] for row in test_matrix], clockwise=Tru
 print("\nAfter diagonal flip and clockwise rotation:")
 for row in result:
     print(row)`,
-      difficulty: Difficulty.Expert,
+      difficulty: Difficulty.Advanced,
     }
   ],
   quizzes: [
