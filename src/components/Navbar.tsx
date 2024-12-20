@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import '../styles/globals.css';
+import { ThemeToggle } from './themeToggle';
 
 export default function Navbar() {
   return (
@@ -17,6 +18,7 @@ export default function Navbar() {
           {/* <Link href="/software-engineering">Software Engineering</Link> */}
         </li>
       </ul>
+      <ThemeToggle />
     </nav>
   );
 }

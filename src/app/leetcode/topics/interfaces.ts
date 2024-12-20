@@ -1,9 +1,3 @@
-export interface CodeBlockProps extends React.HTMLAttributes<HTMLElement> {
-  inline?: boolean;
-  className?: string;
-  children?: React.ReactNode;
-}
-
 export enum TopicName {
   Arrays = 'arrays',
   Strings = 'strings',

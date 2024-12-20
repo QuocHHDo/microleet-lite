@@ -2,28 +2,33 @@ import React, { ReactNode } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
-import { CodeBlockProps as CodeProps } from '../app/leetcode/topics/interfaces';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialOceanic } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { Card } from '@/components/ui/card';
 
 interface SVGRendererProps {
   children: string | ReactNode;
 }
 
-const SVGRenderer: React.FC<SVGRendererProps> = ({ children }) => {
-  if (typeof children === 'string' && children.includes('<svg')) {
-    return <div dangerouslySetInnerHTML={{ __html: children }} />;
-  }
-  return <>{children}</>;
-};
+interface CodeProps extends React.HTMLAttributes<HTMLElement> {
+  inline?: boolean;
+  className?: string;
+  children?: React.ReactNode;
+}
 
-const customStyle = {
+interface MarkdownComponentProps {
+  children: ReactNode;
+  className?: string;
+}
+
+// Constants
+const SYNTAX_HIGHLIGHT_THEME = {
   ...materialOceanic,
   'code[class*="language-"]': {
     ...materialOceanic['code[class*="language-"]'],
-    fontSize: '14px',
-    lineHeight: 1.5,
-    background: '#1E1E1E',
+    fontSize: '0.875rem',
+    lineHeight: 1.6,
+    background: 'transparent',
   },
   'comment': {
     color: '#6A9955',
@@ -31,103 +36,139 @@ const customStyle = {
   },
 };
 
+// Utility Components
+const SVGRenderer: React.FC<SVGRendererProps> = ({ children }) => {
+  if (typeof children === 'string' && children.includes('<svg')) {
+    return <div dangerouslySetInnerHTML={{ __html: children }} />;
+  }
+  return <>{children}</>;
+};
+
+// Markdown Components
+const MarkdownComponents = {
+  code: ({ inline, className, children, ...props }: CodeProps) => {
+    const match = /language-(\w+)/.exec(className || '');
+    const language = match ? match[1] : 'python';
+    
+    if (inline) {
+      return (
+        <code 
+          className="bg-gray-100 dark:bg-gray-800 px-2 py-0.5 text-sm rounded-md font-mono text-gray-800 dark:text-gray-200" 
+          {...props}
+        >
+          {children}
+        </code>
+      );
+    }
+
+    return (
+      <Card className="my-6 overflow-hidden bg-gray-950">
+        <div className="rounded-md overflow-hidden">
+          <SyntaxHighlighter
+            language={language}
+            style={SYNTAX_HIGHLIGHT_THEME as any}
+            PreTag="div"
+            customStyle={{
+              padding: '1rem',
+              margin: 0,
+            }}
+            {...props}
+          >
+            {String(children).replace(/\n$/, '')}
+          </SyntaxHighlighter>
+        </div>
+      </Card>
+    );
+  },
+
+  // Heading Components
+  h1: ({ children }: MarkdownComponentProps) => (
+    <h1 className="text-3xl lg:text-4xl font-bold mt-8 mb-6 text-gray-900 dark:text-gray-100">
+      {children}
+    </h1>
+  ),
+  h2: ({ children }: MarkdownComponentProps) => (
+    <h2 className="text-2xl lg:text-3xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
+      {children}
+    </h2>
+  ),
+  h3: ({ children }: MarkdownComponentProps) => (
+    <h3 className="text-xl lg:text-2xl font-semibold mt-6 mb-3 text-gray-900 dark:text-gray-100">
+      {children}
+    </h3>
+  ),
+  h4: ({ children }: MarkdownComponentProps) => (
+    <h4 className="text-lg font-semibold mt-4 mb-2 text-gray-900 dark:text-gray-100">
+      {children}
+    </h4>
+  ),
+
+  // Content Components
+  p: ({ children }: MarkdownComponentProps) => (
+    <p className="mb-4 text-gray-700 dark:text-gray-300 leading-7 text-base lg:text-lg">
+      {children}
+    </p>
+  ),
+  div: ({ children, className }: MarkdownComponentProps) => {
+    if (className === 'visualization') {
+      return <SVGRenderer>{children}</SVGRenderer>;
+    }
+    return (
+      <div className={`${className} my-4 text-base lg:text-lg leading-7 text-gray-700 dark:text-gray-300`}>
+        {children}
+      </div>
+    );
+  },
+  ul: ({ children }: MarkdownComponentProps) => (
+    <ul className="list-disc pl-6 mb-4 space-y-2 text-gray-700 dark:text-gray-300">
+      {children}
+    </ul>
+  ),
+  li: ({ children }: MarkdownComponentProps) => (
+    <li className="text-base lg:text-lg leading-7">
+      {children}
+    </li>
+  ),
+};
+
+const processVisualizationContent = (segment: string, index: number) => {
+  const visualizationMatch = segment.match(/<Visualization type="([^"]*)" data="(.*?)">/);
+  
+  if (!visualizationMatch) {
+    if (segment.includes('<div class="visualization">')) {
+      return <SVGRenderer key={`svg-${index}`}>{segment}</SVGRenderer>;
+    }
+
+    return (
+      <ReactMarkdown
+        key={`md-${index}`}
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw]}
+        components={MarkdownComponents as any}
+        className="prose dark:prose-invert max-w-none"
+      >
+        {segment}
+      </ReactMarkdown>
+    );
+  }
+  
+  return null;
+};
+
+// Main Export
 export const renderContent = (content: string | React.ReactNode) => {
   if (typeof content !== 'string') {
     return content;
   }
 
-  const processContent = () => {
-    const segments = content.split(/(<Visualization.*?>)/g);
+  const segments = content.split(/(<Visualization.*?>)/g);
+  const processedContent = segments.map((segment, index) => 
+    processVisualizationContent(segment, index)
+  );
 
-    return segments.map((segment, index) => {
-      const match = segment.match(/<Visualization type="([^"]*)" data="(.*?)">/);
-
-      if (!match) {
-        if (segment.includes('<div class="visualization">')) {
-          return <SVGRenderer key={`svg-${index}`}>{segment}</SVGRenderer>;
-        }
-
-        return (
-          <ReactMarkdown
-            key={`md-${index}`}
-            remarkPlugins={[remarkGfm]}
-            rehypePlugins={[rehypeRaw]}
-            components={{
-              code({ inline, className, children, ...props }: CodeProps) {
-                const match = /language-(\w+)/.exec(className || '');
-                const language = match ? match[1] : 'python';
-                
-                return !inline ? (
-                  <div className="my-6 rounded-lg overflow-hidden bg-[#1E2432] p-4">
-                    <div className="rounded-md overflow-hidden">
-                      <SyntaxHighlighter
-                        style={customStyle as any}
-                        language={language}
-                        PreTag="div"
-                        customStyle={{
-                          padding: '16px',
-                          fontSize: '14px',
-                          lineHeight: 1.5,
-                          backgroundColor: '#1E1E1E',
-                          margin: 0,
-                        }}
-                        {...props}
-                      >
-                        {String(children).replace(/\n$/, '')}
-                      </SyntaxHighlighter>
-                    </div>
-                  </div>
-                ) : (
-                  <code 
-                    className={`${className} bg-gray-100 px-1.5 py-0.5 text-sm rounded font-mono`} 
-                    {...props}
-                  >
-                    {children}
-                  </code>
-                );
-              },
-              h1: ({children}) => (
-                <h1 className="text-2xl font-bold mt-8 mb-6">{children}</h1>
-              ),
-              h2: ({children}) => (
-                <h2 className="text-xl font-semibold mt-8 mb-4">{children}</h2>
-              ),
-              h3: ({children}) => (
-                <h3 className="text-lg font-semibold mt-6 mb-3">{children}</h3>
-              ),
-              h4: ({children}) => (
-                <h4 className="text-base font-semibold mt-4 mb-2">{children}</h4>
-              ),
-              p: ({children}) => (
-                <p className="mb-4 text-gray-700 leading-relaxed text-base">{children}</p>
-              ),
-              div: ({children, className}) => {
-                if (className === 'visualization') {
-                  return <SVGRenderer>{children}</SVGRenderer>;
-                }
-                return (
-                  <div className={`${className} my-4 text-base leading-relaxed`}>
-                    {children}
-                  </div>
-                );
-              },
-              ul: ({children}) => (
-                <ul className="list-disc pl-6 mb-4 text-gray-700">{children}</ul>
-              ),
-              li: ({children}) => (
-                <li className="mb-2 text-base">{children}</li>
-              )
-            }}
-          >
-            {segment}
-          </ReactMarkdown>
-        );
-      }
-    });
-  };
   return (
-    <div className="prose max-w-none">
-      {processContent()}
+    <div className="prose dark:prose-invert max-w-none">
+      {processedContent}
     </div>
   );
 };
