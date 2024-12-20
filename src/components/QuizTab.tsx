@@ -49,6 +49,24 @@ const QuizTab: React.FC<QuizTabProps> = ({
                 }
               `}
               onClick={() => {
+                if (state.isSubmitted[quizIndex]) {
+                  dispatch({
+                    type: 'SET_IS_SUBMITTED',
+                    payload: state.isSubmitted.map(
+                      (submitted: boolean, i: number) =>
+                        i === quizIndex ? false : submitted,
+                    ),
+                  });
+
+                  dispatch({
+                    type: 'SET_SHOW_EXPLANATIONS',
+                    payload: state.showExplanations.map(
+                      (show: boolean, i: number) =>
+                        i === quizIndex ? false : show,
+                    ),
+                  });
+                }
+
                 dispatch({
                   type: 'SET_QUIZ_ANSWERS',
                   payload: state.quizAnswers.map((answer: any, i: number) =>
