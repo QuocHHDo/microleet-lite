@@ -414,6 +414,7 @@ def demonstrate_array_efficiency():
 Python's lists are actually dynamic arrays, which means they can grow and shrink as needed. Let's see how this works:
 
 \`\`\`python
+import sys
 def show_dynamic_growth():
     """Demonstrates how Python lists grow."""
     numbers = []
@@ -425,6 +426,7 @@ def show_dynamic_growth():
         
     print("Size progression:", sizes[::4])
     # Notice how size increases in chunks to amortize growth cost
+show_dynamic_growth()
 \`\`\``,
 
   exercises: [
@@ -666,7 +668,7 @@ large_array = list(range(100000))
 
 print("Small Array Performance:")
 demonstrate_array_complexities(small_array.copy())
-print("\nLarge Array Performance:")
+print("Large Array Performance:")
 demonstrate_array_complexities(large_array.copy())
 \`\`\`
 
@@ -675,6 +677,7 @@ demonstrate_array_complexities(large_array.copy())
 Space complexity refers to how much memory an array operation needs. Let's explore the memory requirements of different array operations:
 
 \`\`\`python
+import sys
 def analyze_space_requirements():
     """
     Demonstrate space complexity of different array operations.
@@ -695,7 +698,7 @@ def analyze_space_requirements():
         numbers.append(i)
         sizes.append(sys.getsizeof(numbers))
         
-    print("\nMemory growth pattern:")
+    print("Memory growth pattern:")
     for i, size in enumerate(sizes):
         print(f"Size with {i+1} elements: {size} bytes")
         
@@ -706,10 +709,11 @@ def analyze_space_requirements():
     # List comprehension creates a new array - O(n) space
     doubled = [x * 2 for x in original]
     
-    print("\nOperation space requirements:")
+    print("Operation space requirements:")
     print(f"Original array: {sys.getsizeof(original)} bytes")
     print(f"Sliced array: {sys.getsizeof(sliced)} bytes")
     print(f"Comprehension result: {sys.getsizeof(doubled)} bytes")
+analyze_space_requirements()
 \`\`\`
 
 <h3>Performance Patterns and Best Practices</h3>
@@ -720,6 +724,7 @@ Understanding complexity helps us write more efficient code. Here are key patter
   <h4 class="text-gray-700 mb-4">Efficient Array Usage Patterns</h4>
   
   <h5 class="font-semibold mb-2">1. When Performance Matters Most</h5>
+
   \`\`\`python
   # Efficient pattern for building large arrays
   def efficient_array_building(n):
@@ -738,6 +743,7 @@ Understanding complexity helps us write more efficient code. Here are key patter
   \`\`\`
   
   <h5 class="font-semibold mt-4 mb-2">2. Memory-Efficient Operations</h5>
+
   \`\`\`python
   # Memory-efficient array processing
   def process_large_array(array):
@@ -781,10 +787,9 @@ def find_duplicates(array):
             seen.add(item)
         return duplicates
     
-    return {
-        'space_efficient': find_duplicates_space_efficient(),
-        'time_efficient': find_duplicates_time_efficient()
-    }
+    print('space_efficient:', find_duplicates_space_efficient())
+    print('time_efficient:', find_duplicates_time_efficient())
+find_duplicates([2, 10, 10, 100, 2, 10, 11, 2, 11, 2])
 \`\`\``,
 
   exercises: [
@@ -1083,7 +1088,7 @@ def initialize_with_defaults():
 
 # Demonstrate pitfalls
 demonstrate_copy_pitfall()
-print("\nInitialized student records:", initialize_with_defaults())
+print("Initialized student records:", initialize_with_defaults())
 \`\`\`
 
 <h3>Performance Considerations</h3>
@@ -1857,7 +1862,7 @@ def demonstrate_memory_strategies():
     comp_result = with_comprehension(n)
     append_result = with_append(n)
     
-    print("\nList comprehension size:", sys.getsizeof(comp_result))
+    print("List comprehension size:", sys.getsizeof(comp_result))
     print("Append-based size:", sys.getsizeof(append_result))
 
 # See strategies in action
@@ -1910,7 +1915,7 @@ def explain_memory_layout():
     print(f"Sequential: {py_seq:.6f}s")
     print(f"Strided: {py_stride:.6f}s")
     
-    print("\nNumPy Array Access Times:")
+    print("NumPy Array Access Times:")
     print(f"Sequential: {np_seq:.6f}s")
     print(f"Strided: {np_stride:.6f}s")
 
@@ -3790,9 +3795,9 @@ reversed_array = [7, 6, 5, 4, 3, 2, 1]
 
 print("Small random array:")
 compare_sorting_algorithms(small_array)
-print("\nNearly sorted array:")
+print("Nearly sorted array:")
 compare_sorting_algorithms(nearly_sorted)
-print("\nReversed array:")
+print("Reversed array:")
 compare_sorting_algorithms(reversed_array)
 \`\`\`
 
@@ -4058,13 +4063,13 @@ def demonstrate_object_sorting():
     
     # Sort by grade
     by_grade = sorted(students, key=lambda s: s.grade, reverse=True)
-    print("\nSorted by grade (highest first):")
+    print("Sorted by grade (highest first):")
     for student in by_grade:
         print(f"{student.name}: {student.grade}")
     
     # Sort by multiple criteria using tuple
     by_multiple = sorted(students, key=lambda s: (-s.grade, s.name))
-    print("\nSorted by grade (desc) and name (asc):")
+    print("Sorted by grade (desc) and name (asc):")
     for student in by_multiple:
         print(f"{student.name}: {student.grade}")
 
@@ -4088,12 +4093,12 @@ def demonstrate_sort_stability():
     # Sort first by grade, then by subject
     # Stability ensures consistent ordering
     by_grade = sorted(data, key=lambda x: x[1])
-    print("\nSorted by grade:")
+    print("Sorted by grade:")
     for subject, grade in by_grade:
         print(f"{subject}: {grade}")
         
     by_both = sorted(by_grade, key=lambda x: x[0])
-    print("\nThen sorted by subject (original grade order maintained):")
+    print("Then sorted by subject (original grade order maintained):")
     for subject, grade in by_both:
         print(f"{subject}: {grade}")
 
@@ -4136,7 +4141,7 @@ def compare_sorting_approaches():
         lambda x: sorted(x, key=lambda n: n % 10), data.copy()
     )
     
-    print("\nPerformance Comparison:")
+    print("Performance Comparison:")
     for method, time_taken in times.items():
         print(f"{method}: {time_taken:.6f} seconds")
 
@@ -4358,7 +4363,7 @@ def demonstrate_basic_key_functions():
     # Sort numbers by their distance from 100
     numbers = [50, 150, 75, 125, 95]
     sorted_numbers = sorted(numbers, key=lambda x: abs(x - 100))
-    print("\nSorted by distance from 100:")
+    print("Sorted by distance from 100:")
     for num in sorted_numbers:
         print(f"{num} (distance: {abs(num - 100)})")
 
@@ -4525,7 +4530,7 @@ def demonstrate_advanced_techniques():
     # Using cmp_to_key to convert comparison function to key function
     sorted_products = sorted(products, key=cmp_to_key(compare_products))
     
-    print("\nSorted using custom comparison:")
+    print("Sorted using custom comparison:")
     for p in sorted_products:
         print(f"{p.name}: \${p.price:.2f} (Stock: {p.stock})")
 
@@ -4644,7 +4649,7 @@ for version in sorted_versions:
 
 # Additional test cases
 edge_cases = ["2", "2.0", "2.0.0", "2.0.0.0"]
-print("\nEdge cases:")
+print("Edge cases:")
 print(sort_versions(edge_cases))`,
       difficulty: Difficulty.Advanced,
     }
@@ -4778,7 +4783,7 @@ def demonstrate_opposite_ends():
     
     while left < right:
         current_sum = array[left] + array[right]
-        print(f"\nChecking values at positions {left} and {right}")
+        print(f"Checking values at positions {left} and {right}")
         print(f"{array[left]} + {array[right]} = {current_sum}")
         
         if current_sum == target:
@@ -4834,7 +4839,7 @@ def demonstrate_same_direction():
     write_pos = 1
     
     for read_pos in range(1, len(array)):
-        print(f"\nRead position: {read_pos}, Write position: {write_pos}")
+        print(f"Read position: {read_pos}, Write position: {write_pos}")
         print(f"Comparing {array[read_pos]} with previous unique {array[write_pos-1]}")
         
         if array[read_pos] != array[write_pos - 1]:
@@ -4921,7 +4926,7 @@ def demonstrate_triplet_search():
     print(f"Finding triplet summing to {target} in {array}")
     
     for i in range(len(array) - 2):
-        print(f"\nFixed first number: {array[i]}")
+        print(f"Fixed first number: {array[i]}")
         left = i + 1
         right = len(array) - 1
         
@@ -5013,7 +5018,7 @@ def test_closest_sum():
         start, end = find_closest_sum_subarray(array, target)
         subarray = array[start:end+1]
         current_sum = sum(subarray)
-        print(f"\nArray: {array}")
+        print(f"Array: {array}")
         print(f"Target: {target}")
         print(f"Found subarray: {subarray}")
         print(f"Sum: {current_sum}")
@@ -5091,7 +5096,7 @@ def test_smallest_subarray():
         if result:
             start, end = result
             subarray = array[start:end+1]
-            print(f"\nArray: {array}")
+            print(f"Array: {array}")
             print(f"Elements to find: {elements}")
             print(f"Smallest subarray: {subarray}")
             print(f"Length: {end - start + 1}")
@@ -5467,7 +5472,7 @@ def test_bounded_range():
         start, end = find_bounded_range_subarray(array, k)
         subarray = array[start:end+1]
         diff = max(subarray) - min(subarray)
-        print(f"\nArray: {array}")
+        print(f"Array: {array}")
         print(f"k: {k}")
         print(f"Found subarray: {subarray}")
         print(f"Max-min difference: {diff}")
@@ -5559,7 +5564,7 @@ def test_three_subarrays():
             indices = result
             subarrays = [array[i:i+k] for i in indices]
             sums = [sum(arr) for arr in subarrays]
-            print(f"\nArray: {array}")
+            print(f"Array: {array}")
             print(f"k: {k}")
             print(f"Found subarrays:")
             for i, (arr, sum_val) in enumerate(zip(subarrays, sums)):
@@ -5932,7 +5937,7 @@ test_three_subarrays()`
       for array in test_cases:
           arr_copy = array.copy()
           start, end = partition_around_median(arr_copy)
-          print(f"\nOriginal array: {array}")
+          print(f"Original array: {array}")
           print(f"Partitioned array: {arr_copy}")
           print(f"Median section: {arr_copy[start:end+1]}")
           
@@ -6009,7 +6014,7 @@ test_three_subarrays()`
       for array in test_cases:
           arr_copy = array.copy()
           partition_idx = partition_prime_multiples(arr_copy)
-          print(f"\nOriginal array: {array}")
+          print(f"Original array: {array}")
           print(f"Partitioned array: {arr_copy}")
           print(f"Prime multiples: {arr_copy[:partition_idx]}")
           print(f"Others: {arr_copy[partition_idx:]}")
@@ -6157,7 +6162,7 @@ def demonstrate_dutch_flag(array):
     def print_state():
         """Helper to visualize current state."""
         state = array.copy()
-        print("\nCurrent state:", state)
+        print("Current state:", state)
         print("Pointers:", f"low={low}", f"mid={mid}", f"high={high}")
         print("Sections:")
         print("  0s:", state[:low])
@@ -6172,16 +6177,16 @@ def demonstrate_dutch_flag(array):
             array[low], array[mid] = array[mid], array[low]
             low += 1
             mid += 1
-            print("\nSwapped 0 to low section")
+            print("Swapped 0 to low section")
             print_state()
         elif array[mid] == 1:
             mid += 1
-            print("\nSkipped 1 (already in position)")
+            print("Skipped 1 (already in position)")
             print_state()
         else:  # array[mid] == 2
             array[mid], array[high] = array[high], array[mid]
             high -= 1
-            print("\nSwapped 2 to high section")
+            print("Swapped 2 to high section")
             print_state()
 
 # Example usage with explanation
@@ -6241,7 +6246,7 @@ def demonstrate_pivot_partition():
     print(f"Partitioning around {pivot}")
     
     start, end = partition_around_pivot(array, pivot)
-    print(f"\nAfter partitioning: {array}")
+    print(f"After partitioning: {array}")
     print(f"Elements < {pivot}: {array[:start]}")
     print(f"Elements = {pivot}: {array[start:end+1]}")
     print(f"Elements > {pivot}: {array[end+1:]}")
@@ -6372,7 +6377,7 @@ def test_four_way_partition():
     ]
     
     for array in arrays:
-        print(f"\nOriginal array: {array}")
+        print(f"Original array: {array}")
         pivot1, pivot2 = 3, 7
         print(f"Partitioning around {pivot1} and {pivot2}")
         
@@ -6444,7 +6449,7 @@ def test_remainder_grouping():
     ]
     
     for array in test_cases:
-print(f"\nOriginal array: {array}")
+print(f"Original array: {array}")
         arr_copy = array.copy()
         group_by_remainder(arr_copy)
         
@@ -6563,7 +6568,7 @@ def calculate_first_averages(temperatures, days):
     for i in range(days, len(temperatures)):
         # Remove oldest temperature and add newest
         current_sum = current_sum - temperatures[i - days] + temperatures[i]
-        print(f"\nRemoved: {temperatures[i - days]}")
+        print(f"Removed: {temperatures[i - days]}")
         print(f"Added: {temperatures[i]}")
         print(f"New sum: {current_sum}")
         
@@ -6578,7 +6583,7 @@ daily_temps = [25, 28, 24, 27, 23, 26, 29]
 window_size = 3
 
 print("Temperature readings:", daily_temps)
-print(f"Window size: {window_size} days\n")
+print(f"Window size: {window_size} days")
 averages = calculate_first_averages(daily_temps, window_size)
 \`\`\`
 
@@ -6647,7 +6652,7 @@ def find_max_sum_window(array, window_size):
         # Add last element of current window
         current_sum += array[i]
         
-        print(f"\nWindow moved:")
+        print(f"Window moved:")
         print(f"Removed: {array[i - window_size]}")
         print(f"Added: {array[i]}")
         print(f"Current sum: {current_sum}")
@@ -6664,9 +6669,9 @@ def find_max_sum_window(array, window_size):
 numbers = [1, 4, 2, 7, 3, 9, 2, 1]
 window_size = 3
 
-print(f"Finding maximum sum window of size {window_size} in {numbers}\n")
+print(f"Finding maximum sum window of size {window_size} in {numbers}")
 start, max_sum = find_max_sum_window(numbers, window_size)
-print(f"\nBest window starts at index {start}")
+print(f"Best window starts at index {start}")
 print(f"Window: {numbers[start:start+window_size]}")
 print(f"Maximum sum: {max_sum}")
 \`\`\`
@@ -6864,7 +6869,7 @@ def test_minimum_window():
     
     for array in test_cases:
         size = find_minimum_window_size(array)
-        print(f"\nArray: {array}")
+        print(f"Array: {array}")
         print(f"Unique elements: {set(array)}")
         print(f"Minimum window size: {size}")
 
@@ -6938,13 +6943,13 @@ def test_average_window():
         window = array[start:start+length]
         if length > 0:
             avg = sum(window) / length
-            print(f"\nArray: {array}")
+            print(f"Array: {array}")
             print(f"Minimum required average: {min_avg}")
             print(f"Found window: {window}")
             print(f"Window average: {avg:.2f}")
             print(f"Window length: {length}")
         else:
-            print(f"\nNo valid window found for array: {array}")
+            print(f"No valid window found for array: {array}")
             print(f"with minimum average: {min_avg}")
 
 test_average_window()`,
@@ -7050,14 +7055,14 @@ def explain_fixed_window():
     window_size = 3
     
     print(f"Analyzing temperatures: {temperatures}")
-    print(f"Window size: {window_size}\n")
+    print(f"Window size: {window_size}")
     
     # Show window movement
     for i in range(len(temperatures) - window_size + 1):
         window = temperatures[i:i + window_size]
         avg = sum(window) / window_size
         print(f"Window: {window}")
-        print(f"Average: {avg:.1f}\n")
+        print(f"Average: {avg:.1f}")
 
 # Demonstrate fixed window movement
 explain_fixed_window()
@@ -7108,7 +7113,7 @@ def find_smallest_subarray_sum(array, target_sum):
     
     for end in range(len(array)):
         current_sum += array[end]
-        print(f"\nAdded {array[end]}, sum is now {current_sum}")
+        print(f"Added {array[end]}, sum is now {current_sum}")
         
         # Try to minimize window while maintaining sum
         while current_sum >= target_sum and start <= end:
@@ -7131,7 +7136,7 @@ def demonstrate_dynamic_window():
     
     if result:
         start, end = result
-        print(f"\nSmallest subarray with sum >= {target}:")
+        print(f"Smallest subarray with sum >= {target}:")
         print(f"Window: {numbers[start:end+1]}")
         print(f"Sum: {sum(numbers[start:end+1])}")
 
@@ -7170,7 +7175,7 @@ def find_longest_nice_subarray(array, min_size, max_diff):
         window = array[start:end + 1]
         window_diff = max(window) - min(window)
         
-        print(f"\nChecking window: {window}")
+        print(f"Checking window: {window}")
         print(f"Difference: {window_diff}")
         
         if window_diff <= max_diff:
@@ -7206,7 +7211,7 @@ def demonstrate_combined_windows():
     if result:
         start, end = result
         window = numbers[start:end + 1]
-        print(f"\nLongest valid window: {window}")
+        print(f"Longest valid window: {window}")
         print(f"Size: {end - start + 1}")
         print(f"Difference: {max(window) - min(window)}")
 
@@ -7348,7 +7353,7 @@ def test_minimum_window():
     for array in test_cases:
         start, end = find_minimum_window_all_elements(array)
         window = array[start:end+1]
-        print(f"\nArray: {array}")
+        print(f"Array: {array}")
         print(f"Minimum window: {window}")
         print(f"Window size: {end - start + 1}")
         print(f"Unique elements needed: {set(array)}")
@@ -7450,7 +7455,7 @@ def test_balanced_window():
             pos = sum(1 for x in window if x > 0)
             neg = sum(1 for x in window if x < 0)
             
-            print(f"\nArray: {array}")
+            print(f"Array: {array}")
             print(f"Minimum size: {min_size}")
             print(f"Most balanced window: {window}")
             print(f"Positives: {pos}, Negatives: {neg}")
@@ -7550,11 +7555,11 @@ def explain_prefix_construction():
     """Show step-by-step how prefix sums are built."""
     array = [3, 1, 4, 1, 5]
     print(f"Original array: {array}")
-    print("\nBuilding prefix sums:")
+    print("Building prefix sums:")
     
     prefix = build_prefix_sums(array)
     
-    print("\nFinal prefix array:", prefix)
+    print("Final prefix array:", prefix)
     print("Each position shows total sum up to that point")
 \`\`\`
 
@@ -7617,7 +7622,7 @@ def demonstrate_range_queries():
     prefix = build_prefix_sums(array)
     
     print(f"Array: {array}")
-    print(f"Prefix sums: {prefix}\n")
+    print(f"Prefix sums: {prefix}")
     
     # Try different ranges
     ranges = [(0, 2), (1, 4), (3, 6)]
@@ -7625,7 +7630,7 @@ def demonstrate_range_queries():
         total = range_sum(prefix, start, end)
         subarray = array[start:end+1]
         print(f"Sum from index {start} to {end}: {total}")
-        print(f"Elements summed: {subarray}\n")
+        print(f"Elements summed: {subarray}")
 \`\`\`
 
 <h3>Handling Updates</h3>
@@ -7661,12 +7666,12 @@ def demonstrate_updates():
     prefix = build_prefix_sums(array)
     
     print(f"Original array: {array}")
-    print(f"Original prefix sums: {prefix}\n")
+    print(f"Original prefix sums: {prefix}")
     
     # Update a value
     update_value(array, prefix, 2, 6)  # Change 4 to 6
     
-    print(f"\nUpdated array: {array}")
+    print(f"Updated array: {array}")
     print(f"Updated prefix sums: {prefix}")
 \`\`\`
 
@@ -7817,7 +7822,7 @@ def test_subarray_counting():
     
     for array, target in test_cases:
         count = count_subarrays_with_sum(array, target)
-        print(f"\nArray: {array}")
+        print(f"Array: {array}")
         print(f"Target sum: {target}")
         print(f"Number of subarrays: {count}")
         
@@ -7903,13 +7908,13 @@ def test_shortest_subarray():
         if result:
             start, end = result
             subarray = array[start:end+1]
-            print(f"\nArray: {array}")
+            print(f"Array: {array}")
             print(f"Target sum: {target}")
             print(f"Shortest subarray: {subarray}")
             print(f"Sum: {sum(subarray)}")
             print(f"Length: {end - start + 1}")
 else:
-            print(f"\nNo subarray found with sum >= {target}")
+            print(f"No subarray found with sum >= {target}")
 
 test_shortest_subarray()`,
       difficulty: Difficulty.Advanced,
@@ -8010,7 +8015,7 @@ def demonstrate_range_queries():
     test_ranges = [(1, 3), (2, 5), (0, 6)]
     for start, end in test_ranges:
         range_days = days[start:end + 1]
-        print(f"\nCalculating average for {range_days}")
+        print(f"Calculating average for {range_days}")
         
         total = get_range_sum_efficient(start, end)
         avg = total / (end - start + 1)
@@ -8148,7 +8153,7 @@ def demonstrate_advanced_queries():
     ranges = [(1, 3), (2, 5), (0, 6)]
     
     for start, end in ranges:
-        print(f"\nRange [{start}:{end}] = {data[start:end+1]}")
+        print(f"Range [{start}:{end}] = {data[start:end+1]}")
         print(f"Sum: {processor.get_range_sum(start, end)}")
         print(f"Average: {processor.get_range_average(start, end):.2f}")
         print(f"Variance: {processor.get_range_variance(start, end):.2f}")
@@ -8215,7 +8220,7 @@ def demonstrate_range_updates():
     
     for start, end, value in updates:
         updater.update_range(start, end, value)
-        print(f"\nAfter adding {value} to range [{start}:{end}]:")
+        print(f"After adding {value} to range [{start}:{end}]:")
         print(updater.get_final_array())
 
 demonstrate_range_updates()
@@ -8266,7 +8271,7 @@ def demonstrate_intersections():
     
     print("Ranges:", ranges)
     intersections = find_range_intersections(ranges)
-    print("\nIntersecting pairs:")
+    print("Intersecting pairs:")
     for i, j in intersections:
         print(f"Range {ranges[i]} intersects with {ranges[j]}")
 
@@ -8368,7 +8373,7 @@ def test_minimum_average():
             start, length = result
             subarray = array[start:start + length]
             average = sum(subarray) / length
-            print(f"\nArray: {array}")
+            print(f"Array: {array}")
             print(f"Minimum length (k): {k}")
             print(f"Found subarray: {subarray}")
             print(f"Length: {length}")
@@ -8540,7 +8545,7 @@ def demonstrate_kadane_steps(array):
     
     print(f"Initial element: {array[0]}")
     print(f"max_ending_here = max_so_far = {array[0]}")
-    print("\nProcessing remaining elements:")
+    print("Processing remaining elements:")
     
     for i in range(1, len(array)):
         # Store old value for comparison
@@ -8551,7 +8556,7 @@ def demonstrate_kadane_steps(array):
         max_so_far = max(max_so_far, max_ending_here)
         
         # Show the decision process
-        print(f"\nElement: {array[i]}")
+        print(f"Element: {array[i]}")
         print(f"Previous max_ending_here: {old_max}")
         print(f"Choice: max({array[i]}, {old_max} + {array[i]})")
         print(f"New max_ending_here: {max_ending_here}")
@@ -8903,7 +8908,7 @@ def explain_single_transaction(prices):
         current_profit = price - min_price
         max_profit = max(max_profit, current_profit)
         
-        print(f"\nDay {i+1}: Price = {price}")
+        print(f"Day {i+1}: Price = {price}")
         print(f"Minimum price so far: {min_price}")
         print(f"Potential profit if selling today: {current_profit}")
         print(f"Maximum profit so far: {max_profit}")
@@ -8950,7 +8955,7 @@ def explain_multiple_transactions(prices):
         # If we haven't bought and tomorrow's price is higher
         if buy_price is None and prices[i+1] > prices[i]:
             buy_price = prices[i]
-            print(f"\nBuying at price: {buy_price}")
+            print(f"Buying at price: {buy_price}")
         
         # If we've bought and tomorrow's price is lower
         elif buy_price is not None and prices[i+1] < prices[i]:
@@ -8965,9 +8970,9 @@ def explain_multiple_transactions(prices):
         profit = prices[-1] - buy_price
         total_profit += profit
         transactions.append((buy_price, prices[-1], profit))
-        print(f"\nSelling at last price: {prices[-1]}, Profit: {profit}")
+        print(f"Selling at last price: {prices[-1]}, Profit: {profit}")
     
-    print(f"\nTotal profit: {total_profit}")
+    print(f"Total profit: {total_profit}")
     return transactions
 
 # Test multiple transactions
@@ -9016,7 +9021,7 @@ def explain_k_transactions(prices, k):
     for i in range(1, k + 1):
         profit = max_profit_k_transactions(prices, i)
         results.append((i, profit))
-        print(f"\nWith {i} transaction(s): Maximum profit = {profit}")
+        print(f"With {i} transaction(s): Maximum profit = {profit}")
     return results
 
 # Test k transactions
@@ -9141,7 +9146,7 @@ def explain_two_stocks(prices):
         b2 = max(old_b2, old_s1 - price)
         s2 = max(old_s2, old_b2 + price)
         
-        print(f"\nDay {i+1}, Price: {price}")
+        print(f"Day {i+1}, Price: {price}")
         print(f"After first buy: {b1}")
         print(f"After first sell: {s1}")
         print(f"After second buy: {b2}")
@@ -9360,7 +9365,7 @@ def explain_sliding_window(array, k):
     for i in range(k, len(array)):
         old_sum = window_sum
         window_sum = window_sum + array[i] - array[i-k]
-        print(f"\nRemove {array[i-k]}, Add {array[i]}")
+        print(f"Remove {array[i-k]}, Add {array[i]}")
         print(f"New window: {array[i-k+1:i+1]}, Sum: {window_sum}")
 
 # Example usage
@@ -9453,10 +9458,10 @@ def explain_kadane_pattern(array):
         
         if max_ending_here <= 0:
             max_ending_here = num
-            print(f"\nResetting at position {i}")
+            print(f"Resetting at position {i}")
         else:
             max_ending_here += num
-            print(f"\nExtending at position {i}")
+            print(f"Extending at position {i}")
             
         print(f"Number: {num}")
         print(f"Previous max_ending_here: {old_max}")
@@ -9517,7 +9522,7 @@ def explain_two_pointer(array, target_sum):
     print(f"Initial window: [{start}:{end+1}], Sum: {current_sum}")
     
     while end < len(array):
-        print(f"\nCurrent window: {array[start:end+1]}")
+        print(f"Current window: {array[start:end+1]}")
         print(f"Current sum: {current_sum}")
         
         if current_sum == target_sum:
@@ -9696,7 +9701,7 @@ if result:
 
     def explain_xor_solution(array, target_xor):
         """Explain how the XOR solution works step by step."""
-        print(f"Finding subarrays with XOR = {target_xor}\n")
+        print(f"Finding subarrays with XOR = {target_xor}")
         current_xor = 0
         xor_count = {0: 1}
         
@@ -9709,7 +9714,7 @@ if result:
             print(f"Previous XOR: {old_xor}")
             print(f"Current XOR: {current_xor}")
             print(f"Need to find prefixes with XOR: {needed_xor}")
-            print(f"Current prefix XORs: {xor_count}\n")
+            print(f"Current prefix XORs: {xor_count}")
 
     # Run explanation
     explain_xor_solution(test_array, target_xor)`
@@ -9755,121 +9760,379 @@ quizzes: [
 };
 
 const arrayRotationData: LessonContent = {
-  title: 'Techniques for Rotating Array Elements',
-  content: `<p>
-Array rotation is the process of shifting elements in an array to the left or right by a specified number of positions. It is a common operation in algorithms, data processing, and programming challenges. Array rotation can be performed in various ways, each with different time complexities and memory requirements.
-</p>
+  title: "Array Rotation Techniques: Understanding Time-Space Tradeoffs",
+  content: `Array rotation is a fundamental operation in computer science that involves shifting elements of an array by a certain number of positions. While seemingly straightforward, it offers valuable lessons in algorithm design and optimization.
 
-<ul>
-<li><strong>Left Rotation:</strong> Moves each element in the array to the left by a specified number of positions, with elements that shift out of the start of the array reappearing at the end.</li>
-<li><strong>Right Rotation:</strong> Shifts each element to the right, with elements that shift out of the end reappearing at the beginning of the array.</li>
-<li><strong>In-place Rotation:</strong> Some rotation techniques modify the array directly without using extra memory.</li>
-<li><strong>Circular Array Logic:</strong> Many rotation operations benefit from treating the array as circular, where the end connects back to the start.</li>
-</ul>`,
-  codeExample: `# Left Rotation by d positions
-def left_rotate(arr, d):
+<h3>Understanding Array Rotation</h3>
+
+Array rotation can be performed in two directions:
+- Right rotation: Elements shift toward the end, with overflow elements moving to the start
+- Left rotation: Elements shift toward the start, with overflow elements moving to the end
+
+For example:
+- Right rotating [1, 2, 3, 4, 5] by 2 positions gives [4, 5, 1, 2, 3]
+- Left rotating [1, 2, 3, 4, 5] by 2 positions gives [3, 4, 5, 1, 2]
+
+Notice that a left rotation by k positions is equivalent to a right rotation by (n-k) positions, where n is the array length. This relationship helps us understand how the two operations are related.
+
+<h3>Basic Implementation: Using Extra Space</h3>
+
+Let's implement both left and right rotations using the temporary array approach:
+
+\`\`\`python
+def rotate_right_extra_space(arr, k):
+    """
+    Rotate array right by k positions using extra space.
+    
+    Args:
+        arr: Input array
+        k: Number of positions to rotate right
+        
+    Time Complexity: O(n)
+    Space Complexity: O(n)
+    """
     n = len(arr)
-    return arr[d % n:] + arr[:d % n]
+    # Handle k > n case
+    k = k % n
+    
+    # Create temporary array
+    temp = arr[-k:] + arr[:-k]
+    
+    # Copy back to original array
+    for i in range(n):
+        arr[i] = temp[i]
+    
+    return arr
 
-# Right Rotation by d positions
-def right_rotate(arr, d):
+def rotate_left_extra_space(arr, k):
+    """
+    Rotate array left by k positions using extra space.
+    
+    Args:
+        arr: Input array
+        k: Number of positions to rotate left
+        
+    Time Complexity: O(n)
+    Space Complexity: O(n)
+    """
     n = len(arr)
-    return arr[-(d % n):] + arr[:-(d % n)]
-
-# In-place Left Rotation using Reversal Algorithm
-def reverse(arr, start, end):
-    while start < end:
-        arr[start], arr[end] = arr[end], arr[start]
-        start += 1
-        end -= 1
-
-def left_rotate_in_place(arr, d):
-    n = len(arr)
-    d = d % n
-    reverse(arr, 0, d - 1)
-    reverse(arr, d, n - 1)
-    reverse(arr, 0, n - 1)
+    # Handle k > n case
+    k = k % n
+    
+    # Create temporary array
+    temp = arr[k:] + arr[:k]
+    
+    # Copy back to original array
+    for i in range(n):
+        arr[i] = temp[i]
+    
+    return arr
 
 # Example usage
-arr = [1, 2, 3, 4, 5]
-print(left_rotate(arr, 2))       # Output: [3, 4, 5, 1, 2]
-print(right_rotate(arr, 2))      # Output: [4, 5, 1, 2, 3]
-left_rotate_in_place(arr, 2)     # Modifies arr to [3, 4, 5, 1, 2]`,
-  exercises: [
-    {
-      prompt:
-        'Write a function to perform a right rotation by 3 positions on an array of 6 elements.',
-      initialCode: `# Write your solution here
-arr = [10, 20, 30, 40, 50, 60]
+arr1 = [1, 2, 3, 4, 5]
+arr2 = arr1.copy()
+print(f"Original array: {arr1}")
+rotate_right_extra_space(arr1, 2)
+print(f"After rotating 2 positions right: {arr1}")
+rotate_left_extra_space(arr2, 2)
+print(f"After rotating 2 positions left: {arr2}")
+\`\`\`
 
-def right_rotate(arr, d):
-    `,
-      solution: `def right_rotate(arr, d):
-    n = len(arr)
-    return arr[-(d % n):] + arr[:-(d % n)]
+<h3>Optimized Approach: Reversal Algorithm</h3>
 
-arr = right_rotate(arr, 3)  # Output: [40, 50, 60, 10, 20, 30]`,
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      prompt:
-        'Using the reversal algorithm, write a function to perform an in-place left rotation by 2 positions on a given array.',
-      initialCode: `# Write your solution here
-arr = [7, 8, 9, 10, 11, 12]
+The reversal algorithm can be adapted for both left and right rotations:
 
-def reverse(arr, start, end):
-    # Helper function to reverse a portion of the array
+\`\`\`python
+def reverse_array(arr, start, end):
+    """Helper function to reverse array segment."""
     while start < end:
         arr[start], arr[end] = arr[end], arr[start]
         start += 1
         end -= 1
 
-def left_rotate_in_place(arr, d):
-    `,
-      solution: `def left_rotate_in_place(arr, d):
+def rotate_right_reversal(arr, k):
+    """
+    Rotate array right by k positions using reversal algorithm.
+    
+    Args:
+        arr: Input array
+        k: Number of positions to rotate right
+        
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+    """
     n = len(arr)
-    d = d % n
-    reverse(arr, 0, d - 1)
-    reverse(arr, d, n - 1)
-    reverse(arr, 0, n - 1)
+    k = k % n  # Handle k > n case
+    
+    # For right rotation:
+    # 1. Reverse entire array
+    # 2. Reverse first k elements
+    # 3. Reverse remaining elements
+    
+    reverse_array(arr, 0, n-1)
+    reverse_array(arr, 0, k-1)
+    reverse_array(arr, k, n-1)
+    
+    return arr
 
-left_rotate_in_place(arr, 2)  # Modifies arr to [9, 10, 11, 12, 7, 8]`,
-      difficulty: Difficulty.Intermediate,
+def rotate_left_reversal(arr, k):
+    """
+    Rotate array left by k positions using reversal algorithm.
+    
+    Args:
+        arr: Input array
+        k: Number of positions to rotate left
+        
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+    """
+    n = len(arr)
+    k = k % n  # Handle k > n case
+    
+    # For left rotation:
+    # 1. Reverse first k elements
+    # 2. Reverse remaining elements
+    # 3. Reverse entire array
+    
+    reverse_array(arr, 0, k-1)
+    reverse_array(arr, k, n-1)
+    reverse_array(arr, 0, n-1)
+    
+    return arr
+
+# Example usage
+arr1 = [1, 2, 3, 4, 5]
+arr2 = arr1.copy()
+print(f"Original array: {arr1}")
+rotate_right_reversal(arr1, 2)
+print(f"After rotating 2 positions right: {arr1}")
+rotate_left_reversal(arr2, 2)
+print(f"After rotating 2 positions left: {arr2}")
+\`\`\`
+
+<h3>Advanced Implementation: Block Rotation</h3>
+
+The block rotation method can also be adapted for left rotations:
+
+\`\`\`python
+def rotate_right_block(arr, k):
+    """
+    Rotate array right by k positions using block rotation.
+    Optimized for cache performance on large arrays.
+    
+    Args:
+        arr: Input array
+        k: Number of positions to rotate right
+        
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+    """
+    n = len(arr)
+    k = k % n
+    if k == 0:
+        return arr
+        
+    block_size = gcd(n, k)
+    
+    for start in range(block_size):
+        current = start
+        temp = arr[start]
+        
+        while True:
+            next_pos = (current + k) % n
+            if next_pos == start:
+                arr[current] = temp
+                break
+                
+            arr[current] = arr[next_pos]
+            current = next_pos
+    
+    return arr
+
+def rotate_left_block(arr, k):
+    """
+    Rotate array left by k positions using block rotation.
+    
+    Args:
+        arr: Input array
+        k: Number of positions to rotate left
+        
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+    """
+    n = len(arr)
+    # Convert left rotation by k into right rotation by n-k
+    return rotate_right_block(arr, n - k)
+
+def gcd(a, b):
+    """Helper function to find Greatest Common Divisor."""
+    while b:
+        a, b = b, a % b
+    return a
+
+# Example usage
+arr1 = [1, 2, 3, 4, 5, 6, 7, 8]
+arr2 = arr1.copy()
+print(f"Original array: {arr1}")
+rotate_right_block(arr1, 3)
+print(f"After rotating 3 positions right: {arr1}")
+rotate_left_block(arr2, 3)
+print(f"After rotating 3 positions left: {arr2}")
+\`\`\`
+
+<h3>Understanding the Relationship Between Left and Right Rotations</h3>
+
+A key insight that emerges from these implementations is the relationship between left and right rotations:
+
+1. A left rotation by k positions is equivalent to a right rotation by (n-k) positions
+2. This relationship allows us to implement one direction and derive the other
+3. The reversal algorithm demonstrates this relationship clearly in its steps:
+   - Left rotation reverses [0,k-1], [k,n-1], then [0,n-1]
+   - Right rotation reverses [0,n-1], [0,k-1], then [k,n-1]
+
+This understanding helps in choosing the most appropriate implementation for your specific needs.
+
+<h3>Performance Considerations</h3>
+
+Each approach has its tradeoffs:
+
+1. Extra Space Method:
+   - Pros: Simple to implement, good for small arrays
+   - Cons: O(n) extra space required
+   - Best for: Quick implementations, when space isn't a constraint
+
+2. Reversal Method:
+   - Pros: O(1) extra space, simple to understand
+   - Cons: More complex implementation
+   - Best for: General purpose use, memory-constrained environments
+
+3. Block Rotation:
+   - Pros: Cache-friendly, O(1) extra space
+   - Cons: Most complex implementation
+   - Best for: Very large arrays where cache performance matters`,
+
+  exercises: [
+    {
+      prompt: "Implement a function to rotate an array left by k positions using the reversal method.",
+      initialCode: `def rotate_array_left(arr, k):
+    """
+    Rotate array left by k positions using the reversal method.
+    
+    Args:
+        arr: Input array
+        k: Number of positions to rotate left
+    Returns:
+        Rotated array
+        
+    Example:
+        Input: arr = [1, 2, 3, 4, 5], k = 2
+        Output: [3, 4, 5, 1, 2]
+    """
+    # Your implementation here
+    pass`,
+      solution: `def rotate_array_left(arr, k):
+    """
+    Rotate array left by k positions using the reversal method.
+    
+    Args:
+        arr: Input array
+        k: Number of positions to rotate left
+    Returns:
+        Rotated array
+        
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+    """
+    n = len(arr)
+    k = k % n  # Handle k > n case
+    
+    # For left rotation, we can use right rotation algorithm
+    # with k = n - k
+    return rotate_array_reversal(arr, n - k)`,
+      difficulty: Difficulty.Intermediate
     },
+    {
+      prompt: "Implement a function that determines if one array is a rotation of another array.",
+      initialCode: `def is_rotation(arr1, arr2):
+    """
+    Check if arr2 is a rotation of arr1.
+    
+    Args:
+        arr1: First array
+        arr2: Second array
+    Returns:
+        Boolean indicating if arr2 is a rotation of arr1
+        
+    Example:
+        Input: arr1 = [1, 2, 3, 4, 5], arr2 = [3, 4, 5, 1, 2]
+        Output: True
+    """
+    # Your implementation here
+    pass`,
+      solution: `def is_rotation(arr1, arr2):
+    """
+    Check if arr2 is a rotation of arr1.
+    
+    Args:
+        arr1: First array
+        arr2: Second array
+    Returns:
+        Boolean indicating if arr2 is a rotation of arr1
+        
+    Time Complexity: O(n)
+    Space Complexity: O(n)
+    """
+    if len(arr1) != len(arr2):
+        return False
+        
+    # Concatenate arr1 with itself
+    # Any rotation of arr1 will be a subarray of this concatenation
+    temp = arr1 + arr1
+    
+    # Convert arrays to strings for easier substring check
+    s1 = ''.join(map(str, temp))
+    s2 = ''.join(map(str, arr2))
+    
+    return s2 in s1`,
+      difficulty: Difficulty.Advanced
+    }
   ],
   quizzes: [
     {
-      question:
-        'What is the result of performing a left rotation by 1 position on the array [5, 6, 7, 8, 9]?',
+      question: "Which array rotation algorithm is most space-efficient?",
       options: [
-        '[9, 5, 6, 7, 8]',
-        '[6, 7, 8, 9, 5]',
-        '[8, 9, 5, 6, 7]',
-        '[7, 8, 9, 5, 6]',
+        "Extra space method using temporary array",
+        "Reversal algorithm",
+        "Block rotation algorithm",
+        "Both reversal and block rotation algorithms"
+      ],
+      correctAnswer: 3,
+      explanations: [
+        "Incorrect. The extra space method uses O(n) additional space.",
+        "Partially correct. The reversal algorithm uses O(1) space, but it's not the only one.",
+        "Partially correct. The block rotation algorithm uses O(1) space, but it's not the only one.",
+        "Correct! Both reversal and block rotation algorithms use O(1) extra space."
+      ],
+      difficulty: Difficulty.Beginner
+    },
+    {
+      question: "Why might block rotation be preferred for very large arrays?",
+      options: [
+        "It uses less memory than other methods",
+        "It has better cache performance",
+        "It requires fewer total operations",
+        "It's simpler to implement"
       ],
       correctAnswer: 1,
       explanations: [
-        'This is incorrect; the last element should move to the start if rotated right.',
-        'Correct. Left rotation by 1 shifts all elements to the left and places the first element at the end.',
-        'This represents a rotation by more than 1 position.',
-        'This represents a rotation by more than 1 position.',
+        "Incorrect. Both block rotation and reversal methods use O(1) extra space.",
+        "Correct! Block rotation is designed to be cache-friendly by operating on blocks of elements.",
+        "Incorrect. It actually performs a similar number of operations to other methods.",
+        "Incorrect. Block rotation is typically the most complex to implement."
       ],
-      difficulty: Difficulty.Beginner,
-    },
-    {
-      question:
-        'If an array of 10 elements is rotated left by 12 positions, how many positions will it effectively rotate?',
-      options: ['2', '10', '0', '12'],
-      correctAnswer: 0,
-      explanations: [
-        'Correct. Since the array has 10 elements, a left rotation by 12 is equivalent to a left rotation by 2 (12 % 10).',
-        'A full rotation by the array’s length results in the original array.',
-        'A rotation by 10 returns the array to its original position, but rotating by 12 shifts it by 2.',
-        'This answer is incorrect; rotations exceeding the array’s length wrap around by the remainder when divided by the array length.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
+      difficulty: Difficulty.Intermediate
+    }
+  ]
 };
 
 const majorityElementData: LessonContent = {
@@ -10416,6 +10679,20 @@ def diagonal_traverse(matrix):
                 col -= 1
     
     return result
+
+# Example usage
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print("Matrix:")
+for row in matrix:
+    print(row)
+
+result = diagonal_traverse(matrix)
+print("Diagonal traversal:", result)
 \`\`\`
 
 3. ZigZag Traversal:
@@ -10473,6 +10750,20 @@ def zigzag_traverse(matrix):
                 col += 1
     
     return result
+
+# Example usage
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print("Matrix:")
+for row in matrix:
+    print(row)
+
+result = zigzag_traverse(matrix)
+print("Zigzag traversal:", result)
 \`\`\`
 
 <h3>Advanced Patterns and Applications</h3>
@@ -10512,6 +10803,23 @@ def rotate_matrix(matrix):
             
             # Move top to right
             matrix[i][last] = top
+
+# Example usage
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print("Original matrix:")
+for row in matrix:
+    print(row)
+
+rotate_matrix(matrix)
+
+print("Matrix after 90-degree rotation:")
+for row in matrix:
+    print(row)
 \`\`\`
 
 2. Boundary Traversal:
@@ -10555,6 +10863,17 @@ def boundary_traverse(matrix):
         result.append(matrix[i][0])
     
     return result
+
+# Example usage
+matrix = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+    [13, 14, 15, 16]
+]
+
+result = boundary_traverse(matrix)
+print("Boundary elements:", result)
 \`\`\`
 
 <h3>Common Techniques and Tips</h3>
@@ -10573,8 +10892,7 @@ directions = [
 
 def is_valid(row, col, matrix):
     """Check if position is within matrix bounds."""
-    return (0 <= row < len(matrix) and 
-            0 <= col < len(matrix[0]))
+    return 0 <= row < len(matrix) and 0 <= col < len(matrix[0])
 
 def explore_from_point(matrix, start_row, start_col):
     """Explore matrix from a starting point."""
@@ -10583,7 +10901,7 @@ def explore_from_point(matrix, start_row, start_col):
     result = []
     
     def dfs(row, col):
-        if not is_valid(row, col) or (row, col) in visited:
+        if not is_valid(row, col, matrix) or (row, col) in visited:
             return
             
         visited.add((row, col))
@@ -10595,6 +10913,17 @@ def explore_from_point(matrix, start_row, start_col):
     
     dfs(start_row, start_col)
     return result
+
+# Example usage
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+# Start exploration from the middle of the matrix
+result = explore_from_point(matrix, 1, 1)
+print("Explored elements:", result)
 \`\`\`
 
 2. Visited Matrix: Track visited positions when needed
@@ -10608,22 +10937,47 @@ def flood_fill(matrix, sr, sc, new_color):
         sr, sc: Starting row and column
         new_color: Color to fill with
     """
+    rows, cols = len(matrix), len(matrix[0])
     old_color = matrix[sr][sc]
+    
     if old_color == new_color:
         return matrix
     
+    def is_valid(row, col):
+        """Check if the position is within bounds."""
+        return 0 <= row < rows and 0 <= col < cols
+    
+    # Directions for moving up, down, left, and right
+    directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+    
     def fill(row, col):
-        if (not is_valid(row, col) or 
-            matrix[row][col] != old_color):
+        """Recursive function to apply flood fill."""
+        if not is_valid(row, col) or matrix[row][col] != old_color:
             return
         
+        # Fill the current cell with the new color
         matrix[row][col] = new_color
         
+        # Recurse for all 4 neighbors
         for dx, dy in directions:
             fill(row + dx, col + dy)
     
+    # Start the flood fill from the given starting position
     fill(sr, sc)
     return matrix
+
+# Example usage
+matrix = [
+    [1, 1, 0, 0],
+    [1, 1, 0, 0],
+    [0, 0, 1, 1],
+    [0, 0, 1, 1]
+]
+
+result = flood_fill(matrix, 0, 0, 2)
+for row in result:
+    print(row)
+
 \`\`\``,
 
   exercises: [
@@ -10932,7 +11286,7 @@ def visualize_transposition(matrix):
         print(row)
     
     transposed = transpose_matrix(matrix)
-    print("\nTransposed Matrix:")
+    print("Transposed Matrix:")
     for row in transposed:
         print(row)
 
@@ -11012,6 +11366,18 @@ def rotate_matrix_90_counterclockwise(matrix):
             bottom -= 1
     
     return matrix
+# Example usage for rotate_matrix_90_clockwise
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+rotate_matrix_90_clockwise(matrix)
+
+print("Matrix after 90-degree clockwise rotation:")
+for row in matrix:
+    print(row)
+
 \`\`\`
 
 <h3>3. Matrix Reflection</h3>
@@ -11063,6 +11429,17 @@ def reflect_vertical(matrix):
             right -= 1
     
     return matrix
+# Example usage for reflect_horizontal
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+reflect_horizontal(matrix)
+
+print("Matrix after horizontal reflection:")
+for row in matrix:
+    print(row)
 \`\`\`
 
 <h3>4. Advanced Transformations</h3>
@@ -11151,6 +11528,18 @@ def apply_kernel(matrix, kernel):
             result[i][j] = sum_val
     
     return result
+# Example usage for rotate_layer
+matrix = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+    [13, 14, 15, 16]
+]
+rotate_layer(matrix, 0)
+
+print("Matrix after rotating outer layer:")
+for row in matrix:
+    print(row)
 \`\`\`
 
 <h3>Understanding Matrix Transformations Through Examples</h3>
@@ -11175,17 +11564,17 @@ def demonstrate_transformations():
     reflected_h = [row[:] for row in matrix]
     reflected_v = [row[:] for row in matrix]
     
-    print("\nAfter 90° Clockwise Rotation:")
+    print("After 90° Clockwise Rotation:")
     rotate_matrix_90_clockwise(rotated)
     for row in rotated:
         print(row)
         
-    print("\nAfter Horizontal Reflection:")
+    print("After Horizontal Reflection:")
     reflect_horizontal(reflected_h)
     for row in reflected_h:
         print(row)
         
-    print("\nAfter Vertical Reflection:")
+    print("After Vertical Reflection:")
     reflect_vertical(reflected_v)
     for row in reflected_v:
         print(row)
@@ -11318,7 +11707,7 @@ for row in test_matrix:
     print(row)
 
 result = diagonal_flip_and_rotate([row[:] for row in test_matrix], clockwise=True)
-print("\nAfter diagonal flip and clockwise rotation:")
+print("After diagonal flip and clockwise rotation:")
 for row in result:
     print(row)`,
       difficulty: Difficulty.Advanced,
