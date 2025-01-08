@@ -1,9 +1,15 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 const stackCurriculum: Curriculum = {
   title: 'Stack Curriculum',
-  description: 'A comprehensive guide to mastering stack data structure and its applications in technical interviews',
+  description:
+    'A comprehensive guide to mastering stack data structure and its applications in technical interviews',
   sections: [
     {
       id: 1,
@@ -12,22 +18,25 @@ const stackCurriculum: Curriculum = {
         {
           id: 'stack-concept',
           title: 'Stack Concept and Properties',
-          description: 'Understanding LIFO principle, time complexities, and use cases',
-          priority: PriorityLevel.Essential
+          description:
+            'Understanding LIFO principle, time complexities, and use cases',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'stack-implementation',
           title: 'Stack Implementation',
-          description: 'Implementing stack using arrays and linked lists, comparing trade-offs',
-          priority: PriorityLevel.Essential
+          description:
+            'Implementing stack using arrays and linked lists, comparing trade-offs',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'stack-operations',
           title: 'Basic Stack Operations',
-          description: 'Push, pop, peek, isEmpty operations with edge cases and error handling',
-          priority: PriorityLevel.Essential
-        }
-      ]
+          description:
+            'Push, pop, peek, isEmpty operations with edge cases and error handling',
+          priority: PriorityLevel.Essential,
+        },
+      ],
     },
     {
       id: 2,
@@ -36,22 +45,25 @@ const stackCurriculum: Curriculum = {
         {
           id: 'parentheses-matching',
           title: 'Parentheses Matching',
-          description: 'Validating and matching different types of brackets, handling nested structures',
-          priority: PriorityLevel.Essential
+          description:
+            'Validating and matching different types of brackets, handling nested structures',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'expression-evaluation',
           title: 'Expression Evaluation',
-          description: 'Evaluating arithmetic expressions, handling operators precedence',
-          priority: PriorityLevel.Important
+          description:
+            'Evaluating arithmetic expressions, handling operators precedence',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'next-greater-element',
           title: 'Next Greater Element',
-          description: 'Finding next greater elements using monotonic stack pattern',
-          priority: PriorityLevel.Important
-        }
-      ]
+          description:
+            'Finding next greater elements using monotonic stack pattern',
+          priority: PriorityLevel.Important,
+        },
+      ],
     },
     {
       id: 3,
@@ -60,22 +72,24 @@ const stackCurriculum: Curriculum = {
         {
           id: 'backspace-string',
           title: 'Backspace String Compare',
-          description: 'Handling backspace characters in strings, optimizing space usage',
-          priority: PriorityLevel.Important
+          description:
+            'Handling backspace characters in strings, optimizing space usage',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'string-reversal',
           title: 'String Reversal and Manipulation',
           description: 'Using stack for string operations and transformations',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'text-editor-operations',
           title: 'Text Editor Operations',
-          description: 'Implementing undo/redo functionality, handling complex operations',
-          priority: PriorityLevel.Beneficial
-        }
-      ]
+          description:
+            'Implementing undo/redo functionality, handling complex operations',
+          priority: PriorityLevel.Beneficial,
+        },
+      ],
     },
     {
       id: 4,
@@ -84,22 +98,25 @@ const stackCurriculum: Curriculum = {
         {
           id: 'monotonic-concept',
           title: 'Monotonic Stack Concept',
-          description: 'Understanding and implementing increasing/decreasing monotonic stacks',
-          priority: PriorityLevel.Important
+          description:
+            'Understanding and implementing increasing/decreasing monotonic stacks',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'histogram-problems',
           title: 'Histogram Problems',
-          description: 'Solving largest rectangle and area problems using monotonic stack',
-          priority: PriorityLevel.Important
+          description:
+            'Solving largest rectangle and area problems using monotonic stack',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'temperature-problems',
           title: 'Daily Temperatures Pattern',
-          description: 'Solving next warmer/cooler day type problems using monotonic stack',
-          priority: PriorityLevel.Important
-        }
-      ]
+          description:
+            'Solving next warmer/cooler day type problems using monotonic stack',
+          priority: PriorityLevel.Important,
+        },
+      ],
     },
     {
       id: 5,
@@ -108,22 +125,24 @@ const stackCurriculum: Curriculum = {
         {
           id: 'min-max-stack',
           title: 'Min/Max Stack',
-          description: 'Implementing stack with O(1) minimum/maximum operations',
-          priority: PriorityLevel.Important
+          description:
+            'Implementing stack with O(1) minimum/maximum operations',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'two-stacks',
           title: 'Two Stacks Problems',
           description: 'Solving problems involving operations with two stacks',
-          priority: PriorityLevel.Beneficial
+          priority: PriorityLevel.Beneficial,
         },
         {
           id: 'stack-sequences',
           title: 'Stack Sequences',
-          description: 'Validating push and pop sequences, understanding stack permutations',
-          priority: PriorityLevel.Beneficial
-        }
-      ]
+          description:
+            'Validating push and pop sequences, understanding stack permutations',
+          priority: PriorityLevel.Beneficial,
+        },
+      ],
     },
     {
       id: 6,
@@ -132,18 +151,19 @@ const stackCurriculum: Curriculum = {
         {
           id: 'tree-traversal',
           title: 'Iterative Tree Traversal',
-          description: 'Implementing inorder, preorder, and postorder traversals using stack',
-          priority: PriorityLevel.Important
+          description:
+            'Implementing inorder, preorder, and postorder traversals using stack',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'expression-tree',
           title: 'Expression Tree Evaluation',
           description: 'Building and evaluating expression trees using stack',
-          priority: PriorityLevel.Beneficial
-        }
-      ]
-    }
-  ]
+          priority: PriorityLevel.Beneficial,
+        },
+      ],
+    },
+  ],
 } as const;
 
 const stackConceptData: LessonContent = {
@@ -218,7 +238,8 @@ def demonstrate_stack():
 demonstrate_stack()`,
   exercises: [
     {
-      prompt: 'Implement a function that uses a stack to check if a string of parentheses is balanced. Example: "(())" is balanced, "())" is not.',
+      prompt:
+        'Implement a function that uses a stack to check if a string of parentheses is balanced. Example: "(())" is balanced, "())" is not.',
       initialCode: `def is_balanced(parentheses):
     # Write your solution here
     return True`,
@@ -251,7 +272,7 @@ demonstrate_stack()`,
         reversed_str += stack.pop()
     return reversed_str`,
       difficulty: Difficulty.Beginner,
-    }
+    },
   ],
   quizzes: [
     {
@@ -272,13 +293,9 @@ demonstrate_stack()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'Which operation would you use to view the top element without removing it?',
-      options: [
-        'pop()',
-        'peek() or top()',
-        'push()',
-        'isEmpty()',
-      ],
+      question:
+        'Which operation would you use to view the top element without removing it?',
+      options: ['pop()', 'peek() or top()', 'push()', 'isEmpty()'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. pop() removes the top element.',
@@ -287,7 +304,7 @@ demonstrate_stack()`,
         'Incorrect. isEmpty() checks if the stack has any elements.',
       ],
       difficulty: Difficulty.Beginner,
-    }
+    },
   ],
 };
 
@@ -413,7 +430,8 @@ def compare_implementations():
     print(f"Linked stack peek: {linked_stack.peek()}")  # 2`,
   exercises: [
     {
-      prompt: 'Implement a method in ArrayStack class that returns the minimum element in the stack without removing elements.',
+      prompt:
+        'Implement a method in ArrayStack class that returns the minimum element in the stack without removing elements.',
       initialCode: `class ArrayStack:
     def __init__(self):
         self.stack = []
@@ -445,11 +463,12 @@ def compare_implementations():
             raise Exception("Stack is empty")
         return self.min_stack[-1]`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the main advantage of a linked list-based stack implementation over an array-based one?',
+      question:
+        'What is the main advantage of a linked list-based stack implementation over an array-based one?',
       options: [
         'Better cache locality',
         'Faster push operations',
@@ -464,7 +483,7 @@ def compare_implementations():
         'Incorrect. Linked lists actually use more memory due to node pointers.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -642,7 +661,8 @@ def demonstrate_stack_operations():
 demonstrate_stack_operations()`,
   exercises: [
     {
-      prompt: 'Implement a method called transfer_stack that moves all elements from one stack to another while maintaining the original order.',
+      prompt:
+        'Implement a method called transfer_stack that moves all elements from one stack to another while maintaining the original order.',
       initialCode: `def transfer_stack(source, destination):
     # Write your solution here
     pass`,
@@ -660,7 +680,8 @@ demonstrate_stack_operations()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Implement a stack method that finds and returns the largest element in the stack without modifying the original stack structure.',
+      prompt:
+        'Implement a stack method that finds and returns the largest element in the stack without modifying the original stack structure.',
       initialCode: `def find_max(stack):
     # Write your solution here
     pass`,
@@ -684,7 +705,7 @@ demonstrate_stack_operations()`,
         
     return max_element`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
@@ -705,13 +726,9 @@ demonstrate_stack_operations()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'Which stack operation can be used to safely check if pop() can be called?',
-      options: [
-        'peek()',
-        'isEmpty()',
-        'size()',
-        'capacity()',
-      ],
+      question:
+        'Which stack operation can be used to safely check if pop() can be called?',
+      options: ['peek()', 'isEmpty()', 'size()', 'capacity()'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. peek() itself can throw an exception on empty stack.',
@@ -722,7 +739,8 @@ demonstrate_stack_operations()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the best practice for handling stack overflow in a fixed-size implementation?',
+      question:
+        'What is the best practice for handling stack overflow in a fixed-size implementation?',
       options: [
         'Silently ignore additional elements',
         'Automatically resize the stack',
@@ -737,7 +755,7 @@ demonstrate_stack_operations()`,
         'Correct! Throwing an exception prevents overflow and alerts the user to the capacity issue.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -875,7 +893,8 @@ for expr in test_expressions:
     validate_brackets(expr)`,
   exercises: [
     {
-      prompt: 'Implement a function that returns the maximum nesting depth of brackets in a valid expression. For example, "{[()]}" has depth 3.',
+      prompt:
+        'Implement a function that returns the maximum nesting depth of brackets in a valid expression. For example, "{[()]}" has depth 3.',
       initialCode: `def max_nesting_depth(expression):
     # Write your solution here
     return 0`,
@@ -903,7 +922,8 @@ for expr in test_expressions:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a function that completes a partially written bracket expression by adding the minimum number of closing brackets needed. For example, "({[" becomes "({[]})".',
+      prompt:
+        'Create a function that completes a partially written bracket expression by adding the minimum number of closing brackets needed. For example, "({[" becomes "({[]})".',
       initialCode: `def complete_brackets(partial_expr):
     # Write your solution here
     return ""`,
@@ -932,17 +952,12 @@ for expr in test_expressions:
     
     return result`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
       question: 'Which of these bracket expressions is valid?',
-      options: [
-        '([)]',
-        '{[()]}',
-        '{[}]',
-        '((()]',
-      ],
+      options: ['([)]', '{[()]}', '{[}]', '((()]'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Brackets must be closed in the reverse order they were opened.',
@@ -953,13 +968,9 @@ for expr in test_expressions:
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the maximum nesting depth of the expression "({[()]})"?',
-      options: [
-        '3',
-        '4',
-        '5',
-        '6',
-      ],
+      question:
+        'What is the maximum nesting depth of the expression "({[()]})"?',
+      options: ['3', '4', '5', '6'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. The expression goes deeper than 3 levels.',
@@ -968,7 +979,7 @@ for expr in test_expressions:
         'Incorrect. The expression only reaches 4 levels of nesting.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -1130,15 +1141,16 @@ def demonstrate_evaluation():
             result = evaluator.evaluate(expr)
             print(f"Infix:   {expr}")
             print(f"Postfix: {postfix}")
-print(f"Result:  {result}\n")
+print(f"Result:  {result}")
         except ValueError as e:
-            print(f"Error evaluating {expr}: {e}\n")
+            print(f"Error evaluating {expr}: {e}")
 
 # Run demonstration
 demonstrate_evaluation()`,
   exercises: [
     {
-      prompt: 'Implement a function that evaluates expressions with unary minus operators. For example, "-3 + 4 * -2" should evaluate to -11.',
+      prompt:
+        'Implement a function that evaluates expressions with unary minus operators. For example, "-3 + 4 * -2" should evaluate to -11.',
       initialCode: `def evaluate_with_unary(expression):
     # Write your solution here
     return 0`,
@@ -1157,16 +1169,17 @@ demonstrate_evaluation()`,
     tokenized = ' '.join(tokenize(expression))
     return evaluator.evaluate(tokenized)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is postfix notation easier to evaluate than infix notation?',
+      question:
+        'Why is postfix notation easier to evaluate than infix notation?',
       options: [
         'It requires fewer operations',
         'It eliminates the need for operator precedence',
         'It uses less memory',
-        'It\'s faster to parse',
+        "It's faster to parse",
       ],
       correctAnswer: 1,
       explanations: [
@@ -1176,10 +1189,9 @@ demonstrate_evaluation()`,
         'Incorrect. Parsing complexity is similar.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
-
 
 const nextGreaterElementData: LessonContent = {
   title: 'Next Greater Element Using Monotonic Stack',
@@ -1316,13 +1328,13 @@ def demonstrate_monotonic_stack():
     arr1 = [4, 5, 2, 25]
     result1 = finder.find_next_greater_elements(arr1)
     print(f"Array: {arr1}")
-    print(f"Next greater elements: {result1}\n")
+    print(f"Next greater elements: {result1}")
     
     # Circular array
     arr2 = [3, 1, 2, 4]
     result2 = finder.find_next_greater_circular(arr2)
     print(f"Circular array: {arr2}")
-    print(f"Circular next greater: {result2}\n")
+    print(f"Circular next greater: {result2}")
     
     # Daily temperatures
     temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
@@ -1334,7 +1346,8 @@ def demonstrate_monotonic_stack():
 demonstrate_monotonic_stack()`,
   exercises: [
     {
-      prompt: 'Implement a function to find the next smaller element for each element in an array. Return -1 if no smaller element exists.',
+      prompt:
+        'Implement a function to find the next smaller element for each element in an array. Return -1 if no smaller element exists.',
       initialCode: `def find_next_smaller_elements(arr):
     # Write your solution here
     return []`,
@@ -1357,7 +1370,8 @@ demonstrate_monotonic_stack()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Given an array of integers, find the span of each element. The span of an element is the number of consecutive elements just before the current element (including itself) that are less than or equal to it.',
+      prompt:
+        'Given an array of integers, find the span of each element. The span of an element is the number of consecutive elements just before the current element (including itself) that are less than or equal to it.',
       initialCode: `def calculate_span(arr):
     # Write your solution here
     return []`,
@@ -1379,11 +1393,12 @@ demonstrate_monotonic_stack()`,
     
     return span`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do we store indices instead of values in the monotonic stack?',
+      question:
+        'Why do we store indices instead of values in the monotonic stack?',
       options: [
         'To save memory',
         'To handle duplicate elements',
@@ -1400,13 +1415,9 @@ demonstrate_monotonic_stack()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the time complexity of finding next greater elements using a monotonic stack?',
-      options: [
-        'O(n²)',
-        'O(n log n)',
-        'O(n)',
-        'O(1)',
-      ],
+      question:
+        'What is the time complexity of finding next greater elements using a monotonic stack?',
+      options: ['O(n²)', 'O(n log n)', 'O(n)', 'O(1)'],
       correctAnswer: 2,
       explanations: [
         'Incorrect. The monotonic stack approach is more efficient.',
@@ -1415,7 +1426,7 @@ demonstrate_monotonic_stack()`,
         'Incorrect. We need to process each element.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -1634,7 +1645,7 @@ def demonstrate_backspace_comparison():
         optimal_result = comparer.compare_space_optimal(s, t)
         count_result = comparer.compare_with_character_count(s, t)
         
-        print(f"\nComparing '{s}' with '{t}':")
+        print(f"Comparing '{s}' with '{t}':")
         print(f"Stack approach: {stack_result}")
         print(f"Space-optimal approach: {optimal_result}")
         print(f"Character count approach: {count_result}")
@@ -1643,7 +1654,8 @@ def demonstrate_backspace_comparison():
 demonstrate_backspace_comparison()`,
   exercises: [
     {
-      prompt: 'Implement a function that returns the final string after processing backspaces, but iterating from left to right only once. Each backspace removes one character if possible.',
+      prompt:
+        'Implement a function that returns the final string after processing backspaces, but iterating from left to right only once. Each backspace removes one character if possible.',
       initialCode: `def process_string_single_pass(s: str) -> str:
     # Write your solution here
     return ""`,
@@ -1658,7 +1670,8 @@ demonstrate_backspace_comparison()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Create a function that counts how many different ways you can insert backspace characters into a string to produce a given target string. For example, to get "ac" from starting string "abc", you could use "abc#" or "ab#c".',
+      prompt:
+        'Create a function that counts how many different ways you can insert backspace characters into a string to produce a given target string. For example, to get "ac" from starting string "abc", you could use "abc#" or "ab#c".',
       initialCode: `def count_backspace_combinations(start: str, target: str) -> int:
     # Write your solution here
     return 0`,
@@ -1688,15 +1701,16 @@ demonstrate_backspace_comparison()`,
         
     return backtrack(0, 0)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why might the two-pointer approach be preferred over the stack approach in certain situations?',
+      question:
+        'Why might the two-pointer approach be preferred over the stack approach in certain situations?',
       options: [
-        'It\'s always faster',
+        "It's always faster",
         'It uses constant extra space',
-        'It\'s easier to implement',
+        "It's easier to implement",
         'It handles more edge cases',
       ],
       correctAnswer: 1,
@@ -1709,7 +1723,8 @@ demonstrate_backspace_comparison()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is a potential disadvantage of the space-optimal (two-pointer) approach?',
+      question:
+        'What is a potential disadvantage of the space-optimal (two-pointer) approach?',
       options: [
         'Higher time complexity',
         'More complex implementation',
@@ -1724,7 +1739,7 @@ demonstrate_backspace_comparison()`,
         'Incorrect. No sorting is needed.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -1909,19 +1924,19 @@ def demonstrate_string_manipulation():
     text = "Hello, World!"
     reversed_text = manipulator.reverse_string(text)
     print(f"Original: {text}")
-    print(f"Reversed: {reversed_text}\n")
+    print(f"Reversed: {reversed_text}")
     
     # Word reversal
     sentence = "Python is amazing"
     reversed_words = manipulator.reverse_words(sentence)
     print(f"Original sentence: {sentence}")
-    print(f"Reversed words: {reversed_words}\n")
+    print(f"Reversed words: {reversed_words}")
     
     # Parentheses reversal
     nested = "abc(def(ghi)jkl)mno"
     reversed_paren = manipulator.reverse_parentheses(nested)
     print(f"Original nested: {nested}")
-    print(f"Reversed within parentheses: {reversed_paren}\n")
+    print(f"Reversed within parentheses: {reversed_paren}")
     
     # Tag processing
     tags = "<div><span>text</span></div>"
@@ -1933,7 +1948,8 @@ def demonstrate_string_manipulation():
 demonstrate_string_manipulation()`,
   exercises: [
     {
-      prompt: 'Implement a function that removes consecutive duplicate characters from a string using a stack. For example, "abbaca" should become "ca".',
+      prompt:
+        'Implement a function that removes consecutive duplicate characters from a string using a stack. For example, "abbaca" should become "ca".',
       initialCode: `def remove_duplicates(s: str) -> str:
     # Write your solution here
     return ""`,
@@ -1952,7 +1968,8 @@ demonstrate_string_manipulation()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Create a function that evaluates a mathematical expression containing only addition and multiplication, respecting operator precedence. For example, "2+3*4" should return 14.',
+      prompt:
+        'Create a function that evaluates a mathematical expression containing only addition and multiplication, respecting operator precedence. For example, "2+3*4" should return 14.',
       initialCode: `def evaluate_expression(s: str) -> int:
     # Write your solution here
     return 0`,
@@ -1975,11 +1992,12 @@ demonstrate_string_manipulation()`,
     
     return sum(stack)`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'When using a stack for string reversal, what determines the space complexity?',
+      question:
+        'When using a stack for string reversal, what determines the space complexity?',
       options: [
         'The length of the output string',
         'The number of unique characters',
@@ -1996,7 +2014,8 @@ demonstrate_string_manipulation()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'Why is a stack particularly useful for processing nested structures in strings?',
+      question:
+        'Why is a stack particularly useful for processing nested structures in strings?',
       options: [
         'It provides fast random access',
         'It maintains the order of elements',
@@ -2011,7 +2030,7 @@ demonstrate_string_manipulation()`,
         'Incorrect. The time complexity remains linear.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -2222,7 +2241,8 @@ def demonstrate_text_editor():
 demonstrate_text_editor()`,
   exercises: [
     {
-      prompt: 'Implement a method in the TextEditor class that allows grouping multiple operations together so they can be undone/redone as a single unit.',
+      prompt:
+        'Implement a method in the TextEditor class that allows grouping multiple operations together so they can be undone/redone as a single unit.',
       initialCode: `def start_operation_group(self):
     # Write your solution here
     pass
@@ -2272,7 +2292,8 @@ class TextEditor:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Add a method to implement "find and replace" functionality that can be undone as a single operation.',
+      prompt:
+        'Add a method to implement "find and replace" functionality that can be undone as a single operation.',
       initialCode: `def find_and_replace(self, find_text: str, replace_text: str) -> int:
     # Write your solution here
     # Return number of replacements made
@@ -2302,11 +2323,12 @@ class TextEditor:
     self.end_operation_group()
     return count`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do we clear the redo stack when a new operation is performed?',
+      question:
+        'Why do we clear the redo stack when a new operation is performed?',
       options: [
         'To save memory',
         'To maintain operation ordering',
@@ -2323,7 +2345,8 @@ class TextEditor:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the main advantage of using the Command pattern (TextOperation class) for editor operations?',
+      question:
+        'What is the main advantage of using the Command pattern (TextOperation class) for editor operations?',
       options: [
         'It reduces memory usage',
         'It allows operations to store their own undo logic',
@@ -2338,7 +2361,7 @@ class TextEditor:
         'Incorrect. Cursor management is handled separately.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -2492,27 +2515,27 @@ def demonstrate_monotonic_patterns():
     
     # Demonstrate increasing stack
     arr1 = [3, 1, 4, 2]
-    print("\nBuilding monotonic increasing stack:")
+    print("Building monotonic increasing stack:")
     states = stack.build_monotonic_increasing(arr1)
     for i, state in enumerate(states):
         print(f"After processing {arr1[i]}: {state}")
     
     # Demonstrate decreasing stack
     arr2 = [4, 5, 2, 10]
-    print("\nBuilding monotonic decreasing stack:")
+    print("Building monotonic decreasing stack:")
     states = stack.build_monotonic_decreasing(arr2)
     for i, state in enumerate(states):
         print(f"After processing {arr2[i]}: {state}")
     
     # Find next greater elements
     result = stack.find_next_greater_elements(arr2)
-    print("\nNext greater elements:")
+    print("Next greater elements:")
     for num, next_greater in result.items():
         print(f"{num} -> {next_greater if next_greater else 'None'}")
     
     # Find previous smaller elements
     result = stack.find_previous_smaller_elements(arr2)
-    print("\nPrevious smaller elements:")
+    print("Previous smaller elements:")
     for num, prev_smaller in result.items():
         print(f"{num} -> {prev_smaller if prev_smaller else 'None'}")
 
@@ -2520,7 +2543,8 @@ def demonstrate_monotonic_patterns():
 demonstrate_monotonic_patterns()`,
   exercises: [
     {
-      prompt: 'Implement a function that finds the number of days until a warmer temperature using a monotonic stack. Given array of daily temperatures, return array where result[i] is number of days until warmer temperature.',
+      prompt:
+        'Implement a function that finds the number of days until a warmer temperature using a monotonic stack. Given array of daily temperatures, return array where result[i] is number of days until warmer temperature.',
       initialCode: `def daily_temperatures(temperatures):
     # Write your solution here
     return []`,
@@ -2539,7 +2563,8 @@ demonstrate_monotonic_patterns()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that determines if an array can be divided into chunks where each chunk contains consecutive integers in any order.',
+      prompt:
+        'Implement a function that determines if an array can be divided into chunks where each chunk contains consecutive integers in any order.',
       initialCode: `def can_chunk_array(arr):
     # Write your solution here
     return False`,
@@ -2561,11 +2586,12 @@ demonstrate_monotonic_patterns()`,
     # If stack is empty, all chunks were valid
     return len(stack) == 0`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the key property that makes a stack monotonic increasing?',
+      question:
+        'What is the key property that makes a stack monotonic increasing?',
       options: [
         'Elements are sorted in ascending order',
         'Elements increase from top to bottom',
@@ -2582,7 +2608,8 @@ demonstrate_monotonic_patterns()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'Why is a monotonic stack more efficient than a brute force approach for finding next greater elements?',
+      question:
+        'Why is a monotonic stack more efficient than a brute force approach for finding next greater elements?',
       options: [
         'It uses less memory',
         'It processes each element exactly once',
@@ -2597,7 +2624,7 @@ demonstrate_monotonic_patterns()`,
         'Incorrect. Sorting is not part of the monotonic stack operation.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -2779,18 +2806,19 @@ def demonstrate_histogram_solutions():
         ["1","0","0","1","0"]
     ]
     max_rect = solver.maximal_rectangle(matrix)
-    print(f"\nMaximal rectangle in matrix: {max_rect}")
+    print(f"Maximal rectangle in matrix: {max_rect}")
     
     # Demonstrate trapping rain water
     heights = [0,1,0,2,1,0,1,3,2,1,2,1]
     water = solver.trap_rain_water(heights)
-    print(f"\nWater trapped: {water}")
+    print(f"Water trapped: {water}")
 
 # Run demonstration
 demonstrate_histogram_solutions()`,
   exercises: [
     {
-      prompt: 'Implement a function that finds the minimum area rectangle that can encompass all bars in the histogram. The rectangle must fully contain all bars.',
+      prompt:
+        'Implement a function that finds the minimum area rectangle that can encompass all bars in the histogram. The rectangle must fully contain all bars.',
       initialCode: `def minimum_containing_rectangle(heights):
     # Write your solution here
     return 0`,
@@ -2808,7 +2836,8 @@ demonstrate_histogram_solutions()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Given a histogram, find the count of all possible rectangles (width × height) that can be formed using complete bars (not partial heights).',
+      prompt:
+        'Given a histogram, find the count of all possible rectangles (width × height) that can be formed using complete bars (not partial heights).',
       initialCode: `def count_all_rectangles(heights):
     # Write your solution here
     return 0`,
@@ -2828,11 +2857,12 @@ demonstrate_histogram_solutions()`,
     
     return count`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do we add a sentinel value (0) at the end of the heights array in largest_rectangle_area?',
+      question:
+        'Why do we add a sentinel value (0) at the end of the heights array in largest_rectangle_area?',
       options: [
         'To handle edge cases with empty arrays',
         'To force processing of remaining stack elements',
@@ -2849,7 +2879,8 @@ demonstrate_histogram_solutions()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key insight that allows the monotonic stack approach to work efficiently for histogram problems?',
+      question:
+        'What is the key insight that allows the monotonic stack approach to work efficiently for histogram problems?',
       options: [
         'It sorts the heights in ascending order',
         'It maintains boundaries for potential rectangles',
@@ -2860,11 +2891,11 @@ demonstrate_histogram_solutions()`,
       explanations: [
         'Incorrect. Sorting is not part of the solution.',
         'Correct! The stack maintains boundaries of potential rectangles implicitly.',
-        'Incorrect. We don\'t need to calculate all combinations.',
+        "Incorrect. We don't need to calculate all combinations.",
         'Incorrect. The search space reduction is systematic, not random.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -3014,12 +3045,12 @@ def demonstrate_temperature_patterns():
     
     # Demonstrate next warmer days
     warmer_days, warmer_states = analyzer.find_next_warmer_days(temperatures)
-    print("\nAnalyzing next warmer days:")
+    print("Analyzing next warmer days:")
     print(f"Temperatures: {temperatures}")
     print(f"Days until warmer: {warmer_days}")
     
     # Show stack progression for warmer days
-    print("\nStack progression for warmer days:")
+    print("Stack progression for warmer days:")
     for day, (stack, result) in enumerate(warmer_states):
         print(f"Day {day} (Temp: {temperatures[day]}):")
         print(f"Stack: {[(i, temperatures[i]) for i in stack]}")
@@ -3027,19 +3058,20 @@ def demonstrate_temperature_patterns():
     
     # Demonstrate next cooler days
     cooler_days, cooler_states = analyzer.find_next_cooler_days(temperatures)
-    print("\nAnalyzing next cooler days:")
+    print("Analyzing next cooler days:")
     print(f"Days until cooler: {cooler_days}")
     
     # Demonstrate temperature spans
     spans, span_states = analyzer.find_temperature_span(temperatures)
-    print("\nAnalyzing temperature spans:")
+    print("Analyzing temperature spans:")
     print(f"Temperature spans: {spans}")
 
 # Run demonstration
 demonstrate_temperature_patterns()`,
   exercises: [
     {
-      prompt: 'Implement a function that finds the length of the longest streak of strictly increasing temperatures.',
+      prompt:
+        'Implement a function that finds the length of the longest streak of strictly increasing temperatures.',
       initialCode: `def longest_increasing_streak(temperatures):
     # Write your solution here
     return 0`,
@@ -3060,7 +3092,8 @@ demonstrate_temperature_patterns()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Create a function that finds the number of days in the future having at least one day before them with a higher temperature. For example, in [73, 74, 75, 71, 69, 72, 76, 73], days with index 3, 4, 5, and 7 qualify.',
+      prompt:
+        'Create a function that finds the number of days in the future having at least one day before them with a higher temperature. For example, in [73, 74, 75, 71, 69, 72, 76, 73], days with index 3, 4, 5, and 7 qualify.',
       initialCode: `def days_with_higher_before(temperatures):
     # Write your solution here
     return 0`,
@@ -3079,11 +3112,12 @@ demonstrate_temperature_patterns()`,
     
     return count`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do we store indices instead of temperatures in the stack for the daily temperatures problem?',
+      question:
+        'Why do we store indices instead of temperatures in the stack for the daily temperatures problem?',
       options: [
         'To save memory',
         'To calculate day differences',
@@ -3100,7 +3134,8 @@ demonstrate_temperature_patterns()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What determines whether we should use a monotonic increasing or decreasing stack for temperature problems?',
+      question:
+        'What determines whether we should use a monotonic increasing or decreasing stack for temperature problems?',
       options: [
         'The size of the temperature array',
         'Whether we want next warmer or cooler day',
@@ -3109,13 +3144,13 @@ demonstrate_temperature_patterns()`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Array size doesn\'t affect the choice.',
+        "Incorrect. Array size doesn't affect the choice.",
         'Correct! We use decreasing for next warmer and increasing for next cooler.',
-        'Incorrect. Temperature range doesn\'t affect the stack type.',
-        'Incorrect. Duplicates don\'t determine stack type.',
+        "Incorrect. Temperature range doesn't affect the stack type.",
+        "Incorrect. Duplicates don't determine stack type.",
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -3309,27 +3344,28 @@ def demonstrate_min_max_stack():
     
     for price, description in prices:
         stack.push(price)
-        print(f"\nAdded {price} ({description})")
+        print(f"Added {price} ({description})")
         print(f"Current price: \${stack.peek()}")
         print(f"Day's low: \${stack.get_min()}")
         print(f"Day's high: \${stack.get_max()}")
     
-    print("\nRewinding the day (popping prices):")
+    print("Rewinding the day (popping prices):")
     while not stack.is_empty():
         price = stack.pop()
         if not stack.is_empty():
-            print(f"\nAfter removing \${price}")
+            print(f"After removing \${price}")
             print(f"Previous price: \${stack.peek()}")
             print(f"Updated low: \${stack.get_min()}")
             print(f"Updated high: \${stack.get_max()}")
         else:
-            print("\nReached start of day")
+            print("Reached start of day")
 
 # Run demonstration
 demonstrate_min_max_stack()`,
   exercises: [
     {
-      prompt: 'Implement a method in MinMaxStack that returns the current range (difference between maximum and minimum) in O(1) time.',
+      prompt:
+        'Implement a method in MinMaxStack that returns the current range (difference between maximum and minimum) in O(1) time.',
       initialCode: `def get_range(self) -> int:
     # Write your solution here
     return 0`,
@@ -3354,7 +3390,8 @@ demonstrate_min_max_stack()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Implement the augmented element approach for MinMaxStack where each stack element stores its corresponding min and max values.',
+      prompt:
+        'Implement the augmented element approach for MinMaxStack where each stack element stores its corresponding min and max values.',
       initialCode: `class AugmentedMinMaxStack:
     def __init__(self):
         # Write your solution here
@@ -3387,11 +3424,12 @@ demonstrate_min_max_stack()`,
             raise IndexError("Stack is empty")
         return self.stack[-1][2]`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do we need separate min and max stacks instead of just tracking current min/max values?',
+      question:
+        'Why do we need separate min and max stacks instead of just tracking current min/max values?',
       options: [
         'To improve memory efficiency',
         'To handle duplicate values',
@@ -3408,7 +3446,8 @@ demonstrate_min_max_stack()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'When implementing a min/max stack, why do we push to the min_stack when the new value is less than or equal to (≤) the current min, rather than strictly less than (<)?',
+      question:
+        'When implementing a min/max stack, why do we push to the min_stack when the new value is less than or equal to (≤) the current min, rather than strictly less than (<)?',
       options: [
         'To improve performance',
         'To handle empty stack cases',
@@ -3423,7 +3462,7 @@ demonstrate_min_max_stack()`,
         'Incorrect. This might actually use more memory in some cases.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -3588,7 +3627,7 @@ def demonstrate_two_stacks():
     queue = TwoStackQueue()
     
     # Enqueue demonstration
-    print("\nEnqueuing elements: 1, 2, 3")
+    print("Enqueuing elements: 1, 2, 3")
     for i in range(1, 4):
         queue.enqueue(i)
         print(f"Enqueued: {i}")
@@ -3596,19 +3635,19 @@ def demonstrate_two_stacks():
         print(f"Dequeue stack: {queue.dequeue_stack}")
     
     # Dequeue demonstration
-    print("\nDequeuing elements:")
+    print("Dequeuing elements:")
     for _ in range(3):
         value = queue.dequeue()
         print(f"Dequeued: {value}")
         print(f"Enqueue stack: {queue.enqueue_stack}")
         print(f"Dequeue stack: {queue.dequeue_stack}")
     
-    print("\nDemonstrating Browser History:")
+    print("Demonstrating Browser History:")
     browser = BrowserHistory("google.com")
     
     # Simulate browsing
     pages = ["youtube.com", "github.com", "stackoverflow.com"]
-    print("\nVisiting pages:")
+    print("Visiting pages:")
     for page in pages:
         browser.visit(page)
         print(f"Visited: {page}")
@@ -3616,7 +3655,7 @@ def demonstrate_two_stacks():
         print(f"Forward stack: {browser.forward_stack}")
     
     # Demonstrate navigation
-    print("\nNavigating back:")
+    print("Navigating back:")
     for _ in range(2):
         page = browser.back()
         print(f"Current page: {page}")
@@ -3627,7 +3666,8 @@ def demonstrate_two_stacks():
 demonstrate_two_stacks()`,
   exercises: [
     {
-      prompt: 'Implement a stack sorting method using an additional stack. The sorted stack should have the smallest elements on top.',
+      prompt:
+        'Implement a stack sorting method using an additional stack. The sorted stack should have the smallest elements on top.',
       initialCode: `def sort_stack(stack):
     # Write your solution here
     # Return the sorted stack
@@ -3669,7 +3709,8 @@ demonstrate_two_stacks()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a text editor history class that supports typing characters and undo/redo operations using two stacks.',
+      prompt:
+        'Create a text editor history class that supports typing characters and undo/redo operations using two stacks.',
       initialCode: `class TextEditor:
     def __init__(self):
         # Write your solution here
@@ -3719,11 +3760,12 @@ demonstrate_two_stacks()`,
     def get_text(self):
         return self.text`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'In the two-stack queue implementation, why do we only transfer elements when the dequeue stack is empty?',
+      question:
+        'In the two-stack queue implementation, why do we only transfer elements when the dequeue stack is empty?',
       options: [
         'To save memory',
         'To maintain FIFO order',
@@ -3740,7 +3782,8 @@ demonstrate_two_stacks()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key insight that makes the browser history implementation work efficiently?',
+      question:
+        'What is the key insight that makes the browser history implementation work efficiently?',
       options: [
         'Using recursion',
         'Maintaining two separate histories',
@@ -3751,11 +3794,11 @@ demonstrate_two_stacks()`,
       explanations: [
         'Incorrect. The implementation is iterative, not recursive.',
         'Correct! Separate back and forward stacks naturally maintain the correct order for navigation.',
-        'Incorrect. URLs don\'t need to be sorted for navigation.',
+        "Incorrect. URLs don't need to be sorted for navigation.",
         'Incorrect. The implementation focuses on navigation order, not page content.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -3911,7 +3954,7 @@ def demonstrate_stack_sequences():
     invalid_pop_seq = [3, 1, 2]
     
     print("Stack Sequence Validation:")
-    print(f"\nPush sequence: {push_seq}")
+    print(f"Push sequence: {push_seq}")
     print(f"Testing valid sequence {valid_pop_seq}")
     if validator.is_valid_sequence(push_seq, valid_pop_seq):
         steps = validator.explain_sequence(push_seq, valid_pop_seq)
@@ -3919,13 +3962,13 @@ def demonstrate_stack_sequences():
         for step in steps:
             print(f"  {step}")
     
-    print(f"\nTesting invalid sequence {invalid_pop_seq}")
+    print(f"Testing invalid sequence {invalid_pop_seq}")
     if not validator.is_valid_sequence(push_seq, invalid_pop_seq):
         print("Invalid: This sequence cannot be achieved with a stack")
     
     # Demonstrate sequence generation
     small_seq = [1, 2]
-    print(f"\nGenerating all valid sequences for {small_seq}:")
+    print(f"Generating all valid sequences for {small_seq}:")
     valid_sequences = validator.generate_valid_sequences(small_seq)
     for seq in valid_sequences:
         print(f"  {seq}")
@@ -3939,7 +3982,8 @@ def demonstrate_stack_sequences():
 demonstrate_stack_sequences()`,
   exercises: [
     {
-      prompt: 'Implement a function that counts the number of valid stack sequences possible for a given input sequence length n. For example, n=2 has 2 valid sequences, n=3 has 5 valid sequences.',
+      prompt:
+        'Implement a function that counts the number of valid stack sequences possible for a given input sequence length n. For example, n=2 has 2 valid sequences, n=3 has 5 valid sequences.',
       initialCode: `def count_valid_sequences(n):
     # Write your solution here
     return 0`,
@@ -3971,7 +4015,8 @@ demonstrate_stack_sequences()`,
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Create a function that finds the lexicographically smallest valid stack sequence that can be generated from a given input sequence.',
+      prompt:
+        'Create a function that finds the lexicographically smallest valid stack sequence that can be generated from a given input sequence.',
       initialCode: `def find_smallest_valid_sequence(sequence):
     # Write your solution here
     return []`,
@@ -4014,11 +4059,12 @@ demonstrate_stack_sequences()`,
         
     return result`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is the sequence [3, 1, 2] impossible to achieve by pushing [1, 2, 3] through a stack?',
+      question:
+        'Why is the sequence [3, 1, 2] impossible to achieve by pushing [1, 2, 3] through a stack?',
       options: [
         'The stack is not large enough',
         'We cannot access 1 and 2 after pushing 3',
@@ -4035,7 +4081,8 @@ demonstrate_stack_sequences()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What determines whether a sequence can be generated using stack operations?',
+      question:
+        'What determines whether a sequence can be generated using stack operations?',
       options: [
         'The length of the sequence',
         'The presence of ascending numbers',
@@ -4050,7 +4097,7 @@ demonstrate_stack_sequences()`,
         'Incorrect. Uniqueness of elements is not a factor.',
       ],
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 };
 
@@ -4249,7 +4296,7 @@ class TreeTraversal:
     def _print_traversal_state(self, method, values, stack):
         """Helper method to visualize traversal state."""
         stack_vals = [node.val for node in stack]
-        print(f"\n{method} Traversal State:")
+        print(f"{method} Traversal State:")
         print(f"Values processed: {values}")
         print(f"Stack: {stack_vals}")
 
@@ -4276,7 +4323,7 @@ def demonstrate_traversals():
     
     for name, method in methods:
         result = method(tree)
-        print(f"\n{name} Traversal Result: {result}")
+        print(f"{name} Traversal Result: {result}")
         print(f"Expected visiting order: {name}")
         print("  - Inorder:   Left → Root → Right")
         print("  - Preorder:  Root → Left → Right")
@@ -4286,7 +4333,8 @@ def demonstrate_traversals():
 demonstrate_traversals()`,
   exercises: [
     {
-      prompt: 'Implement a function that performs level-order traversal using a single stack (instead of the usual queue approach).',
+      prompt:
+        'Implement a function that performs level-order traversal using a single stack (instead of the usual queue approach).',
       initialCode: `def level_order_with_stack(root):
     # Write your solution here
     return []`,
@@ -4328,7 +4376,8 @@ demonstrate_traversals()`,
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a method that returns true if a binary tree is symmetric around its center using an iterative approach with stack(s).',
+      prompt:
+        'Implement a method that returns true if a binary tree is symmetric around its center using an iterative approach with stack(s).',
       initialCode: `def is_symmetric(root):
     # Write your solution here
     return False`,
@@ -4367,11 +4416,12 @@ demonstrate_traversals()`,
     
     return not stack_left and not stack_right`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is postorder traversal the most challenging to implement iteratively?',
+      question:
+        'Why is postorder traversal the most challenging to implement iteratively?',
       options: [
         'It requires more memory',
         'We need to track when children are processed',
@@ -4388,7 +4438,8 @@ demonstrate_traversals()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'In the iterative inorder traversal, why do we go as far left as possible before processing nodes?',
+      question:
+        'In the iterative inorder traversal, why do we go as far left as possible before processing nodes?',
       options: [
         'To optimize memory usage',
         'To match recursive behavior',
@@ -4403,7 +4454,7 @@ demonstrate_traversals()`,
         'Incorrect. Performance is similar regardless of processing order.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -4615,31 +4666,32 @@ def demonstrate_expression_tree():
     print(f"Postfix: {' '.join(postfix)}")
     
     tree.build_from_postfix(postfix)
-    print("\nExpression Tree:")
+    print("Expression Tree:")
     tree.print_tree()
     
     result = tree.evaluate_iterative()
-    print(f"\nResult: {result}")
+    print(f"Result: {result}")
     
     # Example 2: Expression with parentheses
-    print("\nExample 2: (3 + 4) * 5")
+    print("Example 2: (3 + 4) * 5")
     infix = ['(', '3', '+', '4', ')', '*', '5']
     postfix = tree.infix_to_postfix(infix)
     print(f"Infix: {' '.join(infix)}")
     print(f"Postfix: {' '.join(postfix)}")
     
     tree.build_from_postfix(postfix)
-    print("\nExpression Tree:")
+    print("Expression Tree:")
     tree.print_tree()
     
     result = tree.evaluate_iterative()
-    print(f"\nResult: {result}")
+    print(f"Result: {result}")
 
 # Run demonstration
 demonstrate_expression_tree()`,
   exercises: [
     {
-      prompt: 'Implement a method that validates whether an expression tree represents a valid mathematical expression (proper number of operands for each operator, no invalid operators).',
+      prompt:
+        'Implement a method that validates whether an expression tree represents a valid mathematical expression (proper number of operands for each operator, no invalid operators).',
       initialCode: `def is_valid_expression_tree(root):
     # Write your solution here
     return True`,
@@ -4687,7 +4739,8 @@ demonstrate_expression_tree()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a method that optimizes a constant expression subtree into a single node (e.g., a subtree representing "2 + 3" becomes a single node containing "5").',
+      prompt:
+        'Create a method that optimizes a constant expression subtree into a single node (e.g., a subtree representing "2 + 3" becomes a single node containing "5").',
       initialCode: `def optimize_constants(root):
     # Write your solution here
     return root`,
@@ -4735,16 +4788,17 @@ demonstrate_expression_tree()`,
     
     return root`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do we build expression trees from postfix notation rather than infix notation directly?',
+      question:
+        'Why do we build expression trees from postfix notation rather than infix notation directly?',
       options: [
         'Postfix notation uses less memory',
         'The operator precedence is already resolved',
         'It makes the tree more balanced',
-        'It\'s faster to evaluate',
+        "It's faster to evaluate",
       ],
       correctAnswer: 1,
       explanations: [
@@ -4756,13 +4810,9 @@ demonstrate_expression_tree()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What traversal order does evaluating an expression tree follow?',
-      options: [
-        'Preorder',
-        'Inorder',
-        'Postorder',
-        'Level-order',
-      ],
+      question:
+        'What traversal order does evaluating an expression tree follow?',
+      options: ['Preorder', 'Inorder', 'Postorder', 'Level-order'],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Preorder would process operators before having operand values.',
@@ -4771,7 +4821,7 @@ demonstrate_expression_tree()`,
         'Incorrect. Level-order would not respect operator precedence.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 

@@ -77,10 +77,17 @@ const LessonsSidebar: React.FC<LessonsSidebarProps> = ({
   };
 
   const getSelectedPrioritiesText = () => {
-    const priorityLevelCount = Object.keys(PriorityLevel).length / 2;
-    if (selectedPriorities.size === priorityLevelCount) return 'All priorities';
+    const allPrioritiesCount = Object.values(PriorityLevel).filter(
+      (p): p is PriorityLevel =>
+        typeof p === 'number' && p !== PriorityLevel.Unset,
+    ).length;
+
+    if (selectedPriorities.size === allPrioritiesCount) return 'All priorities';
     if (selectedPriorities.size === 0) return 'No priorities selected';
-    return `${selectedPriorities.size - 1} ${selectedPriorities.size - 1 === 1 ? 'priority' : 'priorities'} selected`;
+
+    return `${selectedPriorities.size} ${
+      selectedPriorities.size === 1 ? 'priority' : 'priorities'
+    } selected`;
   };
 
   const shouldShowTopic = (topic: { priority?: PriorityLevel }) => {

@@ -18,22 +18,12 @@ const LearnTab: React.FC<LearnTabProps> = ({ selectedLesson }) => (
       </div>
     </div>
 
-
     {/* Display Code Example if it exists */}
     {selectedLesson?.codeExample && (
       <div className="mt-8">
         <h4 className="text-xl font-semibold mb-4">Code Example</h4>
-        <div className="rounded-lg overflow-hidden border border-gray-200">
-          <Suspense fallback={<div className="p-4">Loading code example...</div>}>
-            <CodeMirror
-              value={selectedLesson.codeExample}
-              maxHeight="600px"
-              theme="light"
-              extensions={[python()]}
-              readOnly
-              className="text-sm"
-            />
-          </Suspense>
+        <div className="rounded-lg overflow-hidden border border-gray-200 p-4">
+          {renderContent(`\`\`\`python\n${selectedLesson.codeExample}\n\`\`\``)}
         </div>
       </div>
     )}

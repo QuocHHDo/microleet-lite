@@ -1,9 +1,15 @@
-import { Difficulty } from "@/common/commonConcept";
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from "@/common/commonLesson";
+import { Difficulty } from '@/common/commonConcept';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 const trieCurriculum: Curriculum = {
   title: 'Trie Curriculum',
-  description: 'A comprehensive guide to mastering trie data structure and its applications',
+  description:
+    'A comprehensive guide to mastering trie data structure and its applications',
   sections: [
     {
       id: 1,
@@ -12,28 +18,29 @@ const trieCurriculum: Curriculum = {
         {
           id: 'trie-basics',
           title: 'Trie Basics',
-          description: 'Understanding prefix trees, their properties, and time/space complexity analysis',
-          priority: PriorityLevel.Essential
+          description:
+            'Understanding prefix trees, their properties, and time/space complexity analysis',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'trie-implementation',
           title: 'Trie Implementation',
           description: 'Building a basic trie structure and node class',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'trie-operations',
           title: 'Basic Trie Operations',
           description: 'Insert, search, and delete operations with edge cases',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'trie-traversal',
           title: 'Trie Traversal',
           description: 'DFS and BFS traversal techniques for tries',
-          priority: PriorityLevel.Important
-        }
-      ]
+          priority: PriorityLevel.Important,
+        },
+      ],
     },
     {
       id: 2,
@@ -42,22 +49,24 @@ const trieCurriculum: Curriculum = {
         {
           id: 'prefix-matching',
           title: 'Prefix Matching',
-          description: 'Finding words with common prefixes and counting prefix occurrences',
-          priority: PriorityLevel.Essential
+          description:
+            'Finding words with common prefixes and counting prefix occurrences',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'autocomplete',
           title: 'Autocomplete System',
-          description: 'Implementing autocomplete functionality with ranking and suggestions',
-          priority: PriorityLevel.Important
+          description:
+            'Implementing autocomplete functionality with ranking and suggestions',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'word-search',
           title: 'Pattern Search',
           description: 'Implementing wildcard and regex pattern matching',
-          priority: PriorityLevel.Important
-        }
-      ]
+          priority: PriorityLevel.Important,
+        },
+      ],
     },
     {
       id: 3,
@@ -67,15 +76,15 @@ const trieCurriculum: Curriculum = {
           id: 'memory-optimization',
           title: 'Memory Optimization',
           description: 'Compressed tries and memory-efficient implementations',
-          priority: PriorityLevel.Beneficial
+          priority: PriorityLevel.Beneficial,
         },
         {
           id: 'concurrent-tries',
           title: 'Concurrent Tries',
           description: 'Thread-safe trie implementations',
-          priority: PriorityLevel.Optional
-        }
-      ]
+          priority: PriorityLevel.Optional,
+        },
+      ],
     },
     {
       id: 4,
@@ -84,30 +93,32 @@ const trieCurriculum: Curriculum = {
         {
           id: 'spell-checker',
           title: 'Spell Checker',
-          description: 'Building a spell checker using tries with edit distance',
-          priority: PriorityLevel.Beneficial
+          description:
+            'Building a spell checker using tries with edit distance',
+          priority: PriorityLevel.Beneficial,
         },
         {
           id: 'word-break',
           title: 'Word Break Problems',
-          description: 'Solving word break and sentence reconstruction problems',
-          priority: PriorityLevel.Important
+          description:
+            'Solving word break and sentence reconstruction problems',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'xor-problems',
           title: 'XOR Problems',
           description: 'Solving XOR-based problems using binary tries',
-          priority: PriorityLevel.Beneficial
+          priority: PriorityLevel.Beneficial,
         },
         {
           id: 'ip-routing',
           title: 'IP Routing',
           description: 'Using tries for IP address routing tables',
-          priority: PriorityLevel.Optional
-        }
-      ]
-    }
-  ]
+          priority: PriorityLevel.Optional,
+        },
+      ],
+    },
+  ],
 } as const;
 
 const trieBasicsData: LessonContent = {
@@ -202,7 +213,8 @@ root = visualize_trie()
 
   exercises: [
     {
-      prompt: 'Given a trie containing the words ["cat", "car", "card"], write a function that returns True if a given word exists in the trie.',
+      prompt:
+        'Given a trie containing the words ["cat", "car", "card"], write a function that returns True if a given word exists in the trie.',
       initialCode: `class TrieNode:
     def __init__(self):
         self.children = {}
@@ -221,7 +233,8 @@ def search_word(root, word):
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Write a function that returns all words in the trie that start with a given prefix.',
+      prompt:
+        'Write a function that returns all words in the trie that start with a given prefix.',
       initialCode: `def find_words_with_prefix(root, prefix):
     # Write your solution here
     pass`,
@@ -245,12 +258,13 @@ def search_word(root, word):
     collect_words(node, prefix)
     return words`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'What is the primary advantage of using a trie over a hash table for string storage?',
+      question:
+        'What is the primary advantage of using a trie over a hash table for string storage?',
       options: [
         'Tries use less memory',
         'Tries support prefix matching more efficiently',
@@ -267,7 +281,8 @@ def search_word(root, word):
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the time complexity of searching for a word of length m in a trie?',
+      question:
+        'What is the time complexity of searching for a word of length m in a trie?',
       options: [
         'O(1)',
         'O(log m)',
@@ -282,10 +297,10 @@ def search_word(root, word):
         'Incorrect. Search time depends on word length, not total words.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
-  
+
 const trieImplementationData: LessonContent = {
   title: 'Implementing a Trie Data Structure',
   content: `<p>
@@ -402,7 +417,8 @@ class Trie:
 
   exercises: [
     {
-      prompt: 'Implement a method count_words_with_prefix(prefix) that returns the number of words in the trie that start with the given prefix.',
+      prompt:
+        'Implement a method count_words_with_prefix(prefix) that returns the number of words in the trie that start with the given prefix.',
       initialCode: `def count_words_with_prefix(self, prefix):
     # Write your solution here
     pass`,
@@ -425,7 +441,8 @@ class Trie:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a method get_longest_word() that returns the longest word stored in the trie.',
+      prompt:
+        'Implement a method get_longest_word() that returns the longest word stored in the trie.',
       initialCode: `def get_longest_word(self):
     # Write your solution here
     pass`,
@@ -443,12 +460,13 @@ class Trie:
     dfs(self.root, "")
     return longest_word`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'Which data structure is most appropriate for storing child nodes in a TrieNode for an English dictionary?',
+      question:
+        'Which data structure is most appropriate for storing child nodes in a TrieNode for an English dictionary?',
       options: [
         'A linked list of 26 nodes',
         'A hash map (dictionary)',
@@ -480,10 +498,10 @@ class Trie:
         'Incorrect. The root node is typically not marked as an end.',
       ],
       difficulty: Difficulty.Beginner,
-    }
-  ]
+    },
+  ],
 };
-  
+
 const trieOperationsData: LessonContent = {
   title: 'Understanding Basic Trie Operations',
   content: `<p>
@@ -657,7 +675,8 @@ class Trie:
 
   exercises: [
     {
-      prompt: 'Implement a method that returns all words in the trie that match a given pattern, where "?" can match any single character. For example, pattern "c?t" should match "cat", "cot", etc.',
+      prompt:
+        'Implement a method that returns all words in the trie that match a given pattern, where "?" can match any single character. For example, pattern "c?t" should match "cat", "cot", etc.',
       initialCode: `def pattern_search(self, pattern: str) -> List[str]:
     # Write your solution here
     pass`,
@@ -684,7 +703,8 @@ class Trie:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a method to find the longest common prefix among all words in the trie.',
+      prompt:
+        'Implement a method to find the longest common prefix among all words in the trie.',
       initialCode: `def longest_common_prefix(self) -> str:
     # Write your solution here
     pass`,
@@ -703,12 +723,13 @@ class Trie:
     
     return "".join(prefix)`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'When deleting a word from a trie, which nodes should be removed if the word shares a prefix with another word?',
+      question:
+        'When deleting a word from a trie, which nodes should be removed if the word shares a prefix with another word?',
       options: [
         'All nodes of the word',
         'Only the last node',
@@ -725,11 +746,12 @@ class Trie:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key difference between exact word search and prefix search in a trie?',
+      question:
+        'What is the key difference between exact word search and prefix search in a trie?',
       options: [
         'Prefix search is faster',
         'Exact search requires more memory',
-        'Prefix search doesn\'t check the is_end flag',
+        "Prefix search doesn't check the is_end flag",
         'Exact search uses different nodes',
       ],
       correctAnswer: 2,
@@ -740,8 +762,8 @@ class Trie:
         'Incorrect. Both operations use the same trie structure.',
       ],
       difficulty: Difficulty.Beginner,
-    }
-  ]
+    },
+  ],
 };
 
 const trieTraversalData: LessonContent = {
@@ -976,7 +998,8 @@ def find_words_by_pattern(self, pattern: str) -> List[str]:
 
   exercises: [
     {
-      prompt: 'Implement a method that uses DFS to find the longest word chain in the trie where each word differs by one character from the previous word. For example: "cat" -> "hat" -> "hot" -> "dot".',
+      prompt:
+        'Implement a method that uses DFS to find the longest word chain in the trie where each word differs by one character from the previous word. For example: "cat" -> "hat" -> "hot" -> "dot".',
       initialCode: `def find_longest_word_chain(self, start_word: str) -> List[str]:
     # Write your solution here
     pass`,
@@ -1011,7 +1034,8 @@ def find_words_by_pattern(self, pattern: str) -> List[str]:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a method using BFS to find all pairs of words that are anagrams of each other in the trie.',
+      prompt:
+        'Implement a method using BFS to find all pairs of words that are anagrams of each other in the trie.',
       initialCode: `def find_anagram_pairs(self) -> List[Tuple[str, str]]:
     # Write your solution here
     pass`,
@@ -1042,12 +1066,13 @@ def find_words_by_pattern(self, pattern: str) -> List[str]:
     
     return sorted(pairs)`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'Why might you choose BFS over DFS when implementing an autocomplete feature?',
+      question:
+        'Why might you choose BFS over DFS when implementing an autocomplete feature?',
       options: [
         'BFS is always faster than DFS',
         'BFS finds shorter words first, which are often better suggestions',
@@ -1064,7 +1089,8 @@ def find_words_by_pattern(self, pattern: str) -> List[str]:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the space complexity of finding all words in a trie matching a pattern with wildcards using DFS?',
+      question:
+        'What is the space complexity of finding all words in a trie matching a pattern with wildcards using DFS?',
       options: [
         'O(1) - constant space',
         'O(h) where h is the trie height',
@@ -1075,12 +1101,12 @@ def find_words_by_pattern(self, pattern: str) -> List[str]:
       explanations: [
         'Incorrect. We need space for recursion stack.',
         'Correct! The space complexity is determined by the maximum recursion depth, which is the trie height.',
-        'Incorrect. We don\'t need space proportional to all nodes.',
-        'Incorrect. Matching words are part of the output, not the algorithm\'s working space.',
+        "Incorrect. We don't need space proportional to all nodes.",
+        "Incorrect. Matching words are part of the output, not the algorithm's working space.",
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const prefixMatchingData: LessonContent = {
@@ -1275,7 +1301,8 @@ For large-scale prefix matching systems, consider these optimizations:
 
   exercises: [
     {
-      prompt: 'Implement a method that finds pairs of words where one is a prefix of another, sorted by the length of the prefix.',
+      prompt:
+        'Implement a method that finds pairs of words where one is a prefix of another, sorted by the length of the prefix.',
       initialCode: `def find_prefix_pairs(self) -> List[Tuple[str, str]]:
     # Write your solution here
     pass`,
@@ -1313,7 +1340,8 @@ For large-scale prefix matching systems, consider these optimizations:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a method that finds the shortest unique prefix for each word in the trie.',
+      prompt:
+        'Implement a method that finds the shortest unique prefix for each word in the trie.',
       initialCode: `def find_unique_prefixes(self) -> Dict[str, str]:
     # Write your solution here
     pass`,
@@ -1358,12 +1386,13 @@ For large-scale prefix matching systems, consider these optimizations:
     collect_words(self.root, "")
     return result`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'What is the most efficient way to count how many words share a given prefix in a trie?',
+      question:
+        'What is the most efficient way to count how many words share a given prefix in a trie?',
       options: [
         'Traverse the entire trie counting matches',
         'Use DFS from the prefix node',
@@ -1375,12 +1404,13 @@ For large-scale prefix matching systems, consider these optimizations:
         'Incorrect. This is unnecessarily inefficient.',
         'Incorrect. This is better than full traversal but still not optimal.',
         'Correct! Maintaining a cache of prefix counts provides O(1) lookup time.',
-        'Incorrect. Binary search doesn\'t efficiently handle prefixes.',
+        "Incorrect. Binary search doesn't efficiently handle prefixes.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When finding the longest common prefix among all words, why might we stop when we encounter a node with multiple children?',
+      question:
+        'When finding the longest common prefix among all words, why might we stop when we encounter a node with multiple children?',
       options: [
         'To save memory',
         'Because it indicates a branching point where words differ',
@@ -1389,16 +1419,16 @@ For large-scale prefix matching systems, consider these optimizations:
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Memory usage isn\'t relevant to this decision.',
+        "Incorrect. Memory usage isn't relevant to this decision.",
         'Correct! Multiple children mean words diverge at this point, ending the common prefix.',
-        'Incorrect. While it may be faster, this isn\'t the main reason.',
+        "Incorrect. While it may be faster, this isn't the main reason.",
         'Incorrect. Multiple children are normal in a trie.',
       ],
       difficulty: Difficulty.Beginner,
-    }
-  ]
+    },
+  ],
 };
-  
+
 const autocompleteSystemData: LessonContent = {
   title: 'Building an Intelligent Autocomplete System',
   content: `<p>
@@ -1626,7 +1656,8 @@ Robust autocomplete systems must handle:
 
   exercises: [
     {
-      prompt: 'Implement a method that suggests corrections for misspelled words by finding the closest matches in the autocomplete system.',
+      prompt:
+        'Implement a method that suggests corrections for misspelled words by finding the closest matches in the autocomplete system.',
       initialCode: `def suggest_corrections(self, word: str, max_suggestions: int = 3) -> List[Tuple[str, float]]:
     # Write your solution here
     pass`,
@@ -1687,7 +1718,8 @@ Robust autocomplete systems must handle:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a method that suggests word completions based on both the current word and the previous word (context-aware autocomplete).',
+      prompt:
+        'Implement a method that suggests word completions based on both the current word and the previous word (context-aware autocomplete).',
       initialCode: `def context_aware_suggestions(self, current_prefix: str, previous_word: str = None) -> List[Tuple[str, float]]:
     # Write your solution here
     pass`,
@@ -1734,12 +1766,13 @@ Robust autocomplete systems must handle:
     adjusted_suggestions.sort(key=lambda x: (-x[1], x[0]))
     return adjusted_suggestions[:self.max_suggestions]`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'Why might we want to apply a length penalty to autocomplete suggestions?',
+      question:
+        'Why might we want to apply a length penalty to autocomplete suggestions?',
       options: [
         'To save memory',
         'Because shorter words are typed faster',
@@ -1766,15 +1799,15 @@ Robust autocomplete systems must handle:
       correctAnswer: 2,
       explanations: [
         'Incorrect. Caching actually uses more memory.',
-        'Incorrect. Caching doesn\'t affect suggestion accuracy.',
+        "Incorrect. Caching doesn't affect suggestion accuracy.",
         'Correct! Caching provides instant results for frequently requested prefixes.',
         'Incorrect. Ranking is independent of caching.',
       ],
       difficulty: Difficulty.Beginner,
-    }
-  ]
+    },
+  ],
 };
-  
+
 const patternSearchData: LessonContent = {
   title: 'Advanced Pattern Matching in Tries',
   content: `<p>
@@ -1969,7 +2002,8 @@ Different pattern types require different matching strategies:
 
   exercises: [
     {
-      prompt: 'Implement a method that finds all words matching a given pattern where "." matches any vowel and "#" matches any consonant.',
+      prompt:
+        'Implement a method that finds all words matching a given pattern where "." matches any vowel and "#" matches any consonant.',
       initialCode: `def find_words_vowel_consonant(self, pattern: str) -> List[str]:
     # Write your solution here
     pass`,
@@ -2003,7 +2037,8 @@ Different pattern types require different matching strategies:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a method that finds all palindromic words in the trie that match a given pattern.',
+      prompt:
+        'Implement a method that finds all palindromic words in the trie that match a given pattern.',
       initialCode: `def find_palindrome_patterns(self, pattern: str) -> List[str]:
     # Write your solution here
     pass`,
@@ -2043,12 +2078,13 @@ Different pattern types require different matching strategies:
     match_palindrome(self.root, pattern, "", 0)
     return sorted(matches)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'What is the time complexity of pattern matching with multiple "*" wildcards?',
+      question:
+        'What is the time complexity of pattern matching with multiple "*" wildcards?',
       options: [
         'O(N) where N is the number of nodes',
         'O(N*M) where M is pattern length',
@@ -2060,12 +2096,13 @@ Different pattern types require different matching strategies:
         'Incorrect. Multiple wildcards require exploring multiple paths.',
         'Incorrect. This is the complexity for simple pattern matching.',
         'Correct! Each wildcard can match multiple positions, multiplying complexity.',
-        'Incorrect. While exponential behavior is possible, it\'s bounded by trie structure.',
+        "Incorrect. While exponential behavior is possible, it's bounded by trie structure.",
       ],
       difficulty: Difficulty.Advanced,
     },
     {
-      question: 'Why might we want to implement early termination in pattern matching?',
+      question:
+        'Why might we want to implement early termination in pattern matching?',
       options: [
         'To save memory',
         'To prune impossible matches early',
@@ -2076,14 +2113,14 @@ Different pattern types require different matching strategies:
       explanations: [
         'Incorrect. Early termination primarily affects time, not space.',
         'Correct! Early termination avoids exploring paths that cannot lead to valid matches.',
-        'Incorrect. Early termination doesn\'t affect accuracy.',
+        "Incorrect. Early termination doesn't affect accuracy.",
         'Incorrect. Early termination often makes code more complex.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
-  
+
 const memoryOptimizationData: LessonContent = {
   title: 'Memory-Efficient Trie Implementations',
   content: `<p>
@@ -2315,7 +2352,8 @@ class BitPackedTrie:
 
   exercises: [
     {
-      prompt: 'Implement a memory-efficient method to store and retrieve prefix frequencies (how often each prefix appears) in the compressed trie.',
+      prompt:
+        'Implement a memory-efficient method to store and retrieve prefix frequencies (how often each prefix appears) in the compressed trie.',
       initialCode: `def update_prefix_counts(self, word: str) -> None:
     # Write your solution here
     pass
@@ -2384,7 +2422,8 @@ def get_prefix_frequency(self, prefix: str) -> int:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a method to compress a standard trie into a bit-packed representation for lowercase ASCII strings.',
+      prompt:
+        'Implement a method to compress a standard trie into a bit-packed representation for lowercase ASCII strings.',
       initialCode: `def compress_trie(standard_trie) -> BitPackedTrie:
     # Write your solution here
     pass`,
@@ -2410,12 +2449,13 @@ def get_prefix_frequency(self, prefix: str) -> int:
     
     return packed`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'What is the primary advantage of using path compression in a trie?',
+      question:
+        'What is the primary advantage of using path compression in a trie?',
       options: [
         'Faster search operations',
         'Reduced memory usage for long strings',
@@ -2432,7 +2472,8 @@ def get_prefix_frequency(self, prefix: str) -> int:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Why might you choose a bit-packed trie over a compressed trie?',
+      question:
+        'Why might you choose a bit-packed trie over a compressed trie?',
       options: [
         'For storing unicode strings',
         'For better insertion performance',
@@ -2447,8 +2488,8 @@ def get_prefix_frequency(self, prefix: str) -> int:
         'Incorrect. Bit-packed tries are more complex to implement.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const concurrentTriesData: LessonContent = {
@@ -2717,7 +2758,8 @@ class LockFreeTrie:
 
   exercises: [
     {
-      prompt: 'Implement a thread-safe method that efficiently counts all words in the trie that share a given prefix.',
+      prompt:
+        'Implement a thread-safe method that efficiently counts all words in the trie that share a given prefix.',
       initialCode: `def count_prefix(self, prefix: str) -> int:
     # Write your solution here
     pass`,
@@ -2766,7 +2808,8 @@ class LockFreeTrie:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a concurrent method that finds the longest common prefix among all words in the trie.',
+      prompt:
+        'Implement a concurrent method that finds the longest common prefix among all words in the trie.',
       initialCode: `def longest_common_prefix(self) -> str:
     # Write your solution here
     pass`,
@@ -2807,12 +2850,13 @@ class LockFreeTrie:
         # Root changed, try again
         prefix.clear()`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'Why might hand-over-hand locking be preferred over a single global lock for a concurrent trie?',
+      question:
+        'Why might hand-over-hand locking be preferred over a single global lock for a concurrent trie?',
       options: [
         'It uses less memory',
         'It allows concurrent operations on different paths',
@@ -2829,7 +2873,8 @@ class LockFreeTrie:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the main advantage of using a lock-free trie implementation?',
+      question:
+        'What is the main advantage of using a lock-free trie implementation?',
       options: [
         'Simpler implementation',
         'Lower memory usage',
@@ -2844,8 +2889,8 @@ class LockFreeTrie:
         'Incorrect. Single-threaded performance might be slower due to overhead.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const spellCheckerData: LessonContent = {
@@ -3062,7 +3107,8 @@ class SpellChecker:
 
   exercises: [
     {
-      prompt: 'Implement a method that finds all words in the dictionary that could be phonetically similar to a given word using Soundex algorithm.',
+      prompt:
+        'Implement a method that finds all words in the dictionary that could be phonetically similar to a given word using Soundex algorithm.',
       initialCode: `def find_phonetic_matches(self, word: str) -> List[str]:
     # Write your solution here
     pass`,
@@ -3113,7 +3159,8 @@ class SpellChecker:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a method that generates common typo variations of a word based on keyboard layout analysis.',
+      prompt:
+        'Implement a method that generates common typo variations of a word based on keyboard layout analysis.',
       initialCode: `def generate_typos(self, word: str) -> List[str]:
     # Write your solution here
     pass`,
@@ -3151,12 +3198,13 @@ class SpellChecker:
     # Filter to only include valid dictionary words
     return [t for t in typos if self.is_word(t)]`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'Why might keyboard distance be a useful factor in ranking spelling suggestions?',
+      question:
+        'Why might keyboard distance be a useful factor in ranking spelling suggestions?',
       options: [
         'It makes the algorithm faster',
         'It helps identify common typing mistakes',
@@ -3173,7 +3221,8 @@ class SpellChecker:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the main advantage of using phonetic matching in a spell checker?',
+      question:
+        'What is the main advantage of using phonetic matching in a spell checker?',
       options: [
         'Faster processing speed',
         'Lower memory usage',
@@ -3188,10 +3237,10 @@ class SpellChecker:
         'Incorrect. Keyboard analysis is better for typing mistakes.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
-  
+
 const wordBreakData: LessonContent = {
   title: 'Understanding and Solving Word Break Problems',
   content: `<p>
@@ -3419,7 +3468,8 @@ class WordBreakSolver:
 
   exercises: [
     {
-      prompt: 'Implement a method that finds the word break that minimizes the total number of words while preferring longer words when there are multiple solutions with the same word count.',
+      prompt:
+        'Implement a method that finds the word break that minimizes the total number of words while preferring longer words when there are multiple solutions with the same word count.',
       initialCode: `def find_minimal_break(self, s: str) -> str:
     # Write your solution here
     pass`,
@@ -3463,7 +3513,8 @@ class WordBreakSolver:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a method that finds all possible word breaks where each segment is a valid palindrome (the segment itself reads the same forwards and backwards) in the dictionary.',
+      prompt:
+        'Implement a method that finds all possible word breaks where each segment is a valid palindrome (the segment itself reads the same forwards and backwards) in the dictionary.',
       initialCode: `def find_palindrome_breaks(self, s: str) -> List[str]:
     # Write your solution here
     pass`,
@@ -3503,12 +3554,13 @@ class WordBreakSolver:
     backtrack(0, [])
     return results`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'Why is dynamic programming particularly effective for the basic word break problem?',
+      question:
+        'Why is dynamic programming particularly effective for the basic word break problem?',
       options: [
         'It uses less memory than other approaches',
         'It avoids redundant computations of subproblems',
@@ -3520,12 +3572,13 @@ class WordBreakSolver:
         'Incorrect. DP often uses more memory to store subproblem results.',
         'Correct! DP stores results of subproblems to avoid recomputing them, significantly improving performance.',
         'Incorrect. The effectiveness of DP is independent of using tries.',
-        'Incorrect. Word length doesn\'t significantly impact DP\'s effectiveness.',
+        "Incorrect. Word length doesn't significantly impact DP's effectiveness.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the main advantage of using a trie for word break problems?',
+      question:
+        'What is the main advantage of using a trie for word break problems?',
       options: [
         'Reduces memory usage',
         'Enables faster string comparison',
@@ -3535,13 +3588,13 @@ class WordBreakSolver:
       correctAnswer: 2,
       explanations: [
         'Incorrect. Tries often use more memory than simple hash sets.',
-        'Incorrect. String comparison isn\'t the main bottleneck.',
+        "Incorrect. String comparison isn't the main bottleneck.",
         'Correct! Tries let us quickly identify when a prefix cannot form a valid word, avoiding unnecessary exploration.',
         'Incorrect. Trie implementations are often more complex.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const xorProblemsData: LessonContent = {
@@ -3752,7 +3805,8 @@ class XORTrie:
 
   exercises: [
     {
-      prompt: "Implement a method that finds all pairs of numbers in the trie whose XOR value equals a given target.",
+      prompt:
+        'Implement a method that finds all pairs of numbers in the trie whose XOR value equals a given target.',
       initialCode: `def find_xor_pairs(self, target: int) -> List[Tuple[int, int]]:
     # Write your solution here
     pass`,
@@ -3788,7 +3842,8 @@ class XORTrie:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: "Implement a method that finds the kth smallest XOR value among all possible pairs of numbers in the trie.",
+      prompt:
+        'Implement a method that finds the kth smallest XOR value among all possible pairs of numbers in the trie.',
       initialCode: `def kth_smallest_xor(self, k: int) -> int:
     # Write your solution here
     pass`,
@@ -3829,12 +3884,13 @@ class XORTrie:
         
     return heap[0][0] if heap else 0`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'Why is a binary trie particularly efficient for finding maximum XOR pairs?',
+      question:
+        'Why is a binary trie particularly efficient for finding maximum XOR pairs?',
       options: [
         'It uses less memory than other data structures',
         'It can process numbers in parallel',
@@ -3851,7 +3907,8 @@ class XORTrie:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the time complexity advantage of using a binary trie for maximum XOR pair finding compared to the naive approach?',
+      question:
+        'What is the time complexity advantage of using a binary trie for maximum XOR pair finding compared to the naive approach?',
       options: [
         'Reduces from O(N²) to O(N log M)',
         'Reduces from O(N log N) to O(N)',
@@ -3866,8 +3923,8 @@ class XORTrie:
         'Incorrect. The trie approach is O(N log M), not O(N).',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const ipRoutingData: LessonContent = {
@@ -4103,7 +4160,8 @@ class IPRoutingTrie:
 
   exercises: [
     {
-      prompt: 'Implement a method that finds all routes that would be affected if a given network link (router interface) fails.',
+      prompt:
+        'Implement a method that finds all routes that would be affected if a given network link (router interface) fails.',
       initialCode: `def find_affected_routes(self, interface: str) -> List[str]:
     # Write your solution here
     pass`,
@@ -4137,7 +4195,8 @@ class IPRoutingTrie:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a method that suggests route optimizations by identifying overlapping routes that could be summarized.',
+      prompt:
+        'Implement a method that suggests route optimizations by identifying overlapping routes that could be summarized.',
       initialCode: `def find_summarizable_routes(self) -> List[Tuple[List[str], str]]:
     # Write your solution here
     pass`,
@@ -4184,7 +4243,7 @@ class IPRoutingTrie:
             
     return suggestions`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 
   quizzes: [
@@ -4200,13 +4259,14 @@ class IPRoutingTrie:
       explanations: [
         'Incorrect. Prefix matching is about route selection, not memory usage.',
         'Correct! Longest prefix matching ensures packets follow the most specific available route to their destination.',
-        'Incorrect. While tries make it efficient, this isn\'t the main benefit.',
+        "Incorrect. While tries make it efficient, this isn't the main benefit.",
         'Incorrect. Congestion depends on network traffic, not routing rules.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the main advantage of using a trie for IP routing table implementation?',
+      question:
+        'What is the main advantage of using a trie for IP routing table implementation?',
       options: [
         'Reduced memory usage compared to hash tables',
         'Support for hierarchical network structures',
@@ -4221,27 +4281,26 @@ class IPRoutingTrie:
         'Incorrect. Load balancing is handled at a different layer.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
-  const trieLessons: Record<string, LessonContent> = {
-    'trie-basics': trieBasicsData,
-    'trie-implementation': trieImplementationData,
-    'trie-operations': trieOperationsData,
-    'trie-traversal': trieTraversalData,
-    'prefix-matching': prefixMatchingData,
-    'autocomplete': autocompleteSystemData,
-    'word-search': patternSearchData,
-    'memory-optimization': memoryOptimizationData,
-    'concurrent-tries': concurrentTriesData,
-    'spell-checker': spellCheckerData,
-    'word-break': wordBreakData,
-    'xor-problems': xorProblemsData,
-    'ip-routing': ipRoutingData,
-
-  }
+const trieLessons: Record<string, LessonContent> = {
+  'trie-basics': trieBasicsData,
+  'trie-implementation': trieImplementationData,
+  'trie-operations': trieOperationsData,
+  'trie-traversal': trieTraversalData,
+  'prefix-matching': prefixMatchingData,
+  autocomplete: autocompleteSystemData,
+  'word-search': patternSearchData,
+  'memory-optimization': memoryOptimizationData,
+  'concurrent-tries': concurrentTriesData,
+  'spell-checker': spellCheckerData,
+  'word-break': wordBreakData,
+  'xor-problems': xorProblemsData,
+  'ip-routing': ipRoutingData,
+};
 export const trieLessonsTab: LessonsTab = {
-    curriculum: trieCurriculum,
-    lessons: trieLessons
-}
+  curriculum: trieCurriculum,
+  lessons: trieLessons,
+};
