@@ -8,7 +8,7 @@ export enum OperationTypes {
   Access = 'access',
   Modify = 'modify',
   Search = 'search',
-  Utility = 'utility'
+  Utility = 'utility',
 }
 export interface CheatSheetItem {
   label: string;

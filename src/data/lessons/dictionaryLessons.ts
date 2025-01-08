@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 const dictionaryCurriculum: Curriculum = {
   title: 'Dictionary/Hash Map Curriculum',
@@ -13,20 +18,21 @@ const dictionaryCurriculum: Curriculum = {
         {
           id: 'dict-basics',
           title: 'Dictionary Basics',
-          description: 'Understanding key-value pairs and dictionary properties',
-          priority: PriorityLevel.Essential
+          description:
+            'Understanding key-value pairs and dictionary properties',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'dict-creation',
           title: 'Creating Dictionaries',
           description: 'Different ways to initialize and create dictionaries',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'dict-vs-others',
           title: 'Dictionaries vs Other Data Structures',
           description: 'When to use dictionaries vs lists, sets, and arrays',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
       ],
     },
@@ -38,25 +44,26 @@ const dictionaryCurriculum: Curriculum = {
           id: 'key-operations',
           title: 'Key Operations',
           description: 'Adding, accessing, updating, and deleting keys',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'dict-methods',
           title: 'Dictionary Methods',
-          description: 'Using get(), update(), pop(), clear(), and other methods',
-          priority: PriorityLevel.Essential
+          description:
+            'Using get(), update(), pop(), clear(), and other methods',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'key-existence',
           title: 'Key Existence Checking',
           description: 'Different ways to check for key presence',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'dict-iteration',
           title: 'Dictionary Iteration',
           description: 'Iterating over keys, values, and items',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
       ],
     },
@@ -68,19 +75,19 @@ const dictionaryCurriculum: Curriculum = {
           id: 'dict-comprehension',
           title: 'Dictionary Comprehension',
           description: 'Creating dictionaries using comprehension syntax',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'filtering-dict',
           title: 'Filtering Dictionaries',
           description: 'Techniques for filtering dictionary entries',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'transforming-dict',
           title: 'Transforming Dictionaries',
           description: 'Mapping and transforming dictionary contents',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
       ],
     },
@@ -91,20 +98,21 @@ const dictionaryCurriculum: Curriculum = {
         {
           id: 'frequency-counter',
           title: 'Frequency Counter Pattern',
-          description: 'Using dictionaries to count occurrences - a crucial interview pattern',
-          priority: PriorityLevel.Essential
+          description:
+            'Using dictionaries to count occurrences - a crucial interview pattern',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'grouping-pattern',
           title: 'Grouping Pattern',
           description: 'Grouping elements by common properties',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'caching-pattern',
           title: 'Caching Pattern',
           description: 'Using dictionaries for memoization and caching',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
       ],
     },
@@ -116,19 +124,19 @@ const dictionaryCurriculum: Curriculum = {
           id: 'nested-dict',
           title: 'Nested Dictionaries',
           description: 'Working with multi-level dictionaries',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'default-dict',
           title: 'DefaultDict',
           description: 'Using collections.defaultdict for cleaner code',
-          priority: PriorityLevel.Beneficial
+          priority: PriorityLevel.Beneficial,
         },
         {
           id: 'counter-class',
           title: 'Counter Class',
           description: 'Using collections.Counter for efficient counting',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
       ],
     },
@@ -140,19 +148,19 @@ const dictionaryCurriculum: Curriculum = {
           id: 'hash-function',
           title: 'Hash Functions',
           description: 'Understanding hash functions and their properties',
-          priority: PriorityLevel.Beneficial
+          priority: PriorityLevel.Beneficial,
         },
         {
           id: 'collision-handling',
           title: 'Collision Resolution',
           description: 'Techniques for handling hash collisions',
-          priority: PriorityLevel.Beneficial
+          priority: PriorityLevel.Beneficial,
         },
         {
           id: 'time-space-complexity',
           title: 'Time/Space Complexity Analysis',
           description: 'Understanding complexity of different operations',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
       ],
     },
@@ -164,19 +172,19 @@ const dictionaryCurriculum: Curriculum = {
           id: 'two-sum-pattern',
           title: 'Two Sum Pattern',
           description: 'Using dictionaries for pair finding problems',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'subarray-sum',
           title: 'Subarray Sum Pattern',
           description: 'Finding subarrays with target sums',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'isomorphic-pattern',
           title: 'String Pattern Problems',
           description: 'Solving isomorphic strings and pattern matching',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
       ],
     },
@@ -188,19 +196,19 @@ const dictionaryCurriculum: Curriculum = {
           id: 'lru-cache',
           title: 'LRU Cache Implementation',
           description: 'Building an LRU cache using dictionaries',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'graph-representation',
           title: 'Graph Representation',
           description: 'Using dictionaries for graph problems',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'trie-implementation',
           title: 'Trie Implementation',
           description: 'Implementing tries using dictionaries',
-          priority: PriorityLevel.Beneficial
+          priority: PriorityLevel.Beneficial,
         },
       ],
     },
@@ -212,19 +220,19 @@ const dictionaryCurriculum: Curriculum = {
           id: 'sliding-window',
           title: 'Sliding Window with Dictionaries',
           description: 'Using dictionaries in sliding window problems',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'anagram-problems',
           title: 'Anagram and Permutation',
           description: 'Solving string permutation problems',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'array-operations',
           title: 'Array Operations with Dictionaries',
           description: 'Solving array intersection/union problems efficiently',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
       ],
     },
@@ -300,7 +308,8 @@ print(f"Removed {removed_number}")
 print(f"Updated phone book: {phone_book}")`,
   exercises: [
     {
-      prompt: 'Create a dictionary of three students with their ages. Then update one student\'s age and add a new student.',
+      prompt:
+        "Create a dictionary of three students with their ages. Then update one student's age and add a new student.",
       initialCode: `# Write your solution here
 students = `,
       solution: `students = {
@@ -313,7 +322,8 @@ students["Sarah"] = 18  # Add new student`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Create a dictionary of fruits and their quantities. Remove one fruit and print a message if a searched fruit is not found using .get()',
+      prompt:
+        'Create a dictionary of fruits and their quantities. Remove one fruit and print a message if a searched fruit is not found using .get()',
       initialCode: `# Write your solution here
 fruits = `,
       solution: `fruits = {
@@ -325,17 +335,13 @@ del fruits["banana"]
 missing_fruit = fruits.get("grape", "Fruit not in stock")
 print(missing_fruit)`,
       difficulty: Difficulty.Beginner,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the time complexity of accessing a value in a dictionary using its key?',
-      options: [
-        'O(n)',
-        'O(1)',
-        'O(log n)',
-        'O(n²)',
-      ],
+      question:
+        'What is the time complexity of accessing a value in a dictionary using its key?',
+      options: ['O(n)', 'O(1)', 'O(log n)', 'O(n²)'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Dictionary key access is constant time in average case.',
@@ -347,12 +353,7 @@ print(missing_fruit)`,
     },
     {
       question: 'Which of the following cannot be used as a dictionary key?',
-      options: [
-        'String',
-        'Integer',
-        'List',
-        'Tuple',
-      ],
+      options: ['String', 'Integer', 'List', 'Tuple'],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Strings are immutable and can be dictionary keys.',
@@ -361,8 +362,8 @@ print(missing_fruit)`,
         'Incorrect. Tuples are immutable and can be dictionary keys.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const dictCreationData = {
@@ -441,14 +442,16 @@ nested = {
 }`,
   exercises: [
     {
-      prompt: 'Create a dictionary using dictionary comprehension that contains numbers 1-5 as keys and their cubes as values.',
+      prompt:
+        'Create a dictionary using dictionary comprehension that contains numbers 1-5 as keys and their cubes as values.',
       initialCode: `# Write your solution here
 cubes = `,
       solution: `cubes = {num: num**3 for num in range(1, 6)}`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a dictionary of five countries and their capitals using three different creation methods.',
+      prompt:
+        'Create a dictionary of five countries and their capitals using three different creation methods.',
       initialCode: `# Write your solution here
 # Method 1: Literal notation
 countries1 = 
@@ -480,11 +483,12 @@ countries2 = dict(country_pairs)
 # Method 3: fromkeys with default value
 countries3 = dict.fromkeys(["France", "Germany", "Italy", "Spain", "UK"], "Unknown")`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Which dictionary creation method is most appropriate when you need to create a dictionary with the same value for multiple keys?',
+      question:
+        'Which dictionary creation method is most appropriate when you need to create a dictionary with the same value for multiple keys?',
       options: [
         'Dictionary comprehension',
         'Literal notation',
@@ -495,7 +499,7 @@ countries3 = dict.fromkeys(["France", "Germany", "Italy", "Spain", "UK"], "Unkno
       explanations: [
         'Incorrect. Dictionary comprehension is better for transforming values.',
         'Incorrect. Literal notation would be repetitive for same values.',
-        'Incorrect. Dict constructor wouldn\'t be as efficient for this case.',
+        "Incorrect. Dict constructor wouldn't be as efficient for this case.",
         'Correct! fromkeys() is designed specifically for creating dictionaries with the same value for multiple keys.',
       ],
       difficulty: Difficulty.Beginner,
@@ -516,8 +520,8 @@ countries3 = dict.fromkeys(["France", "Germany", "Italy", "Spain", "UK"], "Unkno
         'Incorrect. This would be dict.fromkeys(range(3), 2).',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const dictVsOthersData = {
@@ -649,7 +653,8 @@ print(f"Mean: {mean}")`,
 
   exercises: [
     {
-      prompt: 'Create three different data structures (dictionary, list, and set) to store student grades. Then demonstrate why each might be useful in different scenarios.',
+      prompt:
+        'Create three different data structures (dictionary, list, and set) to store student grades. Then demonstrate why each might be useful in different scenarios.',
       initialCode: `# Write your solution here
 # Dictionary for student grade mapping
 grades_dict = 
@@ -678,7 +683,8 @@ print(f"Number of unique grades: {len(grades_set)}")`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Compare the performance of finding elements in a dictionary versus a list. Create both structures with the same data and time the lookups.',
+      prompt:
+        'Compare the performance of finding elements in a dictionary versus a list. Create both structures with the same data and time the lookups.',
       initialCode: `# Write your solution here
 import time
 
@@ -716,22 +722,18 @@ list_time = time.time() - list_start
 print(f"Dictionary lookup time: {dict_time:.10f} seconds")
 print(f"List lookup time: {list_time:.10f} seconds")`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Which data structure would be most efficient for storing and retrieving user sessions by session ID?',
-      options: [
-        'List',
-        'Dictionary',
-        'Set',
-        'Array',
-      ],
+      question:
+        'Which data structure would be most efficient for storing and retrieving user sessions by session ID?',
+      options: ['List', 'Dictionary', 'Set', 'Array'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Lists require O(n) lookup time which would be inefficient for session management.',
         'Correct! Dictionaries provide O(1) lookup time using session IDs as keys, perfect for this use case.',
-        'Incorrect. Sets don\'t store key-value pairs needed for session data.',
+        "Incorrect. Sets don't store key-value pairs needed for session data.",
         'Incorrect. Arrays would require continuous numeric indices, unsuitable for session IDs.',
       ],
       difficulty: Difficulty.Intermediate,
@@ -746,14 +748,14 @@ print(f"List lookup time: {list_time:.10f} seconds")`,
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Dictionaries are for key-value pairs, sets don\'t store pairs.',
+        "Incorrect. Dictionaries are for key-value pairs, sets don't store pairs.",
         'Incorrect. Lists are better for maintaining order.',
         'Correct! Sets are optimized for storing unique items and testing membership.',
         'Incorrect. NumPy arrays are best for numerical computations.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 const keyOperationsData = {
   title: 'Dictionary Key Operations',
@@ -897,7 +899,8 @@ def demonstrate_grade_tracker():
 
   exercises: [
     {
-      prompt: 'Create a function that takes a dictionary of student scores and raises all scores by 5 points, but only for students who scored below 90.',
+      prompt:
+        'Create a function that takes a dictionary of student scores and raises all scores by 5 points, but only for students who scored below 90.',
       initialCode: `# Write your solution here
 def adjust_scores(scores):
     pass
@@ -923,7 +926,8 @@ test_scores = {
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a safe dictionary update function that only updates existing keys and returns which updates were successful and which failed.',
+      prompt:
+        'Implement a safe dictionary update function that only updates existing keys and returns which updates were successful and which failed.',
       initialCode: `# Write your solution here
 def safe_update(original, updates):
     pass
@@ -948,11 +952,12 @@ updates = {"b": 5, "d": 4}`,
     
     return successful, failed`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What happens when you try to access a key that doesn\'t exist using square bracket notation (dict[key])?',
+      question:
+        "What happens when you try to access a key that doesn't exist using square bracket notation (dict[key])?",
       options: [
         'Returns None',
         'Returns a default value',
@@ -961,31 +966,27 @@ updates = {"b": 5, "d": 4}`,
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Square bracket notation doesn\'t return None for missing keys.',
+        "Incorrect. Square bracket notation doesn't return None for missing keys.",
         'Incorrect. get() method provides default values, not square brackets.',
         'Correct! Accessing a non-existent key with square brackets raises a KeyError.',
-        'Incorrect. Square bracket notation doesn\'t create new keys when accessing.',
+        "Incorrect. Square bracket notation doesn't create new keys when accessing.",
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'Which method should you use to remove a key and get its value, with a default if the key doesn\'t exist?',
-      options: [
-        'remove()',
-        'del',
-        'pop()',
-        'delete()',
-      ],
+      question:
+        "Which method should you use to remove a key and get its value, with a default if the key doesn't exist?",
+      options: ['remove()', 'del', 'pop()', 'delete()'],
       correctAnswer: 2,
       explanations: [
         'Incorrect. remove() is not a dictionary method.',
-        'Incorrect. del removes the key but doesn\'t return the value.',
+        "Incorrect. del removes the key but doesn't return the value.",
         'Correct! pop() removes the key and returns its value, accepting a default argument.',
         'Incorrect. delete() is not a dictionary method.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const dictMethodsData = {
@@ -1196,11 +1197,12 @@ class InventoryManager:
         """Get current stock level with default 0"""
         return self.products.get(product, 0)`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the key difference between dict.get() and direct key access (dict[key])?',
+      question:
+        'What is the key difference between dict.get() and direct key access (dict[key])?',
       options: [
         'get() is slower than direct access',
         'get() allows a default value if key is missing',
@@ -1215,8 +1217,8 @@ class InventoryManager:
         'Incorrect. get() does not modify the dictionary.',
       ],
       difficulty: Difficulty.Beginner,
-    }
-  ]
+    },
+  ],
 };
 
 const keyExistenceData = {
@@ -1360,7 +1362,8 @@ def demonstrate_patterns():
 
   exercises: [
     {
-      prompt: 'Create a function that safely updates a nested dictionary value only if all parent keys exist.',
+      prompt:
+        'Create a function that safely updates a nested dictionary value only if all parent keys exist.',
       initialCode: `def safe_nested_update(data, path, new_value):
     """
     Updates a nested value only if the full path exists.
@@ -1407,7 +1410,8 @@ path = ["user", "preferences", "theme"]`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a function that counts how many keys exist at each level of a nested dictionary.',
+      prompt:
+        'Create a function that counts how many keys exist at each level of a nested dictionary.',
       initialCode: `def count_keys_by_level(data):
     """
     Counts keys at each nesting level of the dictionary.
@@ -1452,11 +1456,12 @@ data = {
     count_level(data, 0, counts)
     return counts`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Which method of checking key existence is most appropriate when you need to provide a default value?',
+      question:
+        'Which method of checking key existence is most appropriate when you need to provide a default value?',
       options: [
         'The "in" operator',
         'try-except block',
@@ -1466,17 +1471,18 @@ data = {
       correctAnswer: 2,
       explanations: [
         'Incorrect. The "in" operator only tells you if the key exists, it doesn\'t help with default values.',
-        'Incorrect. While try-except can handle missing keys, it\'s more verbose for providing defaults.',
-        'Correct! The get() method allows you to specify a default value that\'s returned when the key doesn\'t exist.',
+        "Incorrect. While try-except can handle missing keys, it's more verbose for providing defaults.",
+        "Correct! The get() method allows you to specify a default value that's returned when the key doesn't exist.",
         'Incorrect. View objects are for accessing dictionary structure, not providing defaults.',
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the primary advantage of using the "in" operator over the get() method for key checking?',
+      question:
+        'What is the primary advantage of using the "in" operator over the get() method for key checking?',
       options: [
-        'It\'s faster than get()',
-        'It\'s more explicit about the intent to check existence',
+        "It's faster than get()",
+        "It's more explicit about the intent to check existence",
         'It can handle nested dictionaries better',
         'It automatically provides default values',
       ],
@@ -1488,8 +1494,8 @@ data = {
         'Incorrect. The "in" operator doesn\'t handle default values at all.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const dictIterationData = {
@@ -1670,7 +1676,8 @@ def demonstrate_iteration_patterns():
 
   exercises: [
     {
-      prompt: 'Create a function that finds students who improved their grades between two sets of exams.',
+      prompt:
+        'Create a function that finds students who improved their grades between two sets of exams.',
       initialCode: `def find_improvements(exam1_grades, exam2_grades):
     """
     Identifies students whose grades improved between exams.
@@ -1704,7 +1711,8 @@ exam2 = {"Alice": 88, "Bob": 88, "Charlie": 90}`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a function that finds the subjects where a student\'s grade is above the class average.',
+      prompt:
+        "Create a function that finds the subjects where a student's grade is above the class average.",
       initialCode: `def above_average_subjects(grades_data, student_name):
     """
     Finds subjects where a student is above average.
@@ -1753,17 +1761,13 @@ grades = {
         if grade > subject_averages[subject]["average"]
     ]`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Which method should you use to iterate over both keys and values simultaneously?',
-      options: [
-        'keys()',
-        'values()',
-        'items()',
-        'pairs()',
-      ],
+      question:
+        'Which method should you use to iterate over both keys and values simultaneously?',
+      options: ['keys()', 'values()', 'items()', 'pairs()'],
       correctAnswer: 2,
       explanations: [
         'Incorrect. keys() only provides access to dictionary keys.',
@@ -1774,9 +1778,10 @@ grades = {
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What happens if you modify a dictionary while iterating over it?',
+      question:
+        'What happens if you modify a dictionary while iterating over it?',
       options: [
-        'Nothing, it\'s perfectly safe',
+        "Nothing, it's perfectly safe",
         'Python prevents any modifications during iteration',
         'It might raise a RuntimeError',
         'The iteration will always crash',
@@ -1789,8 +1794,8 @@ grades = {
         'Incorrect. While risky, not all modifications cause crashes.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const dictComprehensionData = {
@@ -1951,7 +1956,8 @@ class DictionaryComprehensionDemo:
 
   exercises: [
     {
-      prompt: 'Create a function that takes a list of words and returns a dictionary where keys are words and values are dictionaries containing the word\'s length and whether it\'s a palindrome.',
+      prompt:
+        "Create a function that takes a list of words and returns a dictionary where keys are words and values are dictionaries containing the word's length and whether it's a palindrome.",
       initialCode: `def analyze_words(words):
     """
     Analyze a list of words and return detailed information.
@@ -1982,7 +1988,8 @@ test_words = ['level', 'python', 'radar', 'code']`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a function that takes a dictionary of student scores by subject and returns a dictionary of each student\'s highest scoring subject and the score.',
+      prompt:
+        "Create a function that takes a dictionary of student scores by subject and returns a dictionary of each student's highest scoring subject and the score.",
       initialCode: `def find_best_subjects(grades):
     """
     Find each student's best subject.
@@ -2013,11 +2020,12 @@ grades = {
         for student, subjects in grades.items()
     }`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the output of this dictionary comprehension: {x: x**2 for x in range(3)}?',
+      question:
+        'What is the output of this dictionary comprehension: {x: x**2 for x in range(3)}?',
       options: [
         '{0: 0, 1: 1, 2: 4}',
         '{1: 1, 2: 4, 3: 9}',
@@ -2034,7 +2042,8 @@ grades = {
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'Which dictionary comprehension syntax would create a dictionary of even numbers and their squares from a range of 1 to 10?',
+      question:
+        'Which dictionary comprehension syntax would create a dictionary of even numbers and their squares from a range of 1 to 10?',
       options: [
         '{x: x**2 for x in range(1, 11)}',
         '{x: x**2 for x in range(1, 11) if x % 2 == 0}',
@@ -2049,8 +2058,8 @@ grades = {
         'Incorrect. The if condition is in the wrong position',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const filteringDictData = {
@@ -2218,7 +2227,8 @@ class DictionaryFilteringDemo:
 
   exercises: [
     {
-      prompt: 'Create a function that filters a dictionary of student grades, returning only students who passed all subjects (grade >= 60) and achieved distinction (grade >= 90) in at least one subject.',
+      prompt:
+        'Create a function that filters a dictionary of student grades, returning only students who passed all subjects (grade >= 60) and achieved distinction (grade >= 90) in at least one subject.',
       initialCode: `def find_successful_students(grades):
     """
     Filter students based on passing grades and distinctions.
@@ -2247,7 +2257,8 @@ class DictionaryFilteringDemo:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a function that filters a product inventory to find items that need restocking. The function should handle missing fields gracefully and include the supplier information where available.',
+      prompt:
+        'Create a function that filters a product inventory to find items that need restocking. The function should handle missing fields gracefully and include the supplier information where available.',
       initialCode: `def find_restock_needed(inventory, threshold=10):
     """
     Find items needing restock with supplier info.
@@ -2280,11 +2291,12 @@ class DictionaryFilteringDemo:
         if details.get("stock", 0) < threshold
     }`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the most efficient way to filter a dictionary while creating a new one?',
+      question:
+        'What is the most efficient way to filter a dictionary while creating a new one?',
       options: [
         'Using a traditional for loop',
         'Using the filter() function',
@@ -2301,7 +2313,8 @@ class DictionaryFilteringDemo:
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'When should you use a traditional loop for filtering instead of dictionary comprehension?',
+      question:
+        'When should you use a traditional loop for filtering instead of dictionary comprehension?',
       options: [
         'When you need the fastest possible performance',
         'When working with small dictionaries',
@@ -2311,13 +2324,13 @@ class DictionaryFilteringDemo:
       correctAnswer: 2,
       explanations: [
         'Incorrect. Dictionary comprehension is generally as fast or faster.',
-        'Incorrect. Dictionary size doesn\'t determine the best filtering method.',
+        "Incorrect. Dictionary size doesn't determine the best filtering method.",
         'Correct! Complex logic or multiple processing steps are better handled with traditional loops.',
         'Incorrect. Dictionary comprehension is ideal for creating new dictionaries.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const transformingDictData = {
@@ -2498,7 +2511,8 @@ class DictionaryTransformDemo:
 
   exercises: [
     {
-      prompt: 'Create a function that transforms a dictionary of product sales data by calculating monthly averages and identifying peak sales months.',
+      prompt:
+        'Create a function that transforms a dictionary of product sales data by calculating monthly averages and identifying peak sales months.',
       initialCode: `def analyze_sales(sales_data):
     """
     Transform sales data into monthly analysis.
@@ -2544,11 +2558,12 @@ class DictionaryTransformDemo:
     
     return analysis`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Which transformation approach should you use when you need to both modify values and restructure a dictionary?',
+      question:
+        'Which transformation approach should you use when you need to both modify values and restructure a dictionary?',
       options: [
         'Simple dictionary comprehension',
         'Multiple separate transformations',
@@ -2565,7 +2580,8 @@ class DictionaryTransformDemo:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the best practice for transforming deeply nested dictionaries?',
+      question:
+        'What is the best practice for transforming deeply nested dictionaries?',
       options: [
         'Always flatten them first',
         'Use multiple nested loops',
@@ -2574,14 +2590,14 @@ class DictionaryTransformDemo:
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Flattening isn\'t always necessary or desirable.',
+        "Incorrect. Flattening isn't always necessary or desirable.",
         'Incorrect. Multiple nested loops can become unmanageable.',
         'Correct! Recursive functions provide a consistent way to handle arbitrary nesting levels.',
         'Incorrect. This would ignore important nested data.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const frequencyCounterData = {
@@ -2754,7 +2770,8 @@ class FrequencyCounterDemo:
 
   exercises: [
     {
-      prompt: 'Create a function that determines if two strings are permutations of each other, considering spaces and punctuation. Use the frequency counter pattern.',
+      prompt:
+        'Create a function that determines if two strings are permutations of each other, considering spaces and punctuation. Use the frequency counter pattern.',
       initialCode: `def are_permutations(str1, str2):
     """
     Check if two strings are permutations of each other.
@@ -2794,7 +2811,8 @@ test3 = "hello  world"  # Note extra space`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a function that finds all pairs of numbers in an array that sum to a given target. Use frequency counter to achieve O(n) time complexity.',
+      prompt:
+        'Create a function that finds all pairs of numbers in an array that sum to a given target. Use frequency counter to achieve O(n) time complexity.',
       initialCode: `def find_pairs(numbers, target):
     """
     Find all pairs of numbers that sum to target.
@@ -2833,11 +2851,12 @@ target = 8`,
     
     return pairs`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the main advantage of using a frequency counter over nested loops?',
+      question:
+        'What is the main advantage of using a frequency counter over nested loops?',
       options: [
         'It uses less memory',
         'It improves time complexity from O(n²) to O(n)',
@@ -2848,8 +2867,8 @@ target = 8`,
       explanations: [
         'Incorrect. Frequency counters often use more memory than nested loops.',
         'Correct! The frequency counter pattern typically reduces time complexity from O(n²) to O(n).',
-        'Incorrect. Readability depends on implementation and isn\'t the main advantage.',
-        'Incorrect. While useful for strings, this isn\'t the main advantage.',
+        "Incorrect. Readability depends on implementation and isn't the main advantage.",
+        "Incorrect. While useful for strings, this isn't the main advantage.",
       ],
       difficulty: Difficulty.Beginner,
     },
@@ -2863,14 +2882,14 @@ target = 8`,
       ],
       correctAnswer: 0,
       explanations: [
-        'Correct! Frequency counters don\'t preserve order information, so they\'re not suitable when order matters.',
+        "Correct! Frequency counters don't preserve order information, so they're not suitable when order matters.",
         'Incorrect. Frequency counters work well with strings.',
         'Incorrect. Frequency counters are especially efficient for large datasets.',
         'Incorrect. Comparing frequencies is a perfect use case for this pattern.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const groupingPatternData = {
@@ -3045,7 +3064,8 @@ class GroupingPatternDemo:
 
   exercises: [
     {
-      prompt: 'Create a function that groups words by their length and provides additional statistics about each group.',
+      prompt:
+        'Create a function that groups words by their length and provides additional statistics about each group.',
       initialCode: `def analyze_word_groups(words):
     """
     Group words by length and analyze each group.
@@ -3096,7 +3116,8 @@ test_words = ["cat", "dog", "tree", "horse", "elephant", "ant", "bee"]`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a function that groups transactions by date and provides daily summaries with various metrics.',
+      prompt:
+        'Create a function that groups transactions by date and provides daily summaries with various metrics.',
       initialCode: `def analyze_daily_transactions(transactions):
     """
     Group and analyze transactions by date.
@@ -3156,44 +3177,46 @@ test_words = ["cat", "dog", "tree", "horse", "elephant", "ant", "bee"]`,
     
     return daily_summary`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'When using the grouping pattern, what is the best way to initialize a new group?',
+      question:
+        'When using the grouping pattern, what is the best way to initialize a new group?',
       options: [
         'Always create all possible groups at the start',
-        'Check if the group exists, create if it doesn\'t',
+        "Check if the group exists, create if it doesn't",
         'Create groups only after processing all items',
         'Use a try-except block for each group',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Creating all possible groups upfront may waste memory and isn\'t always possible.',
+        "Incorrect. Creating all possible groups upfront may waste memory and isn't always possible.",
         'Correct! Checking and creating groups as needed is the most flexible and efficient approach.',
         'Incorrect. This would require multiple passes through the data.',
-        'Incorrect. Using try-except for normal control flow isn\'t Pythonic.',
+        "Incorrect. Using try-except for normal control flow isn't Pythonic.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the primary advantage of hierarchical grouping over flat grouping?',
+      question:
+        'What is the primary advantage of hierarchical grouping over flat grouping?',
       options: [
         'It uses less memory',
-        'It\'s faster to process',
+        "It's faster to process",
         'It allows for more complex data relationships',
-        'It\'s easier to implement',
+        "It's easier to implement",
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Hierarchical grouping often uses more memory.',
         'Incorrect. It typically requires more processing time.',
         'Correct! Hierarchical grouping can represent complex relationships and nested categories.',
-        'Incorrect. It\'s usually more complex to implement than flat grouping.',
+        "Incorrect. It's usually more complex to implement than flat grouping.",
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const cachingPatternData = {
@@ -3369,7 +3392,8 @@ class CachingPatternDemo:
 
   exercises: [
     {
-      prompt: 'Create a caching decorator that can be applied to any function to memoize its results. Include cache size management and basic statistics tracking.',
+      prompt:
+        'Create a caching decorator that can be applied to any function to memoize its results. Include cache size management and basic statistics tracking.',
       initialCode: `def create_memoization_decorator(max_cache_size=100):
     """
     Create a decorator that caches function results.
@@ -3420,15 +3444,16 @@ class CachingPatternDemo:
     
     return decorator`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the primary difference between simple memoization and LRU caching?',
+      question:
+        'What is the primary difference between simple memoization and LRU caching?',
       options: [
         'Memoization is faster than LRU caching',
-        'LRU caching manages cache size while simple memoization doesn\'t',
-        'Memoization works with any data type while LRU doesn\'t',
+        "LRU caching manages cache size while simple memoization doesn't",
+        "Memoization works with any data type while LRU doesn't",
         'LRU caching only works with numbers',
       ],
       correctAnswer: 1,
@@ -3456,8 +3481,8 @@ class CachingPatternDemo:
         'Correct! Caching might not be beneficial in any of these situations due to memory overhead, minimal performance gain, or excessive memory usage.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const nestedDictData = {
@@ -3683,7 +3708,8 @@ class NestedDictDemo:
 
   exercises: [
     {
-      prompt: 'Create a function that finds all students who have grades above 90 in any subject, organizing the results by grade level and subject.',
+      prompt:
+        'Create a function that finds all students who have grades above 90 in any subject, organizing the results by grade level and subject.',
       initialCode: `def find_top_students(school_data):
     """
     Find students with excellent performance across subjects.
@@ -3720,11 +3746,12 @@ class NestedDictDemo:
     
     return top_students`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the safest way to access a value in a deeply nested dictionary?',
+      question:
+        'What is the safest way to access a value in a deeply nested dictionary?',
       options: [
         'Use multiple square brackets in sequence',
         'Use a try-except block',
@@ -3734,14 +3761,15 @@ class NestedDictDemo:
       correctAnswer: 3,
       explanations: [
         'Incorrect. Multiple square brackets will raise KeyError if any level is missing.',
-        'Incorrect. While this works, it\'s not the most elegant or maintainable solution.',
+        "Incorrect. While this works, it's not the most elegant or maintainable solution.",
         'Incorrect. get() only works for one level of nesting.',
         'Correct! A dedicated function can handle multiple levels and provide a default value safely.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When modifying nested dictionaries, why is it important to verify the existence of intermediate levels?',
+      question:
+        'When modifying nested dictionaries, why is it important to verify the existence of intermediate levels?',
       options: [
         'To save memory',
         'To prevent KeyError exceptions',
@@ -3756,8 +3784,8 @@ class NestedDictDemo:
         'Incorrect. Backwards compatibility is not the main issue.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const defaultDictData = {
@@ -3952,7 +3980,8 @@ class DefaultDictDemo:
 
   exercises: [
     {
-      prompt: 'Create a function that analyzes text and builds a character frequency index grouped by word length, using defaultdict to maintain clean code.',
+      prompt:
+        'Create a function that analyzes text and builds a character frequency index grouped by word length, using defaultdict to maintain clean code.',
       initialCode: `def analyze_text_by_length(text):
     """
     Build a character frequency index grouped by word length.
@@ -3987,11 +4016,12 @@ sample_text = "the quick brown fox jumps over the lazy dog"`,
     
     return length_char_freq`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What happens when you access a new key in a defaultdict(list)?',
+      question:
+        'What happens when you access a new key in a defaultdict(list)?',
       options: [
         'Raises a KeyError',
         'Returns None',
@@ -4017,14 +4047,14 @@ sample_text = "the quick brown fox jumps over the lazy dog"`,
       ],
       correctAnswer: 0,
       explanations: [
-        'Correct! defaultdict uses the same factory function for all missing keys, so it\'s not suitable when you need context-specific handling.',
+        "Correct! defaultdict uses the same factory function for all missing keys, so it's not suitable when you need context-specific handling.",
         'Incorrect. defaultdict works well with datasets of any size.',
         'Incorrect. defaultdict works great with nested structures.',
         'Incorrect. Counting is one of the best use cases for defaultdict.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const counterClassData = {
@@ -4242,7 +4272,8 @@ class CounterDemo:
 
   exercises: [
     {
-      prompt: 'Create a function that analyzes the similarity between two texts by comparing their word frequency distributions using Counter.',
+      prompt:
+        'Create a function that analyzes the similarity between two texts by comparing their word frequency distributions using Counter.',
       initialCode: `def calculate_text_similarity(text1, text2):
     """
     Compare two texts by analyzing their word frequencies.
@@ -4284,11 +4315,12 @@ text2 = "the quick brown dog sleeps over the lazy fox"`,
         "similarity_score": sum(common_words.values()) / sum(all_words.values())
     }`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the key advantage of using Counter over a regular dictionary for counting items?',
+      question:
+        'What is the key advantage of using Counter over a regular dictionary for counting items?',
       options: [
         'It uses less memory',
         'It automatically handles missing keys by returning 0',
@@ -4320,8 +4352,8 @@ text2 = "the quick brown dog sleeps over the lazy fox"`,
         'Incorrect. The original Counters remain unchanged.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 // TODO: Determine if needed
@@ -4364,7 +4396,8 @@ ordered_dict.popitem(last=False)
 print(ordered_dict)  # Output: OrderedDict([('c', 3), ('d', 4), ('a', 1)])`,
   exercises: [
     {
-      prompt: 'Create an OrderedDict to store the order of operations performed on a system, with each operation being a key-value pair.',
+      prompt:
+        'Create an OrderedDict to store the order of operations performed on a system, with each operation being a key-value pair.',
       initialCode: `# Write your solution here
 from collections import OrderedDict
 
@@ -4393,7 +4426,8 @@ print(operations)`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create an OrderedDict to store the order of items added to a shopping cart, with each item being a key-value pair.',
+      prompt:
+        'Create an OrderedDict to store the order of items added to a shopping cart, with each item being a key-value pair.',
       initialCode: `# Write your solution here
 from collections import OrderedDict
 
@@ -4529,17 +4563,17 @@ class HashingDemo:
         print("Basic Hash Examples:")
         
         # Hashing strings
-        print("\nString Hashing:")
+        print("String Hashing:")
         for s in self.example_data["strings"]:
             print(f"hash('{s}') = {hash(s)}")
         
         # Hashing numbers
-        print("\nNumber Hashing:")
+        print("Number Hashing:")
         for n in self.example_data["numbers"]:
             print(f"hash({n}) = {hash(n)}")
         
         # Hashing tuples
-        print("\nTuple Hashing:")
+        print("Tuple Hashing:")
         for t in self.example_data["tuples"]:
             print(f"hash({t}) = {hash(t)}")
     
@@ -4551,13 +4585,13 @@ class HashingDemo:
         # Demonstrate consistency
         test_value = "python"
         hashes = [hash(test_value) for _ in range(5)]
-        print(f"\nConsistency Check for '{test_value}':")
+        print(f"Consistency Check for '{test_value}':")
         print("All hashes equal:", all(h == hashes[0] for h in hashes))
         
         # Demonstrate distribution
         words = ["apple", "banana", "cherry", "date", "elderberry"]
         hash_values = [hash(word) for word in words]
-        print("\nDistribution of hash values:")
+        print("Distribution of hash values:")
         for word, h in zip(words, hash_values):
             print(f"{word}: {h}")
     
@@ -4585,7 +4619,7 @@ class HashingDemo:
         p2 = Point(1, 2)
         p3 = Point(2, 1)
         
-        print("\nCustom Hashable Class Demo:")
+        print("Custom Hashable Class Demo:")
         print(f"hash(p1) = {hash(p1)}")
         print(f"hash(p2) = {hash(p2)}")
         print(f"p1 == p2:", p1 == p2)
@@ -4609,7 +4643,7 @@ class HashingDemo:
         words = ["cat", "dog", "rat", "bat", "hat"]
         hash_values = {word: simple_hash(word) for word in words}
         
-        print("\nSimple Hash Function Collisions:")
+        print("Simple Hash Function Collisions:")
         for word, h in hash_values.items():
             print(f"{word}: {h}")
         
@@ -4618,7 +4652,7 @@ class HashingDemo:
         for word in words:
             test_dict[word] = simple_hash(word)
         
-        print("\nDictionary still works despite collisions:")
+        print("Dictionary still works despite collisions:")
         for word in words:
             print(f"{word}: {test_dict[word]}")
     
@@ -4642,12 +4676,13 @@ class HashingDemo:
                 _ = good_dict[str(i % size)]
             good_time = time.time() - start
             
-            print(f"\nDictionary size {size}:")
+            print(f"Dictionary size {size}:")
             print(f"Average lookup time: {good_time/1000:.8f} seconds")`,
 
   exercises: [
     {
-      prompt: 'Create a custom class representing a playing card that can be used as a dictionary key. The hash value should consider both the rank and suit of the card.',
+      prompt:
+        'Create a custom class representing a playing card that can be used as a dictionary key. The hash value should consider both the rank and suit of the card.',
       initialCode: `class PlayingCard:
     """
     A hashable playing card class.
@@ -4683,7 +4718,7 @@ class HashingDemo:
     def __str__(self):
         return f"{self._rank} of {self._suit}"`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
@@ -4696,9 +4731,9 @@ class HashingDemo:
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Immutability isn\'t primarily about memory usage.',
+        "Incorrect. Immutability isn't primarily about memory usage.",
         'Correct! If an object changes, its hash value would change, making it impossible to find it in the dictionary later.',
-        'Incorrect. While immutability can help with performance, this isn\'t the main reason.',
+        "Incorrect. While immutability can help with performance, this isn't the main reason.",
         'Incorrect. The requirement is based on the fundamental need for consistent hash values.',
       ],
       difficulty: Difficulty.Intermediate,
@@ -4713,14 +4748,14 @@ class HashingDemo:
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. The size of the hash values isn\'t the primary concern.',
+        "Incorrect. The size of the hash values isn't the primary concern.",
         'Incorrect. All practical hash functions will have some collisions.',
         'Correct! Even distribution minimizes collisions and ensures efficient dictionary operations.',
         'Incorrect. This is impossible for a finite hash space with infinite possible inputs.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const collisionHandlingData = {
@@ -4827,7 +4862,7 @@ class CollisionResolutionDemo:
             
             def __str__(self):
                 """Visualize the hash table structure"""
-                return "\n".join(
+                return "".join(
                     f"[{i}] -> {entries}"
                     for i, entries in enumerate(self.table)
                     if entries  # Only show non-empty slots
@@ -4903,7 +4938,7 @@ class CollisionResolutionDemo:
             
             def __str__(self):
                 """Visualize the hash table structure"""
-                return "\n".join(
+                return "".join(
                     f"[{i}] -> {entry}"
                     for i, entry in enumerate(self.table)
                     if entry is not None
@@ -4916,7 +4951,7 @@ class CollisionResolutionDemo:
         try:
             for i, word in enumerate(["cat", "dog", "rat", "bat", "hat"]):
                 hash_table.insert(word, i)
-                print(f"\nAfter inserting {word}:")
+                print(f"After inserting {word}:")
                 print(hash_table)
         except ValueError as e:
             print(f"Table full: {e}")
@@ -4925,7 +4960,8 @@ class CollisionResolutionDemo:
 
   exercises: [
     {
-      prompt: 'Implement a hash table using quadratic probing for collision resolution. The quadratic probing should try positions h(k) + i² for i = 0, 1, 2, ... when resolving collisions.',
+      prompt:
+        'Implement a hash table using quadratic probing for collision resolution. The quadratic probing should try positions h(k) + i² for i = 0, 1, 2, ... when resolving collisions.',
       initialCode: `class QuadraticProbingHashTable:
     def __init__(self, size):
         self.size = size
@@ -4996,11 +5032,12 @@ class CollisionResolutionDemo:
         
         raise KeyError(key)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the main advantage of chaining over open addressing for collision resolution?',
+      question:
+        'What is the main advantage of chaining over open addressing for collision resolution?',
       options: [
         'It uses less memory',
         'It performs better when the table is nearly full',
@@ -5026,14 +5063,14 @@ class CollisionResolutionDemo:
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Memory usage isn\'t related to clustering.',
+        "Incorrect. Memory usage isn't related to clustering.",
         'Correct! When collisions occur, linear probing creates blocks of occupied slots, leading to more collisions in those areas.',
         'Incorrect. Clustering occurs regardless of hash function complexity.',
         'Incorrect. Clustering is independent of key types.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const timeSpaceComplexityAnalysisData = {
@@ -5279,7 +5316,8 @@ class DictionaryPerformanceDemo:
 
   exercises: [
     {
-      prompt: 'Create a function that analyzes dictionary performance under different collision scenarios. Compare the performance of a regular dictionary with a dictionary that experiences frequent collisions.',
+      prompt:
+        'Create a function that analyzes dictionary performance under different collision scenarios. Compare the performance of a regular dictionary with a dictionary that experiences frequent collisions.',
       initialCode: `def analyze_collision_impact():
     """
     Compare dictionary performance with and without collisions.
@@ -5338,11 +5376,12 @@ class DictionaryPerformanceDemo:
         "collision_slowdown_lookup": collision_lookup / regular_lookup
     }`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is dictionary lookup O(1) on average but O(n) in the worst case?',
+      question:
+        'Why is dictionary lookup O(1) on average but O(n) in the worst case?',
       options: [
         'Because dictionaries are always slow with large datasets',
         'Because the hash table might need to be resized',
@@ -5354,7 +5393,7 @@ class DictionaryPerformanceDemo:
         'Incorrect. Dictionary operations are typically very fast, even with large datasets.',
         'Incorrect. Resizing is amortized and not the cause of worst-case complexity.',
         'Correct! In the worst case, all items could hash to the same bucket, requiring a linear search through all items.',
-        'Incorrect. Python\'s hash functions are well-optimized.',
+        "Incorrect. Python's hash functions are well-optimized.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -5374,8 +5413,8 @@ class DictionaryPerformanceDemo:
         'Incorrect. Load factor affects both performance and memory usage.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const twoSumPatternData = {
@@ -5585,7 +5624,8 @@ class TwoSumPatterns:
 
   exercises: [
     {
-      prompt: 'Implement a function that finds three numbers in an array that sum to a target value, using the Two Sum pattern as part of your solution.',
+      prompt:
+        'Implement a function that finds three numbers in an array that sum to a target value, using the Two Sum pattern as part of your solution.',
       initialCode: `def three_sum(numbers, target):
     """
     Find three numbers that sum to target.
@@ -5629,11 +5669,12 @@ target = 12`,
     
     return None`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is the dictionary-based Two Sum solution more efficient than checking all pairs?',
+      question:
+        'Why is the dictionary-based Two Sum solution more efficient than checking all pairs?',
       options: [
         'It uses less memory',
         'It can stop early when finding a solution',
@@ -5644,13 +5685,14 @@ target = 12`,
       explanations: [
         'Incorrect. The dictionary solution actually uses more memory (O(n)).',
         'Incorrect. Both solutions can stop when finding a solution.',
-        'Correct! By storing numbers we\'ve seen, we can find pairs in a single pass through the array.',
-        'Incorrect. The dictionary solution doesn\'t require sorting.',
+        "Correct! By storing numbers we've seen, we can find pairs in a single pass through the array.",
+        "Incorrect. The dictionary solution doesn't require sorting.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is a key consideration when handling duplicate numbers in Two Sum?',
+      question:
+        'What is a key consideration when handling duplicate numbers in Two Sum?',
       options: [
         'You need to sort the array first',
         'You need to track multiple indices for the same number',
@@ -5659,14 +5701,14 @@ target = 12`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Sorting isn\'t necessary for handling duplicates.',
+        "Incorrect. Sorting isn't necessary for handling duplicates.",
         'Correct! If you need all possible pairs, you must track all occurrences of each number.',
         'Incorrect. Duplicates might be part of valid solutions.',
         'Incorrect. A set would lose the index information needed for the solution.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const subarraySumPatternData = {
@@ -5883,7 +5925,8 @@ class SubarraySumPatterns:
 
   exercises: [
     {
-      prompt: 'Create a function that finds the longest subarray with a sum divisible by K. Use the principles of the Subarray Sum pattern.',
+      prompt:
+        'Create a function that finds the longest subarray with a sum divisible by K. Use the principles of the Subarray Sum pattern.',
       initialCode: `def longest_subarray_divisible_by_k(numbers, k):
     """
     Find the longest subarray with sum divisible by k.
@@ -5928,11 +5971,12 @@ k = 3`,
     
     return result`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is the cumulative sum approach more efficient than checking all possible subarrays?',
+      question:
+        'Why is the cumulative sum approach more efficient than checking all possible subarrays?',
       options: [
         'It uses less memory',
         'It only needs to scan the array once while tracking sums',
@@ -5943,13 +5987,14 @@ k = 3`,
       explanations: [
         'Incorrect. The cumulative sum approach actually uses more memory to store the sums.',
         'Correct! By tracking cumulative sums, we can find subarrays in a single pass through the array instead of checking all possible combinations.',
-        'Incorrect. While it does handle negative numbers well, this isn\'t the main efficiency advantage.',
+        "Incorrect. While it does handle negative numbers well, this isn't the main efficiency advantage.",
         'Incorrect. While it does scale better, this is a result of its efficiency, not the reason for it.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When should you use the sliding window approach instead of the cumulative sum approach?',
+      question:
+        'When should you use the sliding window approach instead of the cumulative sum approach?',
       options: [
         'When working with very large arrays',
         'When memory is limited and all numbers are non-negative',
@@ -5958,14 +6003,14 @@ k = 3`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Array size doesn\'t determine which approach is better.',
+        "Incorrect. Array size doesn't determine which approach is better.",
         'Correct! The sliding window approach uses O(1) space but only works with non-negative numbers.',
         'Incorrect. Finding all subarrays is better handled with the cumulative sum approach.',
-        'Incorrect. The sliding window approach doesn\'t work with negative numbers.',
+        "Incorrect. The sliding window approach doesn't work with negative numbers.",
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const isomorphicPatternData = {
@@ -6170,7 +6215,8 @@ class StringPatternMatcher:
 
   exercises: [
     {
-      prompt: 'Create a function that determines if one string can be transformed into another by consistently replacing groups of characters. For example, "leetcode" can be transformed into "yyyyyyyy" because every "leet" becomes "yyyy".',
+      prompt:
+        'Create a function that determines if one string can be transformed into another by consistently replacing groups of characters. For example, "leetcode" can be transformed into "yyyyyyyy" because every "leet" becomes "yyyy".',
       initialCode: `def can_transform(source: str, target: str) -> bool:
     """
     Determine if source can be transformed into target using consistent replacements.
@@ -6234,11 +6280,12 @@ class StringPatternMatcher:
     
     return True`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do we need to maintain two mapping dictionaries for isomorphic strings?',
+      question:
+        'Why do we need to maintain two mapping dictionaries for isomorphic strings?',
       options: [
         'To improve performance',
         'To handle longer strings',
@@ -6248,14 +6295,15 @@ class StringPatternMatcher:
       correctAnswer: 2,
       explanations: [
         'Incorrect. Using two dictionaries might slightly reduce performance.',
-        'Incorrect. String length doesn\'t affect the need for two dictionaries.',
+        "Incorrect. String length doesn't affect the need for two dictionaries.",
         'Correct! Two dictionaries ensure each character in the first string maps to a unique character in the second string, and vice versa.',
         'Incorrect. Using two dictionaries actually uses more memory.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key difference between isomorphic strings and pattern matching with words?',
+      question:
+        'What is the key difference between isomorphic strings and pattern matching with words?',
       options: [
         'Pattern matching is faster',
         'Pattern matching works with groups of characters instead of single characters',
@@ -6270,8 +6318,8 @@ class StringPatternMatcher:
         'Incorrect. Memory usage depends on input size, not the type of pattern matching.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const lruCacheData = {
@@ -6496,7 +6544,8 @@ class LRUCache:
 
   exercises: [
     {
-      prompt: 'Extend the LRU Cache to include a method that returns all items above a certain "age" (number of operations since last access). This helps identify items that might be good candidates for eviction.',
+      prompt:
+        'Extend the LRU Cache to include a method that returns all items above a certain "age" (number of operations since last access). This helps identify items that might be good candidates for eviction.',
       initialCode: `def get_aged_items(self, operations_threshold):
     """
     Find all items that haven't been accessed in more than
@@ -6528,11 +6577,12 @@ class LRUCache:
     
     return aged_items`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why does an LRU Cache use both a dictionary and a linked list?',
+      question:
+        'Why does an LRU Cache use both a dictionary and a linked list?',
       options: [
         'To reduce memory usage',
         'To provide O(1) access and maintain usage order',
@@ -6549,7 +6599,8 @@ class LRUCache:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the primary advantage of using dummy head and tail nodes?',
+      question:
+        'What is the primary advantage of using dummy head and tail nodes?',
       options: [
         'They improve cache performance',
         'They reduce memory usage',
@@ -6558,14 +6609,14 @@ class LRUCache:
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Dummy nodes don\'t affect cache performance.',
+        "Incorrect. Dummy nodes don't affect cache performance.",
         'Incorrect. They actually use slightly more memory.',
         'Correct! Dummy nodes eliminate special cases for first/last elements, simplifying the code.',
         'Incorrect. Cache size is independent of dummy nodes.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const graphRepresentationData = {
@@ -6802,7 +6853,8 @@ class GraphRepresentation:
 
   exercises: [
     {
-      prompt: 'Create a function that converts a weighted graph represented as a matrix into a dictionary-based representation. Consider both directed and undirected cases.',
+      prompt:
+        'Create a function that converts a weighted graph represented as a matrix into a dictionary-based representation. Consider both directed and undirected cases.',
       initialCode: `def matrix_to_dict_graph(matrix, directed=False):
     """
     Convert adjacency matrix to dictionary representation.
@@ -6851,15 +6903,16 @@ matrix = [
     
     return graph`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is a dictionary-based adjacency list better than a matrix for sparse graphs?',
+      question:
+        'Why is a dictionary-based adjacency list better than a matrix for sparse graphs?',
       options: [
-        'It\'s faster for all operations',
+        "It's faster for all operations",
         'It uses less memory by only storing existing edges',
-        'It\'s easier to implement',
+        "It's easier to implement",
         'It supports more types of graphs',
       ],
       correctAnswer: 1,
@@ -6872,7 +6925,8 @@ matrix = [
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the main advantage of storing edge weights in a nested dictionary rather than a separate structure?',
+      question:
+        'What is the main advantage of storing edge weights in a nested dictionary rather than a separate structure?',
       options: [
         'It uses less memory',
         'It provides O(1) weight lookup for any edge',
@@ -6884,11 +6938,11 @@ matrix = [
         'Incorrect. It might actually use more memory than alternatives.',
         'Correct! Nested dictionaries provide constant-time access to edge weights.',
         'Incorrect. Direction is independent of weight storage method.',
-        'Incorrect. Traversal speed isn\'t significantly affected by weight storage.',
+        "Incorrect. Traversal speed isn't significantly affected by weight storage.",
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const trieImplementationData = {
@@ -7120,7 +7174,8 @@ class Trie:
 
   exercises: [
     {
-      prompt: 'Extend the Trie implementation to support fuzzy search, finding words that match a pattern where "?" represents any single character.',
+      prompt:
+        'Extend the Trie implementation to support fuzzy search, finding words that match a pattern where "?" represents any single character.',
       initialCode: `def fuzzy_search(self, pattern):
     """
     Find all words matching pattern where ? matches any character.
@@ -7176,11 +7231,12 @@ class Trie:
     _fuzzy_search_helper(self.root, pattern, "", 0, results)
     return results`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is a trie more efficient than a hash table for prefix matching?',
+      question:
+        'Why is a trie more efficient than a hash table for prefix matching?',
       options: [
         'It uses less memory',
         'It stores words in sorted order',
@@ -7190,14 +7246,15 @@ class Trie:
       correctAnswer: 2,
       explanations: [
         'Incorrect. Tries often use more memory than hash tables.',
-        'Incorrect. While tries maintain lexicographical order, this isn\'t the main advantage.',
+        "Incorrect. While tries maintain lexicographical order, this isn't the main advantage.",
         'Correct! Tries organize words by shared prefixes, making prefix operations efficient.',
         'Incorrect. Hash tables generally provide faster single word insertion.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the primary advantage of using a dictionary for storing child nodes in a trie?',
+      question:
+        'What is the primary advantage of using a dictionary for storing child nodes in a trie?',
       options: [
         'It reduces memory usage',
         'It provides O(1) access to child nodes',
@@ -7208,12 +7265,12 @@ class Trie:
       explanations: [
         'Incorrect. Arrays might use less memory for small character sets.',
         'Correct! Dictionary provides constant-time access to child nodes, which is crucial for trie operations.',
-        'Incorrect. Dictionaries don\'t automatically sort keys.',
+        "Incorrect. Dictionaries don't automatically sort keys.",
         'Incorrect. Both arrays and dictionaries can support the same character sets.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const slidingWindowData = {
@@ -7439,7 +7496,8 @@ class SlidingWindowPatterns:
 
   exercises: [
     {
-      prompt: 'Create a function that finds the longest substring with exactly k different characters. Use a sliding window with a dictionary to track character frequencies.',
+      prompt:
+        'Create a function that finds the longest substring with exactly k different characters. Use a sliding window with a dictionary to track character frequencies.',
       initialCode: `def longest_k_chars_substring(s: str, k: int) -> str:
     """
     Find longest substring with exactly k different characters.
@@ -7489,11 +7547,12 @@ k = 2  # Should return "ece"`,
     
     return s[max_start:max_start + max_length]`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is a dictionary particularly useful in sliding window problems?',
+      question:
+        'Why is a dictionary particularly useful in sliding window problems?',
       options: [
         'It makes the code shorter',
         'It maintains frequencies and states efficiently with O(1) updates',
@@ -7502,15 +7561,16 @@ k = 2  # Should return "ece"`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Code length isn\'t a significant factor.',
+        "Incorrect. Code length isn't a significant factor.",
         'Correct! Dictionaries provide efficient tracking of window contents with constant-time updates.',
-        'Incorrect. Window size isn\'t determined by the data structure choice.',
+        "Incorrect. Window size isn't determined by the data structure choice.",
         'Incorrect. Dictionaries might actually use more memory than arrays.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When implementing a sliding window with a dictionary, what is the most important operation to handle carefully?',
+      question:
+        'When implementing a sliding window with a dictionary, what is the most important operation to handle carefully?',
       options: [
         'Adding new elements',
         'Window size calculation',
@@ -7525,8 +7585,8 @@ k = 2  # Should return "ece"`,
         'Incorrect. Initial window creation is typically simpler than ongoing maintenance.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const anagramProblemsData = {
@@ -7757,7 +7817,8 @@ class AnagramSolver:
 
   exercises: [
     {
-      prompt: 'Create a function that determines if any permutation of a string can form a palindrome. Use character frequency counting to solve this efficiently.',
+      prompt:
+        'Create a function that determines if any permutation of a string can form a palindrome. Use character frequency counting to solve this efficiently.',
       initialCode: `def can_form_palindrome(s: str) -> bool:
     """
     Check if any permutation of string can be a palindrome.
@@ -7802,11 +7863,12 @@ class AnagramSolver:
     # appears odd number of times
     return True`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is character frequency counting more efficient than sorting for checking anagrams?',
+      question:
+        'Why is character frequency counting more efficient than sorting for checking anagrams?',
       options: [
         'It uses less memory',
         'It can process longer strings',
@@ -7823,7 +7885,8 @@ class AnagramSolver:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key insight that makes sliding window efficient for finding anagram substrings?',
+      question:
+        'What is the key insight that makes sliding window efficient for finding anagram substrings?',
       options: [
         'It sorts the strings first',
         'It compares frequencies instead of sorting each substring',
@@ -7832,14 +7895,14 @@ class AnagramSolver:
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Sliding window doesn\'t require sorting.',
+        "Incorrect. Sliding window doesn't require sorting.",
         'Correct! By maintaining a frequency dictionary that updates with the window, we avoid repeated work.',
-        'Incorrect. Memory usage isn\'t the main advantage.',
-        'Incorrect. String length doesn\'t determine method selection.',
+        "Incorrect. Memory usage isn't the main advantage.",
+        "Incorrect. String length doesn't determine method selection.",
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const arrayOperationsData = {
@@ -8054,7 +8117,8 @@ class ArrayOperations:
 
   exercises: [
     {
-      prompt: 'Create a function that finds all elements that appear more times in one array than in another, maintaining the extra occurrences in the result.',
+      prompt:
+        'Create a function that finds all elements that appear more times in one array than in another, maintaining the extra occurrences in the result.',
       initialCode: `def find_excess_elements(arr1: list, arr2: list) -> list:
     """
     Find elements that appear more frequently in arr1 than arr2.
@@ -8099,11 +8163,12 @@ class ArrayOperations:
     
     return sorted(result)`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is using a dictionary better than nested loops for finding common elements?',
+      question:
+        'Why is using a dictionary better than nested loops for finding common elements?',
       options: [
         'It uses less memory',
         'It always preserves element order',
@@ -8113,14 +8178,15 @@ class ArrayOperations:
       correctAnswer: 2,
       explanations: [
         'Incorrect. Dictionary-based solutions often use more memory.',
-        'Incorrect. Dictionaries don\'t naturally preserve order.',
+        "Incorrect. Dictionaries don't naturally preserve order.",
         'Correct! Dictionary lookups are O(1), turning nested O(n²) comparisons into O(n) operations.',
         'Incorrect. While true, this is a result of better time complexity.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key consideration when handling duplicates in array operations?',
+      question:
+        'What is the key consideration when handling duplicates in array operations?',
       options: [
         'Sorting the arrays first',
         'Tracking frequencies in the dictionary',
@@ -8129,14 +8195,14 @@ class ArrayOperations:
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Sorting isn\'t necessary with dictionary-based solutions.',
+        "Incorrect. Sorting isn't necessary with dictionary-based solutions.",
         'Correct! Tracking frequencies allows us to handle duplicates correctly based on their counts in each array.',
-        'Incorrect. While sometimes useful, this isn\'t the key consideration.',
+        "Incorrect. While sometimes useful, this isn't the key consideration.",
         'Incorrect. Sets would lose duplicate information.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const dictionaryLessons: Record<string, LessonContent> = {
@@ -8167,7 +8233,7 @@ const dictionaryLessons: Record<string, LessonContent> = {
   'trie-implementation': trieImplementationData,
   'sliding-window': slidingWindowData,
   'anagram-problems': anagramProblemsData,
-  'array-operations': arrayOperationsData
+  'array-operations': arrayOperationsData,
 };
 export const dictionaryLessonsTab: LessonsTab = {
   curriculum: dictionaryCurriculum,

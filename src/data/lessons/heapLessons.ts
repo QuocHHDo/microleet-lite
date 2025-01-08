@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 const heapCurriculum: Curriculum = {
   title: 'Heap Curriculum',
@@ -13,20 +18,23 @@ const heapCurriculum: Curriculum = {
         {
           id: 'heap-concept',
           title: 'Heap Concepts',
-          description: 'Understanding heap properties and structure with LeetCode examples',
-          priority: PriorityLevel.Essential
+          description:
+            'Understanding heap properties and structure with LeetCode examples',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'heap-implementation',
           title: 'Basic Heap Implementation',
-          description: 'Implementing a binary heap using arrays - a common interview requirement',
-          priority: PriorityLevel.Essential
+          description:
+            'Implementing a binary heap using arrays - a common interview requirement',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'heap-properties',
           title: 'Heap Properties',
-          description: 'Complete binary tree and heap properties with visualization',
-          priority: PriorityLevel.Essential
+          description:
+            'Complete binary tree and heap properties with visualization',
+          priority: PriorityLevel.Essential,
         },
       ],
     },
@@ -37,26 +45,30 @@ const heapCurriculum: Curriculum = {
         {
           id: 'heap-insertion',
           title: 'Insertion Operation',
-          description: 'Adding elements while maintaining heap property - common subproblem in interviews',
-          priority: PriorityLevel.Essential
+          description:
+            'Adding elements while maintaining heap property - common subproblem in interviews',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'heap-extraction',
           title: 'Extraction Operation',
-          description: 'Removing elements and restructuring heap - fundamental for K-element problems',
-          priority: PriorityLevel.Essential
+          description:
+            'Removing elements and restructuring heap - fundamental for K-element problems',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'heapify',
           title: 'Heapify Process',
-          description: 'Converting arrays into heaps - crucial for heap sort and K-largest problems',
-          priority: PriorityLevel.Essential
+          description:
+            'Converting arrays into heaps - crucial for heap sort and K-largest problems',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'heap-update',
           title: 'Update Operations',
-          description: 'Modifying elements in place - used in priority queue problems',
-          priority: PriorityLevel.Important
+          description:
+            'Modifying elements in place - used in priority queue problems',
+          priority: PriorityLevel.Important,
         },
       ],
     },
@@ -67,20 +79,23 @@ const heapCurriculum: Curriculum = {
         {
           id: 'top-k-pattern',
           title: 'Top-K Pattern',
-          description: 'Solving Top-K problems using heaps with example problems and solutions',
-          priority: PriorityLevel.Essential
+          description:
+            'Solving Top-K problems using heaps with example problems and solutions',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'k-way-merge',
           title: 'K-Way Merge Pattern',
-          description: 'Techniques for merging K sorted arrays/lists using heaps',
-          priority: PriorityLevel.Essential
+          description:
+            'Techniques for merging K sorted arrays/lists using heaps',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'two-heaps',
           title: 'Two Heaps Pattern',
-          description: 'Using min and max heaps together to solve median and interval problems',
-          priority: PriorityLevel.Essential
+          description:
+            'Using min and max heaps together to solve median and interval problems',
+          priority: PriorityLevel.Essential,
         },
       ],
     },
@@ -91,20 +106,23 @@ const heapCurriculum: Curriculum = {
         {
           id: 'stream-processing',
           title: 'Stream Processing',
-          description: 'Handling data streams using heaps - median finding and running statistics',
-          priority: PriorityLevel.Important
+          description:
+            'Handling data streams using heaps - median finding and running statistics',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'scheduling-problems',
           title: 'Scheduling Problems',
-          description: 'Solving task scheduling and interval problems using priority queues',
-          priority: PriorityLevel.Important
+          description:
+            'Solving task scheduling and interval problems using priority queues',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'k-closest-points',
           title: 'K-Closest Points',
-          description: 'Finding K-closest points and similar distance-based problems',
-          priority: PriorityLevel.Essential
+          description:
+            'Finding K-closest points and similar distance-based problems',
+          priority: PriorityLevel.Essential,
         },
       ],
     },
@@ -115,20 +133,23 @@ const heapCurriculum: Curriculum = {
         {
           id: 'sliding-window-heap',
           title: 'Sliding Window with Heap',
-          description: 'Combining sliding window and heap techniques for optimization problems',
-          priority: PriorityLevel.Important
+          description:
+            'Combining sliding window and heap techniques for optimization problems',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'multiple-heaps',
           title: 'Multiple Heaps Strategy',
-          description: 'Using multiple heaps to solve complex scheduling and interval problems',
-          priority: PriorityLevel.Beneficial
+          description:
+            'Using multiple heaps to solve complex scheduling and interval problems',
+          priority: PriorityLevel.Beneficial,
         },
         {
           id: 'heap-with-hashmap',
           title: 'Heap with HashMap',
-          description: 'Combining heap with hash map for optimized lookup and updates',
-          priority: PriorityLevel.Important
+          description:
+            'Combining heap with hash map for optimized lookup and updates',
+          priority: PriorityLevel.Important,
         },
       ],
     },
@@ -139,20 +160,23 @@ const heapCurriculum: Curriculum = {
         {
           id: 'when-to-use',
           title: 'When to Use Heaps',
-          description: 'Identifying problems that require heaps vs. other data structures',
-          priority: PriorityLevel.Essential
+          description:
+            'Identifying problems that require heaps vs. other data structures',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'optimization',
           title: 'Optimization Techniques',
-          description: 'Common optimization patterns and time/space complexity trade-offs',
-          priority: PriorityLevel.Essential
+          description:
+            'Common optimization patterns and time/space complexity trade-offs',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'common-mistakes',
           title: 'Common Mistakes',
-          description: 'Avoiding common pitfalls in heap-based solutions and edge cases',
-          priority: PriorityLevel.Essential
+          description:
+            'Avoiding common pitfalls in heap-based solutions and edge cases',
+          priority: PriorityLevel.Essential,
         },
       ],
     },
@@ -163,20 +187,23 @@ const heapCurriculum: Curriculum = {
         {
           id: 'custom-comparator',
           title: 'Custom Comparators',
-          description: 'Implementing custom comparison logic for complex heap problems',
-          priority: PriorityLevel.Important
+          description:
+            'Implementing custom comparison logic for complex heap problems',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'language-specifics',
           title: 'Language-Specific Tools',
-          description: 'Using built-in heap/priority queue implementations effectively',
-          priority: PriorityLevel.Essential
+          description:
+            'Using built-in heap/priority queue implementations effectively',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'edge-cases',
           title: 'Edge Cases',
-          description: 'Handling empty heaps, single elements, and other special cases',
-          priority: PriorityLevel.Essential
+          description:
+            'Handling empty heaps, single elements, and other special cases',
+          priority: PriorityLevel.Essential,
         },
       ],
     },
@@ -270,7 +297,8 @@ print(f"\\n{k} smallest elements in {numbers}:")
 print(find_k_smallest(numbers, k))  # Returns [1, 2, 3]`,
   exercises: [
     {
-      prompt: 'Implement a function that uses a min heap to find the k-th smallest element in an array.',
+      prompt:
+        'Implement a function that uses a min heap to find the k-th smallest element in an array.',
       initialCode: `def find_kth_smallest(nums, k):
     # Use heapq to implement your solution
     # Return the k-th smallest element
@@ -291,7 +319,8 @@ def find_kth_smallest(nums, k):
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a max heap from a given array by negating elements (since Python only provides min heap).',
+      prompt:
+        'Create a max heap from a given array by negating elements (since Python only provides min heap).',
       initialCode: `def create_max_heap(nums):
     # Convert nums into a max heap
     # Return the heap as a list
@@ -304,17 +333,13 @@ def create_max_heap(nums):
     heapify(max_heap)
     return max_heap`,
       difficulty: Difficulty.Beginner,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the time complexity of extracting the minimum element from a min heap?',
-      options: [
-        'O(1)',
-        'O(log n)',
-        'O(n)',
-        'O(n log n)',
-      ],
+      question:
+        'What is the time complexity of extracting the minimum element from a min heap?',
+      options: ['O(1)', 'O(log n)', 'O(n)', 'O(n log n)'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. While viewing the minimum takes O(1), extracting requires reorganizing the heap.',
@@ -323,7 +348,7 @@ def create_max_heap(nums):
         'Incorrect. This is the complexity of heap sort, not extraction.',
       ],
       difficulty: Difficulty.Beginner,
-    }
+    },
   ],
 };
 
@@ -430,7 +455,8 @@ while heap.heap:
     print(f"Extracted {min_val}, remaining heap: {heap.heap}")`,
   exercises: [
     {
-      prompt: 'Implement a max heap by modifying the comparison operations in the provided min heap implementation.',
+      prompt:
+        'Implement a max heap by modifying the comparison operations in the provided min heap implementation.',
       initialCode: `class MaxHeap:
     def __init__(self):
         self.heap = []
@@ -493,26 +519,22 @@ while heap.heap:
             self.swap(i, max_idx)
             self._sink_down(max_idx)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'For a heap implemented as an array, what is the index of the left child of an element at index i?',
-      options: [
-        'i + 1',
-        '2i',
-        '2i + 1',
-        '2i + 2',
-      ],
+      question:
+        'For a heap implemented as an array, what is the index of the left child of an element at index i?',
+      options: ['i + 1', '2i', '2i + 1', '2i + 2'],
       correctAnswer: 2,
       explanations: [
         'Incorrect. This would only access the next element, not the left child.',
-        'Incorrect. This formula doesn\'t account for 0-based indexing.',
+        "Incorrect. This formula doesn't account for 0-based indexing.",
         'Correct! For 0-based indexing, the left child is at position 2i + 1.',
         'Incorrect. This is the formula for the right child.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -677,7 +699,8 @@ print("\\nInvalid heap:")
 print("Is complete binary tree?", is_complete_binary_tree(invalid_heap))  # False`,
   exercises: [
     {
-      prompt: 'Write a function that verifies if a given binary tree satisfies the min heap property.',
+      prompt:
+        'Write a function that verifies if a given binary tree satisfies the min heap property.',
       initialCode: `def is_min_heap_property(heap):
     """
     Check if the given heap satisfies the min heap property:
@@ -717,7 +740,8 @@ print("Is complete binary tree?", is_complete_binary_tree(invalid_heap))  # Fals
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Given a complete binary tree represented as an array, write a function to count the number of nodes at each level.',
+      prompt:
+        'Given a complete binary tree represented as an array, write a function to count the number of nodes at each level.',
       initialCode: `def count_nodes_per_level(heap):
     """
     Count the number of nodes at each level in a complete binary tree.
@@ -758,11 +782,12 @@ print("Is complete binary tree?", is_complete_binary_tree(invalid_heap))  # Fals
     
     return nodes_per_level`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Which of the following violates the complete binary tree property?',
+      question:
+        'Which of the following violates the complete binary tree property?',
       options: [
         'A tree with 3 nodes: root and 2 children',
         'A tree with 4 nodes: root, 2 nodes in level 1, and 1 leftmost node in level 2',
@@ -779,7 +804,8 @@ print("Is complete binary tree?", is_complete_binary_tree(invalid_heap))  # Fals
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'In a max heap with values [100, 80, 90, 30, 50], what happens if we add the value 85?',
+      question:
+        'In a max heap with values [100, 80, 90, 30, 50], what happens if we add the value 85?',
       options: [
         'It goes to the next available position (index 5) and stays there',
         'It goes to index 5 and then bubbles up to replace 80',
@@ -794,7 +820,7 @@ print("Is complete binary tree?", is_complete_binary_tree(invalid_heap))  # Fals
         'Incorrect. Adding 85 is valid and the heap can reorganize to maintain its properties.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -956,7 +982,8 @@ for value in [10, 20, 15, 30, 40]:
     heap.display()`,
   exercises: [
     {
-      prompt: 'Implement a min heap insertion operation that maintains a running count of the number of swaps performed during insertion.',
+      prompt:
+        'Implement a min heap insertion operation that maintains a running count of the number of swaps performed during insertion.',
       initialCode: `class MinHeapWithMetrics:
     def __init__(self):
         self.heap = []
@@ -994,7 +1021,8 @@ for value in [10, 20, 15, 30, 40]:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that performs a batch insertion of multiple values into a max heap, optimizing for efficiency.',
+      prompt:
+        'Implement a function that performs a batch insertion of multiple values into a max heap, optimizing for efficiency.',
       initialCode: `def batch_insert(heap, values):
     """
     Insert multiple values into a max heap efficiently.
@@ -1048,11 +1076,12 @@ for value in [10, 20, 15, 30, 40]:
     
     return heap`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the worst-case time complexity of inserting a new element into a heap with n elements, and why?',
+      question:
+        'What is the worst-case time complexity of inserting a new element into a heap with n elements, and why?',
       options: [
         'O(1), because we just append to the end of the array',
         'O(log n), because we might need to bubble up to the root',
@@ -1069,11 +1098,12 @@ for value in [10, 20, 15, 30, 40]:
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'When inserting a new element into a max heap, which of the following is true?',
+      question:
+        'When inserting a new element into a max heap, which of the following is true?',
       options: [
         'The element must always bubble up to the root',
         'The element must be larger than its siblings',
-        'The element stays at its initial position if it\'s smaller than its parent',
+        "The element stays at its initial position if it's smaller than its parent",
         'The element must be compared with all existing elements',
       ],
       correctAnswer: 2,
@@ -1084,7 +1114,7 @@ for value in [10, 20, 15, 30, 40]:
         'Incorrect. We only need to compare with ancestors along the path to the root.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -1280,7 +1310,8 @@ k_largest = heap.find_k_largest(k)
 print(f"{k} largest elements:", k_largest)`,
   exercises: [
     {
-      prompt: 'Implement a min heap extraction method that maintains a count of comparisons made during the sink-down process.',
+      prompt:
+        'Implement a min heap extraction method that maintains a count of comparisons made during the sink-down process.',
       initialCode: `class MinHeapWithMetrics:
     def __init__(self):
         self.heap = []
@@ -1337,7 +1368,8 @@ print(f"{k} largest elements:", k_largest)`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a method to find the k smallest elements in a max heap without modifying the original heap structure.',
+      prompt:
+        'Implement a method to find the k smallest elements in a max heap without modifying the original heap structure.',
       initialCode: `def find_k_smallest(heap, k):
     """
     Find k smallest elements in a max heap without modifying it.
@@ -1390,15 +1422,16 @@ def find_k_smallest(heap, k):
     
     return result`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'During heap extraction, why do we move the last element to the root instead of trying to find a better candidate?',
+      question:
+        'During heap extraction, why do we move the last element to the root instead of trying to find a better candidate?',
       options: [
-        'It\'s always the best element to maintain heap property',
+        "It's always the best element to maintain heap property",
         'It maintains the complete binary tree property with minimal restructuring',
-        'It\'s faster than searching for a better candidate',
+        "It's faster than searching for a better candidate",
         'It ensures the heap stays balanced',
       ],
       correctAnswer: 1,
@@ -1411,7 +1444,8 @@ def find_k_smallest(heap, k):
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'In a max heap of size n, what is the maximum number of comparisons needed during the sink-down phase of extraction?',
+      question:
+        'In a max heap of size n, what is the maximum number of comparisons needed during the sink-down phase of extraction?',
       options: [
         'n comparisons',
         '2log₂(n) comparisons',
@@ -1420,13 +1454,13 @@ def find_k_smallest(heap, k):
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. We don\'t need to compare with every element.',
+        "Incorrect. We don't need to compare with every element.",
         'Correct! At each level we make up to 2 comparisons, and we have at most log₂(n) levels to traverse.',
         'Incorrect. This would be more comparisons than necessary.',
         'Incorrect. We need 2 comparisons per level (left and right child).',
       ],
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 };
 
@@ -1604,7 +1638,8 @@ sample_array = [4, 10, 3, 5, 1]
 demonstrate_heapify_process(sample_array.copy())`,
   exercises: [
     {
-      prompt: 'Implement a version of heapify that counts and returns the number of swaps performed during the process.',
+      prompt:
+        'Implement a version of heapify that counts and returns the number of swaps performed during the process.',
       initialCode: `def heapify_with_metrics(arr):
     """
     Transform array into max heap and count swaps.
@@ -1652,11 +1687,12 @@ demonstrate_heapify_process(sample_array.copy())`,
     
     return swap_count`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is bottom-up heapify O(n) while building a heap through repeated insertions is O(n log n)?',
+      question:
+        'Why is bottom-up heapify O(n) while building a heap through repeated insertions is O(n log n)?',
       options: [
         'Bottom-up heapify uses less memory',
         'Most nodes in bottom-up heapify require very little movement',
@@ -1667,11 +1703,11 @@ demonstrate_heapify_process(sample_array.copy())`,
       explanations: [
         'Incorrect. Both approaches use the same amount of memory.',
         'Correct! In bottom-up heapify, nodes at the bottom (which are most numerous) need minimal adjustments, while only a few nodes near the top need to move far.',
-        'Incorrect. Repeated insertions don\'t require pre-sorting.',
+        "Incorrect. Repeated insertions don't require pre-sorting.",
         'Incorrect. Bottom-up heapify processes one node at a time.',
       ],
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 };
 
@@ -1893,7 +1929,8 @@ def schedule_tasks_with_updates():
     print(heap.heap)`,
   exercises: [
     {
-      prompt: 'Implement a method to update all elements in a heap that match a certain condition while maintaining heap property.',
+      prompt:
+        'Implement a method to update all elements in a heap that match a certain condition while maintaining heap property.',
       initialCode: `def update_matching_elements(heap, condition, new_value):
     """
     Update all elements that match a condition.
@@ -1935,11 +1972,12 @@ def schedule_tasks_with_updates():
         else:
             heap._sink_down(index)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'When updating a value in a heap, why can\'t we need to both bubble up AND sink down for the same update?',
+      question:
+        "When updating a value in a heap, why can't we need to both bubble up AND sink down for the same update?",
       options: [
         'Because it would be too computationally expensive',
         'Because the heap would become unbalanced',
@@ -1950,11 +1988,11 @@ def schedule_tasks_with_updates():
       explanations: [
         'Incorrect. While efficiency is important, this is not the main reason.',
         'Incorrect. The heap remains balanced regardless of update operations.',
-        'Correct! At any point, an element can only violate the heap property in one direction - either it\'s too large compared to its parent or too small compared to its children.',
+        "Correct! At any point, an element can only violate the heap property in one direction - either it's too large compared to its parent or too small compared to its children.",
         'Incorrect. Updates can affect multiple levels of the heap.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -2107,7 +2145,8 @@ When approaching a Top-K problem, follow these steps:
         return [[x, y] for (dist, x, y) in heap]`,
   exercises: [
     {
-      prompt: 'Implement a function to find the k most frequent words in a list of strings, maintaining alphabetical order for words with same frequency.',
+      prompt:
+        'Implement a function to find the k most frequent words in a list of strings, maintaining alphabetical order for words with same frequency.',
       initialCode: `def topKFrequentWords(words: List[str], k: int) -> List[str]:
     """
     Find k most frequent words, breaking ties alphabetically.
@@ -2155,7 +2194,8 @@ When approaching a Top-K problem, follow these steps:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a function to find the kth largest element in a data stream.',
+      prompt:
+        'Implement a function to find the kth largest element in a data stream.',
       initialCode: `class KthLargest:
     """
     Maintain a structure that can find kth largest in a stream.
@@ -2196,11 +2236,12 @@ When approaching a Top-K problem, follow these steps:
         # Return kth largest (smallest in our min heap)
         return self.heap[0] if len(self.heap) == self.k else None`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'When solving a Top-K largest elements problem, why do we use a min heap of size k instead of a max heap of all elements?',
+      question:
+        'When solving a Top-K largest elements problem, why do we use a min heap of size k instead of a max heap of all elements?',
       options: [
         'Because min heaps are faster than max heaps',
         'To save memory by only storing k elements',
@@ -2217,7 +2258,8 @@ When approaching a Top-K problem, follow these steps:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'In a streaming data scenario, which heap approach would be most appropriate for finding the k largest elements?',
+      question:
+        'In a streaming data scenario, which heap approach would be most appropriate for finding the k largest elements?',
       options: [
         'Max heap storing all elements seen so far',
         'Min heap of size k',
@@ -2229,10 +2271,10 @@ When approaching a Top-K problem, follow these steps:
         'Incorrect. This would use unbounded memory as the stream continues.',
         'Correct! A min heap of size k maintains only what we need and efficiently processes new elements in O(log k) time.',
         'Incorrect. This approach is more suitable for finding medians.',
-        'Incorrect. A max heap wouldn\'t let us efficiently maintain the k largest elements.',
+        "Incorrect. A max heap wouldn't let us efficiently maintain the k largest elements.",
       ],
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 };
 
@@ -2409,7 +2451,8 @@ class Solution:
         return result`,
   exercises: [
     {
-      prompt: 'Implement a function to merge k sorted streams of integers where each stream might be infinite. Return an iterator that yields elements in sorted order.',
+      prompt:
+        'Implement a function to merge k sorted streams of integers where each stream might be infinite. Return an iterator that yields elements in sorted order.',
       initialCode: `class StreamIterator:
     """Iterator interface for a stream of integers."""
     def has_next(self) -> bool: pass
@@ -2455,11 +2498,12 @@ def merge_k_streams(streams: List[StreamIterator]) -> Iterator[int]:
             next_value = streams[stream_index].next()
             heapq.heappush(heap, (next_value, stream_index))`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do we use a min heap instead of a max heap for k-way merge?',
+      question:
+        'Why do we use a min heap instead of a max heap for k-way merge?',
       options: [
         'Because min heaps are more efficient than max heaps',
         'To process elements in ascending order for the merged result',
@@ -2476,7 +2520,8 @@ def merge_k_streams(streams: List[StreamIterator]) -> Iterator[int]:
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the advantage of k-way merge over merging arrays pairwise?',
+      question:
+        'What is the advantage of k-way merge over merging arrays pairwise?',
       options: [
         'It uses less total memory',
         'It requires fewer comparisons overall',
@@ -2491,7 +2536,7 @@ def merge_k_streams(streams: List[StreamIterator]) -> Iterator[int]:
         'Incorrect. Both approaches can handle uneven sized arrays equally well.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -2691,7 +2736,8 @@ class SlidingWindowMedian:
             self._balance_if_needed(False)`,
   exercises: [
     {
-      prompt: 'Implement a function to find the median of every subarray of size k in an array.',
+      prompt:
+        'Implement a function to find the median of every subarray of size k in an array.',
       initialCode: `def sliding_window_median(nums: List[int], k: int) -> List[float]:
     """
     Find medians of all subarrays of size k.
@@ -2755,11 +2801,12 @@ class SlidingWindowMedian:
         
     return result`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do we use a max heap for the smaller half and a min heap for the larger half in the Two Heaps pattern?',
+      question:
+        'Why do we use a max heap for the smaller half and a min heap for the larger half in the Two Heaps pattern?',
       options: [
         'To minimize memory usage',
         'To make the implementation simpler',
@@ -2774,7 +2821,7 @@ class SlidingWindowMedian:
         'Incorrect. The time complexity for insertions would be the same with any arrangement.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -2994,7 +3041,8 @@ Efficient stream processing requires careful memory management. Here are key str
         return sorted_nums[min(k, len(sorted_nums) - 1)]`,
   exercises: [
     {
-      prompt: 'Implement a stream processor that finds the median of the last k elements in a continuous stream of integers.',
+      prompt:
+        'Implement a stream processor that finds the median of the last k elements in a continuous stream of integers.',
       initialCode: `class MedianStream:
     """
     Track median of last k elements in a stream.
@@ -3055,11 +3103,12 @@ Efficient stream processing requires careful memory management. Here are key str
         while len(self.larger) > len(self.smaller) + 1:
             heapq.heappush(self.smaller, -heapq.heappop(self.larger))`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do we use lazy deletion in stream processing with heaps instead of removing elements immediately?',
+      question:
+        'Why do we use lazy deletion in stream processing with heaps instead of removing elements immediately?',
       options: [
         'To save memory',
         'Because immediate deletion is not possible in heaps',
@@ -3074,7 +3123,7 @@ Efficient stream processing requires careful memory management. Here are key str
         'Incorrect. Lazy deletion actually makes the implementation more complex.',
       ],
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 };
 
@@ -3325,7 +3374,8 @@ def schedule_example():
               f"Duration: {task.duration}")`,
   exercises: [
     {
-      prompt: 'Implement a scheduler that handles tasks with dependencies (some tasks must complete before others can start).',
+      prompt:
+        'Implement a scheduler that handles tasks with dependencies (some tasks must complete before others can start).',
       initialCode: `class Task:
     def __init__(self, id: str, duration: int, 
                  dependencies: List[str] = None):
@@ -3389,26 +3439,27 @@ def schedule_with_dependencies(tasks: List[Task]) -> Dict[str, int]:
     
     return start_times`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'When scheduling tasks with deadlines, why might Earliest Deadline First not always be the optimal strategy?',
+      question:
+        'When scheduling tasks with deadlines, why might Earliest Deadline First not always be the optimal strategy?',
       options: [
         'Because it uses too much memory',
-        'Because it doesn\'t consider task durations',
-        'Because it doesn\'t handle dependencies',
-        'Because it\'s too slow to implement',
+        "Because it doesn't consider task durations",
+        "Because it doesn't handle dependencies",
+        "Because it's too slow to implement",
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Memory usage is not the primary concern with this strategy.',
         'Correct! EDF only looks at deadlines, ignoring task durations which could lead to situations where longer tasks block multiple shorter ones that could have completed instead.',
-        'Incorrect. While true, this isn\'t the main reason EDF might be suboptimal even without dependencies.',
+        "Incorrect. While true, this isn't the main reason EDF might be suboptimal even without dependencies.",
         'Incorrect. EDF can be implemented efficiently using a priority queue.',
       ],
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 };
 
@@ -3610,7 +3661,8 @@ def demonstrate_k_closest():
         print(f"{point}: distance = {dist:.2f}")`,
   exercises: [
     {
-      prompt: 'Implement a function to find the k closest points to a given target point (not necessarily the origin).',
+      prompt:
+        'Implement a function to find the k closest points to a given target point (not necessarily the origin).',
       initialCode: `def k_closest_to_target(points: List[Point], 
                             target: Point, k: int) -> List[Point]:
     """
@@ -3652,11 +3704,12 @@ def demonstrate_k_closest():
     # Return points sorted by distance
     return [point for _, point in sorted(heap, key=lambda x: -x[0])]`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do we use a max heap of size k instead of a min heap when finding k-closest points?',
+      question:
+        'Why do we use a max heap of size k instead of a min heap when finding k-closest points?',
       options: [
         'Because max heaps are more efficient than min heaps',
         'To maintain only k closest points and easily remove furthest when needed',
@@ -3667,11 +3720,11 @@ def demonstrate_k_closest():
       explanations: [
         'Incorrect. The efficiency of max and min heaps is the same.',
         'Correct! A max heap of size k lets us easily track the k closest points by removing the furthest point when we find a closer one.',
-        'Incorrect. The sign of the values doesn\'t determine which type of heap to use.',
-        'Incorrect. The heap type doesn\'t determine the final sorting order.',
+        "Incorrect. The sign of the values doesn't determine which type of heap to use.",
+        "Incorrect. The heap type doesn't determine the final sorting order.",
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -3891,10 +3944,11 @@ def demonstrate_sliding_median():
     for i in range(len(medians)):
         window = nums[i:i+k]
         print(f"Window {i+1}: {window}")
-        print(f"Median: {medians[i]}\\n")`,
+        print(f"Median: {medians[i]}\")`,
   exercises: [
     {
-      prompt: 'Implement a function to find the maximum sum of any subarray of size k, while also maintaining the minimum element seen in each window.',
+      prompt:
+        'Implement a function to find the maximum sum of any subarray of size k, while also maintaining the minimum element seen in each window.',
       initialCode: `def max_sum_with_min(nums: List[int], k: int) -> List[tuple]:
     """
     Find maximum sum and minimum element for each window.
@@ -3950,11 +4004,12 @@ def demonstrate_sliding_median():
         
     return result`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do we use lazy removal when combining sliding window and heap techniques?',
+      question:
+        'Why do we use lazy removal when combining sliding window and heap techniques?',
       options: [
         'To save memory by not creating new data structures',
         'Because immediate removal from a heap is impossible',
@@ -3969,7 +4024,7 @@ def demonstrate_sliding_median():
         'Incorrect. The window size constraint is maintained regardless of removal strategy.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -4204,7 +4259,8 @@ While multiple heaps give us more flexibility, they also introduce additional co
         return task`,
   exercises: [
     {
-      prompt: 'Implement a stock trading system that maintains both price-ordered and time-ordered queues for buy orders.',
+      prompt:
+        'Implement a stock trading system that maintains both price-ordered and time-ordered queues for buy orders.',
       initialCode: `class TradingSystem:
     """
     Trading system with multiple order queues.
@@ -4284,11 +4340,12 @@ While multiple heaps give us more flexibility, they also introduce additional co
                self.time_queue[0][2] in self.removed):
             heapq.heappop(self.time_queue)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'When implementing a system with multiple heaps, why is lazy deletion often preferred over immediate deletion?',
+      question:
+        'When implementing a system with multiple heaps, why is lazy deletion often preferred over immediate deletion?',
       options: [
         'Because it uses less memory',
         'To avoid updating multiple heaps simultaneously',
@@ -4303,7 +4360,7 @@ While multiple heaps give us more flexibility, they also introduce additional co
         'Incorrect. Data consistency is maintained regardless of deletion strategy.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -4576,7 +4633,8 @@ This pattern is particularly useful in several scenarios:
         self.id_to_pos[id2] = pos2`,
   exercises: [
     {
-      prompt: 'Implement a cache system that maintains both access frequency and recency using a combination of heap and hash map.',
+      prompt:
+        'Implement a cache system that maintains both access frequency and recency using a combination of heap and hash map.',
       initialCode: `class FrequencyCache:
     """
     Cache that considers both frequency and recency.
@@ -4694,11 +4752,12 @@ This pattern is particularly useful in several scenarios:
         self.heap[pos] = entry
         self.key_to_pos[entry[2]] = pos`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why might we need both a position map (id_to_pos) and a priority map (id_to_priority) in an indexed priority queue?',
+      question:
+        'Why might we need both a position map (id_to_pos) and a priority map (id_to_priority) in an indexed priority queue?',
       options: [
         'To save memory by duplicating data',
         'To avoid calculating priorities repeatedly',
@@ -4708,14 +4767,15 @@ This pattern is particularly useful in several scenarios:
       correctAnswer: 2,
       explanations: [
         'Incorrect. Having two maps actually uses more memory, not less.',
-        'Incorrect. While this is a minor benefit, it\'s not the main reason for having both maps.',
+        "Incorrect. While this is a minor benefit, it's not the main reason for having both maps.",
         'Correct! The position map lets us quickly find elements for updates, while the priority map helps us make quick priority comparisons without extracting from heap tuples.',
         'Incorrect. Collision handling is managed by the hash map implementation itself.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When implementing a heap with hash map, what must we remember to do during heap operations like bubble_up and sink_down?',
+      question:
+        'When implementing a heap with hash map, what must we remember to do during heap operations like bubble_up and sink_down?',
       options: [
         'Reset the hash map after each operation',
         'Update position mappings whenever elements swap positions',
@@ -4730,7 +4790,7 @@ This pattern is particularly useful in several scenarios:
         'Incorrect. We modify existing entries rather than creating new ones.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -4961,7 +5021,8 @@ def demonstrate_selection():
     print(result)`,
   exercises: [
     {
-      prompt: 'Analyze a given problem description and determine whether a heap is the appropriate data structure. Return your reasoning and any potential alternatives.',
+      prompt:
+        'Analyze a given problem description and determine whether a heap is the appropriate data structure. Return your reasoning and any potential alternatives.',
       initialCode: `def analyze_data_structure_needs(
     problem_description: str
 ) -> dict:
@@ -5060,7 +5121,7 @@ def demonstrate_selection():
         ]
     }`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
@@ -5074,12 +5135,12 @@ def demonstrate_selection():
       correctAnswer: 1,
       explanations: [
         'Incorrect. A heap (or two heaps) is ideal for maintaining streaming median.',
-        'Correct! When frequent random access is needed, a sorted array or BST would be better. Heaps don\'t provide efficient random access.',
+        "Correct! When frequent random access is needed, a sorted array or BST would be better. Heaps don't provide efficient random access.",
         'Incorrect. Priority queues are a perfect use case for heaps.',
         'Incorrect. K-way merge problems are well-suited for heap implementation.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -5335,7 +5396,8 @@ Understanding these trade-offs helps us make informed decisions about which opti
         self.index_map[target[1]] = pos`,
   exercises: [
     {
-      prompt: 'Implement a memory-efficient heap that uses lazy deletion for elements while maintaining correct ordering.',
+      prompt:
+        'Implement a memory-efficient heap that uses lazy deletion for elements while maintaining correct ordering.',
       initialCode: `class MemoryEfficientHeap:
     """
     Implement heap with lazy deletion optimization.
@@ -5408,11 +5470,12 @@ Understanding these trade-offs helps us make informed decisions about which opti
         for i in range((len(self.heap) - 2) >> 1, -1, -1):
             self._sink_down(i)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Which optimization technique would be most beneficial for a heap that frequently needs to update priorities of existing elements?',
+      question:
+        'Which optimization technique would be most beneficial for a heap that frequently needs to update priorities of existing elements?',
       options: [
         'Batch processing of insertions',
         'Index mapping to element positions',
@@ -5424,10 +5487,10 @@ Understanding these trade-offs helps us make informed decisions about which opti
         'Incorrect. Batch processing helps with multiple insertions but not updates.',
         'Correct! An index map provides O(1) access to elements needing updates, significantly improving update efficiency.',
         'Incorrect. Lazy deletion helps with removal operations but not updates.',
-        'Incorrect. While cache-friendly layout helps overall performance, it doesn\'t specifically optimize updates.',
+        "Incorrect. While cache-friendly layout helps overall performance, it doesn't specifically optimize updates.",
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -5703,7 +5766,8 @@ Some bugs are particularly tricky because they only appear under specific condit
         return self.heap[0]`,
   exercises: [
     {
-      prompt: 'Implement a heap that maintains stability for equal elements by adding sequence numbers. Include proper error handling and edge cases.',
+      prompt:
+        'Implement a heap that maintains stability for equal elements by adding sequence numbers. Include proper error handling and edge cases.',
       initialCode: `class StableHeap:
     """
     Implement heap that maintains insertion order
@@ -5801,11 +5865,12 @@ Some bugs are particularly tricky because they only appear under specific condit
         # If values equal, compare sequence numbers
         return -1 if a[1] < b[1] else 1`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Which of these is NOT a valid way to fix the problem of maintaining element order stability in a heap?',
+      question:
+        'Which of these is NOT a valid way to fix the problem of maintaining element order stability in a heap?',
       options: [
         'Adding sequence numbers to elements',
         'Using a secondary comparison key',
@@ -5817,10 +5882,10 @@ Some bugs are particularly tricky because they only appear under specific condit
         'Incorrect. Adding sequence numbers is a valid approach for maintaining stability.',
         'Incorrect. Using a secondary comparison key effectively maintains stability.',
         'Incorrect. A separate linked list can track original order.',
-        'Correct! Forcing unique values changes the original data and doesn\'t solve the stability problem correctly.',
+        "Correct! Forcing unique values changes the original data and doesn't solve the stability problem correctly.",
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -6058,7 +6123,8 @@ def demonstrate_custom_comparators():
     stable_heap = HeapWithCustomComparator(StableComparator())`,
   exercises: [
     {
-      prompt: 'Implement a custom comparator for a heap that organizes intervals [start, end] by minimal overlap with other intervals.',
+      prompt:
+        'Implement a custom comparator for a heap that organizes intervals [start, end] by minimal overlap with other intervals.',
       initialCode: `def create_interval_comparator(intervals):
     """
     Create comparator for interval ordering.
@@ -6110,11 +6176,12 @@ def demonstrate_custom_comparators():
     
     return compare_intervals`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'When implementing a custom comparator, which property is MOST important to maintain for correct heap operation?',
+      question:
+        'When implementing a custom comparator, which property is MOST important to maintain for correct heap operation?',
       options: [
         'Reflexivity (a = a)',
         'Transitivity (if a > b and b > c, then a > c)',
@@ -6129,7 +6196,7 @@ def demonstrate_custom_comparators():
         'Incorrect. Associativity applies to operations like addition, not comparisons.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -6394,7 +6461,8 @@ class TaskQueue {
 """`,
   exercises: [
     {
-      prompt: 'Implement a function that efficiently finds the median of a data stream using Python\'s heapq module.',
+      prompt:
+        "Implement a function that efficiently finds the median of a data stream using Python's heapq module.",
       initialCode: `class MedianFinder:
     """
     Find median from a stream of numbers using heapq.
@@ -6436,11 +6504,12 @@ class TaskQueue {
             return -self.lower[0]
         return (-self.lower[0] + self.upper[0]) / 2.0`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Which operation in Python\'s heapq module provides the most efficient way to build a heap from an existing list?',
+      question:
+        "Which operation in Python's heapq module provides the most efficient way to build a heap from an existing list?",
       options: [
         'Repeatedly calling heappush()',
         'Using heapify()',
@@ -6452,10 +6521,10 @@ class TaskQueue {
         'Incorrect. While this works, it takes O(n log n) time.',
         'Correct! heapify() builds the heap in O(n) time by cleverly working from the bottom up.',
         'Incorrect. Sorting takes O(n log n) time and is unnecessary.',
-        'Incorrect. This wouldn\'t maintain the heap property.',
+        "Incorrect. This wouldn't maintain the heap property.",
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -6742,7 +6811,8 @@ When implementing edge case handling, we should follow these key principles:
         self.heap = []`,
   exercises: [
     {
-      prompt: 'Implement a heap method that efficiently handles merging two heaps that might contain duplicate values while properly handling all edge cases.',
+      prompt:
+        'Implement a heap method that efficiently handles merging two heaps that might contain duplicate values while properly handling all edge cases.',
       initialCode: `def merge_heaps(heap1, heap2):
     """
     Merge two heaps maintaining heap properties.
@@ -6796,11 +6866,12 @@ When implementing edge case handling, we should follow these key principles:
     
     return merged`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Which approach is most appropriate for handling duplicate values in a heap?',
+      question:
+        'Which approach is most appropriate for handling duplicate values in a heap?',
       options: [
         'Always reject duplicate values',
         'Allow duplicates but provide no guarantees about their relative order',
@@ -6815,7 +6886,7 @@ When implementing edge case handling, we should follow these key principles:
         'Incorrect. Modifying values could change the intended behavior of the heap.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -6825,7 +6896,7 @@ const heapLessons: Record<string, LessonContent> = {
   'heap-properties': heapPropertiesData,
   'heap-insertion': heapInsertionData,
   'heap-extraction': heapExtractionData,
-  'heapify': heapifyData,
+  heapify: heapifyData,
   'heap-update': heapUpdateData,
   'top-k-pattern': topKPatternData,
   'k-way-merge': kWayMergeData,
@@ -6837,7 +6908,7 @@ const heapLessons: Record<string, LessonContent> = {
   'multiple-heaps': multipleHeapsData,
   'heap-with-hashmap': heapWithHashMapData,
   'when-to-use': whenToUseHeapsData,
-  'optimization': optimizationTechniquesData,
+  optimization: optimizationTechniquesData,
   'common-mistakes': commonMistakesData,
   'custom-comparator': customComparatorData,
   'language-specifics': languageSpecificToolsData,

@@ -254,7 +254,7 @@ const CheatSheet: React.FC<CheatSheetProps> = ({ items }) => {
           ))}
         </Accordion>
       </CardContent>
-{/* 
+      {/* 
       <Alert className="mt-6">
         <FaInfoCircle className="mr-2 text-xl" />
         <AlertTitle className="text-xl">Pro Tip</AlertTitle>

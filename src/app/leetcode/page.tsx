@@ -69,7 +69,8 @@ const LeetcodePage: React.FC = () => {
     {
       title: '1. Fundamentals of Data Structures',
       icon: faTree,
-      description: 'Master the building blocks of programming and problem-solving',
+      description:
+        'Master the building blocks of programming and problem-solving',
       items: [
         'Arrays',
         'Strings',
@@ -84,7 +85,7 @@ const LeetcodePage: React.FC = () => {
         'Heaps',
         'Graphs',
       ],
-      progress: 0
+      progress: 0,
     },
     // {
     //   title: '2. Essential Problem-Solving Patterns',

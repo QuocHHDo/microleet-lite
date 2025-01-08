@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 const arrayCurriculum: Curriculum = {
   title: 'Array Curriculum',
@@ -13,33 +18,37 @@ const arrayCurriculum: Curriculum = {
         {
           id: 'array-concepts',
           title: 'Array Concepts and Implementation',
-          description: 'Understanding how arrays work in memory and their basic properties',
-          priority: PriorityLevel.Essential
+          description:
+            'Understanding how arrays work in memory and their basic properties',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'array-complexity',
           title: 'Time and Space Complexity',
-          description: 'Understanding the performance characteristics of array operations',
-          priority: PriorityLevel.Essential
+          description:
+            'Understanding the performance characteristics of array operations',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'array-initialization',
           title: 'Array Creation and Initialization',
-          description: 'Different ways to create and initialize arrays with best practices',
-          priority: PriorityLevel.Essential
+          description:
+            'Different ways to create and initialize arrays with best practices',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'array-traversal',
           title: 'Array Traversal Techniques',
           description: 'Methods for iterating through arrays efficiently',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'array-memory',
           title: 'Memory Management',
-          description: 'Understanding dynamic arrays, resizing, and memory allocation strategies',
-          priority: PriorityLevel.Important
-        }
+          description:
+            'Understanding dynamic arrays, resizing, and memory allocation strategies',
+          priority: PriorityLevel.Important,
+        },
       ],
     },
     {
@@ -50,26 +59,26 @@ const arrayCurriculum: Curriculum = {
           id: 'array-insert-delete',
           title: 'Insertion and Deletion',
           description: 'Fundamental operations for modifying array contents',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'array-searching',
           title: 'Searching Elements',
           description: 'Basic and advanced searching techniques in arrays',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'array-slicing',
           title: 'Array Slicing',
           description: 'Working with subarrays and array segments',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'array-modification',
           title: 'In-place Modifications',
           description: 'Techniques for modifying arrays without extra space',
-          priority: PriorityLevel.Essential
-        }
+          priority: PriorityLevel.Essential,
+        },
       ],
     },
     {
@@ -80,20 +89,21 @@ const arrayCurriculum: Curriculum = {
           id: 'basic-sorting',
           title: 'Basic Sorting Concepts',
           description: 'Understanding fundamental sorting approaches',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'builtin-sorting',
           title: 'Built-in Sorting Methods',
-          description: 'Effective use of language-provided sorting capabilities',
-          priority: PriorityLevel.Essential
+          description:
+            'Effective use of language-provided sorting capabilities',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'custom-sorting',
           title: 'Custom Sort Conditions',
           description: 'Implementing specific sorting requirements',
-          priority: PriorityLevel.Important
-        }
+          priority: PriorityLevel.Important,
+        },
       ],
     },
     {
@@ -104,26 +114,27 @@ const arrayCurriculum: Curriculum = {
           id: 'two-pointer-basics',
           title: 'Two-Pointer Fundamentals',
           description: 'Basic two-pointer techniques and applications',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'two-pointer-variations',
           title: 'Two-Pointer Variations',
           description: 'Different ways to apply two-pointer technique',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'array-partitioning',
           title: 'Array Partitioning',
           description: 'Partitioning arrays using two-pointer approach',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'dutch-flag',
           title: 'Dutch National Flag Algorithm',
-          description: 'Specialized three-way partitioning technique for array sorting',
-          priority: PriorityLevel.Important
-        }
+          description:
+            'Specialized three-way partitioning technique for array sorting',
+          priority: PriorityLevel.Important,
+        },
       ],
     },
     {
@@ -134,14 +145,14 @@ const arrayCurriculum: Curriculum = {
           id: 'sliding-window-concept',
           title: 'Sliding Window Basics',
           description: 'Core concepts of the sliding window technique',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'window-variations',
           title: 'Window Size Variations',
           description: 'Fixed and dynamic window size applications',
-          priority: PriorityLevel.Important
-        }
+          priority: PriorityLevel.Important,
+        },
       ],
     },
     {
@@ -152,14 +163,14 @@ const arrayCurriculum: Curriculum = {
           id: 'prefix-sum-basics',
           title: 'Prefix Sum Fundamentals',
           description: 'Building and using prefix sum arrays',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'range-queries',
           title: 'Range Query Operations',
           description: 'Solving range-based problems using prefix sums',
-          priority: PriorityLevel.Important
-        }
+          priority: PriorityLevel.Important,
+        },
       ],
     },
     {
@@ -170,32 +181,33 @@ const arrayCurriculum: Curriculum = {
           id: 'kadane-algorithm',
           title: "Kadane's Algorithm",
           description: 'Solving maximum subarray problems',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'stock-patterns',
           title: 'Stock Buy/Sell Problems',
           description: 'Solving common stock price array problems',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'subarray-problems',
           title: 'Subarray Patterns',
           description: 'Common subarray problem-solving techniques',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'array-rotation',
           title: 'Array Rotation Techniques',
-          description: 'Efficient methods for rotating arrays with different space-time tradeoffs',
-          priority: PriorityLevel.Important
+          description:
+            'Efficient methods for rotating arrays with different space-time tradeoffs',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'majority-element',
           title: 'Majority Element Algorithms',
           description: "Boyer-Moore's voting algorithm and related techniques",
-          priority: PriorityLevel.Important
-        }
+          priority: PriorityLevel.Important,
+        },
       ],
     },
     {
@@ -205,17 +217,19 @@ const arrayCurriculum: Curriculum = {
         {
           id: 'matrix-traversal',
           title: 'Matrix Traversal Patterns',
-          description: 'Different ways to traverse 2D arrays including spiral, diagonal, and zigzag patterns',
-          priority: PriorityLevel.Essential
+          description:
+            'Different ways to traverse 2D arrays including spiral, diagonal, and zigzag patterns',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'matrix-transformation',
           title: 'Matrix Transformations',
-          description: 'Rotation, transposition, and other common matrix operations',
-          priority: PriorityLevel.Important
-        }
+          description:
+            'Rotation, transposition, and other common matrix operations',
+          priority: PriorityLevel.Important,
+        },
       ],
-    }
+    },
   ],
 } as const;
 
@@ -431,7 +445,8 @@ show_dynamic_growth()
 
   exercises: [
     {
-      prompt: 'Implement a function that efficiently rotates an array by k positions without using extra space. For example, rotating [1,2,3,4,5] by 2 positions should give [4,5,1,2,3].',
+      prompt:
+        'Implement a function that efficiently rotates an array by k positions without using extra space. For example, rotating [1,2,3,4,5] by 2 positions should give [4,5,1,2,3].',
       initialCode: `def rotate_array(array, k):
     """
     Rotate array by k positions without using extra space.
@@ -482,7 +497,8 @@ show_dynamic_growth()
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a fixed-size circular buffer implementation using an array. The buffer should support add and remove operations while maintaining O(1) time complexity.',
+      prompt:
+        'Create a fixed-size circular buffer implementation using an array. The buffer should support add and remove operations while maintaining O(1) time complexity.',
       initialCode: `class CircularBuffer:
     """
     Fixed-size circular buffer implementation.
@@ -541,44 +557,46 @@ show_dynamic_growth()
         """Check if buffer is full."""
         return self.count == self.size`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why can arrays provide constant-time O(1) access to any element?',
+      question:
+        'Why can arrays provide constant-time O(1) access to any element?',
       options: [
         'Because they store elements in sorted order',
         'Because they use a hash function to locate elements',
         'Because they can calculate exact memory locations using the index',
-        'Because they maintain a lookup table of element positions'
+        'Because they maintain a lookup table of element positions',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Sorting is not related to access time in arrays.',
-        'Incorrect. Arrays don\'t use hash functions for element access.',
-        'Correct! Arrays can instantly calculate an element\'s memory address using: base_address + (index × element_size).',
-        'Incorrect. Arrays don\'t need lookup tables because of their continuous memory layout.'
+        "Incorrect. Arrays don't use hash functions for element access.",
+        "Correct! Arrays can instantly calculate an element's memory address using: base_address + (index × element_size).",
+        "Incorrect. Arrays don't need lookup tables because of their continuous memory layout.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What happens to existing elements when an array needs to grow beyond its current capacity?',
+      question:
+        'What happens to existing elements when an array needs to grow beyond its current capacity?',
       options: [
         'They stay in place and new elements are stored elsewhere',
         'They are copied to a new, larger memory location',
         'They are compressed to make room for new elements',
-        'They are automatically linked to a new array'
+        'They are automatically linked to a new array',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Arrays must maintain continuous memory allocation.',
         'Correct! When an array grows, a new larger block of memory is allocated and all existing elements are copied over.',
         'Incorrect. Array elements maintain their original size.',
-        'Incorrect. Arrays don\'t use linking mechanisms like linked lists.'
+        "Incorrect. Arrays don't use linking mechanisms like linked lists.",
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const arrayComplexityData: LessonContent = {
@@ -921,44 +939,46 @@ rotated = rotate_array(arr.copy(), k)
 print(f"Original: {arr}")
 print(f"Rotated {k} positions: {rotated}")  # [4, 5, 1, 2, 3]`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is accessing an element by index in an array O(1) time complexity?',
+      question:
+        'Why is accessing an element by index in an array O(1) time complexity?',
       options: [
         'Because arrays are always sorted',
         'Because the memory address can be calculated directly using the index',
         'Because arrays maintain a hash table for quick lookups',
-        'Because the computer caches all array elements'
+        'Because the computer caches all array elements',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Array access time is independent of whether the array is sorted.',
-        'Correct! Arrays store elements contiguously in memory, so we can calculate any element\'s exact location using: base_address + (index × element_size).',
-        'Incorrect. Arrays don\'t use hash tables; they use direct memory addressing.',
-        'Incorrect. While caching can improve performance, it\'s not why array access is O(1).'
+        "Correct! Arrays store elements contiguously in memory, so we can calculate any element's exact location using: base_address + (index × element_size).",
+        "Incorrect. Arrays don't use hash tables; they use direct memory addressing.",
+        "Incorrect. While caching can improve performance, it's not why array access is O(1).",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the space complexity of creating a slice of an array (e.g., array[1:4])?',
+      question:
+        'What is the space complexity of creating a slice of an array (e.g., array[1:4])?',
       options: [
         'O(1) because it only stores the start and end indices',
         'O(n) where n is the size of the original array',
         'O(k) where k is the size of the slice',
-        'O(log n) where n is the size of the original array'
+        'O(log n) where n is the size of the original array',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Slicing creates a new array with the selected elements.',
         'Incorrect. The space needed is proportional to the slice size, not the original array size.',
         'Correct! Creating a slice requires new space proportional to the number of elements in the slice.',
-        'Incorrect. Slice space complexity is linear, not logarithmic.'
+        'Incorrect. Slice space complexity is linear, not logarithmic.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const arrayInitializationData: LessonContent = {
@@ -1180,7 +1200,8 @@ print("Seating chart:", seating)
 
   exercises: [
     {
-      prompt: 'Create a function that initializes a temperature tracking system for a week, with separate arrays for each day\'s hourly readings. Include proper default values and error handling.',
+      prompt:
+        "Create a function that initializes a temperature tracking system for a week, with separate arrays for each day's hourly readings. Include proper default values and error handling.",
       initialCode: `def initialize_temperature_tracker(num_days=7):
     """
     Initialize a temperature tracking system.
@@ -1231,7 +1252,8 @@ except ValueError as e:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that creates a sparse matrix representation using nested arrays. The function should accept dimensions and a list of non-zero values with their positions.',
+      prompt:
+        'Implement a function that creates a sparse matrix representation using nested arrays. The function should accept dimensions and a list of non-zero values with their positions.',
       initialCode: `def create_sparse_matrix(rows, cols, values):
     """
     Create a sparse matrix representation.
@@ -1298,44 +1320,46 @@ try:
 except ValueError as e:
     print(f"Error: {e}")`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the most efficient way to create a list of size n filled with zeros?',
+      question:
+        'What is the most efficient way to create a list of size n filled with zeros?',
       options: [
         'zeros = []  # Then append n times',
         'zeros = [0 for _ in range(n)]',
         'zeros = [0] * n',
-        'zeros = list(range(n))  # Then set each to 0'
+        'zeros = list(range(n))  # Then set each to 0',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Appending n times requires multiple resizing operations.',
         'Incorrect. List comprehension creates unnecessary iterator objects.',
         'Correct! Multiplication operator creates the list with a single memory allocation, making it most efficient.',
-        'Incorrect. This creates extra work by first creating a range then modifying it.'
+        'Incorrect. This creates extra work by first creating a range then modifying it.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When creating a 2D array, why is [[0] * cols] * rows problematic?',
+      question:
+        'When creating a 2D array, why is [[0] * cols] * rows problematic?',
       options: [
         'It uses too much memory',
         'It creates references to the same inner list',
         'It only works for square matrices',
-        'It is too slow for large arrays'
+        'It is too slow for large arrays',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Memory usage is not the main issue here.',
         'Correct! This creates multiple references to the same inner list, so modifying one element affects all rows.',
         'Incorrect. The shape of the matrix is not related to the reference problem.',
-        'Incorrect. Performance is not the main concern with this initialization method.'
+        'Incorrect. Performance is not the main concern with this initialization method.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const arrayTraversalData: LessonContent = {
@@ -1665,44 +1689,46 @@ Expected output: [75, 78, 82, 85]  # Longest improving sequence`,
     
     return longest_sequence`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'When analyzing student grades over multiple tests, which traversal method would be most appropriate if you need to compare each grade with the previous test score?',
+      question:
+        'When analyzing student grades over multiple tests, which traversal method would be most appropriate if you need to compare each grade with the previous test score?',
       options: [
         'Simple for loop (for grade in grades)',
         'While loop with counter',
         'Range-based loop with index access',
-        'Enumerated traversal'
+        'Enumerated traversal',
       ],
       correctAnswer: 2,
       explanations: [
-        'Direct traversal doesn\'t give access to previous elements.',
+        "Direct traversal doesn't give access to previous elements.",
         'While loops make the code more complex than necessary and are less Pythonic.',
         'Correct! Using range with index access allows you to reference both the current and previous grades using indices.',
-        'Enumeration doesn\'t directly help with accessing previous elements.'
+        "Enumeration doesn't directly help with accessing previous elements.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the most efficient way to find both the highest and lowest grades in a class?',
+      question:
+        'What is the most efficient way to find both the highest and lowest grades in a class?',
       options: [
         'Sort the array and take first/last elements',
         'Use separate loops for maximum and minimum',
         'Use a single loop tracking both values',
-        'Use Python\'s max() and min() functions separately'
+        "Use Python's max() and min() functions separately",
       ],
       correctAnswer: 2,
       explanations: [
         'Sorting is O(n log n) and unnecessary for this task.',
         'Multiple passes through the array is inefficient.',
         'Correct! A single pass through the array tracking both highest and lowest values is most efficient, requiring only O(n) operations.',
-        'Using separate functions requires multiple passes through the array.'
+        'Using separate functions requires multiple passes through the array.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const arrayMemoryData: LessonContent = {
@@ -1948,7 +1974,8 @@ Here are key principles to remember when working with arrays:
 
   exercises: [
     {
-      prompt: 'Implement a memory-efficient function that reverses a large array in-place, and analyze its memory usage compared to creating a reversed copy.',
+      prompt:
+        'Implement a memory-efficient function that reverses a large array in-place, and analyze its memory usage compared to creating a reversed copy.',
       initialCode: `def memory_efficient_reverse(array):
     """
     Reverse array in-place with minimal memory usage.
@@ -2010,7 +2037,8 @@ memory_stats = memory_efficient_reverse(test_array)`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a memory-efficient implementation of a ring buffer using a fixed-size array. Include memory usage analysis.',
+      prompt:
+        'Create a memory-efficient implementation of a ring buffer using a fixed-size array. Include memory usage analysis.',
       initialCode: `class RingBuffer:
     """
     Fixed-size ring buffer implementation.
@@ -2105,23 +2133,24 @@ def test_ring_buffer():
 
 test_ring_buffer()`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why does Python use an over-allocation strategy when resizing lists?',
+      question:
+        'Why does Python use an over-allocation strategy when resizing lists?',
       options: [
         'To waste memory intentionally',
         'To avoid frequent resizing operations that are computationally expensive',
         'To make lists faster to access',
-        'To support negative indexing'
+        'To support negative indexing',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Memory over-allocation is not wasteful but a performance optimization.',
         'Correct! By allocating more space than immediately needed, Python reduces the frequency of expensive resize operations.',
         'Incorrect. Access speed is not affected by over-allocation.',
-        'Incorrect. Negative indexing works regardless of allocation strategy.'
+        'Incorrect. Negative indexing works regardless of allocation strategy.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -2131,18 +2160,18 @@ test_ring_buffer()`,
         'Nothing, slices use the same memory as the original list',
         'A new list is created with its own memory allocation',
         'The original list is modified to save memory',
-        'Memory is shared between the original and slice'
+        'Memory is shared between the original and slice',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Slices create new lists with their own memory.',
         'Correct! Slicing creates a new list with its own memory allocation, which is why it can be memory-intensive for large lists.',
         'Incorrect. The original list remains unchanged when creating a slice.',
-        'Incorrect. While the elements themselves might be shared (for objects), the list structure is not.'
+        'Incorrect. While the elements themselves might be shared (for objects), the list structure is not.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const arrayInsertionDeletionData: LessonContent = {
@@ -2364,7 +2393,8 @@ demonstrate_memory_growth()
 
   exercises: [
     {
-      prompt: 'Create a function that efficiently inserts multiple elements into a sorted array while maintaining the sort order.',
+      prompt:
+        'Create a function that efficiently inserts multiple elements into a sorted array while maintaining the sort order.',
       initialCode: `def insert_maintaining_order(sorted_array, new_elements):
     """
     Insert multiple elements into a sorted array, maintaining order.
@@ -2407,7 +2437,8 @@ demonstrate_memory_growth()
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a circular buffer using a fixed-size array, handling insertions and deletions efficiently.',
+      prompt:
+        'Implement a circular buffer using a fixed-size array, handling insertions and deletions efficiently.',
       initialCode: `class CircularBuffer:
     """
     Fixed-size circular buffer implementation.
@@ -2458,78 +2489,82 @@ demonstrate_memory_growth()
         self.count -= 1
         return item`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
-quizzes: [
+  quizzes: [
     {
-      question: 'When inserting an element into the middle of a large array, why is the time complexity O(n)?',
+      question:
+        'When inserting an element into the middle of a large array, why is the time complexity O(n)?',
       options: [
         'Because we need to sort the array after insertion',
         'Because we need to copy the entire array',
         'Because we need to shift all subsequent elements',
-        'Because we need to check all elements first'
+        'Because we need to check all elements first',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Insertion doesn\'t require sorting unless specifically needed.',
+        "Incorrect. Insertion doesn't require sorting unless specifically needed.",
         'Incorrect. We modify the array in place, not copy it entirely.',
         'Correct! We must shift all elements after the insertion point to make room, requiring O(n) operations in worst case.',
-        'Incorrect. We don\'t need to check all elements, only shift those after the insertion point.'
+        "Incorrect. We don't need to check all elements, only shift those after the insertion point.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Which operation is most efficient when frequently modifying an array?',
+      question:
+        'Which operation is most efficient when frequently modifying an array?',
       options: [
         'Inserting at the beginning',
         'Inserting in the middle',
         'Appending to the end',
-        'Random insertions'
+        'Random insertions',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Beginning insertions require shifting all elements, making them O(n).',
         'Incorrect. Middle insertions still require shifting many elements.',
         'Correct! Appending to the end is O(1) amortized as it requires no shifting of elements.',
-        'Incorrect. Random insertions would average O(n/2) operations.'
+        'Incorrect. Random insertions would average O(n/2) operations.',
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What happens to memory allocation when repeatedly appending to a Python list?',
+      question:
+        'What happens to memory allocation when repeatedly appending to a Python list?',
       options: [
         'The list grows by exactly one space each time',
         'The list size doubles when it reaches capacity',
         'Memory is allocated as needed for each element',
-        'A new list is created for each append'
+        'A new list is created for each append',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. This would be very inefficient, requiring frequent reallocation.',
-        'Correct! Python uses an over-allocation strategy, doubling the list\'s capacity when it\'s full to amortize the cost of growing.',
-        'Incorrect. This would be inefficient and isn\'t how Python manages list memory.',
-        'Incorrect. Python modifies the existing list rather than creating a new one.'
+        "Correct! Python uses an over-allocation strategy, doubling the list's capacity when it's full to amortize the cost of growing.",
+        "Incorrect. This would be inefficient and isn't how Python manages list memory.",
+        'Incorrect. Python modifies the existing list rather than creating a new one.',
       ],
       difficulty: Difficulty.Advanced,
     },
     {
-      question: 'Which approach is most efficient for removing multiple elements from an array?',
+      question:
+        'Which approach is most efficient for removing multiple elements from an array?',
       options: [
         'Remove elements one at a time from the beginning',
         'Remove elements one at a time from the end',
         'Create a new array with desired elements',
-        'Remove elements randomly as found'
+        'Remove elements randomly as found',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. This requires shifting elements multiple times, very inefficient.',
         'Incorrect. While each operation is O(1), multiple removals still require scanning the array multiple times.',
         'Correct! Creating a new array with only the desired elements is often more efficient than multiple remove operations.',
-        'Incorrect. Random removals would require shifting elements multiple times.'
+        'Incorrect. Random removals would require shifting elements multiple times.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const arraySearchingData: LessonContent = {
@@ -2737,7 +2772,8 @@ When implementing search operations, consider these key points:
 
   exercises: [
     {
-      prompt: 'Implement a function that finds all occurrences of a target value in an array, returning their indices.',
+      prompt:
+        'Implement a function that finds all occurrences of a target value in an array, returning their indices.',
       initialCode: `def find_all_occurrences(array, target):
     """
     Find all occurrences of target in array.
@@ -2779,7 +2815,8 @@ print(f"Found target at indices: {result}")  # [1, 3, 5]`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a function that implements interpolation search for a sorted array of numbers.',
+      prompt:
+        'Create a function that implements interpolation search for a sorted array of numbers.',
       initialCode: `def interpolation_search(sorted_array, target):
     """
     Implement interpolation search for faster searching in uniformly distributed sorted arrays.
@@ -2832,44 +2869,46 @@ numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90]
 result = interpolation_search(numbers, 60)
 print(f"Found target at index: {result}")  # 5`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'When is binary search NOT the best choice for finding an element in an array?',
+      question:
+        'When is binary search NOT the best choice for finding an element in an array?',
       options: [
         'When the array is very large',
         'When the array is unsorted',
         'When looking for multiple occurrences',
-        'When the array contains numbers'
+        'When the array contains numbers',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Binary search actually performs better with larger arrays compared to linear search.',
         'Correct! Binary search requires a sorted array to work properly. Using it on an unsorted array will give incorrect results.',
         'Incorrect. While binary search finds one occurrence, it can be modified to find others nearby.',
-        'Incorrect. Binary search works well with any comparable data type, including numbers.'
+        'Incorrect. Binary search works well with any comparable data type, including numbers.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the time complexity of binary search compared to linear search for an array of 1 million elements?',
+      question:
+        'What is the time complexity of binary search compared to linear search for an array of 1 million elements?',
       options: [
         'Binary: O(1000000), Linear: O(1000000)',
         'Binary: O(20), Linear: O(1000000)',
         'Binary: O(1000000), Linear: O(20)',
-        'Binary: O(1), Linear: O(1)'
+        'Binary: O(1), Linear: O(1)',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. While linear search is O(n) = O(1000000), binary search is O(log n).',
         'Correct! Binary search is O(log₂ 1000000) ≈ O(20) while linear search is O(1000000). This shows why binary search is so much faster for large arrays.',
         'Incorrect. Linear search always checks elements sequentially, making it O(n).',
-        'Incorrect. Neither algorithm has constant time complexity.'
+        'Incorrect. Neither algorithm has constant time complexity.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const arraySlicingData: LessonContent = {
@@ -3088,7 +3127,8 @@ demonstrate_slice_memory()
 
   exercises: [
     {
-      prompt: 'Create a function that takes a list of daily temperatures and returns the temperature ranges (high-low) for each week using slicing.',
+      prompt:
+        'Create a function that takes a list of daily temperatures and returns the temperature ranges (high-low) for each week using slicing.',
       initialCode: `def weekly_temperature_ranges(temperatures):
     """
     Calculate temperature ranges for each week.
@@ -3133,7 +3173,8 @@ print(f"Weekly temperature ranges: {results}")`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that takes a time series of data and returns moving averages using slicing. The function should handle different window sizes and edge cases.',
+      prompt:
+        'Implement a function that takes a time series of data and returns moving averages using slicing. The function should handle different window sizes and edge cases.',
       initialCode: `def calculate_moving_average(data, window_size):
     """
     Calculate moving averages of time series data.
@@ -3181,7 +3222,7 @@ window_size = 3
 results = calculate_moving_average(test_data, window_size)
 print(f"Moving averages (window={window_size}): {results}")`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
@@ -3190,35 +3231,36 @@ print(f"Moving averages (window={window_size}): {results}")`,
         'Takes every second element from the array',
         'Splits the array into two equal parts',
         'Creates a reversed copy of the array',
-        'Takes the first two elements'
+        'Takes the first two elements',
       ],
       correctAnswer: 0,
       explanations: [
         'Correct! The ::2 syntax means "take every second element" from start to end.',
         'Incorrect. Splitting would require different slice notation.',
         'Incorrect. Reversing would use ::-1 as the step value.',
-        'Incorrect. This would be achieved with [:2].'
+        'Incorrect. This would be achieved with [:2].',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When you create a slice of an array, what happens to the original array?',
+      question:
+        'When you create a slice of an array, what happens to the original array?',
       options: [
         'It gets modified to contain only the sliced elements',
         'It creates a new array with the sliced elements',
         'It remains unchanged, and a new view is created',
-        'It gets split into two separate arrays'
+        'It gets split into two separate arrays',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Slicing does not modify the original array.',
         'Incorrect. While a new array is created, this describes the slice result, not what happens to the original.',
         'Correct! The original array remains intact, and a new array is created with the sliced elements.',
-        'Incorrect. The original array stays as one piece.'
+        'Incorrect. The original array stays as one piece.',
       ],
       difficulty: Difficulty.Beginner,
-    }
-  ]
+    },
+  ],
 };
 
 const arrayModificationData: LessonContent = {
@@ -3453,7 +3495,8 @@ def handle_edge_cases(array):
 
   exercises: [
     {
-      prompt: 'Implement a function that rearranges an array in-place so that all even numbers come before odd numbers while maintaining the relative order within each group.',
+      prompt:
+        'Implement a function that rearranges an array in-place so that all even numbers come before odd numbers while maintaining the relative order within each group.',
       initialCode: `def arrange_even_odd(array):
     """
     Rearrange array so even numbers come before odd numbers.
@@ -3496,7 +3539,8 @@ print(f"After arranging: {test_array}")  # [2, 6, 8, 4, 3, 7, 1, 5]`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a function that sorts an array containing only 0s, 1s, and 2s in-place (Dutch National Flag problem).',
+      prompt:
+        'Create a function that sorts an array containing only 0s, 1s, and 2s in-place (Dutch National Flag problem).',
       initialCode: `def sort_colors(array):
     """
     Sort array containing only 0s, 1s, and 2s in-place.
@@ -3545,44 +3589,46 @@ test_array = [2, 0, 1, 2, 1, 0, 2, 1, 0]
 sort_colors(test_array)
 print(f"After sorting: {test_array}")  # [0, 0, 0, 1, 1, 1, 2, 2, 2]`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why might we choose to modify an array in-place instead of creating a new array?',
+      question:
+        'Why might we choose to modify an array in-place instead of creating a new array?',
       options: [
         'In-place modifications are always faster',
         'To save memory when working with large arrays',
         'Because in-place modifications are easier to implement',
-        'To ensure thread safety in concurrent programs'
+        'To ensure thread safety in concurrent programs',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. In-place modifications aren\'t always faster, especially for simple operations.',
+        "Incorrect. In-place modifications aren't always faster, especially for simple operations.",
         'Correct! In-place modifications use constant extra space regardless of array size, making them memory-efficient for large arrays.',
         'Incorrect. In-place modifications often require more careful implementation to avoid errors.',
-        'Incorrect. Thread safety depends on the synchronization mechanism, not the modification method.'
+        'Incorrect. Thread safety depends on the synchronization mechanism, not the modification method.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the main risk when performing in-place array modifications?',
+      question:
+        'What is the main risk when performing in-place array modifications?',
       options: [
         'The array might become too large for memory',
         'The original data is lost and cannot be recovered',
         'The operation might be slower than creating a new array',
-        'The array indices might become invalid'
+        'The array indices might become invalid',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. In-place modifications don\'t increase array size.',
+        "Incorrect. In-place modifications don't increase array size.",
         'Correct! Once you modify data in-place, the original values are overwritten and cannot be recovered unless backed up.',
-        'Incorrect. Performance depends on the specific operation, not whether it\'s in-place.',
-        'Incorrect. Array indices remain valid during in-place modifications.'
+        "Incorrect. Performance depends on the specific operation, not whether it's in-place.",
+        'Incorrect. Array indices remain valid during in-place modifications.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const basicSortingData: LessonContent = {
@@ -3826,7 +3872,8 @@ Remember, these basic sorting algorithms form the foundation for understanding m
 
   exercises: [
     {
-      prompt: 'Modify the bubble sort algorithm to sort in descending order instead of ascending order. Include visualization of the sorting steps.',
+      prompt:
+        'Modify the bubble sort algorithm to sort in descending order instead of ascending order. Include visualization of the sorting steps.',
       initialCode: `def bubble_sort_descending(array):
     """
     Sort array in descending order using bubble sort.
@@ -3881,7 +3928,8 @@ print("Final sorted array:", result)`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a modified version of selection sort that finds both the minimum and maximum elements in each pass, placing them at both ends of the array.',
+      prompt:
+        'Implement a modified version of selection sort that finds both the minimum and maximum elements in each pass, placing them at both ends of the array.',
       initialCode: `def optimized_selection_sort(array):
     """
     Sort array using an optimized selection sort that works from both ends.
@@ -3943,48 +3991,50 @@ print("Original array:", numbers)
 result = optimized_selection_sort(numbers.copy())
 print("Final sorted array:", result)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why might bubble sort perform better than selection sort on nearly sorted data?',
+      question:
+        'Why might bubble sort perform better than selection sort on nearly sorted data?',
       options: [
         'Because bubble sort uses less memory',
         'Because bubble sort can exit early if no swaps are needed',
         'Because bubble sort compares fewer elements overall',
-        'Because bubble sort is always faster than selection sort'
+        'Because bubble sort is always faster than selection sort',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Both algorithms use O(1) extra space.',
         'Correct! Bubble sort can detect when the array is sorted and exit early, while selection sort always checks every element.',
         'Incorrect. Bubble sort typically makes more comparisons than selection sort.',
-        'Incorrect. Neither algorithm is universally faster than the other.'
+        'Incorrect. Neither algorithm is universally faster than the other.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What makes selection sort more predictable in terms of performance compared to bubble sort?',
+      question:
+        'What makes selection sort more predictable in terms of performance compared to bubble sort?',
       options: [
         'Selection sort is always faster',
         'Selection sort uses less memory',
         'Selection sort always performs the same number of operations regardless of input order',
-        'Selection sort can exit early like bubble sort'
+        'Selection sort can exit early like bubble sort',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Selection sort is not always faster than bubble sort.',
         'Incorrect. Both algorithms use the same amount of extra memory.',
         'Correct! Selection sort always performs n²/2 comparisons regardless of input order, making its performance very predictable.',
-        'Incorrect. Selection sort cannot exit early and must complete all passes.'
+        'Incorrect. Selection sort cannot exit early and must complete all passes.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const builtInSortingData: LessonContent = {
-  title: 'Mastering Python\'s Built-in Sorting Capabilities',
+  title: "Mastering Python's Built-in Sorting Capabilities",
   content: `Python provides powerful built-in sorting capabilities that handle most common sorting needs efficiently. Let's explore how to make the most of these tools to write cleaner, faster code.
 
 <h3>Understanding Python's Basic Sorting Tools</h3>
@@ -4201,7 +4251,8 @@ print(f"Sorted with Nones at end: {sorted_data}")
 
   exercises: [
     {
-      prompt: 'Create a function that sorts a list of strings by their last word, ignoring case. For example, ["Hello World", "Nice Day", "Good Morning"] should be sorted based on "World", "Day", and "Morning".',
+      prompt:
+        'Create a function that sorts a list of strings by their last word, ignoring case. For example, ["Hello World", "Nice Day", "Good Morning"] should be sorted based on "World", "Day", and "Morning".',
       initialCode: `def sort_by_last_word(strings):
     """
     Sort strings by their last word, case-insensitive.
@@ -4240,7 +4291,8 @@ print(f"Sorted: {sorted_strings}")`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that sorts a list of dictionaries representing students by their average grade, handling missing grades appropriately.',
+      prompt:
+        'Implement a function that sorts a list of dictionaries representing students by their average grade, handling missing grades appropriately.',
       initialCode: `def sort_by_average_grade(students):
     """
     Sort students by average grade, handling missing grades.
@@ -4295,7 +4347,7 @@ for student in sorted_students:
     avg = sum(g for g in grades if g is not None) / len([g for g in grades if g is not None]) if any(g is not None for g in grades) else 'No grades'
     print(f"{student['name']}: {avg if isinstance(avg, str) else f'{avg:.2f}'}") `,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
@@ -4304,35 +4356,36 @@ for student in sorted_students:
         'When you need better performance',
         'When you want to preserve the original list',
         'When sorting complex objects',
-        'When using custom key functions'
+        'When using custom key functions',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Both methods have similar performance characteristics.',
         'Correct! sorted() creates a new list, leaving the original unchanged, while .sort() modifies the list in-place.',
         'Incorrect. Both methods can handle complex objects equally well.',
-        'Incorrect. Both methods support custom key functions.'
+        'Incorrect. Both methods support custom key functions.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What happens when you sort a list of tuples without specifying a key function?',
+      question:
+        'What happens when you sort a list of tuples without specifying a key function?',
       options: [
         'The tuples are sorted randomly',
         'The tuples are sorted by their first element only',
         'The tuples are compared element by element until a difference is found',
-        'The sort fails with an error'
+        'The sort fails with an error',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Python sorting is deterministic, not random.',
         'Incorrect. Python compares all elements, not just the first.',
         'Correct! Python compares tuple elements in order until it finds a difference, using this to determine the sort order.',
-        'Incorrect. Python can sort tuples without a key function.'
+        'Incorrect. Python can sort tuples without a key function.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const customSortingData: LessonContent = {
@@ -4560,7 +4613,8 @@ Here are some key principles to follow when implementing custom sorting:
 
   exercises: [
     {
-      prompt: 'Create a function that sorts a list of strings by the number of vowels they contain, and then alphabetically for strings with the same number of vowels.',
+      prompt:
+        'Create a function that sorts a list of strings by the number of vowels they contain, and then alphabetically for strings with the same number of vowels.',
       initialCode: `def sort_by_vowels(strings):
     """
     Sort strings by vowel count, then alphabetically.
@@ -4602,7 +4656,8 @@ for word in result:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a custom sorting function for version numbers (e.g., "1.2.3" should come before "1.2.10"). The version numbers can have varying numbers of components.',
+      prompt:
+        'Implement a custom sorting function for version numbers (e.g., "1.2.3" should come before "1.2.10"). The version numbers can have varying numbers of components.',
       initialCode: `def sort_versions(versions):
     """
     Sort version numbers correctly.
@@ -4652,44 +4707,46 @@ edge_cases = ["2", "2.0", "2.0.0", "2.0.0.0"]
 print("Edge cases:")
 print(sort_versions(edge_cases))`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the advantage of using operator.attrgetter over a lambda function for sorting?',
+      question:
+        'What is the advantage of using operator.attrgetter over a lambda function for sorting?',
       options: [
         'It allows sorting by multiple attributes',
         'It provides better performance for large datasets',
         'It handles None values automatically',
-        'It enables reverse sorting'
+        'It enables reverse sorting',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Both methods can sort by multiple attributes.',
         'Correct! attrgetter is implemented in C and provides better performance than equivalent lambda functions, especially for large datasets.',
         'Incorrect. None handling must be implemented separately for both methods.',
-        'Incorrect. Both methods support reverse sorting using the reverse parameter.'
+        'Incorrect. Both methods support reverse sorting using the reverse parameter.',
       ],
       difficulty: Difficulty.Advanced,
     },
     {
-      question: 'When sorting with multiple criteria using tuples, why might you use negative values?',
+      question:
+        'When sorting with multiple criteria using tuples, why might you use negative values?',
       options: [
         'To improve performance',
         'To handle missing values',
         'To achieve descending order for some criteria while keeping ascending order for others',
-        'To ensure stability in the sort'
+        'To ensure stability in the sort',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Using negative values doesn\'t affect performance.',
+        "Incorrect. Using negative values doesn't affect performance.",
         'Incorrect. Missing values should be handled separately.',
         'Correct! Since tuples sort in ascending order by default, using negative values allows you to sort some criteria in descending order while keeping others in ascending order.',
-        'Incorrect. Sort stability is guaranteed regardless of using negative values.'
+        'Incorrect. Sort stability is guaranteed regardless of using negative values.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const twoPointerBasicsData: LessonContent = {
@@ -4948,7 +5005,8 @@ demonstrate_triplet_search()
 
   exercises: [
     {
-      prompt: 'Implement a function that finds the continuous subarray in a sorted array whose sum is closest to a target value.',
+      prompt:
+        'Implement a function that finds the continuous subarray in a sorted array whose sum is closest to a target value.',
       initialCode: `def find_closest_sum_subarray(array, target):
     """
     Find continuous subarray with sum closest to target.
@@ -5027,7 +5085,8 @@ test_closest_sum()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a function that finds the smallest subarray containing all elements from a given set of numbers, maintaining relative order.',
+      prompt:
+        'Create a function that finds the smallest subarray containing all elements from a given set of numbers, maintaining relative order.',
       initialCode: `def find_smallest_subarray_with_elements(array, elements):
     """
     Find smallest subarray containing all given elements.
@@ -5103,61 +5162,64 @@ def test_smallest_subarray():
 
 test_smallest_subarray()`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'When using the two-pointer technique with opposite ends, why must the array typically be sorted first?',
+      question:
+        'When using the two-pointer technique with opposite ends, why must the array typically be sorted first?',
       options: [
         'To improve performance',
         'Because the algorithm needs sequential access',
         'To make directional decisions based on values possible',
-        'To handle duplicate elements'
+        'To handle duplicate elements',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. While sorted arrays can improve performance in some cases, this isn\'t why sorting is needed for the two-pointer technique.',
-        'Incorrect. The technique works with random access, so sequential access isn\'t the reason.',
+        "Incorrect. While sorted arrays can improve performance in some cases, this isn't why sorting is needed for the two-pointer technique.",
+        "Incorrect. The technique works with random access, so sequential access isn't the reason.",
         'Correct! With a sorted array, we can decide which pointer to move based on whether we need a larger or smaller value. This property is crucial for the technique to work correctly.',
-        'Incorrect. While sorting helps with duplicates, this isn\'t the primary reason for requiring a sorted array.'
+        "Incorrect. While sorting helps with duplicates, this isn't the primary reason for requiring a sorted array.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key advantage of using two pointers moving in the same direction over using nested loops?',
+      question:
+        'What is the key advantage of using two pointers moving in the same direction over using nested loops?',
       options: [
         'It always uses less memory',
         'It reduces time complexity from O(n²) to O(n)',
         'It makes the code shorter',
-        'It works better with unsorted arrays'
+        'It works better with unsorted arrays',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Both approaches typically use O(1) extra space.',
         'Correct! The two-pointer technique allows us to process the array in a single pass instead of using nested loops, reducing time complexity from O(n²) to O(n).',
-        'Incorrect. Code length isn\'t a significant factor and the implementation might actually be longer in some cases.',
-        'Incorrect. The technique often requires sorted arrays or specific array properties to work correctly.'
+        "Incorrect. Code length isn't a significant factor and the implementation might actually be longer in some cases.",
+        'Incorrect. The technique often requires sorted arrays or specific array properties to work correctly.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'In the context of removing duplicates from a sorted array in-place, why do we need two pointers?',
+      question:
+        'In the context of removing duplicates from a sorted array in-place, why do we need two pointers?',
       options: [
         'One to read and one to write unique elements',
         'To compare adjacent elements',
         'To mark the start and end of duplicate sequences',
-        'To maintain the array length'
+        'To maintain the array length',
       ],
       correctAnswer: 0,
       explanations: [
         'Correct! We need one pointer to read through all elements and another to keep track of where to write the next unique element, enabling in-place modification.',
         'Incorrect. While we do compare elements, this could be done with a single pointer.',
-        'Incorrect. We don\'t need to explicitly mark duplicate sequences.',
-        'Incorrect. The array length is maintained automatically.'
+        "Incorrect. We don't need to explicitly mark duplicate sequences.",
+        'Incorrect. The array length is maintained automatically.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const twoPointerVariationsData: LessonContent = {
@@ -5404,7 +5466,8 @@ def demonstrate_multi_array():
 
   exercises: [
     {
-      prompt: 'Implement a function that finds the longest subarray where the difference between maximum and minimum elements is at most k.',
+      prompt:
+        'Implement a function that finds the longest subarray where the difference between maximum and minimum elements is at most k.',
       initialCode: `def find_bounded_range_subarray(array, k):
     """
     Find longest subarray with max-min difference <= k.
@@ -5481,7 +5544,8 @@ test_bounded_range()`,
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Create a function that finds three non-overlapping subarrays of size k with maximum sum.',
+      prompt:
+        'Create a function that finds three non-overlapping subarrays of size k with maximum sum.',
       initialCode: `def find_three_max_subarrays(array, k):
     """
     Find three non-overlapping size-k subarrays with maximum sum.
@@ -5571,67 +5635,70 @@ def test_three_subarrays():
                 print(f"  Subarray {i+1}: {arr} (sum: {sum_val})")
             print(f"Total sum: {sum(sums)}")
 
-test_three_subarrays()`
-    }
+test_three_subarrays()`,
+    },
   ],
-    quizzes: [
-      {
-        question: 'Why is the fast/slow pointer variation particularly useful for finding cycle-like patterns in arrays?',
-        options: [
-          'Because it requires less memory',
-          'Because the pointers will eventually meet if a cycle exists',
-          'Because it\'s faster than other methods',
-          'Because it works with unsorted arrays'
-        ],
-        correctAnswer: 1,
-        explanations: [
-          'Incorrect. Memory usage is not the key advantage of this variation.',
-          'Correct! The different speeds of the pointers ensure they will meet if a cycle exists, as the fast pointer will eventually catch up to the slow pointer.',
-          'Incorrect. The speed advantage isn\'t the main reason this variation is useful for cycle detection.',
-          'Incorrect. While it does work with unsorted arrays, this isn\'t why it\'s particularly good for cycle detection.'
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-      {
-        question: 'In the sliding window variation with anchored start, when should we move the start pointer?',
-        options: [
-          'After every move of the end pointer',
-          'When we need to reduce the window size',
-          'When we find a valid solution',
-          'At regular intervals'
-        ],
-        correctAnswer: 1,
-        explanations: [
-          'Incorrect. Moving the start pointer after every end pointer move would prevent finding many valid solutions.',
-          'Correct! We move the start pointer when our window becomes invalid (e.g., sum too large, too many elements) and we need to shrink it.',
-          'Incorrect. Finding a valid solution doesn\'t necessarily mean we should move the start pointer.',
-          'Incorrect. The movement should be based on window properties, not fixed intervals.'
-        ],
-        difficulty: Difficulty.Advanced,
-      },
-      {
-        question: 'What is the key advantage of the multi-array two-pointer variation over nested loops?',
-        options: [
-          'It uses less memory',
-          'It processes all arrays in a single pass',
-          'It works with unsorted arrays',
-          'It handles duplicates better'
-        ],
-        correctAnswer: 1,
-        explanations: [
-          'Incorrect. Memory usage is similar for both approaches.',
-          'Correct! By coordinating pointers across arrays, we can process all arrays in a single pass, avoiding nested loops and achieving better time complexity.',
-          'Incorrect. This variation typically requires sorted arrays to work correctly.',
-          'Incorrect. Duplicate handling is not the main advantage of this variation.'
-        ],
-        difficulty: Difficulty.Intermediate,
-      }
-    ]
-  };
+  quizzes: [
+    {
+      question:
+        'Why is the fast/slow pointer variation particularly useful for finding cycle-like patterns in arrays?',
+      options: [
+        'Because it requires less memory',
+        'Because the pointers will eventually meet if a cycle exists',
+        "Because it's faster than other methods",
+        'Because it works with unsorted arrays',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Incorrect. Memory usage is not the key advantage of this variation.',
+        'Correct! The different speeds of the pointers ensure they will meet if a cycle exists, as the fast pointer will eventually catch up to the slow pointer.',
+        "Incorrect. The speed advantage isn't the main reason this variation is useful for cycle detection.",
+        "Incorrect. While it does work with unsorted arrays, this isn't why it's particularly good for cycle detection.",
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question:
+        'In the sliding window variation with anchored start, when should we move the start pointer?',
+      options: [
+        'After every move of the end pointer',
+        'When we need to reduce the window size',
+        'When we find a valid solution',
+        'At regular intervals',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Incorrect. Moving the start pointer after every end pointer move would prevent finding many valid solutions.',
+        'Correct! We move the start pointer when our window becomes invalid (e.g., sum too large, too many elements) and we need to shrink it.',
+        "Incorrect. Finding a valid solution doesn't necessarily mean we should move the start pointer.",
+        'Incorrect. The movement should be based on window properties, not fixed intervals.',
+      ],
+      difficulty: Difficulty.Advanced,
+    },
+    {
+      question:
+        'What is the key advantage of the multi-array two-pointer variation over nested loops?',
+      options: [
+        'It uses less memory',
+        'It processes all arrays in a single pass',
+        'It works with unsorted arrays',
+        'It handles duplicates better',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        'Incorrect. Memory usage is similar for both approaches.',
+        'Correct! By coordinating pointers across arrays, we can process all arrays in a single pass, avoiding nested loops and achieving better time complexity.',
+        'Incorrect. This variation typically requires sorted arrays to work correctly.',
+        'Incorrect. Duplicate handling is not the main advantage of this variation.',
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
 
-  const arrayPartitioningData: LessonContent = {
-    title: 'Understanding Array Partitioning with Two Pointers',
-    content: `Think of array partitioning like sorting books on a shelf - we want to group similar items together efficiently. The two-pointer approach helps us do this by working from both ends of the array, making decisions about where each element belongs and moving them accordingly. Let's explore how this works in practice.
+const arrayPartitioningData: LessonContent = {
+  title: 'Understanding Array Partitioning with Two Pointers',
+  content: `Think of array partitioning like sorting books on a shelf - we want to group similar items together efficiently. The two-pointer approach helps us do this by working from both ends of the array, making decisions about where each element belongs and moving them accordingly. Let's explore how this works in practice.
   
   <h3>Basic Partitioning: Understanding the Foundation</h3>
   
@@ -5874,11 +5941,12 @@ test_three_subarrays()`
                   
       return result
   \`\`\``,
-  
-    exercises: [
-      {
-        prompt: 'Implement a function that partitions an array around its median value, with all smaller elements before and all larger elements after, while handling duplicates of the median value efficiently.',
-        initialCode: `def partition_around_median(array):
+
+  exercises: [
+    {
+      prompt:
+        'Implement a function that partitions an array around its median value, with all smaller elements before and all larger elements after, while handling duplicates of the median value efficiently.',
+      initialCode: `def partition_around_median(array):
       """
       Partition array around its median value.
       
@@ -5889,7 +5957,7 @@ test_three_subarrays()`
       """
       # Your implementation here
       pass`,
-        solution: `def partition_around_median(array):
+      solution: `def partition_around_median(array):
       """
       Partition array around its median value.
       
@@ -5948,11 +6016,12 @@ test_three_subarrays()`
               assert arr_copy[i] > arr_copy[start]
   
   test_median_partition()`,
-        difficulty: Difficulty.Advanced,
-      },
-      {
-        prompt: 'Create a function that partitions an array such that all elements that are multiples of any prime less than 10 come before the other elements, maintaining relative order within each group.',
-        initialCode: `def partition_prime_multiples(array):
+      difficulty: Difficulty.Advanced,
+    },
+    {
+      prompt:
+        'Create a function that partitions an array such that all elements that are multiples of any prime less than 10 come before the other elements, maintaining relative order within each group.',
+      initialCode: `def partition_prime_multiples(array):
       """
       Partition array by prime multiples maintaining order.
       
@@ -5963,7 +6032,7 @@ test_three_subarrays()`
       """
       # Your implementation here
       pass`,
-        solution: `def partition_prime_multiples(array):
+      solution: `def partition_prime_multiples(array):
       """
       Partition array by prime multiples maintaining order.
       
@@ -6020,62 +6089,65 @@ test_three_subarrays()`
           print(f"Others: {arr_copy[partition_idx:]}")
   
   test_prime_partition()`,
-        difficulty: Difficulty.Intermediate,
-      }
-    ],
-    quizzes: [
-      {
-        question: 'Why does basic two-pointer partitioning work from both ends of the array rather than using sequential traversal?',
-        options: [
-          'To improve performance',
-          'To minimize memory usage',
-          'To avoid shifting elements multiple times',
-          'To handle duplicates better'
-        ],
-        correctAnswer: 2,
-        explanations: [
-          'Incorrect. While performance is similar, this isn\'t the main reason for working from both ends.',
-          'Incorrect. Memory usage is O(1) regardless of traversal direction.',
-          'Correct! Working from both ends allows us to place elements in their final positions immediately, avoiding the need to shift elements multiple times as we would with sequential traversal.',
-          'Incorrect. Duplicate handling isn\'t affected by traversal direction.'
-        ],
-        difficulty: Difficulty.Intermediate,
-      },
-      {
-        question: 'When maintaining relative order during partitioning, why do we need O(n) extra space?',
-        options: [
-          'To store temporary variables',
-          'To keep track of element positions',
-          'To preserve the original order while moving elements',
-          'To handle edge cases'
-        ],
-        correctAnswer: 2,
-        explanations: [
-          'Incorrect. Temporary variables would only require O(1) space.',
-          'Incorrect. Position tracking requires minimal space.',
-          'Correct! To maintain relative order while partitioning, we need a separate array to place elements in their correct positions without disturbing the order within each group.',
-          'Incorrect. Edge cases don\'t require additional space.'
-        ],
-        difficulty: Difficulty.Advanced,
-      },
-      {
-        question: 'In three-way partitioning, why don\'t we increment mid pointer after swapping with high pointer?',
-        options: [
-          'To improve efficiency',
-          'Because the swapped element hasn\'t been examined yet',
-          'To handle duplicate elements',
-          'To maintain balance between sections'
-        ],
-        correctAnswer: 1,
-        explanations: [
-          'Incorrect. This isn\'t about efficiency.',
-          'Correct! When we swap with the high pointer, we get a new element at mid that we haven\'t examined yet. We need to process this element before moving forward.',
-          'Incorrect. Duplicate handling isn\'t the primary reason.',
-          'Incorrect. Section balance isn\'t affected by pointer movement.'
-        ],
-        difficulty: Difficulty.Advanced,
-      }
-    ]
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+  quizzes: [
+    {
+      question:
+        'Why does basic two-pointer partitioning work from both ends of the array rather than using sequential traversal?',
+      options: [
+        'To improve performance',
+        'To minimize memory usage',
+        'To avoid shifting elements multiple times',
+        'To handle duplicates better',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        "Incorrect. While performance is similar, this isn't the main reason for working from both ends.",
+        'Incorrect. Memory usage is O(1) regardless of traversal direction.',
+        'Correct! Working from both ends allows us to place elements in their final positions immediately, avoiding the need to shift elements multiple times as we would with sequential traversal.',
+        "Incorrect. Duplicate handling isn't affected by traversal direction.",
+      ],
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question:
+        'When maintaining relative order during partitioning, why do we need O(n) extra space?',
+      options: [
+        'To store temporary variables',
+        'To keep track of element positions',
+        'To preserve the original order while moving elements',
+        'To handle edge cases',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'Incorrect. Temporary variables would only require O(1) space.',
+        'Incorrect. Position tracking requires minimal space.',
+        'Correct! To maintain relative order while partitioning, we need a separate array to place elements in their correct positions without disturbing the order within each group.',
+        "Incorrect. Edge cases don't require additional space.",
+      ],
+      difficulty: Difficulty.Advanced,
+    },
+    {
+      question:
+        "In three-way partitioning, why don't we increment mid pointer after swapping with high pointer?",
+      options: [
+        'To improve efficiency',
+        "Because the swapped element hasn't been examined yet",
+        'To handle duplicate elements',
+        'To maintain balance between sections',
+      ],
+      correctAnswer: 1,
+      explanations: [
+        "Incorrect. This isn't about efficiency.",
+        "Correct! When we swap with the high pointer, we get a new element at mid that we haven't examined yet. We need to process this element before moving forward.",
+        "Incorrect. Duplicate handling isn't the primary reason.",
+        "Incorrect. Section balance isn't affected by pointer movement.",
+      ],
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 const dutchFlagData: LessonContent = {
   title: 'The Dutch National Flag Algorithm: Mastering Three-Way Partitioning',
@@ -6309,7 +6381,8 @@ demonstrate_deduplication()
 \`\`\``,
   exercises: [
     {
-      prompt: 'Modify the Dutch Flag algorithm to handle four-way partitioning (e.g., elements less than, equal to, greater than, or much greater than a pivot).',
+      prompt:
+        'Modify the Dutch Flag algorithm to handle four-way partitioning (e.g., elements less than, equal to, greater than, or much greater than a pivot).',
       initialCode: `def four_way_partition(array, pivot1, pivot2):
     """
     Partition array into four sections based on two pivot values.
@@ -6395,7 +6468,8 @@ test_four_way_partition()`,
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a variation of the Dutch Flag algorithm that groups elements by their remainder when divided by 3 (0, 1, or 2).',
+      prompt:
+        'Implement a variation of the Dutch Flag algorithm that groups elements by their remainder when divided by 3 (0, 1, or 2).',
       initialCode: `def group_by_remainder(array):
     """
     Group array elements by their remainder when divided by 3.
@@ -6489,49 +6563,52 @@ print(f"Original array: {array}")
         print(f"Grouping is {'valid' if is_valid else 'invalid'}")
 
 # Run tests
-test_remainder_grouping()`
-    }
+test_remainder_grouping()`,
+    },
   ],
   quizzes: [
     {
-      question: 'Why does the Dutch Flag algorithm not increment mid after swapping with high?',
+      question:
+        'Why does the Dutch Flag algorithm not increment mid after swapping with high?',
       options: [
         'To improve performance',
         'Because it might need to swap the newly placed element again',
         'To maintain array balance',
-        'To handle duplicate elements'
+        'To handle duplicate elements',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. The decision is about correctness, not performance.',
-        'Correct! When we swap with high, we get a new element at mid that we haven\'t examined yet. It might need to be swapped again.',
+        "Correct! When we swap with high, we get a new element at mid that we haven't examined yet. It might need to be swapped again.",
         'Incorrect. The algorithm maintains correctness regardless of array balance.',
-        'Incorrect. While the algorithm handles duplicates well, this isn\'t why we don\'t increment mid.'
+        "Incorrect. While the algorithm handles duplicates well, this isn't why we don't increment mid.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What makes the Dutch Flag algorithm more efficient than repeated standard partitioning?',
+      question:
+        'What makes the Dutch Flag algorithm more efficient than repeated standard partitioning?',
       options: [
         'It uses less memory',
         'It requires fewer comparisons',
         'It handles three categories in a single pass',
-        'It pre-sorts the array'
+        'It pre-sorts the array',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Both approaches use O(1) extra space.',
         'Incorrect. The number of comparisons is similar.',
         'Correct! The algorithm efficiently partitions into three categories in a single pass through the array, while repeated partitioning would require multiple passes.',
-        'Incorrect. The algorithm partitions but doesn\'t sort within partitions.'
+        "Incorrect. The algorithm partitions but doesn't sort within partitions.",
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const slidingWindowConceptData: LessonContent = {
-  title: 'Understanding the Sliding Window Technique: A Fundamental Array Pattern',
+  title:
+    'Understanding the Sliding Window Technique: A Fundamental Array Pattern',
   content: `Let's explore the sliding window technique, a powerful approach for solving array problems that involve contiguous sequences. Think of it like a train window moving along the countryside - as we move forward, we can see a fixed portion of the view, with new elements coming into view as old ones leave.
 
 <h3>Understanding the Basic Concept</h3>
@@ -6808,7 +6885,8 @@ Some common problem types where sliding window excels:
 
   exercises: [
     {
-      prompt: 'Implement a function that finds the minimum window size needed to contain all unique elements in an array at least once.',
+      prompt:
+        'Implement a function that finds the minimum window size needed to contain all unique elements in an array at least once.',
       initialCode: `def find_minimum_window_size(array):
     """
     Find smallest window containing all unique elements.
@@ -6877,7 +6955,8 @@ test_minimum_window()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a function that finds the longest window where the average is greater than a given value.',
+      prompt:
+        'Create a function that finds the longest window where the average is greater than a given value.',
       initialCode: `def find_longest_good_average_window(array, min_avg):
     """
     Find longest window with average > min_avg.
@@ -6954,61 +7033,64 @@ def test_average_window():
 
 test_average_window()`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is the sliding window technique more efficient than calculating each window separately?',
+      question:
+        'Why is the sliding window technique more efficient than calculating each window separately?',
       options: [
         'Because it uses less memory',
         'Because it reuses calculations from the previous window',
         'Because it can handle larger arrays',
-        'Because it works with unsorted arrays'
+        'Because it works with unsorted arrays',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Both approaches typically use similar amounts of memory.',
         'Correct! The sliding window technique maintains a running calculation, only updating it with the elements that change as the window moves. This avoids recalculating the entire window each time.',
-        'Incorrect. While it does handle large arrays efficiently, this isn\'t what makes the technique more efficient.',
-        'Incorrect. The efficiency gain isn\'t related to whether the array is sorted.'
+        "Incorrect. While it does handle large arrays efficiently, this isn't what makes the technique more efficient.",
+        "Incorrect. The efficiency gain isn't related to whether the array is sorted.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When calculating a running sum with sliding window, what operations must be performed for each window movement?',
+      question:
+        'When calculating a running sum with sliding window, what operations must be performed for each window movement?',
       options: [
         'Recalculate the entire sum',
         'Add new element and remove first element',
         'Sort the window elements',
-        'Compare all elements in window'
+        'Compare all elements in window',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Recalculating the entire sum would defeat the purpose of sliding window.',
         'Correct! We only need to subtract the element leaving the window and add the new element entering it, making the update very efficient.',
-        'Incorrect. Sorting isn\'t necessary for maintaining a running sum.',
-        'Incorrect. We don\'t need to compare elements for a running sum.'
+        "Incorrect. Sorting isn't necessary for maintaining a running sum.",
+        "Incorrect. We don't need to compare elements for a running sum.",
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What characteristic must a problem have to be solvable using sliding window technique?',
+      question:
+        'What characteristic must a problem have to be solvable using sliding window technique?',
       options: [
         'The array must be sorted',
         'The window size must be fixed',
         'The calculation must be updatable using only the entering and leaving elements',
-        'The elements must be numbers'
+        'The elements must be numbers',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Sliding window can work with unsorted arrays.',
         'Incorrect. Window size can be variable in some sliding window problems.',
         'Correct! The key requirement is that we can update our calculation by only considering the elements entering and leaving the window, without needing to reprocess the entire window.',
-        'Incorrect. Sliding window can work with any type of elements if the calculation is appropriate.'
+        'Incorrect. Sliding window can work with any type of elements if the calculation is appropriate.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const windowVariationsData: LessonContent = {
@@ -7287,7 +7369,8 @@ demonstrate_advanced_window()
 
   exercises: [
     {
-      prompt: 'Implement a function that finds the minimum window size needed to include at least one occurrence of each unique element in the array.',
+      prompt:
+        'Implement a function that finds the minimum window size needed to include at least one occurrence of each unique element in the array.',
       initialCode: `def find_minimum_window_all_elements(array):
     """
     Find smallest window containing all unique elements.
@@ -7362,7 +7445,8 @@ test_minimum_window()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a function that finds the window with the most balanced ratio of positive to negative numbers (closest to 1:1), with a minimum window size requirement.',
+      prompt:
+        'Create a function that finds the window with the most balanced ratio of positive to negative numbers (closest to 1:1), with a minimum window size requirement.',
       initialCode: `def find_balanced_window(array, min_size):
     """
     Find window with most balanced positive/negative ratio.
@@ -7463,61 +7547,64 @@ def test_balanced_window():
 
 test_balanced_window()`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'When using a fixed-size window, why is it more efficient to maintain a running sum rather than recalculating the sum for each window?',
+      question:
+        'When using a fixed-size window, why is it more efficient to maintain a running sum rather than recalculating the sum for each window?',
       options: [
         'Because it uses less memory',
         'Because it reduces calculations from O(k) to O(1) per window',
         'Because it handles edge cases better',
-        'Because it works with negative numbers'
+        'Because it works with negative numbers',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Memory usage is similar for both approaches.',
         'Correct! Maintaining a running sum requires only two operations per window (subtract leaving element, add entering element) instead of summing k elements each time.',
         'Incorrect. Edge case handling is not affected by using a running sum.',
-        'Incorrect. Both approaches work equally well with negative numbers.'
+        'Incorrect. Both approaches work equally well with negative numbers.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'In a dynamic window approach, how do we decide when to shrink the window?',
+      question:
+        'In a dynamic window approach, how do we decide when to shrink the window?',
       options: [
         'After a fixed number of expansions',
         'When the window size reaches a threshold',
         'When the window satisfies our condition and might be optimizable',
-        'Whenever we expand the window'
+        'Whenever we expand the window',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Shrinking decisions should be based on window properties, not fixed counts.',
-        'Incorrect. Window size alone doesn\'t determine when to shrink.',
+        "Incorrect. Window size alone doesn't determine when to shrink.",
         'Correct! We try to shrink the window whenever it satisfies our conditions, to see if we can find a more optimal solution with a smaller window.',
-        'Incorrect. Not every expansion needs to be followed by attempted shrinking.'
+        'Incorrect. Not every expansion needs to be followed by attempted shrinking.',
       ],
       difficulty: Difficulty.Advanced,
     },
     {
-      question: 'Why might we need to combine fixed and dynamic window approaches?',
+      question:
+        'Why might we need to combine fixed and dynamic window approaches?',
       options: [
         'To improve performance',
         'To handle special cases',
         'To enforce both minimum requirements and optimal conditions',
-        'To reduce memory usage'
+        'To reduce memory usage',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Performance isn\'t the main reason for combining approaches.',
+        "Incorrect. Performance isn't the main reason for combining approaches.",
         'Incorrect. Special cases can be handled with either approach alone.',
         'Correct! Combined approaches let us maintain minimum size requirements while still optimizing window size based on conditions.',
-        'Incorrect. Memory usage isn\'t significantly affected by combining approaches.'
+        "Incorrect. Memory usage isn't significantly affected by combining approaches.",
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const prefixSumBasicsData: LessonContent = {
@@ -7765,7 +7852,8 @@ Some specific examples:
 
   exercises: [
     {
-      prompt: 'Implement a function that finds the number of subarrays having a sum equal to a target value using prefix sums.',
+      prompt:
+        'Implement a function that finds the number of subarrays having a sum equal to a target value using prefix sums.',
       initialCode: `def count_subarrays_with_sum(array, target):
     """
     Count subarrays with sum equal to target.
@@ -7843,7 +7931,8 @@ test_subarray_counting()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a function that uses prefix sums to find the shortest subarray with a sum greater than or equal to a target value.',
+      prompt:
+        'Create a function that uses prefix sums to find the shortest subarray with a sum greater than or equal to a target value.',
       initialCode: `def shortest_subarray_with_sum(array, target):
     """
     Find shortest subarray with sum >= target.
@@ -7918,61 +8007,64 @@ else:
 
 test_shortest_subarray()`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do prefix sums allow us to find range sums in O(1) time instead of O(n)?',
+      question:
+        'Why do prefix sums allow us to find range sums in O(1) time instead of O(n)?',
       options: [
         'Because they store the array in sorted order',
         'Because they precompute cumulative sums up to each position',
         'Because they use less memory',
-        'Because they work with negative numbers'
+        'Because they work with negative numbers',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Prefix sums work with arrays in their original order and don\'t require sorting.',
+        "Incorrect. Prefix sums work with arrays in their original order and don't require sorting.",
         'Correct! By storing cumulative sums, we can find any range sum by subtracting two prefix values: prefix[end] - prefix[start-1]. This gives us the sum of elements from start to end in constant time.',
         'Incorrect. Prefix sums actually use additional memory to store the cumulative sums.',
-        'Incorrect. While prefix sums do work with negative numbers, this isn\'t why they provide O(1) range queries.'
+        "Incorrect. While prefix sums do work with negative numbers, this isn't why they provide O(1) range queries.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When updating a value in an array with prefix sums, why do we need to update all subsequent positions in the prefix sum array?',
+      question:
+        'When updating a value in an array with prefix sums, why do we need to update all subsequent positions in the prefix sum array?',
       options: [
         'To maintain array sorting',
         'Because all subsequent cumulative sums include the changed value',
         'To save memory',
-        'To handle edge cases'
+        'To handle edge cases',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Prefix sums don\'t require or maintain array sorting.',
+        "Incorrect. Prefix sums don't require or maintain array sorting.",
         'Correct! Every prefix sum after the changed position includes that value in its cumulative sum, so they all need to be updated by the same difference to maintain correctness.',
-        'Incorrect. Updating all subsequent positions doesn\'t affect memory usage.',
-        'Incorrect. This isn\'t about edge cases but about maintaining the fundamental property of cumulative sums.'
+        "Incorrect. Updating all subsequent positions doesn't affect memory usage.",
+        "Incorrect. This isn't about edge cases but about maintaining the fundamental property of cumulative sums.",
       ],
       difficulty: Difficulty.Advanced,
     },
     {
-      question: 'What is the key principle that makes prefix sums useful for finding subarrays with a target sum?',
+      question:
+        'What is the key principle that makes prefix sums useful for finding subarrays with a target sum?',
       options: [
         'They keep the array sorted',
         'They allow binary search',
         'The difference between two prefix sums gives a range sum',
-        'They minimize memory usage'
+        'They minimize memory usage',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Prefix sums don\'t sort the array or require sorting.',
-        'Incorrect. While binary search can be used with prefix sums in some cases, this isn\'t their key principle.',
-        'Correct! If prefix[j] - prefix[i] equals our target, we\'ve found a subarray (from i+1 to j) that sums to our target. This principle lets us find such subarrays efficiently.',
-        'Incorrect. Prefix sums actually use additional memory to gain their advantages.'
+        "Incorrect. Prefix sums don't sort the array or require sorting.",
+        "Incorrect. While binary search can be used with prefix sums in some cases, this isn't their key principle.",
+        "Correct! If prefix[j] - prefix[i] equals our target, we've found a subarray (from i+1 to j) that sums to our target. This principle lets us find such subarrays efficiently.",
+        'Incorrect. Prefix sums actually use additional memory to gain their advantages.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const rangeQueriesData: LessonContent = {
@@ -8298,7 +8390,8 @@ The key to solving these problems efficiently is choosing the right preprocessin
 
   exercises: [
     {
-      prompt: 'Create a function that finds the subarray with the smallest average value. The subarray must have a minimum length k.',
+      prompt:
+        'Create a function that finds the subarray with the smallest average value. The subarray must have a minimum length k.',
       initialCode: `def find_minimum_average_subarray(array, k):
     """
     Find subarray of length >= k with minimum average.
@@ -8392,61 +8485,64 @@ def test_minimum_average():
 
 test_minimum_average()`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do we build a prefix sum array before answering range queries instead of calculating sums as needed?',
+      question:
+        'Why do we build a prefix sum array before answering range queries instead of calculating sums as needed?',
       options: [
         'To use less memory',
         'To allow modifications to the original array',
         'To precompute results and make queries O(1) time',
-        'To handle negative numbers'
+        'To handle negative numbers',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Prefix sums actually use additional memory to store precomputed values.',
-        'Incorrect. Prefix sums don\'t facilitate modifications; they need to be rebuilt if the array changes.',
+        "Incorrect. Prefix sums don't facilitate modifications; they need to be rebuilt if the array changes.",
         'Correct! By precomputing prefix sums once, we can answer any range sum query in O(1) time using simple subtraction, instead of summing elements each time.',
-        'Incorrect. Prefix sums work with both positive and negative numbers.'
+        'Incorrect. Prefix sums work with both positive and negative numbers.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When processing multiple range update queries, why might we use a difference array instead of updating individual elements?',
+      question:
+        'When processing multiple range update queries, why might we use a difference array instead of updating individual elements?',
       options: [
         'To save memory',
         'To support larger numbers',
         'To perform updates in O(1) instead of O(length of range)',
-        'To handle overlapping ranges'
+        'To handle overlapping ranges',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Difference arrays use similar memory to the original array.',
-        'Incorrect. Number size isn\'t relevant to the choice of using difference arrays.',
+        "Incorrect. Number size isn't relevant to the choice of using difference arrays.",
         'Correct! A difference array lets us perform range updates by modifying just two elements instead of updating every element in the range, making updates O(1) instead of O(length).',
-        'Incorrect. Both approaches can handle overlapping ranges correctly.'
+        'Incorrect. Both approaches can handle overlapping ranges correctly.',
       ],
       difficulty: Difficulty.Advanced,
     },
     {
-      question: 'What is the key insight that makes range query processing efficient using prefix-based techniques?',
+      question:
+        'What is the key insight that makes range query processing efficient using prefix-based techniques?',
       options: [
         'They keep the array sorted',
         'They store every possible sum',
         'The difference between two prefix values gives a range result',
-        'They compress the data'
+        'They compress the data',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Prefix techniques don\'t require or maintain sorting.',
+        "Incorrect. Prefix techniques don't require or maintain sorting.",
         'Incorrect. Storing every possible sum would require O(n²) space.',
         'Correct! The fundamental principle is that any range result can be computed using two prefix values, making queries efficient.',
-        'Incorrect. Prefix techniques don\'t compress data; they actually use extra space to gain speed.'
+        "Incorrect. Prefix techniques don't compress data; they actually use extra space to gain speed.",
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const kadaneAlgorithmData: LessonContent = {
@@ -8671,7 +8767,8 @@ def safe_kadane(array):
 
   exercises: [
     {
-      prompt: 'Implement a function that finds both the maximum sum subarray and the second maximum sum subarray (non-overlapping with the first).',
+      prompt:
+        'Implement a function that finds both the maximum sum subarray and the second maximum sum subarray (non-overlapping with the first).',
       initialCode: `def find_two_max_subarrays(array):
     """
     Find two non-overlapping subarrays with maximum sums.
@@ -8734,7 +8831,8 @@ print(f"Maximum sum of two non-overlapping subarrays: {result}")`,
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement Kadane\'s Algorithm to find the maximum sum subarray where the subarray must be at least k elements long.',
+      prompt:
+        "Implement Kadane's Algorithm to find the maximum sum subarray where the subarray must be at least k elements long.",
       initialCode: `def kadane_with_minimum_length(array, k):
     """
     Find maximum subarray sum where subarray length >= k.
@@ -8787,44 +8885,46 @@ k = 3
 result = kadane_with_minimum_length(test_array, k)
 print(f"Maximum sum with minimum length {k}: {result}")`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
-quizzes: [
+  quizzes: [
     {
-      question: "Why does Kadane's Algorithm maintain both 'max_ending_here' and 'max_so_far' variables?",
+      question:
+        "Why does Kadane's Algorithm maintain both 'max_ending_here' and 'max_so_far' variables?",
       options: [
-        'To improve the algorithm\'s time complexity',
+        "To improve the algorithm's time complexity",
         'To handle negative numbers properly',
         'To track both current and global maximum sums',
-        'To reduce space complexity'
+        'To reduce space complexity',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. The time complexity is O(n) regardless of using two variables.',
         'Incorrect. Negative numbers are handled by the logic of the algorithm, not by using two variables.',
         'Correct! max_ending_here tracks the maximum sum ending at the current position, while max_so_far keeps track of the global maximum found so far.',
-        'Incorrect. Using two variables doesn\'t significantly impact space complexity.'
+        "Incorrect. Using two variables doesn't significantly impact space complexity.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key insight that makes Kadane\'s Algorithm work efficiently?',
+      question:
+        "What is the key insight that makes Kadane's Algorithm work efficiently?",
       options: [
         'It uses dynamic programming to avoid recalculating sums',
         'It only needs to make one decision at each step: extend current subarray or start new one',
         'It pre-sorts the array to find maximum values quickly',
-        'It uses a divide-and-conquer approach to break down the problem'
+        'It uses a divide-and-conquer approach to break down the problem',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. While Kadane\'s Algorithm has dynamic programming aspects, this isn\'t the key insight.',
-        'Correct! The algorithm\'s efficiency comes from recognizing that at each position, we only need to decide whether to start a new subarray or extend the existing one.',
-        'Incorrect. The algorithm works on the original array order and doesn\'t require sorting.',
-        'Incorrect. Kadane\'s Algorithm uses a linear scan rather than divide-and-conquer.'
+        "Incorrect. While Kadane's Algorithm has dynamic programming aspects, this isn't the key insight.",
+        "Correct! The algorithm's efficiency comes from recognizing that at each position, we only need to decide whether to start a new subarray or extend the existing one.",
+        "Incorrect. The algorithm works on the original array order and doesn't require sorting.",
+        "Incorrect. Kadane's Algorithm uses a linear scan rather than divide-and-conquer.",
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const stockPatternsData: LessonContent = {
@@ -9083,7 +9183,8 @@ These variations test our understanding of both the problem space and algorithm 
 
   exercises: [
     {
-      prompt: 'Implement a function that finds the maximum profit possible when you must buy and sell in pairs and can hold at most two stocks at any time.',
+      prompt:
+        'Implement a function that finds the maximum profit possible when you must buy and sell in pairs and can hold at most two stocks at any time.',
       initialCode: `def max_profit_two_stocks(prices):
     """
     Find maximum profit when holding at most two stocks.
@@ -9157,7 +9258,8 @@ explain_two_stocks([3, 3, 5, 0, 0, 3, 1, 4])`,
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Create a function that finds the best days to buy and sell when you can make at most k transactions and have a transaction fee.',
+      prompt:
+        'Create a function that finds the best days to buy and sell when you can make at most k transactions and have a transaction fee.',
       initialCode: `def max_profit_k_with_fee(prices, k, fee):
     """
     Find maximum profit with k transactions and fee.
@@ -9241,44 +9343,46 @@ print("Transactions:")
 for buy, sell in transactions:
     print(f"Buy at {buy}, Sell at {sell}, Profit: {sell - buy - fee}")`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why does the single transaction stock problem track the minimum price seen so far?',
+      question:
+        'Why does the single transaction stock problem track the minimum price seen so far?',
       options: [
         'To minimize memory usage in the algorithm',
         'To ensure we buy at the absolute lowest price',
         'Because we can only buy before we sell',
-        'To optimize the algorithm\'s runtime'
+        "To optimize the algorithm's runtime",
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Tracking minimum price uses constant memory regardless.',
         'Incorrect. The absolute lowest price might not lead to maximum profit if it occurs too late.',
         'Correct! We track the minimum price seen so far because we can only buy before we sell, and at each price we want to know the best possible buying price that could have preceded it.',
-        'Incorrect. The runtime is O(n) regardless of tracking minimum price.'
+        'Incorrect. The runtime is O(n) regardless of tracking minimum price.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'In the multiple transactions problem, why can we simply add up all positive price differences?',
+      question:
+        'In the multiple transactions problem, why can we simply add up all positive price differences?',
       options: [
-        'It\'s a mathematical coincidence that works for stocks',
+        "It's a mathematical coincidence that works for stocks",
         'Because we can buy and sell on consecutive days',
         'Because stock prices are always positive',
-        'Because it minimizes the number of transactions'
+        'Because it minimizes the number of transactions',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. This is not a coincidence but a result of the problem constraints.',
         'Correct! Since we can buy and sell without restrictions (other than selling before buying again), any positive price difference between consecutive days can be captured as profit.',
         'Incorrect. The strategy works even with negative prices.',
-        'Incorrect. This approach might actually use more transactions than necessary.'
+        'Incorrect. This approach might actually use more transactions than necessary.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const subarrayProblemsData: LessonContent = {
@@ -9592,7 +9696,8 @@ if result:
 
   exercises: [
     {
-      prompt: 'Implement a function that finds the shortest subarray whose sum is at least k.',
+      prompt:
+        'Implement a function that finds the shortest subarray whose sum is at least k.',
       initialCode: `def shortest_subarray_with_sum_at_least_k(array, k):
     """
     Find shortest subarray with sum >= k.
@@ -9645,7 +9750,8 @@ if result:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a function that finds all subarrays with a given XOR value.',
+      prompt:
+        'Create a function that finds all subarrays with a given XOR value.',
       initialCode: `def count_subarrays_with_xor(array, target_xor):
         """
         Count subarrays with given XOR value.
@@ -9658,7 +9764,7 @@ if result:
         """
         # Your implementation here
         pass`,
-          solution: `def count_subarrays_with_xor(array, target_xor):
+      solution: `def count_subarrays_with_xor(array, target_xor):
         """
         Count subarrays with given XOR value.
         
@@ -9717,50 +9823,52 @@ if result:
             print(f"Current prefix XORs: {xor_count}")
 
     # Run explanation
-    explain_xor_solution(test_array, target_xor)`
-    }
+    explain_xor_solution(test_array, target_xor)`,
+    },
   ],
 
-quizzes: [
+  quizzes: [
     {
-      question: 'When should you use the sliding window technique versus the two-pointer technique?',
+      question:
+        'When should you use the sliding window technique versus the two-pointer technique?',
       options: [
         'Sliding window is always faster',
         'Two-pointer is better for fixed-size windows',
         'Sliding window for fixed-size or constrained windows, two-pointer for variable-size windows meeting a condition',
-        'They are exactly the same thing'
+        'They are exactly the same thing',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. The choice depends on the problem constraints, not just performance.',
         'Incorrect. Sliding window is actually better for fixed-size windows.',
         'Correct! Sliding window works best with fixed size or constrained growth, while two-pointer is better when window size can vary based on conditions.',
-        'Incorrect. While related, they are distinct techniques with different use cases.'
+        'Incorrect. While related, they are distinct techniques with different use cases.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Why do we often use prefix sums when working with subarray sums?',
+      question:
+        'Why do we often use prefix sums when working with subarray sums?',
       options: [
         'To reduce memory usage',
         'To compute any subarray sum in O(1) time after O(n) preprocessing',
         'To sort the array more efficiently',
-        'To handle negative numbers'
+        'To handle negative numbers',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Prefix sums actually use additional memory.',
         'Correct! After computing prefix sums in O(n) time, we can find any subarray sum using simple subtraction in O(1) time.',
         'Incorrect. Prefix sums are not related to sorting.',
-        'Incorrect. Prefix sums work with both positive and negative numbers.'
+        'Incorrect. Prefix sums work with both positive and negative numbers.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const arrayRotationData: LessonContent = {
-  title: "Array Rotation Techniques: Understanding Time-Space Tradeoffs",
+  title: 'Array Rotation Techniques: Understanding Time-Space Tradeoffs',
   content: `Array rotation is a fundamental operation in computer science that involves shifting elements of an array by a certain number of positions. While seemingly straightforward, it offers valuable lessons in algorithm design and optimization.
 
 <h3>Understanding Array Rotation</h3>
@@ -10013,7 +10121,8 @@ Each approach has its tradeoffs:
 
   exercises: [
     {
-      prompt: "Implement a function to rotate an array left by k positions using the reversal method.",
+      prompt:
+        'Implement a function to rotate an array left by k positions using the reversal method.',
       initialCode: `def rotate_array_left(arr, k):
     """
     Rotate array left by k positions using the reversal method.
@@ -10049,10 +10158,11 @@ Each approach has its tradeoffs:
     # For left rotation, we can use right rotation algorithm
     # with k = n - k
     return rotate_array_reversal(arr, n - k)`,
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: "Implement a function that determines if one array is a rotation of another array.",
+      prompt:
+        'Implement a function that determines if one array is a rotation of another array.',
       initialCode: `def is_rotation(arr1, arr2):
     """
     Check if arr2 is a rotation of arr1.
@@ -10094,49 +10204,49 @@ Each approach has its tradeoffs:
     s2 = ''.join(map(str, arr2))
     
     return s2 in s1`,
-      difficulty: Difficulty.Advanced
-    }
+      difficulty: Difficulty.Advanced,
+    },
   ],
   quizzes: [
     {
-      question: "Which array rotation algorithm is most space-efficient?",
+      question: 'Which array rotation algorithm is most space-efficient?',
       options: [
-        "Extra space method using temporary array",
-        "Reversal algorithm",
-        "Block rotation algorithm",
-        "Both reversal and block rotation algorithms"
+        'Extra space method using temporary array',
+        'Reversal algorithm',
+        'Block rotation algorithm',
+        'Both reversal and block rotation algorithms',
       ],
       correctAnswer: 3,
       explanations: [
-        "Incorrect. The extra space method uses O(n) additional space.",
+        'Incorrect. The extra space method uses O(n) additional space.',
         "Partially correct. The reversal algorithm uses O(1) space, but it's not the only one.",
         "Partially correct. The block rotation algorithm uses O(1) space, but it's not the only one.",
-        "Correct! Both reversal and block rotation algorithms use O(1) extra space."
+        'Correct! Both reversal and block rotation algorithms use O(1) extra space.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: "Why might block rotation be preferred for very large arrays?",
+      question: 'Why might block rotation be preferred for very large arrays?',
       options: [
-        "It uses less memory than other methods",
-        "It has better cache performance",
-        "It requires fewer total operations",
-        "It's simpler to implement"
+        'It uses less memory than other methods',
+        'It has better cache performance',
+        'It requires fewer total operations',
+        "It's simpler to implement",
       ],
       correctAnswer: 1,
       explanations: [
-        "Incorrect. Both block rotation and reversal methods use O(1) extra space.",
-        "Correct! Block rotation is designed to be cache-friendly by operating on blocks of elements.",
-        "Incorrect. It actually performs a similar number of operations to other methods.",
-        "Incorrect. Block rotation is typically the most complex to implement."
+        'Incorrect. Both block rotation and reversal methods use O(1) extra space.',
+        'Correct! Block rotation is designed to be cache-friendly by operating on blocks of elements.',
+        'Incorrect. It actually performs a similar number of operations to other methods.',
+        'Incorrect. Block rotation is typically the most complex to implement.',
       ],
-      difficulty: Difficulty.Intermediate
-    }
-  ]
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
 };
 
 const majorityElementData: LessonContent = {
-  title: "Finding Majority Elements: Efficient Algorithms and Techniques",
+  title: 'Finding Majority Elements: Efficient Algorithms and Techniques',
   content: `Let's explore algorithms for finding majority elements in arrays, with a special focus on the elegant Boyer-Moore Voting Algorithm. A majority element is one that appears more than n/2 times in an array of size n - think of it like finding the winner in a democratic vote where one candidate must have secured more than 50% of the votes.
 
 <h3>Understanding the Problem</h3>
@@ -10354,7 +10464,8 @@ def verify_majority_exists(nums):
 
   exercises: [
     {
-      prompt: 'Implement a function that finds the majority element in a sorted array in O(log n) time.',
+      prompt:
+        'Implement a function that finds the majority element in a sorted array in O(log n) time.',
       initialCode: `def majority_element_sorted(nums):
     """
     Find majority element in a sorted array.
@@ -10424,7 +10535,8 @@ def binary_search_last(nums, target):
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a function that finds all elements appearing more than n/k times for any given k.',
+      prompt:
+        'Implement a function that finds all elements appearing more than n/k times for any given k.',
       initialCode: `def find_elements_above_k_fraction(nums, k):
     """
     Find all elements appearing more than n/k times.
@@ -10490,48 +10602,45 @@ k = 3
 result = find_elements_above_k_fraction(test_array, k)
 print(f"Elements appearing more than n/{k} times: {result}")`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: "Why does Boyer-Moore's Voting Algorithm work for finding the majority element?",
+      question:
+        "Why does Boyer-Moore's Voting Algorithm work for finding the majority element?",
       options: [
         'Because it sorts the array first',
         'Because it counts all elements in a hashmap',
         'Because majority element occurrences will always outnumber non-majority elements after pairing cancelation',
-        'Because it uses binary search to find the element'
+        'Because it uses binary search to find the element',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Boyer-Moore does not require sorting and works in O(n) time.',
         'Incorrect. The algorithm uses constant space and does not need a hashmap.',
         'Correct! Since the majority element appears more than n/2 times, it will always have more occurrences left after canceling out with non-majority elements.',
-        'Incorrect. The algorithm uses a linear scan, not binary search.'
+        'Incorrect. The algorithm uses a linear scan, not binary search.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the maximum number of elements that can appear more than n/3 times in an array?',
-      options: [
-        'One element',
-        'Two elements',
-        'Three elements',
-        'No limit'
-      ],
+      question:
+        'What is the maximum number of elements that can appear more than n/3 times in an array?',
+      options: ['One element', 'Two elements', 'Three elements', 'No limit'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. While one element is possible, more elements can exist.',
         'Correct! At most two elements can appear more than n/3 times, as three such elements would require more than n total elements.',
         'Incorrect. Three elements appearing more than n/3 times would require more than n total elements.',
-        'Incorrect. There is a mathematical limit based on the fraction n/3.'
+        'Incorrect. There is a mathematical limit based on the fraction n/3.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const matrixTraversalData: LessonContent = {
-  title: "Matrix Traversal Patterns: Mastering 2D Array Navigation",
+  title: 'Matrix Traversal Patterns: Mastering 2D Array Navigation',
   content: `Understanding how to efficiently traverse matrices is a fundamental skill in programming. Whether you're processing image data, solving game puzzles, or analyzing grid-based problems, mastering different traversal patterns will help you tackle a wide range of algorithmic challenges.
 
 <h3>Understanding Matrix Basics</h3>
@@ -10982,7 +11091,8 @@ for row in result:
 
   exercises: [
     {
-      prompt: 'Implement a function that returns all elements of a matrix in alternating diagonal order.',
+      prompt:
+        'Implement a function that returns all elements of a matrix in alternating diagonal order.',
       initialCode: `def alternating_diagonal_traverse(matrix):
     """
     Traverse matrix diagonally, alternating direction for each diagonal.
@@ -11045,7 +11155,8 @@ print(f"Alternating diagonal order: {result}")`,
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a function that traverses a matrix in a spiral pattern but only visits elements that satisfy a given condition.',
+      prompt:
+        'Implement a function that traverses a matrix in a spiral pattern but only visits elements that satisfy a given condition.',
       initialCode: `def conditional_spiral_traverse(matrix, condition):
     """
     Traverse matrix in spiral order, including only elements that satisfy condition.
@@ -11180,49 +11291,52 @@ def demonstrate():
     greater_than_five = conditional_spiral_traverse(matrix, lambda x: x > 5)
     print("Numbers greater than 5 in spiral order:", greater_than_five)
 
-demonstrate()`
+demonstrate()`,
     },
   ],
   quizzes: [
     {
-      question: "What is the key consideration when implementing a spiral matrix traversal?",
+      question:
+        'What is the key consideration when implementing a spiral matrix traversal?',
       options: [
         'Keeping track of visited elements using a separate matrix',
         'Maintaining and updating boundary variables (top, bottom, left, right)',
         'Using recursive calls to process each layer',
-        'Converting the matrix to a 1D array first'
+        'Converting the matrix to a 1D array first',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Spiral traversal can be implemented without tracking visited elements.',
-        'Correct! Managing boundary variables is crucial for spiral traversal as they help maintain the current perimeter being processed and ensure we don\'t revisit elements.',
-        'Incorrect. While recursion can be used, it\'s not necessary and may complicate the implementation.',
-        'Incorrect. Converting to 1D would make the traversal more difficult to implement.'
+        "Correct! Managing boundary variables is crucial for spiral traversal as they help maintain the current perimeter being processed and ensure we don't revisit elements.",
+        "Incorrect. While recursion can be used, it's not necessary and may complicate the implementation.",
+        'Incorrect. Converting to 1D would make the traversal more difficult to implement.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When implementing diagonal traversal, what is the most important pattern to recognize?',
+      question:
+        'When implementing diagonal traversal, what is the most important pattern to recognize?',
       options: [
         'Elements in the same diagonal have indices that sum to the same value',
         'Each diagonal requires a different traversal direction',
         'Diagonal elements are always equidistant',
-        'Diagonals always contain the same number of elements'
+        'Diagonals always contain the same number of elements',
       ],
       correctAnswer: 0,
       explanations: [
         'Correct! For any element in a diagonal, row + column equals a constant value. This property is key to identifying diagonal elements.',
-        'Incorrect. While direction changes are important, they\'re not the fundamental pattern.',
+        "Incorrect. While direction changes are important, they're not the fundamental pattern.",
         'Incorrect. Elements in a diagonal are not necessarily equidistant in memory.',
-        'Incorrect. Different diagonals can have different lengths, especially in rectangular matrices.'
+        'Incorrect. Different diagonals can have different lengths, especially in rectangular matrices.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const matrixTransformationData: LessonContent = {
-  title: "Matrix Transformations: Understanding and Implementing Common Operations",
+  title:
+    'Matrix Transformations: Understanding and Implementing Common Operations',
   content: `Let's explore the fascinating world of matrix transformations, where we'll learn how to manipulate 2D arrays in ways that are crucial for everything from image processing to computer graphics. We'll start with simple operations and build up to more complex transformations.
 
 <h3>Understanding the Fundamentals</h3>
@@ -11585,7 +11699,8 @@ demonstrate_transformations()
 
   exercises: [
     {
-      prompt: 'Implement a function that rotates a matrix by any multiple of 90 degrees.',
+      prompt:
+        'Implement a function that rotates a matrix by any multiple of 90 degrees.',
       initialCode: `def rotate_matrix_by_degrees(matrix, degrees):
     """
     Rotate a matrix by specified degrees (must be multiple of 90).
@@ -11640,7 +11755,8 @@ for row in result:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a function that performs a diagonal flip followed by a rotation.',
+      prompt:
+        'Implement a function that performs a diagonal flip followed by a rotation.',
       initialCode: `def diagonal_flip_and_rotate(matrix, clockwise=True):
     """
     Flip matrix over its main diagonal and then rotate.
@@ -11711,61 +11827,64 @@ print("After diagonal flip and clockwise rotation:")
 for row in result:
     print(row)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: "When performing an in-place matrix rotation, why do we need to handle elements in layers?",
+      question:
+        'When performing an in-place matrix rotation, why do we need to handle elements in layers?',
       options: [
         'To reduce memory usage by avoiding temporary variables',
         'Because outer elements would overwrite inner elements if processed linearly',
         'To maintain the symmetry of the matrix during rotation',
-        'To improve the algorithm\'s time complexity'
+        "To improve the algorithm's time complexity",
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. While in-place rotation does save memory, this isn\'t why we use layers.',
+        "Incorrect. While in-place rotation does save memory, this isn't why we use layers.",
         'Correct! Processing elements in layers prevents overwriting data we still need. Each element in a layer must move to its new position in a coordinated way, like a choreographed dance.',
-        'Incorrect. While symmetry is maintained, this isn\'t the primary reason for layer-by-layer processing.',
-        'Incorrect. The time complexity remains O(n²) regardless of whether we process in layers.'
+        "Incorrect. While symmetry is maintained, this isn't the primary reason for layer-by-layer processing.",
+        'Incorrect. The time complexity remains O(n²) regardless of whether we process in layers.',
       ],
       difficulty: Difficulty.Advanced,
     },
     {
-      question: 'What is the relationship between matrix transposition and rotation?',
+      question:
+        'What is the relationship between matrix transposition and rotation?',
       options: [
         'Transposition and rotation are completely independent operations',
         'A 90-degree rotation can be achieved by transposing and then reflecting',
         'Transposition is equivalent to a 45-degree rotation',
-        'Multiple transpositions can achieve any degree of rotation'
+        'Multiple transpositions can achieve any degree of rotation',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. These operations are actually closely related and can be combined to achieve various transformations.',
         'Correct! A 90-degree clockwise rotation can be decomposed into a transposition followed by reversing rows. This relationship helps us understand how elements move during rotation.',
         'Incorrect. Transposition flips elements across the main diagonal, which is not equivalent to any degree of rotation.',
-        'Incorrect. Some rotations cannot be achieved through any combination of transpositions.'
+        'Incorrect. Some rotations cannot be achieved through any combination of transpositions.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the mathematical significance of matrix transformations being reversible?',
+      question:
+        'What is the mathematical significance of matrix transformations being reversible?',
       options: [
         'It means the transformation has no effect on the matrix',
         'It guarantees the transformation will be efficient',
-        'It indicates the transformation preserves the matrix\'s information',
-        'It means the transformation only works on square matrices'
+        "It indicates the transformation preserves the matrix's information",
+        'It means the transformation only works on square matrices',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Reversible transformations do change the matrix, but in a way that can be undone.',
         'Incorrect. The efficiency of a transformation is independent of its reversibility.',
         'Correct! When a transformation is reversible, it means no information is lost during the process. This is crucial for many applications where we need to recover the original matrix.',
-        'Incorrect. Reversibility is not limited to square matrices, though some transformations may require specific matrix dimensions.'
+        'Incorrect. Reversibility is not limited to square matrices, though some transformations may require specific matrix dimensions.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const arrayLessons: Record<string, LessonContent> = {

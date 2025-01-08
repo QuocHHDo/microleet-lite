@@ -81,10 +81,10 @@ const LessonsSidebar: React.FC<LessonsSidebarProps> = ({
       (p): p is PriorityLevel =>
         typeof p === 'number' && p !== PriorityLevel.Unset,
     ).length;
-  
+
     if (selectedPriorities.size === allPrioritiesCount) return 'All priorities';
     if (selectedPriorities.size === 0) return 'No priorities selected';
-  
+
     return `${selectedPriorities.size} ${
       selectedPriorities.size === 1 ? 'priority' : 'priorities'
     } selected`;

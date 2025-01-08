@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 const graphCurriculum: Curriculum = {
   title: 'Graph Curriculum',
@@ -13,20 +18,23 @@ const graphCurriculum: Curriculum = {
         {
           id: 'graph-concepts',
           title: 'Basic Graph Concepts',
-          description: 'Understanding vertices, edges, and graph types through LeetCode examples',
-          priority: PriorityLevel.Essential
+          description:
+            'Understanding vertices, edges, and graph types through LeetCode examples',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'graph-representation',
           title: 'Graph Representation',
-          description: 'Implementing adjacency lists and matrices - crucial for coding interviews',
-          priority: PriorityLevel.Essential
+          description:
+            'Implementing adjacency lists and matrices - crucial for coding interviews',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'graph-building',
           title: 'Building Graphs',
-          description: 'Converting problem input into graph representation - a key interview skill',
-          priority: PriorityLevel.Essential
+          description:
+            'Converting problem input into graph representation - a key interview skill',
+          priority: PriorityLevel.Essential,
         },
       ],
     },
@@ -37,20 +45,23 @@ const graphCurriculum: Curriculum = {
         {
           id: 'bfs-pattern',
           title: 'BFS Pattern',
-          description: 'Solving shortest path, level-order, and grid traversal problems using BFS',
-          priority: PriorityLevel.Essential
+          description:
+            'Solving shortest path, level-order, and grid traversal problems using BFS',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'dfs-pattern',
           title: 'DFS Pattern',
-          description: 'Using DFS for path finding, backtracking, and island problems',
-          priority: PriorityLevel.Essential
+          description:
+            'Using DFS for path finding, backtracking, and island problems',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'matrix-traversal',
           title: 'Matrix as Graph',
-          description: 'Tackling matrix problems using graph traversal techniques',
-          priority: PriorityLevel.Essential
+          description:
+            'Tackling matrix problems using graph traversal techniques',
+          priority: PriorityLevel.Essential,
         },
       ],
     },
@@ -61,20 +72,23 @@ const graphCurriculum: Curriculum = {
         {
           id: 'island-problems',
           title: 'Island Problems',
-          description: 'Solving number of islands and related grid-based graph problems',
-          priority: PriorityLevel.Essential
+          description:
+            'Solving number of islands and related grid-based graph problems',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'graph-connectivity',
           title: 'Connected Components',
-          description: 'Finding and counting connected components in various graph types',
-          priority: PriorityLevel.Essential
+          description:
+            'Finding and counting connected components in various graph types',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'bipartite-check',
           title: 'Bipartite Graph Pattern',
-          description: 'Checking bipartite property and solving coloring problems',
-          priority: PriorityLevel.Important
+          description:
+            'Checking bipartite property and solving coloring problems',
+          priority: PriorityLevel.Important,
         },
       ],
     },
@@ -85,20 +99,22 @@ const graphCurriculum: Curriculum = {
         {
           id: 'shortest-path',
           title: 'Shortest Path Patterns',
-          description: 'Implementing Dijkstra and BFS for shortest path problems',
-          priority: PriorityLevel.Essential
+          description:
+            'Implementing Dijkstra and BFS for shortest path problems',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'path-existence',
           title: 'Path Existence Problems',
-          description: 'Finding if path exists between nodes and all paths problems',
-          priority: PriorityLevel.Essential
+          description:
+            'Finding if path exists between nodes and all paths problems',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'cycle-detection',
           title: 'Cycle Detection',
           description: 'Detecting cycles in directed and undirected graphs',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
       ],
     },
@@ -110,19 +126,20 @@ const graphCurriculum: Curriculum = {
           id: 'course-schedule',
           title: 'Course Schedule Pattern',
           description: 'Solving course prerequisite and dependency problems',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'build-order',
           title: 'Build Order Problems',
           description: 'Handling build dependencies and task scheduling',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'parallel-courses',
           title: 'Parallel Execution',
-          description: 'Finding minimum time to complete tasks with dependencies',
-          priority: PriorityLevel.Important
+          description:
+            'Finding minimum time to complete tasks with dependencies',
+          priority: PriorityLevel.Important,
         },
       ],
     },
@@ -134,19 +151,19 @@ const graphCurriculum: Curriculum = {
           id: 'redundant-connection',
           title: 'Redundant Connection Pattern',
           description: 'Using Union-Find to detect and handle redundant edges',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'number-of-provinces',
           title: 'Province Counting Pattern',
           description: 'Counting connected components using Union-Find',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'accounts-merge',
           title: 'Account Merge Pattern',
           description: 'Solving account merging and similar grouping problems',
-          priority: PriorityLevel.Beneficial
+          priority: PriorityLevel.Beneficial,
         },
       ],
     },
@@ -158,19 +175,20 @@ const graphCurriculum: Curriculum = {
           id: 'word-ladder',
           title: 'Word Transformation',
           description: 'Solving word ladder and string transformation problems',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'graph-clone',
           title: 'Graph Clone Pattern',
           description: 'Deep copying graphs while maintaining structure',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'min-height-trees',
           title: 'Minimum Height Trees',
-          description: 'Finding centroids and similar tree-related graph problems',
-          priority: PriorityLevel.Beneficial
+          description:
+            'Finding centroids and similar tree-related graph problems',
+          priority: PriorityLevel.Beneficial,
         },
       ],
     },
@@ -181,20 +199,22 @@ const graphCurriculum: Curriculum = {
         {
           id: 'state-tracking',
           title: 'State Tracking',
-          description: 'Managing visited states and handling complex graph states',
-          priority: PriorityLevel.Essential
+          description:
+            'Managing visited states and handling complex graph states',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'optimization',
           title: 'Space-Time Optimization',
           description: 'Optimizing graph solutions for interview performance',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'edge-cases',
           title: 'Edge Cases',
-          description: 'Handling empty graphs, single nodes, and disconnected components',
-          priority: PriorityLevel.Essential
+          description:
+            'Handling empty graphs, single nodes, and disconnected components',
+          priority: PriorityLevel.Essential,
         },
       ],
     },
@@ -300,7 +320,8 @@ for vertex in dg.graph:
     print(f"Vertex {vertex} neighbors: {dg.get_neighbors(vertex)}")`,
   exercises: [
     {
-      prompt: 'Implement an undirected graph using adjacency list and add edges to create a simple triangle (vertices 0, 1, 2 all connected to each other).',
+      prompt:
+        'Implement an undirected graph using adjacency list and add edges to create a simple triangle (vertices 0, 1, 2 all connected to each other).',
       initialCode: `# Write your solution here
 class Graph:
     def __init__(self):
@@ -332,7 +353,8 @@ g.add_edge(2, 0)`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Implement a method to check if an edge exists between two vertices in an undirected graph.',
+      prompt:
+        'Implement a method to check if an edge exists between two vertices in an undirected graph.',
       initialCode: `class Graph:
     def __init__(self):
         self.graph = {}
@@ -352,61 +374,59 @@ g.add_edge(2, 0)`,
         # Check if edge exists in either direction
         return v2 in self.graph[v1] or v1 in self.graph[v2]`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the main difference between directed and undirected graphs?',
+      question:
+        'What is the main difference between directed and undirected graphs?',
       options: [
         'Directed graphs can only have two vertices',
         'Undirected graphs cannot have cycles',
         'Directed graphs have one-way edges while undirected have two-way connections',
-        'Directed graphs cannot be weighted'
+        'Directed graphs cannot be weighted',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Both directed and undirected graphs can have any number of vertices.',
         'Incorrect. Undirected graphs can have cycles.',
         'Correct! In directed graphs, edges have a direction (A→B), while in undirected graphs, edges are bidirectional (A↔B).',
-        'Incorrect. Both directed and undirected graphs can be weighted.'
+        'Incorrect. Both directed and undirected graphs can be weighted.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'Which graph representation is more space-efficient for sparse graphs?',
+      question:
+        'Which graph representation is more space-efficient for sparse graphs?',
       options: [
         'Adjacency Matrix',
         'Adjacency List',
         'Both use the same space',
-        'It depends on the number of vertices'
+        'It depends on the number of vertices',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Adjacency Matrix always uses O(V²) space.',
         'Correct! Adjacency List uses O(V + E) space, which is more efficient for sparse graphs where E << V².',
         'Incorrect. They have different space complexities.',
-        'Incorrect. While both depend on V, Adjacency List is always more efficient for sparse graphs.'
+        'Incorrect. While both depend on V, Adjacency List is always more efficient for sparse graphs.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the time complexity of finding all neighbors of a vertex in an adjacency list representation?',
-      options: [
-        'O(1)',
-        'O(V)',
-        'O(E)',
-        'O(degree of vertex)'
-      ],
+      question:
+        'What is the time complexity of finding all neighbors of a vertex in an adjacency list representation?',
+      options: ['O(1)', 'O(V)', 'O(E)', 'O(degree of vertex)'],
       correctAnswer: 3,
       explanations: [
-        'Incorrect. Finding neighbors requires traversing the vertex\'s adjacency list.',
+        "Incorrect. Finding neighbors requires traversing the vertex's adjacency list.",
         'Incorrect. We only need to traverse the edges connected to the vertex.',
         'Incorrect. We only look at edges connected to the specific vertex.',
-        'Correct! We only need to traverse the list of adjacent vertices, which is equal to the vertex\'s degree.'
+        "Correct! We only need to traverse the list of adjacent vertices, which is equal to the vertex's degree.",
       ],
-      difficulty: Difficulty.Intermediate
-    }
-  ]
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
 };
 
 const graphRepresentationData = {
@@ -574,7 +594,8 @@ compare_representations()`,
 
   exercises: [
     {
-      prompt: 'Implement a method in the GraphMatrix class to count the total number of edges in the graph. Remember that in a directed graph, each 1 in the matrix represents one edge.',
+      prompt:
+        'Implement a method in the GraphMatrix class to count the total number of edges in the graph. Remember that in a directed graph, each 1 in the matrix represents one edge.',
       initialCode: `class GraphMatrix:
     def __init__(self, num_vertices):
         self.V = num_vertices
@@ -598,7 +619,8 @@ compare_representations()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Implement a method in the GraphList class to convert the adjacency list representation to an adjacency matrix. Assume all vertex IDs are consecutive integers starting from 0.',
+      prompt:
+        'Implement a method in the GraphList class to convert the adjacency list representation to an adjacency matrix. Assume all vertex IDs are consecutive integers starting from 0.',
       initialCode: `class GraphList:
     def __init__(self):
         self.graph = {}
@@ -629,7 +651,8 @@ compare_representations()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a method in both graph classes to find the vertex with the highest out-degree (most outgoing edges).',
+      prompt:
+        'Implement a method in both graph classes to find the vertex with the highest out-degree (most outgoing edges).',
       initialCode: `def find_highest_degree_vertex(graph):
     # Your code here - should work with either GraphMatrix or GraphList
     pass`,
@@ -656,61 +679,64 @@ compare_representations()`,
     
     return None  # Invalid graph type`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'For a graph with 1000 vertices and only 2000 edges, which representation would typically be more space-efficient?',
+      question:
+        'For a graph with 1000 vertices and only 2000 edges, which representation would typically be more space-efficient?',
       options: [
-        'Adjacency Matrix because it\'s simpler to implement',
+        "Adjacency Matrix because it's simpler to implement",
         'Adjacency List because the graph is sparse',
         'Both would use the same amount of space',
-        'It depends on the type of edges'
+        'It depends on the type of edges',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Implementation simplicity doesn\'t affect space efficiency.',
+        "Incorrect. Implementation simplicity doesn't affect space efficiency.",
         'Correct! An adjacency list would use O(V + E) = O(3000) space, while matrix would use O(V²) = O(1,000,000) space.',
         'Incorrect. They have different space complexities.',
-        'Incorrect. The space efficiency depends on the number of vertices and edges, not their type.'
+        'Incorrect. The space efficiency depends on the number of vertices and edges, not their type.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the time complexity of checking if there is an edge between two vertices in an adjacency list representation?',
+      question:
+        'What is the time complexity of checking if there is an edge between two vertices in an adjacency list representation?',
       options: [
         'O(1) always',
         'O(V) in worst case',
         'O(E) in worst case',
-        'O(degree of vertex) in worst case'
+        'O(degree of vertex) in worst case',
       ],
       correctAnswer: 3,
       explanations: [
         'Incorrect. We need to search through the adjacency list.',
-        'Incorrect. We only need to search through one vertex\'s neighbors.',
-        'Incorrect. We only search through one vertex\'s edges.',
-        'Correct! We need to search through all neighbors of the source vertex.'
+        "Incorrect. We only need to search through one vertex's neighbors.",
+        "Incorrect. We only search through one vertex's edges.",
+        'Correct! We need to search through all neighbors of the source vertex.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When implementing a dense graph where edge weights need frequent updates, which representation is more suitable?',
+      question:
+        'When implementing a dense graph where edge weights need frequent updates, which representation is more suitable?',
       options: [
-        'Adjacency List because it\'s more space-efficient',
+        "Adjacency List because it's more space-efficient",
         'Adjacency Matrix because of O(1) access and update time',
         'Either one would work equally well',
-        'Neither, a different representation would be needed'
+        'Neither, a different representation would be needed',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Space efficiency is less important for dense graphs.',
         'Correct! Adjacency matrix provides constant-time access and updates to edge weights.',
         'Incorrect. Matrix representation has clear advantages for this use case.',
-        'Incorrect. These are the two main representations and matrix works well here.'
+        'Incorrect. These are the two main representations and matrix works well here.',
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const buildingGraphsData = {
@@ -906,7 +932,8 @@ class GraphBuilder:
 
   exercises: [
     {
-      prompt: 'Given a list of airport connections as [from, to] pairs, build a graph that represents the flight network. Include a method to find all direct destinations from an airport.',
+      prompt:
+        'Given a list of airport connections as [from, to] pairs, build a graph that represents the flight network. Include a method to find all direct destinations from an airport.',
       initialCode: `class FlightNetwork:
     def __init__(self, connections):
         self.graph = {}  # Complete this
@@ -934,7 +961,8 @@ class GraphBuilder:
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Given a chess board represented as an 8x8 grid, build a graph that represents all possible moves for a knight from any position. Then find all possible positions a knight can reach in one move from a given position.',
+      prompt:
+        'Given a chess board represented as an 8x8 grid, build a graph that represents all possible moves for a knight from any position. Then find all possible positions a knight can reach in one move from a given position.',
       initialCode: `class KnightMoves:
     def __init__(self):
         self.graph = {}  # Complete this
@@ -969,61 +997,64 @@ class GraphBuilder:
         row, col = position
         return self.graph.get((row, col), [])`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Given a problem about finding the shortest sequence of word transformations where you can change one letter at a time, what should the vertices and edges represent?',
+      question:
+        'Given a problem about finding the shortest sequence of word transformations where you can change one letter at a time, what should the vertices and edges represent?',
       options: [
         'Vertices: Letters, Edges: Words containing those letters',
         'Vertices: Words, Edges: Pairs of words differing by one letter',
         'Vertices: Letter positions, Edges: Possible letter changes',
-        'Vertices: Transformations, Edges: Words'
+        'Vertices: Transformations, Edges: Words',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. This would make it difficult to track valid word transformations.',
         'Correct! This representation allows us to find paths between words through valid transformations.',
         'Incorrect. This would make it hard to ensure words remain valid during transformations.',
-        'Incorrect. This reverses the natural relationship between words and transformations.'
+        'Incorrect. This reverses the natural relationship between words and transformations.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'In a problem about task scheduling with dependencies, why should we use a directed graph instead of an undirected graph?',
+      question:
+        'In a problem about task scheduling with dependencies, why should we use a directed graph instead of an undirected graph?',
       options: [
         'Directed graphs are always more efficient',
         'To prevent cycles in the graph',
-        'To represent the one-way nature of dependencies (if A needs B, B doesn\'t necessarily need A)',
-        'To use less memory'
+        "To represent the one-way nature of dependencies (if A needs B, B doesn't necessarily need A)",
+        'To use less memory',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. The choice between directed and undirected depends on the problem.',
-        'Incorrect. While cycle detection is important, that\'s not why we use directed graphs.',
-        'Correct! Dependencies have a specific direction - if task A requires task B, that doesn\'t mean B requires A.',
-        'Incorrect. Both representations use similar amounts of memory.'
+        "Incorrect. While cycle detection is important, that's not why we use directed graphs.",
+        "Correct! Dependencies have a specific direction - if task A requires task B, that doesn't mean B requires A.",
+        'Incorrect. Both representations use similar amounts of memory.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When converting a maze problem into a graph, what is the most appropriate way to represent walls?',
+      question:
+        'When converting a maze problem into a graph, what is the most appropriate way to represent walls?',
       options: [
         'As weighted edges with high costs',
         'As separate vertices connected to walkable spaces',
-        'Simply don\'t create vertices or edges for wall positions',
-        'As self-loops in the graph'
+        "Simply don't create vertices or edges for wall positions",
+        'As self-loops in the graph',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. This complicates the representation and doesn\'t prevent wall traversal.',
+        "Incorrect. This complicates the representation and doesn't prevent wall traversal.",
         'Incorrect. This adds unnecessary complexity and could allow invalid paths.',
         'Correct! By only creating vertices and edges for walkable spaces, we naturally prevent paths through walls.',
-        'Incorrect. Self-loops don\'t properly represent the blocking nature of walls.'
+        "Incorrect. Self-loops don't properly represent the blocking nature of walls.",
       ],
-      difficulty: Difficulty.Intermediate
-    }
-  ]
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
 };
 
 const bfsPatternData = {
@@ -1245,7 +1276,8 @@ class BFSPatterns:
 
   exercises: [
     {
-      prompt: 'Implement a function that finds the minimum number of steps needed to transform one word into another, given a dictionary of valid words. You can change one letter at a time, and each intermediate word must be in the dictionary.',
+      prompt:
+        'Implement a function that finds the minimum number of steps needed to transform one word into another, given a dictionary of valid words. You can change one letter at a time, and each intermediate word must be in the dictionary.',
       initialCode: `def word_ladder(start: str, end: str, dictionary: List[str]) -> int:
     """
     Returns minimum steps to transform start into end.
@@ -1287,7 +1319,8 @@ class BFSPatterns:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that finds the nearest exit from a maze. The maze is represented as a grid where 0 is a walkable cell and 1 is a wall. An exit is any walkable cell on the border of the grid. Return the minimum steps needed to reach any exit from the starting position.',
+      prompt:
+        'Implement a function that finds the nearest exit from a maze. The maze is represented as a grid where 0 is a walkable cell and 1 is a wall. An exit is any walkable cell on the border of the grid. Return the minimum steps needed to reach any exit from the starting position.',
       initialCode: `def nearest_exit(maze: List[List[int]], start: Tuple[int, int]) -> int:
     """
     Returns minimum steps to reach any exit.
@@ -1337,61 +1370,64 @@ class BFSPatterns:
     
     return -1`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why does BFS guarantee the shortest path in an unweighted graph?',
+      question:
+        'Why does BFS guarantee the shortest path in an unweighted graph?',
       options: [
         'Because it uses less memory than DFS',
         'Because it explores all possible paths simultaneously',
         'Because it visits nodes in order of increasing distance from the start',
-        'Because it marks nodes as visited'
+        'Because it marks nodes as visited',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Memory usage doesn\'t affect path finding accuracy.',
-        'Incorrect. While BFS does explore multiple paths, this isn\'t why it guarantees shortest path.',
+        "Incorrect. Memory usage doesn't affect path finding accuracy.",
+        "Incorrect. While BFS does explore multiple paths, this isn't why it guarantees shortest path.",
         'Correct! BFS explores nodes in layers, so it always finds the shortest path to a node before finding any longer paths.',
-        'Incorrect. Marking nodes as visited prevents cycles but doesn\'t guarantee shortest paths.'
+        "Incorrect. Marking nodes as visited prevents cycles but doesn't guarantee shortest paths.",
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'In a binary tree level-order traversal, why do we need to track the size of each level?',
+      question:
+        'In a binary tree level-order traversal, why do we need to track the size of each level?',
       options: [
         'To optimize memory usage',
         'To prevent infinite loops',
         'To know how many nodes to process before moving to the next level',
-        'To detect leaf nodes'
+        'To detect leaf nodes',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Level size tracking isn\'t related to memory optimization.',
+        "Incorrect. Level size tracking isn't related to memory optimization.",
         'Incorrect. Infinite loops are prevented by the tree structure itself.',
         'Correct! We need to know how many nodes are at the current level to process them together before moving to their children.',
-        'Incorrect. Leaf nodes can be detected by checking for null children.'
+        'Incorrect. Leaf nodes can be detected by checking for null children.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the advantage of multi-source BFS over running single-source BFS multiple times?',
+      question:
+        'What is the advantage of multi-source BFS over running single-source BFS multiple times?',
       options: [
         'It uses less memory',
         'It processes overlapping regions only once',
         'It requires fewer queue operations',
-        'It prevents infinite loops'
+        'It prevents infinite loops',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Multi-source BFS might actually use more memory initially.',
         'Correct! By processing all sources simultaneously, areas reachable from multiple sources are processed only once, making it more efficient.',
         'Incorrect. The total number of queue operations might be similar.',
-        'Incorrect. Both approaches can handle cycles properly.'
+        'Incorrect. Both approaches can handle cycles properly.',
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const dfsPatternData = {
@@ -1593,7 +1629,8 @@ class DFSPatterns:
 
   exercises: [
     {
-      prompt: 'Implement a function that finds if there exists a path in a binary tree where the sum of values equals a target. Return true if such a path exists, false otherwise.',
+      prompt:
+        'Implement a function that finds if there exists a path in a binary tree where the sum of values equals a target. Return true if such a path exists, false otherwise.',
       initialCode: `def has_path_sum(root: 'TreeNode', target: int) -> bool:
     """
     Determine if the tree has a root-to-leaf path summing to target.
@@ -1615,7 +1652,8 @@ class DFSPatterns:
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Implement a function that finds the size of the largest connected component of 1\'s in a binary grid. Cells are connected if they are adjacent horizontally or vertically.',
+      prompt:
+        "Implement a function that finds the size of the largest connected component of 1's in a binary grid. Cells are connected if they are adjacent horizontally or vertically.",
       initialCode: `def largest_island(grid: List[List[int]]) -> int:
     """
     Find size of largest connected component of 1's.
@@ -1654,61 +1692,64 @@ class DFSPatterns:
     
     return max_size`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why might DFS be preferred over BFS for finding all possible paths in a graph?',
+      question:
+        'Why might DFS be preferred over BFS for finding all possible paths in a graph?',
       options: [
         'Because DFS is always faster than BFS',
         'Because DFS naturally maintains the current path during traversal',
         'Because DFS uses less memory overall',
-        'Because DFS always finds shorter paths'
+        'Because DFS always finds shorter paths',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. The speed depends on the specific problem and graph structure.',
         'Correct! DFS naturally maintains the current path as it explores deeply, making it easier to track and backtrack paths.',
-        'Incorrect. While DFS often uses less memory, this isn\'t why it\'s better for path finding.',
-        'Incorrect. DFS doesn\'t guarantee finding shorter paths.'
+        "Incorrect. While DFS often uses less memory, this isn't why it's better for path finding.",
+        "Incorrect. DFS doesn't guarantee finding shorter paths.",
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the key difference between using DFS for tree traversal versus graph traversal?',
+      question:
+        'What is the key difference between using DFS for tree traversal versus graph traversal?',
       options: [
-        'DFS can\'t be used on graphs',
-        'Tree traversal doesn\'t need a visited set',
+        "DFS can't be used on graphs",
+        "Tree traversal doesn't need a visited set",
         'Graph traversal is always faster',
-        'Trees use more memory for DFS'
+        'Trees use more memory for DFS',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. DFS works well on both trees and graphs.',
-        'Correct! Trees don\'t have cycles, so we don\'t need to track visited nodes, unlike graphs where we must prevent infinite loops.',
+        "Correct! Trees don't have cycles, so we don't need to track visited nodes, unlike graphs where we must prevent infinite loops.",
         'Incorrect. Speed depends on the specific structure and problem.',
-        'Incorrect. Trees typically use less memory than graphs for traversal.'
+        'Incorrect. Trees typically use less memory than graphs for traversal.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'In backtracking problems using DFS, why is it important to undo changes after exploring a path?',
+      question:
+        'In backtracking problems using DFS, why is it important to undo changes after exploring a path?',
       options: [
         'To save memory',
         'To improve performance',
         'To explore all possible combinations correctly',
-        'To reduce code complexity'
+        'To reduce code complexity',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Undoing changes isn\'t primarily about memory management.',
-        'Incorrect. While it might affect performance, this isn\'t the main reason.',
+        "Incorrect. Undoing changes isn't primarily about memory management.",
+        "Incorrect. While it might affect performance, this isn't the main reason.",
         'Correct! Backtracking ensures we restore the state properly to explore all possibilities without interference from previous attempts.',
-        'Incorrect. Backtracking actually adds some complexity to the implementation.'
+        'Incorrect. Backtracking actually adds some complexity to the implementation.',
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const matrixTraversalData = {
@@ -1957,7 +1998,8 @@ class MatrixPatterns:
 
   exercises: [
     {
-      prompt: 'Implement a function that determines if there exists a path from the top row to the bottom row in a binary matrix, moving only through cells containing 1s.',
+      prompt:
+        'Implement a function that determines if there exists a path from the top row to the bottom row in a binary matrix, moving only through cells containing 1s.',
       initialCode: `def exists_path(matrix: List[List[int]]) -> bool:
     """
     Return True if path exists from any cell in top row
@@ -2000,7 +2042,8 @@ class MatrixPatterns:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that finds the size of the largest connected group of 1s in a binary matrix, where cells are connected by their diagonals as well.',
+      prompt:
+        'Implement a function that finds the size of the largest connected group of 1s in a binary matrix, where cells are connected by their diagonals as well.',
       initialCode: `def largest_connected_region(matrix: List[List[int]]) -> int:
     """
     Return size of largest connected region of 1s,
@@ -2043,61 +2086,64 @@ class MatrixPatterns:
     
     return max_size`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'When traversing a matrix as a graph, why do we need to track visited cells separately even though we can modify the matrix?',
+      question:
+        'When traversing a matrix as a graph, why do we need to track visited cells separately even though we can modify the matrix?',
       options: [
-        'We don\'t need to track visited cells if we can modify the matrix',
+        "We don't need to track visited cells if we can modify the matrix",
         'To avoid modifying the original matrix',
         'To handle cases where we need to revisit cells',
-        'To improve performance'
+        'To improve performance',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Even if we can modify the matrix, sometimes we need to preserve it.',
         'Correct! Tracking visited cells separately allows us to traverse the matrix without modifying the original data, which might be needed later.',
         'Incorrect. If we need to revisit cells, we would use a different traversal strategy.',
-        'Incorrect. Using a visited set might actually use more memory.'
+        'Incorrect. Using a visited set might actually use more memory.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the key advantage of using direction arrays for matrix traversal?',
+      question:
+        'What is the key advantage of using direction arrays for matrix traversal?',
       options: [
         'They make the code run faster',
         'They reduce memory usage',
         'They make the code more concise and less error-prone',
-        'They allow diagonal movement'
+        'They allow diagonal movement',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Direction arrays don\'t affect performance significantly.',
-        'Incorrect. They don\'t affect memory usage significantly.',
+        "Incorrect. Direction arrays don't affect performance significantly.",
+        "Incorrect. They don't affect memory usage significantly.",
         'Correct! Direction arrays provide a clean, systematic way to handle movement in the matrix, reducing the chance of errors and making the code more maintainable.',
-        'Incorrect. While they can be used for diagonal movement, that\'s not their main advantage.'
+        "Incorrect. While they can be used for diagonal movement, that's not their main advantage.",
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When processing a matrix layer by layer (like in spiral order), what is the most important consideration?',
+      question:
+        'When processing a matrix layer by layer (like in spiral order), what is the most important consideration?',
       options: [
         'Memory usage',
         'Processing speed',
         'Boundary tracking and adjustment',
-        'Direction management'
+        'Direction management',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Memory usage is typically not a major concern for layer processing.',
         'Incorrect. Processing speed is usually determined by the matrix size.',
         'Correct! Carefully tracking and adjusting boundaries is crucial to avoid processing cells multiple times or missing cells.',
-        'Incorrect. While direction changes matter, boundary management is more fundamental.'
+        'Incorrect. While direction changes matter, boundary management is more fundamental.',
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const islandProblemsData = {
@@ -2304,7 +2350,8 @@ class IslandPatterns:
 
   exercises: [
     {
-      prompt: 'Implement a function that determines if all cells of value 1 form a single island (are all connected). Return true if there is exactly one island that contains all land cells.',
+      prompt:
+        'Implement a function that determines if all cells of value 1 form a single island (are all connected). Return true if there is exactly one island that contains all land cells.',
       initialCode: `def is_single_island(grid: List[List[int]]) -> bool:
     """
     Return True if all land cells form a single island.
@@ -2354,7 +2401,8 @@ class IslandPatterns:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that finds the number of distinct island shapes in a grid. Two islands are considered to have the same shape if one can be translated (not rotated or reflected) to match the other exactly.',
+      prompt:
+        'Implement a function that finds the number of distinct island shapes in a grid. Two islands are considered to have the same shape if one can be translated (not rotated or reflected) to match the other exactly.',
       initialCode: `def distinct_islands(grid: List[List[int]]) -> int:
     """
     Return number of distinct island shapes.
@@ -2397,61 +2445,64 @@ class IslandPatterns:
     
     return len(shapes)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do we typically use grid modification (setting cells to 0) instead of a separate visited set in island problems?',
+      question:
+        'Why do we typically use grid modification (setting cells to 0) instead of a separate visited set in island problems?',
       options: [
-        'Because it\'s faster',
+        "Because it's faster",
         'Because it uses less memory',
         'Because most island problems allow grid modification',
-        'Because it prevents stack overflow'
+        'Because it prevents stack overflow',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. The performance difference is negligible.',
         'Correct! Modifying the grid directly saves the space that would be needed for a separate visited set, making it more memory efficient.',
-        'Incorrect. While many problems do allow modification, that\'s not the main reason.',
-        'Incorrect. Stack overflow is prevented by the grid size, not the visited tracking method.'
+        "Incorrect. While many problems do allow modification, that's not the main reason.",
+        'Incorrect. Stack overflow is prevented by the grid size, not the visited tracking method.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the key difference between using DFS and BFS for exploring islands?',
+      question:
+        'What is the key difference between using DFS and BFS for exploring islands?',
       options: [
         'DFS finds larger islands first',
         'BFS uses less memory',
         'DFS uses less memory due to not needing a queue',
-        'BFS guarantees finding the smallest islands first'
+        'BFS guarantees finding the smallest islands first',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. The order of finding islands depends on grid scanning order.',
         'Incorrect. BFS typically uses more memory due to the queue.',
         'Correct! DFS uses recursive call stack or a smaller stack, while BFS needs a queue that might grow larger.',
-        'Incorrect. BFS explores in order of distance from start, not island size.'
+        'Incorrect. BFS explores in order of distance from start, not island size.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When solving a problem about finding distinct island shapes, why do we need to store relative coordinates instead of absolute coordinates?',
+      question:
+        'When solving a problem about finding distinct island shapes, why do we need to store relative coordinates instead of absolute coordinates?',
       options: [
         'To save memory',
         'To handle larger grids',
         'To identify same shapes in different locations',
-        'To improve performance'
+        'To improve performance',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Memory usage is similar for both approaches.',
-        'Incorrect. Grid size doesn\'t affect the choice.',
+        "Incorrect. Grid size doesn't affect the choice.",
         'Correct! Relative coordinates allow us to identify the same shape appearing in different grid locations, as the shape signature will be the same regardless of position.',
-        'Incorrect. Performance is not significantly different.'
+        'Incorrect. Performance is not significantly different.',
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const graphConnectivityData = {
@@ -2683,7 +2734,8 @@ class ConnectedComponents:
 
   exercises: [
     {
-      prompt: 'Implement a function that determines if removing a given vertex will increase the number of connected components in an undirected graph. This identifies articulation points (cut vertices) in the graph.',
+      prompt:
+        'Implement a function that determines if removing a given vertex will increase the number of connected components in an undirected graph. This identifies articulation points (cut vertices) in the graph.',
       initialCode: `def is_cut_vertex(n: int, edges: List[List[int]], vertex: int) -> bool:
     """
     Return True if removing vertex increases number of components.
@@ -2724,7 +2776,8 @@ class ConnectedComponents:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that finds all bridges in an undirected graph. A bridge is an edge that, when removed, increases the number of connected components.',
+      prompt:
+        'Implement a function that finds all bridges in an undirected graph. A bridge is an edge that, when removed, increases the number of connected components.',
       initialCode: `def find_bridges(n: int, edges: List[List[int]]) -> List[List[int]]:
     """
     Return list of edges that are bridges.
@@ -2772,61 +2825,64 @@ class ConnectedComponents:
     
     return bridges`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why might we prefer Union-Find over DFS for dynamic connectivity problems?',
+      question:
+        'Why might we prefer Union-Find over DFS for dynamic connectivity problems?',
       options: [
         'Because Union-Find uses less memory',
         'Because Union-Find is always faster',
         'Because Union-Find efficiently handles incremental changes and queries',
-        'Because Union-Find is easier to implement'
+        'Because Union-Find is easier to implement',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Memory usage is comparable between the approaches.',
         'Incorrect. DFS can be faster for static graphs.',
         'Correct! Union-Find excels at maintaining components as edges are added and checking connectivity quickly.',
-        'Incorrect. DFS is often simpler to implement for basic connectivity.'
+        'Incorrect. DFS is often simpler to implement for basic connectivity.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the key insight behind Kosaraju\'s algorithm for finding strongly connected components?',
+      question:
+        "What is the key insight behind Kosaraju's algorithm for finding strongly connected components?",
       options: [
         'Running DFS twice makes it more accurate',
         'The transpose graph reveals strong connections',
         'Strong components remain strongly connected in the transpose graph',
-        'DFS naturally finds strong components'
+        'DFS naturally finds strong components',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Running DFS twice isn\'t about accuracy.',
-        'Incorrect. The transpose alone doesn\'t reveal strong connections.',
-        'Correct! A strongly connected component remains strongly connected when all edges are reversed, which is key to the algorithm\'s correctness.',
-        'Incorrect. Simple DFS cannot find strongly connected components.'
+        "Incorrect. Running DFS twice isn't about accuracy.",
+        "Incorrect. The transpose alone doesn't reveal strong connections.",
+        "Correct! A strongly connected component remains strongly connected when all edges are reversed, which is key to the algorithm's correctness.",
+        'Incorrect. Simple DFS cannot find strongly connected components.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Why do we need path compression and union by rank in the Union-Find data structure?',
+      question:
+        'Why do we need path compression and union by rank in the Union-Find data structure?',
       options: [
         'To reduce memory usage',
         'To make the code simpler',
         'To achieve nearly constant time operations',
-        'To handle more vertices'
+        'To handle more vertices',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. These optimizations don\'t primarily affect memory usage.',
+        "Incorrect. These optimizations don't primarily affect memory usage.",
         'Incorrect. They actually make the code more complex.',
         'Correct! Together, these optimizations achieve nearly constant time operations through balanced trees and flat hierarchies.',
-        'Incorrect. The structure can handle any number of vertices without these optimizations.'
+        'Incorrect. The structure can handle any number of vertices without these optimizations.',
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const bipartiteGraphData = {
@@ -3060,7 +3116,8 @@ class BipartiteChecker:
 
   exercises: [
     {
-      prompt: 'Implement a function that determines if it\'s possible to divide students into two groups such that no two students who dislike each other are in the same group. The input is a list of pairs where each pair [a,b] indicates students a and b dislike each other.',
+      prompt:
+        "Implement a function that determines if it's possible to divide students into two groups such that no two students who dislike each other are in the same group. The input is a list of pairs where each pair [a,b] indicates students a and b dislike each other.",
       initialCode: `def possible_grouping(n: int, dislikes: List[List[int]]) -> bool:
     """
     Return True if students can be divided into two groups
@@ -3102,7 +3159,8 @@ class BipartiteChecker:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that finds the minimum number of operations needed to make a graph bipartite, where in each operation you can remove one edge.',
+      prompt:
+        'Implement a function that finds the minimum number of operations needed to make a graph bipartite, where in each operation you can remove one edge.',
       initialCode: `def min_edges_to_bipartite(n: int, edges: List[List[int]]) -> int:
     """
     Return minimum number of edges to remove to make graph bipartite.
@@ -3143,61 +3201,64 @@ class BipartiteChecker:
     # Each conflict was counted twice (once from each end)
     return bad_edges // 2`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is it impossible for a bipartite graph to contain an odd cycle?',
+      question:
+        'Why is it impossible for a bipartite graph to contain an odd cycle?',
       options: [
         'Because odd cycles use too many edges',
         'Because odd cycles require more than two colors',
         'Because odd cycles create too many connections',
-        'Because odd cycles are disconnected'
+        'Because odd cycles are disconnected',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. The number of edges isn\'t the issue.',
+        "Incorrect. The number of edges isn't the issue.",
         'Correct! In an odd cycle, after coloring alternately, you return to the start needing a different color than it started with, making two colors insufficient.',
-        'Incorrect. The number of connections isn\'t the primary issue.',
-        'Incorrect. Cycles are connected by definition.'
+        "Incorrect. The number of connections isn't the primary issue.",
+        'Incorrect. Cycles are connected by definition.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the key advantage of using BFS over DFS for bipartite checking?',
+      question:
+        'What is the key advantage of using BFS over DFS for bipartite checking?',
       options: [
         'BFS is always faster',
         'BFS uses less memory',
         'BFS naturally colors level by level, making it easier to understand and implement',
-        'BFS can handle larger graphs'
+        'BFS can handle larger graphs',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Both algorithms have the same time complexity.',
         'Incorrect. BFS typically uses more memory due to the queue.',
-        'Correct! BFS\'s level-by-level approach naturally matches the alternating color pattern of bipartite graphs.',
-        'Incorrect. Both algorithms can handle graphs of any size.'
+        "Correct! BFS's level-by-level approach naturally matches the alternating color pattern of bipartite graphs.",
+        'Incorrect. Both algorithms can handle graphs of any size.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'In a bipartite graph matching problem, what is an augmenting path?',
+      question:
+        'In a bipartite graph matching problem, what is an augmenting path?',
       options: [
         'Any path between two vertices',
         'A path that makes the graph bipartite',
         'A path that allows us to increase the size of the matching',
-        'A path between matched vertices'
+        'A path between matched vertices',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Not all paths are augmenting paths.',
         'Incorrect. Augmenting paths relate to matching, not bipartiteness.',
         'Correct! An augmenting path is an alternating path starting and ending with unmatched vertices, allowing us to increase the matching size.',
-        'Incorrect. Augmenting paths must include unmatched vertices.'
+        'Incorrect. Augmenting paths must include unmatched vertices.',
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const shortestPathData = {
@@ -3414,7 +3475,8 @@ class ShortestPathFinder:
 
   exercises: [
     {
-      prompt: 'Implement a function that finds the path with the least number of edges between two vertices, even in a weighted graph. The actual edge weights should be ignored.',
+      prompt:
+        'Implement a function that finds the path with the least number of edges between two vertices, even in a weighted graph. The actual edge weights should be ignored.',
       initialCode: `def shortest_edge_path(graph: List[List[tuple]], 
                         start: int, end: int) -> List[int]:
     """
@@ -3457,7 +3519,8 @@ class ShortestPathFinder:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that finds the path between two vertices where the maximum edge weight in the path is minimized. This is sometimes called the "bottleneck shortest path".',
+      prompt:
+        'Implement a function that finds the path between two vertices where the maximum edge weight in the path is minimized. This is sometimes called the "bottleneck shortest path".',
       initialCode: `def min_max_weight_path(graph: List[List[tuple]], 
                           start: int, end: int) -> tuple:
     """
@@ -3507,61 +3570,64 @@ class ShortestPathFinder:
     
     return (float('inf'), [])  # No path exists`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why does Dijkstra\'s algorithm fail with negative edge weights?',
+      question:
+        "Why does Dijkstra's algorithm fail with negative edge weights?",
       options: [
         'Because it uses a priority queue',
         'Because negative weights make paths longer',
         'Because it assumes visited vertices have optimal distances',
-        'Because negative weights use too much memory'
+        'Because negative weights use too much memory',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. The priority queue implementation isn\'t the issue.',
-        'Incorrect. While negative weights do affect path lengths, this isn\'t why the algorithm fails.',
-        'Correct! Dijkstra\'s algorithm assumes that once a vertex is visited, we\'ve found its shortest path. Negative weights can invalidate this assumption as better paths might be found later.',
-        'Incorrect. Memory usage isn\'t affected by edge weight values.'
+        "Incorrect. The priority queue implementation isn't the issue.",
+        "Incorrect. While negative weights do affect path lengths, this isn't why the algorithm fails.",
+        "Correct! Dijkstra's algorithm assumes that once a vertex is visited, we've found its shortest path. Negative weights can invalidate this assumption as better paths might be found later.",
+        "Incorrect. Memory usage isn't affected by edge weight values.",
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'Why might we prefer BFS over Dijkstra\'s algorithm for unweighted graphs?',
+      question:
+        "Why might we prefer BFS over Dijkstra's algorithm for unweighted graphs?",
       options: [
-        'BFS is always faster than Dijkstra\'s',
+        "BFS is always faster than Dijkstra's",
         'BFS uses less memory',
         'BFS is simpler and more efficient for equal weights',
-        'BFS can handle negative weights'
+        'BFS can handle negative weights',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. BFS is only faster for unweighted graphs.',
         'Incorrect. Both algorithms use similar amounts of memory.',
-        'Correct! When all edges have equal weight, BFS provides a simpler solution with better performance since we don\'t need a priority queue.',
-        'Incorrect. BFS doesn\'t consider edge weights at all.'
+        "Correct! When all edges have equal weight, BFS provides a simpler solution with better performance since we don't need a priority queue.",
+        "Incorrect. BFS doesn't consider edge weights at all.",
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the significance of edge relaxation in shortest path algorithms?',
+      question:
+        'What is the significance of edge relaxation in shortest path algorithms?',
       options: [
         'It makes the algorithm run faster',
         'It reduces memory usage',
         'It updates distances when better paths are found',
-        'It prevents cycles in the graph'
+        'It prevents cycles in the graph',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Edge relaxation doesn\'t affect algorithm speed.',
-        'Incorrect. Edge relaxation doesn\'t affect memory usage.',
+        "Incorrect. Edge relaxation doesn't affect algorithm speed.",
+        "Incorrect. Edge relaxation doesn't affect memory usage.",
         'Correct! Edge relaxation is the fundamental operation that updates vertex distances when we find better paths, ensuring we eventually find the shortest paths.',
-        'Incorrect. Edge relaxation isn\'t related to cycle detection.'
+        "Incorrect. Edge relaxation isn't related to cycle detection.",
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const pathExistenceData = {
@@ -3837,7 +3903,8 @@ class PathFinder:
 
   exercises: [
     {
-      prompt: 'Implement a function that determines if there exists a path from start to end using at most k edges. Return true if such a path exists, false otherwise.',
+      prompt:
+        'Implement a function that determines if there exists a path from start to end using at most k edges. Return true if such a path exists, false otherwise.',
       initialCode: `def path_exists_with_k_edges(graph: List[List[int]], 
                               start: int, end: int, k: int) -> bool:
     """
@@ -3873,7 +3940,8 @@ class PathFinder:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that finds a path from start to end that visits vertices in ascending order (each vertex number must be larger than the previous vertex in the path).',
+      prompt:
+        'Implement a function that finds a path from start to end that visits vertices in ascending order (each vertex number must be larger than the previous vertex in the path).',
       initialCode: `def ascending_path(graph: List[List[int]], 
                    start: int, end: int) -> List[int]:
     """
@@ -3910,61 +3978,64 @@ class PathFinder:
         return path
     return []`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why might bidirectional search be faster than regular BFS or DFS for finding a path?',
+      question:
+        'Why might bidirectional search be faster than regular BFS or DFS for finding a path?',
       options: [
         'Because it uses less memory',
         'Because it searches from both ends, reducing the search space',
         'Because it can handle cycles better',
-        'Because it always finds the shortest path'
+        'Because it always finds the shortest path',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Bidirectional search typically uses more memory due to tracking two search frontiers.',
         'Correct! By searching from both ends, the search space is roughly squared in size, often making it much faster to find a path.',
         'Incorrect. Cycle handling is similar in both approaches.',
-        'Incorrect. Both BFS and bidirectional search can find shortest paths in unweighted graphs.'
+        'Incorrect. Both BFS and bidirectional search can find shortest paths in unweighted graphs.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the key challenge when finding all possible paths between two vertices?',
+      question:
+        'What is the key challenge when finding all possible paths between two vertices?',
       options: [
         'Memory management',
         'Cycle detection',
         'The potentially exponential number of paths',
-        'Finding the shortest path'
+        'Finding the shortest path',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. While memory is a concern, it\'s not the main challenge.',
+        "Incorrect. While memory is a concern, it's not the main challenge.",
         'Incorrect. Cycle detection is important but manageable.',
         'Correct! The number of possible paths can grow exponentially with graph size, making it computationally expensive for large graphs.',
-        'Incorrect. Finding all paths is different from finding the shortest path.'
+        'Incorrect. Finding all paths is different from finding the shortest path.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When implementing path finding with constraints, why is backtracking important?',
+      question:
+        'When implementing path finding with constraints, why is backtracking important?',
       options: [
         'To save memory',
         'To avoid infinite loops',
         'To explore all possible solutions',
-        'To find shorter paths'
+        'To find shorter paths',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Backtracking isn\'t primarily about memory usage.',
+        "Incorrect. Backtracking isn't primarily about memory usage.",
         'Incorrect. Infinite loops are prevented by visited sets.',
-        'Correct! Backtracking allows us to try different paths and undo choices that don\'t work, ensuring we can explore all possibilities.',
-        'Incorrect. Backtracking doesn\'t specifically help find shorter paths.'
+        "Correct! Backtracking allows us to try different paths and undo choices that don't work, ensuring we can explore all possibilities.",
+        "Incorrect. Backtracking doesn't specifically help find shorter paths.",
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const cycleDetectionData = {
@@ -4293,7 +4364,8 @@ class CycleDetector:
 
   exercises: [
     {
-      prompt: 'Implement a function that determines if removing a particular edge would break all cycles in a directed graph. Return true if the edge is crucial for all cycles.',
+      prompt:
+        'Implement a function that determines if removing a particular edge would break all cycles in a directed graph. Return true if the edge is crucial for all cycles.',
       initialCode: `def is_critical_cycle_edge(graph: List[List[int]], 
                             u: int, v: int) -> bool:
     """
@@ -4368,7 +4440,8 @@ class CycleDetector:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a function that counts the number of different simple cycles (cycles that don\'t visit any vertex more than once except the start/end) in an undirected graph.',
+      prompt:
+        "Implement a function that counts the number of different simple cycles (cycles that don't visit any vertex more than once except the start/end) in an undirected graph.",
       initialCode: `def count_simple_cycles(n: int, edges: List[List[int]]) -> int:
     """
     Count number of simple cycles in undirected graph.
@@ -4413,61 +4486,64 @@ class CycleDetector:
     # Each cycle was counted twice (once from each direction)
     return total_cycles // 2`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why does the three-color method use three states instead of just two (visited/unvisited)?',
+      question:
+        'Why does the three-color method use three states instead of just two (visited/unvisited)?',
       options: [
         'To save memory',
         'To make the algorithm faster',
         'To distinguish between vertices in the current path and fully explored vertices',
-        'To handle disconnected components'
+        'To handle disconnected components',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Using three colors actually uses more memory than two.',
-        'Incorrect. The number of colors doesn\'t significantly affect speed.',
+        "Incorrect. The number of colors doesn't significantly affect speed.",
         'Correct! The gray color specifically identifies vertices in the current exploration path, which is crucial for cycle detection.',
-        'Incorrect. Disconnected components can be handled with just two colors.'
+        'Incorrect. Disconnected components can be handled with just two colors.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the key difference between cycle detection in directed vs undirected graphs?',
+      question:
+        'What is the key difference between cycle detection in directed vs undirected graphs?',
       options: [
-        'Directed graphs can\'t have cycles',
+        "Directed graphs can't have cycles",
         'Undirected graphs always have cycles',
         'In directed graphs, cycles must follow edge directions while undirected graphs allow bidirectional travel',
-        'Cycle detection is faster in directed graphs'
+        'Cycle detection is faster in directed graphs',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Directed graphs can definitely have cycles.',
         'Incorrect. Many undirected graphs are acyclic.',
         'Correct! In directed graphs we must respect edge directions when finding cycles, while in undirected graphs we can traverse edges in either direction, making cycle detection conceptually different.',
-        'Incorrect. The speed depends on the specific algorithm and graph structure, not the graph type.'
+        'Incorrect. The speed depends on the specific algorithm and graph structure, not the graph type.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When using Union-Find for cycle detection in undirected graphs, what indicates a cycle has been found?',
+      question:
+        'When using Union-Find for cycle detection in undirected graphs, what indicates a cycle has been found?',
       options: [
         'When a vertex has no parent',
         'When we find vertices already in the same set',
-        'When we can\'t merge two sets',
-        'When all vertices are visited'
+        "When we can't merge two sets",
+        'When all vertices are visited',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Having no parent is normal for set representatives.',
-        'Correct! Finding two vertices already in the same set means there\'s an existing path between them, so adding an edge creates a cycle.',
-        'Incorrect. Union-Find operations don\'t fail to merge sets.',
-        'Incorrect. Visiting all vertices doesn\'t indicate a cycle.'
+        "Correct! Finding two vertices already in the same set means there's an existing path between them, so adding an edge creates a cycle.",
+        "Incorrect. Union-Find operations don't fail to merge sets.",
+        "Incorrect. Visiting all vertices doesn't indicate a cycle.",
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const courseScheduleData = {
@@ -4726,7 +4802,8 @@ class CourseScheduler:
 
   exercises: [
     {
-      prompt: 'Implement a function that determines if adding a new prerequisite relationship between two courses would make the course schedule impossible to complete.',
+      prompt:
+        'Implement a function that determines if adding a new prerequisite relationship between two courses would make the course schedule impossible to complete.',
       initialCode: `def would_create_cycle(numCourses: int,
                          prerequisites: List[List[int]],
                          new_prereq: List[int]) -> bool:
@@ -4767,7 +4844,8 @@ class CourseScheduler:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that finds all courses that must be taken before a given target course (all direct and indirect prerequisites).',
+      prompt:
+        'Implement a function that finds all courses that must be taken before a given target course (all direct and indirect prerequisites).',
       initialCode: `def find_all_prerequisites(numCourses: int,
                              prerequisites: List[List[int]],
                              target: int) -> List[int]:
@@ -4798,7 +4876,7 @@ class CourseScheduler:
     
     return list(required)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
@@ -4807,52 +4885,54 @@ class CourseScheduler:
         'To optimize the schedule length',
         'To minimize the number of courses',
         'Because cycles represent impossible prerequisites',
-        'To reduce memory usage'
+        'To reduce memory usage',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Cycle detection isn\'t about optimization.',
+        "Incorrect. Cycle detection isn't about optimization.",
         'Incorrect. The number of courses is fixed by the problem.',
         'Correct! A cycle in prerequisites means no valid order exists, as each course in the cycle requires another course in the cycle to be taken first.',
-        'Incorrect. Cycle detection isn\'t related to memory usage.'
+        "Incorrect. Cycle detection isn't related to memory usage.",
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What advantage does Kahn\'s algorithm have over DFS for course scheduling?',
+      question:
+        "What advantage does Kahn's algorithm have over DFS for course scheduling?",
       options: [
-        'It\'s always faster',
+        "It's always faster",
         'It naturally produces a valid course order',
         'It uses less memory',
-        'It can handle cycles better'
+        'It can handle cycles better',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Both algorithms have similar time complexity.',
-        'Correct! Kahn\'s algorithm builds the course order as it goes, while DFS needs additional processing to produce an order.',
+        "Correct! Kahn's algorithm builds the course order as it goes, while DFS needs additional processing to produce an order.",
         'Incorrect. Both algorithms use similar amounts of memory.',
-        'Incorrect. Both algorithms can detect cycles equally well.'
+        'Incorrect. Both algorithms can detect cycles equally well.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When grouping courses into semesters, what determines the minimum number of semesters needed?',
+      question:
+        'When grouping courses into semesters, what determines the minimum number of semesters needed?',
       options: [
         'The total number of courses',
         'The longest prerequisite chain',
         'The number of starting courses',
-        'The average number of prerequisites'
+        'The average number of prerequisites',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Total courses alone don\'t determine semester count.',
+        "Incorrect. Total courses alone don't determine semester count.",
         'Correct! The longest chain of prerequisites determines the minimum number of semesters, as these courses must be taken sequentially.',
         'Incorrect. Starting courses affect parallelization but not minimum semesters.',
-        'Incorrect. Average prerequisites don\'t determine minimum semesters.'
+        "Incorrect. Average prerequisites don't determine minimum semesters.",
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const buildOrderData = {
@@ -5110,7 +5190,8 @@ class BuildSystem:
 
   exercises: [
     {
-      prompt: 'Implement a function that determines if modifying a component would require rebuilding another specific component (directly or indirectly dependent on it).',
+      prompt:
+        'Implement a function that determines if modifying a component would require rebuilding another specific component (directly or indirectly dependent on it).',
       initialCode: `def requires_rebuild(components: List[str],
                        dependencies: List[Tuple[str, str]],
                        modified: str,
@@ -5151,7 +5232,8 @@ class BuildSystem:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that finds the minimum set of components that need to be rebuilt when multiple components are modified.',
+      prompt:
+        'Implement a function that finds the minimum set of components that need to be rebuilt when multiple components are modified.',
       initialCode: `def minimum_rebuild_set(components: List[str],
                           dependencies: List[Tuple[str, str]],
                           modified: List[str]) -> Set[str]:
@@ -5183,61 +5265,64 @@ class BuildSystem:
     
     return rebuild_set`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is it important to detect circular dependencies in a build system?',
+      question:
+        'Why is it important to detect circular dependencies in a build system?',
       options: [
         'To optimize build time',
         'To save memory usage',
         'Because circular dependencies make building impossible',
-        'To improve code organization'
+        'To improve code organization',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. While optimization is important, circular dependency detection is about feasibility.',
-        'Incorrect. Memory usage isn\'t related to circular dependency detection.',
+        "Incorrect. Memory usage isn't related to circular dependency detection.",
         'Correct! Circular dependencies create a situation where no valid build order exists, as each component in the cycle requires another to be built first.',
-        'Incorrect. Code organization is a separate concern from build feasibility.'
+        'Incorrect. Code organization is a separate concern from build feasibility.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What advantage does level-based build resolution have over DFS-based resolution?',
+      question:
+        'What advantage does level-based build resolution have over DFS-based resolution?',
       options: [
         'It uses less memory',
         'It naturally identifies components that can be built in parallel',
-        'It\'s always faster',
-        'It handles circular dependencies better'
+        "It's always faster",
+        'It handles circular dependencies better',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Both approaches use similar amounts of memory.',
         'Correct! Level-based resolution groups independent components together, making it easier to parallelize the build process.',
         'Incorrect. Performance depends on the specific dependency structure.',
-        'Incorrect. Both approaches can detect circular dependencies equally well.'
+        'Incorrect. Both approaches can detect circular dependencies equally well.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When optimizing parallel builds, what determines the minimum number of build levels needed?',
+      question:
+        'When optimizing parallel builds, what determines the minimum number of build levels needed?',
       options: [
         'The total number of components',
         'The longest chain of dependencies',
         'The number of modified components',
-        'The maximum parallel build limit'
+        'The maximum parallel build limit',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Total components alone don\'t determine required levels.',
+        "Incorrect. Total components alone don't determine required levels.",
         'Correct! The longest chain of dependent components determines the minimum number of sequential build steps required, as these must be built in order.',
         'Incorrect. Modified components affect what needs rebuilding but not minimum levels.',
-        'Incorrect. Parallel limit affects how many components can build together but not minimum levels.'
+        'Incorrect. Parallel limit affects how many components can build together but not minimum levels.',
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const parallelCoursesData = {
@@ -5493,7 +5578,8 @@ class ParallelScheduler:
 
   exercises: [
     {
-      prompt: 'Implement a function that determines the minimum number of parallel processing units needed to complete all tasks within a given time limit.',
+      prompt:
+        'Implement a function that determines the minimum number of parallel processing units needed to complete all tasks within a given time limit.',
       initialCode: `def min_required_workers(tasks: List[Tuple[int, int]],
                           dependencies: List[List[int]],
                           time_limit: int) -> int:
@@ -5554,7 +5640,8 @@ class ParallelScheduler:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a function that returns the maximum number of tasks that could be running in parallel at any point during optimal execution.',
+      prompt:
+        'Implement a function that returns the maximum number of tasks that could be running in parallel at any point during optimal execution.',
       initialCode: `def max_parallel_tasks(tasks: List[Tuple[int, int]],
                        dependencies: List[List[int]]) -> int:
     """
@@ -5608,78 +5695,81 @@ class ParallelScheduler:
     
     return max_concurrent`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is finding the critical path important for parallel task scheduling?',
+      question:
+        'Why is finding the critical path important for parallel task scheduling?',
       options: [
         'To minimize memory usage',
         'To determine the theoretical minimum completion time',
         'To maximize worker utilization',
-        'To simplify the implementation'
+        'To simplify the implementation',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Critical path analysis isn\'t about memory optimization.',
+        "Incorrect. Critical path analysis isn't about memory optimization.",
         'Correct! The critical path determines the minimum possible completion time, as these tasks must be executed sequentially regardless of available workers.',
         'Incorrect. Worker utilization is a separate concern from critical path analysis.',
-        'Incorrect. Critical path analysis actually adds complexity to the implementation.'
+        'Incorrect. Critical path analysis actually adds complexity to the implementation.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What determines the optimal number of workers for parallel task execution?',
+      question:
+        'What determines the optimal number of workers for parallel task execution?',
       options: [
         'The total number of tasks',
         'The balance between parallelization benefit and worker efficiency',
         'The length of the critical path',
-        'The number of dependencies'
+        'The number of dependencies',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Total tasks alone don\'t determine optimal worker count.',
+        "Incorrect. Total tasks alone don't determine optimal worker count.",
         'Correct! The optimal number balances the benefit of parallel execution against worker efficiency and overhead.',
         'Incorrect. Critical path length affects minimum time but not optimal worker count.',
-        'Incorrect. Dependencies affect execution order but not optimal worker count directly.'
+        'Incorrect. Dependencies affect execution order but not optimal worker count directly.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
-{
+    {
       question: 'When might adding more workers not improve completion time?',
       options: [
         'When tasks are too small',
         'When all remaining tasks are on the critical path',
         'When memory usage is too high',
-        'When there are too many dependencies'
+        'When there are too many dependencies',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Task size affects efficiency but isn\'t the main factor limiting parallelization.',
-        'Correct! Tasks on the critical path must be executed sequentially, so adding workers won\'t help once only critical path tasks remain.',
-        'Incorrect. Memory usage is a resource constraint but doesn\'t determine if parallelization helps.',
-        'Incorrect. Dependencies affect execution order but don\'t directly limit parallelization benefits.'
+        "Incorrect. Task size affects efficiency but isn't the main factor limiting parallelization.",
+        "Correct! Tasks on the critical path must be executed sequentially, so adding workers won't help once only critical path tasks remain.",
+        "Incorrect. Memory usage is a resource constraint but doesn't determine if parallelization helps.",
+        "Incorrect. Dependencies affect execution order but don't directly limit parallelization benefits.",
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What makes level-based scheduling effective for parallel execution?',
+      question:
+        'What makes level-based scheduling effective for parallel execution?',
       options: [
         'It uses less memory than other approaches',
         'It naturally groups independent tasks that can run in parallel',
-        'It\'s easier to implement',
-        'It always produces optimal schedules'
+        "It's easier to implement",
+        'It always produces optimal schedules',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Memory usage isn\'t the primary advantage of level-based scheduling.',
+        "Incorrect. Memory usage isn't the primary advantage of level-based scheduling.",
         'Correct! Level-based scheduling identifies tasks that have no dependencies on each other and can therefore run in parallel, making it natural for parallel execution.',
-        'Incorrect. Implementation complexity isn\'t the main benefit.',
-        'Incorrect. Level-based scheduling doesn\'t guarantee optimal schedules in all cases.'
+        "Incorrect. Implementation complexity isn't the main benefit.",
+        "Incorrect. Level-based scheduling doesn't guarantee optimal schedules in all cases.",
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const redundantConnectionData = {
@@ -5893,7 +5983,8 @@ class RedundantConnectionFinder:
 
   exercises: [
     {
-      prompt: 'Implement a function that finds the minimum number of edges to remove to eliminate all cycles in the graph while keeping it connected.',
+      prompt:
+        'Implement a function that finds the minimum number of edges to remove to eliminate all cycles in the graph while keeping it connected.',
       initialCode: `def min_edges_to_remove(n: int, 
                         edges: List[List[int]]) -> List[List[int]]:
     """
@@ -5941,7 +6032,8 @@ class RedundantConnectionFinder:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a function that determines if removing a given edge would create more than two components in the graph.',
+      prompt:
+        'Implement a function that determines if removing a given edge would create more than two components in the graph.',
       initialCode: `def would_create_components(n: int,
                             edges: List[List[int]],
                             edge_to_remove: List[int]) -> bool:
@@ -5983,25 +6075,26 @@ class RedundantConnectionFinder:
     components = count_components(graph)
     return components > 2`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is Union-Find particularly well-suited for finding redundant connections?',
+      question:
+        'Why is Union-Find particularly well-suited for finding redundant connections?',
       options: [
         'Because it uses less memory than other approaches',
         'Because it can efficiently determine if vertices are already connected',
         'Because it works better with large graphs',
-        'Because it handles disconnected components'
+        'Because it handles disconnected components',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Memory usage isn\'t the main advantage.',
+        "Incorrect. Memory usage isn't the main advantage.",
         'Correct! Union-Find can quickly determine if two vertices are already connected, making it perfect for identifying redundant edges that connect already-connected components.',
-        'Incorrect. While it scales well, this isn\'t the main advantage.',
-        'Incorrect. Other algorithms can handle disconnected components equally well.'
+        "Incorrect. While it scales well, this isn't the main advantage.",
+        'Incorrect. Other algorithms can handle disconnected components equally well.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
       question: 'What makes an edge redundant in terms of graph connectivity?',
@@ -6009,57 +6102,58 @@ class RedundantConnectionFinder:
         'It connects to isolated vertices',
         'It creates a cycle in an otherwise acyclic graph',
         'It connects different components',
-        'It has a high weight'
+        'It has a high weight',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Edges to isolated vertices are essential for connectivity.',
         'Correct! A redundant edge creates an alternative path between vertices that are already connected, forming a cycle.',
         'Incorrect. Edges between components are essential for connectivity.',
-        'Incorrect. Edge weight doesn\'t determine redundancy.'
+        "Incorrect. Edge weight doesn't determine redundancy.",
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Why is path compression important when using Union-Find for redundant connection detection?',
+      question:
+        'Why is path compression important when using Union-Find for redundant connection detection?',
       options: [
         'To save memory',
         'To make the code simpler',
         'To maintain near-constant time operations through tree balancing',
-        'To handle disconnected components'
+        'To handle disconnected components',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Path compression doesn\'t significantly affect memory usage.',
+        "Incorrect. Path compression doesn't significantly affect memory usage.",
         'Incorrect. Path compression actually adds some complexity to the code.',
         'Correct! Path compression helps maintain efficient operations by keeping trees balanced and shallow, leading to near-constant time operations.',
-        'Incorrect. Component handling isn\'t affected by path compression.'
+        "Incorrect. Component handling isn't affected by path compression.",
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 //   content: `<p>
-//   A redundant connection in a graph is an edge that creates a cycle. 
+//   A redundant connection in a graph is an edge that creates a cycle.
 //   Union-Find helps detect such edges by grouping nodes into sets and checking if an edge connects nodes already in the same set.
 //   </p>`,
 //   codeExample: `function findRedundantConnection(n: number, edges: number[][]): number[] {
 //       const parent: number[] = Array(n + 1).fill(0).map((_, i) => i);
 //       const rank: number[] = Array(n + 1).fill(1);
-      
+
 //       function find(u: number): number {
 //           if (parent[u] !== u) {
 //               parent[u] = find(parent[u]);
 //           }
 //           return parent[u];
 //       }
-      
+
 //       function union(u: number, v: number): boolean {
 //           const pu = find(u);
 //           const pv = find(v);
-          
+
 //           if (pu === pv) return false;
-          
+
 //           if (rank[pu] > rank[pv]) {
 //               parent[pv] = pu;
 //               rank[pu] += rank[pv];
@@ -6069,7 +6163,7 @@ class RedundantConnectionFinder:
 //           }
 //           return true;
 //       }
-      
+
 //       for (const [u, v] of edges) {
 //           if (!union(u, v)) {
 //               return [u, v];
@@ -6088,25 +6182,25 @@ class RedundantConnectionFinder:
 //       solution: `class UnionFind {
 //     private parent: number[];
 //     private rank: number[];
-    
+
 //     constructor(n: number) {
 //         this.parent = Array(n).fill(0).map((_, i) => i);
 //         this.rank = Array(n).fill(1);
 //     }
-    
+
 //     find(u: number): number {
 //         if (this.parent[u] !== u) {
 //             this.parent[u] = this.find(this.parent[u]);
 //         }
 //         return this.parent[u];
 //     }
-    
+
 //     union(u: number, v: number): boolean {
 //         const pu = this.find(u);
 //         const pv = this.find(v);
-        
+
 //         if (pu === pv) return false;
-        
+
 //         if (this.rank[pu] > this.rank[pv]) {
 //             this.parent[pv] = pu;
 //             this.rank[pu] += this.rank[pv];
@@ -6127,20 +6221,20 @@ class RedundantConnectionFinder:
 //       solution: `function findRedundantConnection(n: number, edges: number[][]): number[] {
 //     const parent: number[] = Array(n + 1).fill(0).map((_, i) => i);
 //     const rank: number[] = Array(n + 1).fill(1);
-    
+
 //     function find(u: number): number {
 //         if (parent[u] !== u) {
 //             parent[u] = find(parent[u]);
 //         }
 //         return parent[u];
 //     }
-    
+
 //     function union(u: number, v: number): boolean {
 //         const pu = find(u);
 //         const pv = find(v);
-        
+
 //         if (pu === pv) return false;
-        
+
 //         if (rank[pu] > rank[pv]) {
 //             parent[pv] = pu;
 //             rank[pu] += rank[pv];
@@ -6150,7 +6244,7 @@ class RedundantConnectionFinder:
 //         }
 //         return true;
 //     }
-    
+
 //     for (const [u, v] of edges) {
 //         if (!union(u, v)) {
 //             return [u, v];
@@ -6406,7 +6500,8 @@ class ProvinceCounter:
 
   exercises: [
     {
-      prompt: 'Implement a function that determines if adding a new connection between two cities would reduce the number of provinces. Return true if the provinces would merge.',
+      prompt:
+        'Implement a function that determines if adding a new connection between two cities would reduce the number of provinces. Return true if the provinces would merge.',
       initialCode: `def would_reduce_provinces(n: int, 
                            connections: List[List[int]],
                            new_connection: List[int]) -> bool:
@@ -6431,7 +6526,8 @@ class ProvinceCounter:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that finds the minimum number of new connections needed to unite all provinces into one.',
+      prompt:
+        'Implement a function that finds the minimum number of new connections needed to unite all provinces into one.',
       initialCode: `def min_connections_needed(n: int, 
                             connections: List[List[int]]) -> List[List[int]]:
     """
@@ -6465,7 +6561,7 @@ class ProvinceCounter:
     
     return new_connections`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
@@ -6474,33 +6570,34 @@ class ProvinceCounter:
         'It reduces memory usage',
         'It makes operations nearly constant time',
         'It prevents cycles in the data structure',
-        'It simplifies the implementation'
+        'It simplifies the implementation',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Path compression doesn\'t significantly affect memory usage.',
+        "Incorrect. Path compression doesn't significantly affect memory usage.",
         'Correct! Path compression flattens trees over time, making subsequent operations nearly constant time instead of linear.',
-        'Incorrect. Union-Find trees can\'t have cycles by design.',
-        'Incorrect. Path compression actually adds some implementation complexity.'
+        "Incorrect. Union-Find trees can't have cycles by design.",
+        'Incorrect. Path compression actually adds some implementation complexity.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the key advantage of using Union-Find for province counting compared to DFS?',
+      question:
+        'What is the key advantage of using Union-Find for province counting compared to DFS?',
       options: [
         'Union-Find uses less memory',
         'Union-Find handles dynamic connections more efficiently',
         'Union-Find is always faster',
-        'Union-Find is easier to implement'
+        'Union-Find is easier to implement',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Both approaches use similar amounts of memory.',
         'Correct! Union-Find excels at handling dynamic connections and queries about connectivity, while DFS would need to reprocess the entire graph.',
         'Incorrect. DFS can be faster for static graphs.',
-        'Incorrect. DFS is often simpler to implement.'
+        'Incorrect. DFS is often simpler to implement.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
       question: 'Why do we use union by rank in addition to path compression?',
@@ -6508,18 +6605,18 @@ class ProvinceCounter:
         'To save memory',
         'To make the code simpler',
         'To prevent trees from becoming unbalanced',
-        'To handle disconnected components'
+        'To handle disconnected components',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Union by rank doesn\'t primarily affect memory usage.',
+        "Incorrect. Union by rank doesn't primarily affect memory usage.",
         'Incorrect. It actually makes the implementation more complex.',
         'Correct! Union by rank ensures trees stay balanced by always attaching smaller trees under larger ones, preventing performance degradation.',
-        'Incorrect. Disconnected components are handled naturally without union by rank.'
+        'Incorrect. Disconnected components are handled naturally without union by rank.',
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const accountMergeData = {
@@ -6745,7 +6842,8 @@ class AccountMerger:
 
   exercises: [
     {
-      prompt: 'Implement a function that determines if adding a new email address to an account would cause any account merges. Return the list of account indices that would be merged.',
+      prompt:
+        'Implement a function that determines if adding a new email address to an account would cause any account merges. Return the list of account indices that would be merged.',
       initialCode: `def find_affected_accounts(accounts: List[List[str]], 
                              account_idx: int,
                              new_email: str) -> List[int]:
@@ -6792,7 +6890,8 @@ class AccountMerger:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that suggests potential account merges based on similar names and shared email domains (e.g., work emails). Return pairs of account indices that might represent the same person.',
+      prompt:
+        'Implement a function that suggests potential account merges based on similar names and shared email domains (e.g., work emails). Return pairs of account indices that might represent the same person.',
       initialCode: `def suggest_merges(accounts: List[List[str]]) -> List[List[int]]:
     """
     Return pairs of account indices that might be the same person.
@@ -6840,61 +6939,64 @@ class AccountMerger:
     
     return suggestions`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is transitive closure important in account merging problems?',
+      question:
+        'Why is transitive closure important in account merging problems?',
       options: [
         'To save memory',
         'To improve performance',
         'To ensure all related accounts are merged correctly',
-        'To handle name conflicts'
+        'To handle name conflicts',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Transitive closure isn\'t about memory optimization.',
-        'Incorrect. While it might affect performance, that\'s not its main purpose.',
-        'Correct! Transitive closure ensures that if account A is connected to B, and B to C, then A, B, and C are all merged, even if A and C don\'t share direct connections.',
-        'Incorrect. Name conflicts are a separate concern from transitive closure.'
+        "Incorrect. Transitive closure isn't about memory optimization.",
+        "Incorrect. While it might affect performance, that's not its main purpose.",
+        "Correct! Transitive closure ensures that if account A is connected to B, and B to C, then A, B, and C are all merged, even if A and C don't share direct connections.",
+        'Incorrect. Name conflicts are a separate concern from transitive closure.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What advantage does Union-Find have over DFS for account merging?',
+      question:
+        'What advantage does Union-Find have over DFS for account merging?',
       options: [
         'Union-Find uses less memory',
         'Union-Find handles incremental updates more efficiently',
         'Union-Find always produces better merged results',
-        'Union-Find is easier to implement'
+        'Union-Find is easier to implement',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Both approaches use similar amounts of memory.',
         'Correct! Union-Find can efficiently handle new accounts or emails being added without reprocessing everything, while DFS would need to rebuild the entire graph.',
         'Incorrect. Both approaches produce the same merged results.',
-        'Incorrect. DFS is often simpler to implement initially.'
+        'Incorrect. DFS is often simpler to implement initially.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When suggesting potential account merges, why should we consider both email domains and name similarity?',
+      question:
+        'When suggesting potential account merges, why should we consider both email domains and name similarity?',
       options: [
         'To reduce memory usage',
         'To process accounts faster',
         'To avoid false positives and increase accuracy',
-        'To handle more accounts'
+        'To handle more accounts',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Using multiple criteria isn\'t about memory optimization.',
+        "Incorrect. Using multiple criteria isn't about memory optimization.",
         'Incorrect. Adding criteria actually makes processing slower.',
         'Correct! Using both email domains and name similarity helps reduce incorrect merge suggestions by requiring multiple matching attributes, improving the accuracy of suggestions.',
-        'Incorrect. The number of accounts handled isn\'t affected by the criteria used.'
+        "Incorrect. The number of accounts handled isn't affected by the criteria used.",
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const wordTransformationData = {
@@ -7130,7 +7232,8 @@ class WordTransformer:
 
   exercises: [
     {
-      prompt: 'Implement a function that determines if two words can be transformed into each other using only transpositions (swapping adjacent letters). Each intermediate word must be valid.',
+      prompt:
+        'Implement a function that determines if two words can be transformed into each other using only transpositions (swapping adjacent letters). Each intermediate word must be valid.',
       initialCode: `def can_transpose(word1: str, word2: str, 
                    dictionary: Set[str]) -> bool:
     """
@@ -7172,7 +7275,8 @@ class WordTransformer:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that finds all words that can be reached from a starting word within a given number of transformations, where each transformation can change any number of letters in the same position (e.g., changing all "a"s to "e"s in one step).',
+      prompt:
+        'Implement a function that finds all words that can be reached from a starting word within a given number of transformations, where each transformation can change any number of letters in the same position (e.g., changing all "a"s to "e"s in one step).',
       initialCode: `def find_reachable_words(start: str, 
                          dictionary: Set[str],
                          max_steps: int) -> Set[str]:
@@ -7223,25 +7327,26 @@ class WordTransformer:
     
     return reachable`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is bidirectional search particularly effective for word transformation problems?',
+      question:
+        'Why is bidirectional search particularly effective for word transformation problems?',
       options: [
         'It uses less memory',
         'It reduces the search space by meeting in the middle',
         'It always finds longer paths',
-        'It works better with large dictionaries'
+        'It works better with large dictionaries',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Bidirectional search actually uses more memory to track two search frontiers.',
         'Correct! By searching from both ends, the search space grows as r^(d/2) + r^(d/2) instead of r^d, where r is the branching factor and d is the path length.',
         'Incorrect. Bidirectional search finds the same shortest path as unidirectional search.',
-        'Incorrect. Dictionary size affects both approaches similarly.'
+        'Incorrect. Dictionary size affects both approaches similarly.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
       question: 'What makes pattern-based grouping of words efficient?',
@@ -7249,35 +7354,36 @@ class WordTransformer:
         'It uses less memory than other approaches',
         'It allows finding neighbors without checking every word',
         'It makes the code simpler',
-        'It works better for longer words'
+        'It works better for longer words',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Pattern-based grouping actually uses more memory to store the patterns.',
         'Correct! By grouping words by patterns, we can instantly find all words that differ by one letter at a specific position, without checking every word in the dictionary.',
         'Incorrect. Pattern-based grouping adds implementation complexity.',
-        'Incorrect. Word length doesn\'t significantly affect the benefits of pattern-based grouping.'
+        "Incorrect. Word length doesn't significantly affect the benefits of pattern-based grouping.",
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Why might checking for transformation possibility be faster than finding the actual path?',
+      question:
+        'Why might checking for transformation possibility be faster than finding the actual path?',
       options: [
         'It uses different algorithms',
         'It can stop as soon as any valid path is found',
         'It requires less memory',
-        'It works better for large dictionaries'
+        'It works better for large dictionaries',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Both approaches typically use BFS.',
         'Correct! When only checking possibility, we can stop at the first valid path found, while finding the shortest path requires exploring all paths of the same length.',
         'Incorrect. Memory usage is similar for both approaches.',
-        'Incorrect. Dictionary size affects both approaches similarly.'
+        'Incorrect. Dictionary size affects both approaches similarly.',
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const graphCloneData = {
@@ -7514,7 +7620,8 @@ class GraphCloner:
 
   exercises: [
     {
-      prompt: 'Implement a function that clones a graph while reversing all edge directions. The resulting graph should have the same structure but with all edges pointing in the opposite direction.',
+      prompt:
+        'Implement a function that clones a graph while reversing all edge directions. The resulting graph should have the same structure but with all edges pointing in the opposite direction.',
       initialCode: `def clone_and_reverse(node: 'Node') -> 'Node':
     """
     Return deep copy of graph with all edges reversed.
@@ -7552,7 +7659,8 @@ class GraphCloner:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that clones a weighted graph where each edge has a multiplier value, and all edge weights in the clone should be multiplied by a given factor while preserving the structure.',
+      prompt:
+        'Implement a function that clones a weighted graph where each edge has a multiplier value, and all edge weights in the clone should be multiplied by a given factor while preserving the structure.',
       initialCode: `def clone_and_scale_weights(node: 'WeightedNode',
                               factor: float) -> 'WeightedNode':
     """
@@ -7585,7 +7693,7 @@ class GraphCloner:
     
     return clone_node(node)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
@@ -7594,33 +7702,34 @@ class GraphCloner:
         'To save memory',
         'To improve performance',
         'To prevent creating duplicate nodes for cycles',
-        'To maintain the original graph structure'
+        'To maintain the original graph structure',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Hash maps actually use additional memory.',
-        'Incorrect. While they help performance, that\'s not their primary purpose.',
-        'Correct! Hash maps let us track which nodes we\'ve already cloned, preventing duplicates when we encounter cycles or multiple paths to the same node.',
-        'Incorrect. The structure is maintained regardless of using a hash map.'
+        "Incorrect. While they help performance, that's not their primary purpose.",
+        "Correct! Hash maps let us track which nodes we've already cloned, preventing duplicates when we encounter cycles or multiple paths to the same node.",
+        'Incorrect. The structure is maintained regardless of using a hash map.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the key difference between DFS and BFS approaches to graph cloning?',
+      question:
+        'What is the key difference between DFS and BFS approaches to graph cloning?',
       options: [
         'DFS uses less memory',
         'BFS is always faster',
         'DFS clones depth-first while BFS clones level-by-level',
-        'BFS handles cycles better'
+        'BFS handles cycles better',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Both approaches use similar amounts of memory.',
         'Incorrect. Performance is similar for both approaches.',
         'Correct! DFS follows paths to their end before backtracking, while BFS clones all nodes at the current level before moving deeper. This can be important when managing memory or handling very deep graphs.',
-        'Incorrect. Both approaches handle cycles equally well with proper tracking.'
+        'Incorrect. Both approaches handle cycles equally well with proper tracking.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
       question: 'Why is deepcopy necessary when cloning node values?',
@@ -7628,18 +7737,18 @@ class GraphCloner:
         'To improve performance',
         'To handle primitive types',
         'To ensure complex values are truly independent in the clone',
-        'To maintain graph structure'
+        'To maintain graph structure',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Deepcopy actually has more overhead.',
-        'Incorrect. Primitive types don\'t need deepcopy.',
+        "Incorrect. Primitive types don't need deepcopy.",
         'Correct! When node values contain complex objects, deepcopy ensures the cloned nodes have completely independent copies of these objects, preventing unintended sharing of data.',
-        'Incorrect. Graph structure is maintained by the cloning algorithm, not deepcopy.'
+        'Incorrect. Graph structure is maintained by the cloning algorithm, not deepcopy.',
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const minHeightTreesData = {
@@ -7869,7 +7978,8 @@ class MinHeightTreeFinder:
 
   exercises: [
     {
-      prompt: 'Implement a function that determines if removing a given edge would increase the height of all possible minimum height trees.',
+      prompt:
+        'Implement a function that determines if removing a given edge would increase the height of all possible minimum height trees.',
       initialCode: `def would_increase_height(n: int,
                           edges: List[List[int]],
                           edge_to_remove: List[int]) -> bool:
@@ -7921,7 +8031,8 @@ class MinHeightTreeFinder:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a function that finds all nodes that could be centroids if we\'re allowed to add one new edge between any two nodes.',
+      prompt:
+        "Implement a function that finds all nodes that could be centroids if we're allowed to add one new edge between any two nodes.",
       initialCode: `def possible_centroids_with_edge(n: int,
                               edges: List[List[int]]) -> Set[int]:
     """
@@ -7969,7 +8080,7 @@ class MinHeightTreeFinder:
     
     return possible`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
@@ -7978,52 +8089,54 @@ class MinHeightTreeFinder:
         'Because trees are binary structures',
         'Because more centroids would create cycles',
         'Due to the triangle inequality property',
-        'Because centroids must minimize maximum distance to all other nodes'
+        'Because centroids must minimize maximum distance to all other nodes',
       ],
       correctAnswer: 3,
       explanations: [
-        'Incorrect. Trees don\'t have to be binary.',
-        'Incorrect. Number of centroids doesn\'t affect cycles.',
-        'Incorrect. While related, this isn\'t the main reason.',
-        'Correct! If we had three centroids, the middle one would be closer to all nodes than the outer ones, contradicting their status as centroids.'
+        "Incorrect. Trees don't have to be binary.",
+        "Incorrect. Number of centroids doesn't affect cycles.",
+        "Incorrect. While related, this isn't the main reason.",
+        'Correct! If we had three centroids, the middle one would be closer to all nodes than the outer ones, contradicting their status as centroids.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the key insight behind the topological peeling approach?',
+      question:
+        'What is the key insight behind the topological peeling approach?',
       options: [
         'It uses less memory than other approaches',
         'Centroids must be the last remaining nodes after removing leaves',
-        'It\'s faster than other algorithms',
-        'It works better for large graphs'
+        "It's faster than other algorithms",
+        'It works better for large graphs',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Memory usage isn\'t the key insight.',
+        "Incorrect. Memory usage isn't the key insight.",
         'Correct! Because centroids are furthest from leaves, they will be the last nodes remaining when we repeatedly remove leaf nodes.',
-        'Incorrect. While efficient, speed isn\'t the key insight.',
-        'Incorrect. The approach works equally well for all graph sizes.'
+        "Incorrect. While efficient, speed isn't the key insight.",
+        'Incorrect. The approach works equally well for all graph sizes.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Why do we need special handling for weighted edges when finding centroids?',
+      question:
+        'Why do we need special handling for weighted edges when finding centroids?',
       options: [
         'To save memory',
         'Because weights affect the actual distances between nodes',
         'To improve algorithm performance',
-        'To handle disconnected components'
+        'To handle disconnected components',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Memory usage isn\'t affected by edge weights.',
+        "Incorrect. Memory usage isn't affected by edge weights.",
         'Correct! With weighted edges, the actual distance between nodes depends on edge weights, not just the number of edges, so we need to account for weights when finding minimal height paths.',
-        'Incorrect. Performance isn\'t the main consideration.',
-        'Incorrect. Connectivity isn\'t affected by edge weights.'
+        "Incorrect. Performance isn't the main consideration.",
+        "Incorrect. Connectivity isn't affected by edge weights.",
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const stateTrackingData = {
@@ -8325,7 +8438,8 @@ class StateTracker:
 
   exercises: [
     {
-      prompt: 'Implement a function that finds a path through a grid where some cells can only be visited during certain time ranges (e.g., moving platforms or time-based barriers).',
+      prompt:
+        'Implement a function that finds a path through a grid where some cells can only be visited during certain time ranges (e.g., moving platforms or time-based barriers).',
       initialCode: `def find_path_with_time(grid: List[List[str]],
                      time_constraints: Dict[Tuple[int, int], 
                                         List[Tuple[int, int]]]) -> List[Tuple[int, int]]:
@@ -8389,7 +8503,8 @@ class StateTracker:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a function that finds paths for multiple units through a grid where each unit has different capabilities (e.g., some can cross water, others can climb walls) and they must all reach their targets.',
+      prompt:
+        'Implement a function that finds paths for multiple units through a grid where each unit has different capabilities (e.g., some can cross water, others can climb walls) and they must all reach their targets.',
       initialCode: `def find_paths_with_abilities(grid: List[List[str]],
                            starts: List[Tuple[int, int]],
                            targets: List[Tuple[int, int]],
@@ -8462,25 +8577,26 @@ class StateTracker:
     
     return []  # No valid paths found`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is simple visited/unvisited tracking sometimes insufficient for graph problems?',
+      question:
+        'Why is simple visited/unvisited tracking sometimes insufficient for graph problems?',
       options: [
         'Because it uses too much memory',
         'Because it makes algorithms slower',
         'Because nodes might need to be visited multiple times under different conditions',
-        'Because it doesn\'t work with large graphs'
+        "Because it doesn't work with large graphs",
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Memory usage isn\'t the main limitation of simple visited tracking.',
+        "Incorrect. Memory usage isn't the main limitation of simple visited tracking.",
         'Incorrect. Simple visited tracking is actually faster but may miss valid solutions.',
         'Correct! Many problems require tracking additional state information because the same node might need to be visited multiple times under different conditions (e.g., with different keys or resources).',
-        'Incorrect. Simple visited tracking works fine with large graphs when appropriate.'
+        'Incorrect. Simple visited tracking works fine with large graphs when appropriate.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
       question: 'What is the key advantage of using immutable state objects?',
@@ -8488,16 +8604,16 @@ class StateTracker:
         'They use less memory',
         'They make debugging easier by preventing accidental state modifications',
         'They are faster to process',
-        'They work better with large graphs'
+        'They work better with large graphs',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Immutable objects often use more memory as they require copying.',
         'Correct! Immutable states prevent bugs by ensuring state changes are explicit and traceable, making it easier to debug and reason about state transitions.',
         'Incorrect. Immutable objects are usually slower due to copying.',
-        'Incorrect. The benefits of immutability are independent of graph size.'
+        'Incorrect. The benefits of immutability are independent of graph size.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
       question: 'Why might we use bit manipulation for state encoding?',
@@ -8505,18 +8621,18 @@ class StateTracker:
         'To make the code simpler',
         'To improve readability',
         'To efficiently store and compare multiple boolean conditions',
-        'To handle larger graphs'
+        'To handle larger graphs',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Bit manipulation usually makes code more complex.',
         'Incorrect. Bit manipulation typically reduces readability.',
         'Correct! Bit manipulation allows efficient storage and comparison of multiple boolean conditions (like collected keys or activated switches) using a single integer.',
-        'Incorrect. Graph size doesn\'t affect the benefits of bit manipulation.'
+        "Incorrect. Graph size doesn't affect the benefits of bit manipulation.",
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const optimizationData = {
@@ -8767,7 +8883,8 @@ class OptimizedGraphSolver:
 
   exercises: [
     {
-      prompt: 'Implement a memory-efficient solution for finding the shortest path that visits all nodes exactly once (Traveling Salesman Problem). Use bit manipulation to track visited nodes.',
+      prompt:
+        'Implement a memory-efficient solution for finding the shortest path that visits all nodes exactly once (Traveling Salesman Problem). Use bit manipulation to track visited nodes.',
       initialCode: `def tsp_optimized(graph: List[List[int]]) -> int:
     """
     Find shortest path visiting all nodes once.
@@ -8811,7 +8928,8 @@ class OptimizedGraphSolver:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a space-efficient solution for finding all cycles in a graph that uses constant extra space per recursive call.',
+      prompt:
+        'Implement a space-efficient solution for finding all cycles in a graph that uses constant extra space per recursive call.',
       initialCode: `def find_cycles_optimized(graph: List[List[int]]) -> List[List[int]]:
     """
     Find all cycles in graph using minimal extra space.
@@ -8854,61 +8972,64 @@ class OptimizedGraphSolver:
     
     return cycles`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is bit manipulation particularly effective for state tracking in graph algorithms?',
+      question:
+        'Why is bit manipulation particularly effective for state tracking in graph algorithms?',
       options: [
         'Because it makes the code easier to read',
         'Because it uses less CPU time',
         'Because it dramatically reduces memory usage and enables faster comparisons',
-        'Because it works better with large graphs'
+        'Because it works better with large graphs',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Bit manipulation typically makes code harder to read.',
-        'Incorrect. While bit operations are fast, this isn\'t the main benefit.',
+        "Incorrect. While bit operations are fast, this isn't the main benefit.",
         'Correct! Bit manipulation can store multiple boolean states in a single integer, reducing memory usage by up to 32x or 64x, while also enabling very fast state comparisons using bitwise operations.',
-        'Incorrect. The benefits of bit manipulation are independent of graph size.'
+        'Incorrect. The benefits of bit manipulation are independent of graph size.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the main advantage of using arrays instead of hash maps for graph representation?',
+      question:
+        'What is the main advantage of using arrays instead of hash maps for graph representation?',
       options: [
         'Arrays are easier to use',
         'Arrays provide better cache locality and use less memory overhead',
         'Arrays are thread-safe',
-        'Arrays allow dynamic resizing'
+        'Arrays allow dynamic resizing',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Hash maps are often easier to use.',
         'Correct! Arrays store elements contiguously in memory, providing better cache performance, and avoid the overhead of hash map buckets and load factors.',
         'Incorrect. Array thread-safety depends on usage.',
-        'Incorrect. Hash maps handle dynamic sizing better than arrays.'
+        'Incorrect. Hash maps handle dynamic sizing better than arrays.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Why is early termination checking so important for graph algorithm optimization?',
+      question:
+        'Why is early termination checking so important for graph algorithm optimization?',
       options: [
         'To use less memory',
         'To make the code simpler',
         'To avoid exploring paths that cannot lead to a better solution',
-        'To handle larger graphs'
+        'To handle larger graphs',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Early termination primarily saves time, not memory.',
         'Incorrect. Early termination checks can make code more complex.',
         'Correct! Early termination allows us to stop exploring paths as soon as we know they cannot improve our solution, potentially saving exponential amounts of computation.',
-        'Incorrect. Early termination benefits are independent of graph size.'
+        'Incorrect. Early termination benefits are independent of graph size.',
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const edgeCasesData = {
@@ -9212,7 +9333,8 @@ class RobustGraphAlgorithms:
 
   exercises: [
     {
-      prompt: 'Implement a function that finds the shortest cycle in a graph, handling all edge cases including self-loops, parallel edges, and disconnected components.',
+      prompt:
+        'Implement a function that finds the shortest cycle in a graph, handling all edge cases including self-loops, parallel edges, and disconnected components.',
       initialCode: `def find_shortest_cycle_robust(graph: List[List[int]]) -> Optional[List[int]]:
     """
     Find shortest cycle in graph, handling all edge cases.
@@ -9281,7 +9403,8 @@ class RobustGraphAlgorithms:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a function that determines if a graph is bipartite, handling all edge cases including disconnected components, single vertices, and empty graphs.',
+      prompt:
+        'Implement a function that determines if a graph is bipartite, handling all edge cases including disconnected components, single vertices, and empty graphs.',
       initialCode: `def is_bipartite_robust(graph: List[List[int]]) -> bool:
     """
     Check if graph is bipartite, handling all edge cases.
@@ -9336,77 +9459,81 @@ class RobustGraphAlgorithms:
     
     return True`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is checking for null adjacency lists important in graph algorithms?',
+      question:
+        'Why is checking for null adjacency lists important in graph algorithms?',
       options: [
         'To save memory',
         'To make the code faster',
         'To prevent null pointer exceptions and undefined behavior',
-        'To handle disconnected components'
+        'To handle disconnected components',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Null checking is about safety, not memory usage.',
         'Incorrect. Null checking adds a small overhead.',
         'Correct! Null adjacency lists can cause crashes if not checked, making algorithms unreliable. Proper checking prevents these runtime errors.',
-        'Incorrect. Disconnected components are handled differently.'
+        'Incorrect. Disconnected components are handled differently.',
       ],
-      difficulty: Difficulty.Beginner
+      difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the best way to handle unreachable vertices in shortest path algorithms?',
+      question:
+        'What is the best way to handle unreachable vertices in shortest path algorithms?',
       options: [
         'Ignore them completely',
         'Assign them distance zero',
         'Mark them with infinity or a special value',
-        'Remove them from the graph'
+        'Remove them from the graph',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Ignoring unreachable vertices loses important information.',
         'Incorrect. Zero distance implies the vertex is reachable.',
         'Correct! Using infinity or a special value clearly indicates that no path exists while preserving the vertex in the result.',
-        'Incorrect. Removing vertices changes the graph structure.'
+        'Incorrect. Removing vertices changes the graph structure.',
       ],
-      difficulty: Difficulty.Intermediate
+      difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Why should empty components be handled specially in connected component algorithms?',
+      question:
+        'Why should empty components be handled specially in connected component algorithms?',
       options: [
         'To improve performance',
         'To save memory',
         'To avoid returning misleading empty lists that could cause issues later',
-        'To handle larger graphs'
+        'To handle larger graphs',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Performance isn\'t the main concern.',
+        "Incorrect. Performance isn't the main concern.",
         'Incorrect. Memory usage is minimal for empty components.',
         'Correct! Empty components can cause problems in code that assumes components contain vertices. Filtering them out prevents these issues.',
       ],
-      difficulty: Difficulty.Intermediate
-      },
-      {
-        question: 'Why should edge cases be considered during algorithm design rather than added later?',
-        options: [
-          'To make the code faster',
-          'To use less memory',
-          'To ensure the core algorithm naturally handles all cases correctly',
-          'To make debugging easier'
-        ],
-        correctAnswer: 2,
-        explanations: [
-          'Incorrect. Edge case handling may actually add some overhead.',
-          'Incorrect. Memory usage isn\'t the primary consideration.',
-          'Correct! Designing algorithms with edge cases in mind leads to more robust solutions that handle all cases naturally, rather than adding special case handling as an afterthought which can make code more complex and error-prone.',
-          'Incorrect. While it may help debugging, this isn\'t the main reason.'
-        ],
-        difficulty: Difficulty.Advanced
-      }
-  ]
+      difficulty: Difficulty.Intermediate,
+    },
+    {
+      question:
+        'Why should edge cases be considered during algorithm design rather than added later?',
+      options: [
+        'To make the code faster',
+        'To use less memory',
+        'To ensure the core algorithm naturally handles all cases correctly',
+        'To make debugging easier',
+      ],
+      correctAnswer: 2,
+      explanations: [
+        'Incorrect. Edge case handling may actually add some overhead.',
+        "Incorrect. Memory usage isn't the primary consideration.",
+        'Correct! Designing algorithms with edge cases in mind leads to more robust solutions that handle all cases naturally, rather than adding special case handling as an afterthought which can make code more complex and error-prone.',
+        "Incorrect. While it may help debugging, this isn't the main reason.",
+      ],
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const graphLessons: Record<string, LessonContent> = {
@@ -9432,9 +9559,8 @@ const graphLessons: Record<string, LessonContent> = {
   'graph-clone': graphCloneData,
   'min-height-trees': minHeightTreesData,
   'state-tracking': stateTrackingData,
-  'optimization': optimizationData,
+  optimization: optimizationData,
   'edge-cases': edgeCasesData,
-
 };
 export const graphLessonsTab: LessonsTab = {
   curriculum: graphCurriculum,
