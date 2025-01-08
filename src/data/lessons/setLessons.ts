@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 const setCurriculum: Curriculum = {
   title: 'Set Curriculum',
@@ -14,19 +19,20 @@ const setCurriculum: Curriculum = {
           id: 'set-introduction',
           title: 'Introduction to Sets',
           description: 'Understanding sets and their unique characteristics',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'set-creation',
           title: 'Creating and Initializing Sets',
           description: 'Different ways to create sets and add initial elements',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'set-properties',
           title: 'Set Properties',
-          description: 'Understanding uniqueness, unordered nature, and mutability',
-          priority: PriorityLevel.Essential
+          description:
+            'Understanding uniqueness, unordered nature, and mutability',
+          priority: PriorityLevel.Essential,
         },
       ],
     },
@@ -38,19 +44,19 @@ const setCurriculum: Curriculum = {
           id: 'element-operations',
           title: 'Element Operations',
           description: 'Adding, removing, and checking for element existence',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'set-methods',
           title: 'Built-in Set Methods',
           description: 'Using add(), remove(), discard(), pop(), and clear()',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'membership-testing',
           title: 'Membership Testing',
           description: 'Efficient O(1) element lookup using "in" operator',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
       ],
     },
@@ -62,25 +68,27 @@ const setCurriculum: Curriculum = {
           id: 'set-union',
           title: 'Union Operations',
           description: 'Combining sets using union() and | operator',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'set-intersection',
           title: 'Intersection Operations',
-          description: 'Finding common elements using intersection() and & operator',
-          priority: PriorityLevel.Essential
+          description:
+            'Finding common elements using intersection() and & operator',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'set-difference',
           title: 'Difference Operations',
-          description: 'Finding unique elements using difference() and - operator',
-          priority: PriorityLevel.Essential
+          description:
+            'Finding unique elements using difference() and - operator',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'symmetric-difference',
           title: 'Symmetric Difference',
           description: 'Finding elements in either set but not both',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
       ],
     },
@@ -92,19 +100,19 @@ const setCurriculum: Curriculum = {
           id: 'subset-superset',
           title: 'Subsets and Supersets',
           description: 'Understanding and using set containment relationships',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'disjoint-sets',
           title: 'Disjoint Sets',
           description: 'Working with sets that have no elements in common',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'set-equality',
           title: 'Set Equality',
           description: 'Comparing sets and understanding equality',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
       ],
     },
@@ -117,20 +125,21 @@ const setCurriculum: Curriculum = {
           title: 'HashSet Implementation',
           description:
             'Understanding how sets are implemented using hash tables',
-          priority: PriorityLevel.Important 
+          priority: PriorityLevel.Important,
         },
         {
           id: 'set-complexity',
           title: 'Time Complexity Analysis',
           description:
             'Understanding performance characteristics of set operations',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'set-vs-others',
           title: 'Sets vs Other Data Structures',
-          description: 'Choosing between sets, lists, and dictionaries for optimal performance',
-          priority: PriorityLevel.Essential
+          description:
+            'Choosing between sets, lists, and dictionaries for optimal performance',
+          priority: PriorityLevel.Essential,
         },
         // {
         //   id: 'ordered-sets',
@@ -147,19 +156,20 @@ const setCurriculum: Curriculum = {
           id: 'duplicate-detection',
           title: 'Duplicate Detection Pattern',
           description: 'Using sets to efficiently find and handle duplicates',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'unique-elements',
           title: 'Unique Element Problems',
-          description: 'Solving problems involving unique values and deduplication',
-          priority: PriorityLevel.Essential
+          description:
+            'Solving problems involving unique values and deduplication',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'set-conversion',
           title: 'Data Structure Conversion',
           description: 'Strategic conversion between sets and other structures',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
       ],
     },
@@ -171,19 +181,19 @@ const setCurriculum: Curriculum = {
           id: 'multisets',
           title: 'Multisets with Counter',
           description: 'Using Counter objects for duplicate element handling',
-          priority: PriorityLevel.Beneficial
+          priority: PriorityLevel.Beneficial,
         },
         {
           id: 'set-comprehension',
           title: 'Set Comprehensions',
           description: 'Creating sets using comprehension syntax',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'common-mistakes',
           title: 'Common Interview Pitfalls',
           description: 'Avoiding common mistakes when using sets in interviews',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
       ],
     },
@@ -195,23 +205,23 @@ const setCurriculum: Curriculum = {
           id: 'array-intersection',
           title: 'Array Intersection/Union',
           description: 'Efficiently finding common or combined elements',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'string-problems',
           title: 'String Manipulation with Sets',
           description: 'Solving string problems using set operations',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'graph-problems',
           title: 'Graph Problems with Sets',
           description: 'Using sets in graph traversal and cycle detection',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
       ],
     },
-  ]
+  ],
 } as const;
 
 const setIntroductionData: LessonContent = {
@@ -290,7 +300,7 @@ Checking if an element is in a set is remarkably fast - like having a perfect in
         """
         # Creating a set with elements
         fruits = {'apple', 'banana', 'cherry'}
-        print("\nFruits set:", fruits)
+        print("Fruits set:", fruits)
         
         # Adding new elements - order isn't guaranteed
         fruits.add('date')
@@ -311,7 +321,7 @@ Checking if an element is in a set is remarkably fast - like having a perfect in
         # Test different roles
         test_roles = ['admin', 'superuser', 'guest', 'hacker']
         
-        print("\nTesting role membership:")
+        print("Testing role membership:")
         for role in test_roles:
             if role in valid_roles:
                 print(f"'{role}' is a valid role")
@@ -339,7 +349,7 @@ Checking if an element is in a set is remarkably fast - like having a perfect in
         500 in large_set
         set_time = time.time() - start
         
-        print(f"\nMembership test times:")
+        print(f"Membership test times:")
         print(f"List lookup: {list_time:.6f} seconds")
         print(f"Set lookup: {set_time:.6f} seconds")
     
@@ -347,13 +357,13 @@ Checking if an element is in a set is remarkably fast - like having a perfect in
     print("Exploring Set Uniqueness:")
     explore_uniqueness()
     
-    print("\nDemonstrating Unordered Nature:")
+    print("Demonstrating Unordered Nature:")
     demonstrate_unordered_nature()
     
-    print("\nTesting Membership:")
+    print("Testing Membership:")
     show_membership_testing()
     
-    print("\nComparing Performance:")
+    print("Comparing Performance:")
     compare_with_lists()
 
 # Run the demonstration
@@ -361,7 +371,8 @@ demonstrate_set_concepts()`,
 
   exercises: [
     {
-      prompt: "Write a function that determines if a list of numbers contains any duplicates. Try to make it as efficient as possible.",
+      prompt:
+        'Write a function that determines if a list of numbers contains any duplicates. Try to make it as efficient as possible.',
       initialCode: `def has_duplicates(numbers: list) -> bool:
     # Write your solution here
     pass`,
@@ -380,7 +391,8 @@ demonstrate_set_concepts()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: "Create a function that takes two lists and returns True if they contain exactly the same elements (ignoring order and duplicates).",
+      prompt:
+        'Create a function that takes two lists and returns True if they contain exactly the same elements (ignoring order and duplicates).',
       initialCode: `def same_elements(list1: list, list2: list) -> bool:
     # Write your solution here
     pass`,
@@ -389,12 +401,12 @@ demonstrate_set_concepts()`,
     # This handles both order and duplicates
     return set(list1) == set(list2)`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: "Which of these is NOT a key characteristic of sets in Python?",
+      question: 'Which of these is NOT a key characteristic of sets in Python?',
       options: [
         'Elements must be unique',
         'Elements are stored in insertion order',
@@ -411,7 +423,8 @@ demonstrate_set_concepts()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: "Why are sets typically more efficient than lists for membership testing?",
+      question:
+        'Why are sets typically more efficient than lists for membership testing?',
       options: [
         'Sets store elements in sorted order',
         'Sets use less memory than lists',
@@ -426,8 +439,8 @@ demonstrate_set_concepts()`,
         'Incorrect. Sets do not track element counts.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const setCreationData: LessonContent = {
@@ -503,7 +516,7 @@ Set comprehensions provide a concise way to create sets based on existing data w
         from_string = set('hello')  # Creates set of unique characters
         from_tuple = set((1, 2, 3))
         
-        print("\nSets from different iterables:")
+        print("Sets from different iterables:")
         print("From list:", from_list)
         print("From string:", from_string)
         print("From tuple:", from_tuple)
@@ -514,7 +527,7 @@ Set comprehensions provide a concise way to create sets based on existing data w
         """
         # Simple set comprehension
         squares = {x**2 for x in range(5)}
-        print("\nSquares using comprehension:", squares)
+        print("Squares using comprehension:", squares)
         
         # Filtered set comprehension
         even_squares = {x**2 for x in range(10) if x % 2 == 0}
@@ -531,7 +544,7 @@ Set comprehensions provide a concise way to create sets based on existing data w
         """
         # Creating sets with mixed types
         mixed_set = {42, 'python', (1, 2), 3.14}
-        print("\nMixed type set:", mixed_set)
+        print("Mixed type set:", mixed_set)
         
         # Creating a set from a generator
         generator_set = set(x * 2 for x in range(5))
@@ -545,7 +558,7 @@ Set comprehensions provide a concise way to create sets based on existing data w
         """
         Demonstrates common mistakes and their solutions
         """
-        print("\nCommon Pitfalls:")
+        print("Common Pitfalls:")
         
         # Try to create an empty set with {}
         empty_dict = {}
@@ -565,13 +578,13 @@ Set comprehensions provide a concise way to create sets based on existing data w
     print("Basic Set Creation:")
     show_basic_creation()
     
-    print("\nSet Comprehensions:")
+    print("Set Comprehensions:")
     demonstrate_comprehensions()
     
-    print("\nAdvanced Initialization:")
+    print("Advanced Initialization:")
     show_advanced_initialization()
     
-    print("\nHandling Pitfalls:")
+    print("Handling Pitfalls:")
     show_common_pitfalls()
 
 # Run the demonstration
@@ -579,7 +592,8 @@ demonstrate_set_creation()`,
 
   exercises: [
     {
-      prompt: "Write a function that takes a string and returns a set of all its vowels (ignore case).",
+      prompt:
+        'Write a function that takes a string and returns a set of all its vowels (ignore case).',
       initialCode: `def get_vowels(text: str) -> set:
     # Write your solution here
     pass`,
@@ -592,7 +606,8 @@ demonstrate_set_creation()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: "Create a function that generates a set of all possible two-character combinations from a given string.",
+      prompt:
+        'Create a function that generates a set of all possible two-character combinations from a given string.',
       initialCode: `def character_pairs(text: str) -> set:
     # Write your solution here
     pass`,
@@ -605,18 +620,13 @@ demonstrate_set_creation()`,
         for char2 in text[i+1:]
     }`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: "Which of these will create an empty set?",
-      options: [
-        '{}',
-        'set()',
-        '[]',
-        'set[]',
-      ],
+      question: 'Which of these will create an empty set?',
+      options: ['{}', 'set()', '[]', 'set[]'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. This creates an empty dictionary.',
@@ -642,8 +652,8 @@ demonstrate_set_creation()`,
         'Incorrect. Python allows nested data structures.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const setPropertiesData: LessonContent = {
@@ -714,14 +724,14 @@ Think of a regular set like a whiteboard where you can add or erase items, while
         
         # Trying to add duplicates
         test_set = {1, 2, 3}
-        print(f"\nOriginal set: {test_set}")
+        print(f"Original set: {test_set}")
         test_set.add(2)  # Adding existing element
         print(f"After adding 2 again: {test_set}")  # No change
         
         # Using uniqueness for practical purposes
         emails = ['user@example.com', 'admin@example.com', 'user@example.com']
         unique_emails = set(emails)
-        print(f"\nUnique email addresses: {unique_emails}")
+        print(f"Unique email addresses: {unique_emails}")
     
     def demonstrate_unordered_nature():
         """
@@ -730,13 +740,13 @@ Think of a regular set like a whiteboard where you can add or erase items, while
         # Creating sets with different insertion orders
         set1 = {1, 2, 3, 4, 5}
         set2 = {5, 4, 3, 2, 1}
-        print(f"\nset1: {set1}")
+        print(f"set1: {set1}")
         print(f"set2: {set2}")
         print(f"set1 == set2: {set1 == set2}")  # True despite different insertion order
         
         # Showing how order might change with modifications
         test_set = {1, 2, 3}
-        print(f"\nInitial set: {test_set}")
+        print(f"Initial set: {test_set}")
         test_set.remove(2)
         test_set.add(4)
         print(f"After modifications: {test_set}")
@@ -749,11 +759,11 @@ Think of a regular set like a whiteboard where you can add or erase items, while
         mutable_set = {1, 2, 3}
         frozen_set = frozenset([1, 2, 3])
         
-        print(f"\nMutable set: {mutable_set}")
+        print(f"Mutable set: {mutable_set}")
         mutable_set.add(4)
         print(f"After adding 4: {mutable_set}")
         
-        print(f"\nFrozen set: {frozen_set}")
+        print(f"Frozen set: {frozen_set}")
         try:
             frozen_set.add(4)
         except AttributeError as e:
@@ -763,7 +773,7 @@ Think of a regular set like a whiteboard where you can add or erase items, while
         try:
             invalid_set = {[1, 2], [3, 4]}  # Will raise TypeError
         except TypeError as e:
-            print(f"\nCannot create set with mutable elements: {e}")
+            print(f"Cannot create set with mutable elements: {e}")
         
         # Using tuples (immutable) instead of lists
         valid_set = {(1, 2), (3, 4)}
@@ -780,14 +790,14 @@ Think of a regular set like a whiteboard where you can add or erase items, while
         
         # Get unique departments using a set
         departments = {employee['dept'] for employee in data}
-        print(f"\nUnique departments: {departments}")
+        print(f"Unique departments: {departments}")
         
         # Using frozen set as dictionary key
         person_skills = {
             frozenset(['Python', 'Java']): ['Alice', 'Bob'],
             frozenset(['Python', 'SQL']): ['Charlie']
         }
-        print(f"\nPeople grouped by skills: {person_skills}")
+        print(f"People grouped by skills: {person_skills}")
     
     # Run all demonstrations
     print("Demonstrating Set Properties:")
@@ -801,7 +811,8 @@ explore_set_properties()`,
 
   exercises: [
     {
-      prompt: "Write a function that determines if all elements in a collection are unique, and explain why using a set is a good solution.",
+      prompt:
+        'Write a function that determines if all elements in a collection are unique, and explain why using a set is a good solution.',
       initialCode: `def are_all_unique(elements: list) -> bool:
     # Write your solution here
     pass`,
@@ -821,7 +832,8 @@ explore_set_properties()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: "Create a function that demonstrates why mutable elements can't be stored in sets by attempting to modify an element after adding it to a set.",
+      prompt:
+        "Create a function that demonstrates why mutable elements can't be stored in sets by attempting to modify an element after adding it to a set.",
       initialCode: `def demonstrate_mutability_issue():
     # Write your solution here
     pass`,
@@ -851,12 +863,12 @@ explore_set_properties()`,
     except AttributeError:
         print("Cannot modify tuple (which is good!)")`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: "Which statement about set properties is TRUE?",
+      question: 'Which statement about set properties is TRUE?',
       options: [
         'Sets maintain the order of elements as they are inserted',
         'Sets can contain lists as elements if the lists are empty',
@@ -873,7 +885,7 @@ explore_set_properties()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: "Why must set elements be immutable?",
+      question: 'Why must set elements be immutable?',
       options: [
         'To save memory',
         'To maintain element order',
@@ -888,8 +900,8 @@ explore_set_properties()`,
         'Incorrect. Speed is a benefit of hash-based storage but not why elements must be immutable.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const elementOperationsData: LessonContent = {
@@ -915,7 +927,7 @@ const elementOperationsData: LessonContent = {
 <li>Adding an element is like signing up a new, unique member</li>
 <li>Removing an element is like removing a membership</li>
 <li>Checking existence is like verifying if someone is on the member list</li>`,
-  
+
   codeExample: `# Comprehensive Set Element Operations
 
 # 1. Creating a Base Set
@@ -957,10 +969,11 @@ print("Backup of students:", backup_students)
 # 8. Clearing All Elements
 student_set.clear()
 print("After clearing set:", student_set)`,
-  
+
   exercises: [
     {
-      prompt: 'Write a function that adds elements to a set only if they start with a vowel.',
+      prompt:
+        'Write a function that adds elements to a set only if they start with a vowel.',
       initialCode: `def add_vowel_names(name_set, new_name):
     # Your implementation here
     pass`,
@@ -972,31 +985,33 @@ print("After clearing set:", student_set)`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a function that removes all elements from a set that are less than a given threshold.',
+      prompt:
+        'Create a function that removes all elements from a set that are less than a given threshold.',
       initialCode: `def remove_below_threshold(number_set, threshold):
     # Your implementation here
     pass`,
       solution: `def remove_below_threshold(number_set, threshold):
     return {num for num in number_set if num >= threshold}`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
-  
+
   quizzes: [
     {
-      question: 'What happens when you try to add an existing element to a set?',
+      question:
+        'What happens when you try to add an existing element to a set?',
       options: [
         'The set raises an error',
         'The element is added twice',
         'Nothing changes',
-        'The set increases in size'
+        'The set increases in size',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. No error is raised.',
         'Correct! Sets automatically ignore duplicate elements.',
         'Incorrect. Something does happen - the set remains unchanged.',
-        'Incorrect. The set size does not change.'
+        'Incorrect. The set size does not change.',
       ],
       difficulty: Difficulty.Beginner,
     },
@@ -1006,18 +1021,18 @@ print("After clearing set:", student_set)`,
         'remove() is faster',
         'discard() works with lists',
         'remove() raises an error if element not found',
-        'discard() adds elements'
+        'discard() adds elements',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Performance is essentially the same.',
         'Incorrect. Both are set methods.',
         'Correct! remove() raises a KeyError if the element is not in the set, while discard() does nothing.',
-        'Incorrect. Neither method adds elements.'
+        'Incorrect. Neither method adds elements.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const setMethodsData: LessonContent = {
@@ -1042,7 +1057,7 @@ const setMethodsData: LessonContent = {
 
 <h3><u>Method Safety and Best Practices</u></h3>
 <p>Understanding the nuanced behaviors of these methods prevents unexpected errors and supports robust code design. Each method has specific use cases that make your set manipulations more elegant and efficient.</p>`,
-  
+
   codeExample: `# Comprehensive Set Method Exploration
 
 # 1. Basic Element Addition and Removal
@@ -1091,10 +1106,11 @@ print("Math-only students:", exclusive_math_students)
 # symmetric_difference() - Students in either, but not both classes
 unique_class_students = math_students.symmetric_difference(science_students)
 print("Students unique to each class:", unique_class_students)`,
-  
+
   exercises: [
     {
-      prompt: 'Create a function that merges two sets while ensuring no duplicates.',
+      prompt:
+        'Create a function that merges two sets while ensuring no duplicates.',
       initialCode: `def merge_unique_sets(set1, set2):
     # Your implementation here
     pass`,
@@ -1110,9 +1126,9 @@ print("Students unique to each class:", unique_class_students)`,
       solution: `def find_unique_elements(set1, set2):
     return set1.symmetric_difference(set2)`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
-  
+
   quizzes: [
     {
       question: 'What does pop() do in a set?',
@@ -1120,35 +1136,30 @@ print("Students unique to each class:", unique_class_students)`,
         'Removes the last element',
         'Removes an arbitrary element',
         'Removes the first element',
-        'Returns the largest element'
+        'Returns the largest element',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Sets are unordered, so there\'s no "last" element.',
         'Correct! pop() removes and returns a random element from the set.',
         'Incorrect. Sets are unordered, so there\'s no "first" element.',
-        'Incorrect. pop() removes an element, not just returning it.'
+        'Incorrect. pop() removes an element, not just returning it.',
       ],
       difficulty: Difficulty.Beginner,
     },
     {
       question: 'Which method combines sets while eliminating duplicates?',
-      options: [
-        'merge()',
-        'combine()',
-        'union()',
-        'intersect()'
-      ],
+      options: ['merge()', 'combine()', 'union()', 'intersect()'],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. This method doesn\'t exist for sets.',
-        'Incorrect. This method doesn\'t exist for sets.',
+        "Incorrect. This method doesn't exist for sets.",
+        "Incorrect. This method doesn't exist for sets.",
         'Correct! union() returns a new set with all unique elements from both sets.',
-        'Incorrect. intersection() finds common elements, not combining.'
+        'Incorrect. intersection() finds common elements, not combining.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const membershipTestingData: LessonContent = {
@@ -1218,7 +1229,7 @@ def demonstrate_set_membership():
         {'admin', 'superuser'},  # Invalid combination
     ]
     
-    print("\nTesting Role Combinations:")
+    print("Testing Role Combinations:")
     for roles in test_roles:
         print(f"Roles {roles} valid? {has_required_roles(roles)}")
 
@@ -1227,7 +1238,8 @@ demonstrate_set_membership()`,
 
   exercises: [
     {
-      prompt: 'Given two sets A and B, write a function that returns True if every element in A is also in B (i.e., if A is a subset of B). Use membership testing in your solution.',
+      prompt:
+        'Given two sets A and B, write a function that returns True if every element in A is also in B (i.e., if A is a subset of B). Use membership testing in your solution.',
       initialCode: `def is_subset(A, B):
     # Write your solution here
     pass`,
@@ -1240,7 +1252,8 @@ demonstrate_set_membership()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Write a function that takes a string and returns True if it contains only characters from a given alphabet set. For example, binary strings should only contain characters from {"0", "1"}.',
+      prompt:
+        'Write a function that takes a string and returns True if it contains only characters from a given alphabet set. For example, binary strings should only contain characters from {"0", "1"}.',
       initialCode: `def is_valid_string(text, alphabet):
     # Write your solution here
     pass`,
@@ -1253,7 +1266,8 @@ demonstrate_set_membership()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that finds all elements that appear in exactly two out of three given sets. Use set membership testing in your solution.',
+      prompt:
+        'Implement a function that finds all elements that appear in exactly two out of three given sets. Use set membership testing in your solution.',
       initialCode: `def elements_in_two_sets(set1, set2, set3):
     # Write your solution here
     pass`,
@@ -1279,7 +1293,8 @@ demonstrate_set_membership()`,
 
   quizzes: [
     {
-      question: 'What is the result of testing membership of an element in an empty set?',
+      question:
+        'What is the result of testing membership of an element in an empty set?',
       options: [
         'It raises an error',
         'Always returns True',
@@ -1296,13 +1311,9 @@ demonstrate_set_membership()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'Which set theory statement is equivalent to "x not in S" in Python?',
-      options: [
-        'x ∈ S',
-        'x ∉ S',
-        'x ⊆ S',
-        'x ⊇ S',
-      ],
+      question:
+        'Which set theory statement is equivalent to "x not in S" in Python?',
+      options: ['x ∈ S', 'x ∉ S', 'x ⊆ S', 'x ⊇ S'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. x ∈ S means x is in S, equivalent to "x in S".',
@@ -1313,7 +1324,8 @@ demonstrate_set_membership()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When using membership testing with sets, which operation is most efficient?',
+      question:
+        'When using membership testing with sets, which operation is most efficient?',
       options: [
         'Testing one element at a time',
         'Testing multiple elements with a loop',
@@ -1391,14 +1403,15 @@ Set union combines elements from multiple sets while maintaining the fundamental
     
     # Get all possible permissions
     all_permissions = admin_permissions | user_permissions | guest_permissions
-    print("\nAll possible permissions:", all_permissions)
+    print("All possible permissions:", all_permissions)
 
 # Run the demonstration
 demonstrate_set_union()`,
 
   exercises: [
     {
-      prompt: 'Write a function that takes any number of sets and returns their union. Handle both empty input and single set cases appropriately.',
+      prompt:
+        'Write a function that takes any number of sets and returns their union. Handle both empty input and single set cases appropriately.',
       initialCode: `def union_all(*sets):
     # Write your solution here
     pass`,
@@ -1420,7 +1433,8 @@ demonstrate_set_union()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Given sets of students in different classes, write a function that finds all unique students taking at least one class.',
+      prompt:
+        'Given sets of students in different classes, write a function that finds all unique students taking at least one class.',
       initialCode: `def all_students(**class_rosters):
     # Write your solution here
     pass`,
@@ -1435,7 +1449,7 @@ demonstrate_set_union()`,
     
     return set.union(*rosters.values())`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 
   quizzes: [
@@ -1472,8 +1486,8 @@ demonstrate_set_union()`,
         'Incorrect. This is the associative property of union.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const setIntersectionData: LessonContent = {
@@ -1535,14 +1549,15 @@ Intersection is like finding the overlap between different groups. For instance,
     
     # Find common prerequisites for all courses
     common_prereq = course1_prereq & course2_prereq & course3_prereq
-    print("\nCommon prerequisites:", common_prereq)
+    print("Common prerequisites:", common_prereq)
 
 # Run the demonstration
 demonstrate_set_intersection()`,
 
   exercises: [
     {
-      prompt: 'Write a function that takes any number of sets and returns their intersection. Handle empty input appropriately.',
+      prompt:
+        'Write a function that takes any number of sets and returns their intersection. Handle empty input appropriately.',
       initialCode: `def intersection_all(*sets):
     # Write your solution here
     pass`,
@@ -1564,7 +1579,8 @@ demonstrate_set_intersection()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Given sets of skills required for different jobs, write a function that finds skills needed for all specified positions.',
+      prompt:
+        'Given sets of skills required for different jobs, write a function that finds skills needed for all specified positions.',
       initialCode: `def common_skills(**job_requirements):
     # Write your solution here
     pass`,
@@ -1580,7 +1596,7 @@ demonstrate_set_intersection()`,
     # Return intersection of all skill sets
     return set.intersection(*requirements.values())`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 
   quizzes: [
@@ -1613,12 +1629,12 @@ demonstrate_set_intersection()`,
       explanations: [
         'Incorrect. Intersection can produce an empty set if sets have no common elements.',
         'Incorrect. Intersection with itself returns the original set.',
-        'Incorrect. The intersection could be equal to one of the sets if it\'s a subset of the other.',
+        "Incorrect. The intersection could be equal to one of the sets if it's a subset of the other.",
         'Correct! A set intersected with itself contains all elements that are in both copies - which is all elements.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const setDifferenceData: LessonContent = {
@@ -1669,10 +1685,10 @@ Imagine you have two lists: all students in a school and students who play sport
     
     # Find truly available books (not checked out, reserved, or in maintenance)
     truly_available = all_books.difference(checked_out, reserved_books, maintenance_books)
-    print("\nTruly available books:", truly_available)
+    print("Truly available books:", truly_available)
     
     # Demonstrate non-commutativity
-    print("\nDemonstrating non-commutativity:")
+    print("Demonstrating non-commutativity:")
     print("all_books - checked_out:", all_books - checked_out)
     print("checked_out - all_books:", checked_out - all_books)  # Empty set
     
@@ -1680,7 +1696,7 @@ Imagine you have two lists: all students in a school and students who play sport
     inventory = {'Python Basics', 'Data Science', 'Web Development'}
     damaged_books = {'Web Development'}
     
-    print("\nBefore removing damaged books:", inventory)
+    print("Before removing damaged books:", inventory)
     inventory -= damaged_books
     print("After removing damaged books:", inventory)
 
@@ -1689,7 +1705,8 @@ demonstrate_set_difference()`,
 
   exercises: [
     {
-      prompt: 'Write a function that finds all elements that are in set A but not in any of the other input sets. Handle the case where only one set is provided.',
+      prompt:
+        'Write a function that finds all elements that are in set A but not in any of the other input sets. Handle the case where only one set is provided.',
       initialCode: `def unique_to_first(*sets):
     # Write your solution here
     pass`,
@@ -1707,7 +1724,8 @@ demonstrate_set_difference()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Implement a function that takes two sets of skills (required_skills and candidate_skills) and returns both the missing skills and excess skills of the candidate.',
+      prompt:
+        'Implement a function that takes two sets of skills (required_skills and candidate_skills) and returns both the missing skills and excess skills of the candidate.',
       initialCode: `def skill_analysis(required_skills, candidate_skills):
     # Write your solution here
     pass`,
@@ -1721,7 +1739,7 @@ demonstrate_set_difference()`,
         'excess_skills': candidate - required   # Additional skills the candidate has
     }`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 
   quizzes: [
@@ -1758,8 +1776,8 @@ demonstrate_set_difference()`,
         'Incorrect. A - ∅ = A (removing no elements leaves the original set).',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const symmetricDifferenceData: LessonContent = {
@@ -1804,24 +1822,24 @@ Think of symmetric difference as finding the "exclusive" elements of each set. F
     
     # Using symmetric_difference() method
     changes_method = fall_students.symmetric_difference(spring_students)
-    print("\nSame result using method:", changes_method)
+    print("Same result using method:", changes_method)
     
     # Breaking down the components
     new_students = spring_students - fall_students
     departed_students = fall_students - spring_students
-    print("\nNew students:", new_students)
+    print("New students:", new_students)
     print("Departed students:", departed_students)
     
     # Demonstrate relationship with union and intersection
     union_minus_intersection = (fall_students | spring_students) - (fall_students & spring_students)
-    print("\nUnion minus intersection:", union_minus_intersection)
+    print("Union minus intersection:", union_minus_intersection)
     print("Same as symmetric difference:", enrollment_changes)
     
     # In-place modification example
     current_team = {'Alice', 'Bob', 'Charlie'}
     changes = {'Bob', 'David'}
     
-    print("\nBefore team update:", current_team)
+    print("Before team update:", current_team)
     current_team ^= changes
     print("After team update:", current_team)
 
@@ -1830,7 +1848,8 @@ demonstrate_symmetric_difference()`,
 
   exercises: [
     {
-      prompt: 'Write a function that finds elements that appear in exactly one set out of any number of input sets.',
+      prompt:
+        'Write a function that finds elements that appear in exactly one set out of any number of input sets.',
       initialCode: `def unique_elements(*sets):
     # Write your solution here
     pass`,
@@ -1851,7 +1870,8 @@ demonstrate_symmetric_difference()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that analyzes changes between two versions of a dataset, returning both added and removed elements.',
+      prompt:
+        'Implement a function that analyzes changes between two versions of a dataset, returning both added and removed elements.',
       initialCode: `def analyze_changes(old_version, new_version):
     # Write your solution here
     pass`,
@@ -1866,7 +1886,7 @@ demonstrate_symmetric_difference()`,
         'changed_total': old ^ new  # All changes combined
     }`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 
   quizzes: [
@@ -1903,8 +1923,8 @@ demonstrate_symmetric_difference()`,
         'Incorrect. This is always empty as intersection is a subset of union.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const subsetSupersetData: LessonContent = {
@@ -1958,19 +1978,19 @@ There are two important distinctions when discussing set containment:
           object_oriented < all_languages)  # True
     
     # Demonstrate superset testing
-    print("\nTesting superset relationships:")
+    print("Testing superset relationships:")
     print("Is all_languages a superset of OOP?", 
           all_languages.issuperset(object_oriented))  # True
     
     # Multiple subset relationships
     multi_paradigm = {'Python'}
-    print("\nPython supports multiple paradigms:")
+    print("Python supports multiple paradigms:")
     print("Is Python in OOP?", multi_paradigm.issubset(object_oriented))
     print("Is Python in functional?", multi_paradigm.issubset(functional))
     
     # Empty set is a subset of everything
     empty_set = set()
-    print("\nEmpty set relationships:")
+    print("Empty set relationships:")
     print("Is empty set a subset of all_languages?", 
           empty_set.issubset(all_languages))  # True
     print("Is empty set a proper subset?", 
@@ -1981,7 +2001,8 @@ explore_set_containment()`,
 
   exercises: [
     {
-      prompt: 'Write a function that determines if one set is a proper subset of another. Do not use the built-in operators.',
+      prompt:
+        'Write a function that determines if one set is a proper subset of another. Do not use the built-in operators.',
       initialCode: `def is_proper_subset(set_a, set_b):
     # Write your solution here
     pass`,
@@ -1998,7 +2019,8 @@ explore_set_containment()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Create a function that finds all subsets of a given set that contain exactly n elements.',
+      prompt:
+        'Create a function that finds all subsets of a given set that contain exactly n elements.',
       initialCode: `def find_subsets_of_size(full_set, n):
     # Write your solution here
     pass`,
@@ -2015,7 +2037,7 @@ def find_subsets_of_size(full_set, n):
     # Generate all combinations of size n
     return {frozenset(combo) for combo in combinations(s, n)}`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 
   quizzes: [
@@ -2037,7 +2059,8 @@ def find_subsets_of_size(full_set, n):
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the relationship between proper subsets and regular subsets?',
+      question:
+        'What is the relationship between proper subsets and regular subsets?',
       options: [
         'Every proper subset is a subset, but not every subset is a proper subset',
         'Every subset is a proper subset, but not every proper subset is a subset',
@@ -2052,8 +2075,8 @@ def find_subsets_of_size(full_set, n):
         'Incorrect. Every proper subset is also a subset.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const disjointSetsData: LessonContent = {
@@ -2104,12 +2127,12 @@ Disjoint sets appear naturally in many situations:
     land_vehicles_extended = land_vehicles | amphibious
     water_vehicles_extended = water_vehicles | amphibious
     
-    print("\nAfter adding hybrid vehicle:")
+    print("After adding hybrid vehicle:")
     print("Land and water vehicles still disjoint?", 
           land_vehicles_extended.isdisjoint(water_vehicles_extended))  # False
     
     # Demonstrate property of disjoint union
-    print("\nSize properties of disjoint sets:")
+    print("Size properties of disjoint sets:")
     print(f"Land vehicles: {len(land_vehicles)}")
     print(f"Water vehicles: {len(water_vehicles)}")
     print(f"Combined size: {len(land_vehicles | water_vehicles)}")
@@ -2122,7 +2145,8 @@ explore_disjoint_sets()`,
 
   exercises: [
     {
-      prompt: 'Write a function that determines if a collection of sets are mutually disjoint (no two sets share any elements).',
+      prompt:
+        'Write a function that determines if a collection of sets are mutually disjoint (no two sets share any elements).',
       initialCode: `def are_mutually_disjoint(*sets):
     # Write your solution here
     pass`,
@@ -2143,7 +2167,8 @@ explore_disjoint_sets()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a function that partitions a set into n disjoint subsets of approximately equal size.',
+      prompt:
+        'Create a function that partitions a set into n disjoint subsets of approximately equal size.',
       initialCode: `def partition_set(input_set, n):
     # Write your solution here
     pass`,
@@ -2171,7 +2196,7 @@ explore_disjoint_sets()`,
     
     return partitions`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 
   quizzes: [
@@ -2208,8 +2233,8 @@ explore_disjoint_sets()`,
         'Correct! This is false - disjoint sets can be any size.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const setEqualityData: LessonContent = {
@@ -2253,7 +2278,7 @@ When we say two sets are equal, we're really saying that they represent exactly 
     print(f"set1 == set3: {set1 == set3}")  # True (duplicates don't affect equality)
     
     # Different ways to test equality
-    print("\nDifferent equality testing methods:")
+    print("Different equality testing methods:")
     print("Direct equality test:", set1 == set2)
     print("Mutual subset test:", set1 <= set2 and set2 <= set1)
     print("Identity test:", set1 is set2)  # False - different objects
@@ -2263,14 +2288,14 @@ When we say two sets are equal, we're really saying that they represent exactly 
     emails2 = {'admin@example.com', 'user@example.com'}
     emails3 = {'user@example.com', 'different@example.com'}
     
-    print("\nPractical email set comparison:")
+    print("Practical email set comparison:")
     print(f"emails1 == emails2: {emails1 == emails2}")  # True
     print(f"emails1 == emails3: {emails1 == emails3}")  # False
     
     # Understanding empty set equality
     empty1 = set()
     empty2 = set()
-    print("\nEmpty set comparison:")
+    print("Empty set comparison:")
     print(f"empty1 == empty2: {empty1 == empty2}")  # True
     print(f"empty1 is empty2: {empty1 is empty2}")  # False
 
@@ -2279,7 +2304,8 @@ explore_set_equality()`,
 
   exercises: [
     {
-      prompt: 'Write a function that tests if two collections represent the same set without using the == operator.',
+      prompt:
+        'Write a function that tests if two collections represent the same set without using the == operator.',
       initialCode: `def are_sets_equal(collection1, collection2):
     # Write your solution here
     pass`,
@@ -2293,7 +2319,8 @@ explore_set_equality()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Create a function that groups equal sets from a list of sets, returning a list of groups.',
+      prompt:
+        'Create a function that groups equal sets from a list of sets, returning a list of groups.',
       initialCode: `def group_equal_sets(list_of_sets):
     # Write your solution here
     pass`,
@@ -2326,7 +2353,7 @@ explore_set_equality()`,
     
     return groups`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 
   quizzes: [
@@ -2363,10 +2390,9 @@ explore_set_equality()`,
         'Incorrect. This only tests if B contains all elements of A.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
-
 
 const setComplexityData: LessonContent = {
   title: 'Understanding Set Time Complexity',
@@ -2458,7 +2484,7 @@ def measure_set_performance():
         union_time = time_operation(lambda: set1.union(set2))
         union_times.append(union_time)
         
-        print(f"\nSize: {size}")
+        print(f"Size: {size}")
         print(f"Add time: {add_time:.6f} seconds")
         print(f"Lookup time: {lookup_time:.6f} seconds")
         print(f"Union time: {union_time:.6f} seconds")
@@ -2481,7 +2507,7 @@ def measure_set_performance():
     good_lookup = time_operation(lambda: 999 in good_set)
     bad_lookup = time_operation(lambda: BadHash(999) in bad_set)
     
-    print("\nHash Quality Impact:")
+    print("Hash Quality Impact:")
     print(f"Good hash lookup: {good_lookup:.6f} seconds")
     print(f"Bad hash lookup: {bad_lookup:.6f} seconds")
     
@@ -2492,7 +2518,8 @@ sizes, add_times, lookup_times, union_times = measure_set_performance()`,
 
   exercises: [
     {
-      prompt: 'Write a function that compares the performance of membership testing in a set versus a list for different sizes of data.',
+      prompt:
+        'Write a function that compares the performance of membership testing in a set versus a list for different sizes of data.',
       initialCode: `def compare_membership_performance(max_size: int, step: int) -> Dict[str, List[float]]:
     # Write your solution here
     pass`,
@@ -2530,7 +2557,8 @@ sizes, add_times, lookup_times, union_times = measure_set_performance()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that measures the impact of hash collisions on set performance by creating elements with increasingly poor hash functions.',
+      prompt:
+        'Implement a function that measures the impact of hash collisions on set performance by creating elements with increasingly poor hash functions.',
       initialCode: `def measure_collision_impact(size: int) -> Dict[str, List[float]]:
     # Write your solution here
     pass`,
@@ -2574,7 +2602,7 @@ sizes, add_times, lookup_times, union_times = measure_set_performance()`,
     
     return results`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 
   quizzes: [
@@ -2596,7 +2624,8 @@ sizes, add_times, lookup_times, union_times = measure_set_performance()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the primary factor that can degrade set performance from O(1) to O(n)?',
+      question:
+        'What is the primary factor that can degrade set performance from O(1) to O(n)?',
       options: [
         'Large set sizes',
         'High load factors',
@@ -2611,8 +2640,8 @@ sizes, add_times, lookup_times, union_times = measure_set_performance()`,
         'Incorrect. Element complexity affects hash computation but not overall structure.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const hashSetData: LessonContent = {
@@ -2704,18 +2733,18 @@ Think of a HashSet as a well-organized library where each book has a unique "cal
         print(f"Adding {element}: {hash_set.add(element)}")
     
     # Check containment
-    print("\nChecking containment:")
+    print("Checking containment:")
     for element in elements + ["not present"]:
         print(f"Contains {element}? {hash_set.contains(element)}")
     
     # Demonstrate hash collisions
-    print("\nDemonstrating hash collisions:")
+    print("Demonstrating hash collisions:")
     # These strings might hash to the same bucket
     hash_set.add("ab")
     hash_set.add("ba")
     
     # Show internal structure (simplified)
-    print("\nBucket distribution:")
+    print("Bucket distribution:")
     for i, bucket in enumerate(hash_set.buckets):
         if bucket:
             print(f"Bucket {i}: {bucket}")
@@ -2725,7 +2754,8 @@ demonstrate_hashset_concepts()`,
 
   exercises: [
     {
-      prompt: 'Implement a method to calculate the number of hash collisions in a HashSet.',
+      prompt:
+        'Implement a method to calculate the number of hash collisions in a HashSet.',
       initialCode: `def count_collisions(elements):
     # Write your solution here
     pass`,
@@ -2747,7 +2777,8 @@ demonstrate_hashset_concepts()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a custom hash function for a Point class that ensures points with the same coordinates hash to the same bucket.',
+      prompt:
+        'Implement a custom hash function for a Point class that ensures points with the same coordinates hash to the same bucket.',
       initialCode: `class Point:
     def __init__(self, x, y):
         self.x = x
@@ -2768,7 +2799,7 @@ demonstrate_hashset_concepts()`,
             return False
         return self.x == other.x and self.y == other.y`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 
   quizzes: [
@@ -2805,8 +2836,8 @@ demonstrate_hashset_concepts()`,
         'Incorrect. Lookup speed depends on the hash function quality.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const setsVsOtherDataStructuresData: LessonContent = {
@@ -2936,7 +2967,7 @@ Consider these scenarios when making your choice:
     print(f"Set approach: {set_time:.6f} seconds")
     
     # Scenario 2: Membership testing
-    print("\nScenario 2: Membership testing")
+    print("Scenario 2: Membership testing")
     test_size = 1000
     
     # Create test collections
@@ -2964,7 +2995,7 @@ Consider these scenarios when making your choice:
     print(f"Dictionary lookup: {dict_time:.6f} seconds")
     
     # Scenario 3: Maintaining order vs uniqueness
-    print("\nScenario 3: Order vs Uniqueness")
+    print("Scenario 3: Order vs Uniqueness")
     original_data = [1, 2, 2, 3, 3, 4]
     
     # Using list
@@ -2986,7 +3017,8 @@ demonstrate_data_structure_differences()`,
 
   exercises: [
     {
-      prompt: 'Write a function that recommends the most appropriate data structure given specific requirements.',
+      prompt:
+        'Write a function that recommends the most appropriate data structure given specific requirements.',
       initialCode: `def recommend_structure(needs_order: bool, needs_unique: bool, needs_key_value: bool) -> str:
     # Write your solution here
     pass`,
@@ -3006,7 +3038,8 @@ demonstrate_data_structure_differences()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Create a function that compares the performance of finding duplicate elements using different data structures.',
+      prompt:
+        'Create a function that compares the performance of finding duplicate elements using different data structures.',
       initialCode: `def compare_duplicate_finding_performance(data: list) -> dict:
     # Write your solution here
     pass`,
@@ -3042,12 +3075,13 @@ demonstrate_data_structure_differences()`,
         'dict_memory': len(dict_result)
     }`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'Which data structure would be most efficient for checking if an element exists in a large collection?',
+      question:
+        'Which data structure would be most efficient for checking if an element exists in a large collection?',
       options: [
         'List, because it maintains order',
         'Set, because it has O(1) lookup',
@@ -3079,16 +3113,16 @@ demonstrate_data_structure_differences()`,
         'Incorrect. Dictionaries are used for key-value pairs.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 // const orderedSetsData: LessonContent = {
 //   title: 'Ordered Sets',
 //   content: `<p>
-// Ordered sets are sets that maintain the order of elements as they are inserted. 
-// In Python, the \`collections\` module provides the \`OrderedDict\` class, which can be used to create ordered sets. 
-// However, for a more specialized ordered set, you can use the \`sortedcontainers\` library, which provides the \`SortedSet\` class. 
+// Ordered sets are sets that maintain the order of elements as they are inserted.
+// In Python, the \`collections\` module provides the \`OrderedDict\` class, which can be used to create ordered sets.
+// However, for a more specialized ordered set, you can use the \`sortedcontainers\` library, which provides the \`SortedSet\` class.
 // Here's how you can work with ordered sets:
 // </p>
 
@@ -3272,25 +3306,25 @@ Let's examine several ways sets help us work with duplicates:
     # Example 1: Find all duplicates in a list of numbers
     numbers = [1, 3, 4, 2, 2, 4, 3, 7, 8]
     duplicates = find_all_duplicates(numbers)
-    print(f"\nDuplicates in {numbers}:")
+    print(f"Duplicates in {numbers}:")
     print(f"Duplicate elements: {duplicates}")
     
     # Example 2: Count occurrences of duplicates
     text = "mississippi"
     char_counts = count_duplicates(text)
-    print(f"\nDuplicate counts in '{text}':")
+    print(f"Duplicate counts in '{text}':")
     print(f"Character frequencies: {char_counts}")
     
     # Example 3: Find first duplicate in a sequence
     sequence = [1, 2, 3, 4, 2, 3]
     first_dup = find_first_duplicate(sequence)
-    print(f"\nFirst duplicate in {sequence}:")
+    print(f"First duplicate in {sequence}:")
     print(f"First repeated element: {first_dup}")
     
     # Example 4: Remove duplicates while preserving order
     items = ['a', 'b', 'a', 'c', 'b', 'd']
     unique_ordered = remove_duplicates_preserve_order(items)
-    print(f"\nRemoving duplicates from {items}:")
+    print(f"Removing duplicates from {items}:")
     print(f"Unique ordered elements: {unique_ordered}")
 
 # Run the demonstration
@@ -3298,7 +3332,8 @@ demonstrate_duplicate_detection()`,
 
   exercises: [
     {
-      prompt: 'Write a function that finds elements that appear exactly twice in a list, preserving their order of first appearance.',
+      prompt:
+        'Write a function that finds elements that appear exactly twice in a list, preserving their order of first appearance.',
       initialCode: `def find_exactly_twice(data: list) -> list:
     # Write your solution here
     pass`,
@@ -3317,7 +3352,8 @@ demonstrate_duplicate_detection()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that finds the longest substring without repeating characters in a given string.',
+      prompt:
+        'Implement a function that finds the longest substring without repeating characters in a given string.',
       initialCode: `def longest_unique_substring(s: str) -> str:
     # Write your solution here
     pass`,
@@ -3345,12 +3381,13 @@ demonstrate_duplicate_detection()`,
     
     return s[result_start:result_start + max_length]`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'What is the time complexity of finding duplicates using a set?',
+      question:
+        'What is the time complexity of finding duplicates using a set?',
       options: [
         'O(n²) - must compare each element with every other',
         'O(n) - single pass through the data',
@@ -3367,7 +3404,8 @@ demonstrate_duplicate_detection()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'Which approach preserves the order of elements while removing duplicates?',
+      question:
+        'Which approach preserves the order of elements while removing duplicates?',
       options: [
         'Converting to a set and back to a list',
         'Using dict.fromkeys()',
@@ -3382,8 +3420,8 @@ demonstrate_duplicate_detection()`,
         'Incorrect. list.remove() can change relative ordering of elements.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const uniqueElementsData: LessonContent = {
@@ -3492,12 +3530,12 @@ Similar to finding the longest sequence of days without repeating weather patter
     print(f"Single unique element: {find_single_unique(numbers)}")
     
     numbers = [1, 1, 2, 2, 3, 3, 4, 4, 4]
-    print("\nFinding elements appearing exactly twice:")
+    print("Finding elements appearing exactly twice:")
     print(f"Input: {numbers}")
     print(f"Elements appearing twice: {find_k_times_elements(numbers, 2)}")
     
     text = "abcabcbb"
-    print("\nFinding longest substring with unique characters:")
+    print("Finding longest substring with unique characters:")
     print(f"Input: {text}")
     print(f"Length of longest unique substring: {longest_unique_substring(text)}")
 
@@ -3520,7 +3558,8 @@ demonstrate_unique_element_patterns()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Implement a function that finds the longest subarray where the difference between any two elements is at most k.',
+      prompt:
+        'Implement a function that finds the longest subarray where the difference between any two elements is at most k.',
       initialCode: `def longest_subarray_with_difference(nums: list, k: int) -> int:
     # Write your solution here
     pass`,
@@ -3542,12 +3581,13 @@ demonstrate_unique_element_patterns()`,
     
     return max_length`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'What is the most space-efficient way to find elements that appear exactly once in a list?',
+      question:
+        'What is the most space-efficient way to find elements that appear exactly once in a list?',
       options: [
         'Using two sets (all elements and duplicates)',
         'Using a Counter object',
@@ -3562,8 +3602,8 @@ demonstrate_unique_element_patterns()`,
         'Correct! Sorting in-place followed by one scan uses O(1) extra space.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const setConversionData: LessonContent = {
@@ -3657,19 +3697,19 @@ Think of data structure conversion like changing vehicles during a journey - eac
     
     # Example 2: Unique characters in order
     text = "mississippi"
-    print("\nUnique characters in order:")
+    print("Unique characters in order:")
     print(f"Original: {text}")
     print(f"Unique chars: {''.join(unique_chars_ordered(text))}")
     
     # Example 3: Convert frequency count to unique elements
     frequencies = {'a': 3, 'b': 1, 'c': 2}
-    print("\nUnique elements from frequencies:")
+    print("Unique elements from frequencies:")
     print(f"Frequencies: {frequencies}")
     print(f"Unique elements: {frequency_to_unique(frequencies)}")
     
     # Example 4: Group by frequency
     items = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
-    print("\nGrouping by frequency:")
+    print("Grouping by frequency:")
     print(f"Original: {items}")
     print(f"Grouped by frequency: {group_by_frequency(items)}")
 
@@ -3678,7 +3718,8 @@ demonstrate_set_conversions()`,
 
   exercises: [
     {
-      prompt: 'Write a function that takes a list of strings and returns the unique characters that appear in all strings.',
+      prompt:
+        'Write a function that takes a list of strings and returns the unique characters that appear in all strings.',
       initialCode: `def common_chars(strings: list) -> set:
     # Write your solution here
     pass`,
@@ -3697,7 +3738,8 @@ demonstrate_set_conversions()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a function that converts a nested dictionary into a set of all unique values at any level of nesting.',
+      prompt:
+        'Create a function that converts a nested dictionary into a set of all unique values at any level of nesting.',
       initialCode: `def extract_unique_values(nested_dict: dict) -> set:
     # Write your solution here
     pass`,
@@ -3716,12 +3758,13 @@ demonstrate_set_conversions()`,
     
     return extract_values(nested_dict)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'Which conversion preserves the order of first appearance of elements?',
+      question:
+        'Which conversion preserves the order of first appearance of elements?',
       options: [
         'Converting to a set and back to a list',
         'Using dict.fromkeys()',
@@ -3738,7 +3781,8 @@ demonstrate_set_conversions()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the most efficient way to convert a set to a sorted list?',
+      question:
+        'What is the most efficient way to convert a set to a sorted list?',
       options: [
         'Convert to list then sort',
         'Use sorted() directly on the set',
@@ -3753,8 +3797,8 @@ demonstrate_set_conversions()`,
         'Incorrect. This adds unnecessary complexity and overhead.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const multisetsData: LessonContent = {
@@ -3833,7 +3877,7 @@ def demonstrate_counter_operations():
         
         # Combine inventories
         combined = inv1 + inv2
-        print("\nCombined inventory:")
+        print("Combined inventory:")
         for item, quantity in combined.most_common():
             print(f"{item}: {quantity}")
         return combined
@@ -3843,7 +3887,7 @@ def demonstrate_counter_operations():
         Tracks stock levels after a series of changes
         """
         stock = Counter(initial)
-        print("\nTracking stock changes:")
+        print("Tracking stock changes:")
         print(f"Initial stock: {dict(stock)}")
         
         for operation, items in changes:
@@ -3878,7 +3922,8 @@ demonstrate_counter_operations()`,
 
   exercises: [
     {
-      prompt: 'Write a function that finds elements that appear more times in the second list than in the first list.',
+      prompt:
+        'Write a function that finds elements that appear more times in the second list than in the first list.',
       initialCode: `def find_increased_elements(list1: list, list2: list) -> dict:
     # Write your solution here
     pass`,
@@ -3899,7 +3944,8 @@ demonstrate_counter_operations()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that finds all k-repeated elements in a string (elements that appear exactly k times).',
+      prompt:
+        'Implement a function that finds all k-repeated elements in a string (elements that appear exactly k times).',
       initialCode: `def find_k_repeated(text: str, k: int) -> list:
     # Write your solution here
     pass`,
@@ -3914,12 +3960,13 @@ demonstrate_counter_operations()`,
     return sorted([char for char, count in char_counts.items() 
                   if count == k])`,
       difficulty: Difficulty.Beginner,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'What happens when you subtract Counter objects and a count would become negative?',
+      question:
+        'What happens when you subtract Counter objects and a count would become negative?',
       options: [
         'The count becomes negative',
         'The element is removed from the Counter',
@@ -3936,13 +3983,9 @@ demonstrate_counter_operations()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Which Counter method returns elements repeated according to their counts?',
-      options: [
-        'items()',
-        'elements()',
-        'most_common()',
-        'values()',
-      ],
+      question:
+        'Which Counter method returns elements repeated according to their counts?',
+      options: ['items()', 'elements()', 'most_common()', 'values()'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. items() returns (element, count) pairs.',
@@ -3951,8 +3994,8 @@ demonstrate_counter_operations()`,
         'Incorrect. values() returns just the counts.',
       ],
       difficulty: Difficulty.Beginner,
-    }
-  ]
+    },
+  ],
 };
 
 const setComprehensionData: LessonContent = {
@@ -4059,20 +4102,21 @@ A set comprehension follows this general pattern: {expression for item in iterab
     # Practical example: Find unique word lengths in a sentence
     sentence = "The quick brown fox jumps over the lazy dog"
     word_lengths = {len(word) for word in sentence.split()}
-    print(f"\nUnique word lengths in sentence: {word_lengths}")
+    print(f"Unique word lengths in sentence: {word_lengths}")
     
     # Generate unique character pairs from string
     text = "hello"
     char_pairs = {(a, b) for i, a in enumerate(text) 
                  for b in text[i+1:]}
-    print(f"\nUnique character pairs: {char_pairs}")
+    print(f"Unique character pairs: {char_pairs}")
 
 # Run the demonstration
 demonstrate_set_comprehensions()`,
 
   exercises: [
     {
-      prompt: 'Write a function that generates all unique absolute differences between pairs of numbers in a list.',
+      prompt:
+        'Write a function that generates all unique absolute differences between pairs of numbers in a list.',
       initialCode: `def unique_differences(numbers: list) -> set:
     # Write your solution here
     pass`,
@@ -4084,7 +4128,8 @@ demonstrate_set_comprehensions()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a function that returns the set of all characters that appear in at least one word but not all words from a list of words.',
+      prompt:
+        'Create a function that returns the set of all characters that appear in at least one word but not all words from a list of words.',
       initialCode: `def partial_chars(words: list) -> set:
     # Write your solution here
     pass`,
@@ -4102,12 +4147,13 @@ demonstrate_set_comprehensions()`,
     # Return characters in some but not all words
     return all_chars - common_chars`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'What is the main difference between set comprehension and list comprehension syntax?',
+      question:
+        'What is the main difference between set comprehension and list comprehension syntax?',
       options: [
         'Set comprehensions use parentheses instead of square brackets',
         'Set comprehensions use curly braces instead of square brackets',
@@ -4124,7 +4170,8 @@ demonstrate_set_comprehensions()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What happens if a set comprehension generates duplicate values?',
+      question:
+        'What happens if a set comprehension generates duplicate values?',
       options: [
         'An error is raised',
         'The duplicates are preserved',
@@ -4139,8 +4186,8 @@ demonstrate_set_comprehensions()`,
         'Incorrect. No specific duplicate is "kept" - they are all deduplicated.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const commonMistakesData: LessonContent = {
@@ -4276,13 +4323,13 @@ While sets provide O(1) average case for membership testing, they aren't always 
     print("Demonstrating coordinate set pitfall:")
     wrong_coordinates_set()
     
-    print("\nDemonstrating order assumption pitfall:")
+    print("Demonstrating order assumption pitfall:")
     wrong_order_assumption()
     
-    print("\nDemonstrating inefficient set usage:")
+    print("Demonstrating inefficient set usage:")
     inefficient_set_usage()
     
-    print("\nDemonstrating proper duplicate handling:")
+    print("Demonstrating proper duplicate handling:")
     proper_duplicate_handling()
 
 # Run the demonstration
@@ -4290,7 +4337,8 @@ demonstrate_common_pitfalls()`,
 
   exercises: [
     {
-      prompt: 'Write a function that finds all unique triplets (three numbers) in a list that sum to a target value, handling duplicates correctly.',
+      prompt:
+        'Write a function that finds all unique triplets (three numbers) in a list that sum to a target value, handling duplicates correctly.',
       initialCode: `def find_triplets(numbers: list, target: int) -> set:
     # Write your solution here
     pass`,
@@ -4323,7 +4371,8 @@ demonstrate_common_pitfalls()`,
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Create a function that maintains both uniqueness and insertion order for a sequence of elements.',
+      prompt:
+        'Create a function that maintains both uniqueness and insertion order for a sequence of elements.',
       initialCode: `def ordered_unique(sequence: list) -> list:
     # Write your solution here
     pass`,
@@ -4338,7 +4387,7 @@ demonstrate_common_pitfalls()`,
     # Alternative using dict.fromkeys() if elements are hashable
     # return list(dict.fromkeys(sequence))`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 
   quizzes: [
@@ -4357,9 +4406,9 @@ demonstrate_common_pitfalls()`,
         'Incorrect. Sets can only contain hashable objects.',
         'Incorrect. An error is raised immediately.',
       ],
-      difficulty: Difficulty.Beginner
-    }
-  ]
+      difficulty: Difficulty.Beginner,
+    },
+  ],
 };
 
 const arrayIntersectionUnionData: LessonContent = {
@@ -4468,30 +4517,31 @@ Think of these operations like comparing guest lists for different events. The i
     
     # Finding common elements
     common = find_common_elements(arrays)
-    print(f"\nElements common to all arrays: {common}")
+    print(f"Elements common to all arrays: {common}")
     
     # Finding elements in at least 2 arrays
     k_common = find_k_common_elements(arrays, 2)
-    print(f"\nElements in at least 2 arrays: {k_common}")
+    print(f"Elements in at least 2 arrays: {k_common}")
     
     # Finding elements unique to first array
     unique_first = find_unique_to_first(arrays)
-    print(f"\nElements unique to first array: {unique_first}")
+    print(f"Elements unique to first array: {unique_first}")
     
     # Efficient way to find duplicates across arrays
     duplicates = set(nums1) & set(nums2)
-    print(f"\nDuplicates between first two arrays: {duplicates}")
+    print(f"Duplicates between first two arrays: {duplicates}")
     
     # Union of all arrays (unique elements)
     all_elements = set().union(*arrays)
-    print(f"\nAll unique elements: {all_elements}")
+    print(f"All unique elements: {all_elements}")
 
 # Run the demonstration
 demonstrate_array_operations()`,
 
   exercises: [
     {
-      prompt: 'Write a function that finds all elements that appear in exactly two out of three arrays.',
+      prompt:
+        'Write a function that finds all elements that appear in exactly two out of three arrays.',
       initialCode: `def elements_in_two_arrays(arr1: list, arr2: list, arr3: list) -> set:
     # Write your solution here
     pass`,
@@ -4512,7 +4562,8 @@ demonstrate_array_operations()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function that finds the longest consecutive sequence of numbers present across any of the input arrays.',
+      prompt:
+        'Implement a function that finds the longest consecutive sequence of numbers present across any of the input arrays.',
       initialCode: `def longest_consecutive_sequence(arrays: list) -> int:
     # Write your solution here
     pass`,
@@ -4541,12 +4592,13 @@ demonstrate_array_operations()`,
     
     return max_length`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'What is the time complexity of finding common elements between two arrays using sets?',
+      question:
+        'What is the time complexity of finding common elements between two arrays using sets?',
       options: [
         'O(n*m) where n and m are array lengths',
         'O(n+m) where n and m are array lengths',
@@ -4563,7 +4615,8 @@ demonstrate_array_operations()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'When finding elements common to k arrays, why convert each array to a set first?',
+      question:
+        'When finding elements common to k arrays, why convert each array to a set first?',
       options: [
         'To maintain element order',
         'To reduce memory usage',
@@ -4578,8 +4631,8 @@ demonstrate_array_operations()`,
         'Incorrect. The conversion serves a functional purpose.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const stringProblemsData: LessonContent = {
@@ -4699,36 +4752,37 @@ Just as a chemist might compare chemical compositions, sets help us compare the 
     # Example 1: Finding unique characters
     text = "mississippi"
     unique = find_unique_characters(text)
-    print(f"\nUnique characters in '{text}': {unique}")
+    print(f"Unique characters in '{text}': {unique}")
     
     # Example 2: Checking anagrams
     str1 = "listen"
     str2 = "silent"
-    print(f"\nAre '{str1}' and '{str2}' anagrams? {are_anagrams(str1, str2)}")
+    print(f"Are '{str1}' and '{str2}' anagrams? {are_anagrams(str1, str2)}")
     
     # Example 3: Finding missing characters
     pangram = "the quick brown fox"
     alphabet = "abcdefghijklmnopqrstuvwxyz"
     missing = find_missing_characters(pangram, alphabet)
-    print(f"\nMissing characters in '{pangram}': {missing}")
+    print(f"Missing characters in '{pangram}': {missing}")
     
     # Example 4: Longest unique substring
     text = "abcabcbb"
     length = longest_unique_substring(text)
-    print(f"\nLongest substring without repeats in '{text}': {length}")
+    print(f"Longest substring without repeats in '{text}': {length}")
     
     # Example 5: Common characters between strings
     word1 = "hello"
     word2 = "world"
     common = set(word1) & set(word2)
-    print(f"\nCommon characters between '{word1}' and '{word2}': {common}")
+    print(f"Common characters between '{word1}' and '{word2}': {common}")
 
 # Run the demonstration
 demonstrate_string_operations()`,
 
   exercises: [
     {
-      prompt: 'Write a function that determines if one string can be transformed into another by adding, removing, or changing a single character.',
+      prompt:
+        'Write a function that determines if one string can be transformed into another by adding, removing, or changing a single character.',
       initialCode: `def is_one_edit_distance(s1: str, s2: str) -> bool:
     # Write your solution here
     pass`,
@@ -4755,7 +4809,8 @@ demonstrate_string_operations()`,
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Create a function that finds all characters that appear the same number of times in a string.',
+      prompt:
+        'Create a function that finds all characters that appear the same number of times in a string.',
       initialCode: `def find_same_frequency_chars(text: str) -> set:
     # Write your solution here
     pass`,
@@ -4778,12 +4833,13 @@ demonstrate_string_operations()`,
         
     return max(freq_groups.values(), key=len)`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'What is the most efficient way to check if two strings contain the same characters (are anagrams)?',
+      question:
+        'What is the most efficient way to check if two strings contain the same characters (are anagrams)?',
       options: [
         'Sort both strings and compare',
         'Use Counter objects and compare',
@@ -4800,7 +4856,8 @@ demonstrate_string_operations()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Why use a set for finding the longest substring without repeating characters?',
+      question:
+        'Why use a set for finding the longest substring without repeating characters?',
       options: [
         'Sets are always faster than other data structures',
         'Sets automatically sort characters',
@@ -4815,10 +4872,9 @@ demonstrate_string_operations()`,
         'Incorrect. Sets do not preserve order.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
-
 
 const graphProblemsData: LessonContent = {
   title: 'Solving Graph Problems with Sets',
@@ -5002,7 +5058,7 @@ def demonstrate_graph_algorithms():
     g_components.add_edge(5, 6)
     g_components.add_edge(6, 7)
     
-    print("\nConnected Components Example:")
+    print("Connected Components Example:")
     components = g_components.find_connected_components()
     for i, component in enumerate(components):
         print(f"Component {i + 1}: {component}")
@@ -5015,7 +5071,7 @@ def demonstrate_graph_algorithms():
     g_path.add_edge(0, 4)
     g_path.add_edge(4, 3)
     
-    print("\nShortest Path Example:")
+    print("Shortest Path Example:")
     path = g_path.shortest_path(0, 3)
     print(f"Shortest path from 0 to 3: {path}")
 
@@ -5024,7 +5080,8 @@ demonstrate_graph_algorithms()`,
 
   exercises: [
     {
-      prompt: 'Implement a function that checks if a graph is bipartite (can be colored with two colors such that no adjacent nodes have the same color) using sets.',
+      prompt:
+        'Implement a function that checks if a graph is bipartite (can be colored with two colors such that no adjacent nodes have the same color) using sets.',
       initialCode: `def is_bipartite(graph: dict) -> bool:
     # Write your solution here
     pass`,
@@ -5063,7 +5120,8 @@ demonstrate_graph_algorithms()`,
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Write a function that finds all nodes that can reach every other node in a directed graph.',
+      prompt:
+        'Write a function that finds all nodes that can reach every other node in a directed graph.',
       initialCode: `def find_universal_nodes(graph: dict) -> set:
     # Write your solution here
     pass`,
@@ -5093,12 +5151,13 @@ demonstrate_graph_algorithms()`,
     
     return universal_nodes`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 
   quizzes: [
     {
-      question: 'Why is using a set better than a list for tracking visited nodes in graph traversal?',
+      question:
+        'Why is using a set better than a list for tracking visited nodes in graph traversal?',
       options: [
         'Sets use less memory than lists',
         'Sets maintain the order of visited nodes',
@@ -5115,7 +5174,8 @@ demonstrate_graph_algorithms()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the benefit of using two sets instead of one set and a boolean flag for bipartite checking?',
+      question:
+        'What is the benefit of using two sets instead of one set and a boolean flag for bipartite checking?',
       options: [
         'It uses less memory',
         'It makes the code shorter',
@@ -5130,8 +5190,8 @@ demonstrate_graph_algorithms()`,
         'Incorrect. The time complexity remains the same.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const setLessons: Record<string, LessonContent> = {
@@ -5148,14 +5208,14 @@ const setLessons: Record<string, LessonContent> = {
   'subset-superset': subsetSupersetData,
   'disjoint-sets': disjointSetsData,
   'set-equality': setEqualityData,
-  'hashset': hashSetData,
+  hashset: hashSetData,
   'set-complexity': setComplexityData,
   'set-vs-others': setsVsOtherDataStructuresData,
   // 'ordered-sets': orderedSetsData,
   'duplicate-detection': duplicateDetectionData,
   'unique-elements': uniqueElementsData,
   'set-conversion': setConversionData,
-  'multisets': multisetsData,
+  multisets: multisetsData,
   'set-comprehension': setComprehensionData,
   'common-mistakes': commonMistakesData,
   'array-intersection': arrayIntersectionUnionData,

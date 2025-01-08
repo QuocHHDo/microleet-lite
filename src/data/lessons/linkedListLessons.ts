@@ -1,9 +1,15 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 const linkedListCurriculum: Curriculum = {
   title: 'Linked List Curriculum',
-  description: 'A comprehensive guide to mastering linked list concepts and algorithms for technical interviews',
+  description:
+    'A comprehensive guide to mastering linked list concepts and algorithms for technical interviews',
   sections: [
     {
       id: 1,
@@ -13,21 +19,23 @@ const linkedListCurriculum: Curriculum = {
           id: 'list-basics',
           title: 'Introduction to Linked Lists',
           description: 'Understanding basic concepts and types of linked lists',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'node-structure',
           title: 'Node Structure',
-          description: 'Creating and understanding node structure and references',
-          priority: PriorityLevel.Essential
+          description:
+            'Creating and understanding node structure and references',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'list-vs-array',
           title: 'Linked Lists vs Arrays',
-          description: 'Understanding differences, time complexities, and use cases for each',
-          priority: PriorityLevel.Essential
-        }
-      ]
+          description:
+            'Understanding differences, time complexities, and use cases for each',
+          priority: PriorityLevel.Essential,
+        },
+      ],
     },
     {
       id: 2,
@@ -36,28 +44,32 @@ const linkedListCurriculum: Curriculum = {
         {
           id: 'list-traversal',
           title: 'List Traversal',
-          description: 'Methods for traversing linked lists, including edge cases',
-          priority: PriorityLevel.Essential
+          description:
+            'Methods for traversing linked lists, including edge cases',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'insertion',
           title: 'Insertion Operations',
-          description: 'Adding nodes at beginning, end, and middle with time complexity analysis',
-          priority: PriorityLevel.Essential
+          description:
+            'Adding nodes at beginning, end, and middle with time complexity analysis',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'deletion',
           title: 'Deletion Operations',
-          description: 'Removing nodes from different positions, handling edge cases',
-          priority: PriorityLevel.Essential
+          description:
+            'Removing nodes from different positions, handling edge cases',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'searching',
           title: 'Searching Elements',
-          description: 'Finding elements and implementing efficient search strategies',
-          priority: PriorityLevel.Essential
-        }
-      ]
+          description:
+            'Finding elements and implementing efficient search strategies',
+          priority: PriorityLevel.Essential,
+        },
+      ],
     },
     {
       id: 3,
@@ -66,22 +78,23 @@ const linkedListCurriculum: Curriculum = {
         {
           id: 'singly-linked',
           title: 'Singly Linked Lists',
-          description: 'Working with singly linked lists and their applications',
-          priority: PriorityLevel.Essential
+          description:
+            'Working with singly linked lists and their applications',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'doubly-linked',
           title: 'Doubly Linked Lists',
           description: 'Understanding and implementing doubly linked lists',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'circular-linked',
           title: 'Circular Linked Lists',
           description: 'Circular list concepts and operations',
-          priority: PriorityLevel.Beneficial
-        }
-      ]
+          priority: PriorityLevel.Beneficial,
+        },
+      ],
     },
     {
       id: 4,
@@ -91,21 +104,21 @@ const linkedListCurriculum: Curriculum = {
           id: 'fast-slow',
           title: 'Fast and Slow Pointers',
           description: "Floyd's cycle detection and applications",
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'multiple-pointers',
           title: 'Multiple Pointers',
           description: 'Using multiple pointers for various problems',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'distance-k',
           title: 'K Distance Apart',
           description: 'Maintaining pointers at fixed distances',
-          priority: PriorityLevel.Beneficial
-        }
-      ]
+          priority: PriorityLevel.Beneficial,
+        },
+      ],
     },
     {
       id: 5,
@@ -115,21 +128,21 @@ const linkedListCurriculum: Curriculum = {
           id: 'cycle-detection',
           title: 'Cycle Detection',
           description: 'Finding and handling cycles in linked lists',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'intersection',
           title: 'Finding Intersection',
           description: 'Detecting intersection points of two lists',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'palindrome',
           title: 'Palindrome Check',
           description: 'Verifying if a linked list is palindromic',
-          priority: PriorityLevel.Important
-        }
-      ]
+          priority: PriorityLevel.Important,
+        },
+      ],
     },
     {
       id: 6,
@@ -139,21 +152,22 @@ const linkedListCurriculum: Curriculum = {
           id: 'list-reversal',
           title: 'List Reversal',
           description: 'Different approaches to reverse linked lists',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'list-sorting',
           title: 'Sorting Lists',
-          description: 'Sorting algorithms for linked lists, especially merge sort',
-          priority: PriorityLevel.Important
+          description:
+            'Sorting algorithms for linked lists, especially merge sort',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'merging-lists',
           title: 'Merging Lists',
           description: 'Combining multiple linked lists, including K-way merge',
-          priority: PriorityLevel.Important
-        }
-      ]
+          priority: PriorityLevel.Important,
+        },
+      ],
     },
     {
       id: 7,
@@ -163,21 +177,21 @@ const linkedListCurriculum: Curriculum = {
           id: 'recursive-operations',
           title: 'Recursive Approaches',
           description: 'Solving linked list problems recursively',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'in-place-operations',
           title: 'In-place Operations',
           description: 'Modifying lists without extra space',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'dummy-node',
           title: 'Dummy Node Pattern',
           description: 'Using dummy nodes for easier list manipulation',
-          priority: PriorityLevel.Important
-        }
-      ]
+          priority: PriorityLevel.Important,
+        },
+      ],
     },
     {
       id: 8,
@@ -187,21 +201,21 @@ const linkedListCurriculum: Curriculum = {
           id: 'list-rotation',
           title: 'List Rotation',
           description: 'Rotating linked lists by K positions',
-          priority: PriorityLevel.Beneficial
+          priority: PriorityLevel.Beneficial,
         },
         {
           id: 'list-partitioning',
           title: 'List Partitioning',
           description: 'Partitioning lists around a value',
-          priority: PriorityLevel.Beneficial
+          priority: PriorityLevel.Beneficial,
         },
         {
           id: 'list-flattening',
           title: 'Flattening Lists',
           description: 'Working with nested or multi-level lists',
-          priority: PriorityLevel.Beneficial
-        }
-      ]
+          priority: PriorityLevel.Beneficial,
+        },
+      ],
     },
     {
       id: 9,
@@ -211,23 +225,23 @@ const linkedListCurriculum: Curriculum = {
           id: 'stack-implementation',
           title: 'Stack Implementation',
           description: 'Implementing stacks using linked lists',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'queue-implementation',
           title: 'Queue Implementation',
           description: 'Implementing queues using linked lists',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'lru-cache',
           title: 'LRU Cache',
           description: 'Implementing LRU cache with linked lists',
-          priority: PriorityLevel.Beneficial
-        }
-      ]
-    }
-  ]
+          priority: PriorityLevel.Beneficial,
+        },
+      ],
+    },
+  ],
 } as const;
 
 const linkedListBasicsData: LessonContent = {
@@ -310,7 +324,8 @@ linked_list.append(3)  # List: 1 -> 2 -> 3 -> None
 linked_list.print_list()`,
   exercises: [
     {
-      prompt: 'Create a linked list and append three numbers (5, 10, 15). Then print the list.',
+      prompt:
+        'Create a linked list and append three numbers (5, 10, 15). Then print the list.',
       initialCode: `class Node:
     def __init__(self, data):
         self.data = data
@@ -367,7 +382,7 @@ linked_list.print_list()`,
         current = current.next
     return count`,
       difficulty: Difficulty.Beginner,
-    }
+    },
   ],
   quizzes: [
     {
@@ -388,7 +403,8 @@ linked_list.print_list()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'Why might you choose a doubly linked list over a singly linked list?',
+      question:
+        'Why might you choose a doubly linked list over a singly linked list?',
       options: [
         'It uses less memory',
         'It allows backwards traversal',
@@ -403,7 +419,7 @@ linked_list.print_list()`,
         'Incorrect. Doubly linked lists require more complex implementation.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -478,7 +494,8 @@ while current:
 print("None")`,
   exercises: [
     {
-      prompt: 'Create a doubly linked node class and connect three nodes bidirectionally.',
+      prompt:
+        'Create a doubly linked node class and connect three nodes bidirectionally.',
       initialCode: `class DoublyNode:
     def __init__(self, data):
         # Initialize your node here
@@ -520,11 +537,12 @@ def print_backward(tail):
 print_forward(node1)
 print_backward(node3)`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What happens to a node\'s reference field when it\'s the last node in a linked list?',
+      question:
+        "What happens to a node's reference field when it's the last node in a linked list?",
       options: [
         'It points to the first node',
         'It points to itself',
@@ -535,7 +553,7 @@ print_backward(node3)`,
       explanations: [
         'Incorrect. That would make it a circular linked list.',
         'Incorrect. Self-reference would create a loop.',
-        'Correct! The last node\'s next reference is set to null to indicate the end of the list.',
+        "Correct! The last node's next reference is set to null to indicate the end of the list.",
         'Incorrect. Reference fields always exist, they just contain null.',
       ],
       difficulty: Difficulty.Beginner,
@@ -550,13 +568,13 @@ print_backward(node3)`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Reference fields don\'t store data.',
+        "Incorrect. Reference fields don't store data.",
         'Correct! Two references allow traversal in both forward and backward directions.',
-        'Incorrect. Memory management isn\'t related to number of references.',
-        'Incorrect. Search speed isn\'t directly improved by having two references.',
+        "Incorrect. Memory management isn't related to number of references.",
+        "Incorrect. Search speed isn't directly improved by having two references.",
       ],
       difficulty: Difficulty.Beginner,
-    }
+    },
   ],
 };
 
@@ -653,7 +671,8 @@ Now think of linked lists like a scavenger hunt:
 compare_performance()`,
   exercises: [
     {
-      prompt: 'Implement a function that determines whether an array or linked list would be more appropriate based on given requirements.',
+      prompt:
+        'Implement a function that determines whether an array or linked list would be more appropriate based on given requirements.',
       initialCode: `def recommend_data_structure(
     size_fixed: bool,
     random_access_needed: bool,
@@ -687,11 +706,12 @@ compare_performance()`,
         
     return "Array" if points_for_array >= points_for_list else "Linked List"`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do arrays generally have better cache performance than linked lists?',
+      question:
+        'Why do arrays generally have better cache performance than linked lists?',
       options: [
         'Arrays are always smaller in size',
         'Arrays store elements in contiguous memory locations',
@@ -702,16 +722,17 @@ compare_performance()`,
       explanations: [
         'Incorrect. Array size depends on the data being stored.',
         'Correct! Contiguous memory storage means better cache locality and fewer cache misses.',
-        'Incorrect. While true, this isn\'t why cache performance is better.',
+        "Incorrect. While true, this isn't why cache performance is better.",
         'Incorrect. Access time is a result of better cache performance, not the cause.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'For which operation would you choose a linked list over an array?',
+      question:
+        'For which operation would you choose a linked list over an array?',
       options: [
         'Binary search implementation',
-        'Storing a game\'s high score table',
+        "Storing a game's high score table",
         'Implementing an undo system',
         'Image pixel manipulation',
       ],
@@ -723,7 +744,7 @@ compare_performance()`,
         'Incorrect. Image processing requires fast random access to pixels.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -844,7 +865,8 @@ def demonstrate_traversals():
 demonstrate_traversals()`,
   exercises: [
     {
-      prompt: 'Implement a method to find the nth node from the end using the two-pointer technique.',
+      prompt:
+        'Implement a method to find the nth node from the end using the two-pointer technique.',
       initialCode: `def find_nth_from_end(self, n: int) -> int:
     """
     Find the nth node from the end of the linked list.
@@ -879,28 +901,30 @@ demonstrate_traversals()`,
     
     return second.data`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is the two-pointer technique effective for finding the middle of a linked list?',
+      question:
+        'Why is the two-pointer technique effective for finding the middle of a linked list?',
       options: [
         'It requires less memory',
-        'It\'s faster than counting all nodes',
+        "It's faster than counting all nodes",
         'It only needs one pass through the list',
         'It works better with large lists',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Memory usage is similar to other methods.',
-        'Incorrect. Speed isn\'t the main advantage over counting.',
+        "Incorrect. Speed isn't the main advantage over counting.",
         'Correct! It finds the middle in one pass without counting total nodes.',
         'Incorrect. The advantage is consistent regardless of list size.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the main challenge when traversing a circular linked list?',
+      question:
+        'What is the main challenge when traversing a circular linked list?',
       options: [
         'Higher memory usage',
         'Slower traversal speed',
@@ -910,12 +934,12 @@ demonstrate_traversals()`,
       correctAnswer: 2,
       explanations: [
         'Incorrect. Memory usage is the same as regular traversal.',
-        'Incorrect. Traversal speed isn\'t affected by circularity.',
+        "Incorrect. Traversal speed isn't affected by circularity.",
         'Correct! Without proper cycle detection, traversal could continue indefinitely.',
-        'Incorrect. Basic traversal isn\'t more complex, just needs cycle awareness.',
+        "Incorrect. Basic traversal isn't more complex, just needs cycle awareness.",
       ],
       difficulty: Difficulty.Beginner,
-    }
+    },
   ],
 };
 
@@ -1075,20 +1099,21 @@ def demonstrate_insertions():
     lst.display()  # 1 -> 2 -> 3 -> None
     
     # Insert at end
-    print("\nInserting 4, 5 at end:")
+    print("Inserting 4, 5 at end:")
     lst.insert_at_end(4)
     lst.insert_at_end(5)
     lst.display()  # 1 -> 2 -> 3 -> 4 -> 5 -> None
     
     # Insert at position
-    print("\nInserting 6 at position 2:")
+    print("Inserting 6 at position 2:")
     lst.insert_at_position(6, 2)
     lst.display()  # 1 -> 2 -> 6 -> 3 -> 4 -> 5 -> None
 
 demonstrate_insertions()`,
   exercises: [
     {
-      prompt: 'Implement a method to insert a node in a sorted linked list while maintaining the order.',
+      prompt:
+        'Implement a method to insert a node in a sorted linked list while maintaining the order.',
       initialCode: `def insert_sorted(self, data):
     """
     Insert a new node into a sorted linked list while maintaining the order.
@@ -1118,11 +1143,12 @@ demonstrate_insertions()`,
     new_node.next = current.next
     current.next = new_node`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why might you want to maintain a tail pointer in a linked list?',
+      question:
+        'Why might you want to maintain a tail pointer in a linked list?',
       options: [
         'To make deletion faster',
         'To enable backward traversal',
@@ -1131,7 +1157,7 @@ demonstrate_insertions()`,
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. A tail pointer doesn\'t help with deletion in most cases.',
+        "Incorrect. A tail pointer doesn't help with deletion in most cases.",
         'Incorrect. Backward traversal requires a doubly linked list.',
         'Correct! A tail pointer allows us to append elements in constant time.',
         'Incorrect. A tail pointer actually increases memory usage slightly.',
@@ -1139,7 +1165,8 @@ demonstrate_insertions()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the time complexity of inserting at position k in a linked list of size n?',
+      question:
+        'What is the time complexity of inserting at position k in a linked list of size n?',
       options: [
         'O(1) in all cases',
         'O(k)',
@@ -1150,11 +1177,11 @@ demonstrate_insertions()`,
       explanations: [
         'Incorrect. We need to traverse to position k.',
         'Correct! We need to traverse k nodes to reach the insertion point.',
-        'Incorrect. We don\'t always need to traverse the entire list.',
+        "Incorrect. We don't always need to traverse the entire list.",
         'Incorrect. The complexity is based on the position k.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -1347,29 +1374,30 @@ def demonstrate_deletions():
     lst.display()  # 1 -> 2 -> 3 -> 4 -> 5 -> None
     
     # Delete from beginning
-    print("\nAfter deleting from beginning:")
+    print("After deleting from beginning:")
     lst.delete_from_beginning()
     lst.display()  # 2 -> 3 -> 4 -> 5 -> None
     
     # Delete from end
-    print("\nAfter deleting from end:")
+    print("After deleting from end:")
     lst.delete_from_end()
     lst.display()  # 2 -> 3 -> 4 -> None
     
     # Delete from position 1 (second element)
-    print("\nAfter deleting from position 1:")
+    print("After deleting from position 1:")
     lst.delete_at_position(1)
     lst.display()  # 2 -> 4 -> None
     
     # Delete value 4
-    print("\nAfter deleting value 4:")
+    print("After deleting value 4:")
     lst.delete_value(4)
     lst.display()  # 2 -> None
 
 demonstrate_deletions()`,
   exercises: [
     {
-      prompt: 'Implement a method to delete all occurrences of a given value from the linked list.',
+      prompt:
+        'Implement a method to delete all occurrences of a given value from the linked list.',
       initialCode: `def delete_all_occurrences(self, value):
     """
     Delete all nodes that contain the given value.
@@ -1414,7 +1442,8 @@ demonstrate_deletions()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a method to delete nodes at even positions (0-based indexing) in the linked list.',
+      prompt:
+        'Implement a method to delete nodes at even positions (0-based indexing) in the linked list.',
       initialCode: `def delete_even_positions(self):
     """
     Delete all nodes at even positions (0, 2, 4, ...).
@@ -1459,11 +1488,12 @@ demonstrate_deletions()`,
     
     return count`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the time complexity of deleting the last node in a singly linked list with a tail pointer?',
+      question:
+        'What is the time complexity of deleting the last node in a singly linked list with a tail pointer?',
       options: [
         'O(1) in all cases',
         'O(n) in all cases',
@@ -1480,7 +1510,8 @@ demonstrate_deletions()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When deleting a node from a linked list, what potential memory issue must be considered in languages with manual memory management?',
+      question:
+        'When deleting a node from a linked list, what potential memory issue must be considered in languages with manual memory management?',
       options: [
         'Memory fragmentation',
         'Memory leaks from orphaned nodes',
@@ -1489,15 +1520,16 @@ demonstrate_deletions()`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Fragmentation isn\'t directly related to node deletion.',
+        "Incorrect. Fragmentation isn't directly related to node deletion.",
         'Correct! Failing to properly free deleted nodes can cause memory leaks.',
-        'Incorrect. Stack overflow isn\'t related to node deletion.',
-        'Incorrect. Cache performance isn\'t a memory management issue.',
+        "Incorrect. Stack overflow isn't related to node deletion.",
+        "Incorrect. Cache performance isn't a memory management issue.",
       ],
       difficulty: Difficulty.Advanced,
     },
     {
-      question: 'What is the safest order to perform operations when deleting a node?',
+      question:
+        'What is the safest order to perform operations when deleting a node?',
       options: [
         'Update next pointers, then previous pointers, then free memory',
         'Free memory, then update all pointers',
@@ -1512,7 +1544,7 @@ demonstrate_deletions()`,
         'Incorrect. Head/tail updates should be part of reference management.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -1696,7 +1728,8 @@ def demonstrate_searching():
 demonstrate_searching()`,
   exercises: [
     {
-      prompt: 'Implement a method to find all occurrences of a value in the linked list, returning a list of positions.',
+      prompt:
+        'Implement a method to find all occurrences of a value in the linked list, returning a list of positions.',
       initialCode: `def find_all_occurrences(self, target):
     """
     Find all occurrences of target value in the list.
@@ -1723,7 +1756,8 @@ demonstrate_searching()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Implement a binary search-like method for a sorted linked list using the two-pointer technique.',
+      prompt:
+        'Implement a binary search-like method for a sorted linked list using the two-pointer technique.',
       initialCode: `def binary_search(self, target):
     """
     Perform a binary search-like operation on a sorted linked list.
@@ -1770,13 +1804,14 @@ demonstrate_searching()`,
             
     return -1`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is binary search generally not efficient on a standard linked list, even if the list is sorted?',
+      question:
+        'Why is binary search generally not efficient on a standard linked list, even if the list is sorted?',
       options: [
-        'Binary search doesn\'t work with non-numeric data',
+        "Binary search doesn't work with non-numeric data",
         'Linked lists cannot be sorted properly',
         'Finding the middle element requires O(n) time',
         'Linked lists use too much memory',
@@ -1786,12 +1821,13 @@ demonstrate_searching()`,
         'Incorrect. Binary search works with any comparable data.',
         'Incorrect. Linked lists can be sorted just like arrays.',
         'Correct! Unlike arrays, we cannot directly access the middle element in O(1) time, making binary search less efficient.',
-        'Incorrect. Memory usage doesn\'t affect binary search efficiency.',
+        "Incorrect. Memory usage doesn't affect binary search efficiency.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the primary advantage of using skip pointers in a linked list?',
+      question:
+        'What is the primary advantage of using skip pointers in a linked list?',
       options: [
         'Reduced memory usage',
         'Faster insertion operations',
@@ -1801,12 +1837,12 @@ demonstrate_searching()`,
       correctAnswer: 2,
       explanations: [
         'Incorrect. Skip pointers actually increase memory usage.',
-        'Incorrect. Skip pointers don\'t significantly affect insertion time.',
+        "Incorrect. Skip pointers don't significantly affect insertion time.",
         'Correct! Skip pointers create shortcuts that can reduce traversal time for certain search patterns.',
-        'Incorrect. Cache performance isn\'t the primary benefit of skip pointers.',
+        "Incorrect. Cache performance isn't the primary benefit of skip pointers.",
       ],
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 };
 
@@ -1990,18 +2026,19 @@ def demonstrate_usage():
     if current:
         lst.insert_after(current, 4)
     
-    print("\nAfter inserting 4 after 2:")
+    print("After inserting 4 after 2:")
     lst.traverse()
     
     # Reverse the list
     lst.reverse()
-    print("\nAfter reversing:")
+    print("After reversing:")
     lst.traverse()
 
 demonstrate_usage()`,
   exercises: [
     {
-      prompt: 'Implement a method to detect if a singly linked list has a cycle using Floyd\'s cycle-finding algorithm.',
+      prompt:
+        "Implement a method to detect if a singly linked list has a cycle using Floyd's cycle-finding algorithm.",
       initialCode: `def has_cycle(self):
     """
     Detect if the linked list has a cycle.
@@ -2034,11 +2071,12 @@ demonstrate_usage()`,
             
     return False`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why might you choose not to maintain a tail pointer in a singly linked list?',
+      question:
+        'Why might you choose not to maintain a tail pointer in a singly linked list?',
       options: [
         'It makes the list faster to traverse',
         'It reduces memory usage and maintenance overhead',
@@ -2047,13 +2085,13 @@ demonstrate_usage()`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. A tail pointer doesn\'t affect traversal speed.',
+        "Incorrect. A tail pointer doesn't affect traversal speed.",
         'Correct! If you rarely need to append elements, the extra memory and maintenance overhead of a tail pointer might not be worth it.',
-        'Incorrect. A tail pointer generally doesn\'t help with deletion.',
-        'Incorrect. A tail pointer doesn\'t significantly impact reversal operations.',
+        "Incorrect. A tail pointer generally doesn't help with deletion.",
+        "Incorrect. A tail pointer doesn't significantly impact reversal operations.",
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -2255,7 +2293,7 @@ def demonstrate_usage():
     print("Original list forward:")
     lst.traverse_forward()
     
-    print("\nOriginal list backward:")
+    print("Original list backward:")
     lst.traverse_backward()
     
     # Insert 4 after node with value 2
@@ -2265,7 +2303,7 @@ def demonstrate_usage():
     if current:
         lst.insert_after(current, 4)
     
-    print("\nAfter inserting 4 after 2:")
+    print("After inserting 4 after 2:")
     lst.traverse_forward()
     
     # Delete node with value 3
@@ -2275,15 +2313,16 @@ def demonstrate_usage():
     if current:
         lst.delete_node(current)
     
-    print("\nAfter deleting 3:")
+    print("After deleting 3:")
     lst.traverse_forward()
     
-    print("\nMiddle element:", lst.find_middle())
+    print("Middle element:", lst.find_middle())
 
 demonstrate_usage()`,
   exercises: [
     {
-      prompt: 'Implement a method to swap two nodes in a doubly linked list given their values.',
+      prompt:
+        'Implement a method to swap two nodes in a doubly linked list given their values.',
       initialCode: `def swap_nodes(self, value1, value2):
     """
     Swap two nodes with given values in the doubly linked list.
@@ -2344,11 +2383,12 @@ demonstrate_usage()`,
     if node2.next:
         node2.next.prev = node2`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the main trade-off when using a doubly linked list instead of a singly linked list?',
+      question:
+        'What is the main trade-off when using a doubly linked list instead of a singly linked list?',
       options: [
         'Slower traversal speed',
         'More complex implementation with higher memory usage',
@@ -2363,7 +2403,7 @@ demonstrate_usage()`,
         'Incorrect. Insertion performance is similar to singly linked lists.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -2548,23 +2588,24 @@ def demonstrate_usage():
         current = current.next
     clist.insert_after(current, 4)
     
-    print("\nAfter inserting 4 after 2:")
+    print("After inserting 4 after 2:")
     clist.traverse()
     
     # Delete 3
     clist.delete_node(3)
-    print("\nAfter deleting 3:")
+    print("After deleting 3:")
     clist.traverse()
     
     # Rotate by 2 positions
     clist.rotate(2)
-    print("\nAfter rotating by 2 positions:")
+    print("After rotating by 2 positions:")
     clist.traverse()
 
 demonstrate_usage()`,
   exercises: [
     {
-      prompt: 'Implement a method to detect if a linked list is circular and find the starting node of the cycle.',
+      prompt:
+        'Implement a method to detect if a linked list is circular and find the starting node of the cycle.',
       initialCode: `def find_cycle_start(self):
     """
     Find the starting node of a cycle in the list.
@@ -2605,11 +2646,12 @@ demonstrate_usage()`,
         
     return slow.data`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the key advantage of using a circular linked list over a regular linked list?',
+      question:
+        'What is the key advantage of using a circular linked list over a regular linked list?',
       options: [
         'Faster traversal speed',
         'Less memory usage',
@@ -2626,7 +2668,8 @@ demonstrate_usage()`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the main challenge when implementing a circular linked list?',
+      question:
+        'What is the main challenge when implementing a circular linked list?',
       options: [
         'Higher memory requirements',
         'Avoiding infinite loops during traversal',
@@ -2641,7 +2684,7 @@ demonstrate_usage()`,
         'Incorrect. Circular lists provide additional functionality.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -2870,7 +2913,8 @@ def demonstrate_fast_slow():
 demonstrate_fast_slow()`,
   exercises: [
     {
-      prompt: 'Implement a method to find the intersection point of two linked lists using the fast-slow pointer technique.',
+      prompt:
+        'Implement a method to find the intersection point of two linked lists using the fast-slow pointer technique.',
       initialCode: `def find_intersection(list1, list2):
     """
     Find the intersection point of two linked lists.
@@ -2917,14 +2961,15 @@ demonstrate_fast_slow()`,
         
     return None`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why does Floyd\'s cycle detection algorithm use different speeds for the two pointers?',
+      question:
+        "Why does Floyd's cycle detection algorithm use different speeds for the two pointers?",
       options: [
         'To save memory',
-        'To ensure the pointers will meet if there\'s a cycle',
+        "To ensure the pointers will meet if there's a cycle",
         'To make the algorithm faster',
         'To handle larger lists',
       ],
@@ -2932,13 +2977,14 @@ demonstrate_fast_slow()`,
       explanations: [
         'Incorrect. The memory usage is the same regardless of pointer speeds.',
         'Correct! Different speeds ensure the pointers will eventually meet in a cycle, as their relative speed allows them to catch up.',
-        'Incorrect. The algorithm\'s speed isn\'t improved by using different pointer speeds.',
-        'Incorrect. The list size doesn\'t affect the need for different speeds.',
+        "Incorrect. The algorithm's speed isn't improved by using different pointer speeds.",
+        "Incorrect. The list size doesn't affect the need for different speeds.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'In the palindrome check algorithm, why do we reverse the first half of the list while finding the middle?',
+      question:
+        'In the palindrome check algorithm, why do we reverse the first half of the list while finding the middle?',
       options: [
         'To improve algorithm efficiency',
         'To save memory by modifying in-place',
@@ -2953,7 +2999,7 @@ demonstrate_fast_slow()`,
         'Incorrect. While true, this is a consequence, not the main reason.',
       ],
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 };
 
@@ -3192,7 +3238,8 @@ def create_sorted_list(values):
 demonstrate_multi_pointer()`,
   exercises: [
     {
-      prompt: 'Implement a method to rearrange a linked list such that all even-valued nodes appear after odd-valued nodes while maintaining their relative order.',
+      prompt:
+        'Implement a method to rearrange a linked list such that all even-valued nodes appear after odd-valued nodes while maintaining their relative order.',
       initialCode: `def group_even_odd(self):
     """
     Rearrange list so odd values appear before even values.
@@ -3230,11 +3277,12 @@ demonstrate_multi_pointer()`,
     # Update head to start of odd group
     self.head = odd_head.next`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why might we prefer multiple pointers over using additional data structures?',
+      question:
+        'Why might we prefer multiple pointers over using additional data structures?',
       options: [
         'Multiple pointers are always faster',
         'To achieve constant space complexity',
@@ -3249,7 +3297,7 @@ demonstrate_multi_pointer()`,
         'Incorrect. Multiple pointer solutions often increase code complexity.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -3443,7 +3491,8 @@ def demonstrate_k_distance():
 demonstrate_k_distance()`,
   exercises: [
     {
-      prompt: 'Implement a method to rearrange a linked list by connecting nodes that are k distance apart directly.',
+      prompt:
+        'Implement a method to rearrange a linked list by connecting nodes that are k distance apart directly.',
       initialCode: `def connect_k_distant_nodes(self, k):
     """
     Rearrange list by connecting each node to its k-distant node.
@@ -3492,11 +3541,12 @@ demonstrate_k_distance()`,
     if k > 1:
         self.head = nodes[0]`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the key challenge when implementing k-distance pointer algorithms?',
+      question:
+        'What is the key challenge when implementing k-distance pointer algorithms?',
       options: [
         'High memory usage',
         'Complex pointer manipulation',
@@ -3511,7 +3561,7 @@ demonstrate_k_distance()`,
         'Incorrect. These algorithms are usually O(n) time efficient.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -3709,19 +3759,20 @@ def demonstrate_cycle_detection():
     
     # Detect cycle using Brent's algorithm
     has_cycle, start, length = lst.brent_cycle_detection()
-    print(f"\nBrent's Algorithm:")
+    print(f"Brent's Algorithm:")
     print(f"Has cycle: {has_cycle}")
     print(f"Cycle starts at: {start}")
     print(f"Cycle length: {length}")
     
     # Break cycle
     cycle_broken = lst.break_cycle()
-    print(f"\nCycle broken: {cycle_broken}")
+    print(f"Cycle broken: {cycle_broken}")
 
 demonstrate_cycle_detection()`,
   exercises: [
     {
-      prompt: 'Implement a method to find the length of a cycle without using extra space, assuming a cycle exists.',
+      prompt:
+        'Implement a method to find the length of a cycle without using extra space, assuming a cycle exists.',
       initialCode: `def find_cycle_length(self):
     """
     Find the length of the cycle in the linked list.
@@ -3762,11 +3813,12 @@ demonstrate_cycle_detection()`,
         
     return length`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why does Floyd\'s algorithm use a fast pointer moving at twice the speed of the slow pointer?',
+      question:
+        "Why does Floyd's algorithm use a fast pointer moving at twice the speed of the slow pointer?",
       options: [
         'To minimize memory usage',
         'To guarantee cycle detection if it exists',
@@ -3775,13 +3827,13 @@ demonstrate_cycle_detection()`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Pointer speed doesn\'t affect memory usage.',
+        "Incorrect. Pointer speed doesn't affect memory usage.",
         'Correct! The 2:1 speed ratio ensures the pointers will meet if a cycle exists.',
         'Incorrect. Finding the cycle start requires a separate phase.',
         'Incorrect. The speed ratio is for correctness, not performance.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -3980,7 +4032,8 @@ def demonstrate_intersection():
 demonstrate_intersection()`,
   exercises: [
     {
-      prompt: 'Implement a method to find the length of the overlapping portion of two intersecting linked lists.',
+      prompt:
+        'Implement a method to find the length of the overlapping portion of two intersecting linked lists.',
       initialCode: `def find_overlap_length(self, list2):
     """
     Find the length of the overlapping portion of two intersecting lists.
@@ -4018,15 +4071,16 @@ demonstrate_intersection()`,
         
     return overlap_length`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why does the two-pointer method work for finding intersections?',
+      question:
+        'Why does the two-pointer method work for finding intersections?',
       options: [
         'It uses less memory than other methods',
         'Both pointers traverse the same total distance',
-        'It\'s faster than the length difference method',
+        "It's faster than the length difference method",
         'It can handle cycles in the lists',
       ],
       correctAnswer: 1,
@@ -4037,7 +4091,7 @@ demonstrate_intersection()`,
         'Incorrect. Neither method is designed to handle cycles.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -4247,7 +4301,7 @@ def demonstrate_palindrome():
             prev.next = node
         prev = node
             
-    print("\nTesting non-palindrome: 1->2->3->4->5")
+    print("Testing non-palindrome: 1->2->3->4->5")
     print("Stack method:", lst2.is_palindrome_stack())
     print("Reverse method:", lst2.is_palindrome_reverse())
     print("Recursive method:", lst2.is_palindrome_recursive())
@@ -4255,7 +4309,8 @@ def demonstrate_palindrome():
 demonstrate_palindrome()`,
   exercises: [
     {
-      prompt: 'Implement a method to check if a linked list is a palindrome ignoring case and special characters.',
+      prompt:
+        'Implement a method to check if a linked list is a palindrome ignoring case and special characters.',
       initialCode: `def is_palindrome_ignore_special(self):
     """
     Check if list is palindrome ignoring case and special characters.
@@ -4289,15 +4344,16 @@ demonstrate_palindrome()`,
     # Use reverse method on clean list
     return clean_list.is_palindrome_reverse()`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why might we prefer the reverse half approach over the stack-based approach?',
+      question:
+        'Why might we prefer the reverse half approach over the stack-based approach?',
       options: [
-        'It\'s easier to implement',
+        "It's easier to implement",
         'It uses constant extra space',
-        'It\'s faster',
+        "It's faster",
         'It handles odd-length lists better',
       ],
       correctAnswer: 1,
@@ -4308,7 +4364,7 @@ demonstrate_palindrome()`,
         'Incorrect. Both approaches handle odd-length lists equally well.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -4506,23 +4562,24 @@ def demonstrate_reversal():
     
     # Test recursive reversal
     lst.reverse_recursive()
-    print("\nAfter recursive reversal (back to original):")
+    print("After recursive reversal (back to original):")
     lst.display()
     
     # Test stack-based reversal
     lst.reverse_stack_based()
-    print("\nAfter stack-based reversal:")
+    print("After stack-based reversal:")
     lst.display()
     
     # Test group reversal (k=2)
     lst.reverse_in_groups(2)
-    print("\nAfter reversing in groups of 2:")
+    print("After reversing in groups of 2:")
     lst.display()
 
 demonstrate_reversal()`,
   exercises: [
     {
-      prompt: 'Implement a method to reverse alternate k nodes in a linked list while keeping other nodes in their original order.',
+      prompt:
+        'Implement a method to reverse alternate k nodes in a linked list while keeping other nodes in their original order.',
       initialCode: `def reverse_alternate_k_nodes(self, k):
     """
     Reverse alternate groups of k nodes.
@@ -4581,11 +4638,12 @@ demonstrate_reversal()`,
         # Toggle reverse flag
         is_reverse_group = not is_reverse_group`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why does recursive reversal use O(n) space while iterative uses O(1)?',
+      question:
+        'Why does recursive reversal use O(n) space while iterative uses O(1)?',
       options: [
         'Recursive is inherently slower',
         'Iterative uses better algorithms',
@@ -4594,13 +4652,13 @@ demonstrate_reversal()`,
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Speed isn\'t related to space complexity.',
+        "Incorrect. Speed isn't related to space complexity.",
         'Incorrect. Both use similar logic, just different approaches.',
         'Correct! Each recursive call adds a frame to the call stack, using O(n) space.',
         'Incorrect. Both process the same number of nodes.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -4801,7 +4859,7 @@ def demonstrate_sorting():
     
     # Test merge sort
     lst.merge_sort()
-    print("\nAfter merge sort:")
+    print("After merge sort:")
     lst.display()
     
     # Create new list for insertion sort
@@ -4815,13 +4873,14 @@ def demonstrate_sorting():
         prev = node
     
     lst2.insertion_sort()
-    print("\nAfter insertion sort:")
+    print("After insertion sort:")
     lst2.display()
 
 demonstrate_sorting()`,
   exercises: [
     {
-      prompt: 'Implement a method to sort a linked list such that all nodes containing even numbers appear before nodes containing odd numbers, maintaining relative order within even and odd numbers.',
+      prompt:
+        'Implement a method to sort a linked list such that all nodes containing even numbers appear before nodes containing odd numbers, maintaining relative order within even and odd numbers.',
       initialCode: `def sort_even_odd(self):
     """
     Sort list so that even numbers appear before odd numbers.
@@ -4864,11 +4923,12 @@ demonstrate_sorting()`,
     # Update head
     self.head = even_dummy.next`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is merge sort particularly well-suited for linked lists compared to quicksort?',
+      question:
+        'Why is merge sort particularly well-suited for linked lists compared to quicksort?',
       options: [
         'Merge sort is always faster than quicksort',
         'Quicksort requires random access which is costly in linked lists',
@@ -4878,12 +4938,12 @@ demonstrate_sorting()`,
       correctAnswer: 1,
       explanations: [
         'Incorrect. Speed depends on the specific case and implementation.',
-        'Correct! Quicksort\'s random access pattern is inefficient with linked lists, while merge sort\'s sequential access pattern works well.',
+        "Correct! Quicksort's random access pattern is inefficient with linked lists, while merge sort's sequential access pattern works well.",
         'Incorrect. Both algorithms use O(log n) extra space.',
         'Incorrect. Both algorithms have similar implementation complexity.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -5086,7 +5146,7 @@ def demonstrate_merging():
         list2_copy.append(val)
     
     list1_copy.simple_merge(list2_copy)
-    print("\nAfter simple merge:")
+    print("After simple merge:")
     list1_copy.display()
     
     # Demonstrate sorted merge
@@ -5098,18 +5158,19 @@ def demonstrate_merging():
         list2_copy.append(val)
     
     list1_copy.sorted_merge(list2_copy)
-    print("\nAfter sorted merge:")
+    print("After sorted merge:")
     list1_copy.display()
     
     # Demonstrate k-way merge
     result = LinkedList.k_way_merge([list1, list2, list3])
-    print("\nAfter k-way merge:")
+    print("After k-way merge:")
     result.display()
 
 demonstrate_merging()`,
   exercises: [
     {
-      prompt: 'Implement a method to merge k sorted linked lists in a way that alternates between taking elements from each list while maintaining relative order within each list.',
+      prompt:
+        'Implement a method to merge k sorted linked lists in a way that alternates between taking elements from each list while maintaining relative order within each list.',
       initialCode: `def merge_alternate(lists: List[LinkedList]) -> LinkedList:
     """
     Merge k lists by alternating between them.
@@ -5151,11 +5212,12 @@ demonstrate_merging()`,
     result.head = dummy.next
     return result`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is a min-heap used in k-way merge instead of comparing all current nodes directly?',
+      question:
+        'Why is a min-heap used in k-way merge instead of comparing all current nodes directly?',
       options: [
         'It uses less memory',
         'It makes the code simpler',
@@ -5170,7 +5232,7 @@ demonstrate_merging()`,
         'Incorrect. Empty lists can be handled equally well with either approach.',
       ],
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 };
 
@@ -5371,10 +5433,10 @@ def demonstrate_recursive_operations():
     print("Original list:")
     lst.print_recursive()
     
-    print("\nPrint list in reverse order:")
+    print("Print list in reverse order:")
     lst.print_reverse_recursive()
     
-    print("\nSum of all nodes:", lst.sum_recursive())
+    print("Sum of all nodes:", lst.sum_recursive())
     
     print("Contains 3?", lst.contains_recursive(3))
     print("Contains 6?", lst.contains_recursive(6))
@@ -5382,13 +5444,14 @@ def demonstrate_recursive_operations():
     print("2nd node from end:", lst.get_nth_from_end_recursive(2))
     
     lst.reverse_recursive()
-    print("\nAfter recursive reversal:")
+    print("After recursive reversal:")
     lst.print_recursive()
 
 demonstrate_recursive_operations()`,
   exercises: [
     {
-      prompt: 'Implement a recursive method to remove all nodes with values greater than a given value while maintaining the relative order of remaining nodes.',
+      prompt:
+        'Implement a recursive method to remove all nodes with values greater than a given value while maintaining the relative order of remaining nodes.',
       initialCode: `def remove_greater_than_recursive(self, value):
     """
     Remove all nodes with data greater than given value.
@@ -5418,16 +5481,17 @@ demonstrate_recursive_operations()`,
         
     self.head = remove_util(self.head, value)`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why might tail recursion be preferred over head recursion in some cases?',
+      question:
+        'Why might tail recursion be preferred over head recursion in some cases?',
       options: [
         'It uses less memory',
         'It can be optimized to iteration by the compiler',
-        'It\'s easier to understand',
-        'It\'s faster at runtime',
+        "It's easier to understand",
+        "It's faster at runtime",
       ],
       correctAnswer: 1,
       explanations: [
@@ -5437,7 +5501,7 @@ demonstrate_recursive_operations()`,
         'Incorrect. Without compiler optimization, both have similar runtime performance.',
       ],
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 };
 
@@ -5670,7 +5734,8 @@ def print_list(head):
 demonstrate_in_place()`,
   exercises: [
     {
-      prompt: 'Implement a method to rotate a linked list counter-clockwise by k positions in-place.',
+      prompt:
+        'Implement a method to rotate a linked list counter-clockwise by k positions in-place.',
       initialCode: `def rotate_left_in_place(self, k):
     """
     Rotate list counter-clockwise by k positions.
@@ -5713,11 +5778,12 @@ demonstrate_in_place()`,
     tail.next = self.head
     self.head = new_head`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is it important to save the next pointer before modifying a node during in-place operations?',
+      question:
+        'Why is it important to save the next pointer before modifying a node during in-place operations?',
       options: [
         'To improve performance',
         'To prevent losing access to the rest of the list',
@@ -5726,13 +5792,13 @@ demonstrate_in_place()`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Saving the pointer doesn\'t significantly affect performance.',
-        'Correct! Once we modify a node\'s next pointer, we lose access to the rest of the list unless we saved it.',
-        'Incorrect. While it might help readability, that\'s not the main reason.',
-        'Incorrect. Saving the pointer doesn\'t affect memory usage significantly.',
+        "Incorrect. Saving the pointer doesn't significantly affect performance.",
+        "Correct! Once we modify a node's next pointer, we lose access to the rest of the list unless we saved it.",
+        "Incorrect. While it might help readability, that's not the main reason.",
+        "Incorrect. Saving the pointer doesn't affect memory usage significantly.",
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -5887,7 +5953,7 @@ def demonstrate_dummy_node():
     
     # Delete middle element
     lst.delete_at_position(1)
-    print("\nAfter deleting position 1:")
+    print("After deleting position 1:")
     lst.display()
     
     # Create another list for merging
@@ -5895,18 +5961,19 @@ def demonstrate_dummy_node():
     for i in [2, 4, 6]:
         lst2.insert_at_position(lst2.size, i)
     
-    print("\nSecond list:")
+    print("Second list:")
     lst2.display()
     
     # Merge lists
     lst.merge_sorted(lst2)
-    print("\nAfter merging:")
+    print("After merging:")
     lst.display()
 
 demonstrate_dummy_node()`,
   exercises: [
     {
-      prompt: 'Implement a method to remove all nodes with a given value using the dummy node pattern. The method should handle all edge cases elegantly.',
+      prompt:
+        'Implement a method to remove all nodes with a given value using the dummy node pattern. The method should handle all edge cases elegantly.',
       initialCode: `def remove_all(self, value):
     """
     Remove all nodes with the given value.
@@ -5930,11 +5997,12 @@ demonstrate_dummy_node()`,
             
     return self.size  # Return new size for convenience`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the main advantage of using a dummy node in linked list implementations?',
+      question:
+        'What is the main advantage of using a dummy node in linked list implementations?',
       options: [
         'It improves time complexity',
         'It reduces memory usage',
@@ -5943,10 +6011,10 @@ demonstrate_dummy_node()`,
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Dummy nodes don\'t affect time complexity of operations.',
+        "Incorrect. Dummy nodes don't affect time complexity of operations.",
         'Incorrect. Dummy nodes actually use a small amount of extra memory.',
         'Correct! Dummy nodes eliminate the need for special case handling of the head node, simplifying implementations.',
-        'Incorrect. Traversal speed isn\'t affected by dummy nodes.',
+        "Incorrect. Traversal speed isn't affected by dummy nodes.",
       ],
       difficulty: Difficulty.Beginner,
     },
@@ -5966,7 +6034,7 @@ demonstrate_dummy_node()`,
         'Incorrect. Dummy nodes can simplify stack implementations.',
       ],
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
 };
 
@@ -6175,7 +6243,8 @@ def print_list(head):
 demonstrate_rotation()`,
   exercises: [
     {
-      prompt: 'Implement a method to rotate a linked list by k positions while maintaining the relative order of every k nodes.',
+      prompt:
+        'Implement a method to rotate a linked list by k positions while maintaining the relative order of every k nodes.',
       initialCode: `def rotate_by_groups(self, k):
     """
     Rotate list maintaining relative order of k-sized groups.
@@ -6209,11 +6278,12 @@ demonstrate_rotation()`,
     rotation_amount = k * ((complete_groups - 1) % complete_groups)
     self.rotate_right(rotation_amount)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do we normalize the rotation amount using the modulo operator?',
+      question:
+        'Why do we normalize the rotation amount using the modulo operator?',
       options: [
         'To make the rotation faster',
         'To avoid unnecessary complete rotations',
@@ -6222,13 +6292,13 @@ demonstrate_rotation()`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. The normalization doesn\'t affect the rotation speed.',
+        "Incorrect. The normalization doesn't affect the rotation speed.",
         'Correct! Rotating by the list length brings us back to the start, so we only need to rotate by k % length.',
-        'Incorrect. Memory usage isn\'t affected by the rotation amount.',
-        'Incorrect. While modulo can help with negative numbers, that\'s not its primary purpose here.',
+        "Incorrect. Memory usage isn't affected by the rotation amount.",
+        "Incorrect. While modulo can help with negative numbers, that's not its primary purpose here.",
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -6496,7 +6566,8 @@ def print_list(head):
 demonstrate_partitioning()`,
   exercises: [
     {
-      prompt: 'Implement a method to partition a linked list such that all prime numbers appear before non-prime numbers while maintaining the relative order within each group.',
+      prompt:
+        'Implement a method to partition a linked list such that all prime numbers appear before non-prime numbers while maintaining the relative order within each group.',
       initialCode: `def partition_by_prime(self):
     """
     Partition list so prime numbers appear before non-prime numbers.
@@ -6541,11 +6612,12 @@ demonstrate_partitioning()`,
     prime.next = non_prime_head.next
     self.head = prime_head.next`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why might we choose a three-way partition over a two-way partition?',
+      question:
+        'Why might we choose a three-way partition over a two-way partition?',
       options: [
         'Three-way partition is always faster',
         'To handle elements equal to the pivot more efficiently',
@@ -6560,9 +6632,9 @@ demonstrate_partitioning()`,
         'Incorrect. Three-way partitioning actually adds complexity to the code.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
-};;
+};
 
 const listFlatteningData: LessonContent = {
   title: 'Flattening Multi-level Lists: Converting Hierarchy to Sequence',
@@ -6776,20 +6848,21 @@ def demonstrate_flattening():
     
     # Test iterative flattening
     lst2 = create_test_list()
-    print("\nOriginal multi-level list flattened iteratively:")
+    print("Original multi-level list flattened iteratively:")
     lst2.flatten_iterative()
     lst2.display()
     
     # Test stack-based flattening
     lst3 = create_test_list()
-    print("\nOriginal multi-level list flattened using stack:")
+    print("Original multi-level list flattened using stack:")
     lst3.flatten_with_stack()
     lst3.display()
 
 demonstrate_flattening()`,
   exercises: [
     {
-      prompt: 'Implement a method to flatten a multi-level linked list while maintaining a specified order: process main list nodes first, then their children in reverse order.',
+      prompt:
+        'Implement a method to flatten a multi-level linked list while maintaining a specified order: process main list nodes first, then their children in reverse order.',
       initialCode: `def flatten_custom_order(self):
     """
     Flatten list with custom ordering:
@@ -6830,16 +6903,17 @@ demonstrate_flattening()`,
         while tail.next:
             tail = tail.next`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why might we prefer an iterative approach over a recursive approach for flattening a multi-level list?',
+      question:
+        'Why might we prefer an iterative approach over a recursive approach for flattening a multi-level list?',
       options: [
-        'It\'s always faster',
+        "It's always faster",
         'To avoid stack overflow with deep nesting',
         'It uses less memory in all cases',
-        'It\'s easier to implement',
+        "It's easier to implement",
       ],
       correctAnswer: 1,
       explanations: [
@@ -6849,7 +6923,7 @@ demonstrate_flattening()`,
         'Incorrect. Recursive approaches are often more intuitive to implement.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -7013,9 +7087,9 @@ def demonstrate_stack():
         print(f"Pushed {i}:")
         stack.display()
     
-    print("\nPeeking at top:", stack.peek())
+    print("Peeking at top:", stack.peek())
     
-    print("\nPopping elements:")
+    print("Popping elements:")
     while not stack.is_empty():
         popped = stack.pop()
         print(f"Popped {popped}:")
@@ -7025,10 +7099,10 @@ def demonstrate_stack():
     try:
         stack.pop()
     except ValueError as e:
-        print("\nTrying to pop from empty stack:", str(e))
+        print("Trying to pop from empty stack:", str(e))
     
     # Demonstrate practical usage
-    print("\nChecking balanced parentheses:")
+    print("Checking balanced parentheses:")
     def is_balanced(expression):
         stack = LinkedListStack()
         
@@ -7050,7 +7124,8 @@ def demonstrate_stack():
 demonstrate_stack()`,
   exercises: [
     {
-      prompt: 'Implement a method to reverse a stack using only stack operations (push, pop) and without using any extra data structure.',
+      prompt:
+        'Implement a method to reverse a stack using only stack operations (push, pop) and without using any extra data structure.',
       initialCode: `def reverse_stack(self):
     """
     Reverse the order of elements in the stack.
@@ -7078,11 +7153,12 @@ demonstrate_stack()`,
         reverse_stack(self)
         insert_at_bottom(temp)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why might we choose to implement a stack using a linked list instead of an array?',
+      question:
+        'Why might we choose to implement a stack using a linked list instead of an array?',
       options: [
         'Linked list implementation is always faster',
         'No need to specify initial size or handle resizing',
@@ -7097,7 +7173,7 @@ demonstrate_stack()`,
         'Incorrect. The operations are similarly complex in both implementations.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -7259,9 +7335,9 @@ def demonstrate_queue():
         print(f"Enqueued {i}:")
         queue.display()
     
-    print("\nPeeking at front:", queue.peek())
+    print("Peeking at front:", queue.peek())
     
-    print("\nDequeuing elements:")
+    print("Dequeuing elements:")
     while not queue.is_empty():
         dequeued = queue.dequeue()
         print(f"Dequeued {dequeued}:")
@@ -7276,7 +7352,7 @@ def demonstrate_queue():
         def __str__(self):
             return f"{self.doc_name}({self.pages}p)"
     
-    print("\nSimulating print server queue:")
+    print("Simulating print server queue:")
     printer_queue = LinkedListQueue()
     
     # Add print jobs
@@ -7292,7 +7368,7 @@ def demonstrate_queue():
         printer_queue.display()
     
     # Process print jobs
-    print("\nProcessing print jobs:")
+    print("Processing print jobs:")
     while not printer_queue.is_empty():
         job = printer_queue.dequeue()
         print(f"Printing {job}...")
@@ -7301,7 +7377,8 @@ def demonstrate_queue():
 demonstrate_queue()`,
   exercises: [
     {
-      prompt: 'Implement a method to reverse the elements of a queue using only queue operations (enqueue and dequeue) and one additional queue.',
+      prompt:
+        'Implement a method to reverse the elements of a queue using only queue operations (enqueue and dequeue) and one additional queue.',
       initialCode: `def reverse_queue(self):
     """
     Reverse the order of elements in the queue.
@@ -7328,11 +7405,12 @@ demonstrate_queue()`,
     # Add front element to back
     self.enqueue(front)`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is maintaining a tail pointer crucial for efficient queue implementation with linked lists?',
+      question:
+        'Why is maintaining a tail pointer crucial for efficient queue implementation with linked lists?',
       options: [
         'It makes dequeue operations faster',
         'It enables O(1) enqueue operations',
@@ -7347,7 +7425,7 @@ demonstrate_queue()`,
         'Incorrect. Using a tail pointer adds some complexity to maintain it properly.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -7513,25 +7591,25 @@ def demonstrate_lru_cache():
     cache.display_access_order()
     
     cache.put(2, 'two')
-    print("\nAfter adding 2:")
+    print("After adding 2:")
     cache.display_access_order()
     
     cache.put(3, 'three')
-    print("\nAfter adding 3:")
+    print("After adding 3:")
     cache.display_access_order()
     
-    print("\nAccessing key 1...")
+    print("Accessing key 1...")
     cache.get(1)
     print("After access:")
     cache.display_access_order()
     
-    print("\nAdding new element (exceeds capacity):")
+    print("Adding new element (exceeds capacity):")
     cache.put(4, 'four')
     print("After adding 4 (least recently used 2 is evicted):")
     cache.display_access_order()
     
     # Demonstrate practical usage
-    print("\nPractical example - URL cache:")
+    print("Practical example - URL cache:")
     url_cache = LRUCache(3)
     
     urls = [
@@ -7542,7 +7620,7 @@ def demonstrate_lru_cache():
     ]
     
     for url, content in urls:
-        print(f"\nAccessing {url}")
+        print(f"Accessing {url}")
         if url_cache.get(url) == -1:
             print(f"Cache miss for {url}, fetching content...")
             url_cache.put(url, content)
@@ -7551,7 +7629,8 @@ def demonstrate_lru_cache():
 demonstrate_lru_cache()`,
   exercises: [
     {
-      prompt: 'Implement a method to retrieve the n most recently used items from the cache in order of their last access.',
+      prompt:
+        'Implement a method to retrieve the n most recently used items from the cache in order of their last access.',
       initialCode: `def get_most_recent(self, n):
     """
     Return the n most recently used items in order of access.
@@ -7577,11 +7656,12 @@ demonstrate_lru_cache()`,
         
     return result`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do we use both a hash map and a doubly linked list in the LRU cache implementation?',
+      question:
+        'Why do we use both a hash map and a doubly linked list in the LRU cache implementation?',
       options: [
         'To reduce memory usage',
         'To enable O(1) access and maintain order',
@@ -7596,7 +7676,7 @@ demonstrate_lru_cache()`,
         'Incorrect. Collision handling is not the primary reason for this design.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -7605,9 +7685,9 @@ const linkedListLessons: Record<string, LessonContent> = {
   'node-structure': nodeStructureData,
   'list-vs-array': listVsArrayData,
   'list-traversal': listTraversalData,
-  'insertion': insertionData,
-  'deletion': deletionData,
-  'searching': searchingData,
+  insertion: insertionData,
+  deletion: deletionData,
+  searching: searchingData,
   'singly-linked': singlyLinkedData,
   'doubly-linked': doublyLinkedData,
   'circular-linked': circularLinkedData,
@@ -7615,8 +7695,8 @@ const linkedListLessons: Record<string, LessonContent> = {
   'multiple-pointers': multiplePointersData,
   'distance-k': distanceKData,
   'cycle-detection': cycleDetectionData,
-  'intersection': intersectionData,
-  'palindrome': palindromeData,
+  intersection: intersectionData,
+  palindrome: palindromeData,
   'list-reversal': listReversalData,
   'list-sorting': listSortingData,
   'merging-lists': mergingListsData,

@@ -1,9 +1,15 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 const queueCurriculum: Curriculum = {
   title: 'Queue Curriculum',
-  description: 'A focused guide to mastering queue-based coding interview problems',
+  description:
+    'A focused guide to mastering queue-based coding interview problems',
   sections: [
     {
       id: 1,
@@ -12,22 +18,25 @@ const queueCurriculum: Curriculum = {
         {
           id: 'queue-concept',
           title: 'Queue Concept and Properties',
-          description: 'Understanding FIFO principle and time complexity analysis',
-          priority: PriorityLevel.Essential
+          description:
+            'Understanding FIFO principle and time complexity analysis',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'queue-implementation',
           title: 'Queue Implementation',
-          description: 'Implementing queue using arrays and linked lists, handling full/empty cases',
-          priority: PriorityLevel.Essential
+          description:
+            'Implementing queue using arrays and linked lists, handling full/empty cases',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'queue-operations',
           title: 'Basic Queue Operations',
-          description: 'Mastering enqueue, dequeue, peek, isEmpty with common edge cases',
-          priority: PriorityLevel.Essential
-        }
-      ]
+          description:
+            'Mastering enqueue, dequeue, peek, isEmpty with common edge cases',
+          priority: PriorityLevel.Essential,
+        },
+      ],
     },
     {
       id: 2,
@@ -36,22 +45,25 @@ const queueCurriculum: Curriculum = {
         {
           id: 'tree-bfs',
           title: 'Tree Level Order Problems',
-          description: 'Level order traversal, zigzag traversal, level averages, right side view',
-          priority: PriorityLevel.Essential
+          description:
+            'Level order traversal, zigzag traversal, level averages, right side view',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'graph-bfs',
           title: 'Graph BFS Problems',
-          description: 'Shortest path, word ladder, open the lock, rotting oranges',
-          priority: PriorityLevel.Essential
+          description:
+            'Shortest path, word ladder, open the lock, rotting oranges',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'matrix-bfs',
           title: 'Matrix BFS Problems',
-          description: '01 matrix, walls and gates, shortest bridge, pacific atlantic water flow',
-          priority: PriorityLevel.Essential
-        }
-      ]
+          description:
+            '01 matrix, walls and gates, shortest bridge, pacific atlantic water flow',
+          priority: PriorityLevel.Essential,
+        },
+      ],
     },
     {
       id: 3,
@@ -61,21 +73,23 @@ const queueCurriculum: Curriculum = {
           id: 'priority-basics',
           title: 'Priority Queue Essentials',
           description: 'Using built-in priority queue/heap for coding problems',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'top-k-pattern',
           title: 'Top-K Pattern Problems',
-          description: 'Kth largest element, top K frequent elements, K closest points',
-          priority: PriorityLevel.Essential
+          description:
+            'Kth largest element, top K frequent elements, K closest points',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'merge-pattern',
           title: 'K-way Merge Problems',
-          description: 'Merge K sorted lists/arrays, smallest range covering K lists',
-          priority: PriorityLevel.Important
-        }
-      ]
+          description:
+            'Merge K sorted lists/arrays, smallest range covering K lists',
+          priority: PriorityLevel.Important,
+        },
+      ],
     },
     {
       id: 4,
@@ -84,22 +98,24 @@ const queueCurriculum: Curriculum = {
         {
           id: 'sliding-window-maximum',
           title: 'Sliding Window Maximum',
-          description: 'Finding maximum in sliding window using deque, template approach',
-          priority: PriorityLevel.Important
+          description:
+            'Finding maximum in sliding window using deque, template approach',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'deque-problems',
           title: 'Deque-based Problems',
-          description: 'Moving average, sliding window problems requiring order maintenance',
-          priority: PriorityLevel.Important
+          description:
+            'Moving average, sliding window problems requiring order maintenance',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'monotonic-deque',
           title: 'Monotonic Deque Problems',
           description: 'Jump game problems, remove duplicates problems',
-          priority: PriorityLevel.Beneficial
-        }
-      ]
+          priority: PriorityLevel.Beneficial,
+        },
+      ],
     },
     {
       id: 5,
@@ -109,15 +125,15 @@ const queueCurriculum: Curriculum = {
           id: 'circular-queue',
           title: 'Circular Queue Problems',
           description: 'Design circular queue, moving average from data stream',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'queue-reconstruction',
           title: 'Queue Reconstruction',
           description: 'Reconstruct queue by height, task scheduler problems',
-          priority: PriorityLevel.Important
-        }
-      ]
+          priority: PriorityLevel.Important,
+        },
+      ],
     },
     {
       id: 6,
@@ -127,17 +143,17 @@ const queueCurriculum: Curriculum = {
           id: 'multi-source-bfs',
           title: 'Multi-source BFS',
           description: '01 matrix, walls and gates, rotting oranges variations',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'bidirectional-bfs',
           title: 'Bidirectional BFS',
           description: 'Word ladder, minimum genetic mutation problems',
-          priority: PriorityLevel.Beneficial
-        }
-      ]
-    }
-  ]
+          priority: PriorityLevel.Beneficial,
+        },
+      ],
+    },
+  ],
 } as const;
 
 const queueConceptData = {
@@ -221,7 +237,8 @@ print("New front:", queue.peek())  # "Second"`,
 
   exercises: [
     {
-      prompt: 'Implement a Queue class with enqueue and dequeue methods, then add three items and remove two of them.',
+      prompt:
+        'Implement a Queue class with enqueue and dequeue methods, then add three items and remove two of them.',
       initialCode: `class Queue:
     def __init__(self):
         # Initialize your queue here
@@ -253,7 +270,8 @@ print(queue.dequeue())  # Should print 2`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Create a Queue class that includes a peek method to view the front element and an is_empty method to check if the queue is empty.',
+      prompt:
+        'Create a Queue class that includes a peek method to view the front element and an is_empty method to check if the queue is empty.',
       initialCode: `class Queue:
     def __init__(self):
         # Initialize your queue here
@@ -282,7 +300,7 @@ queue.items.append(1)
 print(queue.peek())  # Should print 1
 print(queue.is_empty())  # Should print False`,
       difficulty: Difficulty.Beginner,
-    }
+    },
   ],
   quizzes: [
     {
@@ -303,13 +321,9 @@ print(queue.is_empty())  # Should print False`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the time complexity of the dequeue operation in an array-based implementation?',
-      options: [
-        'O(1)',
-        'O(log n)',
-        'O(n)',
-        'O(n²)',
-      ],
+      question:
+        'What is the time complexity of the dequeue operation in an array-based implementation?',
+      options: ['O(1)', 'O(log n)', 'O(n)', 'O(n²)'],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Dequeue requires shifting all remaining elements left.',
@@ -318,8 +332,8 @@ print(queue.is_empty())  # Should print False`,
         'Incorrect. The operation is linear, not quadratic.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const queueImplementationData = {
@@ -432,7 +446,8 @@ class CircularQueue:
 
   exercises: [
     {
-      prompt: 'Implement a CircularQueue class with a given capacity that can handle wraparound cases correctly.',
+      prompt:
+        'Implement a CircularQueue class with a given capacity that can handle wraparound cases correctly.',
       initialCode: `class CircularQueue:
     def __init__(self, capacity):
         # Initialize your circular queue here
@@ -473,7 +488,8 @@ class CircularQueue:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a LinkedListQueue class that maintains both front and rear pointers for O(1) operations.',
+      prompt:
+        'Implement a LinkedListQueue class that maintains both front and rear pointers for O(1) operations.',
       initialCode: `class Node:
     def __init__(self, data):
         self.data = data
@@ -515,11 +531,12 @@ class LinkedListQueue:
             self.rear = None
         return temp.data`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the main advantage of using a circular queue over a simple array-based queue?',
+      question:
+        'What is the main advantage of using a circular queue over a simple array-based queue?',
       options: [
         'It uses less memory',
         'It provides O(1) access to all elements',
@@ -536,7 +553,8 @@ class LinkedListQueue:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'In a linked list implementation of a queue, why do we maintain both front and rear pointers?',
+      question:
+        'In a linked list implementation of a queue, why do we maintain both front and rear pointers?',
       options: [
         'To allow bidirectional traversal',
         'To achieve O(1) enqueue and dequeue operations',
@@ -551,8 +569,8 @@ class LinkedListQueue:
         'Incorrect. Queues do not sort elements.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const queueOperationsData = {
@@ -727,7 +745,8 @@ def demonstrate_edge_cases():
 
   exercises: [
     {
-      prompt: 'Implement a queue that properly handles the edge case of becoming empty after several enqueue and dequeue operations.',
+      prompt:
+        'Implement a queue that properly handles the edge case of becoming empty after several enqueue and dequeue operations.',
       initialCode: `class Queue:
     def __init__(self):
         self.items = []
@@ -765,7 +784,8 @@ print(queue.is_empty())  # Should print True`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Implement a bounded queue that properly handles the full queue edge case and wraparound scenario.',
+      prompt:
+        'Implement a bounded queue that properly handles the full queue edge case and wraparound scenario.',
       initialCode: `class BoundedQueue:
     def __init__(self, capacity):
         self.capacity = capacity
@@ -817,11 +837,12 @@ print(queue.dequeue())  # Should print 1
 queue.enqueue(4)  # Should succeed (wraparound)
 print(queue.is_full())  # Should print True`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What should happen when attempting to dequeue from an empty queue?',
+      question:
+        'What should happen when attempting to dequeue from an empty queue?',
       options: [
         'Return None',
         'Return a default value',
@@ -838,7 +859,8 @@ print(queue.is_full())  # Should print True`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'In a circular queue implementation, when is the queue considered full?',
+      question:
+        'In a circular queue implementation, when is the queue considered full?',
       options: [
         'When rear equals front',
         'When rear equals capacity - 1',
@@ -853,8 +875,8 @@ print(queue.is_full())  # Should print True`,
         'Incorrect. The front position alone does not determine if the queue is full.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 // const circularConceptData: LessonContent = {
@@ -869,7 +891,7 @@ print(queue.is_full())  # Should print True`,
 //           self.queue = [None] * size
 //           self.size = size
 //           self.front = self.rear = -1
-  
+
 //       def enqueue(self, item):
 //           if (self.rear + 1) % self.size == self.front:
 //               print("Queue is full")
@@ -879,7 +901,7 @@ print(queue.is_full())  # Should print True`,
 //           else:
 //               self.rear = (self.rear + 1) % self.size
 //               self.queue[self.rear] = item
-  
+
 //       def dequeue(self):
 //           if self.front == -1:
 //               print("Queue is empty")
@@ -1110,7 +1132,8 @@ class TreeTraversalSolutions:
 
   exercises: [
     {
-      prompt: 'Implement a function to return the leftmost value at each level of a binary tree.',
+      prompt:
+        'Implement a function to return the leftmost value at each level of a binary tree.',
       initialCode: `def leftSideView(root):
     # Implement your solution here
     pass`,
@@ -1141,7 +1164,8 @@ class TreeTraversalSolutions:
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Implement a function to find the largest value in each level of a binary tree.',
+      prompt:
+        'Implement a function to find the largest value in each level of a binary tree.',
       initialCode: `def largestValues(root):
     # Implement your solution here
     pass`,
@@ -1169,17 +1193,13 @@ class TreeTraversalSolutions:
         
     return result`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the time complexity of level order traversal for a binary tree?',
-      options: [
-        'O(log n)',
-        'O(n)',
-        'O(n log n)',
-        'O(h) where h is height',
-      ],
+      question:
+        'What is the time complexity of level order traversal for a binary tree?',
+      options: ['O(log n)', 'O(n)', 'O(n log n)', 'O(h) where h is height'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. We need to visit every node, which takes more than logarithmic time.',
@@ -1190,7 +1210,8 @@ class TreeTraversalSolutions:
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'Why do we need to capture the queue size at the start of processing each level?',
+      question:
+        'Why do we need to capture the queue size at the start of processing each level?',
       options: [
         'To optimize memory usage',
         'To identify level boundaries correctly',
@@ -1205,8 +1226,8 @@ class TreeTraversalSolutions:
         'Incorrect. This is necessary for correctness, not performance optimization.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const graphBfsData = {
@@ -1409,7 +1430,8 @@ Starting BFS from multiple points simultaneously:
 
   exercises: [
     {
-      prompt: 'Implement a function to find the minimum number of knight moves needed to reach a target position on a chess board.',
+      prompt:
+        'Implement a function to find the minimum number of knight moves needed to reach a target position on a chess board.',
       initialCode: `def minKnightMoves(self, x: int, y: int) -> int:
     # Implement your solution here
     pass`,
@@ -1441,7 +1463,8 @@ Starting BFS from multiple points simultaneously:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: "Implement a function to find if two words are connected in a word chain where each word differs by exactly one character and all intermediate words must exist in the given word list.",
+      prompt:
+        'Implement a function to find if two words are connected in a word chain where each word differs by exactly one character and all intermediate words must exist in the given word list.',
       initialCode: `def areWordsConnected(beginWord: str, endWord: str, wordList: List[str]) -> bool:
     # Implement your solution here
     pass`,
@@ -1471,11 +1494,12 @@ Starting BFS from multiple points simultaneously:
     
     return False`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is BFS guaranteed to find the shortest path in an unweighted graph?',
+      question:
+        'Why is BFS guaranteed to find the shortest path in an unweighted graph?',
       options: [
         'Because it explores nodes in random order',
         'Because it visits nodes in order of increasing distance from the start',
@@ -1487,12 +1511,13 @@ Starting BFS from multiple points simultaneously:
         'Incorrect. Random exploration would not guarantee finding the shortest path.',
         'Correct! BFS explores nodes layer by layer, ensuring we find the shortest path first.',
         'Incorrect. BFS uses a queue, not a stack. A stack would give depth-first behavior.',
-        'Incorrect. Marking nodes as visited prevents cycles but doesn\'t guarantee shortest paths.',
+        "Incorrect. Marking nodes as visited prevents cycles but doesn't guarantee shortest paths.",
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the key difference between single-source and multi-source BFS?',
+      question:
+        'What is the key difference between single-source and multi-source BFS?',
       options: [
         'Multi-source BFS is slower',
         'Multi-source BFS starts from multiple vertices simultaneously',
@@ -1507,8 +1532,8 @@ Starting BFS from multiple points simultaneously:
         'Incorrect. Multi-source BFS can find shortest paths from any of the sources.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const matrixBfsData = {
@@ -1734,7 +1759,8 @@ Problems like "Shortest Bridge" where we need to work with connected components 
 
   exercises: [
     {
-      prompt: 'Implement a function to find if there is a path of all the same color from top row to bottom row in a matrix.',
+      prompt:
+        'Implement a function to find if there is a path of all the same color from top row to bottom row in a matrix.',
       initialCode: `def hasColorPath(grid: List[List[str]]) -> bool:
     # Implement your solution here
     pass`,
@@ -1771,7 +1797,8 @@ Problems like "Shortest Bridge" where we need to work with connected components 
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function to count the number of distinct islands in a matrix (islands are considered same if they have the same shape regardless of position).',
+      prompt:
+        'Implement a function to count the number of distinct islands in a matrix (islands are considered same if they have the same shape regardless of position).',
       initialCode: `def numDistinctIslands(grid: List[List[int]]) -> int:
     # Implement your solution here
     pass`,
@@ -1804,11 +1831,12 @@ Problems like "Shortest Bridge" where we need to work with connected components 
     
     return len(islands)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is multi-source BFS often more efficient than running multiple single-source BFS for matrix problems?',
+      question:
+        'Why is multi-source BFS often more efficient than running multiple single-source BFS for matrix problems?',
       options: [
         'It requires less memory',
         'It processes each cell only once instead of multiple times',
@@ -1825,7 +1853,8 @@ Problems like "Shortest Bridge" where we need to work with connected components 
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key advantage of modifying the input matrix to track visited cells instead of using a separate visited set?',
+      question:
+        'What is the key advantage of modifying the input matrix to track visited cells instead of using a separate visited set?',
       options: [
         'It makes the code faster',
         'It reduces space complexity',
@@ -1840,8 +1869,8 @@ Problems like "Shortest Bridge" where we need to work with connected components 
         'Incorrect. Using a separate visited set is often clearer for debugging.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const priorityBasicsData = {
@@ -1921,7 +1950,7 @@ class PriorityQueueExamples:
             print(f"Most urgent task: {task} (priority: {priority})")
         
         # Processing elements in priority order (pop)
-        print("\nProcessing tasks by priority:")
+        print("Processing tasks by priority:")
         while pq:
             priority, task = heapq.heappop(pq)
             print(f"Working on: {task} (priority: {priority})")
@@ -1939,7 +1968,7 @@ class PriorityQueueExamples:
             # Negative priority to make higher numbers = higher priority
             heapq.heappush(self.tasks, (-task[0], task[1], task[2]))
         
-        print("\nProcessing tasks by priority and deadline:")
+        print("Processing tasks by priority and deadline:")
         while self.tasks:
             priority, deadline, task = heapq.heappop(self.tasks)
             print(f"Task: {task}, Priority: {-priority}, Deadline: {deadline}")
@@ -1994,7 +2023,8 @@ class PriorityQueueExamples:
 
   exercises: [
     {
-      prompt: 'Implement a function to find the k most frequent elements in an array using a priority queue.',
+      prompt:
+        'Implement a function to find the k most frequent elements in an array using a priority queue.',
       initialCode: `def topKFrequent(nums: List[int], k: int) -> List[int]:
     # Implement your solution here
     pass`,
@@ -2017,7 +2047,8 @@ class PriorityQueueExamples:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a function that returns the median from a data stream using two priority queues.',
+      prompt:
+        'Create a function that returns the median from a data stream using two priority queues.',
       initialCode: `class MedianFinder:
     def __init__(self):
         # Initialize your data structure here
@@ -2054,11 +2085,12 @@ class PriorityQueueExamples:
             return float(-self.small[0])
         return (-self.small[0] + self.large[0]) / 2.0`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is a heap a good data structure for implementing a priority queue?',
+      question:
+        'Why is a heap a good data structure for implementing a priority queue?',
       options: [
         'Because it provides O(1) access to all elements',
         'Because it automatically maintains elements in sorted order',
@@ -2075,13 +2107,9 @@ class PriorityQueueExamples:
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the time complexity of building a heap from an unsorted array (heapify)?',
-      options: [
-        'O(n)',
-        'O(n log n)',
-        'O(log n)',
-        'O(1)',
-      ],
+      question:
+        'What is the time complexity of building a heap from an unsorted array (heapify)?',
+      options: ['O(n)', 'O(n log n)', 'O(log n)', 'O(1)'],
       correctAnswer: 0,
       explanations: [
         'Correct! Although surprising, heapify can be done in linear time by working bottom-up.',
@@ -2090,8 +2118,8 @@ class PriorityQueueExamples:
         'Incorrect. We must process all elements in the array.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const topKPatternsData = {
@@ -2247,7 +2275,8 @@ class TopKSolutions:
 
   exercises: [
     {
-      prompt: 'Implement a function to find the k most frequent words in a list of strings, returning them in descending order of frequency.',
+      prompt:
+        'Implement a function to find the k most frequent words in a list of strings, returning them in descending order of frequency.',
       initialCode: `def topKFrequentWords(words: List[str], k: int) -> List[str]:
     # Implement your solution here
     pass`,
@@ -2273,7 +2302,8 @@ class TopKSolutions:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function to find the k pairs of numbers from two sorted arrays with the smallest sums.',
+      prompt:
+        'Implement a function to find the k pairs of numbers from two sorted arrays with the smallest sums.',
       initialCode: `def kSmallestPairs(nums1: List[int], nums2: List[int], k: int) -> List[List[int]]:
     # Implement your solution here
     pass`,
@@ -2302,7 +2332,7 @@ class TopKSolutions:
     
     return result`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
@@ -2323,13 +2353,9 @@ class TopKSolutions:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the time complexity of finding k largest elements in an array of size n?',
-      options: [
-        'O(n)',
-        'O(n log n)',
-        'O(n log k)',
-        'O(k log n)',
-      ],
+      question:
+        'What is the time complexity of finding k largest elements in an array of size n?',
+      options: ['O(n)', 'O(n log n)', 'O(n log k)', 'O(k log n)'],
       correctAnswer: 2,
       explanations: [
         'Incorrect. We need heap operations for each element.',
@@ -2338,8 +2364,8 @@ class TopKSolutions:
         'Incorrect. We process all n elements, not just k elements.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const mergePatternsData = {
@@ -2506,7 +2532,8 @@ class KWayMergeSolutions:
 
   exercises: [
     {
-      prompt: 'Implement a function to find the median element from K sorted arrays.',
+      prompt:
+        'Implement a function to find the median element from K sorted arrays.',
       initialCode: `def findMedianKArrays(arrays: List[List[int]]) -> float:
     # Implement your solution here
     pass`,
@@ -2552,7 +2579,8 @@ class KWayMergeSolutions:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a function to find the range that contains all numbers that appear in at least K out of N sorted arrays.',
+      prompt:
+        'Implement a function to find the range that contains all numbers that appear in at least K out of N sorted arrays.',
       initialCode: `def findRangeInKArrays(arrays: List[List[int]], k: int) -> List[int]:
     # Implement your solution here
     pass`,
@@ -2595,7 +2623,7 @@ class KWayMergeSolutions:
     
     return result`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
@@ -2608,31 +2636,27 @@ class KWayMergeSolutions:
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. We don\'t need to sort all elements, as input lists are already sorted.',
+        "Incorrect. We don't need to sort all elements, as input lists are already sorted.",
         'Correct! The priority queue helps us efficiently find the next element to add to our result.',
-        'Incorrect. While space efficient, this isn\'t the primary reason.',
+        "Incorrect. While space efficient, this isn't the primary reason.",
         'Incorrect. Duplicate handling is a side benefit but not the main purpose.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the time complexity of merging K sorted lists with a total of N elements?',
-      options: [
-        'O(N)',
-        'O(N * K)',
-        'O(N * log K)',
-        'O(N * log N)',
-      ],
+      question:
+        'What is the time complexity of merging K sorted lists with a total of N elements?',
+      options: ['O(N)', 'O(N * K)', 'O(N * log K)', 'O(N * log N)'],
       correctAnswer: 2,
       explanations: [
         'Incorrect. We need heap operations for each element.',
         'Incorrect. Using a heap is more efficient than comparing with each list.',
         'Correct! We process N elements, each requiring a log K heap operation.',
-        'Incorrect. We don\'t need to compare each element with all others.',
+        "Incorrect. We don't need to compare each element with all others.",
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const slidingWindowMaximumData = {
@@ -2824,7 +2848,8 @@ class SlidingWindowMaximum:
 
   exercises: [
     {
-      prompt: 'Implement a function to find the minimum value in each sliding window of size k.',
+      prompt:
+        'Implement a function to find the minimum value in each sliding window of size k.',
       initialCode: `def minSlidingWindow(nums: List[int], k: int) -> List[int]:
     # Implement your solution here
     pass`,
@@ -2864,7 +2889,8 @@ class SlidingWindowMaximum:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function to find both maximum and minimum values in each sliding window of size k.',
+      prompt:
+        'Implement a function to find both maximum and minimum values in each sliding window of size k.',
       initialCode: `def maxMinSlidingWindow(nums: List[int], k: int) -> List[List[int]]:
     # Implement your solution here
     pass`,
@@ -2907,11 +2933,12 @@ class SlidingWindowMaximum:
     
     return result`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do we use a deque instead of a regular queue or array for sliding window maximum?',
+      question:
+        'Why do we use a deque instead of a regular queue or array for sliding window maximum?',
       options: [
         'Because deques use less memory',
         'Because we need to efficiently add/remove from both ends',
@@ -2922,29 +2949,25 @@ class SlidingWindowMaximum:
       explanations: [
         'Incorrect. Memory usage is not the primary consideration.',
         'Correct! We need O(1) operations at both ends to maintain our window efficiently.',
-        'Incorrect. Deques don\'t automatically sort elements.',
+        "Incorrect. Deques don't automatically sort elements.",
         'Incorrect. The efficiency comes from the operations we need, not raw speed.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the time complexity of the sliding window maximum algorithm using a deque?',
-      options: [
-        'O(n)',
-        'O(n*k)',
-        'O(n log k)',
-        'O(n log n)',
-      ],
+      question:
+        'What is the time complexity of the sliding window maximum algorithm using a deque?',
+      options: ['O(n)', 'O(n*k)', 'O(n log k)', 'O(n log n)'],
       correctAnswer: 0,
       explanations: [
         'Correct! Each element is pushed and popped at most once, giving linear time.',
         'Incorrect. This is the brute force approach complexity.',
-        'Incorrect. We don\'t need any logarithmic operations.',
+        "Incorrect. We don't need any logarithmic operations.",
         'Incorrect. The algorithm is more efficient than sorting.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const dequeProblemsData = {
@@ -3124,7 +3147,8 @@ class DequeExamples:
 
   exercises: [
     {
-      prompt: 'Implement a function that finds the minimum value in each sliding window of size k using a deque.',
+      prompt:
+        'Implement a function that finds the minimum value in each sliding window of size k using a deque.',
       initialCode: `def minSlidingWindow(nums: List[int], k: int) -> List[int]:
     # Implement your solution here
     pass`,
@@ -3154,7 +3178,8 @@ class DequeExamples:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Create a data structure that supports efficient insertion, deletion, and finding the median.',
+      prompt:
+        'Create a data structure that supports efficient insertion, deletion, and finding the median.',
       initialCode: `class MedianFinder:
     def __init__(self):
         # Initialize your data structure here
@@ -3189,11 +3214,12 @@ class DequeExamples:
             return float(self.small[-1])
         return (self.small[-1] + self.large[0]) / 2.0`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why would you choose a deque over a regular array or queue for sliding window problems?',
+      question:
+        'Why would you choose a deque over a regular array or queue for sliding window problems?',
       options: [
         'Deques automatically sort elements',
         'Deques provide O(1) operations at both ends',
@@ -3210,7 +3236,8 @@ class DequeExamples:
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the time complexity of maintaining a moving average using a deque?',
+      question:
+        'What is the time complexity of maintaining a moving average using a deque?',
       options: [
         'O(n) per update',
         'O(k) per update',
@@ -3219,14 +3246,14 @@ class DequeExamples:
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. We don\'t need to process all elements for each update.',
-        'Incorrect. Window size doesn\'t affect the time complexity of operations.',
+        "Incorrect. We don't need to process all elements for each update.",
+        "Incorrect. Window size doesn't affect the time complexity of operations.",
         'Correct! Adding and removing elements from either end takes constant time.',
         'Incorrect. No logarithmic operations are needed.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const monotonicDequeData = {
@@ -3412,7 +3439,8 @@ class MonotonicDequeProblems:
 
   exercises: [
     {
-      prompt: 'Implement a function to find the minimum jumps needed to reach the last index using a monotonic deque.',
+      prompt:
+        'Implement a function to find the minimum jumps needed to reach the last index using a monotonic deque.',
       initialCode: `def minJumps(nums: List[int]) -> int:
     # Implement your solution here
     pass`,
@@ -3446,7 +3474,8 @@ class MonotonicDequeProblems:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a function to remove k digits from a number to make it the smallest possible value.',
+      prompt:
+        'Implement a function to remove k digits from a number to make it the smallest possible value.',
       initialCode: `def removeKdigits(num: str, k: int) -> str:
     # Implement your solution here
     pass`,
@@ -3474,11 +3503,12 @@ class MonotonicDequeProblems:
     result = ''.join(dq).lstrip('0')
     return result if result else "0"`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do we use a monotonic deque instead of a regular deque for these problems?',
+      question:
+        'Why do we use a monotonic deque instead of a regular deque for these problems?',
       options: [
         'Monotonic deques are faster',
         'To maintain elements in a specific order that helps solve the problem',
@@ -3495,13 +3525,9 @@ class MonotonicDequeProblems:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the time complexity of maintaining a monotonic deque while processing n elements?',
-      options: [
-        'O(n²)',
-        'O(n log n)',
-        'O(n)',
-        'O(k) where k is deque size',
-      ],
+      question:
+        'What is the time complexity of maintaining a monotonic deque while processing n elements?',
+      options: ['O(n²)', 'O(n log n)', 'O(n)', 'O(k) where k is deque size'],
       correctAnswer: 2,
       explanations: [
         'Incorrect. We never need nested iterations over all elements.',
@@ -3510,8 +3536,8 @@ class MonotonicDequeProblems:
         'Incorrect. We need to process all n elements.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const circularQueueData = {
@@ -3733,7 +3759,8 @@ def streamMedian(nums):
 
   exercises: [
     {
-      prompt: 'Implement a circular queue that stores the last N timestamps and can calculate the number of events in the last T seconds.',
+      prompt:
+        'Implement a circular queue that stores the last N timestamps and can calculate the number of events in the last T seconds.',
       initialCode: `class RecentCounter:
     def __init__(self):
         # Initialize your data structure here
@@ -3764,7 +3791,8 @@ def streamMedian(nums):
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a circular buffer that can efficiently maintain a sliding window maximum.',
+      prompt:
+        'Implement a circular buffer that can efficiently maintain a sliding window maximum.',
       initialCode: `class SlidingWindowMaximum:
     def __init__(self, size: int):
         # Initialize your data structure here
@@ -3797,11 +3825,12 @@ def streamMedian(nums):
         
         return self.queue[self.deque[0] % self.size]`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is modulo arithmetic essential for implementing a circular queue?',
+      question:
+        'Why is modulo arithmetic essential for implementing a circular queue?',
       options: [
         'To make operations faster',
         'To wrap around array indices when reaching the end',
@@ -3818,7 +3847,8 @@ def streamMedian(nums):
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key advantage of a circular queue over a regular queue?',
+      question:
+        'What is the key advantage of a circular queue over a regular queue?',
       options: [
         'It can store more elements',
         'It has faster operations',
@@ -3833,8 +3863,8 @@ def streamMedian(nums):
         'Incorrect. Neither type of queue sorts elements.',
       ],
       difficulty: Difficulty.Beginner,
-    }
-  ]
+    },
+  ],
 };
 
 const queueReconstructionData = {
@@ -4007,7 +4037,8 @@ class QueueReconstructionSolutions:
 
   exercises: [
     {
-      prompt: 'Implement a function to reconstruct a queue based on height and counts, where counts represent the number of shorter people in front.',
+      prompt:
+        'Implement a function to reconstruct a queue based on height and counts, where counts represent the number of shorter people in front.',
       initialCode: `def reconstructQueueByShortCount(people: List[List[int]]) -> List[List[int]]:
     # Implement your solution here
     pass`,
@@ -4036,7 +4067,8 @@ class QueueReconstructionSolutions:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a task scheduler that minimizes the total time needed to execute tasks with dependencies.',
+      prompt:
+        'Implement a task scheduler that minimizes the total time needed to execute tasks with dependencies.',
       initialCode: `def scheduleTasks(tasks: List[str], dependencies: List[List[str]], n: int) -> int:
     # Implement your solution here
     pass`,
@@ -4088,11 +4120,12 @@ class QueueReconstructionSolutions:
     
     return len(result)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why do we sort by height in descending order for the queue reconstruction problem?',
+      question:
+        'Why do we sort by height in descending order for the queue reconstruction problem?',
       options: [
         'To make the algorithm faster',
         'Because taller people are more important',
@@ -4109,7 +4142,8 @@ class QueueReconstructionSolutions:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key benefit of using a priority queue in the task scheduler problem?',
+      question:
+        'What is the key benefit of using a priority queue in the task scheduler problem?',
       options: [
         'It automatically handles task dependencies',
         'It ensures tasks with highest frequency are prioritized',
@@ -4124,8 +4158,8 @@ class QueueReconstructionSolutions:
         'Incorrect. Cooling periods must still be explicitly handled.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const multiSourceBFSData = {
@@ -4322,7 +4356,8 @@ class MultiSourceBFSSolutions:
 
   exercises: [
     {
-      prompt: 'Implement a function to find the shortest path that visits all points of interest in a matrix, starting from multiple possible starting points.',
+      prompt:
+        'Implement a function to find the shortest path that visits all points of interest in a matrix, starting from multiple possible starting points.',
       initialCode: `def shortestPathToAllPoints(grid: List[List[int]], starts: List[List[int]], points: List[List[int]]) -> int:
     # Implement your solution here
     pass`,
@@ -4364,7 +4399,8 @@ class MultiSourceBFSSolutions:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Implement a function to find the minimum time needed to inform all employees in a company, given multiple managers can start spreading the news simultaneously.',
+      prompt:
+        'Implement a function to find the minimum time needed to inform all employees in a company, given multiple managers can start spreading the news simultaneously.',
       initialCode: `def timeToInform(n: int, headID: int, managers: List[int], informTime: List[int]) -> int:
     # Implement your solution here
     pass`,
@@ -4389,11 +4425,12 @@ class MultiSourceBFSSolutions:
     
     return max_time`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is multi-source BFS often more efficient than running multiple single-source BFS?',
+      question:
+        'Why is multi-source BFS often more efficient than running multiple single-source BFS?',
       options: [
         'It uses less memory',
         'It processes each cell only once instead of multiple times',
@@ -4410,7 +4447,8 @@ class MultiSourceBFSSolutions:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key consideration when initializing the queue for multi-source BFS?',
+      question:
+        'What is the key consideration when initializing the queue for multi-source BFS?',
       options: [
         'Adding sources in a specific order',
         'Sorting sources by priority',
@@ -4419,14 +4457,14 @@ class MultiSourceBFSSolutions:
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. The order of sources doesn\'t affect correctness.',
+        "Incorrect. The order of sources doesn't affect correctness.",
         'Incorrect. Sources typically have equal priority.',
         'Correct! We need to start with all sources to ensure simultaneous expansion.',
         'Incorrect. Duplicate sources are typically not an issue.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const bidirectionalBFSData = {
@@ -4623,7 +4661,8 @@ class BidirectionalBFSSolutions:
 
   exercises: [
     {
-      prompt: 'Implement bidirectional BFS to find the shortest path between two nodes in an undirected graph.',
+      prompt:
+        'Implement bidirectional BFS to find the shortest path between two nodes in an undirected graph.',
       initialCode: `def shortestPath(graph: Dict[int, List[int]], start: int, end: int) -> int:
     # Implement your solution here
     pass`,
@@ -4666,7 +4705,8 @@ class BidirectionalBFSSolutions:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement bidirectional BFS to find all shortest transformation sequences in a word ladder problem.',
+      prompt:
+        'Implement bidirectional BFS to find all shortest transformation sequences in a word ladder problem.',
       initialCode: `def findAllLadders(beginWord: str, endWord: str, wordList: List[str]) -> List[List[str]]:
     # Implement your solution here
     pass`,
@@ -4740,11 +4780,12 @@ class BidirectionalBFSSolutions:
     dfs(beginWord, [beginWord], paths)
     return paths`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is bidirectional BFS often more efficient than regular BFS?',
+      question:
+        'Why is bidirectional BFS often more efficient than regular BFS?',
       options: [
         'It uses less memory overall',
         'The search spaces meet in the middle, reducing total nodes explored',
@@ -4761,7 +4802,8 @@ class BidirectionalBFSSolutions:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key challenge in implementing bidirectional BFS correctly?',
+      question:
+        'What is the key challenge in implementing bidirectional BFS correctly?',
       options: [
         'Managing memory usage',
         'Detecting when the two searches intersect',
@@ -4776,8 +4818,8 @@ class BidirectionalBFSSolutions:
         'Incorrect. Queue implementation is straightforward and similar to regular BFS.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const queueLessons: Record<string, LessonContent> = {
@@ -4798,7 +4840,6 @@ const queueLessons: Record<string, LessonContent> = {
   'queue-reconstruction': queueReconstructionData,
   'multi-source-bfs': multiSourceBFSData,
   'bidirectional-bfs': bidirectionalBFSData,
-
 };
 export const queueLessonsTab: LessonsTab = {
   curriculum: queueCurriculum,

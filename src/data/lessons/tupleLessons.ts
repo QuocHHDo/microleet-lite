@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 const tupleCurriculum: Curriculum = {
   title: 'Tuple Curriculum',
@@ -13,20 +18,22 @@ const tupleCurriculum: Curriculum = {
         {
           id: 'tuple-basics',
           title: 'Introduction to Tuples',
-          description: 'Understanding what tuples are and their immutable nature',
-          priority: PriorityLevel.Essential
+          description:
+            'Understanding what tuples are and their immutable nature',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'tuple-creation',
           title: 'Creating and Initializing Tuples',
           description: 'Different ways to define and create tuples in Python',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'tuple-vs-lists',
           title: 'Tuples vs Lists vs Sets',
-          description: 'Understanding key differences and when to use each data structure',
-          priority: PriorityLevel.Essential
+          description:
+            'Understanding key differences and when to use each data structure',
+          priority: PriorityLevel.Essential,
         },
       ],
     },
@@ -38,19 +45,20 @@ const tupleCurriculum: Curriculum = {
           id: 'tuple-accessing',
           title: 'Accessing Tuple Elements',
           description: 'Indexing and accessing elements in tuples',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'tuple-unpacking',
           title: 'Tuple Unpacking',
           description: 'Destructuring and unpacking tuple elements',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'tuple-methods',
           title: 'Built-in Tuple Methods',
-          description: 'Understanding count(), index(), and other tuple methods',
-          priority: PriorityLevel.Important
+          description:
+            'Understanding count(), index(), and other tuple methods',
+          priority: PriorityLevel.Important,
         },
       ],
     },
@@ -61,20 +69,21 @@ const tupleCurriculum: Curriculum = {
         {
           id: 'multiple-returns',
           title: 'Multiple Return Values',
-          description: 'Using tuples for returning multiple values from functions',
-          priority: PriorityLevel.Important
+          description:
+            'Using tuples for returning multiple values from functions',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'tuple-as-key',
           title: 'Tuples as Dictionary Keys',
           description: 'Utilizing tuples as immutable dictionary keys',
-          priority: PriorityLevel.Beneficial
+          priority: PriorityLevel.Beneficial,
         },
         {
           id: 'named-tuples',
           title: 'Named Tuples',
           description: 'Working with collections.namedtuple for readable code',
-          priority: PriorityLevel.Optional
+          priority: PriorityLevel.Optional,
         },
       ],
     },
@@ -85,20 +94,21 @@ const tupleCurriculum: Curriculum = {
         {
           id: 'tuple-performance',
           title: 'Time and Space Complexity',
-          description: 'Understanding performance characteristics of tuple operations',
-          priority: PriorityLevel.Essential
+          description:
+            'Understanding performance characteristics of tuple operations',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'nested-tuples',
           title: 'Nested Tuples',
           description: 'Working with tuples within tuples and common patterns',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'tuple-conversion',
           title: 'Type Conversion',
           description: 'Converting between tuples and other data structures',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
       ],
     },
@@ -109,20 +119,22 @@ const tupleCurriculum: Curriculum = {
         {
           id: 'tuple-sorting',
           title: 'Sorting Tuples',
-          description: 'Techniques for sorting lists of tuples and custom comparators',
-          priority: PriorityLevel.Essential
+          description:
+            'Techniques for sorting lists of tuples and custom comparators',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'tuple-comparison',
           title: 'Tuple Comparison',
           description: 'Understanding how tuples are compared and ordered',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'interview-problems',
           title: 'Common Interview Problems',
-          description: 'Practice problems and patterns using tuples from real interviews',
-          priority: PriorityLevel.Essential
+          description:
+            'Practice problems and patterns using tuples from real interviews',
+          priority: PriorityLevel.Essential,
         },
       ],
     },
@@ -133,14 +145,16 @@ const tupleCurriculum: Curriculum = {
         {
           id: 'coordinate-systems',
           title: 'Coordinate Systems',
-          description: 'Using tuples for representing points and coordinates in graph problems',
-          priority: PriorityLevel.Important
+          description:
+            'Using tuples for representing points and coordinates in graph problems',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'data-aggregation',
           title: 'Data Aggregation',
-          description: 'Using tuples for grouping and aggregating data in interview problems',
-          priority: PriorityLevel.Beneficial
+          description:
+            'Using tuples for grouping and aggregating data in interview problems',
+          priority: PriorityLevel.Beneficial,
         },
       ],
     },
@@ -205,7 +219,8 @@ except TypeError as e:
     print(f"Error with list: {e}")  # TypeError: unhashable type: 'list'`,
   exercises: [
     {
-      prompt: 'Create a tuple containing your name, age, and favorite color. Then use tuple unpacking to assign these values to separate variables.',
+      prompt:
+        'Create a tuple containing your name, age, and favorite color. Then use tuple unpacking to assign these values to separate variables.',
       initialCode: `# Write your solution here
 my_info = 
 name, age, color = `,
@@ -215,7 +230,8 @@ print(f"Name: {name}, Age: {age}, Color: {color}")`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Create a tuple of x,y coordinates representing a triangle. Then write code to calculate the perimeter (you can use math.sqrt for distance).',
+      prompt:
+        'Create a tuple of x,y coordinates representing a triangle. Then write code to calculate the perimeter (you can use math.sqrt for distance).',
       initialCode: `# Write your solution here
 import math
 triangle = `,
@@ -226,7 +242,7 @@ def distance(p1, p2):
 perimeter = distance(triangle[0], triangle[1]) + distance(triangle[1], triangle[2]) + distance(triangle[2], triangle[0])
 print(f"Triangle perimeter: {perimeter}")`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
@@ -262,7 +278,7 @@ print(f"Triangle perimeter: {perimeter}")`,
         'Incorrect. Lists are more suitable for sorting operations.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -328,7 +344,8 @@ empty = ()
 print(f"Empty tuple: {empty}")`,
   exercises: [
     {
-      prompt: 'Create three tuples: an empty tuple, a single-element tuple containing the number 5, and a tuple containing the first 5 letters of the alphabet.',
+      prompt:
+        'Create three tuples: an empty tuple, a single-element tuple containing the number 5, and a tuple containing the first 5 letters of the alphabet.',
       initialCode: `# Write your solution here
 empty_tuple = 
 single_tuple = 
@@ -342,7 +359,8 @@ print(f"Letters: {letter_tuple}")`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Create a nested tuple representing a 3x3 identity matrix (1s on diagonal, 0s elsewhere).',
+      prompt:
+        'Create a nested tuple representing a 3x3 identity matrix (1s on diagonal, 0s elsewhere).',
       initialCode: `# Write your solution here
 identity_matrix = `,
       solution: `identity_matrix = (
@@ -353,17 +371,12 @@ identity_matrix = `,
 for row in identity_matrix:
     print(row)`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
       question: 'What is the correct way to create a single-element tuple?',
-      options: [
-        '(1)',
-        '(1,)',
-        '[1]',
-        'tuple(1)',
-      ],
+      options: ['(1)', '(1,)', '[1]', 'tuple(1)'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. This creates an integer, not a tuple.',
@@ -375,12 +388,7 @@ for row in identity_matrix:
     },
     {
       question: 'Which of the following will NOT create a valid tuple?',
-      options: [
-        'tuple("hello")',
-        'tuple([1, 2, 3])',
-        'tuple(5)',
-        '(1, 2, 3)',
-      ],
+      options: ['tuple("hello")', 'tuple([1, 2, 3])', 'tuple(5)', '(1, 2, 3)'],
       correctAnswer: 2,
       explanations: [
         'Incorrect. This creates a tuple of characters from the string.',
@@ -389,7 +397,7 @@ for row in identity_matrix:
         'Incorrect. This creates a tuple directly.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -447,7 +455,7 @@ print(f"Set:   {set_example}")    # {1, 2, 3}
 try:
     tuple_example[0] = 5  # Raises TypeError
 except TypeError as e:
-    print(f"\nTuple modification error: {e}")
+    print(f"Tuple modification error: {e}")
 
 list_example[0] = 5  # Works fine
 print(f"Modified list: {list_example}")  # [5, 2, 2, 3]
@@ -455,7 +463,7 @@ print(f"Modified list: {list_example}")  # [5, 2, 2, 3]
 # Set operations
 set_a = {1, 2, 3}
 set_b = {3, 4, 5}
-print(f"\nSet operations:")
+print(f"Set operations:")
 print(f"Union: {set_a | set_b}")        # {1, 2, 3, 4, 5}
 print(f"Intersection: {set_a & set_b}")  # {3}
 print(f"Difference: {set_a - set_b}")    # {1, 2}
@@ -467,13 +475,14 @@ tuple_size = sys.getsizeof(tuple(numbers))
 list_size = sys.getsizeof(list(numbers))
 set_size = sys.getsizeof(set(numbers))
 
-print(f"\nMemory usage (bytes):")
+print(f"Memory usage (bytes):")
 print(f"Tuple: {tuple_size}")
 print(f"List:  {list_size}")
 print(f"Set:   {set_size}")`,
   exercises: [
     {
-      prompt: 'Create three collections (tuple, list, and set) containing the first 5 even numbers. Then demonstrate a unique feature of each type.',
+      prompt:
+        'Create three collections (tuple, list, and set) containing the first 5 even numbers. Then demonstrate a unique feature of each type.',
       initialCode: `# Write your solution here
 # Create collections
 even_tuple = 
@@ -498,14 +507,15 @@ print(f"Modified list: {even_list}")
 other_numbers = {8, 10, 12, 14}
 print(f"Common numbers: {even_set & other_numbers}")`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Which data structure would be most appropriate for storing coordinates (x, y) that should never change?',
+      question:
+        'Which data structure would be most appropriate for storing coordinates (x, y) that should never change?',
       options: [
-        'List, because it\'s more flexible',
-        'Tuple, because it\'s immutable and memory-efficient',
+        "List, because it's more flexible",
+        "Tuple, because it's immutable and memory-efficient",
         'Set, because it prevents duplicates',
         'Dictionary, because it can store key-value pairs',
       ],
@@ -513,11 +523,11 @@ print(f"Common numbers: {even_set & other_numbers}")`,
       explanations: [
         'Incorrect. Flexibility is not needed for fixed coordinates.',
         'Correct! Tuples are perfect for immutable data like coordinates.',
-        'Incorrect. Sets don\'t maintain order and don\'t allow duplicates.',
+        "Incorrect. Sets don't maintain order and don't allow duplicates.",
         'Incorrect. Dictionaries are for key-value mappings, not simple coordinates.',
       ],
       difficulty: Difficulty.Beginner,
-    }
+    },
   ],
 };
 
@@ -569,14 +579,14 @@ print(f"Last element: {coordinates[-1]}")    # 6
 print(f"Nested element: {nested_tuple[0][1]}")  # 2
 
 # Slicing
-print("\nSlicing examples:")
+print("Slicing examples:")
 print(f"First three: {coordinates[:3]}")     # (1, 2, 3)
 print(f"Last three: {coordinates[-3:]}")     # (4, 5, 6)
 print(f"Every second: {coordinates[::2]}")   # (1, 3, 5)
 print(f"Reversed: {coordinates[::-1]}")      # (6, 5, 4, 3, 2, 1)
 
 # Tuple unpacking
-print("\nTuple unpacking:")
+print("Tuple unpacking:")
 # Basic unpacking
 x, y, z, *rest = coordinates
 print(f"x={x}, y={y}, z={z}, rest={rest}")  # x=1, y=2, z=3, rest=[4, 5, 6]
@@ -593,15 +603,16 @@ print(f"a={a}, b={b}, c={c}, d={d}, rest={rest}")  # a=1, b=2, c=3, d=4, rest=[(
 try:
     invalid_index = coordinates[10]  # Will raise IndexError
 except IndexError as e:
-    print(f"\nError accessing invalid index: {e}")
+    print(f"Error accessing invalid index: {e}")
 
 # Using tuple methods
-print("\nTuple methods:")
+print("Tuple methods:")
 print(f"Count of 2: {coordinates.count(2)}")  # 1
 print(f"Index of 3: {coordinates.index(3)}")  # 2`,
   exercises: [
     {
-      prompt: 'Given the nested tuple ((1, 2, 3), (4, 5, 6), (7, 8, 9)), extract the middle row and the diagonal elements.',
+      prompt:
+        'Given the nested tuple ((1, 2, 3), (4, 5, 6), (7, 8, 9)), extract the middle row and the diagonal elements.',
       initialCode: `# Write your solution here
 matrix = ((1, 2, 3), (4, 5, 6), (7, 8, 9))
 
@@ -620,11 +631,12 @@ print(f"Middle row: {middle_row}")
 diagonal = (matrix[0][0], matrix[1][1], matrix[2][2])
 print(f"Diagonal: {diagonal}")`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What happens when you try to access a tuple index that doesn\'t exist?',
+      question:
+        "What happens when you try to access a tuple index that doesn't exist?",
       options: [
         'It returns None',
         'It returns the last element',
@@ -634,12 +646,12 @@ print(f"Diagonal: {diagonal}")`,
       correctAnswer: 2,
       explanations: [
         'Incorrect. Python raises an error rather than returning None.',
-        'Incorrect. Invalid indices don\'t wrap around to valid ones.',
+        "Incorrect. Invalid indices don't wrap around to valid ones.",
         'Correct! Accessing an invalid index raises an IndexError.',
         'Incorrect. Tuples cannot be modified to create new elements.',
       ],
       difficulty: Difficulty.Beginner,
-    }
+    },
   ],
 };
 
@@ -719,7 +731,8 @@ def demonstrate_unpacking():
 demonstrate_unpacking()`,
   exercises: [
     {
-      prompt: 'Given a list of student records as tuples (name, age, grade), unpack each record and print them in a formatted way.',
+      prompt:
+        'Given a list of student records as tuples (name, age, grade), unpack each record and print them in a formatted way.',
       initialCode: `# Write your solution here
 students = [("Alice", 20, "A"), ("Bob", 19, "B"), ("Charlie", 21, "A-")]
 
@@ -735,11 +748,12 @@ for name, (age, major), grades in student_details:
     print(f"{name} is {age} years old, majoring in {major}")
     print(f"Grades: {', '.join(grades)}")`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What happens if you try to unpack a tuple into fewer variables than elements?',
+      question:
+        'What happens if you try to unpack a tuple into fewer variables than elements?',
       options: [
         'The extra elements are ignored',
         'It raises a ValueError',
@@ -749,12 +763,12 @@ for name, (age, major), grades in student_details:
       correctAnswer: 1,
       explanations: [
         'Incorrect. Python requires exact matching in basic unpacking.',
-        'Correct! Python raises a ValueError if the number of variables doesn\'t match the tuple length.',
+        "Correct! Python raises a ValueError if the number of variables doesn't match the tuple length.",
         'Incorrect. This would only happen with *variable syntax.',
         'Incorrect. Python cannot create variables dynamically during unpacking.',
       ],
       difficulty: Difficulty.Beginner,
-    }
+    },
   ],
 };
 
@@ -842,7 +856,8 @@ def explore_tuple_methods():
 explore_tuple_methods()`,
   exercises: [
     {
-      prompt: 'Create a function that finds all indices of a given element in a tuple, using only tuple methods.',
+      prompt:
+        'Create a function that finds all indices of a given element in a tuple, using only tuple methods.',
       initialCode: `def find_all_indices(tuple_data, element):
     # Your solution here
     pass
@@ -867,11 +882,12 @@ test_tuple = (1, 2, 3, 2, 4, 2, 5)
 indices = find_all_indices(test_tuple, 2)
 print(f"Element 2 appears at indices: {indices}")`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What happens when you call index() for an element that appears multiple times in a tuple?',
+      question:
+        'What happens when you call index() for an element that appears multiple times in a tuple?',
       options: [
         'It returns a list of all indices',
         'It returns the first occurrence only',
@@ -886,7 +902,7 @@ print(f"Element 2 appears at indices: {indices}")`,
         'Incorrect. It only raises an error if the element is not found.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -982,7 +998,8 @@ def demonstrate_multiple_returns():
 demonstrate_multiple_returns()`,
   exercises: [
     {
-      prompt: 'Create a function that takes a string and returns both its length and the count of vowels it contains.',
+      prompt:
+        'Create a function that takes a string and returns both its length and the count of vowels it contains.',
       initialCode: `def analyze_string(text: str) -> Tuple[int, int]:
     # Your solution here
     pass
@@ -1009,11 +1026,12 @@ test_str = "Hello World"
 length, vowel_count = analyze_string(test_str)
 print(f"String '{test_str}' has {length} characters and {vowel_count} vowels")`,
       difficulty: Difficulty.Beginner,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why might you choose to return multiple values as a tuple instead of a dictionary?',
+      question:
+        'Why might you choose to return multiple values as a tuple instead of a dictionary?',
       options: [
         'Tuples are always faster than dictionaries',
         'Tuples provide better type checking and are more memory efficient',
@@ -1022,13 +1040,13 @@ print(f"String '{test_str}' has {length} characters and {vowel_count} vowels")`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. While tuples can be faster, this isn\'t always true.',
+        "Incorrect. While tuples can be faster, this isn't always true.",
         'Correct! Tuples are more memory efficient and provide better type checking with static typing.',
         'Incorrect. Dictionaries can be returned from functions just like any other object.',
         'Incorrect. Tuples can store any type of data, not just numbers.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -1087,7 +1105,7 @@ def explore_tuple_keys():
         ("London", "July"): 18.7
     }
     
-    print("\nTemperature Data:")
+    print("Temperature Data:")
     for (city, month), temp in temperatures.items():
         print(f"{city} in {month}: {temp}°C")
     
@@ -1114,7 +1132,7 @@ def explore_tuple_keys():
         return fibonacci
     
     fib = create_cache()
-    print("\nFibonacci with caching:")
+    print("Fibonacci with caching:")
     print(f"fib(5) = {fib(5)}")
     print(f"fib(5) again = {fib(5)}  # Should show cache hit")
     
@@ -1125,7 +1143,7 @@ def explore_tuple_keys():
         ('A', 'C'): 7
     }
     
-    print("\nGraph Edges:")
+    print("Graph Edges:")
     for (start, end), weight in graph.items():
         print(f"{start} -> {end}: weight = {weight}")
         
@@ -1134,7 +1152,7 @@ def explore_tuple_keys():
         bad_key = ([1, 2], "test")  # List is mutable
         test_dict = {bad_key: "value"}
     except TypeError as e:
-        print(f"\nError with mutable key: {e}")
+        print(f"Error with mutable key: {e}")
 
     return "Exploration complete!"
 
@@ -1142,7 +1160,8 @@ def explore_tuple_keys():
 explore_tuple_keys()`,
   exercises: [
     {
-      prompt: 'Create a grade tracking system using tuples as keys. The keys should combine student name and subject, with values being the grades.',
+      prompt:
+        'Create a grade tracking system using tuples as keys. The keys should combine student name and subject, with values being the grades.',
       initialCode: `def create_grade_system():
     # Your solution here
     grades = {}
@@ -1183,26 +1202,27 @@ explore_tuple_keys()`,
 # Test the system
 grades, get_grades, add_grade = create_grade_system()`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why can\'t you use a list as part of a tuple key in a dictionary?',
+      question:
+        "Why can't you use a list as part of a tuple key in a dictionary?",
       options: [
         'Lists are too large to be dictionary keys',
-        'Python doesn\'t allow composite keys',
+        "Python doesn't allow composite keys",
         'Lists are mutable and thus unhashable',
         'Tuples can only contain numbers as keys',
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Size is not the determining factor for key eligibility.',
-        'Incorrect. Python allows composite keys if they\'re immutable.',
-        'Correct! Dictionary keys must be immutable (hashable). Lists are mutable, so they can\'t be used in keys.',
+        "Incorrect. Python allows composite keys if they're immutable.",
+        "Correct! Dictionary keys must be immutable (hashable). Lists are mutable, so they can't be used in keys.",
         'Incorrect. Tuples can contain any immutable types as part of dictionary keys.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 const namedTuplesData: LessonContent = {
@@ -1270,18 +1290,18 @@ def explore_named_tuples():
                   datetime(2021, 3, 1), 
                   "Engineering")
     
-    print(f"\nEmployee: {alice}")
+    print(f"Employee: {alice}")
     print(f"Department: {alice.department}")  # Uses default
     print(f"Bob's dept: {bob.department}")   # Uses specified value
     
     # Demonstrating tuple compatibility
     employees = [alice, bob]
     sorted_by_id = sorted(employees, key=lambda e: e.id)
-    print("\nSorted employees:", sorted_by_id)
+    print("Sorted employees:", sorted_by_id)
     
     # Converting to dictionary
     alice_dict = alice._asdict()
-    print(f"\nAs dictionary: {alice_dict}")
+    print(f"As dictionary: {alice_dict}")
     
     # Advanced usage: Extending named tuples
     class Point3D(NamedTuple):
@@ -1294,13 +1314,13 @@ def explore_named_tuples():
             return (self.x**2 + self.y**2 + self.z**2)**0.5
     
     point3d = Point3D(1, 2, 3)
-    print(f"\n3D Point magnitude: {point3d.magnitude():.2f}")
+    print(f"3D Point magnitude: {point3d.magnitude():.2f}")
     
     # Demonstrating immutability
     try:
         alice.department = "Sales"  # This will raise an error
     except AttributeError as e:
-        print(f"\nAttempted modification error: {e}")
+        print(f"Attempted modification error: {e}")
     
     return "Named tuple exploration complete!"
 
@@ -1308,7 +1328,8 @@ def explore_named_tuples():
 explore_named_tuples()`,
   exercises: [
     {
-      prompt: 'Create a named tuple called "BookRecord" that stores information about books (title, author, year, ISBN). Then create a function that sorts a list of books by year.',
+      prompt:
+        'Create a named tuple called "BookRecord" that stores information about books (title, author, year, ISBN). Then create a function that sorts a list of books by year.',
       initialCode: `from typing import NamedTuple, List
 
 # Create your BookRecord here
@@ -1341,11 +1362,12 @@ sorted_books = sort_books_by_year(books)
 for book in sorted_books:
     print(f"{book.year}: {book.title} by {book.author}")`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the main advantage of using named tuples over regular tuples?',
+      question:
+        'What is the main advantage of using named tuples over regular tuples?',
       options: [
         'Named tuples are faster than regular tuples',
         'Named tuples allow modification of values',
@@ -1360,7 +1382,7 @@ for book in sorted_books:
         'Incorrect. Named tuples actually use slightly more memory than regular tuples.',
       ],
       difficulty: Difficulty.Beginner,
-    }
+    },
   ],
 };
 
@@ -1421,7 +1443,7 @@ def analyze_tuple_performance():
             tuple_sizes.append(tuple_size)
             list_sizes.append(list_size)
             
-            print(f"\nSize {size}:")
+            print(f"Size {size}:")
             print(f"Tuple size: {tuple_size} bytes")
             print(f"List size: {list_size} bytes")
             print(f"Difference: {list_size - tuple_size} bytes")
@@ -1446,7 +1468,7 @@ def analyze_tuple_performance():
             number=100
         )
         
-        print(f"\nAccess time comparison:")
+        print(f"Access time comparison:")
         print(f"Tuple access: {tuple_time:.6f} seconds")
         print(f"List access: {list_time:.6f} seconds")
     
@@ -1461,7 +1483,7 @@ def analyze_tuple_performance():
         tuple_time = timeit.timeit(create_tuple, number=10000)
         list_time = timeit.timeit(create_list, number=10000)
         
-        print(f"\nCreation time comparison:")
+        print(f"Creation time comparison:")
         print(f"Tuple creation: {tuple_time:.6f} seconds")
         print(f"List creation: {list_time:.6f} seconds")
     
@@ -1487,7 +1509,7 @@ def analyze_tuple_performance():
         new_tup = modify_with_tuples(tup)
         tuple_time = time.time() - tuple_start
         
-        print(f"\nModification comparison:")
+        print(f"Modification comparison:")
         print(f"List modification: {list_time:.6f} seconds")
         print(f"Tuple modification (new tuple): {tuple_time:.6f} seconds")
     
@@ -1503,7 +1525,8 @@ def analyze_tuple_performance():
 analyze_tuple_performance()`,
   exercises: [
     {
-      prompt: 'Create a function that compares the performance of searching for elements in tuples versus lists. Include timing for both best case (first element) and worst case (last element).',
+      prompt:
+        'Create a function that compares the performance of searching for elements in tuples versus lists. Include timing for both best case (first element) and worst case (last element).',
       initialCode: `import time
 from typing import Tuple, List
 
@@ -1547,7 +1570,7 @@ for size in [1000, 10000, 100000]:
     compare_search_performance(size)
     print()`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
@@ -1555,7 +1578,7 @@ for size in [1000, 10000, 100000]:
       options: [
         'Tuples can only store small data types',
         'Tuples use a more efficient storage format',
-        'Tuples don\'t need extra space for potential growth',
+        "Tuples don't need extra space for potential growth",
         'Tuples compress their data automatically',
       ],
       correctAnswer: 2,
@@ -1563,10 +1586,10 @@ for size in [1000, 10000, 100000]:
         'Incorrect. Tuples can store any data type, just like lists.',
         'Incorrect. The basic storage format is similar to lists.',
         'Correct! Lists allocate extra space for potential additions, while tuples have a fixed size.',
-        'Incorrect. Tuples don\'t automatically compress their data.',
+        "Incorrect. Tuples don't automatically compress their data.",
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -1619,7 +1642,7 @@ def explore_nested_tuples():
         print(row)
     
     # Accessing nested elements
-    print(f"\nElement at row 1, col 1: {matrix[1][1]}")  # 5
+    print(f"Element at row 1, col 1: {matrix[1][1]}")  # 5
     
     # Complex nested structure
     organization = (
@@ -1647,7 +1670,7 @@ def explore_nested_tuples():
             else:
                 print(f"{indent}- {item}")
     
-    print("\nOrganization Structure:")
+    print("Organization Structure:")
     print_org_structure(organization)
     
     # Working with game states
@@ -1663,7 +1686,7 @@ def explore_nested_tuples():
         piece, color = board[row][col]
         return f"{piece}{'♟' if color == 'W' else '♙'}"
     
-    print("\nChess Board Segment:")
+    print("Chess Board Segment:")
     for row_idx, row in enumerate(chess_board):
         row_str = ""
         for col_idx, _ in enumerate(row):
@@ -1683,7 +1706,7 @@ def explore_nested_tuples():
         return results
     
     simple_nested = ((1, 2), (3, (4, 5)))
-    print("\nUnpacked paths:")
+    print("Unpacked paths:")
     for path in unpack_nested(simple_nested):
         print(path)
         
@@ -1693,7 +1716,8 @@ def explore_nested_tuples():
 explore_nested_tuples()`,
   exercises: [
     {
-      prompt: 'Create a function that finds the maximum depth of a nested tuple structure. For example, (1, (2, 3), (4, (5, 6))) has a depth of 3.',
+      prompt:
+        'Create a function that finds the maximum depth of a nested tuple structure. For example, (1, (2, 3), (4, (5, 6))) has a depth of 3.',
       initialCode: `def find_max_depth(nested_tuple):
     # Your solution here
     pass
@@ -1735,11 +1759,12 @@ for test in test_cases:
     depth = find_max_depth(test)
     print(f"Tuple {test} has depth {depth}")`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What happens when you modify an element within a nested tuple?',
+      question:
+        'What happens when you modify an element within a nested tuple?',
       options: [
         'Only the inner element changes',
         'The entire tuple is updated',
@@ -1754,7 +1779,7 @@ for test in test_cases:
         'Incorrect. No changes are possible to any part of a tuple.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -1807,7 +1832,7 @@ def explore_tuple_conversions():
     # String conversions
     text = "Hello"
     char_tuple = tuple(text)
-    print(f"\nString to tuple: {char_tuple}")
+    print(f"String to tuple: {char_tuple}")
     
     # Join tuple back to string
     text_again = ''.join(char_tuple)
@@ -1816,14 +1841,14 @@ def explore_tuple_conversions():
     # Set conversion (removes duplicates)
     duplicate_list = [1, 2, 2, 3, 3, 4]
     unique_tuple = tuple(set(duplicate_list))
-    print(f"\nUnique elements: {unique_tuple}")
+    print(f"Unique elements: {unique_tuple}")
     
     # Dictionary conversions
     data_dict = {'a': 1, 'b': 2, 'c': 3}
     
     # Get tuples of key-value pairs
     items_tuple = tuple(data_dict.items())
-    print(f"\nDict items to tuple: {items_tuple}")
+    print(f"Dict items to tuple: {items_tuple}")
     
     # Convert back to dictionary
     dict_again = dict(items_tuple)
@@ -1834,17 +1859,17 @@ def explore_tuple_conversions():
     # Generator to tuple
     squares_gen = (x**2 for x in range(5))
     squares_tuple = tuple(squares_gen)
-    print(f"\nGenerator to tuple: {squares_tuple}")
+    print(f"Generator to tuple: {squares_tuple}")
     
     # Zip to tuple
     names = ['Alice', 'Bob', 'Charlie']
     ages = [25, 30, 35]
     people = tuple(zip(names, ages))
-    print(f"\nZipped tuple: {people}")
+    print(f"Zipped tuple: {people}")
     
     # Tuple comprehension (actually creates generator first)
     even_tuple = tuple(x for x in range(10) if x % 2 == 0)
-    print(f"\nTuple comprehension: {even_tuple}")
+    print(f"Tuple comprehension: {even_tuple}")
     
     # Nested structure conversions
     nested_list = [[1, 2], [3, 4], [5, 6]]
@@ -1857,7 +1882,7 @@ def explore_tuple_conversions():
         return obj
     
     nested_tuple = deep_tuple(nested_list)
-    print(f"\nNested conversion: {nested_tuple}")
+    print(f"Nested conversion: {nested_tuple}")
     
     return "Conversion exploration complete!"
 
@@ -1865,7 +1890,8 @@ def explore_tuple_conversions():
 explore_tuple_conversions()`,
   exercises: [
     {
-      prompt: 'Create a function that converts a nested dictionary structure into a tuple structure, preserving the hierarchy.',
+      prompt:
+        'Create a function that converts a nested dictionary structure into a tuple structure, preserving the hierarchy.',
       initialCode: `def dict_to_nested_tuple(data):
     # Your solution here
     pass
@@ -1911,15 +1937,16 @@ print("Original dict:", test_dict)
 print("Nested tuple:", result)
 
 # Verify access
-print("\nAccessing values:")
+print("Accessing values:")
 print(f"First level: {result[0][1]}")  # Value of 'a'
 print(f"Second level: {result[1][1][0][1]}")  # Value of 'c'`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What happens when you convert a tuple to a set and back to a tuple?',
+      question:
+        'What happens when you convert a tuple to a set and back to a tuple?',
       options: [
         'The elements remain in the same order',
         'Duplicate elements are preserved',
@@ -1934,7 +1961,7 @@ print(f"Second level: {result[1][1][0][1]}")  # Value of 'c'`,
         'Incorrect. Tuples are always immutable, regardless of conversion.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -1995,19 +2022,19 @@ def explore_tuple_sorting():
     
     # Sort by single field using lambda
     by_age = sorted(students, key=lambda x: x[2])
-    print("\nSorted by age (lambda):")
+    print("Sorted by age (lambda):")
     for student in by_age:
         print(f"{student[0]}: {student[2]} years old")
     
     # Sort by single field using itemgetter (more efficient)
     by_grade = sorted(students, key=itemgetter(1))
-    print("\nSorted by grade (itemgetter):")
+    print("Sorted by grade (itemgetter):")
     for student in by_grade:
         print(f"{student[0]}: Grade {student[1]}")
     
     # Multiple field sorting
     by_grade_and_age = sorted(students, key=lambda x: (x[1], x[2]))
-    print("\nSorted by grade, then age:")
+    print("Sorted by grade, then age:")
     for student in by_grade_and_age:
         print(f"{student[0]}: Grade {student[1]}, Age {student[2]}")
     
@@ -2022,7 +2049,7 @@ def explore_tuple_sorting():
         return (grade_to_number(grade), -age)  # Higher age breaks grade ties
     
     by_grade_quality = sorted(students, key=student_sort_key)
-    print("\nSorted by grade quality and age (descending):")
+    print("Sorted by grade quality and age (descending):")
     for student in by_grade_quality:
         print(f"{student[0]}: Grade {student[1]}, Age {student[2]}")
     
@@ -2042,7 +2069,7 @@ def explore_tuple_sorting():
                 score2 if score2 is not None else -1)
     
     sorted_records = sorted(records, key=safe_sort_key, reverse=True)
-    print("\nSorted with missing values:")
+    print("Sorted with missing values:")
     for record in sorted_records:
         print(f"Name: {record[0]}, Scores: {record[1]}, {record[2]}")
     
@@ -2067,7 +2094,7 @@ def explore_tuple_sorting():
     
     try:
         sorted_mixed = sorted(mixed_tuples, key=mixed_sort_key)
-        print("\nSorted mixed types:")
+        print("Sorted mixed types:")
         for item in sorted_mixed:
             print(f"{item[0]}: {item[1]}")
     except TypeError as e:
@@ -2079,7 +2106,8 @@ def explore_tuple_sorting():
 explore_tuple_sorting()`,
   exercises: [
     {
-      prompt: 'Create a function that sorts a list of student tuples (name, grade, age) first by grade (A > B > C) and then by age (younger first). Include error handling for invalid grades.',
+      prompt:
+        'Create a function that sorts a list of student tuples (name, grade, age) first by grade (A > B > C) and then by age (younger first). Include error handling for invalid grades.',
       initialCode: `def sort_students(students):
     """
     Sort students by grade (A > B > C) and then by age (ascending).
@@ -2138,7 +2166,7 @@ students = [
 ]
 
 sorted_students = sort_students(students)
-print("\nSorted students:")
+print("Sorted students:")
 for student in sorted_students:
     print(f"{student[0]}: Grade {student[1]}, Age {student[2]}")
 
@@ -2147,13 +2175,14 @@ try:
     invalid_students = students + [('Eve', 'D', 21)]
     sort_students(invalid_students)
 except ValueError as e:
-    print(f"\nCaught error: {e}")`,
+    print(f"Caught error: {e}")`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'When sorting tuples using a key function, what does the function return?',
+      question:
+        'When sorting tuples using a key function, what does the function return?',
       options: [
         'A boolean indicating if two elements should be swapped',
         'A new tuple with modified values',
@@ -2168,7 +2197,7 @@ except ValueError as e:
         'Incorrect. The sorting function, not the key function, returns the sorted list.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -2210,7 +2239,7 @@ def explore_tuple_comparisons():
         # Simple numeric comparison
         tuple1 = (1, 2, 3)
         tuple2 = (1, 2, 4)
-        print(f"\nBasic comparison:")
+        print(f"Basic comparison:")
         print(f"{tuple1} < {tuple2}: {tuple1 < tuple2}")  # True
         print(f"This is true because the first difference (3 vs 4) determines the result")
         
@@ -2218,7 +2247,7 @@ def explore_tuple_comparisons():
         # Length-based comparison
         short_tuple = (1, 2)
         long_tuple = (1, 2, 0)  # Note the 0 at the end
-        print(f"\nLength comparison:")
+        print(f"Length comparison:")
         print(f"{short_tuple} < {long_tuple}: {short_tuple < long_tuple}")
         print("Even though all common elements are equal, the shorter tuple is 'less than'")
         
@@ -2228,14 +2257,14 @@ def explore_tuple_comparisons():
             invalid_comparison = (1, "2") < (1, 2)
             print("This should not execute")
         except TypeError as e:
-            print(f"\nType error handling:")
+            print(f"Type error handling:")
             print(f"Cannot compare different types: {e}")
             
     def demonstrate_nested_comparison():
         # Nested tuple comparison
         nested1 = ((1, 2), (3, 4))
         nested2 = ((1, 2), (3, 5))
-        print(f"\nNested comparison:")
+        print(f"Nested comparison:")
         print(f"{nested1} < {nested2}: {nested1 < nested2}")
         print("Comparison happens recursively for nested tuples")
         
@@ -2243,7 +2272,7 @@ def explore_tuple_comparisons():
         # Version number comparison
         version1 = (2, 0, 1)
         version2 = (2, 1, 0)
-        print(f"\nVersion number comparison:")
+        print(f"Version number comparison:")
         print(f"Version {version1} < {version2}: {version1 < version2}")
         print("Perfect for comparing software versions or other hierarchical numbers")
         
@@ -2260,7 +2289,8 @@ def explore_tuple_comparisons():
 explore_tuple_comparisons()`,
   exercises: [
     {
-      prompt: 'Create a function that implements a version comparison system using tuples. The function should handle version numbers like (1,0,0), (2,1), and (2,1,1) correctly.',
+      prompt:
+        'Create a function that implements a version comparison system using tuples. The function should handle version numbers like (1,0,0), (2,1), and (2,1,1) correctly.',
       initialCode: `def compare_versions(ver1, ver2):
     """
     Compare two version numbers represented as tuples.
@@ -2305,11 +2335,12 @@ for ver1, ver2 in test_cases:
     result = compare_versions(ver1, ver2)
     print(f"Comparing {ver1} and {ver2}: {result}")`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What happens when comparing tuples of different lengths where all common elements are equal?',
+      question:
+        'What happens when comparing tuples of different lengths where all common elements are equal?',
       options: [
         'The comparison raises an error',
         'The longer tuple is always considered greater',
@@ -2324,7 +2355,7 @@ for ver1, ver2 in test_cases:
         'Incorrect. Tuple comparisons always return a boolean result.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -2613,7 +2644,8 @@ class CoordinateSystemExamples:
 CoordinateSystemExamples.demonstrate_coordinate_operations()`,
   exercises: [
     {
-      prompt: 'Implement a function that determines if two rectangles overlap. Each rectangle is represented by two points: top-left and bottom-right coordinates.',
+      prompt:
+        'Implement a function that determines if two rectangles overlap. Each rectangle is represented by two points: top-left and bottom-right coordinates.',
       initialCode: `def rectangles_overlap(rect1: Tuple[Tuple[int, int], Tuple[int, int]],
                      rect2: Tuple[Tuple[int, int], Tuple[int, int]]) -> bool:
     """
@@ -2662,13 +2694,14 @@ for rect1, rect2 in test_cases:
     result = rectangles_overlap(rect1, rect2)
     print(f"Rectangle 1: {rect1}")
     print(f"Rectangle 2: {rect2}")
-    print(f"Overlapping: {result}\n")`,
+    print(f"Overlapping: {result}")`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why are tuples particularly well-suited for representing coordinates in a graph?',
+      question:
+        'Why are tuples particularly well-suited for representing coordinates in a graph?',
       options: [
         'They are faster than lists for mathematical operations',
         'They are immutable, preventing accidental modifications',
@@ -2680,10 +2713,10 @@ for rect1, rect2 in test_cases:
         'Incorrect. Tuples and lists have similar performance for math operations.',
         'Correct! Immutability ensures coordinate integrity throughout operations.',
         'Incorrect. Tuples can store any type of data.',
-        'Incorrect. While tuples are memory-efficient, this isn\'t the primary reason.',
+        "Incorrect. While tuples are memory-efficient, this isn't the primary reason.",
       ],
       difficulty: Difficulty.Beginner,
-    }
+    },
   ],
 };
 
@@ -2828,7 +2861,7 @@ def demonstrate_aggregation():
     
     # Multiple key grouping (region and product)
     region_product_groups = aggregator.group_by_multiple_keys(sales_data, [0, 1])
-    print("\nSales by Region and Product:")
+    print("Sales by Region and Product:")
     for key, sales in region_product_groups.items():
         print(f"{key}: {sales}")
     
@@ -2837,7 +2870,7 @@ def demonstrate_aggregation():
         [(x[0], x[2]) for x in sales_data],  # Convert to (region, amount)
         1
     )
-    print("\nRegional Statistics (min, max, avg):")
+    print("Regional Statistics (min, max, avg):")
     for region, (min_val, max_val, avg) in stats.items():
         print(f"{region}: \${min_val}, \${max_val}, \${avg:.2f}")
     
@@ -2851,7 +2884,7 @@ def demonstrate_aggregation():
     
     # Compute running averages
     running_avgs = aggregator.compute_running_aggregates(time_series, 3)
-    print("\nRunning 3-Day Averages:")
+    print("Running 3-Day Averages:")
     for dt, avg in running_avgs:
         print(f"{dt}: \${avg:.2f}")
     
@@ -2865,7 +2898,7 @@ def demonstrate_aggregation():
     
     # Nested aggregation
     dept_summary = aggregator.nested_aggregation(org_data)
-    print("\nDepartment Summary:")
+    print("Department Summary:")
     for dept, teams in dept_summary.items():
         print(f"{dept}:")
         for team, value in teams.items():
@@ -2875,7 +2908,8 @@ if __name__ == "__main__":
     demonstrate_aggregation()`,
   exercises: [
     {
-      prompt: 'Create a function that processes sales data to find the top-selling products by region. Each sale is represented as a tuple (region, product, quantity, price).',
+      prompt:
+        'Create a function that processes sales data to find the top-selling products by region. Each sale is represented as a tuple (region, product, quantity, price).',
       initialCode: `def analyze_top_products(sales: List[Tuple[str, str, int, float]]) -> Dict[str, List[Tuple[str, float]]]:
     """
     Find top products by total revenue for each region.
@@ -2918,15 +2952,16 @@ test_sales = [
 
 results = analyze_top_products(test_sales)
 for region, products in results.items():
-    print(f"\n{region} Top Products:")
+    print(f"{region} Top Products:")
     for product, revenue in products:
         print(f"{product}: \${revenue:,.2f}")`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why are tuples particularly useful for data aggregation compared to lists?',
+      question:
+        'Why are tuples particularly useful for data aggregation compared to lists?',
       options: [
         'Tuples are faster to process than lists',
         'Tuples can store more data than lists',
@@ -2941,7 +2976,7 @@ for region, products in results.items():
         'Incorrect. Tuples do not automatically sort their elements.',
       ],
       difficulty: Difficulty.Beginner,
-    }
+    },
   ],
 };
 

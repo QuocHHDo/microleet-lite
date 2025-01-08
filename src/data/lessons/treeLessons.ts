@@ -1,9 +1,15 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 const treeCurriculum: Curriculum = {
   title: 'Tree Curriculum',
-  description: 'A comprehensive guide to mastering tree data structures and algorithms',
+  description:
+    'A comprehensive guide to mastering tree data structures and algorithms',
   sections: [
     {
       id: 1,
@@ -12,27 +18,29 @@ const treeCurriculum: Curriculum = {
         {
           id: 'tree-concept',
           title: 'Tree Concepts and Terminology',
-          description: 'Understanding basic tree structure, nodes, edges, root, leaves, and height',
-          priority: PriorityLevel.Essential
+          description:
+            'Understanding basic tree structure, nodes, edges, root, leaves, and height',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'tree-implementation',
           title: 'Tree Implementation',
           description: 'Implementing basic tree structure and node classes',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'tree-properties',
           title: 'Tree Properties',
           description: 'Understanding depth, height, size, and balanced trees',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'interview-patterns',
           title: 'Common Tree Interview Patterns',
-          description: 'Essential techniques and problem-solving patterns for tree problems',
-          priority: PriorityLevel.Essential
-        }
+          description:
+            'Essential techniques and problem-solving patterns for tree problems',
+          priority: PriorityLevel.Essential,
+        },
       ],
     },
     {
@@ -43,26 +51,27 @@ const treeCurriculum: Curriculum = {
           id: 'binary-tree-basics',
           title: 'Binary Tree Basics',
           description: 'Understanding and implementing binary trees',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'tree-traversal',
           title: 'Tree Traversal',
-          description: 'Inorder, preorder, postorder, and level-order traversals',
-          priority: PriorityLevel.Essential
+          description:
+            'Inorder, preorder, postorder, and level-order traversals',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'tree-views',
           title: 'Tree Views',
           description: 'Left view, right view, top view implementations',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'tree-properties-checking',
           title: 'Tree Properties Verification',
           description: 'Checking symmetry, balance, and completeness',
-          priority: PriorityLevel.Important
-        }
+          priority: PriorityLevel.Important,
+        },
       ],
     },
     {
@@ -73,26 +82,26 @@ const treeCurriculum: Curriculum = {
           id: 'bst-concept',
           title: 'BST Properties and Implementation',
           description: 'Understanding BST properties and basic operations',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'bst-operations',
           title: 'BST Operations',
           description: 'Insertion, deletion, and search in BST',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'bst-validation',
           title: 'BST Validation',
           description: 'Verifying if a binary tree is a valid BST',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'bst-balancing',
           title: 'BST Balancing',
           description: 'Understanding and handling BST balance',
-          priority: PriorityLevel.Important
-        }
+          priority: PriorityLevel.Important,
+        },
       ],
     },
     {
@@ -102,21 +111,22 @@ const treeCurriculum: Curriculum = {
         {
           id: 'iterative-traversal',
           title: 'Iterative Traversal',
-          description: 'Stack-based iterative implementations of tree traversals',
-          priority: PriorityLevel.Important
+          description:
+            'Stack-based iterative implementations of tree traversals',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'morris-traversal',
           title: 'Morris Traversal',
           description: 'Understanding and implementing Morris traversal',
-          priority: PriorityLevel.Optional
+          priority: PriorityLevel.Optional,
         },
         {
           id: 'special-traversals',
           title: 'Special Traversals',
           description: 'Boundary traversal, vertical order traversals',
-          priority: PriorityLevel.Beneficial
-        }
+          priority: PriorityLevel.Beneficial,
+        },
       ],
     },
     {
@@ -127,20 +137,20 @@ const treeCurriculum: Curriculum = {
           id: 'tree-transformations',
           title: 'Tree Transformations',
           description: 'Flattening, inverting, and pruning trees',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'tree-comparisons',
           title: 'Tree Comparison Problems',
           description: 'Same tree, subtree of another tree, symmetric tree',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'path-operations',
           title: 'Path Operations',
           description: 'Path sum problems and path finding algorithms',
-          priority: PriorityLevel.Important
-        }
+          priority: PriorityLevel.Important,
+        },
       ],
     },
     {
@@ -151,20 +161,20 @@ const treeCurriculum: Curriculum = {
           id: 'avl-trees',
           title: 'AVL Trees',
           description: 'Understanding and implementing AVL trees',
-          priority: PriorityLevel.Beneficial
+          priority: PriorityLevel.Beneficial,
         },
         {
           id: 'red-black-trees',
           title: 'Red-Black Trees',
           description: 'Understanding and implementing Red-Black trees',
-          priority: PriorityLevel.Optional
+          priority: PriorityLevel.Optional,
         },
         {
           id: 'b-trees',
           title: 'B-Trees',
           description: 'Understanding B-trees and their variations',
-          priority: PriorityLevel.Optional
-        }
+          priority: PriorityLevel.Optional,
+        },
       ],
     },
     {
@@ -175,14 +185,14 @@ const treeCurriculum: Curriculum = {
           id: 'n-ary-trees',
           title: 'N-ary Trees',
           description: 'Working with trees having multiple children',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'segment-trees',
           title: 'Segment Trees',
           description: 'Understanding and implementing segment trees',
-          priority: PriorityLevel.Optional
-        }
+          priority: PriorityLevel.Optional,
+        },
       ],
     },
     {
@@ -193,14 +203,14 @@ const treeCurriculum: Curriculum = {
           id: 'tree-dp',
           title: 'Dynamic Programming on Trees',
           description: 'Solving tree problems using dynamic programming',
-          priority: PriorityLevel.Beneficial
+          priority: PriorityLevel.Beneficial,
         },
         {
           id: 'tree-distance',
           title: 'Tree Distance Problems',
           description: 'Calculating distances and path-related problems',
-          priority: PriorityLevel.Beneficial
-        }
+          priority: PriorityLevel.Beneficial,
+        },
       ],
     },
   ],
@@ -291,7 +301,8 @@ print("Family Tree Structure:")
 print_tree(root)`,
   exercises: [
     {
-      prompt: 'Create a binary tree node class with value, left, and right child properties. Then create a small tree with 3 nodes.',
+      prompt:
+        'Create a binary tree node class with value, left, and right child properties. Then create a small tree with 3 nodes.',
       initialCode: `# Write your solution here
 class BinaryTreeNode:
     # Add your code here
@@ -310,7 +321,8 @@ root.right = BinaryTreeNode(3)`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Write a function that calculates the height of a binary tree recursively.',
+      prompt:
+        'Write a function that calculates the height of a binary tree recursively.',
       initialCode: `def calculate_height(node):
     # Add your code here`,
       solution: `def calculate_height(node):
@@ -320,17 +332,13 @@ root.right = BinaryTreeNode(3)`,
     right_height = calculate_height(node.right)
     return max(left_height, right_height) + 1`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the maximum number of nodes at level L in a binary tree?',
-      options: [
-        'L',
-        '2^L',
-        '2^(L-1)',
-        '2^(L+1)',
-      ],
+      question:
+        'What is the maximum number of nodes at level L in a binary tree?',
+      options: ['L', '2^L', '2^(L-1)', '2^(L+1)'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. The number of nodes grows exponentially with level.',
@@ -356,8 +364,8 @@ root.right = BinaryTreeNode(3)`,
         'Incorrect. A node with two children is an internal node.',
       ],
       difficulty: Difficulty.Beginner,
-    }
-  ]
+    },
+  ],
 };
 
 const treeImplementationData: LessonContent = {
@@ -467,7 +475,8 @@ print("Pre-order traversal:", tree.traversal_preorder(tree.root))
 print("In-order traversal:", tree.traversal_inorder(tree.root))`,
   exercises: [
     {
-      prompt: 'Implement a post-order traversal method for the BinaryTree class.',
+      prompt:
+        'Implement a post-order traversal method for the BinaryTree class.',
       initialCode: `def traversal_postorder(self, node, result=None):
     # Add your code here`,
       solution: `def traversal_postorder(self, node, result=None):
@@ -481,7 +490,8 @@ print("In-order traversal:", tree.traversal_inorder(tree.root))`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a method to count the total number of nodes in a binary tree.',
+      prompt:
+        'Implement a method to count the total number of nodes in a binary tree.',
       initialCode: `def count_nodes(self, node):
     # Add your code here`,
       solution: `def count_nodes(self, node):
@@ -489,17 +499,12 @@ print("In-order traversal:", tree.traversal_inorder(tree.root))`,
         return 0
     return 1 + self.count_nodes(node.left) + self.count_nodes(node.right)`,
       difficulty: Difficulty.Beginner,
-    }
+    },
   ],
   quizzes: [
     {
       question: 'Which traversal visits the root node first?',
-      options: [
-        'In-order',
-        'Pre-order',
-        'Post-order',
-        'Level-order',
-      ],
+      options: ['In-order', 'Pre-order', 'Post-order', 'Level-order'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. In-order visits left subtree before root.',
@@ -511,12 +516,7 @@ print("In-order traversal:", tree.traversal_inorder(tree.root))`,
     },
     {
       question: 'What is the space complexity of recursive tree traversal?',
-      options: [
-        'O(1)',
-        'O(log n)',
-        'O(n)',
-        'O(n^2)',
-      ],
+      options: ['O(1)', 'O(log n)', 'O(n)', 'O(n^2)'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Recursive calls use stack space.',
@@ -525,8 +525,8 @@ print("In-order traversal:", tree.traversal_inorder(tree.root))`,
         'Incorrect. Tree traversal never requires quadratic space.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const treePropertiesData: LessonContent = {
@@ -687,7 +687,8 @@ print(f"Is balanced: {is_balanced}")
 print(f"Is complete: {props.is_complete(tree)}")`,
   exercises: [
     {
-      prompt: 'Implement a function that returns the maximum possible number of nodes in a binary tree of a given height.',
+      prompt:
+        'Implement a function that returns the maximum possible number of nodes in a binary tree of a given height.',
       initialCode: `def max_nodes_at_height(height):
     # Add your code here
     pass`,
@@ -697,7 +698,8 @@ print(f"Is complete: {props.is_complete(tree)}")`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Write a function that determines if a binary tree is perfect (all levels are completely full).',
+      prompt:
+        'Write a function that determines if a binary tree is perfect (all levels are completely full).',
       initialCode: `def is_perfect(node):
     # Add your code here
     pass`,
@@ -715,17 +717,12 @@ print(f"Is complete: {props.is_complete(tree)}")`,
     height = get_height(node)
     return height >= 0  # Returns True only if all levels are full`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
       question: 'What is the minimum height of a binary tree with 7 nodes?',
-      options: [
-        '1',
-        '2',
-        '3',
-        '4',
-      ],
+      options: ['1', '2', '3', '4'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. A height of 1 can only accommodate 3 nodes maximum.',
@@ -736,13 +733,9 @@ print(f"Is complete: {props.is_complete(tree)}")`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the relationship between the height h of a balanced binary tree and its number of nodes n?',
-      options: [
-        'h = n',
-        'h = n/2',
-        'h ≈ log₂(n)',
-        'h = √n',
-      ],
+      question:
+        'What is the relationship between the height h of a balanced binary tree and its number of nodes n?',
+      options: ['h = n', 'h = n/2', 'h ≈ log₂(n)', 'h = √n'],
       correctAnswer: 2,
       explanations: [
         'Incorrect. This would be the case for a completely unbalanced tree.',
@@ -768,8 +761,8 @@ print(f"Is complete: {props.is_complete(tree)}")`,
         'Incorrect. This is not a requirement for complete trees.',
       ],
       difficulty: Difficulty.Beginner,
-    }
-  ]
+    },
+  ],
 };
 
 const commonTreePatternsData: LessonContent = {
@@ -970,7 +963,8 @@ class TreePatterns:
         flatten_helper(root)`,
   exercises: [
     {
-      prompt: 'Implement a function to find the lowest common ancestor (LCA) of two nodes in a binary tree. The function should return null if either node is not present in the tree.',
+      prompt:
+        'Implement a function to find the lowest common ancestor (LCA) of two nodes in a binary tree. The function should return null if either node is not present in the tree.',
       initialCode: `def lowest_common_ancestor(root, p, q):
     # Add your solution here
     pass`,
@@ -992,7 +986,8 @@ class TreePatterns:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Write a function to determine if a binary tree is symmetric around its center (mirror image of itself).',
+      prompt:
+        'Write a function to determine if a binary tree is symmetric around its center (mirror image of itself).',
       initialCode: `def is_symmetric(root):
     # Add your solution here
     pass`,
@@ -1014,11 +1009,12 @@ class TreePatterns:
     
     return not root or is_mirror(root.left, root.right)`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Which traversal pattern would be most efficient for finding the average value of each level in a binary tree?',
+      question:
+        'Which traversal pattern would be most efficient for finding the average value of each level in a binary tree?',
       options: [
         'Preorder DFS',
         'Inorder DFS',
@@ -1035,7 +1031,8 @@ class TreePatterns:
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'When solving a problem that requires tracking paths from root to leaves, which pattern is most appropriate?',
+      question:
+        'When solving a problem that requires tracking paths from root to leaves, which pattern is most appropriate?',
       options: [
         'BFS with a queue',
         'DFS with path state',
@@ -1052,13 +1049,9 @@ class TreePatterns:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the space complexity of a recursive DFS solution for a balanced binary tree?',
-      options: [
-        'O(1)',
-        'O(log n)',
-        'O(n)',
-        'O(n²)',
-      ],
+      question:
+        'What is the space complexity of a recursive DFS solution for a balanced binary tree?',
+      options: ['O(1)', 'O(log n)', 'O(n)', 'O(n²)'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Recursive calls require stack space.',
@@ -1067,8 +1060,8 @@ class TreePatterns:
         'Incorrect. Tree traversal never requires quadratic space.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const binaryTreeBasicsData: LessonContent = {
@@ -1242,7 +1235,8 @@ def demonstrate_binary_tree():
 sample_tree = demonstrate_binary_tree()`,
   exercises: [
     {
-      prompt: 'Write a function that counts the total number of nodes in a binary tree. Consider both iterative and recursive approaches - which seems more natural to you and why?',
+      prompt:
+        'Write a function that counts the total number of nodes in a binary tree. Consider both iterative and recursive approaches - which seems more natural to you and why?',
       initialCode: `def count_nodes(root):
     # Add your solution here - try both approaches!
     pass`,
@@ -1274,7 +1268,8 @@ def count_nodes_iterative(root):
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Implement a function that determines the height of a binary tree. The height is the length of the path from the root to the deepest leaf. Consider how you might handle edge cases like an empty tree.',
+      prompt:
+        'Implement a function that determines the height of a binary tree. The height is the length of the path from the root to the deepest leaf. Consider how you might handle edge cases like an empty tree.',
       initialCode: `def tree_height(root):
     # Add your solution here
     pass`,
@@ -1291,17 +1286,13 @@ def count_nodes_iterative(root):
     
     return max(left_height, right_height) + 1`,
       difficulty: Difficulty.Beginner,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'In a binary tree with 7 nodes, what is the minimum possible height (considering the root has height 0)?',
-      options: [
-        '1',
-        '2',
-        '3',
-        '4',
-      ],
+      question:
+        'In a binary tree with 7 nodes, what is the minimum possible height (considering the root has height 0)?',
+      options: ['1', '2', '3', '4'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. A height of 1 can only accommodate 3 nodes maximum.',
@@ -1329,23 +1320,19 @@ def count_nodes_iterative(root):
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the maximum number of leaves possible in a binary tree of height 3 (root at height 0)?',
-      options: [
-        '4',
-        '8',
-        '16',
-        '7',
-      ],
+      question:
+        'What is the maximum number of leaves possible in a binary tree of height 3 (root at height 0)?',
+      options: ['4', '8', '16', '7'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. A binary tree of height 3 can have more leaves than this.',
         'Correct! At height 3, level 3 can have at most 2³ = 8 leaves.',
-        'Incorrect. This exceeds what\'s possible at height 3.',
+        "Incorrect. This exceeds what's possible at height 3.",
         'Incorrect. The maximum is 8 leaves at level 3.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const treeTraversalData: LessonContent = {
@@ -1580,7 +1567,8 @@ def demonstrate_traversals():
 demonstrate_traversals()`,
   exercises: [
     {
-      prompt: 'Implement a modified level-order traversal that prints the tree in a zigzag pattern (left to right for one level, right to left for the next). Think about how you can modify the basic level-order traversal to achieve this pattern.',
+      prompt:
+        'Implement a modified level-order traversal that prints the tree in a zigzag pattern (left to right for one level, right to left for the next). Think about how you can modify the basic level-order traversal to achieve this pattern.',
       initialCode: `def zigzag_level_order(root):
     # Add your solution here
     pass`,
@@ -1616,7 +1604,8 @@ demonstrate_traversals()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Write a function that performs boundary traversal of a binary tree (printing all nodes on the tree\'s boundary in anti-clockwise order). This combines aspects of different traversal methods to achieve a specific pattern.',
+      prompt:
+        "Write a function that performs boundary traversal of a binary tree (printing all nodes on the tree's boundary in anti-clockwise order). This combines aspects of different traversal methods to achieve a specific pattern.",
       initialCode: `def boundary_traversal(root):
     # Add your solution here
     pass`,
@@ -1672,11 +1661,12 @@ demonstrate_traversals()`,
     
     return result`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Which traversal should you use to evaluate a binary expression tree where operators are internal nodes and operands are leaf nodes?',
+      question:
+        'Which traversal should you use to evaluate a binary expression tree where operators are internal nodes and operands are leaf nodes?',
       options: [
         'Inorder traversal',
         'Preorder traversal',
@@ -1693,7 +1683,8 @@ demonstrate_traversals()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'If you need to create an exact copy of a binary tree, which traversal would be most helpful?',
+      question:
+        'If you need to create an exact copy of a binary tree, which traversal would be most helpful?',
       options: [
         'Inorder traversal',
         'Preorder traversal',
@@ -1710,7 +1701,8 @@ demonstrate_traversals()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Which traversal would be most efficient for finding the average value at each level of a tree?',
+      question:
+        'Which traversal would be most efficient for finding the average value at each level of a tree?',
       options: [
         'Inorder traversal',
         'Preorder traversal',
@@ -1720,13 +1712,13 @@ demonstrate_traversals()`,
       correctAnswer: 3,
       explanations: [
         'Incorrect. Inorder mixes nodes from different levels.',
-        'Incorrect. Preorder doesn\'t group nodes by level.',
-        'Incorrect. Postorder doesn\'t maintain level information.',
+        "Incorrect. Preorder doesn't group nodes by level.",
+        "Incorrect. Postorder doesn't maintain level information.",
         'Correct! Level-order naturally groups nodes by their level, making it perfect for level-based calculations.',
       ],
       difficulty: Difficulty.Beginner,
-    }
-  ]
+    },
+  ],
 };
 
 const treeViewsData: LessonContent = {
@@ -1930,7 +1922,8 @@ def demonstrate_tree_views():
 demonstrate_tree_views()`,
   exercises: [
     {
-      prompt: 'Implement a function to find the bottom view of a binary tree. Similar to the top view, but we want to see the last nodes visible from the bottom when looking from above.',
+      prompt:
+        'Implement a function to find the bottom view of a binary tree. Similar to the top view, but we want to see the last nodes visible from the bottom when looking from above.',
       initialCode: `def get_bottom_view(root):
     # Add your solution here
     pass`,
@@ -1965,7 +1958,8 @@ demonstrate_tree_views()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Implement a function to find the diagonal view of a binary tree. In the diagonal view, nodes that can be reached by following only right pointers form one diagonal.',
+      prompt:
+        'Implement a function to find the diagonal view of a binary tree. In the diagonal view, nodes that can be reached by following only right pointers form one diagonal.',
       initialCode: `def get_diagonal_view(root):
     # Add your solution here
     pass`,
@@ -1995,11 +1989,12 @@ demonstrate_tree_views()`,
     # Return diagonals from top to bottom
     return [diagonals[level] for level in sorted(diagonals.keys())]`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What determines if a node is part of the left view of a binary tree?',
+      question:
+        'What determines if a node is part of the left view of a binary tree?',
       options: [
         'It must be a left child',
         'It must be the first node encountered at its level when traversing from left to right',
@@ -2008,15 +2003,16 @@ demonstrate_tree_views()`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. A right child can be part of the left view if it\'s visible from the left.',
+        "Incorrect. A right child can be part of the left view if it's visible from the left.",
         'Correct! The left view includes the first node we see at each level when looking from the left.',
-        'Incorrect. A node doesn\'t need to be the leftmost to be visible from the left.',
-        'Incorrect. Nodes in the left view don\'t need to have left children.',
+        "Incorrect. A node doesn't need to be the leftmost to be visible from the left.",
+        "Incorrect. Nodes in the left view don't need to have left children.",
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the key concept used to determine the top view of a binary tree?',
+      question:
+        'What is the key concept used to determine the top view of a binary tree?',
       options: [
         'Level order traversal',
         'Horizontal distance from root',
@@ -2025,31 +2021,32 @@ demonstrate_tree_views()`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. While level order is used in implementation, it\'s not the key concept.',
+        "Incorrect. While level order is used in implementation, it's not the key concept.",
         'Correct! Horizontal distance helps us track which nodes align vertically when viewed from above.',
-        'Incorrect. Height doesn\'t determine if a node is visible from the top.',
-        'Incorrect. Number of children doesn\'t affect top view visibility.',
+        "Incorrect. Height doesn't determine if a node is visible from the top.",
+        "Incorrect. Number of children doesn't affect top view visibility.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When implementing the right view recursively, why do we process the right child before the left child?',
+      question:
+        'When implementing the right view recursively, why do we process the right child before the left child?',
       options: [
         'To improve efficiency',
         'To maintain tree balance',
         'To ensure we see the rightmost node at each level first',
-        'It doesn\'t matter which child we process first',
+        "It doesn't matter which child we process first",
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Processing order doesn\'t affect efficiency.',
-        'Incorrect. View calculations don\'t affect tree balance.',
+        "Incorrect. Processing order doesn't affect efficiency.",
+        "Incorrect. View calculations don't affect tree balance.",
         'Correct! Processing right child first ensures we capture the rightmost visible node at each level.',
         'Incorrect. The processing order is crucial for getting the correct right view.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const treePropertiesCheckingData: LessonContent = {
@@ -2298,7 +2295,8 @@ def demonstrate_property_verification():
 demonstrate_property_verification()`,
   exercises: [
     {
-      prompt: 'Implement a function to check if a binary tree is perfect (all internal nodes have exactly two children and all leaves are at the same level). Think about how this relates to completeness and balance.',
+      prompt:
+        'Implement a function to check if a binary tree is perfect (all internal nodes have exactly two children and all leaves are at the same level). Think about how this relates to completeness and balance.',
       initialCode: `def is_perfect(root):
     # Add your solution here
     pass`,
@@ -2336,7 +2334,8 @@ demonstrate_property_verification()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Write a function that determines if a binary tree is height-balanced while also tracking the minimum and maximum heights. This helps identify how close the tree is to being perfectly balanced.',
+      prompt:
+        'Write a function that determines if a binary tree is height-balanced while also tracking the minimum and maximum heights. This helps identify how close the tree is to being perfectly balanced.',
       initialCode: `def check_balance_with_heights(root):
     # Return (is_balanced, min_height, max_height)
     pass`,
@@ -2362,7 +2361,7 @@ demonstrate_property_verification()`,
     
     return check_heights(root)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
@@ -2393,30 +2392,26 @@ demonstrate_property_verification()`,
       correctAnswer: 2,
       explanations: [
         'Incorrect. A complete tree can have an incomplete last level.',
-        'Incorrect. Completeness doesn\'t require symmetry.',
+        "Incorrect. Completeness doesn't require symmetry.",
         'Correct! This defines completeness - all levels filled except maybe the last, which fills left to right.',
         'Incorrect. This describes a perfect binary tree.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the maximum allowed difference in heights between left and right subtrees for a tree to be balanced?',
-      options: [
-        '0 levels',
-        '1 level',
-        '2 levels',
-        'No limit',
-      ],
+      question:
+        'What is the maximum allowed difference in heights between left and right subtrees for a tree to be balanced?',
+      options: ['0 levels', '1 level', '2 levels', 'No limit'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. This would be too restrictive and require perfect balance.',
         'Correct! A height difference of at most 1 between subtrees defines a balanced tree.',
         'Incorrect. This would allow too much imbalance.',
-        'Incorrect. Without a limit, the tree wouldn\'t be considered balanced.',
+        "Incorrect. Without a limit, the tree wouldn't be considered balanced.",
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const bstConceptData: LessonContent = {
@@ -2629,7 +2624,8 @@ def demonstrate_bst():
 demonstrate_bst()`,
   exercises: [
     {
-      prompt: 'Implement a function to find the kth smallest element in a BST. This is a great example of how the BST property can be used for order statistics.',
+      prompt:
+        'Implement a function to find the kth smallest element in a BST. This is a great example of how the BST property can be used for order statistics.',
       initialCode: `def find_kth_smallest(root, k):
     # Add your solution here
     pass`,
@@ -2657,7 +2653,8 @@ demonstrate_bst()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Write a function to find the floor and ceiling values for a given input in a BST. The floor is the largest value smaller than or equal to the input, and the ceiling is the smallest value larger than or equal to the input.',
+      prompt:
+        'Write a function to find the floor and ceiling values for a given input in a BST. The floor is the largest value smaller than or equal to the input, and the ceiling is the smallest value larger than or equal to the input.',
       initialCode: `def find_floor_ceiling(root, target):
     # Return (floor, ceiling)
     # Use None if floor/ceiling doesn't exist
@@ -2681,7 +2678,7 @@ demonstrate_bst()`,
     
     return floor, ceiling`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
@@ -2697,12 +2694,13 @@ demonstrate_bst()`,
         'Incorrect. The relationship is between nodes and their entire subtrees, not just direct children.',
         'Incorrect. BST nodes can have 0, 1, or 2 children.',
         'Correct! This is the BST property that enables efficient searching.',
-        'Incorrect. While balance is desirable, it\'s not required for BST validity.',
+        "Incorrect. While balance is desirable, it's not required for BST validity.",
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What is the most challenging case when deleting a node from a BST?',
+      question:
+        'What is the most challenging case when deleting a node from a BST?',
       options: [
         'Deleting a leaf node',
         'Deleting a node with one child',
@@ -2719,13 +2717,9 @@ demonstrate_bst()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the time complexity of searching in a perfectly balanced BST?',
-      options: [
-        'O(1)',
-        'O(log n)',
-        'O(n)',
-        'O(n log n)',
-      ],
+      question:
+        'What is the time complexity of searching in a perfectly balanced BST?',
+      options: ['O(1)', 'O(log n)', 'O(n)', 'O(n log n)'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. BST search cannot achieve constant time.',
@@ -2734,12 +2728,13 @@ demonstrate_bst()`,
         'Incorrect. This complexity is more typical of sorting algorithms.',
       ],
       difficulty: Difficulty.Beginner,
-    }
-  ]
+    },
+  ],
 };
 
 const bstOperationsData: LessonContent = {
-  title: 'Binary Search Tree Operations: A Deep Dive into Search, Insertion, and Deletion',
+  title:
+    'Binary Search Tree Operations: A Deep Dive into Search, Insertion, and Deletion',
   content: `<p>
 When we work with Binary Search Trees, each operation is like playing a strategic game where every move must maintain the tree's special ordering property. Let's explore how these operations work, understanding not just the mechanics but the reasoning behind each step.
 </p>
@@ -2949,13 +2944,13 @@ def demonstrate_operations():
     print("Result:", 'Found' if found else 'Not found')
     
     # Demonstrate insertion
-    print("\nInserting 23:")
+    print("Inserting 23:")
     root, explanation = ops.insert_with_explanation(root, 23)
     for step in explanation:
         print(step)
     
     # Demonstrate deletion
-    print("\nDeleting 10:")
+    print("Deleting 10:")
     root, explanation = ops.delete_with_explanation(root, 10)
     for step in explanation:
         print(step)
@@ -2964,7 +2959,8 @@ def demonstrate_operations():
 demonstrate_operations()`,
   exercises: [
     {
-      prompt: 'Implement a function that verifies if a given binary tree is a valid BST. Consider how to handle edge cases like duplicate values and ensuring the entire subtree (not just immediate children) satisfies the BST property.',
+      prompt:
+        'Implement a function that verifies if a given binary tree is a valid BST. Consider how to handle edge cases like duplicate values and ensuring the entire subtree (not just immediate children) satisfies the BST property.',
       initialCode: `def is_valid_bst(root):
     # Add your solution here
     pass`,
@@ -2986,7 +2982,8 @@ demonstrate_operations()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Write a function that finds the closest value to a given target in a BST. This combines the BST search property with tracking the closest value seen so far.',
+      prompt:
+        'Write a function that finds the closest value to a given target in a BST. This combines the BST search property with tracking the closest value seen so far.',
       initialCode: `def find_closest_value(root, target):
     # Add your solution here
     pass`,
@@ -3012,11 +3009,12 @@ demonstrate_operations()`,
         
     return find_closest_recursive(root, target, root.value)`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'When deleting a node with two children from a BST, which nodes can be used to replace it?',
+      question:
+        'When deleting a node with two children from a BST, which nodes can be used to replace it?',
       options: [
         'Any node in the tree',
         'Any leaf node',
@@ -3033,7 +3031,8 @@ demonstrate_operations()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Why is BST insertion generally more efficient than searching an unsorted array?',
+      question:
+        'Why is BST insertion generally more efficient than searching an unsorted array?',
       options: [
         'BSTs always require less memory',
         'BST insertion visits every node',
@@ -3042,15 +3041,16 @@ demonstrate_operations()`,
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Memory usage isn\'t related to insertion efficiency.',
-        'Incorrect. Efficient BST insertion doesn\'t visit every node.',
+        "Incorrect. Memory usage isn't related to insertion efficiency.",
+        "Incorrect. Efficient BST insertion doesn't visit every node.",
         'Correct! This property gives BSTs their logarithmic time complexity for balanced trees.',
-        'Incorrect. Basic BSTs don\'t automatically balance.',
+        "Incorrect. Basic BSTs don't automatically balance.",
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'What makes the deletion of a node with two children more complex than other cases?',
+      question:
+        'What makes the deletion of a node with two children more complex than other cases?',
       options: [
         'It requires more memory',
         'It needs to maintain the BST property while restructuring the tree',
@@ -3059,18 +3059,19 @@ demonstrate_operations()`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Memory usage isn\'t the main challenge.',
+        "Incorrect. Memory usage isn't the main challenge.",
         'Correct! Finding a suitable replacement while maintaining the BST property is the key challenge.',
-        'Incorrect. Deletion doesn\'t necessarily affect balance.',
+        "Incorrect. Deletion doesn't necessarily affect balance.",
         'Incorrect. We only need to visit nodes along the path to the target.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const bstValidationData: LessonContent = {
-  title: 'Understanding Binary Search Tree Validation: Beyond Simple Comparisons',
+  title:
+    'Understanding Binary Search Tree Validation: Beyond Simple Comparisons',
   content: `<p>
 Imagine you're a museum curator tasked with verifying if a family tree painting is authentic. You wouldn't just check if each parent is older than their children - you'd need to verify that the dates make sense across multiple generations. Similarly, validating a Binary Search Tree isn't just about checking immediate parent-child relationships; it's about ensuring the entire structure maintains a specific ordering property across all levels.
 </p>
@@ -3291,7 +3292,8 @@ print("\\nExplaining Common Validation Mistakes:")
 explain_common_mistakes()`,
   exercises: [
     {
-      prompt: 'Implement a function that checks if a binary tree is a valid BST while also keeping track of the minimum and maximum values in the tree. This helps understand the range of values in the BST.',
+      prompt:
+        'Implement a function that checks if a binary tree is a valid BST while also keeping track of the minimum and maximum values in the tree. This helps understand the range of values in the BST.',
       initialCode: `def validate_bst_with_range(root):
     # Return (is_valid, min_value, max_value)
     # Return (True, None, None) for empty tree
@@ -3325,7 +3327,8 @@ explain_common_mistakes()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Write a function that validates a BST while also ensuring that no two adjacent levels have values that differ by more than a given threshold. This combines BST validation with an additional constraint.',
+      prompt:
+        'Write a function that validates a BST while also ensuring that no two adjacent levels have values that differ by more than a given threshold. This combines BST validation with an additional constraint.',
       initialCode: `def validate_bst_with_threshold(root, threshold):
     # Return True if valid BST and adjacent levels differ by at most threshold
     pass`,
@@ -3348,28 +3351,30 @@ explain_common_mistakes()`,
     
     return validate(root)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is checking only parent-child relationships insufficient for BST validation?',
+      question:
+        'Why is checking only parent-child relationships insufficient for BST validation?',
       options: [
         'It takes too much time',
         'It misses violations that occur across multiple levels',
-        'It can\'t handle empty trees',
+        "It can't handle empty trees",
         'It uses too much memory',
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Time complexity isn\'t the issue here.',
+        "Incorrect. Time complexity isn't the issue here.",
         'Correct! A value might be valid compared to its parent but invalid compared to an ancestor.',
         'Incorrect. Empty tree handling is a separate concern.',
-        'Incorrect. Memory usage isn\'t the main problem.',
+        "Incorrect. Memory usage isn't the main problem.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key insight behind the range-based BST validation approach?',
+      question:
+        'What is the key insight behind the range-based BST validation approach?',
       options: [
         'It visits nodes in order',
         'It maintains valid ranges for each subtree',
@@ -3378,10 +3383,10 @@ explain_common_mistakes()`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Order of traversal isn\'t the key insight.',
+        "Incorrect. Order of traversal isn't the key insight.",
         'Correct! By maintaining valid ranges, we ensure the BST property holds across all levels.',
-        'Incorrect. Node counting isn\'t related to BST validation.',
-        'Incorrect. Balance isn\'t required for BST validity.',
+        "Incorrect. Node counting isn't related to BST validation.",
+        "Incorrect. Balance isn't required for BST validity.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -3398,11 +3403,11 @@ explain_common_mistakes()`,
         'Incorrect. An empty tree is a valid BST by definition.',
         'Correct! An empty tree satisfies the BST property vacuously.',
         'Incorrect. Empty trees are valid input cases.',
-        'Incorrect. There\'s nothing to search in an empty tree.',
+        "Incorrect. There's nothing to search in an empty tree.",
       ],
       difficulty: Difficulty.Beginner,
-    }
-  ]
+    },
+  ],
 };
 
 const bstBalancingData: LessonContent = {
@@ -3626,7 +3631,8 @@ demonstrate_balancing()
 explain_rotation_cases()`,
   exercises: [
     {
-      prompt: 'Implement a function that determines if an AVL tree is properly balanced. The function should verify that the balance factor at each node is within the valid range (-1 to 1) and that heights are correctly maintained.',
+      prompt:
+        'Implement a function that determines if an AVL tree is properly balanced. The function should verify that the balance factor at each node is within the valid range (-1 to 1) and that heights are correctly maintained.',
       initialCode: `def is_valid_avl(root):
     # Add your solution here
     pass`,
@@ -3667,7 +3673,8 @@ explain_rotation_cases()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Write a function that takes an unbalanced BST and converts it into a balanced AVL tree. This involves rebalancing the entire tree rather than maintaining balance during insertions.',
+      prompt:
+        'Write a function that takes an unbalanced BST and converts it into a balanced AVL tree. This involves rebalancing the entire tree rather than maintaining balance during insertions.',
       initialCode: `def balance_bst(root):
     # Add your solution here
     pass`,
@@ -3699,17 +3706,13 @@ explain_rotation_cases()`,
     # Rebuild as balanced tree
     return build_balanced_tree(values, 0, len(values) - 1)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the maximum allowed difference in heights between the left and right subtrees in an AVL tree?',
-      options: [
-        '0',
-        '1',
-        '2',
-        'No limit',
-      ],
+      question:
+        'What is the maximum allowed difference in heights between the left and right subtrees in an AVL tree?',
+      options: ['0', '1', '2', 'No limit'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. This would be too restrictive and require perfect balance.',
@@ -3731,19 +3734,15 @@ explain_rotation_cases()`,
       explanations: [
         'Correct! This specific imbalance pattern requires a left rotation followed by a right rotation.',
         'Incorrect. Right-heavy trees need different rotation patterns.',
-        'Incorrect. Tree depth alone doesn\'t determine rotation type.',
+        "Incorrect. Tree depth alone doesn't determine rotation type.",
         'Incorrect. Not all insertions require rotations.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the time complexity of rebalancing an AVL tree after an insertion?',
-      options: [
-        'O(1)',
-        'O(log n)',
-        'O(n)',
-        'O(n log n)',
-      ],
+      question:
+        'What is the time complexity of rebalancing an AVL tree after an insertion?',
+      options: ['O(1)', 'O(log n)', 'O(n)', 'O(n log n)'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Rebalancing requires traversing back up the tree.',
@@ -3752,8 +3751,8 @@ explain_rotation_cases()`,
         'Incorrect. This would be too slow for practical use.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const iterativeTraversalData: LessonContent = {
@@ -3889,8 +3888,14 @@ print("Iterative Inorder:", tree.iterative_inorder())  # Output: [4, 2, 5, 1, 3]
   ],
   quizzes: [
     {
-      question: 'Which of the following is a common use case for iterative tree traversal?',
-      options: ['Avoiding stack overflow', 'Controlling traversal process', 'Both of the above', 'None of the above'],
+      question:
+        'Which of the following is a common use case for iterative tree traversal?',
+      options: [
+        'Avoiding stack overflow',
+        'Controlling traversal process',
+        'Both of the above',
+        'None of the above',
+      ],
       correctAnswer: 2,
       explanations: [
         'This is correct. Iterative traversal helps avoid stack overflow.',
@@ -3901,8 +3906,14 @@ print("Iterative Inorder:", tree.iterative_inorder())  # Output: [4, 2, 5, 1, 3]
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the primary advantage of using a stack for iterative tree traversal?',
-      options: ['Efficient memory usage', 'Avoiding recursion', 'Both of the above', 'None of the above'],
+      question:
+        'What is the primary advantage of using a stack for iterative tree traversal?',
+      options: [
+        'Efficient memory usage',
+        'Avoiding recursion',
+        'Both of the above',
+        'None of the above',
+      ],
       correctAnswer: 2,
       explanations: [
         'This is correct. Using a stack can lead to more efficient memory usage.',
@@ -4150,7 +4161,8 @@ demonstrate_morris_traversal()`,
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Write a function that uses Morris Traversal to check if a binary tree is a valid BST. This shows how Morris Traversal can be used for tree validation without extra space.',
+      prompt:
+        'Write a function that uses Morris Traversal to check if a binary tree is a valid BST. This shows how Morris Traversal can be used for tree validation without extra space.',
       initialCode: `def morris_is_bst(root):
     # Add your solution here
     pass`,
@@ -4184,11 +4196,12 @@ demonstrate_morris_traversal()`,
     
     return is_valid`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the key feature that enables Morris Traversal to achieve O(1) space complexity?',
+      question:
+        'What is the key feature that enables Morris Traversal to achieve O(1) space complexity?',
       options: [
         'Using a stack efficiently',
         'Temporarily reusing null right pointers as threads',
@@ -4197,7 +4210,7 @@ demonstrate_morris_traversal()`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Morris Traversal doesn\'t use a stack at all.',
+        "Incorrect. Morris Traversal doesn't use a stack at all.",
         'Correct! By temporarily repurposing null right pointers as threads, Morris Traversal avoids needing extra space.',
         'Incorrect. Morris Traversal visits all nodes.',
         'Incorrect. Morris Traversal is an iterative algorithm.',
@@ -4205,24 +4218,26 @@ demonstrate_morris_traversal()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When implementing Morris Traversal, what indicates that we\'ve returned to a node via a thread?',
+      question:
+        "When implementing Morris Traversal, what indicates that we've returned to a node via a thread?",
       options: [
         'The current node is null',
-        'We\'ve reached a leaf node',
-        'The predecessor\'s right pointer points to the current node',
+        "We've reached a leaf node",
+        "The predecessor's right pointer points to the current node",
         'The left subtree is empty',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. A null node isn\'t related to thread detection.',
-        'Incorrect. Leaf nodes don\'t indicate thread returns.',
-        'Correct! Finding that the predecessor\'s right pointer already points to current means we\'ve returned via that thread.',
-        'Incorrect. Empty left subtrees don\'t involve threading.',
+        "Incorrect. A null node isn't related to thread detection.",
+        "Incorrect. Leaf nodes don't indicate thread returns.",
+        "Correct! Finding that the predecessor's right pointer already points to current means we've returned via that thread.",
+        "Incorrect. Empty left subtrees don't involve threading.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is a potential disadvantage of Morris Traversal compared to traditional methods?',
+      question:
+        'What is a potential disadvantage of Morris Traversal compared to traditional methods?',
       options: [
         'Higher space complexity',
         'Lower time efficiency',
@@ -4237,8 +4252,8 @@ demonstrate_morris_traversal()`,
         'Incorrect. Morris Traversal works with any binary tree.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const specialTraversalsData: LessonContent = {
@@ -4465,7 +4480,8 @@ def demonstrate_special_traversals():
 demonstrate_special_traversals()`,
   exercises: [
     {
-      prompt: 'Implement a function that performs a vertical sum traversal, where for each vertical line (same horizontal distance from root), we calculate the sum of all node values. This combines vertical order traversal with aggregate calculations.',
+      prompt:
+        'Implement a function that performs a vertical sum traversal, where for each vertical line (same horizontal distance from root), we calculate the sum of all node values. This combines vertical order traversal with aggregate calculations.',
       initialCode: `def vertical_sum(root):
     # Return list of sums for each vertical line from leftmost to rightmost
     pass`,
@@ -4497,7 +4513,8 @@ demonstrate_special_traversals()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Write a function that performs a custom diagonal traversal where we also track the level of each node within its diagonal. This helps understand both diagonal relationships and depth information.',
+      prompt:
+        'Write a function that performs a custom diagonal traversal where we also track the level of each node within its diagonal. This helps understand both diagonal relationships and depth information.',
       initialCode: `def diagonal_with_levels(root):
     # Return list of lists, where each inner list contains
     # tuples of (value, level) for nodes in the same diagonal
@@ -4529,11 +4546,12 @@ demonstrate_special_traversals()`,
     
     return [diagonals[d] for d in range(max_diagonal + 1)]`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What defines the boundary of a binary tree in boundary traversal?',
+      question:
+        'What defines the boundary of a binary tree in boundary traversal?',
       options: [
         'All leaf nodes',
         'The leftmost and rightmost nodes only',
@@ -4550,7 +4568,8 @@ demonstrate_special_traversals()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'How is horizontal distance calculated in vertical order traversal?',
+      question:
+        'How is horizontal distance calculated in vertical order traversal?',
       options: [
         'By counting total nodes from root to target',
         'By counting edges from root, decreasing for left, increasing for right',
@@ -4559,15 +4578,16 @@ demonstrate_special_traversals()`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Total nodes don\'t determine horizontal distance.',
+        "Incorrect. Total nodes don't determine horizontal distance.",
         'Correct! We decrease HD for left moves and increase for right moves from root.',
-        'Incorrect. Physical distance isn\'t relevant in tree structure.',
+        "Incorrect. Physical distance isn't relevant in tree structure.",
         'Incorrect. This would give incorrect results for many paths.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What characterizes nodes in the same diagonal during diagonal traversal?',
+      question:
+        'What characterizes nodes in the same diagonal during diagonal traversal?',
       options: [
         'They have the same value',
         'They have the same depth from root',
@@ -4576,14 +4596,14 @@ demonstrate_special_traversals()`,
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Node values don\'t determine diagonal placement.',
+        "Incorrect. Node values don't determine diagonal placement.",
         'Incorrect. Nodes in same diagonal can be at different depths.',
         'Correct! The number of left edges taken from root determines the diagonal.',
         'Incorrect. Diagonal can include both internal and leaf nodes.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const treeTransformationsData: LessonContent = {
@@ -4799,7 +4819,8 @@ def demonstrate_transformations():
 demonstrate_transformations()`,
   exercises: [
     {
-      prompt: 'Implement a function that converts a binary tree into a zigzag linked list, where each level alternates between going left-to-right and right-to-left. This combines flattening with level-aware processing.',
+      prompt:
+        'Implement a function that converts a binary tree into a zigzag linked list, where each level alternates between going left-to-right and right-to-left. This combines flattening with level-aware processing.',
       initialCode: `def flatten_zigzag(root):
     # Add your solution here
     pass`,
@@ -4843,7 +4864,8 @@ demonstrate_transformations()`,
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Write a function that prunes a binary tree based on a predicate function that evaluates each subtree. The predicate should be able to make decisions based on the entire subtree, not just individual nodes.',
+      prompt:
+        'Write a function that prunes a binary tree based on a predicate function that evaluates each subtree. The predicate should be able to make decisions based on the entire subtree, not just individual nodes.',
       initialCode: `def prune_by_predicate(root, predicate):
     # predicate is a function that takes a node and returns bool
     # Add your solution here
@@ -4872,11 +4894,12 @@ demonstrate_transformations()`,
 #                has_even_value(n.right))
 #     return has_even_value(node)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What must be preserved when flattening a BST to maintain its search property?',
+      question:
+        'What must be preserved when flattening a BST to maintain its search property?',
       options: [
         'The depth of nodes',
         'The inorder traversal sequence',
@@ -4885,15 +4908,16 @@ demonstrate_transformations()`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Depth isn\'t relevant to BST property.',
-        'Correct! The inorder sequence maintains the BST\'s ordering property.',
-        'Incorrect. Preorder sequence doesn\'t maintain BST ordering.',
+        "Incorrect. Depth isn't relevant to BST property.",
+        "Correct! The inorder sequence maintains the BST's ordering property.",
+        "Incorrect. Preorder sequence doesn't maintain BST ordering.",
         'Incorrect. Parent-child relationships change during flattening.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What happens to the paths from root to leaves when a binary tree is inverted?',
+      question:
+        'What happens to the paths from root to leaves when a binary tree is inverted?',
       options: [
         'They maintain the same length',
         'They become sorted',
@@ -4902,35 +4926,37 @@ demonstrate_transformations()`,
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Length is preserved but this isn\'t the key change.',
-        'Incorrect. Inversion doesn\'t sort paths.',
+        "Incorrect. Length is preserved but this isn't the key change.",
+        "Incorrect. Inversion doesn't sort paths.",
         'Correct! Each left move becomes right and vice versa in the inverted tree.',
         'Incorrect. Path lengths remain the same.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When pruning a binary tree, what happens to a node whose children are all pruned?',
+      question:
+        'When pruning a binary tree, what happens to a node whose children are all pruned?',
       options: [
         'It becomes a leaf node',
-        'It must be pruned too if it doesn\'t satisfy the condition',
-        'It\'s always kept',
-        'It\'s always removed',
+        "It must be pruned too if it doesn't satisfy the condition",
+        "It's always kept",
+        "It's always removed",
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. The node might need to be pruned itself.',
-        'Correct! If a node\'s children are pruned, it must be evaluated against the pruning condition.',
+        "Correct! If a node's children are pruned, it must be evaluated against the pruning condition.",
         'Incorrect. The node might need to be pruned.',
         'Incorrect. The node might satisfy the condition on its own.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const treeComparisonsData: LessonContent = {
-  title: 'Tree Comparison Problems: Understanding Structural and Value-Based Relationships',
+  title:
+    'Tree Comparison Problems: Understanding Structural and Value-Based Relationships',
   content: `<p>
 Imagine you're an art curator comparing intricate family crests. Just as you might need to determine if two crests are identical, if one is contained within another, or if one is a mirror image of itself, we often need to compare trees in similar ways. Tree comparison problems help us understand relationships between tree structures, which is crucial for many practical applications.
 </p>
@@ -5131,7 +5157,8 @@ demonstrate_comparisons()
 explain_comparison_edge_cases()`,
   exercises: [
     {
-      prompt: 'Implement a function that determines if two trees are almost identical, meaning they are identical in structure and their corresponding node values differ by at most a given threshold. This combines structural comparison with value tolerance.',
+      prompt:
+        'Implement a function that determines if two trees are almost identical, meaning they are identical in structure and their corresponding node values differ by at most a given threshold. This combines structural comparison with value tolerance.',
       initialCode: `def are_almost_identical(root1, root2, threshold):
     # Return True if trees are identical in structure and
     # corresponding values differ by at most threshold
@@ -5156,7 +5183,8 @@ explain_comparison_edge_cases()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Write a function that determines if one tree is a mirror subtree of another. A mirror subtree is like a regular subtree, but it matches when reflected. This combines subtree checking with symmetry concepts.',
+      prompt:
+        'Write a function that determines if one tree is a mirror subtree of another. A mirror subtree is like a regular subtree, but it matches when reflected. This combines subtree checking with symmetry concepts.',
       initialCode: `def has_mirror_subtree(root, sub_root):
     # Return True if sub_root appears anywhere in root
     # either normally or as a mirror image
@@ -5198,7 +5226,7 @@ explain_comparison_edge_cases()`,
     return (has_mirror_subtree(root.left, sub_root) or
             has_mirror_subtree(root.right, sub_root))`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
@@ -5231,7 +5259,7 @@ explain_comparison_edge_cases()`,
         'Incorrect. Empty trees are valid subtrees.',
         'Incorrect. Empty tree is a subtree of any tree.',
         'Correct! An empty tree is considered a subtree of any tree by definition.',
-        'Incorrect. Leaf nodes aren\'t relevant to this case.',
+        "Incorrect. Leaf nodes aren't relevant to this case.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -5245,14 +5273,14 @@ explain_comparison_edge_cases()`,
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Same values don\'t ensure symmetry.',
-        'Incorrect. Equal size doesn\'t ensure mirror structure.',
+        "Incorrect. Same values don't ensure symmetry.",
+        "Incorrect. Equal size doesn't ensure mirror structure.",
         'Correct! The left and right subtrees must be perfect mirror images.',
-        'Incorrect. Leaf level equality isn\'t sufficient for symmetry.',
+        "Incorrect. Leaf level equality isn't sufficient for symmetry.",
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const pathOperationsData: LessonContent = {
@@ -5490,7 +5518,8 @@ def demonstrate_path_operations():
 demonstrate_path_operations()`,
   exercises: [
     {
-      prompt: 'Implement a function that finds the path between two given nodes in a binary tree. The path should be represented as a list of values traversed. Consider that the path might go up before going down.',
+      prompt:
+        'Implement a function that finds the path between two given nodes in a binary tree. The path should be represented as a list of values traversed. Consider that the path might go up before going down.',
       initialCode: `def find_path_between_nodes(root, start_val, end_val):
     # Return the path from start_val to end_val
     # Return empty list if no path exists
@@ -5539,7 +5568,8 @@ demonstrate_path_operations()`,
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Write a function that finds all paths in a binary tree where the product of node values equals a given target. This is similar to path sum but uses multiplication instead of addition.',
+      prompt:
+        'Write a function that finds all paths in a binary tree where the product of node values equals a given target. This is similar to path sum but uses multiplication instead of addition.',
       initialCode: `def find_product_paths(root, target):
     # Return list of paths where node values multiply to target
     pass`,
@@ -5568,11 +5598,12 @@ demonstrate_path_operations()`,
     dfs(root, 1, [], all_paths)
     return all_paths`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the key difference between basic path sum and path sum III?',
+      question:
+        'What is the key difference between basic path sum and path sum III?',
       options: [
         'Path sum III only works with positive numbers',
         'Path sum III allows paths to start and end anywhere',
@@ -5583,13 +5614,14 @@ demonstrate_path_operations()`,
       explanations: [
         'Incorrect. Path sum III works with both positive and negative numbers.',
         'Correct! Path sum III is more flexible, allowing paths between any nodes in the tree.',
-        'Incorrect. Path sum III doesn\'t require paths to end at leaves.',
-        'Incorrect. Memory complexity isn\'t the key difference.',
+        "Incorrect. Path sum III doesn't require paths to end at leaves.",
+        "Incorrect. Memory complexity isn't the key difference.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When finding the maximum path sum in a binary tree, why do we take max(gain, 0) for subtrees?',
+      question:
+        'When finding the maximum path sum in a binary tree, why do we take max(gain, 0) for subtrees?',
       options: [
         'To handle empty subtrees',
         'To ignore negative paths that would reduce our sum',
@@ -5601,12 +5633,13 @@ demonstrate_path_operations()`,
         'Incorrect. Empty subtrees return 0 by default.',
         'Correct! We ignore negative paths because they would only decrease our sum.',
         'Incorrect. Path connectivity is handled by the traversal.',
-        'Incorrect. This isn\'t related to overflow prevention.',
+        "Incorrect. This isn't related to overflow prevention.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the purpose of backtracking in path finding algorithms?',
+      question:
+        'What is the purpose of backtracking in path finding algorithms?',
       options: [
         'To save memory',
         'To improve performance',
@@ -5616,13 +5649,13 @@ demonstrate_path_operations()`,
       correctAnswer: 2,
       explanations: [
         'Incorrect. Memory savings is a side effect, not the main purpose.',
-        'Incorrect. Performance isn\'t the primary reason.',
-        'Correct! Backtracking ensures we explore all possible paths by removing nodes when we\'re done with a branch.',
+        "Incorrect. Performance isn't the primary reason.",
+        "Correct! Backtracking ensures we explore all possible paths by removing nodes when we're done with a branch.",
         'Incorrect. Handling negative values is unrelated to backtracking.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const avlTreesData: LessonContent = {
@@ -5859,7 +5892,7 @@ def explain_rotations():
     """
     Explains when and why each type of rotation is needed.
     """
-    print("AVL Tree Rotation Types:\\n")
+    print("AVL Tree Rotation Types:\")
     
     print("1. Left Rotation (LL):")
     print("   - Used when right subtree becomes too heavy")
@@ -5882,7 +5915,8 @@ demonstrate_avl()
 explain_rotations()`,
   exercises: [
     {
-      prompt: 'Implement the delete operation for an AVL tree. Remember to maintain balance after deletion. Consider all cases where rebalancing might be needed.',
+      prompt:
+        'Implement the delete operation for an AVL tree. Remember to maintain balance after deletion. Consider all cases where rebalancing might be needed.',
       initialCode: `def delete(self, root, value):
     # Add your solution here
     pass`,
@@ -5947,7 +5981,8 @@ def get_min_value_node(self, root):
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Write a function that verifies if a given binary tree is a valid AVL tree. Check both the BST property and balance factor requirements.',
+      prompt:
+        'Write a function that verifies if a given binary tree is a valid AVL tree. Check both the BST property and balance factor requirements.',
       initialCode: `def is_valid_avl(root):
     # Return True if tree is valid AVL tree
     pass`,
@@ -5995,17 +6030,13 @@ def get_min_value_node(self, root):
     
     return is_bst(root) and check_balance_and_height(root)[0]`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the maximum allowed difference in height between the left and right subtrees in an AVL tree?',
-      options: [
-        '0',
-        '1',
-        '2',
-        'log n',
-      ],
+      question:
+        'What is the maximum allowed difference in height between the left and right subtrees in an AVL tree?',
+      options: ['0', '1', '2', 'log n'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. This would be too restrictive.',
@@ -6020,26 +6051,22 @@ def get_min_value_node(self, root):
       options: [
         'When the tree is left-heavy',
         'When the tree is right-heavy',
-        'When an imbalance occurs in the left child\'s right subtree',
+        "When an imbalance occurs in the left child's right subtree",
         'When inserting into an empty tree',
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Left-heaviness alone doesn\'t determine the rotation type.',
+        "Incorrect. Left-heaviness alone doesn't determine the rotation type.",
         'Incorrect. Right-heavy trees need different rotations.',
         'Correct! LR rotation is needed when the imbalance involves the right subtree of a left child.',
-        'Incorrect. Empty trees don\'t need rotation.',
+        "Incorrect. Empty trees don't need rotation.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the time complexity of rebalancing after an AVL tree insertion?',
-      options: [
-        'O(1)',
-        'O(log n)',
-        'O(n)',
-        'O(n log n)',
-      ],
+      question:
+        'What is the time complexity of rebalancing after an AVL tree insertion?',
+      options: ['O(1)', 'O(log n)', 'O(n)', 'O(n log n)'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. While rotations themselves take O(1), we need to update heights along the path.',
@@ -6048,8 +6075,8 @@ def get_min_value_node(self, root):
         'Incorrect. Rebalancing is more efficient than this.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const redBlackTreesData: LessonContent = {
@@ -6301,7 +6328,8 @@ def demonstrate_rb_tree():
 demonstrate_rb_tree()`,
   exercises: [
     {
-      prompt: 'Implement a function that verifies if a binary tree satisfies all Red-Black tree properties. Remember to check node colors, the root property, red node children, and black height consistency.',
+      prompt:
+        'Implement a function that verifies if a binary tree satisfies all Red-Black tree properties. Remember to check node colors, the root property, red node children, and black height consistency.',
       initialCode: `def is_valid_rb_tree(root):
     # Return True if tree satisfies all RB properties
     pass`,
@@ -6358,7 +6386,8 @@ demonstrate_rb_tree()`,
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Write a function that counts the number of black nodes on any path from root to leaf in a Red-Black tree. All paths should return the same count if the tree is valid.',
+      prompt:
+        'Write a function that counts the number of black nodes on any path from root to leaf in a Red-Black tree. All paths should return the same count if the tree is valid.',
       initialCode: `def count_black_nodes(root):
     # Return count of black nodes and whether all paths have same count
     pass`,
@@ -6381,11 +6410,12 @@ demonstrate_rb_tree()`,
     valid, count = count_black_path(root)
     return valid, count`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is a key difference between Red-Black trees and AVL trees?',
+      question:
+        'What is a key difference between Red-Black trees and AVL trees?',
       options: [
         'Red-Black trees are always perfectly balanced',
         'Red-Black trees allow more imbalance but guarantee logarithmic height',
@@ -6412,8 +6442,8 @@ demonstrate_rb_tree()`,
       correctAnswer: 1,
       explanations: [
         'Incorrect. Node color serves a functional purpose.',
-        'Correct! Adding a red node doesn\'t violate the black height property.',
-        'Incorrect. Node color doesn\'t affect processing speed.',
+        "Correct! Adding a red node doesn't violate the black height property.",
+        "Incorrect. Node color doesn't affect processing speed.",
         'Incorrect. Adding black nodes would disrupt black height.',
       ],
       difficulty: Difficulty.Intermediate,
@@ -6422,7 +6452,7 @@ demonstrate_rb_tree()`,
       question: 'What guarantees Red-Black tree operations remain logarithmic?',
       options: [
         'All paths must have exactly the same length',
-        'The longest path can\'t be more than twice the shortest path',
+        "The longest path can't be more than twice the shortest path",
         'All nodes must alternate between red and black',
         'The tree must be perfectly balanced',
       ],
@@ -6431,11 +6461,11 @@ demonstrate_rb_tree()`,
         'Incorrect. Paths can have different lengths.',
         'Correct! This property ensures O(log n) height and operation time.',
         'Incorrect. No such alternation requirement exists.',
-        'Incorrect. Red-Black trees don\'t require perfect balance.',
+        "Incorrect. Red-Black trees don't require perfect balance.",
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const bTreesData: LessonContent = {
@@ -6678,7 +6708,8 @@ def demonstrate_btree():
 demonstrate_btree()`,
   exercises: [
     {
-      prompt: 'Implement a function that verifies if a given tree satisfies all B-tree properties. Consider node occupancy, key ordering, and leaf level requirements.',
+      prompt:
+        'Implement a function that verifies if a given tree satisfies all B-tree properties. Consider node occupancy, key ordering, and leaf level requirements.',
       initialCode: `def is_valid_btree(root, order):
     # Return True if tree satisfies B-tree properties
     pass`,
@@ -6731,7 +6762,8 @@ demonstrate_btree()`,
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Write a function that finds the optimal order (m) for a B-tree given a maximum node size in bytes and the sizes of keys and child pointers.',
+      prompt:
+        'Write a function that finds the optimal order (m) for a B-tree given a maximum node size in bytes and the sizes of keys and child pointers.',
       initialCode: `def find_optimal_order(max_node_size, key_size, pointer_size):
     # Return optimal order m for B-tree
     pass`,
@@ -6751,11 +6783,12 @@ demonstrate_btree()`,
     # Ensure m is at least 3 (minimum for B-tree)
     return max(3, m)`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the main advantage of B-trees over binary search trees?',
+      question:
+        'What is the main advantage of B-trees over binary search trees?',
       options: [
         'They use less memory',
         'They reduce disk I/O by storing multiple keys per node',
@@ -6766,7 +6799,7 @@ demonstrate_btree()`,
       explanations: [
         'Incorrect. B-trees actually use more memory per node.',
         'Correct! By storing multiple keys per node, B-trees reduce the number of disk accesses needed.',
-        'Incorrect. While B-trees maintain balance, this isn\'t their main advantage.',
+        "Incorrect. While B-trees maintain balance, this isn't their main advantage.",
         'Incorrect. Insertion can be more complex due to splits.',
       ],
       difficulty: Difficulty.Beginner,
@@ -6781,7 +6814,7 @@ demonstrate_btree()`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Memory efficiency isn\'t the primary reason.',
+        "Incorrect. Memory efficiency isn't the primary reason.",
         'Correct! Minimum occupancy ensures logarithmic height and balanced structure.',
         'Incorrect. Search speed depends more on height than node fullness.',
         'Incorrect. Minimum occupancy actually makes insertion more complex.',
@@ -6798,14 +6831,14 @@ demonstrate_btree()`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Total record count doesn\'t determine order.',
+        "Incorrect. Total record count doesn't determine order.",
         'Correct! Order is typically chosen to maximize disk block usage.',
         'Incorrect. Tree depth is a result of order, not a determining factor.',
-        'Incorrect. Concurrency doesn\'t affect order choice.',
+        "Incorrect. Concurrency doesn't affect order choice.",
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const nAryTreesData: LessonContent = {
@@ -7019,7 +7052,8 @@ def demonstrate_nary_tree():
 demonstrate_nary_tree()`,
   exercises: [
     {
-      prompt: 'Implement a function that finds all paths from root to leaves in an N-ary tree. Each path should be represented as a list of node values.',
+      prompt:
+        'Implement a function that finds all paths from root to leaves in an N-ary tree. Each path should be represented as a list of node values.',
       initialCode: `def find_all_paths(root):
     # Return list of all root-to-leaf paths
     pass`,
@@ -7048,7 +7082,8 @@ demonstrate_nary_tree()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Write a function that converts an N-ary tree to its binary tree representation using the first-child/next-sibling approach. Each node in the binary tree should have a "left" pointer to its first child and a "right" pointer to its next sibling.',
+      prompt:
+        'Write a function that converts an N-ary tree to its binary tree representation using the first-child/next-sibling approach. Each node in the binary tree should have a "left" pointer to its first child and a "right" pointer to its next sibling.',
       initialCode: `def convert_to_binary_tree(root):
     # Convert N-ary tree to binary tree using first-child/next-sibling
     pass`,
@@ -7078,11 +7113,12 @@ def convert_to_binary_tree(root):
     
     return binary_root`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the main advantage of using an array of children versus first-child/next-sibling representation?',
+      question:
+        'What is the main advantage of using an array of children versus first-child/next-sibling representation?',
       options: [
         'It uses less memory',
         'It provides faster access to any child',
@@ -7099,7 +7135,8 @@ def convert_to_binary_tree(root):
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'How does level-order traversal differ in N-ary trees compared to binary trees?',
+      question:
+        'How does level-order traversal differ in N-ary trees compared to binary trees?',
       options: [
         'It visits more nodes at each level',
         'It requires a different algorithm',
@@ -7125,14 +7162,14 @@ def convert_to_binary_tree(root):
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Total nodes don\'t directly determine height.',
+        "Incorrect. Total nodes don't directly determine height.",
         'Incorrect. Maximum children affects width more than height.',
         'Correct! Height is determined by the longest root-to-leaf path.',
-        'Incorrect. Average children doesn\'t determine height.',
+        "Incorrect. Average children doesn't determine height.",
       ],
       difficulty: Difficulty.Beginner,
-    }
-  ]
+    },
+  ],
 };
 
 const segmentTreesData: LessonContent = {
@@ -7333,7 +7370,8 @@ demonstrate_segment_tree()
 demonstrate_advanced_usage()`,
   exercises: [
     {
-      prompt: 'Implement a segment tree for finding the minimum value in ranges. Instead of maintaining sum, each node should store the minimum value in its range.',
+      prompt:
+        'Implement a segment tree for finding the minimum value in ranges. Instead of maintaining sum, each node should store the minimum value in its range.',
       initialCode: `class MinSegmentTree:
     def __init__(self, arr):
         # Implement minimum segment tree
@@ -7394,7 +7432,8 @@ demonstrate_advanced_usage()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: 'Write a function that uses a segment tree to find the number of elements in a range that are greater than a given value. This combines range queries with a custom condition.',
+      prompt:
+        'Write a function that uses a segment tree to find the number of elements in a range that are greater than a given value. This combines range queries with a custom condition.',
       initialCode: `def count_greater_in_range(segment_tree, left, right, value):
     # Return count of elements > value in range [left, right]
     pass`,
@@ -7453,11 +7492,12 @@ demonstrate_advanced_usage()`,
             
         return query(0, 0, self.n - 1, left, right, value)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why are segment trees more efficient than array scanning for range queries?',
+      question:
+        'Why are segment trees more efficient than array scanning for range queries?',
       options: [
         'They store all possible range combinations',
         'They organize data hierarchically to avoid scanning entire ranges',
@@ -7469,7 +7509,7 @@ demonstrate_advanced_usage()`,
         'Incorrect. Storing all combinations would require O(n²) space.',
         'Correct! The hierarchical structure allows us to use pre-computed results for large ranges.',
         'Incorrect. Segment trees actually use more space than the original array.',
-        'Incorrect. Sorting wouldn\'t help with range queries.',
+        "Incorrect. Sorting wouldn't help with range queries.",
       ],
       difficulty: Difficulty.Beginner,
     },
@@ -7481,17 +7521,18 @@ demonstrate_advanced_usage()`,
         'The logarithm of the array size',
         'The number of updates performed',
       ],
-correctAnswer: 2,
+      correctAnswer: 2,
       explanations: [
-        'Incorrect. Values don\'t affect tree structure.',
-        'Incorrect. Query type doesn\'t affect tree height.',
+        "Incorrect. Values don't affect tree structure.",
+        "Incorrect. Query type doesn't affect tree height.",
         'Correct! The height is O(log n) because each level splits ranges in half.',
-        'Incorrect. Updates don\'t change tree height.',
+        "Incorrect. Updates don't change tree height.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What happens to parent nodes when we update a leaf node in a segment tree?',
+      question:
+        'What happens to parent nodes when we update a leaf node in a segment tree?',
       options: [
         'Nothing, only the leaf changes',
         'All parent nodes up to the root must be recalculated',
@@ -7506,12 +7547,13 @@ correctAnswer: 2,
         'Incorrect. Only the path to root needs updating, not the whole tree.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const treeDPData: LessonContent = {
-  title: 'Dynamic Programming on Trees: Solving Complex Tree Problems Efficiently',
+  title:
+    'Dynamic Programming on Trees: Solving Complex Tree Problems Efficiently',
   content: `<p>
 Imagine you're planning a company party and need to decide which employees to invite. The company hierarchy forms a tree, and due to office dynamics, if you invite a manager, you can't invite their direct reports. You want to maximize the "fun factor" while respecting these constraints. This is a classic example of dynamic programming on trees, where we need to make optimal decisions while considering the tree's structure.
 </p>
@@ -7697,17 +7739,17 @@ def demonstrate_tree_dp():
     
     dp = TreeDP()
     
-    print("Tree Dynamic Programming Examples:\\n")
+    print("Tree Dynamic Programming Examples:\")
     
     # Maximum Independent Set
     print("Maximum Independent Set Value:", dp.max_independent_set(root))
     print("This represents the maximum sum we can achieve")
-    print("without selecting adjacent nodes.\\n")
+    print("without selecting adjacent nodes.\")
     
     # Maximum Path Sum
     print("Maximum Path Sum:", dp.max_path_sum(root))
     print("This is the highest sum possible along any path")
-    print("between any two nodes in the tree.\\n")
+    print("between any two nodes in the tree.\")
     
     # Tree Diameter
     print("Tree Diameter:", dp.diameter(root))
@@ -7740,7 +7782,8 @@ demonstrate_tree_dp()
 explain_patterns()`,
   exercises: [
     {
-      prompt: 'Implement a function that finds the minimum number of cameras needed to monitor a binary tree, where each camera can monitor its own node, its parent, and its children. This is a variation of the include/exclude pattern.',
+      prompt:
+        'Implement a function that finds the minimum number of cameras needed to monitor a binary tree, where each camera can monitor its own node, its parent, and its children. This is a variation of the include/exclude pattern.',
       initialCode: `def min_cameras(root):
     # Return minimum number of cameras needed
     pass`,
@@ -7773,7 +7816,8 @@ explain_patterns()`,
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Write a function that finds the length of the longest path in the tree where all nodes have the same value. This combines path-based DP with value comparison.',
+      prompt:
+        'Write a function that finds the length of the longest path in the tree where all nodes have the same value. This combines path-based DP with value comparison.',
       initialCode: `def longest_uniform_path(root):
     # Return length of longest path with same values
     pass`,
@@ -7802,11 +7846,12 @@ explain_patterns()`,
     dfs(root)
     return max_length[0]`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is dynamic programming particularly useful for tree problems?',
+      question:
+        'Why is dynamic programming particularly useful for tree problems?',
       options: [
         'Trees are always balanced',
         'Tree problems always have overlapping subproblems',
@@ -7815,7 +7860,7 @@ explain_patterns()`,
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Tree balance isn\'t relevant to DP applicability.',
+        "Incorrect. Tree balance isn't relevant to DP applicability.",
         'Incorrect. Not all tree problems have overlapping subproblems.',
         'Correct! Tree structure provides natural subproblems at each node that can be solved independently.',
         'Incorrect. Efficiency depends on the specific problem and solution.',
@@ -7823,7 +7868,8 @@ explain_patterns()`,
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key insight behind the include/exclude pattern in tree DP?',
+      question:
+        'What is the key insight behind the include/exclude pattern in tree DP?',
       options: [
         'Always include leaf nodes',
         'Maintain two states to handle dependent decisions',
@@ -7832,10 +7878,10 @@ explain_patterns()`,
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Leaf nodes aren\'t always included.',
+        "Incorrect. Leaf nodes aren't always included.",
         'Correct! Keeping both states lets us handle decisions that affect adjacent nodes.',
         'Incorrect. Excluding all nodes rarely gives optimal solutions.',
-        'Incorrect. Random selection won\'t give optimal results.',
+        "Incorrect. Random selection won't give optimal results.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -7852,11 +7898,11 @@ explain_patterns()`,
         'Incorrect. Not all problems need global variables.',
         'Incorrect. Node states can often be passed through parameters.',
         'Correct! Global variables help track optimal solutions that might occur in subtrees.',
-        'Incorrect. Tree balance doesn\'t affect need for global variables.',
+        "Incorrect. Tree balance doesn't affect need for global variables.",
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const treeDistanceData: LessonContent = {
@@ -8066,7 +8112,7 @@ def demonstrate_distances():
     
     td = TreeDistance()
     
-    print("Tree Distance Examples:\\n")
+    print("Tree Distance Examples:\")
     
     # Distance between nodes
     node1 = root.left.left  # Node 4
@@ -8089,7 +8135,8 @@ def demonstrate_distances():
 demonstrate_distances()`,
   exercises: [
     {
-      prompt: 'Implement a function that finds the nodes that are exactly K distance away from a target node in a binary tree. Consider that paths can go through parent nodes.',
+      prompt:
+        'Implement a function that finds the nodes that are exactly K distance away from a target node in a binary tree. Consider that paths can go through parent nodes.',
       initialCode: `def nodes_at_distance_k(root, target, k):
     # Return list of nodes at distance k from target
     pass`,
@@ -8128,7 +8175,8 @@ demonstrate_distances()`,
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: 'Write a function that finds the longest distance between two leaves in a binary tree. The path must go through the tree edges and can pass through any node, including the root.',
+      prompt:
+        'Write a function that finds the longest distance between two leaves in a binary tree. The path must go through the tree edges and can pass through any node, including the root.',
       initialCode: `def longest_leaf_to_leaf_path(root):
     # Return the maximum distance between any two leaves
     pass`,
@@ -8158,45 +8206,47 @@ demonstrate_distances()`,
     height_and_path(root)
     return max_length[0]`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is the Lowest Common Ancestor important for distance calculations?',
+      question:
+        'Why is the Lowest Common Ancestor important for distance calculations?',
       options: [
-        'It\'s always the midpoint between nodes',
-        'It\'s needed for balancing the tree',
+        "It's always the midpoint between nodes",
+        "It's needed for balancing the tree",
         'It lets us break distance calculation into two simpler parts',
-        'It\'s required for tree traversal',
+        "It's required for tree traversal",
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. LCA isn\'t necessarily at the midpoint.',
-        'Incorrect. LCA isn\'t related to tree balancing.',
+        "Incorrect. LCA isn't necessarily at the midpoint.",
+        "Incorrect. LCA isn't related to tree balancing.",
         'Correct! LCA helps us calculate distances by splitting into distances from LCA to each target node.',
-        'Incorrect. Tree traversal doesn\'t require LCA.',
+        "Incorrect. Tree traversal doesn't require LCA.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What characterizes a tree\'s centroid?',
+      question: "What characterizes a tree's centroid?",
       options: [
-        'It\'s always the root node',
-        'It\'s the node with the most children',
+        "It's always the root node",
+        "It's the node with the most children",
         'No subtree contains more than half of all nodes',
-        'It\'s always a leaf node',
+        "It's always a leaf node",
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. The centroid can be any node.',
-        'Incorrect. Number of direct children isn\'t relevant.',
+        "Incorrect. Number of direct children isn't relevant.",
         'Correct! This property defines the centroid and minimizes maximum distance to other nodes.',
         'Incorrect. The centroid is rarely a leaf.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key challenge in finding nodes at distance K from a target?',
+      question:
+        'What is the key challenge in finding nodes at distance K from a target?',
       options: [
         'Counting nodes',
         'Tree height',
@@ -8205,14 +8255,14 @@ demonstrate_distances()`,
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Node counting isn\'t the main challenge.',
-        'Incorrect. Tree height isn\'t the key issue.',
+        "Incorrect. Node counting isn't the main challenge.",
+        "Incorrect. Tree height isn't the key issue.",
         'Correct! We need to handle paths that go up through parents and then down other branches.',
-        'Incorrect. Tree balance doesn\'t affect the algorithm.',
+        "Incorrect. Tree balance doesn't affect the algorithm.",
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const treeLessons: Record<string, LessonContent> = {

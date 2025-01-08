@@ -1,8 +1,14 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 const stringCurriculum: Curriculum = {
   title: 'String Curriculum',
-  description: 'A comprehensive guide to mastering string operations and string-based algorithms for technical interviews',
+  description:
+    'A comprehensive guide to mastering string operations and string-based algorithms for technical interviews',
   sections: [
     {
       id: 1,
@@ -11,28 +17,32 @@ const stringCurriculum: Curriculum = {
         {
           id: 'string-basics',
           title: 'String Basics',
-          description: 'Understanding string properties, characteristics, and fundamental operations',
-          priority: PriorityLevel.Essential
+          description:
+            'Understanding string properties, characteristics, and fundamental operations',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'string-immutability',
           title: 'String Immutability and Performance',
-          description: 'Understanding string immutability and its performance implications',
-          priority: PriorityLevel.Important
+          description:
+            'Understanding string immutability and its performance implications',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'interview-patterns',
           title: 'Common String Interview Patterns',
-          description: 'Key problem-solving techniques and approaches for string-based interview questions',
-          priority: PriorityLevel.Essential
+          description:
+            'Key problem-solving techniques and approaches for string-based interview questions',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'complexity-analysis',
           title: 'Time/Space Complexity Analysis',
-          description: 'Analyzing performance of string operations and algorithms',
-          priority: PriorityLevel.Essential
-        }
-      ]
+          description:
+            'Analyzing performance of string operations and algorithms',
+          priority: PriorityLevel.Essential,
+        },
+      ],
     },
     {
       id: 2,
@@ -41,28 +51,31 @@ const stringCurriculum: Curriculum = {
         {
           id: 'string-access',
           title: 'Accessing and Manipulating Characters',
-          description: 'Methods for accessing, modifying, and working with string characters',
-          priority: PriorityLevel.Essential
+          description:
+            'Methods for accessing, modifying, and working with string characters',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'string-methods',
           title: 'Essential String Methods',
-          description: 'Core string methods with their time and space complexities',
-          priority: PriorityLevel.Essential
+          description:
+            'Core string methods with their time and space complexities',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'string-concatenation',
           title: 'Efficient String Combination',
-          description: 'Techniques for combining strings with optimal performance',
-          priority: PriorityLevel.Important
+          description:
+            'Techniques for combining strings with optimal performance',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'in-place-operations',
           title: 'In-place String Manipulation',
           description: 'Performing string operations without extra space',
-          priority: PriorityLevel.Important
-        }
-      ]
+          priority: PriorityLevel.Important,
+        },
+      ],
     },
     {
       id: 3,
@@ -71,22 +84,24 @@ const stringCurriculum: Curriculum = {
         {
           id: 'basic-searching',
           title: 'Substring and Character Searching',
-          description: 'Efficient techniques for finding substrings and characters',
-          priority: PriorityLevel.Essential
+          description:
+            'Efficient techniques for finding substrings and characters',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'pattern-matching',
           title: 'Advanced Pattern Matching',
           description: 'Sophisticated techniques for complex string matching',
-          priority: PriorityLevel.Important
+          priority: PriorityLevel.Important,
         },
         {
           id: 'sliding-window',
           title: 'Sliding Window Technique',
-          description: 'Using sliding window for string searching and optimization',
-          priority: PriorityLevel.Essential
-        }
-      ]
+          description:
+            'Using sliding window for string searching and optimization',
+          priority: PriorityLevel.Essential,
+        },
+      ],
     },
     {
       id: 4,
@@ -96,21 +111,23 @@ const stringCurriculum: Curriculum = {
           id: 'string-reversal',
           title: 'String Reversal Techniques',
           description: 'Multiple approaches to reversing strings efficiently',
-          priority: PriorityLevel.Essential
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'palindrome-check',
           title: 'Palindrome Detection',
-          description: 'Different methods for identifying and working with palindromes',
-          priority: PriorityLevel.Essential
+          description:
+            'Different methods for identifying and working with palindromes',
+          priority: PriorityLevel.Essential,
         },
         {
           id: 'anagram-check',
           title: 'Anagram and Permutation Problems',
-          description: 'Techniques for detecting and solving anagram-related challenges',
-          priority: PriorityLevel.Essential
-        }
-      ]
+          description:
+            'Techniques for detecting and solving anagram-related challenges',
+          priority: PriorityLevel.Essential,
+        },
+      ],
     },
     {
       id: 5,
@@ -119,22 +136,24 @@ const stringCurriculum: Curriculum = {
         {
           id: 'kmp-algorithm',
           title: 'KMP Pattern Matching Algorithm',
-          description: 'Understanding and implementing Knuth-Morris-Pratt algorithm',
-          priority: PriorityLevel.Beneficial
+          description:
+            'Understanding and implementing Knuth-Morris-Pratt algorithm',
+          priority: PriorityLevel.Beneficial,
         },
         {
           id: 'rabin-karp',
           title: 'Rabin-Karp String Matching',
           description: 'Hash-based efficient pattern matching technique',
-          priority: PriorityLevel.Beneficial
+          priority: PriorityLevel.Beneficial,
         },
         {
           id: 'longest-common',
           title: 'Longest Common Substring/Subsequence',
-          description: 'Solving complex string similarity problems with dynamic programming',
-          priority: PriorityLevel.Important
-        }
-      ]
+          description:
+            'Solving complex string similarity problems with dynamic programming',
+          priority: PriorityLevel.Important,
+        },
+      ],
     },
     {
       id: 6,
@@ -143,22 +162,24 @@ const stringCurriculum: Curriculum = {
         {
           id: 'string-parsing',
           title: 'Complex String Parsing',
-          description: 'Techniques for handling advanced string parsing scenarios',
-          priority: PriorityLevel.Important
+          description:
+            'Techniques for handling advanced string parsing scenarios',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'edit-distance',
           title: 'Edit Distance and String Transformations',
-          description: 'Calculating string similarity and minimal transformation strategies',
-          priority: PriorityLevel.Important
+          description:
+            'Calculating string similarity and minimal transformation strategies',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'compression-techniques',
           title: 'String Compression Methods',
           description: 'Implementing efficient string compression algorithms',
-          priority: PriorityLevel.Important
-        }
-      ]
+          priority: PriorityLevel.Important,
+        },
+      ],
     },
     {
       id: 7,
@@ -167,24 +188,27 @@ const stringCurriculum: Curriculum = {
         {
           id: 'string-builder',
           title: 'String Builder and Optimization',
-          description: 'Efficient string concatenation and memory management techniques',
-          priority: PriorityLevel.Important
+          description:
+            'Efficient string concatenation and memory management techniques',
+          priority: PriorityLevel.Important,
         },
         {
           id: 'trie-basics',
           title: 'Trie for String Problems',
-          description: 'Basic trie implementations and string-related applications',
-          priority: PriorityLevel.Beneficial
+          description:
+            'Basic trie implementations and string-related applications',
+          priority: PriorityLevel.Beneficial,
         },
         {
           id: 'binary-string-operations',
           title: 'Binary String and Bit Manipulation',
-          description: 'Advanced techniques for working with binary string representations',
-          priority: PriorityLevel.Beneficial
-        }
-      ]
-    }
-  ]
+          description:
+            'Advanced techniques for working with binary string representations',
+          priority: PriorityLevel.Beneficial,
+        },
+      ],
+    },
+  ],
 } as const;
 
 const stringBasicsData: LessonContent = {
@@ -263,7 +287,8 @@ new_text = text.replace('World', 'Python')  # "Hello, Python!"
 print(f"After replacement: {new_text}")`,
   exercises: [
     {
-      prompt: 'Create a string containing your name and write code to print its length, first character, and last character.',
+      prompt:
+        'Create a string containing your name and write code to print its length, first character, and last character.',
       initialCode: `# Write your solution here
 name = 
 # Print length
@@ -276,7 +301,8 @@ print(f"Last character: {name[-1]}")`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Given the string "Python Programming", extract the word "Python" using string slicing and convert it to lowercase.',
+      prompt:
+        'Given the string "Python Programming", extract the word "Python" using string slicing and convert it to lowercase.',
       initialCode: `text = "Python Programming"
 # Write your solution here`,
       solution: `text = "Python Programming"
@@ -285,7 +311,8 @@ print(python)`,
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Create a function that takes a sentence and returns the number of words in it. Test it with "Hello World from Python"',
+      prompt:
+        'Create a function that takes a sentence and returns the number of words in it. Test it with "Hello World from Python"',
       initialCode: `def count_words(sentence):
     # Write your solution here
     pass
@@ -299,17 +326,12 @@ test_sentence = "Hello World from Python"
 word_count = count_words(test_sentence)
 print(f"Number of words: {word_count}")`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
       question: 'What is the index of the first character in a string?',
-      options: [
-        '1',
-        '0',
-        '-1',
-        'None of the above',
-      ],
+      options: ['1', '0', '-1', 'None of the above'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. String indexing starts at 0, not 1.',
@@ -335,8 +357,8 @@ print(f"Number of words: {word_count}")`,
         'Incorrect. Reversing requires O(n) time.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const stringImmutabilityData: LessonContent = {
@@ -409,7 +431,8 @@ print(f"String concatenation time: {string_time:.4f} seconds")
 print(f"List building time: {builder_time:.4f} seconds")`,
   exercises: [
     {
-      prompt: 'Write code to demonstrate that strings are immutable by trying to modify a character in a string. What happens?',
+      prompt:
+        'Write code to demonstrate that strings are immutable by trying to modify a character in a string. What happens?',
       initialCode: `# Write your solution here
 text = "Hello"
 try:
@@ -426,7 +449,8 @@ except Exception as e:
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Create a function that efficiently builds a string of repeated characters (e.g., "a" repeated 1000 times). Compare using string concatenation vs list joining.',
+      prompt:
+        'Create a function that efficiently builds a string of repeated characters (e.g., "a" repeated 1000 times). Compare using string concatenation vs list joining.',
       initialCode: `def build_string_concat(char, times):
     # Use string concatenation
     pass
@@ -461,7 +485,7 @@ efficient_time = time.time() - start
 print(f"Concatenation time: {concat_time:.4f}")
 print(f"Efficient method time: {efficient_time:.4f}")`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
@@ -482,7 +506,8 @@ print(f"Efficient method time: {efficient_time:.4f}")`,
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'Which method is most efficient for building a large string from many pieces?',
+      question:
+        'Which method is most efficient for building a large string from many pieces?',
       options: [
         'Using the + operator in a loop',
         'Using a list to collect pieces and joining at the end',
@@ -497,8 +522,8 @@ print(f"Efficient method time: {efficient_time:.4f}")`,
         'Incorrect. While efficient for repetition, this only works for repeating the same string.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const stringInterviewPatternsData: LessonContent = {
@@ -628,7 +653,8 @@ def compress_string(s: str) -> str:
 
   exercises: [
     {
-      prompt: 'Implement a function that finds the first non-repeating character in a string. Return -1 if no such character exists.',
+      prompt:
+        'Implement a function that finds the first non-repeating character in a string. Return -1 if no such character exists.',
       initialCode: `def first_unique_char(s: str) -> int:
     # Write your solution here
     pass`,
@@ -646,7 +672,8 @@ def compress_string(s: str) -> str:
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: 'Implement a function that finds the longest palindromic substring in a string.',
+      prompt:
+        'Implement a function that finds the longest palindromic substring in a string.',
       initialCode: `def longest_palindrome_substring(s: str) -> str:
     # Write your solution here
     pass`,
@@ -674,11 +701,12 @@ def compress_string(s: str) -> str:
     
     return longest`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Which pattern would be most efficient for finding all anagrams in a string?',
+      question:
+        'Which pattern would be most efficient for finding all anagrams in a string?',
       options: [
         'Two-pointer technique',
         'Sliding window with character counting',
@@ -693,8 +721,8 @@ def compress_string(s: str) -> str:
         'Incorrect. Binary search is not applicable for finding anagrams.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const timeSpaceComplexityAnalysisData: LessonContent = {
@@ -930,16 +958,17 @@ def print_analysis_report(text: str):
     Generates a detailed performance analysis report
     """
     results = analyze_string_operations(text)
-    print("\nPerformance Analysis Report")
+    print("Performance Analysis Report")
     print("-" * 50)
     for result in results:
-        print(f"\nOperation: {result['operation']}")
+        print(f"Operation: {result['operation']}")
         print(f"Time taken: {result['time']:.6f} seconds")
         print(f"Memory delta: {result['memory_delta']} bytes")`,
 
   exercises: [
     {
-      prompt: "Implement a function that analyzes the time complexity difference between substring operations of different lengths. Compare the performance as substring length increases.",
+      prompt:
+        'Implement a function that analyzes the time complexity difference between substring operations of different lengths. Compare the performance as substring length increases.',
       initialCode: `def analyze_substring_complexity(text: str):
     # Write your solution here
     pass`,
@@ -971,7 +1000,8 @@ def print_analysis_report(text: str):
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: "Create a function that compares memory usage between different string modification approaches: concatenation, join operation, and string builder.",
+      prompt:
+        'Create a function that compares memory usage between different string modification approaches: concatenation, join operation, and string builder.',
       initialCode: `def compare_string_building_memory():
     # Write your solution here
     pass`,
@@ -1016,17 +1046,18 @@ def print_analysis_report(text: str):
     # Print results
     print("Memory Usage Analysis (in bytes):")
     for n, memories in results.items():
-        print(f"\nOperations: {n}")
+        print(f"Operations: {n}")
         for method, memory in memories.items():
             print(f"{method}: {memory}")
     
     return results`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why does string concatenation in a loop have O(n²) time complexity?',
+      question:
+        'Why does string concatenation in a loop have O(n²) time complexity?',
       options: [
         'Because each concatenation requires scanning both strings',
         'Because each concatenation creates a new string and copies all previous characters',
@@ -1043,7 +1074,8 @@ def print_analysis_report(text: str):
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Which string matching algorithm would be most memory-efficient for searching multiple patterns in a large text?',
+      question:
+        'Which string matching algorithm would be most memory-efficient for searching multiple patterns in a large text?',
       options: [
         'KMP Algorithm',
         'Rabin-Karp Algorithm',
@@ -1058,8 +1090,8 @@ def print_analysis_report(text: str):
         'Incorrect. Naive search, while space-efficient, is very time-inefficient for multiple patterns.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const stringAccessData: LessonContent = {
@@ -1143,7 +1175,7 @@ def demonstrate_string_access():
     print("Original string:", text)
     
     # Direct character access
-    print("\n1. Direct Character Access:")
+    print("1. Direct Character Access:")
     print(f"First character: {text[0]}")  # H
     print(f"Last character: {text[-1]}")  # !
     print(f"Fifth character: {text[4]}")  # o
@@ -1159,11 +1191,11 @@ def demonstrate_string_access():
         except IndexError:
             return None
     
-    print("\n2. Safe Character Access:")
+    print("2. Safe Character Access:")
     print(f"Safe access at index 20: {safe_char_at(text, 20)}")  # None
     
     # String traversal methods
-    print("\n3. Different Ways to Traverse:")
+    print("3. Different Ways to Traverse:")
     
     # Method 1: Index-based loop
     print("Using index loop:")
@@ -1171,17 +1203,17 @@ def demonstrate_string_access():
         print(f"Character at position {i}: {text[i]}")
         
     # Method 2: Direct character iteration
-    print("\nUsing direct iteration:")
+    print("Using direct iteration:")
     for char in text:
         print(f"Character: {char}")
         
     # Method 3: Enumerated iteration
-    print("\nUsing enumerated iteration:")
+    print("Using enumerated iteration:")
     for i, char in enumerate(text):
         print(f"Position {i}: {char}")
     
     # String slicing
-    print("\n4. String Slicing Examples:")
+    print("4. String Slicing Examples:")
     print(f"First five characters: {text[:5]}")  # Hello
     print(f"Last five characters: {text[-5:]}")  # orld!
     print(f"Every second character: {text[::2]}")  # Hlo ol!
@@ -1202,7 +1234,7 @@ def demonstrate_string_access():
         chars[index] = new_char
         return ''.join(chars)
     
-    print("\n5. Character Manipulation:")
+    print("5. Character Manipulation:")
     modified = replace_character(text, 0, 'J')
     print(f"After replacing 'H' with 'J': {modified}")
     
@@ -1227,14 +1259,15 @@ def demonstrate_string_access():
             
         return result1
     
-    print("\n6. String Building:")
+    print("6. String Building:")
     chars = list('Python')
     built_string = build_string_efficiently(chars)
     print(f"Built string: {built_string}")`,
 
   exercises: [
     {
-      prompt: "Create a function that takes a string and returns a new string with every vowel capitalized. Handle both single-character and multi-character operations.",
+      prompt:
+        'Create a function that takes a string and returns a new string with every vowel capitalized. Handle both single-character and multi-character operations.',
       initialCode: `def capitalize_vowels(text: str) -> str:
     # Write your solution here
     pass`,
@@ -1266,7 +1299,8 @@ def demonstrate_string_access():
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: "Implement a function that takes a string and returns a dictionary containing the position of first and last occurrence of each character.",
+      prompt:
+        'Implement a function that takes a string and returns a dictionary containing the position of first and last occurrence of each character.',
       initialCode: `def char_positions(text: str) -> dict:
     # Write your solution here
     pass`,
@@ -1293,11 +1327,12 @@ def demonstrate_string_access():
 # positions = char_positions(text)
 # print(positions['l'])  # {'first': 2, 'last': 9}`,
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What happens when you try to access a string character at an index equal to the string length?',
+      question:
+        'What happens when you try to access a string character at an index equal to the string length?',
       options: [
         'Returns the last character',
         'Returns null or None',
@@ -1314,7 +1349,8 @@ def demonstrate_string_access():
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'Which method is most efficient for building a string character by character?',
+      question:
+        'Which method is most efficient for building a string character by character?',
       options: [
         'Using += operator in a loop',
         'Using a list to collect characters and joining at the end',
@@ -1329,8 +1365,8 @@ def demonstrate_string_access():
         'Incorrect. String multiplication is for repeating strings, not building them character by character.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const stringMethodsData: LessonContent = {
@@ -1447,7 +1483,7 @@ def demonstrate_string_methods():
         Demonstrates various ways to search within strings,
         explaining the benefits and trade-offs of each approach.
         """
-        print("\n1. Search Methods Demonstration:")
+        print("1. Search Methods Demonstration:")
         
         # indexOf equivalent in Python (find)
         position = main_text.find(search_text)
@@ -1475,7 +1511,7 @@ def demonstrate_string_methods():
         Shows various ways to transform strings,
         with explanations of when to use each method.
         """
-        print("\n2. Transformation Methods Demonstration:")
+        print("2. Transformation Methods Demonstration:")
         
         # Case transformations
         print(f"Lowercase: {input_text.lower()}")
@@ -1501,7 +1537,7 @@ def demonstrate_string_methods():
         Demonstrates splitting and joining strings,
         with analysis of different approaches and their use cases.
         """
-        print("\n3. Split and Join Operations:")
+        print("3. Split and Join Operations:")
         
         # Simple splitting
         words = sample_text.split()
@@ -1529,7 +1565,7 @@ def demonstrate_string_methods():
         helping understand when to use each approach.
         """
         import time
-        print("\n4. Performance Considerations:")
+        print("4. Performance Considerations:")
         
         # String building comparison
         def build_string_concat(n):
@@ -1559,7 +1595,8 @@ def demonstrate_string_methods():
 
   exercises: [
     {
-      prompt: "Create a function that finds all occurrences of a substring in a text, returning an array of starting positions. Consider both overlapping and non-overlapping matches.",
+      prompt:
+        'Create a function that finds all occurrences of a substring in a text, returning an array of starting positions. Consider both overlapping and non-overlapping matches.',
       initialCode: `def find_all_occurrences(text: str, pattern: str, allow_overlap: bool = False) -> list:
     # Write your solution here
     pass`,
@@ -1592,7 +1629,8 @@ def demonstrate_string_methods():
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: "Implement a function that formats a string by padding numbers with zeros, capitalizing proper nouns, and ensuring sentences end with periods.",
+      prompt:
+        'Implement a function that formats a string by padding numbers with zeros, capitalizing proper nouns, and ensuring sentences end with periods.',
       initialCode: `def format_text(text: str) -> str:
     # Write your solution here
     pass`,
@@ -1644,11 +1682,12 @@ def demonstrate_string_methods():
 # print(format_text(text))
 # Output: "Hello world 042 John doe went to Paris."`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Which string operation has the potential for worst-case quadratic time complexity?',
+      question:
+        'Which string operation has the potential for worst-case quadratic time complexity?',
       options: [
         'Using split() to divide a string',
         'Using join() to combine strings',
@@ -1665,7 +1704,8 @@ def demonstrate_string_methods():
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the time complexity of checking if a string contains a substring using includes() or the "in" operator?',
+      question:
+        'What is the time complexity of checking if a string contains a substring using includes() or the "in" operator?',
       options: [
         'O(1) - constant time',
         'O(n) - linear in string length',
@@ -1680,8 +1720,8 @@ def demonstrate_string_methods():
         'Incorrect. String searching cannot be done in logarithmic time without preprocessing.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const stringConcatenationData: LessonContent = {
@@ -1821,7 +1861,7 @@ def demonstrate_concatenation_methods():
         # Generate test data
         strings = [str(i) for i in range(n)]
         
-        print(f"\nComparing methods with {n} strings:")
+        print(f"Comparing methods with {n} strings:")
         
         # Test each method
         result_operator, time_operator = concat_with_operator(strings)
@@ -1855,7 +1895,7 @@ def demonstrate_concatenation_methods():
         # Using f-strings (most readable)
         result3 = f"Name: {name}, Age: {age}"
         
-        print("\nFormat String Examples:")
+        print("Format String Examples:")
         print(result1)
         print(result2)
         print(result3)
@@ -1883,9 +1923,9 @@ def demonstrate_concatenation_methods():
                   ['Alice', '30', 'New York'],
                   ['Bob', '25', 'London']]
         
-        print("\nPractical Examples:")
+        print("Practical Examples:")
         print(build_html_efficient(items))
-        print("\nCSV Output:")
+        print("CSV Output:")
         print(build_csv_efficient(records))
     
     # Run demonstrations
@@ -1894,7 +1934,8 @@ def demonstrate_concatenation_methods():
 
   exercises: [
     {
-      prompt: "Create a function that efficiently builds a formatted address string from individual components (street, city, state, zip). Compare the performance of different concatenation approaches.",
+      prompt:
+        'Create a function that efficiently builds a formatted address string from individual components (street, city, state, zip). Compare the performance of different concatenation approaches.',
       initialCode: `def build_address(street: str, city: str, state: str, zip_code: str) -> str:
     # Write your solution here
     pass`,
@@ -1909,7 +1950,7 @@ def demonstrate_concatenation_methods():
     
     # Method 2: Using join (most efficient for multiple pieces)
     def build_with_join():
-        return "\n".join([
+        return "".join([
             street,
             f"{city}, {state} {zip_code}"
         ])
@@ -1940,7 +1981,8 @@ def demonstrate_concatenation_methods():
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: "Implement a function that efficiently builds an SQL INSERT statement for multiple records, handling proper escaping of strings and formatting of different data types.",
+      prompt:
+        'Implement a function that efficiently builds an SQL INSERT statement for multiple records, handling proper escaping of strings and formatting of different data types.',
       initialCode: `def build_insert_statement(table_name: str, columns: list, records: list) -> str:
     # Write your solution here
     pass`,
@@ -1988,11 +2030,12 @@ def demonstrate_concatenation_methods():
 # ]
 # print(build_insert_statement(table, columns, records))`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why does string concatenation in a loop using the + operator have O(n²) time complexity?',
+      question:
+        'Why does string concatenation in a loop using the + operator have O(n²) time complexity?',
       options: [
         'Because each loop iteration takes linear time',
         'Because strings are immutable and each concatenation creates a new copy',
@@ -2009,7 +2052,8 @@ def demonstrate_concatenation_methods():
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Which method is most efficient for building a string from many small pieces in a loop?',
+      question:
+        'Which method is most efficient for building a string from many small pieces in a loop?',
       options: [
         'Using the + operator',
         'Using string formatting',
@@ -2024,8 +2068,8 @@ def demonstrate_concatenation_methods():
         'Incorrect. Multiple separate concatenations would result in many intermediate string objects.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const inPlaceOperationsData: LessonContent = {
@@ -2236,7 +2280,8 @@ class InPlaceStringManipulator:
 
   exercises: [
     {
-      prompt: "Implement a function that removes all vowels from a string in-place, maintaining the relative order of remaining characters. Return the length of the resulting string.",
+      prompt:
+        'Implement a function that removes all vowels from a string in-place, maintaining the relative order of remaining characters. Return the length of the resulting string.',
       initialCode: `def remove_vowels(chars: list) -> int:
     # Write your solution here
     pass`,
@@ -2269,7 +2314,8 @@ class InPlaceStringManipulator:
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: "Implement a function that compresses a character array in-place by replacing consecutive repeated characters with the character followed by its count. Return the length of the resulting string. For example, 'aabccc' becomes 'a2b1c3'.",
+      prompt:
+        "Implement a function that compresses a character array in-place by replacing consecutive repeated characters with the character followed by its count. Return the length of the resulting string. For example, 'aabccc' becomes 'a2b1c3'.",
       initialCode: `def compress_string(chars: list) -> int:
     # Write your solution here
     pass`,
@@ -2318,11 +2364,12 @@ class InPlaceStringManipulator:
 # new_length = compress_string(chars)
 # print("".join(chars[:new_length]))  # "a2b1c3"`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is true in-place string manipulation often impossible in many programming languages?',
+      question:
+        'Why is true in-place string manipulation often impossible in many programming languages?',
       options: [
         'Because strings are too long to modify efficiently',
         'Because strings are immutable objects',
@@ -2339,7 +2386,8 @@ class InPlaceStringManipulator:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key advantage of using the two-pointer technique in in-place string manipulation?',
+      question:
+        'What is the key advantage of using the two-pointer technique in in-place string manipulation?',
       options: [
         'It makes the code run faster',
         'It allows modification without extra space allocation',
@@ -2354,8 +2402,8 @@ class InPlaceStringManipulator:
         'Incorrect. The number of operations is often similar to other approaches.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const basicSearchingData: LessonContent = {
@@ -2549,7 +2597,7 @@ class StringSearcher:
         
         def print_comparison(pos: int, matched: int):
             """Helper function to visualize the matching process"""
-            print(f"\nChecking position {pos}:")
+            print(f"Checking position {pos}:")
             print(text)
             print(" " * pos + pattern)
             print(" " * (pos + matched) + "^")
@@ -2569,12 +2617,13 @@ class StringSearcher:
                 print("Match found!")
                 result.append(i)
         
-        print(f"\nTotal comparisons: {comparisons}")
+        print(f"Total comparisons: {comparisons}")
         return result`,
 
   exercises: [
     {
-      prompt: "Implement a function that finds the first occurrence of any character from a set of characters in a string. Return the index of the first match or -1 if none found.",
+      prompt:
+        'Implement a function that finds the first occurrence of any character from a set of characters in a string. Return the index of the first match or -1 if none found.',
       initialCode: `def find_first_of(text: str, char_set: set) -> int:
     # Write your solution here
     pass`,
@@ -2606,7 +2655,8 @@ class StringSearcher:
       difficulty: Difficulty.Beginner,
     },
     {
-      prompt: "Implement a function that finds all non-overlapping occurrences of a pattern in text, allowing for a maximum of k character mismatches.",
+      prompt:
+        'Implement a function that finds all non-overlapping occurrences of a pattern in text, allowing for a maximum of k character mismatches.',
       initialCode: `def fuzzy_search(text: str, pattern: str, k: int) -> list:
     # Write your solution here
     pass`,
@@ -2654,11 +2704,12 @@ class StringSearcher:
 # k = 1
 # result = fuzzy_search(text, pattern, k)  # Finds 'hello' with 1 mismatch`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is the KMP algorithm more efficient than naive string searching?',
+      question:
+        'Why is the KMP algorithm more efficient than naive string searching?',
       options: [
         'It uses a hash table to store characters',
         'It preprocesses the pattern to avoid redundant comparisons',
@@ -2668,14 +2719,15 @@ class StringSearcher:
       correctAnswer: 1,
       explanations: [
         'Incorrect. KMP does not use a hash table for character storage.',
-        'Correct! KMP preprocesses the pattern to build a partial match table, which helps skip unnecessary comparisons by using information about the pattern\'s structure.',
+        "Correct! KMP preprocesses the pattern to build a partial match table, which helps skip unnecessary comparisons by using information about the pattern's structure.",
         'Incorrect. KMP searches from left to right like the naive algorithm.',
         'Incorrect. KMP does not use binary search in its matching process.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the main advantage of using a sliding window approach in string searching?',
+      question:
+        'What is the main advantage of using a sliding window approach in string searching?',
       options: [
         'It reduces memory usage to O(1)',
         'It allows for parallel processing',
@@ -2686,12 +2738,12 @@ class StringSearcher:
       explanations: [
         'Incorrect. While sliding window can use constant extra space, this is not its main advantage.',
         'Incorrect. Sliding window is inherently sequential.',
-        'Correct! The sliding window approach allows us to avoid re-examining characters we\'ve already seen, making the search more efficient.',
+        "Correct! The sliding window approach allows us to avoid re-examining characters we've already seen, making the search more efficient.",
         'Incorrect. Special character handling is not specifically related to the sliding window technique.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const patternMatchingData: LessonContent = {
@@ -2903,7 +2955,8 @@ class PatternMatcher:
 
   exercises: [
     {
-      prompt: "Implement a function that performs fuzzy string matching, returning true if two strings match with at most k differences (insertions, deletions, or substitutions).",
+      prompt:
+        'Implement a function that performs fuzzy string matching, returning true if two strings match with at most k differences (insertions, deletions, or substitutions).',
       initialCode: `def fuzzy_match(s1: str, s2: str, k: int) -> bool:
     # Write your solution here
     pass`,
@@ -2950,7 +3003,8 @@ class PatternMatcher:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: "Implement a function that matches a string against a pattern where '?' matches any single character and '*' matches zero or more characters of any type. The function should handle patterns efficiently.",
+      prompt:
+        "Implement a function that matches a string against a pattern where '?' matches any single character and '*' matches zero or more characters of any type. The function should handle patterns efficiently.",
       initialCode: `def pattern_match(text: str, pattern: str) -> bool:
     # Write your solution here
     pass`,
@@ -3018,11 +3072,12 @@ class PatternMatcher:
 # print(pattern_match("abcde", "a?c*"))  # True
 # print(pattern_match("abcde", "a?c?*g"))  # False`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is dynamic programming often used in pattern matching algorithms?',
+      question:
+        'Why is dynamic programming often used in pattern matching algorithms?',
       options: [
         'To reduce memory usage',
         'To avoid recalculating overlapping subproblems',
@@ -3039,7 +3094,8 @@ class PatternMatcher:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key advantage of using the Levenshtein distance for pattern matching?',
+      question:
+        'What is the key advantage of using the Levenshtein distance for pattern matching?',
       options: [
         'It runs faster than exact matching',
         'It uses less memory than other algorithms',
@@ -3054,8 +3110,8 @@ class PatternMatcher:
         'Incorrect. Special character handling is not a specific feature of Levenshtein distance.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const slidingWindowData: LessonContent = {
@@ -3314,7 +3370,8 @@ class SlidingWindowProcessor:
 
   exercises: [
     {
-      prompt: "Implement a function that finds the longest substring containing all vowels in a given string. Use the sliding window technique to achieve optimal performance.",
+      prompt:
+        'Implement a function that finds the longest substring containing all vowels in a given string. Use the sliding window technique to achieve optimal performance.',
       initialCode: `def longest_vowel_substring(text: str) -> str:
     # Write your solution here
     pass`,
@@ -3364,7 +3421,8 @@ class SlidingWindowProcessor:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: "Implement a function that finds the minimum window size containing at least k different characters. Return both the window size and the starting position.",
+      prompt:
+        'Implement a function that finds the minimum window size containing at least k different characters. Return both the window size and the starting position.',
       initialCode: `def min_window_k_distinct(text: str, k: int) -> tuple:
     # Write your solution here
     pass`,
@@ -3407,11 +3465,12 @@ class SlidingWindowProcessor:
     
     return (min_length, min_start) if min_length != float('inf') else (-1, -1)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is the sliding window technique more efficient than nested loops for string processing?',
+      question:
+        'Why is the sliding window technique more efficient than nested loops for string processing?',
       options: [
         'It uses less memory for storage',
         'It avoids revisiting characters multiple times',
@@ -3428,7 +3487,8 @@ class SlidingWindowProcessor:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key difference between fixed-size and variable-size sliding windows?',
+      question:
+        'What is the key difference between fixed-size and variable-size sliding windows?',
       options: [
         'Fixed-size windows are always faster',
         'Variable-size windows use more memory',
@@ -3443,8 +3503,8 @@ class SlidingWindowProcessor:
         'Incorrect. Variable-size windows can work with strings of any length.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const stringReversalData: LessonContent = {
@@ -3660,7 +3720,8 @@ class StringReverser:
 
   exercises: [
     {
-      prompt: "Implement a function that reverses a string but keeps the special characters in their original positions. For example, 'ab!cd' should become 'dc!ba'.",
+      prompt:
+        "Implement a function that reverses a string but keeps the special characters in their original positions. For example, 'ab!cd' should become 'dc!ba'.",
       initialCode: `def reverse_keep_special(text: str) -> str:
     # Write your solution here
     pass`,
@@ -3699,7 +3760,8 @@ class StringReverser:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: "Implement a function that rotates a string by k positions to the right while only using string reversal operations. For example, rotating 'abcde' by 2 positions should give 'deabc'.",
+      prompt:
+        "Implement a function that rotates a string by k positions to the right while only using string reversal operations. For example, rotating 'abcde' by 2 positions should give 'deabc'.",
       initialCode: `def rotate_string(text: str, k: int) -> str:
     # Write your solution here
     pass`,
@@ -3749,11 +3811,12 @@ class StringReverser:
 # print(rotate_string("abcde", 2))  # "deabc"
 # print(rotate_string("hello", 3))  # "llohe"`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why might the two-pointer technique be preferred over a stack-based approach for string reversal?',
+      question:
+        'Why might the two-pointer technique be preferred over a stack-based approach for string reversal?',
       options: [
         'It is always faster',
         'It uses constant extra space',
@@ -3770,7 +3833,8 @@ class StringReverser:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the main challenge when reversing a string with Unicode characters?',
+      question:
+        'What is the main challenge when reversing a string with Unicode characters?',
       options: [
         'It takes more time',
         'Multi-byte characters might be split incorrectly',
@@ -3785,8 +3849,8 @@ class StringReverser:
         'Incorrect. Special characters themselves are not the main concern.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const palindromeCheckData: LessonContent = {
@@ -3996,7 +4060,8 @@ class PalindromeDetector:
 
   exercises: [
     {
-      prompt: "Implement a function that finds the longest palindromic substring in a string. Return both the palindrome and its length.",
+      prompt:
+        'Implement a function that finds the longest palindromic substring in a string. Return both the palindrome and its length.',
       initialCode: `def longest_palindrome_substring(text: str) -> tuple:
     # Write your solution here
     pass`,
@@ -4046,7 +4111,8 @@ class PalindromeDetector:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: "Implement a function that determines if a list of strings contains any two strings that can be concatenated to form a palindrome.",
+      prompt:
+        'Implement a function that determines if a list of strings contains any two strings that can be concatenated to form a palindrome.',
       initialCode: `def has_palindrome_pair(words: list) -> bool:
     # Write your solution here
     pass`,
@@ -4094,11 +4160,12 @@ class PalindromeDetector:
     
     return False`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is the two-pointer technique generally preferred for palindrome detection?',
+      question:
+        'Why is the two-pointer technique generally preferred for palindrome detection?',
       options: [
         'It is easier to implement',
         'It uses constant extra space and can stop early',
@@ -4115,7 +4182,8 @@ class PalindromeDetector:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the main challenge when implementing palindrome detection for word palindromes versus character palindromes?',
+      question:
+        'What is the main challenge when implementing palindrome detection for word palindromes versus character palindromes?',
       options: [
         'Word palindromes are always longer',
         'Handling spaces and punctuation between words',
@@ -4130,8 +4198,8 @@ class PalindromeDetector:
         'Incorrect. Case sensitivity can be handled similarly for both types.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const anagramCheckData: LessonContent = {
@@ -4338,7 +4406,8 @@ class AnagramDetector:
 
   exercises: [
     {
-      prompt: "Implement a function that determines if two strings are anagrams while ignoring spaces, punctuation, and case. For example, 'A decimal point' should be an anagram of 'Im a dot in place'.",
+      prompt:
+        "Implement a function that determines if two strings are anagrams while ignoring spaces, punctuation, and case. For example, 'A decimal point' should be an anagram of 'Im a dot in place'.",
       initialCode: `def are_phrase_anagrams(phrase1: str, phrase2: str) -> bool:
     # Write your solution here
     pass`,
@@ -4375,7 +4444,8 @@ class AnagramDetector:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: "Implement a function that finds the minimum number of character swaps needed to convert one string into an anagram of another string. If it's impossible, return -1.",
+      prompt:
+        "Implement a function that finds the minimum number of character swaps needed to convert one string into an anagram of another string. If it's impossible, return -1.",
       initialCode: `def min_swaps_to_anagram(str1: str, str2: str) -> int:
     # Write your solution here
     pass`,
@@ -4419,11 +4489,12 @@ class AnagramDetector:
 # print(min_swaps_to_anagram("cat", "act"))  # 1
 # print(min_swaps_to_anagram("cat", "dog"))  # -1`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why might you choose character counting over sorting for anagram detection?',
+      question:
+        'Why might you choose character counting over sorting for anagram detection?',
       options: [
         'It uses less memory',
         'It is easier to implement',
@@ -4440,7 +4511,8 @@ class AnagramDetector:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the main challenge when implementing anagram detection for phrases versus single words?',
+      question:
+        'What is the main challenge when implementing anagram detection for phrases versus single words?',
       options: [
         'Phrases are always longer',
         'Handling spaces and punctuation correctly',
@@ -4455,8 +4527,8 @@ class AnagramDetector:
         'Incorrect. Time complexity remains the same.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const kmpAlgorithmData: LessonContent = {
@@ -4647,7 +4719,7 @@ class KMPMatcher:
         i = 1
         
         while i < len(pattern):
-            print(f"\nChecking position {i} ({pattern[i]})")
+            print(f"Checking position {i} ({pattern[i]})")
             print(f"Current prefix length: {length}")
             
             if pattern[i] == pattern[length]:
@@ -4663,11 +4735,12 @@ class KMPMatcher:
                 print(f"No match, marked as 0: {table}")
             i += 1
             
-        print("\nFinal pattern table:", table)`,
+        print("Final pattern table:", table)`,
 
   exercises: [
     {
-      prompt: "Implement a function that uses KMP to find all occurrences of a pattern in a text, but with the additional requirement of matching in a case-insensitive manner.",
+      prompt:
+        'Implement a function that uses KMP to find all occurrences of a pattern in a text, but with the additional requirement of matching in a case-insensitive manner.',
       initialCode: `def case_insensitive_kmp(text: str, pattern: str) -> list:
     # Write your solution here
     pass`,
@@ -4731,7 +4804,8 @@ class KMPMatcher:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: "Implement a function that uses KMP to find the longest repeating substring in a text. Return both the substring and its length.",
+      prompt:
+        'Implement a function that uses KMP to find the longest repeating substring in a text. Return both the substring and its length.',
       initialCode: `def longest_repeating_substring(text: str) -> tuple:
     # Write your solution here
     pass`,
@@ -4794,11 +4868,12 @@ class KMPMatcher:
 # print(longest_repeating_substring("banana"))  # ("ana", 3)
 # print(longest_repeating_substring("abcd"))    # ("", 0)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the key insight that makes KMP more efficient than naive string matching?',
+      question:
+        'What is the key insight that makes KMP more efficient than naive string matching?',
       options: [
         'It uses a hash table for faster lookups',
         'It preprocesses the pattern to avoid redundant comparisons',
@@ -4815,7 +4890,8 @@ class KMPMatcher:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Why does KMP build a pattern table, and what does each value in the table represent?',
+      question:
+        'Why does KMP build a pattern table, and what does each value in the table represent?',
       options: [
         'To store pattern characters for lookup',
         'To count character frequencies',
@@ -4830,8 +4906,8 @@ class KMPMatcher:
         'Incorrect. Match positions are found during the search phase, not stored in the pattern table.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const rabinKarpData: LessonContent = {
@@ -5041,10 +5117,10 @@ class RabinKarp:
         
         # Show initial hash calculations
         pattern_hash = self.calculate_hash(pattern, m)
-        print(f"\nPattern hash: {pattern_hash}")
+        print(f"Pattern hash: {pattern_hash}")
         
         # Show window calculations
-        print("\nRolling window demonstration:")
+        print("Rolling window demonstration:")
         current_hash = self.calculate_hash(text[:m], m)
         h = pow(256, m - 1, self.prime)
         
@@ -5060,12 +5136,13 @@ class RabinKarp:
                 m,
                 h
             )
-            print(f"\nSliding window from '{old_window}' to '{new_window}'")
+            print(f"Sliding window from '{old_window}' to '{new_window}'")
             print(f"New hash: {current_hash}")`,
 
   exercises: [
     {
-      prompt: "Implement a function that uses Rabin-Karp to find the longest duplicate substring in a text. Return both the substring and its length.",
+      prompt:
+        'Implement a function that uses Rabin-Karp to find the longest duplicate substring in a text. Return both the substring and its length.',
       initialCode: `def find_longest_duplicate(text: str) -> tuple:
     # Write your solution here
     pass`,
@@ -5124,7 +5201,8 @@ class RabinKarp:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: "Implement a function that uses Rabin-Karp to find all rotations of a pattern in a text. For example, for pattern 'abc', find 'abc', 'bca', and 'cab' in the text.",
+      prompt:
+        "Implement a function that uses Rabin-Karp to find all rotations of a pattern in a text. For example, for pattern 'abc', find 'abc', 'bca', and 'cab' in the text.",
       initialCode: `def find_rotations(text: str, pattern: str) -> list:
     # Write your solution here
     pass`,
@@ -5180,11 +5258,12 @@ class RabinKarp:
     
     return results`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What makes the rolling hash computation in Rabin-Karp so efficient?',
+      question:
+        'What makes the rolling hash computation in Rabin-Karp so efficient?',
       options: [
         'It uses a lookup table for fast access',
         'It recomputes the entire hash each time',
@@ -5201,7 +5280,8 @@ class RabinKarp:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Why does Rabin-Karp verify matches even when hash values are equal?',
+      question:
+        'Why does Rabin-Karp verify matches even when hash values are equal?',
       options: [
         'To improve accuracy of the algorithm',
         'Because hash collisions can occur',
@@ -5216,8 +5296,8 @@ class RabinKarp:
         'Incorrect. Verification is necessary regardless of time complexity goals.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const longestCommonData: LessonContent = {
@@ -5411,7 +5491,7 @@ class LongestCommonFinder:
         dp = [[0] * (len(s2) + 1) for _ in range(len(s1) + 1)]
         
         # Show initial state
-        print("\nInitial DP table:")
+        print("Initial DP table:")
         print("   ", end=" ")
         print("  ".join([""] + list(s2)))
         for i in range(len(dp)):
@@ -5428,7 +5508,7 @@ class LongestCommonFinder:
                 elif not is_substring:
                     dp[i][j] = max(dp[i-1][j], dp[i][j-1])
                 
-                print(f"\nAfter comparing {s1[i-1]} with {s2[j-1]}:")
+                print(f"After comparing {s1[i-1]} with {s2[j-1]}:")
                 print("   ", end=" ")
                 print("  ".join([""] + list(s2)))
                 for k in range(len(dp)):
@@ -5436,7 +5516,8 @@ class LongestCommonFinder:
 
   exercises: [
     {
-      prompt: "Implement a function that finds the longest common substring of three or more strings. Return the substring and its length.",
+      prompt:
+        'Implement a function that finds the longest common substring of three or more strings. Return the substring and its length.',
       initialCode: `def longest_common_substring_multiple(strings: list) -> tuple:
     # Write your solution here
     pass`,
@@ -5490,7 +5571,8 @@ def longest_common_substring_two(s1: str, s2: str) -> tuple:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: "Implement a function that finds the shortest string that contains both input strings as subsequences. For example, for 'abc' and 'ac', return 'abc' as it contains both 'abc' and 'ac' as subsequences.",
+      prompt:
+        "Implement a function that finds the shortest string that contains both input strings as subsequences. For example, for 'abc' and 'ac', return 'abc' as it contains both 'abc' and 'ac' as subsequences.",
       initialCode: `def shortest_supersequence(s1: str, s2: str) -> str:
     # Write your solution here
     pass`,
@@ -5559,11 +5641,12 @@ def longest_common_substring_two(s1: str, s2: str) -> tuple:
     
     return ''.join(result)`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'What is the key difference between how the DP table is filled for substring versus subsequence problems?',
+      question:
+        'What is the key difference between how the DP table is filled for substring versus subsequence problems?',
       options: [
         'Substring uses a larger table',
         'Subsequence allows diagonal moves only',
@@ -5580,12 +5663,13 @@ def longest_common_substring_two(s1: str, s2: str) -> tuple:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Why do we need a separate approach for reconstructing the actual sequence in LCS problems?',
+      question:
+        'Why do we need a separate approach for reconstructing the actual sequence in LCS problems?',
       options: [
         'To improve time complexity',
         'The DP table only stores lengths, not the actual sequence',
         'To handle special characters',
-        'To reduce memory'
+        'To reduce memory',
       ],
       correctAnswer: 2,
       explanations: [
@@ -5594,10 +5678,10 @@ def longest_common_substring_two(s1: str, s2: str) -> tuple:
         'Incorrect. Special character handling is unrelated to sequence reconstruction.',
         'Incorrect. Memory usage is not the primary reason for separate reconstruction.',
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
-}
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+};
 
 const stringParsingData: LessonContent = {
   title: 'Understanding Complex String Parsing',
@@ -5871,7 +5955,8 @@ class StringParser:
 
   exercises: [
     {
-      prompt: "Implement a parser that can handle nested JSON-like structures, supporting strings, numbers, arrays, and objects. The parser should handle basic escape sequences in strings.",
+      prompt:
+        'Implement a parser that can handle nested JSON-like structures, supporting strings, numbers, arrays, and objects. The parser should handle basic escape sequences in strings.',
       initialCode: `def parse_json_like(text: str) -> dict:
     # Write your solution here
     pass`,
@@ -5977,7 +6062,8 @@ class StringParser:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: "Implement a CSV parser that handles quoted fields containing commas and newlines, and supports custom delimiters and quote characters.",
+      prompt:
+        'Implement a CSV parser that handles quoted fields containing commas and newlines, and supports custom delimiters and quote characters.',
       initialCode: `def parse_csv(text: str, delimiter: str = ',', quote_char: str = '"') -> list:
     # Write your solution here
     pass`,
@@ -6063,7 +6149,7 @@ class StringParser:
     
     return result`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
@@ -6072,7 +6158,7 @@ class StringParser:
         'To improve parsing speed',
         'To keep track of context and handle nested structures',
         'To reduce memory usage',
-        'To handle special characters'
+        'To handle special characters',
       ],
       correctAnswer: 1,
       explanations: [
@@ -6084,7 +6170,8 @@ class StringParser:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key advantage of recursive descent parsing over simple tokenization?',
+      question:
+        'What is the key advantage of recursive descent parsing over simple tokenization?',
       options: [
         'It runs faster',
         'It uses less memory',
@@ -6098,10 +6185,10 @@ class StringParser:
         'Correct! Recursive descent parsing naturally handles nested structures and hierarchies by breaking down complex expressions into simpler parts that can be processed recursively. This makes it ideal for parsing things like mathematical expressions or nested data formats.',
         'Incorrect. Special character handling is independent of the parsing approach.',
       ],
-      difficulty: Difficulty.Intermediate
-    }
-  ]
-}
+      difficulty: Difficulty.Intermediate,
+    },
+  ],
+};
 
 const editDistanceData: LessonContent = {
   title: 'Understanding Edit Distance and String Transformations',
@@ -6352,7 +6439,8 @@ class EditDistanceCalculator:
 
   exercises: [
     {
-      prompt: "Implement a function that finds the minimum number of operations required to transform one string into another where substitutions are not allowed (only insertions and deletions are permitted).",
+      prompt:
+        'Implement a function that finds the minimum number of operations required to transform one string into another where substitutions are not allowed (only insertions and deletions are permitted).',
       initialCode: `def edit_distance_no_substitution(str1: str, str2: str) -> int:
     # Write your solution here
     pass`,
@@ -6395,7 +6483,8 @@ class EditDistanceCalculator:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: "Implement a function that calculates edit distance with an additional 'swap' operation that can exchange two adjacent characters. The swap operation should have the same cost as other operations.",
+      prompt:
+        "Implement a function that calculates edit distance with an additional 'swap' operation that can exchange two adjacent characters. The swap operation should have the same cost as other operations.",
       initialCode: `def edit_distance_with_swap(str1: str, str2: str) -> int:
     # Write your solution here
     pass`,
@@ -6443,11 +6532,12 @@ class EditDistanceCalculator:
     
     return dp[m][n]`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why does the dynamic programming approach to edit distance use a table with an extra row and column?',
+      question:
+        'Why does the dynamic programming approach to edit distance use a table with an extra row and column?',
       options: [
         'To handle edge cases better',
         'To include transformations to and from empty strings',
@@ -6464,12 +6554,13 @@ class EditDistanceCalculator:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Why might we want to use different weights for different edit operations?',
+      question:
+        'Why might we want to use different weights for different edit operations?',
       options: [
         'To make the algorithm faster',
         'To reduce memory usage',
         'To model real-world probabilities of different types of changes',
-        'To simplify the implementation'
+        'To simplify the implementation',
       ],
       correctAnswer: 2,
       explanations: [
@@ -6478,10 +6569,10 @@ class EditDistanceCalculator:
         'Correct! Different weights allow us to model real-world scenarios where certain changes are more likely or costly than others. For example, in DNA sequences, certain mutations might be more common than others, or in spell-checking, certain typographical errors might be more likely.',
         'Incorrect. Adding weights actually makes the implementation more complex.',
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
-}
+      difficulty: Difficulty.Advanced,
+    },
+  ],
+};
 
 const compressionTechniquesData: LessonContent = {
   title: 'Understanding String Compression Methods',
@@ -6725,7 +6816,8 @@ class StringCompressor:
 
   exercises: [
     {
-      prompt: "Implement a compression algorithm for strings containing only lowercase letters that uses bit manipulation to pack characters more efficiently. Compare its performance with simple run-length encoding.",
+      prompt:
+        'Implement a compression algorithm for strings containing only lowercase letters that uses bit manipulation to pack characters more efficiently. Compare its performance with simple run-length encoding.',
       initialCode: `def bit_compress(text: str) -> bytes:
     # Write your solution here
     pass`,
@@ -6788,7 +6880,8 @@ class StringCompressor:
       difficulty: Difficulty.Advanced,
     },
     {
-      prompt: "Implement a word-based compression algorithm that builds a dictionary of common words and replaces them with shorter codes. The algorithm should adapt its dictionary based on the input text.",
+      prompt:
+        'Implement a word-based compression algorithm that builds a dictionary of common words and replaces them with shorter codes. The algorithm should adapt its dictionary based on the input text.',
       initialCode: `def word_compress(text: str) -> tuple:
     # Write your solution here
     pass`,
@@ -6867,11 +6960,12 @@ class StringCompressor:
     
     return ''.join(compressed), dictionary`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why might run-length encoding perform poorly on natural language text?',
+      question:
+        'Why might run-length encoding perform poorly on natural language text?',
       options: [
         'It is too slow to process large texts',
         'Natural language rarely has long sequences of repeated characters',
@@ -6888,7 +6982,8 @@ class StringCompressor:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key advantage of dictionary-based compression over run-length encoding?',
+      question:
+        'What is the key advantage of dictionary-based compression over run-length encoding?',
       options: [
         'It is always faster',
         'It uses less memory',
@@ -6903,8 +6998,8 @@ class StringCompressor:
         'Incorrect. Dictionary-based compression is generally more complex to implement than RLE.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const stringBuilderData: LessonContent = {
@@ -7174,7 +7269,8 @@ def demonstrate_optimization():
 
   exercises: [
     {
-      prompt: "Implement a circular buffer-based string builder that efficiently handles both prepend and append operations without requiring full buffer shifts.",
+      prompt:
+        'Implement a circular buffer-based string builder that efficiently handles both prepend and append operations without requiring full buffer shifts.',
       initialCode: `class CircularStringBuilder:
     # Write your solution here
     pass`,
@@ -7275,11 +7371,12 @@ def demonstrate_optimization():
             second = self.buffer[:self.end]
             return (first + second).decode('utf-8')`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why does naive string concatenation in a loop have quadratic time complexity?',
+      question:
+        'Why does naive string concatenation in a loop have quadratic time complexity?',
       options: [
         'Because the loop itself is quadratic',
         'Because each concatenation copies all previous characters',
@@ -7296,7 +7393,8 @@ def demonstrate_optimization():
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the primary advantage of using geometric growth in a string builder\'s buffer?',
+      question:
+        "What is the primary advantage of using geometric growth in a string builder's buffer?",
       options: [
         'It uses less memory overall',
         'It makes individual operations faster',
@@ -7311,8 +7409,8 @@ def demonstrate_optimization():
         'Incorrect. The implementation is more complex than using fixed sizes.',
       ],
       difficulty: Difficulty.Advanced,
-    }
-  ]
+    },
+  ],
 };
 
 const trieBasicsData: LessonContent = {
@@ -7592,7 +7690,8 @@ class Trie:
 
   exercises: [
     {
-      prompt: "Implement a function that uses a trie to find the longest common prefix among a set of strings. For example, given ['flower', 'flow', 'flight'], return 'fl'.",
+      prompt:
+        "Implement a function that uses a trie to find the longest common prefix among a set of strings. For example, given ['flower', 'flow', 'flight'], return 'fl'.",
       initialCode: `def longest_common_prefix(words: list) -> str:
     # Write your solution here
     pass`,
@@ -7637,7 +7736,8 @@ class Trie:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: "Implement a function that uses a trie to find all words in a matrix of characters (similar to Boggle), where words can be formed by connecting adjacent characters (including diagonally).",
+      prompt:
+        'Implement a function that uses a trie to find all words in a matrix of characters (similar to Boggle), where words can be formed by connecting adjacent characters (including diagonally).',
       initialCode: `def find_words(board: list[list[str]], words: list[str]) -> list[str]:
     # Write your solution here
     pass`,
@@ -7713,11 +7813,12 @@ class Trie:
 # words = ['ABC', 'AEI', 'ABEF']
 # print(find_words(board, words))`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is a trie more efficient than a hash table for prefix-based operations?',
+      question:
+        'Why is a trie more efficient than a hash table for prefix-based operations?',
       options: [
         'Tries use less memory',
         'Tries can find all words with a prefix in O(p + n) time',
@@ -7734,7 +7835,8 @@ class Trie:
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the key advantage of using a trie for autocomplete functionality?',
+      question:
+        'What is the key advantage of using a trie for autocomplete functionality?',
       options: [
         'It uses constant memory',
         'It can process results in any order',
@@ -7748,9 +7850,9 @@ class Trie:
         'Correct! A trie organizes words by their common prefixes, making it extremely efficient to find all words that start with a given prefix for autocomplete suggestions. This hierarchical organization means we can quickly traverse to the prefix node and find all relevant completions in a single subtree traversal.',
         'Incorrect. While tries do reduce some comparisons, this is not their main advantage for autocomplete.',
       ],
-      difficulty: Difficulty.Advanced
-    }
-  ]
+      difficulty: Difficulty.Advanced,
+    },
+  ],
 };
 
 const binaryStringOperationsData: LessonContent = {
@@ -8032,7 +8134,8 @@ class BinaryStringOperator:
 
   exercises: [
     {
-      prompt: "Implement a function that determines if a binary string represents an alternating sequence (no two adjacent bits are the same). For example, '1010' and '0101' are alternating, but '1100' is not.",
+      prompt:
+        "Implement a function that determines if a binary string represents an alternating sequence (no two adjacent bits are the same). For example, '1010' and '0101' are alternating, but '1100' is not.",
       initialCode: `def is_alternating(binary: str) -> bool:
     # Write your solution here
     pass`,
@@ -8072,7 +8175,8 @@ class BinaryStringOperator:
       difficulty: Difficulty.Intermediate,
     },
     {
-      prompt: "Implement a function that finds the longest sequence of consecutive ones in a binary string that can be achieved by flipping at most one zero to one.",
+      prompt:
+        'Implement a function that finds the longest sequence of consecutive ones in a binary string that can be achieved by flipping at most one zero to one.',
       initialCode: `def longest_ones_with_flip(binary: str) -> int:
     # Write your solution here
     pass`,
@@ -8111,11 +8215,12 @@ class BinaryStringOperator:
         
     return min(max_length, len(binary))`,
       difficulty: Difficulty.Advanced,
-    }
+    },
   ],
   quizzes: [
     {
-      question: 'Why is the operation n & (n-1) effective for clearing the rightmost 1 bit?',
+      question:
+        'Why is the operation n & (n-1) effective for clearing the rightmost 1 bit?',
       options: [
         'It is faster than other operations',
         'When we subtract 1, all bits after rightmost 1 flip, making the AND clear it',
@@ -8125,9 +8230,9 @@ class BinaryStringOperator:
       correctAnswer: 1,
       explanations: [
         'Incorrect. The speed is comparable to other bitwise operations.',
-        'Correct! When we subtract 1 from a number, all bits after the rightmost 1 flip, and that 1 becomes 0. When we AND this with the original number, only the rightmost 1 gets cleared because it\'s the only position where n has 1 and (n-1) has 0.',
+        "Correct! When we subtract 1 from a number, all bits after the rightmost 1 flip, and that 1 becomes 0. When we AND this with the original number, only the rightmost 1 gets cleared because it's the only position where n has 1 and (n-1) has 0.",
         'Incorrect. All bitwise operations use the same amount of memory.',
-        'Incorrect. While it can work with negative numbers, this isn\'t why it\'s effective.',
+        "Incorrect. While it can work with negative numbers, this isn't why it's effective.",
       ],
       difficulty: Difficulty.Advanced,
     },
@@ -8147,8 +8252,8 @@ class BinaryStringOperator:
         'Incorrect. All bitwise operations handle multiple bits simultaneously.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
-  ]
+    },
+  ],
 };
 
 const stringLessons: Record<string, LessonContent> = {
@@ -8175,7 +8280,7 @@ const stringLessons: Record<string, LessonContent> = {
   'string-builder': stringBuilderData,
   'trie-basics': trieBasicsData,
   'binary-string-operations': binaryStringOperationsData,
-}
+};
 
 export const stringLessonsTab: LessonsTab = {
   curriculum: stringCurriculum,
