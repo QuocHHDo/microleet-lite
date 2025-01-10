@@ -39,7 +39,6 @@ const ExerciseTab: React.FC<ExerciseTabProps> = ({
         <div className="mt-4 rounded-md overflow-hidden border">
           <CodeMirror
             value={state.userCode[index]}
-            // height="150px"
             theme="light"
             extensions={[python()]}
             onChange={(value) => handleCodeChange(index, value)}

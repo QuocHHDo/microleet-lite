@@ -9,6 +9,7 @@ export enum OperationTypes {
   Modify = 'modify',
   Search = 'search',
   Utility = 'utility',
+  Traversal = 'traversal'
 }
 export interface CheatSheetItem {
   label: string;
@@ -23,7 +24,7 @@ export const createCheatSheet = (
   label: string,
   code: string,
   explanation: string,
-  type: string,
+  type: OperationTypes,
   timeComplexity: string,
   edgeCase: string,
 ): CheatSheetItem => {

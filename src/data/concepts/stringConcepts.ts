@@ -1,4 +1,3 @@
-import { generateTimeComplexityTable } from '@/utils/generateTimeComplexityTable';
 import { Concept, Difficulty, createConcept } from '../../common/commonConcept';
 
 export const stringConcepts: Concept[] = [
@@ -6,93 +5,62 @@ export const stringConcepts: Concept[] = [
     1,
     'What is a String? How does it differ from other data structures?',
     `
-  **Definition:** A string is a sequence of characters, typically used to represent text.
-  
-  **Basic Structure:** Strings are immutable in many programming languages, meaning their contents cannot be changed after creation.
-  
-  **Example:**
-  \`\`\`python
-  my_string = "Hello, World!"
-  \`\`\`
-  
-  **Key Characteristics:**
-  - **Immutable:** Strings are immutable in languages like Python, Java, and C#.
-  - **Sequence:** Strings can be treated as sequences of characters, allowing for operations like slicing and indexing.
-  - **Text Representation:** Strings are used to represent text data, making them fundamental in many applications.
-      `,
+**Definition:** A string is a sequence of characters, generally used to represent text.
+
+**Basic Structure:** In many languages (e.g., Python, Java), strings are immutable, meaning any modification creates a new string object.
+
+**Example:**
+\`\`\`python
+my_string = "Hello, World!"
+\`\`\`
+
+**Key Characteristics:**
+- **Immutable:** Prevents accidental modification, but can impact performance for heavy string manipulation.
+- **Sequential:** Allows indexing and slicing.
+- **Text Representation:** Crucial for storing and manipulating textual data.
+    `,
     Difficulty.Beginner,
   ),
   createConcept(
     2,
     'What are the advantages and disadvantages of using strings?',
     `
-  <h2>Advantages:</h2>
-  <ul>
-    <li><strong>Text Representation:</strong> Strings are the primary way to represent text data in most programming languages.</li>
-    <li><strong>Rich Operations:</strong> Strings support a wide range of operations like concatenation, slicing, and searching.</li>
-    <li><strong>Immutable:</strong> Immutability can lead to safer and more predictable code, as strings cannot be accidentally modified.</li>
-  </ul>
-  
-  <h2>Disadvantages:</h2>
-  <ul>
-    <li><strong>Performance:</strong> Immutable strings can lead to performance issues when performing many operations, as each operation creates a new string.</li>
-    <li><strong>Memory Usage:</strong> Immutable strings can lead to increased memory usage, as each modification creates a new string object.</li>
-    <li><strong>Complexity:</strong> Some operations on strings can be complex and require careful handling, especially when dealing with Unicode characters.</li>
-  </ul>
-  
-  **Example:**
-  \`\`\`python
-  # Concatenation example
-  my_string = "Hello"
-  my_string += ", World!"  # Creates a new string object
-  \`\`\`
-  
-  **Key Points:**
-  - Strings are essential for text processing but require careful handling due to their immutability.
-  - For performance-critical applications, consider using mutable alternatives like Python's \`bytearray\` or C++'s \`std::string\`.
-      `,
+<h2>Advantages:</h2>
+<ul>
+  <li><strong>Text Representation:</strong> Primary way to handle textual data.</li>
+  <li><strong>Rich Operations:</strong> Concatenation, slicing, searching, and more.</li>
+  <li><strong>Immutable (in many languages):</strong> Enhances safety by preventing in-place modifications.</li>
+</ul>
+
+<h2>Disadvantages:</h2>
+<ul>
+  <li><strong>Performance:</strong> Repeated concatenations can be costly if each creates a new string.</li>
+  <li><strong>Memory Usage:</strong> Each modification may increase memory usage due to immutability.</li>
+  <li><strong>Unicode Complexity:</strong> Special care needed for multilingual or special characters.</li>
+</ul>
+
+**Key Points:**
+- Powerful and versatile for text, but watch out for performance impacts of immutability.
+- Consider mutable alternatives where frequent changes are needed.
+    `,
     Difficulty.Beginner,
   ),
   createConcept(
     3,
     'What is the time complexity of common operations on strings (access, concatenation, slicing)?',
     `
-**Time Complexity of Common Operations on Strings:**
-${generateTimeComplexityTable([
-  {
-    name: 'Access',
-    complexity: 'O(1)',
-    explanation:
-      'Accessing a character in a string by its index is a direct operation.',
-  },
-  {
-    name: 'Concatenation',
-    complexity: 'O(n)',
-    explanation:
-      'Concatenating two strings creates a new string, which requires copying all characters from both strings.',
-  },
-  {
-    name: 'Slicing',
-    complexity: 'O(n)',
-    explanation:
-      'Slicing a string creates a new string, which requires copying the sliced portion.',
-  },
-  {
-    name: 'Searching',
-    complexity: 'O(n)',
-    explanation:
-      'Searching for a substring or character in a string typically requires scanning the entire string.',
-  },
-  {
-    name: 'Modification',
-    complexity: 'O(n)',
-    explanation:
-      'Modifying a string (e.g., replacing a character) creates a new string, which requires copying all characters.',
-  },
-])}
+**Time Complexity of Common String Operations:**
+| Operation       | Complexity | Explanation                                                                      |
+|-----------------|-----------|----------------------------------------------------------------------------------|
+| **Access**      | O(1)       | Indexing a character is generally constant time.                                 |
+| **Concatenation** | O(n)     | Creating a new string requires copying all characters.                           |
+| **Slicing**     | O(n)       | Copying a range of characters forms a new string.                                |
+| **Searching**   | O(n)       | Finding a substring may involve scanning the entire string.                      |
+| **Modification**| O(n)       | In immutable strings, modifying a character creates a new copy.                  |
+
 **Key Points:**
-- Strings are optimized for fast access but can be inefficient for operations that require creating new strings.
-- For frequent modifications, consider using mutable alternatives like Python's \`bytearray\` or C++'s \`std::string\`.
+- Access by index is fast.
+- Operations that involve creating new strings can be expensive (O(n)).
     `,
     Difficulty.Beginner,
   ),
@@ -100,188 +68,210 @@ ${generateTimeComplexityTable([
     4,
     'Explain the difference between mutable and immutable strings.',
     `
-  **Mutable Strings:**
-  - **Modifiable:** Mutable strings can be modified after creation.
-  - **Memory Efficiency:** Mutable strings can be more memory-efficient for operations that require frequent modifications.
-  - **Example:** In Python, a \`bytearray\` is a mutable string: \`my_bytearray = bytearray("Hello", "utf-8")\` and you can modify it directly.
-  
-  **Immutable Strings:**
-  - **Unchangeable:** Immutable strings cannot be modified after creation.
-  - **Safety:** Immutability can lead to safer and more predictable code, as strings cannot be accidentally modified.
-  - **Example:** In Python, a regular string is immutable: \`my_string = "Hello"\`. Any modification creates a new string object.
-  
-  **Key Points:**
-  - Mutable strings are more flexible but require careful handling to avoid unintended modifications.
-  - Immutable strings are safer but can lead to performance issues for frequent modifications.
-      `,
+**Mutable Strings:**
+- **Modifiable:** Can change contents in place.
+- **Memory Efficiency:** Repeated edits are cheaper because no new string is allocated each time.
+- **Example:** Python \`bytearray\`, C++ \`std::string\` (resizable internally).
+
+**Immutable Strings:**
+- **No In-Place Changes:** Any alteration leads to a new string.
+- **Thread Safety:** Immutable objects are safer for concurrent operations.
+- **Example:** Python \`str\`, Java \`String\`.
+
+**Key Points:**
+- Mutable strings are better when changes are frequent.
+- Immutable strings are simpler to reason about and often safer in multi-threaded contexts.
+    `,
     Difficulty.Beginner,
   ),
   createConcept(
     5,
     'What are some common string operations and methods?',
     `
-  **Common String Operations and Methods:**
-  - **Concatenation:** Joining two strings together.
-    \`\`\`python
-    str1 = "Hello"
-    str2 = "World"
-    result = str1 + " " + str2  # "Hello World"
-    \`\`\`
-  - **Slicing:** Extracting a substring.
-    \`\`\`python
-    my_string = "Hello, World!"
-    substring = my_string[7:12]  # "World"
-    \`\`\`
-  - **Searching:** Finding the position of a substring.
-    \`\`\`python
-    my_string = "Hello, World!"
-    position = my_string.find("World")  # 7
-    \`\`\`
-  - **Replacement:** Replacing a substring with another.
-    \`\`\`python
-    my_string = "Hello, World!"
-    new_string = my_string.replace("World", "Universe")  # "Hello, Universe!"
-    \`\`\`
-  - **Case Conversion:** Converting the case of characters.
-    \`\`\`python
-    my_string = "Hello, World!"
-    lower_case = my_string.lower()  # "hello, world!"
-    upper_case = my_string.upper()  # "HELLO, WORLD!"
-    \`\`\`
-  
-  **Key Points:**
-  - Strings support a wide range of operations and methods for text processing.
-  - Understanding these operations is crucial for effective string manipulation.
-      `,
+**Examples of String Operations:**
+- **Concatenation:** \`str1 + str2\`
+- **Slicing:** \`my_string[start:end]\`
+- **Searching:** \`my_string.find("some substring")\`
+- **Replacing:** \`my_string.replace("old", "new")\`
+- **Case Conversion:** \`my_string.lower()\`, \`my_string.upper()\`
+
+**Key Points:**
+- Built-in methods vary by language but often include trimming whitespace, splitting, and more.
+- Mastering these operations is essential for text manipulation.
+    `,
     Difficulty.Beginner,
   ),
   createConcept(
     6,
     'What are Unicode and UTF-8, and how do they relate to strings?',
     `
-  **Unicode:**
-  - **Definition:** Unicode is a standard for encoding, representing, and handling text in different writing systems.
-  - **Character Set:** Unicode defines a unique number (code point) for every character, no matter the platform, program, or language.
-  - **Example:** The character "A" has a Unicode code point of U+0041.
-  
-  **UTF-8:**
-  - **Definition:** UTF-8 is a variable-width character encoding that can represent every character in the Unicode character set.
-  - **Encoding:** UTF-8 uses 1 to 4 bytes per character, making it efficient for both ASCII and non-ASCII characters.
-  - **Example:** The character "A" is encoded as a single byte (0x41), while "€" is encoded as three bytes (0xE2 0x82 0xAC).
-  
-  **Relation to Strings:**
-  - **Text Representation:** Strings in many programming languages are represented using Unicode, and UTF-8 is a common encoding for storing and transmitting these strings.
-  - **Handling:** Proper handling of Unicode and UTF-8 is crucial for ensuring that text is displayed correctly across different platforms and languages.
-  
-  **Key Points:**
-  - Unicode provides a universal character set, while UTF-8 is a widely used encoding for representing Unicode characters.
-  - Understanding Unicode and UTF-8 is essential for working with text in a global context.
-      `,
+**Unicode:**
+- **Universal Character Set:** Assigns a unique code point to every character in virtually all writing systems.
+
+**UTF-8:**
+- **Encoding Form:** Represents Unicode code points in 1–4 bytes.
+- **Efficiency:** ASCII characters remain 1 byte, while others may need more.
+
+**Relation to Strings:**
+- Many languages use Unicode internally.
+- Proper encoding/decoding ensures correct representation and handling of non-ASCII characters.
+
+**Key Points:**
+- Unicode and UTF-8 are indispensable for international text support.
+- Mismanaging encodings can lead to garbled or incorrect text.
+    `,
     Difficulty.Intermediate,
   ),
   createConcept(
     7,
     'What are some common string algorithms and their applications?',
     `
-  **Common String Algorithms and Their Applications:**
-  - **String Matching (e.g., Knuth-Morris-Pratt):**
-    - **Application:** Used for searching patterns within text.
-    - **Example:** Detecting keywords in a document.
-  - **Substring Search (e.g., Boyer-Moore):**
-    - **Application:** Efficiently finding occurrences of a substring within a larger string.
-    - **Example:** Searching for a word in a text editor.
-  - **Regular Expressions:**
-    - **Application:** Pattern matching and text manipulation.
-    - **Example:** Validating email addresses or extracting data from text.
-  - **String Compression (e.g., Huffman Coding):**
-    - **Application:** Reducing the size of text data.
-    - **Example:** Compressing text files.
-  - **Palindrome Detection:**
-    - **Application:** Identifying palindromic strings.
-    - **Example:** Checking if a word is a palindrome.
-  
-  **Key Points:**
-  - String algorithms are essential for various text processing tasks.
-  - Understanding these algorithms can help in designing efficient solutions for text-related problems.
-      `,
+**String Algorithms & Uses:**
+- **Knuth-Morris-Pratt (KMP):** Pattern searching in O(n + m).
+- **Boyer-Moore:** Efficient substring search with skip heuristics.
+- **Regular Expressions:** Flexible pattern matching for text validation or extraction.
+- **Huffman Coding:** Compression by assigning variable-length codes to characters.
+- **Palindrome Checks:** Identify if a string reads the same forward/backward.
+
+**Key Points:**
+- String algorithms boost performance in searching and parsing text.
+- Appropriate algorithm choice depends on data size and pattern complexity.
+    `,
     Difficulty.Intermediate,
   ),
   createConcept(
     8,
     'What are some common string data structures and their use cases?',
     `
-  **Common String Data Structures and Their Use Cases:**
-  - **Trie (Prefix Tree):**
-    - **Use Case:** Efficiently storing and searching strings with common prefixes.
-    - **Example:** Autocomplete features in search engines.
-  - **Suffix Tree:**
-    - **Use Case:** Fast substring search and pattern matching.
-    - **Example:** Searching for all occurrences of a substring in a large text.
-  - **String Hash Table:**
-    - **Use Case:** Storing and retrieving strings with constant-time complexity.
-    - **Example:** Implementing a dictionary or a set of strings.
-  - **String Array:**
-    - **Use Case:** Storing a collection of strings with fast access.
-    - **Example:** Maintaining a list of names.
-  
-  **Key Points:**
-  - Different string data structures are optimized for specific use cases.
-  - Choosing the right data structure can significantly impact the performance of string-related operations.
-      `,
+**String-Oriented Data Structures:**
+- **Trie (Prefix Tree):** Efficiently handle common prefixes (autocomplete).
+- **Suffix Tree / Suffix Array:** Advanced substring searches and pattern matching.
+- **Hash Tables:** Store strings with near O(1) lookup.
+- **Rope:** Efficient insertion and concatenation for very large strings.
+
+**Key Points:**
+- Matching the data structure to the use case is critical for optimal text handling.
+- Suffix trees/arrays excel at repeated pattern searches.
+    `,
     Difficulty.Intermediate,
   ),
   createConcept(
     9,
     'What are some common string manipulation techniques and their applications?',
     `
-  **Common String Manipulation Techniques and Their Applications:**
-  - **String Concatenation:**
-    - **Application:** Combining multiple strings into one.
-    - **Example:** Building a sentence from words.
-  - **String Slicing:**
-    - **Application:** Extracting parts of a string.
-    - **Example:** Parsing URLs or file paths.
-  - **String Replacement:**
-    - **Application:** Replacing substrings within a string.
-    - **Example:** Correcting typos in text.
-  - **String Formatting:**
-    - **Application:** Creating formatted strings from variables.
-    - **Example:** Generating dynamic reports.
-  - **String Splitting:**
-    - **Application:** Dividing a string into a list of substrings.
-    - **Example:** Parsing CSV data.
-  
-  **Key Points:**
-  - String manipulation techniques are fundamental for processing and transforming text data.
-  - Understanding these techniques is crucial for developing text-based applications.
-      `,
+**Techniques & Applications:**
+- **Concatenation:** Assemble multiple pieces of text.
+- **Slicing/Substr:** Extract segments for parsing or rearranging text.
+- **Replacement:** Quickly fix or update specific substrings.
+- **Formatting:** Insert variables into predefined templates (e.g., "Hello, {name}!").
+- **Splitting/Joining:** Convert between strings and arrays/lists of tokens.
+
+**Key Points:**
+- Fundamental building blocks of text processing.
+- Commonly used in data parsing, templating, and user input handling.
+    `,
     Difficulty.Intermediate,
   ),
   createConcept(
     10,
     'What are some common string processing challenges and how to address them?',
     `
-  **Common String Processing Challenges and Their Solutions:**
-  - **Unicode Normalization:**
-    - **Challenge:** Different representations of the same character can cause issues.
-    - **Solution:** Use Unicode normalization to ensure consistent representation.
-  - **Case Sensitivity:**
-    - **Challenge:** Case differences can lead to incorrect comparisons.
-    - **Solution:** Normalize case before comparisons.
-  - **Encoding Issues:**
-    - **Challenge:** Different encodings can cause garbled text.
-    - **Solution:** Ensure consistent encoding throughout the application.
-  - **Regular Expression Complexity:**
-    - **Challenge:** Regular expressions can be complex and hard to debug.
-    - **Solution:** Use well-tested libraries and validate expressions.
-  - **Performance:**
-    - **Challenge:** String operations can be slow, especially with large texts.
-    - **Solution:** Optimize algorithms and use efficient data structures.
-  
-  **Key Points:**
-  - String processing can present various challenges, from encoding issues to performance bottlenecks.
-  - Addressing these challenges requires a deep understanding of string handling and text processing techniques.
-      `,
+**Challenges & Solutions:**
+- **Unicode Normalization:** Convert multiple representations of the same character into a standard form.
+- **Case Sensitivity:** Convert strings to a consistent case for comparisons.
+- **Encoding Mismatches:** Use a unified encoding (often UTF-8) throughout the system.
+- **Regex Complexity:** Keep expressions readable and test thoroughly.
+- **Performance:** Use efficient data structures or algorithms (e.g., buffer-based joins).
+
+**Key Points:**
+- Text handling requires attention to encoding, normalization, and performance.
+- A small oversight can lead to big issues in multi-language applications.
+    `,
+    Difficulty.Advanced,
+  ),
+  createConcept(
+    11,
+    'The Rope Data Structure for Large-Scale String Editing',
+    `
+**Definition:** A rope is a binary tree where each leaf holds a chunk of a string. It supports efficient insert, delete, and concatenate operations on very large strings.
+
+**Why Use Ropes?**
+- **Scalability:** Managing edits in the middle of huge strings is expensive with normal arrays.
+- **Partial Storage:** Only parts of the string change, minimizing copies.
+- **Balanced Tree Operations:** Splitting and merging subtrees is faster for big data.
+
+**Typical Use Cases:**
+- **Text Editors:** Handling large documents where frequent insertions and deletions occur.
+- **Real-Time Collaboration:** Multiple edits happening simultaneously.
+
+**Key Points:**
+- Balancing the rope ensures most operations stay near O(log n).
+- Implementation can be more complex than standard strings or arrays.
+    `,
+    Difficulty.Advanced,
+  ),
+  createConcept(
+    12,
+    'Rabin-Karp Algorithm for String Searching',
+    `
+**Concept:** Uses hashing to quickly compare substrings with a pattern, enabling average O(n + m) complexity.
+
+**Methodology:**
+1. Compute a rolling hash for the pattern and for each substring of the text.
+2. Compare hashes; if they match, confirm by checking the substring.
+3. Roll the hash to the next substring in O(1) time.
+
+**Advantages:**
+- **Multiple Pattern Search:** Can search multiple patterns simultaneously by storing their hashes.
+- **Practical:** Good average performance, especially for searching in large text files.
+
+**Key Points:**
+- Worst-case O(n*m) if many hash collisions occur.
+- Proper choice of base and modulus reduces collisions significantly.
+    `,
+    Difficulty.Advanced,
+  ),
+  createConcept(
+    13,
+    'Boyer-Moore String Search Algorithm',
+    `
+**Overview:** Skips as many characters as possible when a mismatch occurs, leveraging two main heuristics: the bad-character rule and the good-suffix rule.
+
+**Bad-Character Rule:**
+- If a mismatch happens at character c in the text, shift the pattern so that c aligns with the rightmost occurrence of c in the pattern (or move past it if not present).
+
+**Good-Suffix Rule:**
+- If a mismatch happens after matching a suffix of the pattern, shift the pattern to align this suffix with a matching portion in the pattern.
+
+**Performance:**
+- Often runs faster than KMP in practice, especially on large alphabets.
+- Worst-case O(n*m), average better due to large skips.
+
+**Key Points:**
+- The skip heuristics enable significant jumps over the text, making it efficient for typical text searches.
+- More complex to implement than KMP or Rabin-Karp.
+    `,
+    Difficulty.Advanced,
+  ),
+  createConcept(
+    14,
+    'Knuth-Morris-Pratt (KMP) Algorithm for Pattern Matching',
+    `
+**Concept:** Preprocesses the pattern to build a longest prefix-suffix (LPS) array, enabling O(n + m) time complexity for searching.
+
+**Steps:**
+1. **LPS Array Construction:** For each prefix of the pattern, store the length of the longest proper prefix that’s also a suffix.
+2. **Search Phase:** Use the LPS array to avoid re-checking characters in the text.
+
+**Advantages:**
+- **Guaranteed O(n + m):** No rewinding of the text pointer.
+- **Easy Preprocessing:** The LPS array is built in O(m) time.
+
+**Key Points:**
+- Useful in constraints where worst-case performance must stay linear.
+- Typically simpler than Boyer-Moore but may not skip as aggressively in average cases.
+    `,
     Difficulty.Advanced,
   ),
 ];
+

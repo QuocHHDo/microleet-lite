@@ -14,6 +14,7 @@ import {
   FaLightbulb,
   FaCopy,
   FaCheck,
+  FaRoute,
 } from 'react-icons/fa';
 import {
   Tooltip,
@@ -33,7 +34,7 @@ import {
   AccordionContent,
 } from '@/components/ui/accordion';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { CheatSheetItem } from '@/common/commonCheatSheet';
+import { CheatSheetItem, OperationTypes } from '@/common/commonCheatSheet';
 
 interface CheatSheetProps {
   items: CheatSheetItem[];
@@ -57,15 +58,32 @@ const CheatSheet: React.FC<CheatSheetProps> = ({ items }) => {
     );
   }
 
-  const getIcon = (type: string) => {
+  const getIcon = (type: OperationTypes) => {
     const icons = {
-      create: <FaPencilAlt className="text-green-500" aria-label="Create" />,
-      add: <FaPlus className="text-green-500" aria-label="Add" />,
-      remove: <FaMinus className="text-red-500" aria-label="Remove" />,
-      access: <FaArrowUp className="text-blue-500" aria-label="Access" />,
-      modify: <FaArrowDown className="text-yellow-500" aria-label="Modify" />,
-      search: <FaSearch className="text-purple-500" aria-label="Search" />,
-      utility: <FaCogs className="text-gray-500" aria-label="Utility" />,
+      [OperationTypes.Create]: (
+        <FaPencilAlt className="text-green-500" aria-label="Create" />
+      ),
+      [OperationTypes.Add]: (
+        <FaPlus className="text-green-500" aria-label="Add" />
+      ),
+      [OperationTypes.Remove]: (
+        <FaMinus className="text-red-500" aria-label="Remove" />
+      ),
+      [OperationTypes.Access]: (
+        <FaArrowUp className="text-blue-500" aria-label="Access" />
+      ),
+      [OperationTypes.Modify]: (
+        <FaArrowDown className="text-yellow-500" aria-label="Modify" />
+      ),
+      [OperationTypes.Search]: (
+        <FaSearch className="text-purple-500" aria-label="Search" />
+      ),
+      [OperationTypes.Utility]: (
+        <FaCogs className="text-gray-500" aria-label="Utility" />
+      ),
+      [OperationTypes.Traversal]: (
+        <FaRoute className="text-teal-500" aria-label="Traversal" />
+      ),
     };
     return (
       icons[type as keyof typeof icons] || (
@@ -108,11 +126,6 @@ const CheatSheet: React.FC<CheatSheetProps> = ({ items }) => {
           {/* <span>{cheatSheet.title}</span> */}
           <TooltipProvider>
             <Tooltip>
-              <TooltipTrigger asChild>
-                <Button variant="outline" size="icon">
-                  <FaInfoCircle className="h-5 w-5" />
-                </Button>
-              </TooltipTrigger>
               <TooltipContent>
                 {/* <p>
                   This cheat sheet provides quick reference for{' '}
@@ -128,15 +141,7 @@ const CheatSheet: React.FC<CheatSheetProps> = ({ items }) => {
           <h3 className="text-2xl font-semibold mb-3">Operation Types</h3>
           <ScrollArea className="w-full whitespace-nowrap">
             <div className="flex gap-2 pb-2">
-              {[
-                'create',
-                'add',
-                'remove',
-                'access',
-                'modify',
-                'search',
-                'utility',
-              ].map((type) => (
+              {Object.values(OperationTypes).map((type) => (
                 <Button
                   key={type}
                   variant={filterType === type ? 'default' : 'outline'}
@@ -144,7 +149,7 @@ const CheatSheet: React.FC<CheatSheetProps> = ({ items }) => {
                   onClick={() => toggleFilterType(type)}
                   className="flex items-center gap-2"
                 >
-                  {getIcon(type)}
+                  {getIcon(type)}{' '}
                   <span className="capitalize">{type}</span>
                 </Button>
               ))}
@@ -187,7 +192,7 @@ const CheatSheet: React.FC<CheatSheetProps> = ({ items }) => {
                 onClick={() => toggleExpanded(index.toString())}
               >
                 <div className="flex items-center gap-3 text-xl">
-                  {getIcon(item.type)}
+                  {getIcon(item.type as OperationTypes)}
                   <span className="font-semibold">{item.label}</span>
                 </div>
               </AccordionTrigger>

@@ -1,124 +1,310 @@
-import { CheatSheetItem, createCheatSheet } from '@/common/commonCheatSheet';
+import { CheatSheetItem, createCheatSheet, OperationTypes } from '@/common/commonCheatSheet';
 
 export const graphCheatSheet: CheatSheetItem[] = [
+  // CREATE
   createCheatSheet(
     'Creating an adjacency list',
-    'graph = {\n    "A": ["B", "C"],\n    "B": ["A", "D", "E"],\n    "C": ["A", "F"],\n    "D": ["B"],\n    "E": ["B", "F"],\n    "F": ["C", "E"]\n}',
+    `graph = {
+    "A": ["B", "C"],
+    "B": ["A", "D", "E"],
+    "C": ["A", "F"],
+    "D": ["B"],
+    "E": ["B", "F"],
+    "F": ["C", "E"]
+}`,
     'Initializes a graph using an adjacency list representation.',
-    'create',
+    OperationTypes.Create,
     'O(V + E)',
-    'V is the number of vertices, E is the number of edges.',
+    'V is the number of vertices, E is the number of edges. Make sure each vertex has a list, even if empty.',
   ),
+
+  // ADD
   createCheatSheet(
     'Adding a vertex',
     'graph["G"] = []',
-    'Adds a new vertex "G" to the graph with no edges.',
-    'add',
+    'Adds a new vertex "G" to the graph with no connected edges.',
+    OperationTypes.Add,
     'O(1)',
-    'N/A',
+    'Ensure the key "G" does not already exist, or its contents might be overwritten.',
   ),
   createCheatSheet(
     'Adding an edge',
     'graph["A"].append("G")',
-    'Adds a new edge from vertex "A" to vertex "G".',
-    'add',
+    'Adds a new edge from vertex "A" to vertex "G". For undirected graphs, also append "A" to graph["G"].',
+    OperationTypes.Add,
     'O(1)',
-    'N/A',
+    'If adding to an undirected graph, remember to update both adjacency lists.',
   ),
+
+  // REMOVE
   createCheatSheet(
     'Removing a vertex',
-    'del graph["G"]\nfor vertex in graph:\n    if "G" in graph[vertex]:\n        graph[vertex].remove("G")',
-    'Removes vertex "G" and all its associated edges from the graph.',
-    'remove',
+    `del graph["G"]
+for vertex in graph:
+    if "G" in graph[vertex]:
+        graph[vertex].remove("G")`,
+    'Removes vertex "G" and all associated edges from the graph.',
+    OperationTypes.Remove,
     'O(V + E)',
-    'V is the number of vertices, E is the number of edges.',
+    'Iterate over all vertices to remove references to "G".',
   ),
   createCheatSheet(
     'Removing an edge',
     'graph["A"].remove("G")',
-    'Removes the edge from vertex "A" to vertex "G".',
-    'remove',
+    'Removes the edge from vertex "A" to vertex "G". For undirected graphs, also remove "A" from graph["G"].',
+    OperationTypes.Remove,
     'O(1)',
-    'N/A',
+    'Raises a ValueError if "G" is not in graph["A"]. Check for membership first.',
   ),
+
+  // TRAVERSAL
   createCheatSheet(
     'Breadth-First Search (BFS)',
-    'from collections import deque\n\ndef bfs(graph, start):\n    visited = set()\n    queue = deque([start])\n    while queue:\n        vertex = queue.popleft()\n        if vertex not in visited:\n            print(vertex)\n            visited.add(vertex)\n            queue.extend(graph[vertex] - visited)',
-    'Performs a BFS traversal starting from the given vertex.',
-    'traversal',
+    `from collections import deque
+
+def bfs(graph, start):
+    visited = set()
+    queue = deque([start])
+    while queue:
+        vertex = queue.popleft()
+        if vertex not in visited:
+            print(vertex)
+            visited.add(vertex)
+            for neighbor in graph[vertex]:
+                if neighbor not in visited:
+                    queue.append(neighbor)`,
+    'Performs a BFS traversal starting from the given vertex, visiting neighbors in a queue-based manner.',
+    OperationTypes.Traversal,
     'O(V + E)',
-    'V is the number of vertices, E is the number of edges.',
+    'Useful for finding shortest paths in unweighted graphs. Avoid repeated visits by tracking visited vertices.',
   ),
   createCheatSheet(
     'Depth-First Search (DFS)',
-    'def dfs(graph, start, visited=None):\n    if visited is None:\n        visited = set()\n    visited.add(start)\n    print(start)\n    for next in graph[start] - visited:\n        dfs(graph, next, visited)\n    return visited',
-    'Performs a DFS traversal starting from the given vertex.',
-    'traversal',
+    `def dfs(graph, start, visited=None):
+    if visited is None:
+        visited = set()
+    visited.add(start)
+    print(start)
+    for neighbor in graph[start]:
+        if neighbor not in visited:
+            dfs(graph, neighbor, visited)
+    return visited`,
+    'Performs a DFS traversal starting from the given vertex, visiting neighbors recursively.',
+    OperationTypes.Traversal,
     'O(V + E)',
-    'V is the number of vertices, E is the number of edges.',
+    'Can use a stack-based iteration instead of recursion if stack depth is a concern.',
   ),
+
+  // SEARCH
   createCheatSheet(
     'Finding the shortest path using BFS',
-    'from collections import deque\n\ndef shortest_path(graph, start, end):\n    queue = deque([(start, [start])])\n    while queue:\n        (vertex, path) = queue.popleft()\n        for next in graph[vertex] - set(path):\n            if next == end:\n                return path + [next]\n            else:\n                queue.append((next, path + [next]))',
-    'Finds the shortest path between two vertices using BFS.',
-    'search',
+    `from collections import deque
+
+def shortest_path(graph, start, end):
+    queue = deque([(start, [start])])
+    visited = set([start])
+    while queue:
+        vertex, path = queue.popleft()
+        for neighbor in graph[vertex]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                if neighbor == end:
+                    return path + [neighbor]
+                queue.append((neighbor, path + [neighbor]))`,
+    'Uses BFS to find the shortest path between two vertices in an unweighted graph.',
+    OperationTypes.Search,
     'O(V + E)',
-    'V is the number of vertices, E is the number of edges.',
+    'Stops as soon as the end vertex is found. Keep track of paths in the queue to reconstruct the route.',
   ),
   createCheatSheet(
     'Detecting a cycle in an undirected graph',
-    'def has_cycle(graph):\n    visited = set()\n    def dfs(vertex, parent):\n        visited.add(vertex)\n        for neighbor in graph[vertex]:\n            if neighbor not in visited:\n                if dfs(neighbor, vertex):\n                    return True\n            elif neighbor != parent:\n                return True\n        return False\n    for vertex in graph:\n        if vertex not in visited:\n            if dfs(vertex, -1):\n                return True\n    return False',
-    'Detects if there is a cycle in an undirected graph.',
-    'utility',
+    `def has_cycle(graph):
+    visited = set()
+    def dfs(vertex, parent):
+        visited.add(vertex)
+        for neighbor in graph[vertex]:
+            if neighbor not in visited:
+                if dfs(neighbor, vertex):
+                    return True
+            elif neighbor != parent:
+                return True
+        return False
+
+    for vertex in graph:
+        if vertex not in visited:
+            if dfs(vertex, None):
+                return True
+    return False`,
+    'Checks for cycles by running DFS. If a visited neighbor is not the parent, a cycle exists.',
+    OperationTypes.Utility,
     'O(V + E)',
-    'V is the number of vertices, E is the number of edges.',
+    'Only relevant for undirected graphs. For directed graphs, the cycle check differs.',
   ),
   createCheatSheet(
     'Topological sort using DFS',
-    'def topological_sort(graph):\n    visited = set()\n    stack = []\n    def dfs(vertex):\n        visited.add(vertex)\n        for neighbor in graph[vertex]:\n            if neighbor not in visited:\n                dfs(neighbor)\n        stack.append(vertex)\n    for vertex in graph:\n        if vertex not in visited:\n            dfs(vertex)\n    return stack[::-1]',
-    'Performs a topological sort on a directed acyclic graph (DAG) using DFS.',
-    'sort',
+    `def topological_sort(graph):
+    visited = set()
+    stack = []
+
+    def dfs(vertex):
+        visited.add(vertex)
+        for neighbor in graph[vertex]:
+            if neighbor not in visited:
+                dfs(neighbor)
+        stack.append(vertex)
+
+    for vertex in graph:
+        if vertex not in visited:
+            dfs(vertex)
+    return stack[::-1]`,
+    'Produces a topological ordering of vertices in a Directed Acyclic Graph (DAG).',
+    OperationTypes.Utility,
     'O(V + E)',
-    'V is the number of vertices, E is the number of edges.',
+    'If the graph has a cycle, no valid topological order exists.',
   ),
   createCheatSheet(
-    "Dijkstra's algorithm for shortest path",
-    'import heapq\n\ndef dijkstra(graph, start):\n    distances = {vertex: float("inf") for vertex in graph}\n    distances[start] = 0\n    pq = [(0, start)]\n    while pq:\n        current_distance, current_vertex = heapq.heappop(pq)\n        if current_distance > distances[current_vertex]:\n            continue\n        for neighbor, weight in graph[current_vertex].items():\n            distance = current_distance + weight\n            if distance < distances[neighbor]:\n                distances[neighbor] = distance\n                heapq.heappush(pq, (distance, neighbor))\n    return distances',
-    "Finds the shortest path from a start vertex to all other vertices in a weighted graph using Dijkstra's algorithm.",
-    'search',
+    "Dijkstra's algorithm for shortest paths",
+    `import heapq
+
+def dijkstra(graph, start):
+    distances = {vertex: float("inf") for vertex in graph}
+    distances[start] = 0
+    pq = [(0, start)]
+
+    while pq:
+        current_distance, current_vertex = heapq.heappop(pq)
+        if current_distance > distances[current_vertex]:
+            continue
+        
+        for neighbor, weight in graph[current_vertex].items():
+            distance = current_distance + weight
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
+                heapq.heappush(pq, (distance, neighbor))
+
+    return distances`,
+    'Finds the shortest distance from a start vertex to all others in a weighted graph (non-negative weights).',
+    OperationTypes.Search,
     'O((V + E) log V)',
-    'V is the number of vertices, E is the number of edges.',
+    'Graph should store neighbors in a dict-like structure, e.g. graph[u] = {v: w, ...}.',
   ),
   createCheatSheet(
-    "Kruskal's algorithm for Minimum Spanning Tree (MST)",
-    'def find(parent, i):\n    if parent[i] == i:\n        return i\n    return find(parent, parent[i])\n\ndef union(parent, rank, x, y):\n    root_x = find(parent, x)\n    root_y = find(parent, y)\n    if rank[root_x] > rank[root_y]:\n        parent[root_y] = root_x\n    elif rank[root_x] < rank[root_y]:\n        parent[root_x] = root_y\n    else:\n        parent[root_y] = root_x\n        rank[root_x] += 1\n\ndef kruskal(graph):\n    result = []\n    i, e = 0, 0\n    graph = sorted(graph, key=lambda item: item[2])\n    parent = {vertex: vertex for vertex in graph}\n    rank = {vertex: 0 for vertex in graph}\n    while e < len(graph) - 1:\n        u, v, w = graph[i]\n        i += 1\n        x = find(parent, u)\n        y = find(parent, v)\n        if x != y:\n            e += 1\n            result.append([u, v, w])\n            union(parent, rank, x, y)\n    return result',
-    "Finds the Minimum Spanning Tree (MST) of a weighted undirected graph using Kruskal's algorithm.",
-    'utility',
-    'O(E log E)',
-    'E is the number of edges.',
-  ),
-  createCheatSheet(
-    "Prim's algorithm for Minimum Spanning Tree (MST)",
-    'import heapq\n\ndef prim(graph, start):\n    mst = []\n    visited = set([start])\n    edges = [(weight, start, to) for to, weight in graph[start].items()]\n    heapq.heapify(edges)\n    while edges:\n        weight, frm, to = heapq.heappop(edges)\n        if to not in visited:\n            visited.add(to)\n            mst.append((frm, to, weight))\n            for to_next, weight in graph[to].items():\n                if to_next not in visited:\n                    heapq.heappush(edges, (weight, to, to_next))\n    return mst',
-    "Finds the Minimum Spanning Tree (MST) of a weighted undirected graph using Prim's algorithm.",
-    'utility',
-    'O((V + E) log V)',
-    'V is the number of vertices, E is the number of edges.',
+    "Bellman-Ford algorithm for shortest path",
+    `def bellman_ford(graph, start):
+    distances = {vertex: float("inf") for vertex in graph}
+    distances[start] = 0
+
+    for _ in range(len(graph) - 1):
+        for u in graph:
+            for v, weight in graph[u].items():
+                if distances[u] + weight < distances[v]:
+                    distances[v] = distances[u] + weight
+
+    # Check for negative-weight cycles
+    for u in graph:
+        for v, weight in graph[u].items():
+            if distances[u] + weight < distances[v]:
+                raise ValueError("Graph contains a negative-weight cycle")
+
+    return distances`,
+    'Calculates shortest distances in a weighted graph, even with negative edges (but no negative cycles).',
+    OperationTypes.Search,
+    'O(V * E)',
+    'Raise an exception if a negative cycle is detected.',
   ),
   createCheatSheet(
     'Floyd-Warshall algorithm for all-pairs shortest paths',
-    'def floyd_warshall(graph):\n    dist = {vertex: {vertex: float("inf") for vertex in graph} for vertex in graph}\n    for u in graph:\n        dist[u][u] = 0\n        for v, weight in graph[u].items():\n            dist[u][v] = weight\n    for k in graph:\n        for i in graph:\n            for j in graph:\n                if dist[i][j] > dist[i][k] + dist[k][j]:\n                    dist[i][j] = dist[i][k] + dist[k][j]\n    return dist',
-    'Finds the shortest path between all pairs of vertices in a weighted graph using the Floyd-Warshall algorithm.',
-    'search',
+    `def floyd_warshall(graph):
+    dist = {u: {v: float("inf") for v in graph} for u in graph}
+    for u in graph:
+        dist[u][u] = 0
+        for v, weight in graph[u].items():
+            dist[u][v] = weight
+
+    for k in graph:
+        for i in graph:
+            for j in graph:
+                if dist[i][j] > dist[i][k] + dist[k][j]:
+                    dist[i][j] = dist[i][k] + dist[k][j]
+    
+    return dist`,
+    'Computes the shortest paths between every pair of vertices in a weighted graph (handles positive or negative edges, no negative cycles).',
+    OperationTypes.Search,
     'O(V^3)',
-    'V is the number of vertices.',
+    'Memory usage can be substantial for large V, since it stores a 2D dist matrix.',
+  ),
+
+  // UTILITY
+  createCheatSheet(
+    "Kruskal's algorithm for MST (Minimum Spanning Tree)",
+    `def find(parent, i):
+    if parent[i] == i:
+        return i
+    parent[i] = find(parent, parent[i])  # Path compression
+    return parent[i]
+
+def union(parent, rank, x, y):
+    if rank[x] < rank[y]:
+        parent[x] = y
+    elif rank[x] > rank[y]:
+        parent[y] = x
+    else:
+        parent[y] = x
+        rank[x] += 1
+
+def kruskal(edges, vertices):
+    # edges is a list of (u, v, w), vertices is a list or set of vertices
+    result = []
+    parent = {}
+    rank = {}
+
+    for v in vertices:
+        parent[v] = v
+        rank[v] = 0
+
+    # Sort edges by weight
+    edges.sort(key=lambda x: x[2])
+
+    e = 0  # Count edges in MST
+    i = 0  # Index variable for sorted edges
+    while e < len(vertices) - 1 and i < len(edges):
+        u, v, w = edges[i]
+        i += 1
+        x = find(parent, u)
+        y = find(parent, v)
+        if x != y:
+            e += 1
+            result.append((u, v, w))
+            union(parent, rank, x, y)
+    return result`,
+    "Constructs the MST of a weighted undirected graph by sorting edges and uniting sets.",
+    OperationTypes.Utility,
+    'O(E log E)',
+    'E is the number of edges; sorting dominates the complexity.',
   ),
   createCheatSheet(
-    'Bellman-Ford algorithm for shortest path',
-    'def bellman_ford(graph, start):\n    distances = {vertex: float("inf") for vertex in graph}\n    distances[start] = 0\n    for _ in range(len(graph) - 1):\n        for u in graph:\n            for v, weight in graph[u].items():\n                if distances[u] + weight < distances[v]:\n                    distances[v] = distances[u] + weight\n    for u in graph:\n        for v, weight in graph[u].items():\n            if distances[u] + weight < distances[v]:\n                raise ValueError("Graph contains a negative-weight cycle")\n    return distances',
-    'Finds the shortest path from a start vertex to all other vertices in a weighted graph using the Bellman-Ford algorithm.',
-    'search',
-    'O(V * E)',
-    'V is the number of vertices, E is the number of edges.',
+    "Prim's algorithm for MST",
+    `import heapq
+
+def prim(graph, start):
+    mst = []
+    visited = set([start])
+    edges = [(weight, start, adj) for adj, weight in graph[start].items()]
+    heapq.heapify(edges)
+
+    while edges:
+        weight, frm, to = heapq.heappop(edges)
+        if to not in visited:
+            visited.add(to)
+            mst.append((frm, to, weight))
+            for nxt, w in graph[to].items():
+                if nxt not in visited:
+                    heapq.heappush(edges, (w, to, nxt))
+
+    return mst`,
+    "Builds the MST of a weighted undirected graph by greedily expanding the frontier from a start vertex.",
+    OperationTypes.Utility,
+    'O((V + E) log V)',
+    'Requires adjacency dict: graph[u] = {v: weight, ...}.',
   ),
 ];
