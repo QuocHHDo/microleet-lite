@@ -6,8 +6,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Search, ChevronDown, ChevronUp, CheckCircle } from 'lucide-react';
 import { filterConcepts } from '@/utils/filterConcepts';
 import useDebounce from '../hooks/useDebounce';
-import { Concept } from '@/common/commonConcept';
+import { Concept, Difficulty } from '@/common/commonConcept';
 import { renderContent } from '@/utils/renderContent';
+import DifficultyBadge from './DifficultyBadge';
 
 interface ConceptsTabProps {
   concepts: Concept[];
@@ -91,7 +92,10 @@ const Concepts: React.FC<ConceptsTabProps> = ({
             >
               <CardTitle className="flex justify-between items-center">
                 <span>{concept.title}</span>
-                {expandedConcepts[concept.id] ? <ChevronUp /> : <ChevronDown />}
+                <div className="flex items-center space-x-2">
+                  <DifficultyBadge difficulty={concept.difficulty as Difficulty} />
+                  {expandedConcepts[concept.id] ? <ChevronUp /> : <ChevronDown />}
+                </div>
               </CardTitle>
             </CardHeader>
             {expandedConcepts[concept.id] && (
