@@ -41,11 +41,6 @@ const ModulePage: React.FC<ModulePageProps> = ({
   concepts,
   progressKey,
 }) => {
-  // const [activeLesson, setActiveLesson] = useState(0);
-  // const [completedLessons, setCompletedLessons] = useLocalStorage<number[]>(
-  //   `${progressKey}LessonsProgress`,
-  //   [],
-  // );
   const [expandedConcepts, setExpandedConcepts] = useLocalStorage<
     Record<number, boolean>
   >(`${progressKey}ExpandedConcepts`, {});
@@ -58,19 +53,6 @@ const ModulePage: React.FC<ModulePageProps> = ({
   const [searchTerm, setSearchTerm] = useState('');
   const [darkMode, setDarkMode] = useLocalStorage<boolean>('darkMode', false);
   const [points, setPoints] = usePoints();
-
-  // const handleLessonComplete = (lessonIndex: number) => {
-  //   setCompletedLessons((prev) => {
-  //     const isCompleted = prev.includes(lessonIndex);
-  //     const newCompletedLessons = isCompleted
-  //       ? prev.filter((index) => index !== lessonIndex)
-  //       : [...prev, lessonIndex];
-
-  //     setPoints((prevPoints) => prevPoints + (isCompleted ? -10 : 10));
-
-  //     return newCompletedLessons;
-  //   });
-  // };
 
   const markAsCompleted = (id: number) => {
     setCompletedConcepts((prev) => {
@@ -87,14 +69,6 @@ const ModulePage: React.FC<ModulePageProps> = ({
     setExpandedConcepts((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  // const progress = useMemo(() => {
-  //   return (
-  //     (Object.values(completedConcepts).filter(Boolean).length /
-  //       concepts.length) *
-  //     100
-  //   );
-  // }, [completedConcepts]);
-
   return (
     <TooltipProvider>
       <div
@@ -103,14 +77,6 @@ const ModulePage: React.FC<ModulePageProps> = ({
         }`}
       >
         <div className="flex justify-between items-center mb-8">
-          {/* <label className="flex items-center space-x-2">
-            <span>{darkMode ? '🌙' : '☀️'}</span>
-            <Switch
-              checked={darkMode}
-              onCheckedChange={() => setDarkMode(!darkMode)}
-              aria-label="Toggle dark mode"
-            />
-          </label> */}
           <Tooltip>
             <TooltipTrigger>
               <Badge variant="secondary" className="text-lg">

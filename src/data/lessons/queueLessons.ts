@@ -879,68 +879,6 @@ print(queue.is_full())  # Should print True`,
   ],
 };
 
-// const circularConceptData: LessonContent = {
-//   title: 'Circular Queue Concept',
-//   content: `<p>
-//   A circular queue is a linear data structure that follows the FIFO principle but wraps around to reuse space when it reaches the end of the array.
-//   It is useful in situations where a fixed amount of memory is required, avoiding wasted space from shifting elements as in regular queues.
-//   </p>`,
-//   codeExample: `# Circular Queue Example (concept demonstration)
-//   class CircularQueue:
-//       def __init__(self, size):
-//           self.queue = [None] * size
-//           self.size = size
-//           self.front = self.rear = -1
-
-//       def enqueue(self, item):
-//           if (self.rear + 1) % self.size == self.front:
-//               print("Queue is full")
-//           elif self.front == -1:  # Empty queue
-//               self.front = self.rear = 0
-//               self.queue[self.rear] = item
-//           else:
-//               self.rear = (self.rear + 1) % self.size
-//               self.queue[self.rear] = item
-
-//       def dequeue(self):
-//           if self.front == -1:
-//               print("Queue is empty")
-//           elif self.front == self.rear:
-//               temp = self.queue[self.front]
-//               self.front = self.rear = -1
-//               return temp
-//           else:
-//               temp = self.queue[self.front]
-//               self.front = (self.front + 1) % self.size
-//               return temp`,
-//   exercises: [
-//     {
-//       prompt:
-//         'Explain why a circular queue is more efficient for memory usage compared to a standard queue.',
-//       initialCode: `# Write a brief explanation here`,
-//       solution: `A circular queue uses the same memory repeatedly by wrapping around, reducing the need to shift elements.`,
-//       difficulty: Difficulty.Beginner,
-//     },
-//   ],
-//   quizzes: [
-//     {
-//       question:
-//         'What happens if an element is enqueued in a circular queue that is full?',
-//       options: [
-//         'The first element is overwritten',
-//         'An error occurs or the operation is prevented',
-//         'The queue expands',
-//         'The last element is removed first',
-//       ],
-//       correctAnswer: 1,
-//       explanations: [
-//         'Correct. Enqueuing to a full circular queue is typically not allowed to prevent data loss.',
-//       ],
-//       difficulty: Difficulty.Intermediate,
-//     },
-//   ],
-// };
-
 const treeBfsData = {
   title: 'Tree Level Order Traversal and Related Problems',
   content: `<p>
@@ -4826,7 +4764,6 @@ const queueLessons: Record<string, LessonContent> = {
   'queue-concept': queueConceptData,
   'queue-implementation': queueImplementationData,
   'queue-operations': queueOperationsData,
-  // 'circular-concept': circularConceptData,
   'tree-bfs': treeBfsData,
   'graph-bfs': graphBfsData,
   'matrix-bfs': matrixBfsData,

@@ -141,11 +141,6 @@ const setCurriculum: Curriculum = {
             'Choosing between sets, lists, and dictionaries for optimal performance',
           priority: PriorityLevel.Essential,
         },
-        // {
-        //   id: 'ordered-sets',
-        //   title: 'Ordered Sets',
-        //   description: 'Working with sorted sets and their applications',
-        // },
       ],
     },
     {
@@ -3116,98 +3111,6 @@ demonstrate_data_structure_differences()`,
     },
   ],
 };
-
-// const orderedSetsData: LessonContent = {
-//   title: 'Ordered Sets',
-//   content: `<p>
-// Ordered sets are sets that maintain the order of elements as they are inserted.
-// In Python, the \`collections\` module provides the \`OrderedDict\` class, which can be used to create ordered sets.
-// However, for a more specialized ordered set, you can use the \`sortedcontainers\` library, which provides the \`SortedSet\` class.
-// Here's how you can work with ordered sets:
-// </p>
-
-// <ul>
-// <li><strong>Using \`SortedSet\`:</strong> The \`SortedSet\` class from the \`sortedcontainers\` library maintains the order of elements as they are inserted.</li>
-// <li><strong>Insertion:</strong> Elements are inserted in sorted order.</li>
-// <li><strong>Deletion:</strong> Elements are removed while maintaining the sorted order.</li>
-// <li><strong>Lookup:</strong> Elements are looked up in the sorted order.</li>
-// </ul>`,
-//   codeExample: `# Example of ordered sets in Python
-// from sortedcontainers import SortedSet
-
-// # Creating an ordered set
-// ordered_set = SortedSet([3, 1, 4, 1, 5, 9])
-
-// # Insertion
-// ordered_set.add(2)
-// print(ordered_set)  # Output: SortedSet([1, 2, 3, 4, 5, 9])
-
-// # Deletion
-// ordered_set.discard(4)
-// print(ordered_set)  # Output: SortedSet([1, 2, 3, 5, 9])
-
-// # Lookup
-// print(3 in ordered_set)  # Output: True
-// print(4 in ordered_set)  # Output: False`,
-//   exercises: [
-//     {
-//       prompt: 'Implement ordered set operations with SortedSet from the sortedcontainers library.',
-//       initialCode: `# Write your solution here
-// from sortedcontainers import SortedSet
-
-// # Creating an ordered set
-// ordered_set = SortedSet([3, 1, 4, 1, 5, 9])
-
-// # Insertion
-// ordered_set.add(2)
-// print(ordered_set)  # Output: SortedSet([1, 2, 3, 4, 5, 9])
-
-// # Deletion
-// ordered_set.discard(4)
-// print(ordered_set)  # Output: SortedSet([1, 2, 3, 5, 9])
-
-// # Lookup
-// print(3 in ordered_set)  # Output: True
-// print(4 in ordered_set)  # Output: False`,
-//       solution: `from sortedcontainers import SortedSet
-
-// # Creating an ordered set
-// ordered_set = SortedSet([3, 1, 4, 1, 5, 9])
-
-// # Insertion
-// ordered_set.add(2)
-// print(ordered_set)  # Output: SortedSet([1, 2, 3, 4, 5, 9])
-
-// # Deletion
-// ordered_set.discard(4)
-// print(ordered_set)  # Output: SortedSet([1, 2, 3, 5, 9])
-
-// # Lookup
-// print(3 in ordered_set)  # Output: True
-// print(4 in ordered_set)  # Output: False`,
-//       difficulty: Difficulty.Intermediate,
-//     },
-//   ],
-//   quizzes: [
-//     {
-//       question: 'Which library provides the \`SortedSet\` class for ordered sets in Python?',
-//       options: [
-//         'collections',
-//         'itertools',
-//         'sortedcontainers',
-//         'heapq',
-//       ],
-//       correctAnswer: 2,
-//       explanations: [
-//         'This is incorrect. The \`collections\` library does not provide a \`SortedSet\` class.',
-//         'This is incorrect. The \`itertools\` library does not provide a \`SortedSet\` class.',
-//         'This is correct. The \`sortedcontainers\` library provides the \`SortedSet\` class.',
-//         'This is incorrect. The \`heapq\` library does not provide a \`SortedSet\` class.',
-//       ],
-//       difficulty: Difficulty.Beginner,
-//     },
-//   ],
-// };
 
 const duplicateDetectionData: LessonContent = {
   title: 'Understanding Duplicate Detection with Sets',
