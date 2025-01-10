@@ -1,132 +1,291 @@
-import { CheatSheetItem, createCheatSheet } from '@/common/commonCheatSheet';
+import { CheatSheetItem, createCheatSheet, OperationTypes } from '@/common/commonCheatSheet';
 
 export const linkedListCheatSheet: CheatSheetItem[] = [
+  // CREATE
   createCheatSheet(
     'Creating a linked list',
-    'class Node:\n  def __init__(self, data):\n    self.data = data\n    self.next = None\n\nhead = Node(1)\nhead.next = Node(2)\nhead.next.next = Node(3)',
+    `class Node:
+  def __init__(self, data):
+    self.data = data
+    self.next = None
+
+head = Node(1)
+head.next = Node(2)
+head.next.next = Node(3)`,
     'Defines a Node class and creates a linked list with elements 1, 2, and 3.',
-    'create',
+    OperationTypes.Create,
     'O(n)',
     'Creating a large linked list can be memory-intensive.',
   ),
+
+  // ADD
   createCheatSheet(
     'Appending to the end of a linked list',
-    'def append(head, data):\n  if not head:\n    return Node(data)\n  current = head\n  while current.next:\n    current = current.next\n  current.next = Node(data)\n  return head',
+    `def append(head, data):
+  if not head:
+    return Node(data)
+  current = head
+  while current.next:
+    current = current.next
+  current.next = Node(data)
+  return head`,
     'Adds a new node with the given data to the end of the linked list.',
-    'add',
+    OperationTypes.Add,
     'O(n)',
     'Appending to a large linked list can be slow.',
   ),
   createCheatSheet(
     'Inserting at the beginning of a linked list',
-    'def insert_at_beginning(head, data):\n  new_node = Node(data)\n  new_node.next = head\n  return new_node',
+    `def insert_at_beginning(head, data):
+  new_node = Node(data)
+  new_node.next = head
+  return new_node`,
     'Inserts a new node with the given data at the beginning of the linked list.',
-    'add',
+    OperationTypes.Add,
     'O(1)',
     'N/A',
   ),
   createCheatSheet(
     'Inserting at a specific position',
-    'def insert_at_position(head, data, position):\n  if position == 0:\n    return insert_at_beginning(head, data)\n  new_node = Node(data)\n  current = head\n  for _ in range(position - 1):\n    if not current:\n      return head\n    current = current.next\n  new_node.next = current.next\n  current.next = new_node\n  return head',
+    `def insert_at_position(head, data, position):
+  if position == 0:
+    return insert_at_beginning(head, data)
+  new_node = Node(data)
+  current = head
+  for _ in range(position - 1):
+    if not current:
+      return head
+    current = current.next
+  new_node.next = current.next
+  current.next = new_node
+  return head`,
     'Inserts a new node with the given data at the specified position in the linked list.',
-    'add',
+    OperationTypes.Add,
     'O(n)',
-    'Inserting at a position beyond the length of the list will not insert the node.',
+    'Inserting beyond the list length does nothing.',
   ),
+
+  // REMOVE
   createCheatSheet(
     'Removing the first node',
-    'def remove_first(head):\n  if not head:\n    return None\n  return head.next',
+    `def remove_first(head):
+  if not head:
+    return None
+  return head.next`,
     'Removes the first node from the linked list.',
-    'remove',
+    OperationTypes.Remove,
     'O(1)',
-    'Removing from an empty list will return None.',
+    'Removing from an empty list returns None.',
   ),
   createCheatSheet(
     'Removing the last node',
-    'def remove_last(head):\n  if not head or not head.next:\n    return None\n  current = head\n  while current.next.next:\n    current = current.next\n  current.next = None\n  return head',
+    `def remove_last(head):
+  if not head or not head.next:
+    return None
+  current = head
+  while current.next.next:
+    current = current.next
+  current.next = None
+  return head`,
     'Removes the last node from the linked list.',
-    'remove',
+    OperationTypes.Remove,
     'O(n)',
-    'Removing from a single-node list will return None.',
+    'Removing from a single-node list returns None.',
   ),
   createCheatSheet(
     'Removing a node at a specific position',
-    'def remove_at_position(head, position):\n  if not head:\n    return None\n  if position == 0:\n    return head.next\n  current = head\n  for _ in range(position - 1):\n    if not current.next:\n      return head\n    current = current.next\n  if not current.next:\n    return head\n  current.next = current.next.next\n  return head',
+    `def remove_at_position(head, position):
+  if not head:
+    return None
+  if position == 0:
+    return head.next
+  current = head
+  for _ in range(position - 1):
+    if not current.next:
+      return head
+    current = current.next
+  if not current.next:
+    return head
+  current.next = current.next.next
+  return head`,
     'Removes the node at the specified position in the linked list.',
-    'remove',
+    OperationTypes.Remove,
     'O(n)',
-    'Removing at a position beyond the length of the list will not remove any node.',
+    'Removing beyond the list length does nothing.',
   ),
+
+  // ACCESS
   createCheatSheet(
     'Accessing the first node',
     'head.data',
     'Accesses the data of the first node in the linked list.',
-    'access',
+    OperationTypes.Access,
     'O(1)',
-    'Accessing from an empty list will raise an error.',
+    'Accessing from an empty list raises an error.',
   ),
   createCheatSheet(
     'Accessing the last node',
-    'def get_last(head):\n  if not head:\n    return None\n  current = head\n  while current.next:\n    current = current.next\n  return current.data',
+    `def get_last(head):
+  if not head:
+    return None
+  current = head
+  while current.next:
+    current = current.next
+  return current.data`,
     'Accesses the data of the last node in the linked list.',
-    'access',
+    OperationTypes.Access,
     'O(n)',
-    'Accessing from an empty list will return None.',
+    'Accessing from an empty list returns None.',
   ),
   createCheatSheet(
     'Accessing a node at a specific position',
-    'def get_at_position(head, position):\n  if not head:\n    return None\n  current = head\n  for _ in range(position):\n    if not current:\n      return None\n    current = current.next\n  return current.data if current else None',
+    `def get_at_position(head, position):
+  if not head:
+    return None
+  current = head
+  for _ in range(position):
+    if not current:
+      return None
+    current = current.next
+  return current.data if current else None`,
     'Accesses the data of the node at the specified position in the linked list.',
-    'access',
+    OperationTypes.Access,
     'O(n)',
-    'Accessing at a position beyond the length of the list will return None.',
+    'Accessing beyond the list length returns None.',
   ),
+
+  // MODIFY
   createCheatSheet(
     'Reversing a linked list',
-    'def reverse_list(head):\n  prev = None\n  current = head\n  while current:\n    next_node = current.next\n    current.next = prev\n    prev = current\n    current = next_node\n  return prev',
+    `def reverse_list(head):
+  prev = None
+  current = head
+  while current:
+    next_node = current.next
+    current.next = prev
+    prev = current
+    current = next_node
+  return prev`,
     'Reverses the order of nodes in the linked list.',
-    'modify',
+    OperationTypes.Modify,
     'O(n)',
     'Reversing a large linked list can be memory-intensive.',
   ),
   createCheatSheet(
     'Sorting a linked list',
-    'def sort_list(head):\n  if not head or not head.next:\n    return head\n  def merge_sort(head):\n    if not head or not head.next:\n      return head\n    mid = get_middle(head)\n    next_to_mid = mid.next\n    mid.next = None\n    left = merge_sort(head)\n    right = merge_sort(next_to_mid)\n    return merge(left, right)\n  def merge(left, right):\n    dummy = Node(0)\n    current = dummy\n    while left and right:\n      if left.data < right.data:\n        current.next = left\n        left = left.next\n      else:\n        current.next = right\n        right = right.next\n      current = current.next\n    current.next = left if left else right\n    return dummy.next\n  def get_middle(head):\n    if not head:\n      return head\n    slow = head\n    fast = head\n    while fast.next and fast.next.next:\n      slow = slow.next\n      fast = fast.next.next\n    return slow\n  return merge_sort(head)',
+    `def sort_list(head):
+  if not head or not head.next:
+    return head
+
+  def merge_sort(node):
+    if not node or not node.next:
+      return node
+    mid = get_middle(node)
+    next_to_mid = mid.next
+    mid.next = None
+    left = merge_sort(node)
+    right = merge_sort(next_to_mid)
+    return merge(left, right)
+
+  def merge(left, right):
+    dummy = Node(0)
+    current = dummy
+    while left and right:
+      if left.data < right.data:
+        current.next = left
+        left = left.next
+      else:
+        current.next = right
+        right = right.next
+      current = current.next
+    current.next = left if left else right
+    return dummy.next
+
+  def get_middle(node):
+    if not node:
+      return node
+    slow = node
+    fast = node
+    while fast.next and fast.next.next:
+      slow = slow.next
+      fast = fast.next.next
+    return slow
+
+  return merge_sort(head)`,
     'Sorts the linked list in ascending order using merge sort.',
-    'modify',
+    OperationTypes.Modify,
     'O(n log n)',
-    'Sorting a large linked list can be memory-intensive.',
+    'Sorting can be memory-intensive.',
   ),
+
+  // SEARCH
   createCheatSheet(
     'Finding the middle node',
-    'def find_middle(head):\n  if not head:\n    return None\n  slow = head\n  fast = head\n  while fast and fast.next:\n    slow = slow.next\n    fast = fast.next.next\n  return slow.data',
-    'Finds the middle node of the linked list.',
-    'search',
+    `def find_middle(head):
+  if not head:
+    return None
+  slow = head
+  fast = head
+  while fast and fast.next:
+    slow = slow.next
+    fast = fast.next.next
+  return slow.data`,
+    'Finds the middle node of the linked list (returns its data).',
+    OperationTypes.Search,
     'O(n)',
-    'Finding the middle of an empty list will return None.',
+    'Empty list returns None.',
   ),
   createCheatSheet(
     'Checking for a cycle in the linked list',
-    'def has_cycle(head):\n  if not head or not head.next:\n    return False\n  slow = head\n  fast = head.next\n  while slow != fast:\n    if not fast or not fast.next:\n      return False\n    slow = slow.next\n    fast = fast.next.next\n  return True',
-    'Checks if the linked list contains a cycle.',
-    'search',
+    `def has_cycle(head):
+  if not head or not head.next:
+    return False
+  slow = head
+  fast = head.next
+  while slow != fast:
+    if not fast or not fast.next:
+      return False
+    slow = slow.next
+    fast = fast.next.next
+  return True`,
+    'Checks if the linked list contains a cycle using the fast and slow pointers approach.',
+    OperationTypes.Search,
     'O(n)',
-    'Checking for a cycle in a large list can be slow.',
+    'Large lists can slow cycle detection.',
   ),
+
+  // UTILITY
   createCheatSheet(
     'Length of a linked list',
-    'def list_length(head):\n  length = 0\n  current = head\n  while current:\n    length += 1\n    current = current.next\n  return length',
+    `def list_length(head):
+  length = 0
+  current = head
+  while current:
+    length += 1
+    current = current.next
+  return length`,
     'Returns the number of nodes in the linked list.',
-    'utility',
+    OperationTypes.Utility,
     'O(n)',
     'N/A',
   ),
   createCheatSheet(
     'Copy a linked list',
-    'def copy_list(head):\n  if not head:\n    return None\n  new_head = Node(head.data)\n  current_old = head.next\n  current_new = new_head\n  while current_old:\n    current_new.next = Node(current_old.data)\n    current_new = current_new.next\n    current_old = current_old.next\n  return new_head',
+    `def copy_list(head):
+  if not head:
+    return None
+  new_head = Node(head.data)
+  current_old = head.next
+  current_new = new_head
+  while current_old:
+    current_new.next = Node(current_old.data)
+    current_new = current_new.next
+    current_old = current_old.next
+  return new_head`,
     'Creates a shallow copy of the linked list.',
-    'utility',
+    OperationTypes.Utility,
     'O(n)',
     'Copying a large linked list can be memory-intensive.',
   ),
 ];
+

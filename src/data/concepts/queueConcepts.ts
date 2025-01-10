@@ -1,64 +1,55 @@
 import { Concept, createConcept, Difficulty } from '@/common/commonConcept';
-import { generateTimeComplexityTable } from '@/utils/generateTimeComplexityTable';
 
 export const queueConcepts: Concept[] = [
   createConcept(
     1,
     'What is a Queue? How does it differ from other data structures?',
     `
-  **Definition:** A queue is a linear data structure that follows the First In, First Out (FIFO) principle. This means that the first element added to the queue will be the first one to be removed.
-  
-  **Basic Structure:** Queues typically support two main operations: enqueue (add an element to the end) and dequeue (remove the front element).
-  
-  **Example:**
-  \`\`\`python
-  from collections import deque
+**Definition:** A queue is a linear data structure that follows the First In, First Out (FIFO) principle. The first element added is the first one removed.
 
-  my_queue = deque()
-  my_queue.append(1)  # Enqueue 1 to the queue
-  my_queue.append(2)  # Enqueue 2 to the queue
-  print(my_queue.popleft())  # Dequeue 1 from the queue (Output: 1)
-  \`\`\`
-  
-  **Key Characteristics:**
-  - **FIFO Order:** The first element added is the first one to be removed.
-  - **Limited Access:** Elements can only be accessed from the front of the queue.
-  - **Common Use Cases:** Task scheduling, message processing, breadth-first search algorithms, and more.
-      `,
+**Basic Structure:** Queues typically support two main operations:
+- **Enqueue:** Add an element to the end.
+- **Dequeue:** Remove an element from the front.
+
+**Example:**
+\`\`\`python
+from collections import deque
+
+my_queue = deque()
+my_queue.append(1)  # Enqueue 1
+my_queue.append(2)  # Enqueue 2
+print(my_queue.popleft())  # Dequeue -> Output: 1
+\`\`\`
+
+**Key Characteristics:**
+- **FIFO Order:** First-in, first-out.
+- **Limited Access:** Only the front element can be accessed easily.
+- **Common Uses:** Task scheduling, message processing, BFS in graphs.
+    `,
     Difficulty.Beginner,
   ),
   createConcept(
     2,
     'What are the advantages and disadvantages of using queues?',
     `
-  <h2>Advantages:</h2>
-  <ul>
-    <li><strong>Simple Implementation:</strong> Queues are straightforward to implement and use.</li>
-    <li><strong>Efficient Operations:</strong> Both enqueue and dequeue operations are O(1) time complexity.</li>
-    <li><strong>Useful for FIFO Scenarios:</strong> Ideal for scenarios where the first added element needs to be processed first.</li>
-  </ul>
-  
-  <h2>Disadvantages:</h2>
-  <ul>
-    <li><strong>Limited Access:</strong> Only the front element can be accessed directly.</li>
-    <li><strong>Not Suitable for Random Access:</strong> Cannot access elements in the middle of the queue efficiently.</li>
-    <li><strong>Potential for Overflow/Underflow:</strong> If not managed properly, queues can overflow (too many elements) or underflow (no elements to dequeue).</li>
-  </ul>
-  
-  **Example:**
-  \`\`\`python
-  from collections import deque
+<h2>Advantages:</h2>
+<ul>
+  <li><strong>Simple Implementation:</strong> Easy to implement using arrays or linked lists.</li>
+  <li><strong>O(1) Enqueue/Dequeue:</strong> Adding and removing elements from the ends is constant time.</li>
+  <li><strong>FIFO Mechanism:</strong> Ideal when order of arrival must be preserved.</li>
+</ul>
 
-  my_queue = deque()
-  my_queue.append(1)  # Enqueue 1 to the queue
-  my_queue.append(2)  # Enqueue 2 to the queue
-  print(my_queue.popleft())  # Dequeue 1 from the queue (Output: 1)
-  \`\`\`
-  
-  **Key Points:**
-  - Queues are ideal for scenarios where FIFO order is required.
-  - For random access or LIFO order, other data structures like arrays or stacks may be more suitable.
-      `,
+<h2>Disadvantages:</h2>
+<ul>
+  <li><strong>Limited Access:</strong> Only the front and rear are directly accessible.</li>
+  <li><strong>Not for Random Access:</strong> Retrieving elements in the middle requires traversal (O(n)).</li>
+  <li><strong>Overflow/Underflow Potential:</strong> Requires careful management of capacity or checking if empty.</li>
+</ul>
+
+**Key Points:**
+- Perfect for FIFO scenarios.
+- Less suitable for random or direct indexing.
+    `,
     Difficulty.Beginner,
   ),
   createConcept(
@@ -66,35 +57,16 @@ export const queueConcepts: Concept[] = [
     'What is the time complexity of common operations on a queue (enqueue, dequeue, peek)?',
     `
 **Time Complexity of Common Operations on Queues:**
-${generateTimeComplexityTable([
-  {
-    name: 'Enqueue',
-    complexity: 'O(1)',
-    explanation:
-      'Adding an element to the end of the queue is a constant-time operation.',
-  },
-  {
-    name: 'Dequeue',
-    complexity: 'O(1)',
-    explanation:
-      'Removing the front element from the queue is a constant-time operation.',
-  },
-  {
-    name: 'Peek',
-    complexity: 'O(1)',
-    explanation:
-      'Accessing the front element without removing it is a constant-time operation.',
-  },
-  {
-    name: 'Search',
-    complexity: 'O(n)',
-    explanation:
-      'Searching for an element in the queue requires iterating through all elements.',
-  },
-])}
+| Operation   | Complexity | Explanation                                                         |
+|-------------|-----------|---------------------------------------------------------------------|
+| **Enqueue** | O(1)       | Adding an element at the end is typically constant time.            |
+| **Dequeue** | O(1)       | Removing the front element is also constant time.                   |
+| **Peek**    | O(1)       | Inspecting the front element is constant time.                      |
+| **Search**  | O(n)       | Finding an item requires scanning all elements in the worst case.   |
+
 **Key Points:**
-- Queues are optimized for fast enqueue and dequeue operations, making them efficient for FIFO scenarios.
-- Searching for an element in a queue is inefficient due to the need to iterate through all elements.
+- Optimized for enqueue/dequeue.
+- Searching any arbitrary element is inefficient (O(n)).
     `,
     Difficulty.Beginner,
   ),
@@ -102,60 +74,200 @@ ${generateTimeComplexityTable([
     4,
     'Explain the difference between a queue and a stack.',
     `
-  **Queues:**
-  - **FIFO Principle:** First In, First Out. The first element added is the first one to be removed.
-  - **Operations:** Mainly enqueue (add to the end) and dequeue (remove from the front).
-  - **Example:** Task scheduling, message processing, breadth-first search algorithms.
-  
-  **Stacks:**
-  - **LIFO Principle:** Last In, First Out. The last element added is the first one to be removed.
-  - **Operations:** Mainly push (add to the top) and pop (remove from the top).
-  - **Example:** Function call management, undo mechanisms, expression evaluation.
-  
-  **Key Points:**
-  - Queues are ideal for FIFO scenarios, while stacks are ideal for LIFO scenarios.
-  - Both data structures are linear and have their specific use cases depending on the order of processing required.
-      `,
+**Queues:**
+- **FIFO Principle:** First In, First Out.
+- **Operations:** Enqueue (add to rear), Dequeue (remove from front).
+- **Use Cases:** Task scheduling, BFS, messaging systems.
+
+**Stacks:**
+- **LIFO Principle:** Last In, First Out.
+- **Operations:** Push (add to top), Pop (remove from top).
+- **Use Cases:** Function call stacks, undo operations, expression parsing.
+
+**Key Points:**
+- Queues process elements in arrival order.
+- Stacks process elements in reverse arrival order.
+    `,
     Difficulty.Beginner,
   ),
   createConcept(
     5,
     'What are some common use cases for queues in programming?',
     `
-  **Common Use Cases for Queues:**
-  <ul>
-    <li><strong>Task Scheduling:</strong> Queues are used to manage tasks in the order they are received, ensuring that the first task added is the first one to be processed.</li>
-    <li><strong>Message Processing:</strong> Queues are used in message-oriented middleware systems to handle messages in the order they arrive.</li>
-    <li><strong>Breadth-First Search (BFS):</strong> Queues are used in BFS algorithms to explore all nodes at the present depth level before moving on to nodes at the next depth level.</li>
-    <li><strong>Print Job Management:</strong> Queues can be used to manage print jobs in a printer queue, ensuring that jobs are printed in the order they are submitted.</li>
-    <li><strong>Simulation Systems:</strong> Queues are used in simulation systems to model real-world scenarios where events occur in a specific order.</li>
-  </ul>
-  
-  **Example:**
-  \`\`\`python
-  from collections import deque
+**Common Use Cases:**
+- **Task Scheduling:** Process tasks in the order they arrive.
+- **Message Processing:** Handle incoming messages sequentially.
+- **Breadth-First Search (BFS):** Explore neighbors first in graph/tree algorithms.
+- **Printer Queue:** Manage print jobs in submission order.
+- **Simulation Systems:** Model scenarios where events happen in a FIFO manner.
 
-  # Simple task scheduling using a queue
-  task_queue = deque()
-  
-  def add_task(task):
-      task_queue.append(task)
-  
-  def process_task():
-      if task_queue:
-          task = task_queue.popleft()
-          print(f"Processing task: {task}")
-  
-  add_task("Task 1")
-  add_task("Task 2")
-  process_task()  # Output: Processing task: Task 1
-  process_task()  # Output: Processing task: Task 2
-  \`\`\`
-  
-  **Key Points:**
-  - Queues are versatile and can be applied to various scenarios requiring FIFO order.
-  - Understanding the use cases helps in choosing the right data structure for a given problem.
-      `,
+**Example:**
+\`\`\`python
+from collections import deque
+
+task_queue = deque()
+
+def add_task(task):
+    task_queue.append(task)
+
+def process_task():
+    if task_queue:
+        current_task = task_queue.popleft()
+        print(f"Processing: {current_task}")
+
+add_task("Task 1")
+add_task("Task 2")
+process_task()  # Output: Processing: Task 1
+process_task()  # Output: Processing: Task 2
+\`\`\`
+
+**Key Points:**
+- Essential for scenarios requiring FIFO order.
+- Minimizes complexity when handling ordered workflows.
+    `,
     Difficulty.Beginner,
   ),
+  createConcept(
+    6,
+    'What is a Circular Queue, and why is it useful?',
+    `
+**Circular Queue:** A queue where the last position is connected back to the first position, forming a circle in memory.
+
+**Key Features:**
+- **Efficient Space Usage:** Overcomes the issue of wasted space in linear queues after repeated enqueues/dequeues.
+- **Implementation Detail:** Use front and rear pointers (and possibly a size counter) to track the current state.
+- **Operations:** Enqueue, Dequeue, Peek still O(1) if implemented correctly.
+
+**Example (Pseudo-code):**
+\`\`\`
+class CircularQueue:
+    def __init__(self, k):
+        self.queue = [None] * k
+        self.size = k
+        self.front = 0
+        self.rear = -1
+        self.count = 0
+
+    def enqueue(self, value):
+        if self.isFull():
+            return
+        self.rear = (self.rear + 1) % self.size
+        self.queue[self.rear] = value
+        self.count += 1
+
+    def dequeue(self):
+        if self.isEmpty():
+            return
+        front_value = self.queue[self.front]
+        self.front = (self.front + 1) % self.size
+        self.count -= 1
+        return front_value
+\`\`\`
+
+**Why Useful:**
+- Allows reuse of space freed by dequeued elements without shifting elements.
+- Common in applications like CPU scheduling, streaming data buffers.
+    `,
+    Difficulty.Intermediate,
+  ),
+  createConcept(
+    7,
+    'How do you implement a queue using two stacks?',
+    `
+**Concept:** Use two stacks (stackIn and stackOut) to simulate FIFO behavior.
+
+**Approach:**
+1. **Enqueue:** Push elements onto stackIn.
+2. **Dequeue:** If stackOut is empty, pop all elements from stackIn and push them onto stackOut (reversing order). Then pop from stackOut.
+
+**Example (Pseudo-code):**
+\`\`\`python
+class MyQueue:
+    def __init__(self):
+        self.stackIn = []
+        self.stackOut = []
+
+    def enqueue(self, x):
+        self.stackIn.append(x)
+
+    def dequeue(self):
+        if not self.stackOut:
+            while self.stackIn:
+                self.stackOut.append(self.stackIn.pop())
+        return self.stackOut.pop() if self.stackOut else None
+\`\`\`
+
+**Key Points:**
+- Average O(1) amortized time for enqueue and dequeue.
+- stackOut only gets reloaded when it’s empty, minimizing data movement.
+    `,
+    Difficulty.Intermediate,
+  ),
+  createConcept(
+    8,
+    'Double-Ended Queue (Deque): Implementation and Use Cases',
+    `
+**Definition:** A deque (double-ended queue) allows insertions and removals at both the front and rear.
+
+**Operations:**
+- **appendleft(x):** Insert x at the front.
+- **append(x):** Insert x at the rear.
+- **popleft():** Remove from the front.
+- **pop():** Remove from the rear.
+
+**Example (Python’s collections.deque):**
+\`\`\`python
+from collections import deque
+
+d = deque()
+d.appendleft(10)
+d.append(20)
+print(d)  # deque([10, 20])
+d.pop()       # Removes 20
+d.popleft()   # Removes 10
+\`\`\`
+
+**Use Cases:**
+- **Implementing LRU Cache:** Quick additions/removals from both ends.
+- **Sliding Window Problems:** Maintain window of size k with O(1) push/pop from ends.
+- **Palindromes:** Quickly compare elements from front and back.
+
+**Key Points:**
+- Offers more flexibility than a standard queue.
+- Maintains O(1) insert/delete at both ends.
+    `,
+    Difficulty.Intermediate,
+  ),
+  createConcept(
+    9,
+    'Priority Queues vs. Regular Queues',
+    `
+**Definition:** A priority queue retrieves elements based on priority rather than strictly FIFO order.
+
+**Differences from Regular Queue:**
+- **Enqueue:** Elements inserted with a priority.
+- **Dequeue:** Highest (or lowest) priority item is removed first, not just the oldest element.
+
+**Implementation:**
+- **Heaps:** Often implemented using a binary heap for O(log n) insertion and removal of the min/max.
+- **Ordered Structures:** Could use balanced trees or arrays, but each has different trade-offs.
+
+**Example (Python’s heapq for min-priority queue):**
+\`\`\`python
+import heapq
+
+pq = []
+heapq.heappush(pq, (1, "Low priority"))
+heapq.heappush(pq, (0, "High priority"))
+
+print(heapq.heappop(pq))  # (0, 'High priority')
+\`\`\`
+
+**Key Points:**
+- Priority queues reorder elements based on priority, not arrival time.
+- Used in Dijkstra’s algorithm, CPU scheduling, or any scenario requiring priority-based retrieval.
+    `,
+    Difficulty.Advanced,
+  ),
 ];
+
