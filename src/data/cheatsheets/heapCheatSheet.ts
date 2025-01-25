@@ -1,4 +1,8 @@
-import { CheatSheetItem, createCheatSheet, OperationTypes } from '@/common/commonCheatSheet';
+import {
+  CheatSheetItem,
+  createCheatSheet,
+  OperationTypes,
+} from '@/common/commonCheatSheet';
 
 export const heapCheatSheet: CheatSheetItem[] = [
   // CREATE
@@ -187,4 +191,3 @@ heapq.heappush(priority_queue, (priority, item))`,
     'Equivalent to using a min-heap and popping repeatedly.',
   ),
 ];
-

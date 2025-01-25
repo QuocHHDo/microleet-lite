@@ -245,4 +245,3 @@ def autocomplete(self, prefix):
     Difficulty.Advanced,
   ),
 ];
-

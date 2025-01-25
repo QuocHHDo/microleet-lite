@@ -9,7 +9,7 @@ export enum OperationTypes {
   Modify = 'modify',
   Search = 'search',
   Utility = 'utility',
-  Traversal = 'traversal'
+  Traversal = 'traversal',
 }
 export interface CheatSheetItem {
   label: string;

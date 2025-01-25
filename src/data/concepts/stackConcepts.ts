@@ -311,4 +311,3 @@ class MinStack:
     Difficulty.Advanced,
   ),
 ];
-

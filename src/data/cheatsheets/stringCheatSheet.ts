@@ -1,4 +1,8 @@
-import { CheatSheetItem, createCheatSheet, OperationTypes } from '@/common/commonCheatSheet';
+import {
+  CheatSheetItem,
+  createCheatSheet,
+  OperationTypes,
+} from '@/common/commonCheatSheet';
 
 export const stringCheatSheet: CheatSheetItem[] = [
   // CREATE
@@ -171,4 +175,3 @@ export const stringCheatSheet: CheatSheetItem[] = [
     'N/A',
   ),
 ];
-

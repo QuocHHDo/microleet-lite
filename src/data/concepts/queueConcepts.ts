@@ -270,4 +270,3 @@ print(heapq.heappop(pq))  # (0, 'High priority')
     Difficulty.Advanced,
   ),
 ];
-

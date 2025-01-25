@@ -3,7 +3,7 @@ import { arrayConcepts } from '@/data/concepts/arrayConcepts';
 import { arrayProblems } from '@/data/problems/arrayProblems';
 import { TopicName } from '../interfaces';
 import { arrayCheatSheet } from '@/data/cheatsheets/arrayCheatSheet';
-import { arrayLessonsTab } from '@/data/lessons/arrayLessons';
+import { arrayLessonsTab } from '@/data/lessons/leetcode/arrayLessons';
 
 const ArraysPage: React.FC = () => {
   return (

@@ -1,4 +1,8 @@
-import { CheatSheetItem, createCheatSheet, OperationTypes } from '@/common/commonCheatSheet';
+import {
+  CheatSheetItem,
+  createCheatSheet,
+  OperationTypes,
+} from '@/common/commonCheatSheet';
 
 export const tupleCheatSheet: CheatSheetItem[] = [
   // CREATE
@@ -163,4 +167,3 @@ export const tupleCheatSheet: CheatSheetItem[] = [
     'Comparison stops at the first differing element.',
   ),
 ];
-
