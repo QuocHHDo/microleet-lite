@@ -257,4 +257,3 @@ def has_cycle(graph):
     Difficulty.Advanced,
   ),
 ];
-

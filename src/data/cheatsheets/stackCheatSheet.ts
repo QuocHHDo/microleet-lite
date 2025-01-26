@@ -1,4 +1,8 @@
-import { CheatSheetItem, createCheatSheet, OperationTypes } from '@/common/commonCheatSheet';
+import {
+  CheatSheetItem,
+  createCheatSheet,
+  OperationTypes,
+} from '@/common/commonCheatSheet';
 
 export const stackCheatSheet: CheatSheetItem[] = [
   // CREATE
@@ -167,4 +171,3 @@ export const stackCheatSheet: CheatSheetItem[] = [
     'Copying a large stack can be memory-intensive.',
   ),
 ];
-

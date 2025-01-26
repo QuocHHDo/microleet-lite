@@ -188,4 +188,3 @@ print(heapq.heappop(min_heap))  # Output: 1
     Difficulty.Advanced,
   ),
 ];
-

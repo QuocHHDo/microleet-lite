@@ -196,4 +196,3 @@ my_frozenset = frozenset(my_set)
     Difficulty.Advanced,
   ),
 ];
-

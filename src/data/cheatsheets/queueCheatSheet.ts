@@ -1,4 +1,8 @@
-import { CheatSheetItem, createCheatSheet, OperationTypes } from '@/common/commonCheatSheet';
+import {
+  CheatSheetItem,
+  createCheatSheet,
+  OperationTypes,
+} from '@/common/commonCheatSheet';
 
 export const queueCheatSheet: CheatSheetItem[] = [
   // CREATE
@@ -176,4 +180,3 @@ queue = deque()`,
     'Copying a large queue can be memory-intensive.',
   ),
 ];
-

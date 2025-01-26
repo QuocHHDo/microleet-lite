@@ -386,4 +386,3 @@ def get_intersection_node(headA, headB):
     Difficulty.Advanced,
   ),
 ];
-

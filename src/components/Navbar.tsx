@@ -18,6 +18,9 @@ export default function Navbar() {
         <li>
           {/* <Link href="/software-engineering">Software Engineering</Link> */}
         </li>
+        <li>
+          <Link href="/oop">OOP</Link>
+        </li>
       </ul>
     </nav>
   );

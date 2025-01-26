@@ -163,7 +163,7 @@ print(p.x, p.y)  # 1 2
   - Minimizes boilerplate while preserving immutability.
     `,
     Difficulty.Intermediate,
-  ),  
+  ),
   createConcept(
     8,
     'When and Why to Prefer Tuples for Dictionary Keys',

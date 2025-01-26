@@ -1,4 +1,8 @@
-import { CheatSheetItem, createCheatSheet, OperationTypes } from '@/common/commonCheatSheet';
+import {
+  CheatSheetItem,
+  createCheatSheet,
+  OperationTypes,
+} from '@/common/commonCheatSheet';
 
 export const treeCheatSheet: CheatSheetItem[] = [
   // CREATE
@@ -235,4 +239,3 @@ def level_order(root):
     'N/A',
   ),
 ];
-

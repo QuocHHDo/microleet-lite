@@ -3,7 +3,7 @@ import { stackConcepts } from '@/data/concepts/stackConcepts';
 import { stackProblems } from '@/data/problems/stackProblems';
 import { TopicName } from '../interfaces';
 import { stackCheatSheet } from '@/data/cheatsheets/stackCheatSheet';
-import { stackLessonsTab } from '@/data/lessons/stackLessons';
+import { stackLessonsTab } from '@/data/lessons/leetcode/stackLessons';
 
 const StacksPage: React.FC = () => {
   return (

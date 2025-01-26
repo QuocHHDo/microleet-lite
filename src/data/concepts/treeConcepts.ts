@@ -218,4 +218,3 @@ root.children.append(child2)
     Difficulty.Advanced,
   ),
 ];
-

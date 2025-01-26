@@ -1,4 +1,8 @@
-import { CheatSheetItem, createCheatSheet, OperationTypes } from '@/common/commonCheatSheet';
+import {
+  CheatSheetItem,
+  createCheatSheet,
+  OperationTypes,
+} from '@/common/commonCheatSheet';
 
 export const arrayCheatSheet: CheatSheetItem[] = [
   // CREATE
@@ -232,7 +236,7 @@ export const arrayCheatSheet: CheatSheetItem[] = [
   ),
   createCheatSheet(
     'Deep copy of a list',
-    "import copy\nnew_list = copy.deepcopy(my_list)",
+    'import copy\nnew_list = copy.deepcopy(my_list)',
     'Recursively copies all nested objects, so changes in new_list do not affect my_list.',
     OperationTypes.Utility,
     'O(n)',

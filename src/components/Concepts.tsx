@@ -93,8 +93,14 @@ const Concepts: React.FC<ConceptsTabProps> = ({
               <CardTitle className="flex justify-between items-center">
                 <span>{concept.title}</span>
                 <div className="flex items-center space-x-2">
-                  <DifficultyBadge difficulty={concept.difficulty as Difficulty} />
-                  {expandedConcepts[concept.id] ? <ChevronUp /> : <ChevronDown />}
+                  <DifficultyBadge
+                    difficulty={concept.difficulty as Difficulty}
+                  />
+                  {expandedConcepts[concept.id] ? (
+                    <ChevronUp />
+                  ) : (
+                    <ChevronDown />
+                  )}
                 </div>
               </CardTitle>
             </CardHeader>

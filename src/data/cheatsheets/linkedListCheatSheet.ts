@@ -1,4 +1,8 @@
-import { CheatSheetItem, createCheatSheet, OperationTypes } from '@/common/commonCheatSheet';
+import {
+  CheatSheetItem,
+  createCheatSheet,
+  OperationTypes,
+} from '@/common/commonCheatSheet';
 
 export const linkedListCheatSheet: CheatSheetItem[] = [
   // CREATE
@@ -288,4 +292,3 @@ head.next.next = Node(3)`,
     'Copying a large linked list can be memory-intensive.',
   ),
 ];
-

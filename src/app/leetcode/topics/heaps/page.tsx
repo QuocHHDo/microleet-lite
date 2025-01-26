@@ -3,7 +3,7 @@ import { TopicName } from '../interfaces';
 import { heapCheatSheet } from '@/data/cheatsheets/heapCheatSheet';
 import { heapConcepts } from '@/data/concepts/heapConcepts';
 import { heapProblems } from '@/data/problems/heapProblems';
-import { heapLessonsTab } from '@/data/lessons/heapLessons';
+import { heapLessonsTab } from '@/data/lessons/leetcode/heapLessons';
 
 const HeapsPage: React.FC = () => {
   return (
