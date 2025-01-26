@@ -1,8 +1,6 @@
 'use client';
 import React from 'react';
 
-// Example interfaces for data structures.
-// Adjust or expand as needed for your curriculum.
 interface ProblemItem {
   name: string;
   description: string;
@@ -54,8 +52,6 @@ const OOPModulePage: React.FC<OOPModulePageProps> = ({
   progressKey,
   interviewInsights = [],
 }) => {
-  // Example: Use progressKey for user-specific progress tracking here if desired
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white p-6">
       <div className="max-w-5xl mx-auto">

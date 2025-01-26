@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import '../../styles/globals.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -8,22 +8,36 @@ import {
   faLayerGroup,
   faChessKnight,
   faShieldAlt,
-  faSearch,
-  faChevronDown,
-  faChevronUp,
   faArrowRight,
-  faBoxes,
-  faGraduationCap,
+  faCheckCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { config, dom } from '@fortawesome/fontawesome-svg-core';
 import { useRouter } from 'next/navigation';
 import { Progress } from '@/components/ui/progress';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Card, CardHeader, CardContent } from '@/components/ui/card';
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 config.autoAddCss = false;
+
+const CustomFontLoader = () => {
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.href = 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+
+    const style = document.createElement('style');
+    style.appendChild(document.createTextNode(dom.css()));
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(link);
+      document.head.removeChild(style);
+    };
+  }, []);
+
+  return null;
+};
 
 interface OOPModule {
   title: string;
@@ -35,35 +49,9 @@ interface OOPModule {
 
 const OOPPage: React.FC = () => {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(true);
-  const [expandedModules, setExpandedModules] = useState<string[]>([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [view, setView] = useState<'grid' | 'list'>('grid');
-  const [completedItems, setCompletedItems] = useState<Set<string>>(new Set());
-
-  useEffect(() => {
-    const style = document.createElement('style');
-    style.appendChild(document.createTextNode(dom.css()));
-    document.head.appendChild(style);
-
-    const timer = setTimeout(() => setIsLoading(false), 100);
-    return () => {
-      clearTimeout(timer);
-      document.head.removeChild(style);
-    };
-  }, []);
-
-  const toggleModule = (moduleTitle: string) => {
-    setExpandedModules((prev) =>
-      prev.includes(moduleTitle)
-        ? prev.filter((m) => m !== moduleTitle)
-        : [...prev, moduleTitle],
-    );
-  };
 
   const navigateToTopic = (topic: string) => {
     const formattedTopic = topic.toLowerCase().replace(/\s+/g, '-');
-    // Example route: /oop/topics/[topic]
     router.push(`/oop/topics/${formattedTopic}`);
   };
 
@@ -72,7 +60,7 @@ const OOPPage: React.FC = () => {
       title: '1. Foundations of OOP',
       icon: faCode,
       description:
-        'Discover the principles of Encapsulation, Abstraction, Inheritance, Polymorphism, Overloading, and Overriding',
+        'Master core principles such as Encapsulation, Abstraction, Inheritance, and Polymorphism.',
       items: [
         'Encapsulation',
         'Abstraction',
@@ -86,7 +74,7 @@ const OOPPage: React.FC = () => {
       title: '2. Classes & Objects',
       icon: faCogs,
       description:
-        'Dig into how classes and objects interact, focusing on composition vs. inheritance best practices',
+        'Understand how classes and objects interact, focusing on best practices and lifecycle management.',
       items: [
         'Class Anatomy',
         'Constructors',
@@ -100,7 +88,7 @@ const OOPPage: React.FC = () => {
       title: '3. Interfaces & Abstract Classes',
       icon: faLayerGroup,
       description:
-        'Dive deeper into advanced OOP constructs crucial for flexible and robust designs',
+        'Explore advanced OOP concepts that improve flexibility and robustness in design.',
       items: [
         'Interface Definition & Purpose',
         'Abstract Classes vs. Concrete Classes',
@@ -113,13 +101,13 @@ const OOPPage: React.FC = () => {
       title: '4. SOLID Principles',
       icon: faLayerGroup,
       description:
-        'Adopt the best practices that keep your code clean and maintainable',
+        'Learn the five SOLID principles that help create scalable and maintainable applications.',
       items: [
-        'Single Responsibility Principle (SRP)',
-        'Open/Closed Principle (OCP)',
-        'Liskov Substitution Principle (LSP)',
-        'Interface Segregation Principle (ISP)',
-        'Dependency Inversion Principle (DIP)',
+        'SRP (Single Responsibility Principle)',
+        'OCP (Open/Closed Principle)',
+        'LSP (Liskov Substitution Principle)',
+        'ISP (Interface Segregation Principle)',
+        'DIP (Dependency Inversion Principle)',
       ],
       progress: 0,
     },
@@ -127,7 +115,7 @@ const OOPPage: React.FC = () => {
       title: '5. OOP Design Patterns',
       icon: faChessKnight,
       description:
-        'Learn patterns for creational, structural, and behavioral design solutions',
+        'Discover common patterns for solving design challenges in object-oriented programming.',
       items: [
         'Factory',
         'Singleton',
@@ -144,7 +132,7 @@ const OOPPage: React.FC = () => {
       title: '6. Error Handling & Exceptions',
       icon: faShieldAlt,
       description:
-        'Build robust applications by properly managing error flows, domain-specific exceptions, and clean-up patterns',
+        'Learn how to handle errors effectively to build reliable and maintainable applications.',
       items: [
         'Exception Hierarchies',
         'Custom Exceptions',
@@ -156,134 +144,64 @@ const OOPPage: React.FC = () => {
     },
   ];
 
-  const filteredModules = oopModules.filter(
-    (module) =>
-      module.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      module.items.some((item) =>
-        item.toLowerCase().includes(searchTerm.toLowerCase()),
-      ),
-  );
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white p-6">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <header className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600">
-            Object-Oriented Programming Curriculum
+    <div className="min-h-screen flex flex-col bg-gray-50 font-[Poppins]">
+      <CustomFontLoader />
+
+      {/* Hero Section */}
+      <header className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-20 px-6 text-center shadow-md">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-6xl font-extrabold leading-tight tracking-tight drop-shadow-lg">
+            Object-Oriented Programming Mastery
           </h1>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Gain a solid foundation in OOP principles with concise lessons,
-            interactive examples, and practice exercises.
+          <p className="text-lg text-purple-200 mt-6 leading-relaxed max-w-2xl mx-auto">
+            Gain a deep understanding of OOP concepts, principles, and patterns to excel in your software engineering journey.
           </p>
+        </div>
+      </header>
 
-          {/* Search Bar and View Toggle */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <div className="relative flex-1 max-w-md w-full">
-              <FontAwesomeIcon
-                icon={faSearch}
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-              />
-              <Input
-                type="text"
-                placeholder="Search modules or topics..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 w-full"
-              />
-            </div>
-            <Tabs defaultValue="grid" className="w-auto">
-              <TabsList>
-                <TabsTrigger value="grid" onClick={() => setView('grid')}>
-                  Grid View
-                </TabsTrigger>
-                <TabsTrigger value="list" onClick={() => setView('list')}>
-                  List View
-                </TabsTrigger>
-              </TabsList>
-            </Tabs>
-          </div>
-        </header>
-
-        {/* Main Content */}
-        <div
-          className={
-            view === 'grid'
-              ? 'grid gap-6 md:grid-cols-2 lg:grid-cols-3'
-              : 'space-y-6'
-          }
-        >
-          {filteredModules.map((module, index) => (
+      {/* Main Content */}
+      <main className="flex-1 py-16 px-6 sm:px-8 md:px-10">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {oopModules.map((module, index) => (
             <Card
               key={index}
-              className={`transition-all duration-200 hover:shadow-lg ${
-                expandedModules.includes(module.title)
-                  ? 'ring-2 ring-indigo-200'
-                  : ''
-              }`}
+              className="relative rounded-2xl shadow-lg border-l-8 border-purple-500 bg-white transition-all transform hover:scale-105 hover:shadow-2xl"
             >
-              <CardHeader
-                className="cursor-pointer flex items-center justify-between p-4"
-                onClick={() => toggleModule(module.title)}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-full bg-gradient-to-r from-purple-50 to-indigo-50">
+              <CardHeader className="p-6 border-b border-gray-200">
+                <div className="flex items-center gap-5">
+                  <div className="p-4 rounded-full bg-gradient-to-r from-purple-50 to-indigo-50 shadow-sm">
                     <FontAwesomeIcon
                       icon={module.icon}
-                      className="text-purple-600"
+                      className="text-purple-600 text-3xl"
                     />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">
+                    <h2 className="text-2xl font-bold text-gray-900">
                       {module.title}
-                    </h3>
-                    <p className="text-sm text-gray-500">
-                      {module.items.length} topics
+                    </h2>
+                    <p className="text-sm text-gray-500 font-medium">
+                      {module.items.length} Topics
                     </p>
                   </div>
                 </div>
-                <FontAwesomeIcon
-                  icon={
-                    expandedModules.includes(module.title)
-                      ? faChevronUp
-                      : faChevronDown
-                  }
-                  className="text-gray-400"
-                />
               </CardHeader>
+              <CardContent className="p-6">
+                <p className="text-gray-700 leading-relaxed mb-5 text-base">
+                  {module.description}
+                </p>
 
-              <CardContent
-                className={
-                  expandedModules.includes(module.title)
-                    ? 'block p-4'
-                    : 'hidden'
-                }
-              >
-                {module.description && (
-                  <p className="text-sm text-gray-700 mb-4">
-                    {module.description}
-                  </p>
-                )}
-                <Progress
-                  value={
-                    (Array.from(completedItems).filter((item) =>
-                      module.items.includes(item),
-                    ).length /
-                      module.items.length) *
-                    100
-                  }
-                  className="mb-4"
-                />
+                <Progress value={module.progress} className="mb-4" />
 
                 <div className="space-y-2">
                   {module.items.map((item, i) => (
                     <Button
                       key={i}
                       variant="ghost"
-                      className="w-full justify-between hover:bg-purple-50 text-left h-auto py-3"
+                      className="w-full flex justify-between items-center text-left py-3 px-4 rounded-md bg-gray-50 hover:bg-purple-100 transition-all font-medium text-gray-800"
                       onClick={() => navigateToTopic(item)}
                     >
-                      <span className="font-medium">{item}</span>
+                      <span>{item}</span>
                       <FontAwesomeIcon
                         icon={faArrowRight}
                         className="text-purple-500"
@@ -291,21 +209,23 @@ const OOPPage: React.FC = () => {
                     </Button>
                   ))}
                 </div>
+
+                <div className="flex justify-end mt-4">
+                  <span className="text-sm text-gray-600 font-medium">
+                    {module.progress}% Completed
+                    <FontAwesomeIcon
+                      icon={faCheckCircle}
+                      className={`ml-2 ${
+                        module.progress === 100 ? 'text-green-500' : 'text-gray-400'
+                      }`}
+                    />
+                  </span>
+                </div>
               </CardContent>
             </Card>
           ))}
         </div>
-
-        {/* Additional Action */}
-        <div className="mt-12 text-center">
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 hover:opacity-90"
-          >
-            View Full OOP Roadmap
-          </Button>
-        </div>
-      </div>
+      </main>
     </div>
   );
 };
