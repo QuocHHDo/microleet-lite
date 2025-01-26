@@ -22,7 +22,8 @@ config.autoAddCss = false;
 const CustomFontLoader = () => {
   useEffect(() => {
     const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap';
+    link.href =
+      'https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap';
     link.rel = 'stylesheet';
     document.head.appendChild(link);
 
@@ -155,7 +156,8 @@ const OOPPage: React.FC = () => {
             Object-Oriented Programming Mastery
           </h1>
           <p className="text-lg text-purple-200 mt-6 leading-relaxed max-w-2xl mx-auto">
-            Gain a deep understanding of OOP concepts, principles, and patterns to excel in your software engineering journey.
+            Gain a deep understanding of OOP concepts, principles, and patterns
+            to excel in your software engineering journey.
           </p>
         </div>
       </header>
@@ -216,7 +218,9 @@ const OOPPage: React.FC = () => {
                     <FontAwesomeIcon
                       icon={faCheckCircle}
                       className={`ml-2 ${
-                        module.progress === 100 ? 'text-green-500' : 'text-gray-400'
+                        module.progress === 100
+                          ? 'text-green-500'
+                          : 'text-gray-400'
                       }`}
                     />
                   </span>
