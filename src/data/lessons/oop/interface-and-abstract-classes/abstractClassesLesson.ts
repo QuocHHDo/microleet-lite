@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const abstractClassesCurriculum: Curriculum = {
   title: 'Abstract Classes vs. Concrete Classes Curriculum',
@@ -111,7 +116,8 @@ it can live in the abstract 'Shape' class rather than repeated in each subclass.
   ],
   quizzes: [
     {
-      question: 'What best describes a partial implementation in the context of abstract classes?',
+      question:
+        'What best describes a partial implementation in the context of abstract classes?',
       options: [
         'A class with no methods defined at all',
         'A class that has some common code but also abstract methods that subclasses must implement',
@@ -121,7 +127,7 @@ it can live in the abstract 'Shape' class rather than repeated in each subclass.
       explanations: [
         'Incorrect. Having no methods defined is more akin to an interface with no implementation.',
         'Correct! This is the essence of an abstract class with partial implementation.',
-        'Incorrect. Abstract classes generally cannot be instantiated directly.'
+        'Incorrect. Abstract classes generally cannot be instantiated directly.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -187,7 +193,8 @@ and implement missing pieces before creating actual objects.
   ],
   quizzes: [
     {
-      question: 'What happens if you try to instantiate an abstract class in Python?',
+      question:
+        'What happens if you try to instantiate an abstract class in Python?',
       options: [
         'It succeeds, but all abstract methods are skipped',
         'Python automatically implements the abstract methods with pass',
@@ -197,7 +204,7 @@ and implement missing pieces before creating actual objects.
       explanations: [
         'Incorrect. Abstract methods cannot be “skipped.”',
         'Incorrect. Python will not implement them automatically.',
-        'Correct! Python refuses to instantiate classes with unimplemented abstract methods.'
+        'Correct! Python refuses to instantiate classes with unimplemented abstract methods.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -279,7 +286,7 @@ In Python, such classes are the majority: they solve a specific task without req
       explanations: [
         'Incorrect. Concrete classes can define many methods.',
         'Correct! Concrete classes fully implement all methods, so they can be instantiated.',
-        'Incorrect. Decorators are optional; not required for a class to be concrete.'
+        'Incorrect. Decorators are optional; not required for a class to be concrete.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -336,17 +343,18 @@ but it's not strictly enforced by the interpreter.
   ],
   quizzes: [
     {
-      question: 'Which statement accurately describes “final” (or sealed) classes in Python?',
+      question:
+        'Which statement accurately describes “final” (or sealed) classes in Python?',
       options: [
         'They are declared using the final keyword in the class definition',
-        'There is no built-in final mechanism; it\'s typically done by convention or external tools',
+        "There is no built-in final mechanism; it's typically done by convention or external tools",
         'They are the default type of class in Python',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Python has no final keyword for classes in standard usage.',
         'Correct! Python relies on naming conventions, docstrings, or external libraries to simulate final behavior.',
-        'Incorrect. By default, Python classes are extendable unless indicated otherwise by convention.'
+        'Incorrect. By default, Python classes are extendable unless indicated otherwise by convention.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -357,10 +365,10 @@ const abstractClassesLessons: Record<string, LessonContent> = {
   'partial-implementation': partialImplementationData,
   'inheritance-constraints': inheritanceConstraintsData,
   'full-implementation': fullImplementationData,
-  'extension': extensionData
-}
+  extension: extensionData,
+};
 
 export const abstractClassesLessonsTab: LessonsTab = {
   curriculum: abstractClassesCurriculum,
-  lessons: abstractClassesLessons
-}
+  lessons: abstractClassesLessons,
+};

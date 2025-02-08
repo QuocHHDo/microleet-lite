@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const adapterPatternCurriculum: Curriculum = {
   title: 'Adapter Pattern Curriculum',
@@ -113,7 +118,7 @@ Adapters solve mismatch issues, whereas decorators augment behavior.
   ],
   quizzes: [
     {
-      question: 'Which statement best describes the Adapter Pattern\'s purpose?',
+      question: "Which statement best describes the Adapter Pattern's purpose?",
       options: [
         'To modify the internal logic of an existing class',
         'To provide a new interface for a class whose original interface is incompatible with the current system',
@@ -123,7 +128,7 @@ Adapters solve mismatch issues, whereas decorators augment behavior.
       explanations: [
         'Incorrect. Adapter does not alter internal logic; it wraps it.',
         'Correct! Adapters wrap existing classes, translating calls to a new interface.',
-        'Incorrect. Encryption can be done with other patterns (e.g., decorator), not typically adapter.'
+        'Incorrect. Encryption can be done with other patterns (e.g., decorator), not typically adapter.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -205,9 +210,9 @@ This flexibility often reduces boilerplate compared to strongly typed languages.
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. That\'s more related to security or the Decorator Pattern for encryption.',
+        "Incorrect. That's more related to security or the Decorator Pattern for encryption.",
         'Correct! Wrapper classes convert existing interfaces to match the desired new interface.',
-        'Incorrect. Wrappers are not about global state management.'
+        'Incorrect. Wrappers are not about global state management.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -216,10 +221,9 @@ This flexibility often reduces boilerplate compared to strongly typed languages.
 
 const adapterPatternLessons: Record<string, LessonContent> = {
   'adapter-intro': adapterIntroData,
-  'wrapper-class': wrapperClassData
-
-}
+  'wrapper-class': wrapperClassData,
+};
 export const adapterPatternLessonsTab: LessonsTab = {
   curriculum: adapterPatternCurriculum,
-  lessons: adapterPatternLessons 
-}
+  lessons: adapterPatternLessons,
+};

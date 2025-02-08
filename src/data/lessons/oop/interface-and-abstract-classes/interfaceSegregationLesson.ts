@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const interfaceSegregationCurriculum: Curriculum = {
   title: 'Interface Segregation Principle Curriculum',
@@ -14,7 +19,7 @@ export const interfaceSegregationCurriculum: Curriculum = {
           id: 'isp-definition',
           title: 'Definition & Reasoning',
           description:
-            'Ensuring that no client is forced to implement methods it doesn\'t use.',
+            "Ensuring that no client is forced to implement methods it doesn't use.",
           priority: PriorityLevel.Essential,
         },
         {
@@ -108,7 +113,8 @@ class MicrowaveInterface(ABC):
   ],
   quizzes: [
     {
-      question: 'What is the core message of the Interface Segregation Principle?',
+      question:
+        'What is the core message of the Interface Segregation Principle?',
       options: [
         'Combine all functionalities into a single super-interface for convenience',
         'Ensure classes implement only the methods they actually need from an interface',
@@ -118,7 +124,7 @@ class MicrowaveInterface(ABC):
       explanations: [
         'Incorrect. This violates ISP by creating a bloated interface.',
         'Correct! Smaller, more specific interfaces avoid forcing unwanted methods on implementers.',
-        'Incorrect. ISP doesn\'t dictate inheritance or composition directly.'
+        "Incorrect. ISP doesn't dictate inheritance or composition directly.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -216,7 +222,7 @@ This isolation limits the scope of changes and reduces the chance of errors or f
       explanations: [
         'Incorrect. ISP aims for smaller, cohesive interfaces.',
         'Correct! ISP ensures each class deals with relevant methods only.',
-        'Incorrect. That\'s actually the opposite of ISP\'s goal.'
+        "Incorrect. That's actually the opposite of ISP's goal.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -301,17 +307,18 @@ and splitting it would let each class implement only what's relevant.
   ],
   quizzes: [
     {
-      question: 'What is a common sign that an interface needs splitting under ISP guidelines?',
+      question:
+        'What is a common sign that an interface needs splitting under ISP guidelines?',
       options: [
         'All classes fully use every method without fail',
-        'Classes must define placeholder methods (e.g., NotImplementedError) for features they don\'t actually need',
+        "Classes must define placeholder methods (e.g., NotImplementedError) for features they don't actually need",
         'The interface has fewer than five methods',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. If all classes use all methods, the interface is probably cohesive.',
         'Correct! This indicates the interface is forcing unwanted methods on implementers.',
-        'Incorrect. There is no strict method count threshold for splitting interfaces.'
+        'Incorrect. There is no strict method count threshold for splitting interfaces.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -376,7 +383,8 @@ splitting interfaces only when distinct responsibilities emerge.
   ],
   quizzes: [
     {
-      question: 'What is one possible drawback of creating too many tiny interfaces?',
+      question:
+        'What is one possible drawback of creating too many tiny interfaces?',
       options: [
         'It solves all modularity issues automatically',
         'It can lead to confusion and overhead in managing numerous small interfaces',
@@ -386,7 +394,7 @@ splitting interfaces only when distinct responsibilities emerge.
       explanations: [
         'Incorrect. Over-segmentation can introduce problems rather than solving them all.',
         'Correct! Too many micro-interfaces create complexity rather than clarity.',
-        'Incorrect. ISP does not advocate infinite segmentation; it seeks a balance.'
+        'Incorrect. ISP does not advocate infinite segmentation; it seeks a balance.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -397,10 +405,10 @@ const interfaceSegregationLessons: Record<string, LessonContent> = {
   'isp-definition': ispDefinitionData,
   'benefits-examples': benefitsExamplesData,
   'splitting-interfaces': splittingInterfacesData,
-  'common-mistakes': commonMistakesData
-}
+  'common-mistakes': commonMistakesData,
+};
 
 export const interfaceSegregationLessonsTab: LessonsTab = {
   curriculum: interfaceSegregationCurriculum,
-  lessons: interfaceSegregationLessons
-}
+  lessons: interfaceSegregationLessons,
+};

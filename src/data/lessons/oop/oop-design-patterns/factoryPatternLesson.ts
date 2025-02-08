@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 import { mock } from 'node:test';
 
 export const factoryPatternCurriculum: Curriculum = {
@@ -123,7 +128,7 @@ supporting OCP by making the system open for extension but closed to changes in 
       explanations: [
         'Incorrect. Global dependencies harm testability.',
         'Correct! A test can replace the real factory with one returning mock objects.',
-        'Incorrect. Factories don\'t inherently forbid subclassing.'
+        "Incorrect. Factories don't inherently forbid subclassing.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -230,7 +235,7 @@ This way, client code calls the abstract factory methods without needing details
       explanations: [
         'Incorrect. They are recognized as distinct patterns/idioms.',
         'Correct! Factory Method uses inheritance, while Simple Factory uses a direct function or static logic.',
-        'Incorrect. Simple Factory doesn\'t forbid subclassing but is typically not an OOP-based pattern.'
+        "Incorrect. Simple Factory doesn't forbid subclassing but is typically not an OOP-based pattern.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -300,7 +305,8 @@ while Abstract Factory is used for multiple related products within a specific t
   ],
   quizzes: [
     {
-      question: 'What is a common real-world scenario for a factory question in interviews?',
+      question:
+        'What is a common real-world scenario for a factory question in interviews?',
       options: [
         'Writing a purely global function that modifies the entire codebase',
         'Deciding which objects to create for different configurations (e.g., database type) without exposing concrete classes',
@@ -310,7 +316,7 @@ while Abstract Factory is used for multiple related products within a specific t
       explanations: [
         'Incorrect. Global modifications are not typical factory usage.',
         'Correct! Factories are often asked about in the context of choosing an implementation at runtime.',
-        'Incorrect. Reflection can be a tool, but not the typical interview scenario about factories.'
+        'Incorrect. Reflection can be a tool, but not the typical interview scenario about factories.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -320,9 +326,9 @@ while Abstract Factory is used for multiple related products within a specific t
 const factoryPatternLessons: Record<string, LessonContent> = {
   'factory-purpose': factoryPurposeData,
   'simple-factory-vs-factory-method': factoryVariationsData,
-  'mock-questions': factoryMockQuestionsData
-}
+  'mock-questions': factoryMockQuestionsData,
+};
 export const factoryPatternLessonsTab: LessonsTab = {
   curriculum: factoryPatternCurriculum,
-  lessons: factoryPatternLessons
-}
+  lessons: factoryPatternLessons,
+};

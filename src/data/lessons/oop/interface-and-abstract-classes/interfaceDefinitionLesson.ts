@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const interfaceDefinitionCurriculum: Curriculum = {
   title: 'Interface Definition & Purpose Curriculum',
@@ -86,7 +91,8 @@ There's no separate keyword for interfaces, but Abstract Base Classes fill that 
   ],
   quizzes: [
     {
-      question: 'What is the main advantage of using an interface (or ABC) for a payment processing system?',
+      question:
+        'What is the main advantage of using an interface (or ABC) for a payment processing system?',
       options: [
         'To generate random encryption keys',
         'To enforce that each payment method (credit card, PayPal, etc.) implements a common pay method',
@@ -96,7 +102,7 @@ There's no separate keyword for interfaces, but Abstract Base Classes fill that 
       explanations: [
         'Incorrect. Key generation is unrelated to basic interface concepts.',
         'Correct! Interfaces ensure consistent method signatures across different implementations.',
-        'Incorrect. Performance overhead is not the primary rationale for interfaces.'
+        'Incorrect. Performance overhead is not the primary rationale for interfaces.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -180,9 +186,9 @@ This fosters simpler test setups and refactoring, leading to more maintainable c
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Interfaces don\'t affect how many tests you write, just how easy it is to swap dependencies.',
+        "Incorrect. Interfaces don't affect how many tests you write, just how easy it is to swap dependencies.",
         'Correct! Interfaces let you inject different implementations for testing vs. production.',
-        'Incorrect. Interfaces do not generate tests automatically.'
+        'Incorrect. Interfaces do not generate tests automatically.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -191,10 +197,10 @@ This fosters simpler test setups and refactoring, leading to more maintainable c
 
 const interfaceDefinitionLessons: Record<string, LessonContent> = {
   'interface-contracts': interfaceContractsData,
-  'loose-coupling': looseCouplingData
-}
+  'loose-coupling': looseCouplingData,
+};
 
 export const interfaceDefinitionLessonsTab: LessonsTab = {
   curriculum: interfaceDefinitionCurriculum,
-  lessons: interfaceDefinitionLessons
-}
+  lessons: interfaceDefinitionLessons,
+};

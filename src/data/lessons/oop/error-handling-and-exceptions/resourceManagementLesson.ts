@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const resourceManagementCurriculum: Curriculum = {
   title: 'Resource Management Curriculum',
@@ -107,7 +112,8 @@ This extends the automatic resource management concept to custom objects, not ju
   ],
   quizzes: [
     {
-      question: 'What is the Python counterpart to Java\'s try-with-resources or C# using statement?',
+      question:
+        "What is the Python counterpart to Java's try-with-resources or C# using statement?",
       options: [
         'import statement',
         'with statement (context manager)',
@@ -117,7 +123,7 @@ This extends the automatic resource management concept to custom objects, not ju
       explanations: [
         'Incorrect. import is for modules.',
         'Correct! The with statement context manager ensures resource cleanup.',
-        'Incorrect. global is for variable scope, not resource management.'
+        'Incorrect. global is for variable scope, not resource management.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -172,7 +178,8 @@ Using 'try/finally' mitigates this risk, ensuring closure even if exceptions occ
   ],
   quizzes: [
     {
-      question: 'Why is manual resource closing more error-prone than using language features like with/try-with-resources?',
+      question:
+        'Why is manual resource closing more error-prone than using language features like with/try-with-resources?',
       options: [
         'It always requires advanced frameworks to function',
         'Developers can forget to call close(), leading to leaks or locked resources',
@@ -182,7 +189,7 @@ Using 'try/finally' mitigates this risk, ensuring closure even if exceptions occ
       explanations: [
         'Incorrect. No advanced framework is strictly required.',
         'Correct! The biggest risk is human error if explicit closure is omitted.',
-        'Incorrect. Logging can still happen, but that\'s unrelated to resource closure.'
+        "Incorrect. Logging can still happen, but that's unrelated to resource closure.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -222,7 +229,8 @@ Proper resource management (e.g., 'with open(...)') is vital to keep the server 
   ],
   quizzes: [
     {
-      question: 'What is a memory leak or “zombie object” scenario in the context of resource management?',
+      question:
+        'What is a memory leak or “zombie object” scenario in the context of resource management?',
       options: [
         'The OS forcibly reclaims every resource automatically',
         'Unused or unclosed resources remain allocated, gradually consuming system resources',
@@ -230,9 +238,9 @@ Proper resource management (e.g., 'with open(...)') is vital to keep the server 
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. If the OS reclaimed everything automatically, it wouldn\'t be a leak.',
+        "Incorrect. If the OS reclaimed everything automatically, it wouldn't be a leak.",
         'Correct! Resources not properly closed linger in memory or keep handles open.',
-        'Incorrect. Normal GC can\'t handle external resources if you never release them properly.'
+        "Incorrect. Normal GC can't handle external resources if you never release them properly.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -242,10 +250,10 @@ Proper resource management (e.g., 'with open(...)') is vital to keep the server 
 const resourceManagementLessons: Record<string, LessonContent> = {
   'try-with-resources': tryWithResourcesData,
   'manual-closers': manualClosersData,
-  'memory-leaks': memoryLeaksData
-}
+  'memory-leaks': memoryLeaksData,
+};
 
 export const resourceManagementLessonsTab: LessonsTab = {
   curriculum: resourceManagementCurriculum,
-  lessons: resourceManagementLessons
-}
+  lessons: resourceManagementLessons,
+};

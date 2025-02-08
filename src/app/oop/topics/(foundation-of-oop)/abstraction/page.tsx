@@ -2,15 +2,15 @@ import React from 'react';
 import ModulePage from '@/components/ModulePage';
 import { abstractionLessonsTab } from '@/data/lessons/oop/foundation-of-oop/abstractionLesson';
 
-const AbstractionPage: React.FC = () => {
+const abstractionPage: React.FC = () => {
   return (
     <ModulePage
       title="Abstraction"
-      description="Master the fundamentals of abstraction"
+      description="Learn how abstraction simplifies complex systems by hiding unnecessary details"
       lessonsTab={abstractionLessonsTab}
       progressKey="Abstraction"
     />
   );
 };
 
-export default AbstractionPage;
+export default abstractionPage;

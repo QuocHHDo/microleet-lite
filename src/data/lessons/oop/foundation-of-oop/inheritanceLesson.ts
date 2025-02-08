@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const inheritanceCurriculum: Curriculum = {
   title: 'Inheritance Curriculum',
@@ -140,7 +145,7 @@ all related classes.
       explanations: [
         'Incorrect. Inheritance establishes a parent-child relationship, not just sharing names.',
         'Correct! Inheritance allows a child class to inherit from a parent class.',
-        'Incorrect. Inheritance pertains to OOP class structures, not standalone scripts.'
+        'Incorrect. Inheritance pertains to OOP class structures, not standalone scripts.',
       ],
       difficulty: Difficulty.Beginner,
     },
@@ -155,7 +160,7 @@ all related classes.
       explanations: [
         'Incorrect. Inheritance does not directly affect memory usage optimization.',
         'Correct! Inheritance is primarily about reusing code and creating logical class hierarchies.',
-        'Incorrect. Inheritance does not control concurrency or parallel execution.'
+        'Incorrect. Inheritance does not control concurrency or parallel execution.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -262,14 +267,14 @@ public class AdvancedMath : MathOperations {
       question: 'Which of the following is a hallmark of method overriding?',
       options: [
         'Having multiple methods with the same name but different parameter types in the same class',
-        'Providing a new implementation in a child class for a parent class\'s method',
+        "Providing a new implementation in a child class for a parent class's method",
         'Writing a static method in the parent class',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. That describes overloading, not overriding.',
         'Correct! Overriding redefines the parent method in the child class.',
-        'Incorrect. Static methods aren\'t inherently related to overriding.'
+        "Incorrect. Static methods aren't inherently related to overriding.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -364,7 +369,7 @@ This promotes flexible design without deep inheritance.
       explanations: [
         'Incorrect. Some languages (like Python) do allow multiple inheritance.',
         'Correct! Multiple inheritance can introduce complexity and ambiguity.',
-        'Incorrect. Final methods cannot be overridden, which is unrelated to multiple inheritance.'
+        'Incorrect. Final methods cannot be overridden, which is unrelated to multiple inheritance.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -445,7 +450,7 @@ without creating an is-a relationship that might limit future changes.
       explanations: [
         'Incorrect. If something truly "is-a" specialized version, inheritance can be appropriate.',
         'Correct! Composition is ideal when the relationship is "has-a" and looser coupling is desired.',
-        'Incorrect. Accessing private attributes is not the primary reason to choose composition.'
+        'Incorrect. Accessing private attributes is not the primary reason to choose composition.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -515,7 +520,8 @@ print(rect.area())  # 15
   ],
   quizzes: [
     {
-      question: 'Which of the following questions might you encounter about inheritance in an interview?',
+      question:
+        'Which of the following questions might you encounter about inheritance in an interview?',
       options: [
         'How do you call the parent constructor or method from the child?',
         'How do you share global variables across multiple scripts?',
@@ -524,24 +530,23 @@ print(rect.area())  # 15
       correctAnswer: 0,
       explanations: [
         'Correct! This is a common question testing your understanding of inheritance mechanics.',
-        'Incorrect. That\'s a separate topic about variable scope, not inheritance.',
-        'Incorrect. Data type differences are unrelated to the concept of inheritance.'
+        "Incorrect. That's a separate topic about variable scope, not inheritance.",
+        'Incorrect. Data type differences are unrelated to the concept of inheritance.',
       ],
       difficulty: Difficulty.Intermediate,
     },
   ],
 };
 
-
 const inheritanceLesson: Record<string, LessonContent> = {
   'inheritance-purpose': inheritancePurposeData,
   'inheritance-syntax': inheritanceSyntaxMechanismsData,
   'multiple-inheritance': multipleInheritanceData,
   'inheritance-tradeoffs': inheritanceTradeoffsData,
-  'inheritance-interview': inheritanceInterviewData
-}
+  'inheritance-interview': inheritanceInterviewData,
+};
 
 export const inheritanceLessonsTab: LessonsTab = {
   curriculum: inheritanceCurriculum,
-  lessons: inheritanceLesson
-}
+  lessons: inheritanceLesson,
+};

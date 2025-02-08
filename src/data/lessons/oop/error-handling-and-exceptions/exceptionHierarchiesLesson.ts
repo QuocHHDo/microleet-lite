@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const exceptionHierarchiesCurriculum: Curriculum = {
   title: 'Exception Hierarchies Curriculum',
@@ -63,7 +68,8 @@ and best practices to ensure errors are addressed.
   ],
   quizzes: [
     {
-      question: 'Which statement best describes Python\'s approach to exceptions compared to Java\'s checked/unchecked model?',
+      question:
+        "Which statement best describes Python's approach to exceptions compared to Java's checked/unchecked model?",
       options: [
         'Python enforces compile-time checks for all exceptions',
         'Python does not have a concept of checked exceptions; all are effectively unchecked',
@@ -73,7 +79,7 @@ and best practices to ensure errors are addressed.
       explanations: [
         'Incorrect. Python does no compile-time checks for exceptions.',
         'Correct! Python treats all exceptions as unchecked at runtime.',
-        'Incorrect. That\'s a Java pattern, not Python.'
+        "Incorrect. That's a Java pattern, not Python.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -140,7 +146,8 @@ This layered approach balances granularity with simplicity.
   ],
   quizzes: [
     {
-      question: 'How can a base exception class help in designing a custom exception hierarchy?',
+      question:
+        'How can a base exception class help in designing a custom exception hierarchy?',
       options: [
         'It forces all code to ignore exceptions',
         'It provides a common parent to catch all related errors or define shared logic',
@@ -148,22 +155,21 @@ This layered approach balances granularity with simplicity.
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. It doesn\'t force ignoring exceptions.',
+        "Incorrect. It doesn't force ignoring exceptions.",
         'Correct! A base class can unify exception handling or shared logic among child exceptions.',
-        'Incorrect. Specialized exceptions are often still valuable for clarity.'
+        'Incorrect. Specialized exceptions are often still valuable for clarity.',
       ],
       difficulty: Difficulty.Intermediate,
     },
   ],
 };
 
-
-const exceptionHiearchiesLessons: Record<string, LessonContent> = {
+const exceptionHierarchiesLessons: Record<string, LessonContent> = {
   'checked-vs-unchecked': checkedVsUncheckedData,
-  'hiearchy-design': hierarchyDesignData
-}
+  'hierarchy-design': hierarchyDesignData,
+};
 
-export const exceptionHiearchiesLessonsTab: LessonsTab = {
+export const exceptionHierarchiesLessonsTab: LessonsTab = {
   curriculum: exceptionHierarchiesCurriculum,
-  lessons: exceptionHiearchiesLessons
-}
+  lessons: exceptionHierarchiesLessons,
+};

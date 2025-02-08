@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const ispCurriculum: Curriculum = {
   title: 'ISP Curriculum',
@@ -96,9 +101,9 @@ Hence, it isn't forced to implement irrelevant methods, preventing boilerplate o
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Method count alone doesn\'t necessarily signal a violation.',
+        "Incorrect. Method count alone doesn't necessarily signal a violation.",
         'Correct! Stub methods indicate the interface forces unused methods on classes.',
-        'Incorrect. Definition location doesn\'t inherently affect ISP compliance.'
+        "Incorrect. Definition location doesn't inherently affect ISP compliance.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -106,10 +111,10 @@ Hence, it isn't forced to implement irrelevant methods, preventing boilerplate o
 };
 
 const ispLessons: Record<string, LessonContent> = {
-  'isp-definition2': ispDefinition2Data
-}
+  'isp-definition2': ispDefinition2Data,
+};
 
 export const ispLessonsTab: LessonsTab = {
   curriculum: ispCurriculum,
-  lessons: ispLessons
-}
+  lessons: ispLessons,
+};

@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const abstractionCurriculum: Curriculum = {
   title: 'Abstraction Curriculum',
@@ -147,7 +152,7 @@ class PaymentProcessor:
       explanations: [
         'Incorrect. Abstraction does not generate code automatically.',
         'Correct! Abstraction aims to hide complexity and keep focus on essential behavior.',
-        'Incorrect. Abstraction generally leads to clearer, more concise code.'
+        'Incorrect. Abstraction generally leads to clearer, more concise code.',
       ],
       difficulty: Difficulty.Beginner,
     },
@@ -162,7 +167,7 @@ class PaymentProcessor:
       explanations: [
         'Incorrect. An abstract method does not provide a default implementation.',
         'Correct! Abstract methods define a contract but no actual code, requiring subclasses to implement.',
-        'Incorrect. An abstract method can still be called on instances of concrete subclasses.'
+        'Incorrect. An abstract method can still be called on instances of concrete subclasses.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -214,7 +219,8 @@ class WashingMachine:
   ],
   quizzes: [
     {
-      question: 'Which of the following best illustrates abstraction in the real world?',
+      question:
+        'Which of the following best illustrates abstraction in the real world?',
       options: [
         'Driving a car without knowing how the engine is built',
         'Taking an engine apart to learn how it works',
@@ -224,7 +230,7 @@ class WashingMachine:
       explanations: [
         'Correct! You focus on the car interface instead of its inner machinery.',
         'Incorrect. This is the opposite of abstraction—going into all the internal details.',
-        'Incorrect. Again, this is diving deep into implementation details.'
+        'Incorrect. Again, this is diving deep into implementation details.',
       ],
       difficulty: Difficulty.Beginner,
     },
@@ -320,7 +326,7 @@ class BaseParser(ABC):
         'Incorrect. Abstract classes do not grant special access to private members.',
         'Correct! Abstract classes define the common structure and require implementations for abstract methods.',
         'Incorrect. Subclasses must still provide implementations.',
-        'Incorrect. Abstract classes can\'t be instantiated, but that\'s not their primary benefit.'
+        "Incorrect. Abstract classes can't be instantiated, but that's not their primary benefit.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -335,7 +341,7 @@ class BaseParser(ABC):
       explanations: [
         'Correct! Python provides the @abstractmethod decorator in the abc module.',
         'Incorrect. This naming convention has no special meaning to Python.',
-        'Incorrect. Underscores do not convert a method into an abstract method.'
+        'Incorrect. Underscores do not convert a method into an abstract method.',
       ],
       difficulty: Difficulty.Beginner,
     },
@@ -403,7 +409,7 @@ class EmailService:
       explanations: [
         'Incorrect. A minimal set of public methods is typically good abstraction.',
         'Correct! Under-abstraction means exposing unnecessary details.',
-        'Incorrect. Using abstract classes usually supports good abstraction.'
+        'Incorrect. Using abstract classes usually supports good abstraction.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -461,7 +467,8 @@ class SMSNotification(Notification):
   ],
   quizzes: [
     {
-      question: 'Which description best fits abstraction in an interview context?',
+      question:
+        'Which description best fits abstraction in an interview context?',
       options: [
         'A technique for strictly hiding all data without offering any public methods',
         'A design principle that highlights essential aspects while suppressing unnecessary details',
@@ -471,7 +478,7 @@ class SMSNotification(Notification):
       explanations: [
         'Incorrect. That describes a misunderstanding of data hiding rather than true abstraction.',
         'Correct! Abstraction emphasizes the core logic while hiding unneeded complexity.',
-        'Incorrect. Abstraction does not inherently improve performance.'
+        'Incorrect. Abstraction does not inherently improve performance.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -483,10 +490,10 @@ const abstractionLesson: Record<string, LessonContent> = {
   'abstraction-realworld': abstractionRealWorldData,
   'abstracting-data': abstractingDataBehaviorData,
   'effective-abstraction': effectiveAbstractionData,
-  'abstraction-questions': abstractionQuestionsData
-}
+  'abstraction-questions': abstractionQuestionsData,
+};
 
 export const abstractionLessonsTab: LessonsTab = {
   curriculum: abstractionCurriculum,
-  lessons: abstractionLesson
-}
+  lessons: abstractionLesson,
+};

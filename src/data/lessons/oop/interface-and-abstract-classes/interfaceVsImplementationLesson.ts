@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const interfaceVsImplementationCurriculum: Curriculum = {
   title: 'Interface vs. Implementation Inheritance Curriculum',
@@ -125,7 +130,7 @@ This aligns with Python's ABC approach to specifying minimal method skeletons.
       explanations: [
         'Incorrect. Interface inheritance does include method signatures.',
         'Correct! The interface only provides signatures, not the actual implementation.',
-        'Incorrect. Interfaces do define a contract for implementing classes.'
+        'Incorrect. Interfaces do define a contract for implementing classes.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -184,7 +189,8 @@ This fragility is a key downside to deep or frequent reliance on implementation 
   ],
   quizzes: [
     {
-      question: 'Which of the following is characteristic of implementation inheritance?',
+      question:
+        'Which of the following is characteristic of implementation inheritance?',
       options: [
         'A parent class provides only method signatures, no implementation',
         'A child class inherits concrete behavior, potentially overriding or extending it',
@@ -194,7 +200,7 @@ This fragility is a key downside to deep or frequent reliance on implementation 
       explanations: [
         'Incorrect. That describes interface inheritance.',
         'Correct! Implementation inheritance inherits actual code.',
-        'Incorrect. Implementation inheritance specifically involves using parent code.'
+        'Incorrect. Implementation inheritance specifically involves using parent code.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -266,17 +272,18 @@ class Square(ShapeBase):
   ],
   quizzes: [
     {
-      question: 'What is one downside of using purely interface-based designs for multiple classes in Python?',
+      question:
+        'What is one downside of using purely interface-based designs for multiple classes in Python?',
       options: [
         'They automatically load external libraries',
-        'They can lead to repeated code if many classes share the same logic but can\'t inherit it',
+        "They can lead to repeated code if many classes share the same logic but can't inherit it",
         'They force you to override final methods',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Interfaces do not directly load libraries.',
         'Correct! Reusing code is harder if everything is just method signatures without shared implementations.',
-        'Incorrect. The concept of final methods is separate from interface usage.'
+        'Incorrect. The concept of final methods is separate from interface usage.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -362,7 +369,8 @@ Thus, multiple interface inheritance is simpler than multiple implementation inh
   ],
   quizzes: [
     {
-      question: 'Which mechanism does Python use to resolve methods in the case of multiple inheritance?',
+      question:
+        'Which mechanism does Python use to resolve methods in the case of multiple inheritance?',
       options: [
         'Random selection of parent classes',
         'Method Resolution Order (MRO)',
@@ -372,7 +380,7 @@ Thus, multiple interface inheritance is simpler than multiple implementation inh
       explanations: [
         'Incorrect. The resolution is deterministic, not random.',
         'Correct! Python follows a specific MRO to avoid ambiguity.',
-        'Incorrect. Python allows multiple inheritance, but organizes it via MRO.'
+        'Incorrect. Python allows multiple inheritance, but organizes it via MRO.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -382,11 +390,11 @@ Thus, multiple interface inheritance is simpler than multiple implementation inh
 const interfaceVsImplementationLessons: Record<string, LessonContent> = {
   'interface-inheritance': interfaceInheritanceData,
   'implementation-inheritance': implementationInheritanceData,
-  'flexibility': flexibilityData,
-  'diamond-problem': diamondProblemData
-}
+  flexibility: flexibilityData,
+  'diamond-problem': diamondProblemData,
+};
 
 export const interfaceVsImplementationLessonsTab: LessonsTab = {
   curriculum: interfaceVsImplementationCurriculum,
-  lessons: interfaceVsImplementationLessons
-}
+  lessons: interfaceVsImplementationLessons,
+};

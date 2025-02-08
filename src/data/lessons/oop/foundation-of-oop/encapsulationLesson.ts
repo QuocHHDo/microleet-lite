@@ -431,7 +431,7 @@ class Person:
         'Incorrect. Execution speed is not a goal of encapsulation. It prioritizes maintainability and security over performance optimization.',
       ],
       difficulty: Difficulty.Intermediate,
-    }
+    },
   ],
 };
 
@@ -499,7 +499,7 @@ Access modifiers in Python help define the intended accessibility of class membe
       ],
       correctAnswer: 1,
       explanations: [
-        'Correct! The single underscore is a convention that indicates it\'s intended for internal or subclass use.',
+        "Correct! The single underscore is a convention that indicates it's intended for internal or subclass use.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -771,7 +771,7 @@ class BankAccount:
       ],
       correctAnswer: 1,
       explanations: [
-        'Correct! Encapsulation is not an all-in-one security solution. It doesn\'t replace encryption or security protocols.',
+        "Correct! Encapsulation is not an all-in-one security solution. It doesn't replace encryption or security protocols.",
       ],
       difficulty: Difficulty.Beginner,
     },

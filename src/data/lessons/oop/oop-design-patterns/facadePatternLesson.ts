@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const facadePatternCurriculum: Curriculum = {
   title: 'Facade Pattern Curriculum',
@@ -101,7 +106,7 @@ They simply call the facade, which orchestrates everything behind the scenes.
   ],
   quizzes: [
     {
-      question: 'Which best summarizes the Facade pattern\'s benefit?',
+      question: "Which best summarizes the Facade pattern's benefit?",
       options: [
         'It modifies all subsystem classes to reduce their public interfaces',
         'It provides a simpler, higher-level interface that wraps complex subsystem operations',
@@ -109,9 +114,9 @@ They simply call the facade, which orchestrates everything behind the scenes.
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Facade doesn\'t usually modify subsystem classes themselves.',
+        "Incorrect. Facade doesn't usually modify subsystem classes themselves.",
         'Correct! A facade is a single entry point, simplifying interaction with a complex system.',
-        'Incorrect. That\'s closer to the Interface Segregation Principle, not Facade.'
+        "Incorrect. That's closer to the Interface Segregation Principle, not Facade.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -176,7 +181,8 @@ thus insulating them from change.
   ],
   quizzes: [
     {
-      question: 'How does wrapping multiple subsystem calls in a single facade method benefit clients?',
+      question:
+        'How does wrapping multiple subsystem calls in a single facade method benefit clients?',
       options: [
         'They must directly import and instantiate each subsystem class',
         'They see only the facade interface, without dealing with complex subsystem details',
@@ -184,9 +190,9 @@ thus insulating them from change.
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. That\'s the opposite of what a facade is for.',
+        "Incorrect. That's the opposite of what a facade is for.",
         'Correct! The facade coordinates subsystem calls, hiding complexity.',
-        'Incorrect. Facade usage typically involves no overrides from the client side.'
+        'Incorrect. Facade usage typically involves no overrides from the client side.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -195,9 +201,9 @@ thus insulating them from change.
 
 const facadePatternsLessons: Record<string, LessonContent> = {
   'facade-definition': facadeDefinitionData,
-  'api-wrapping': facadeApiWrappingData
-}
+  'api-wrapping': facadeApiWrappingData,
+};
 export const facadePatternLessonsTab: LessonsTab = {
   curriculum: facadePatternCurriculum,
-  lessons: facadePatternsLessons
-}
+  lessons: facadePatternsLessons,
+};

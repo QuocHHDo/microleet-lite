@@ -1,16 +1,16 @@
 import React from 'react';
-import { overloadingOverridingLessonsTab } from '@/data/lessons/oop/foundation-of-oop/overloadingOverridingLesson';
 import ModulePage from '@/components/ModulePage';
+import { overloadingOverridingLessonsTab } from '@/data/lessons/oop/foundation-of-oop/overloadingOverridingLesson';
 
-const OverloadingOverridingPage: React.FC = () => {
+const overloadingOverridingPage: React.FC = () => {
   return (
     <ModulePage
-      title="Overloading & Overriding"
-      description="Master the fundamentals of overloading & overriding"
+      title="Overloading and Overriding"
+      description="Learn the differences between method overloading and method overriding"
       lessonsTab={overloadingOverridingLessonsTab}
       progressKey="OverloadingOverriding"
     />
   );
 };
 
-export default OverloadingOverridingPage;
+export default overloadingOverridingPage;

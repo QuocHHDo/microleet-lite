@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const decoratorPatternCurriculum: Curriculum = {
   title: 'Decorator Pattern Curriculum',
@@ -104,7 +109,8 @@ which remains 'closed' to modification but 'open' to extension through compositi
   ],
   quizzes: [
     {
-      question: 'Why is the Decorator Pattern considered a more flexible alternative to subclassing?',
+      question:
+        'Why is the Decorator Pattern considered a more flexible alternative to subclassing?',
       options: [
         'It modifies the original class directly',
         'It allows adding functionality at runtime without altering the existing class hierarchy',
@@ -112,9 +118,9 @@ which remains 'closed' to modification but 'open' to extension through compositi
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Decorators don\'t modify original classes directly; they wrap them.',
+        "Incorrect. Decorators don't modify original classes directly; they wrap them.",
         'Correct! Decorators let you combine or stack behaviors dynamically.',
-        'Incorrect. That\'s related to the Singleton pattern.'
+        "Incorrect. That's related to the Singleton pattern.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -207,7 +213,7 @@ as you must check each decorator\'s contribution in turn.
       explanations: [
         'Incorrect. Decorators can be applied at runtime in Python via composition.',
         'Correct! Multiple decorator layers can be confusing to trace.',
-        'Incorrect. Decorator usage doesn\'t require special syntax beyond normal class usage.'
+        "Incorrect. Decorator usage doesn't require special syntax beyond normal class usage.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -285,7 +291,8 @@ Each decorator handles its part, stacking seamlessly without modifying the origi
   ],
   quizzes: [
     {
-      question: 'How do I/O stream classes in many languages demonstrate the Decorator pattern?',
+      question:
+        'How do I/O stream classes in many languages demonstrate the Decorator pattern?',
       options: [
         'They define global variables storing the stream data',
         'They wrap a base stream with additional behaviors like buffering, compression, etc.',
@@ -293,9 +300,9 @@ Each decorator handles its part, stacking seamlessly without modifying the origi
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. That\'s not how typical I/O streams are implemented.',
+        "Incorrect. That's not how typical I/O streams are implemented.",
         'Correct! Each wrapper adds new functionality around the underlying stream.',
-        'Incorrect. Overriding the base class method is not the core concept here; it\'s about wrapping.'
+        "Incorrect. Overriding the base class method is not the core concept here; it's about wrapping.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -305,9 +312,9 @@ Each decorator handles its part, stacking seamlessly without modifying the origi
 const decoratorPatternLessons: Record<string, LessonContent> = {
   'decorator-purpose': decoratorPurposeData,
   'benefits-tradeoffs': decoratorBenefitsTradeoffsData,
-  'io-streams': decoratorIoStreamsData
-}
+  'io-streams': decoratorIoStreamsData,
+};
 export const decoratorPatternLessonsTab: LessonsTab = {
   curriculum: decoratorPatternCurriculum,
-  lessons: decoratorPatternLessons
-}
+  lessons: decoratorPatternLessons,
+};

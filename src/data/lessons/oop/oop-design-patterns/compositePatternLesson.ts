@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const compositePatternCurriculum: Curriculum = {
   title: 'Composite Pattern Curriculum',
@@ -151,7 +156,7 @@ This uniformity greatly simplifies handling nested structures, enabling recursio
       explanations: [
         'Incorrect. Composite is unrelated to global data or singletons.',
         'Correct! Composite organizes objects into a tree-like hierarchy with a uniform interface.',
-        'Incorrect. Encryption is typically unrelated to composite structures.'
+        'Incorrect. Encryption is typically unrelated to composite structures.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -227,7 +232,8 @@ the object handles traversal internally.
   ],
   quizzes: [
     {
-      question: 'What common data structures benefit from a composite-like approach?',
+      question:
+        'What common data structures benefit from a composite-like approach?',
       options: [
         'Arrays of primitive values only',
         'Hierarchies like file systems, GUI containers, or organizational charts',
@@ -235,9 +241,9 @@ the object handles traversal internally.
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Arrays of primitives don\'t typically require a composite pattern for iteration.',
+        "Incorrect. Arrays of primitives don't typically require a composite pattern for iteration.",
         'Correct! These are classic use cases for the Composite pattern.',
-        'Incorrect. Composite is intended for tree or hierarchical structures, not linear flows.'
+        'Incorrect. Composite is intended for tree or hierarchical structures, not linear flows.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -254,7 +260,7 @@ When implementing the Composite pattern in Python:
 Defining the Component
 </h3>
 
-An abstract base class or at least a shared interface. Usually includes methods that both leaf and composite will implement (like \`operation\` or \`show_info\`).
+An abstract base class or at least a shared interface. Usually includes methods that both leaf and composite will implement (like operation or show_info).
 
 <h3>
 Leaf
@@ -266,7 +272,7 @@ Implements the interface with no child management. Leaf objects handle the base 
 Composite
 </h3>
 
-Maintains a collection of children, each of which is also a “component.” It implements the interface by delegating to children as needed, sometimes adding \`add\` or \`remove\` methods.
+Maintains a collection of children, each of which is also a “component.” It implements the interface by delegating to children as needed, sometimes adding add or remove methods.
 `,
   exercises: [
     {
@@ -304,7 +310,8 @@ Testing and code reviews become crucial to ensure correct usage of the composite
   ],
   quizzes: [
     {
-      question: 'In Python\'s Composite implementation, what role does the composite class typically play?',
+      question:
+        "In Python's Composite implementation, what role does the composite class typically play?",
       options: [
         'It is the final leaf node',
         'It stores and manages child components, delegating operations to them',
@@ -314,7 +321,7 @@ Testing and code reviews become crucial to ensure correct usage of the composite
       explanations: [
         'Incorrect. The composite is not a leaf node; it holds children.',
         'Correct! The composite organizes and delegates to child components.',
-        'Incorrect. Composite forward calls, not block them.'
+        'Incorrect. Composite forward calls, not block them.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -323,11 +330,11 @@ Testing and code reviews become crucial to ensure correct usage of the composite
 
 const compositePatternLessons: Record<string, LessonContent> = {
   'composite-structure': compositeStructureData,
-  'hiearchical-data': hierarchicalDataData,
-  'implementation-details': compositeImplementationData
-}
+  'hierarchical-data': hierarchicalDataData,
+  'implementation-details': compositeImplementationData,
+};
 
 export const compositePatternLessonsTab: LessonsTab = {
   curriculum: compositePatternCurriculum,
-  lessons: compositePatternLessons
-}
+  lessons: compositePatternLessons,
+};

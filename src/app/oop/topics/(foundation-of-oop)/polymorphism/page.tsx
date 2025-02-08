@@ -1,16 +1,16 @@
 import React from 'react';
-import { polymorphismLessonsTab } from '@/data/lessons/oop/foundation-of-oop/polymorphismLesson';
 import ModulePage from '@/components/ModulePage';
+import { polymorphismLessonsTab } from '@/data/lessons/oop/foundation-of-oop/polymorphismLesson';
 
-const PolymorphismPage: React.FC = () => {
+const polymorphismPage: React.FC = () => {
   return (
     <ModulePage
       title="Polymorphism"
-      description="Master the fundamentals of polymorphism"
+      description="Understand how polymorphism allows objects to take on multiple forms"
       lessonsTab={polymorphismLessonsTab}
       progressKey="Polymorphism"
     />
   );
 };
 
-export default PolymorphismPage;
+export default polymorphismPage;

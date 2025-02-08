@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const tryCatchFinallyCurriculum: Curriculum = {
   title: 'Try-Catch-Finally Curriculum',
@@ -91,7 +96,8 @@ This ensures critical cleanup (closing files or releasing locks) always happens,
   ],
   quizzes: [
     {
-      question: 'What is the primary purpose of the finally block in a try-catch-finally construct?',
+      question:
+        'What is the primary purpose of the finally block in a try-catch-finally construct?',
       options: [
         'It only runs if no exceptions occurred',
         'It always runs, exception or not, for cleanup or final actions',
@@ -101,7 +107,7 @@ This ensures critical cleanup (closing files or releasing locks) always happens,
       explanations: [
         'Incorrect. finally runs even if an exception happens.',
         'Correct! finally is used for guaranteed execution of cleanup code.',
-        'Incorrect. finally doesn\'t replace catch/except blocks; it complements them.'
+        "Incorrect. finally doesn't replace catch/except blocks; it complements them.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -177,9 +183,9 @@ This precision keeps your code clear on what exactly went wrong.
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Multiple except blocks don\'t require recompilation.',
+        "Incorrect. Multiple except blocks don't require recompilation.",
         'Correct! Each exception class can have a distinct response.',
-        'Incorrect. They do not block code execution for multiple potential errors.'
+        'Incorrect. They do not block code execution for multiple potential errors.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -188,10 +194,10 @@ This precision keeps your code clear on what exactly went wrong.
 
 const tryCatchFinallyLessons: Record<string, LessonContent> = {
   'flow-control': flowControlData,
-  'nested-trycatch': nestedTryCatchData
-}
+  'nested-trycatch': nestedTryCatchData,
+};
 
 export const tryCatchFinallyLessonsTab: LessonsTab = {
   curriculum: tryCatchFinallyCurriculum,
-  lessons: tryCatchFinallyLessons
-}
+  lessons: tryCatchFinallyLessons,
+};

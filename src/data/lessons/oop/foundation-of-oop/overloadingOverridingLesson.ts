@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const overloadingOverridingCurriculum: Curriculum = {
   title: 'Overloading & Overriding Curriculum',
@@ -137,7 +142,7 @@ int result2 = calc.Multiply(2, 3, 4);  // Calls 3-arg version
       explanations: [
         'Incorrect. The signatures must differ (type, count, or order).',
         'Correct! Overloading relies on distinct parameter signatures and is resolved at compile time.',
-        'Incorrect. That describes method overriding, not overloading.'
+        'Incorrect. That describes method overriding, not overloading.',
       ],
       difficulty: Difficulty.Beginner,
     },
@@ -151,8 +156,8 @@ int result2 = calc.Multiply(2, 3, 4);  // Calls 3-arg version
       correctAnswer: 0,
       explanations: [
         'Correct! Overloading is about handling different parameter signatures under the same method name.',
-        'Incorrect. That\'s method overriding in inheritance, not overloading.',
-        'Incorrect. Changing only the return type typically does not qualify as overloading.'
+        "Incorrect. That's method overriding in inheritance, not overloading.",
+        'Incorrect. Changing only the return type typically does not qualify as overloading.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -252,24 +257,20 @@ public class Main {
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. That\'s method overloading, not overriding.',
+        "Incorrect. That's method overloading, not overriding.",
         'Correct! Overriding redefines a method from the parent class in the subclass.',
-        'Incorrect. Overriding pertains to inheritance, not global functions.'
+        'Incorrect. Overriding pertains to inheritance, not global functions.',
       ],
       difficulty: Difficulty.Beginner,
     },
     {
       question: 'At which time is it decided which overridden method to call?',
-      options: [
-        'Compile time',
-        'Run time',
-        'Linker time',
-      ],
+      options: ['Compile time', 'Run time', 'Linker time'],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Overriding decisions aren\'t made at compile time.',
+        "Incorrect. Overriding decisions aren't made at compile time.",
         'Correct! Method overriding uses dynamic dispatch determined at run time.',
-        'Incorrect. Linker time typically pertains to combining compiled modules, not choosing overridden methods.'
+        'Incorrect. Linker time typically pertains to combining compiled modules, not choosing overridden methods.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -326,7 +327,8 @@ while conforming to the overall interface provided by the base class.
   ],
   quizzes: [
     {
-      question: 'Which of the following best describes a scenario for method overloading?',
+      question:
+        'Which of the following best describes a scenario for method overloading?',
       options: [
         'Providing distinct implementations of a parent method in a subclass',
         'Allowing multiple constructors or methods with different parameters but the same name',
@@ -334,14 +336,15 @@ while conforming to the overall interface provided by the base class.
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. That\'s an example of overriding, not overloading.',
+        "Incorrect. That's an example of overriding, not overloading.",
         'Correct! Overloading uses the same method name with different parameter lists.',
-        'Incorrect. You cannot override a private method, and changing visibility isn\'t typical overloading.'
+        "Incorrect. You cannot override a private method, and changing visibility isn't typical overloading.",
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'When is method overriding typically more beneficial than overloading?',
+      question:
+        'When is method overriding typically more beneficial than overloading?',
       options: [
         'When you need different parameter types but the same method name',
         'When you want a subclass to refine or change the behavior of a parent method at run time',
@@ -349,9 +352,9 @@ while conforming to the overall interface provided by the base class.
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. That\'s overloading\'s domain.',
-        'Correct! Overriding is about providing a specialized version of a parent\'s method.',
-        'Incorrect. Overriding is unrelated to multiple methods in the same class for performance.'
+        "Incorrect. That's overloading's domain.",
+        "Correct! Overriding is about providing a specialized version of a parent's method.",
+        'Incorrect. Overriding is unrelated to multiple methods in the same class for performance.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -425,9 +428,10 @@ double multiply(double x, double y) { return x * y; }
   ],
   quizzes: [
     {
-      question: 'Which of the following is a common cause of confusion between overloading and overriding?',
+      question:
+        'Which of the following is a common cause of confusion between overloading and overriding?',
       options: [
-        'One requires changing the method\'s parameter list and the other requires matching the signature in an inherited class',
+        "One requires changing the method's parameter list and the other requires matching the signature in an inherited class",
         'Both are identical concepts in all languages',
         'They always produce compiler errors',
       ],
@@ -435,7 +439,7 @@ double multiply(double x, double y) { return x * y; }
       explanations: [
         'Correct! Overloading changes parameters in the same class, while overriding matches the parent signature in a subclass.',
         'Incorrect. They are separate concepts, each with unique rules.',
-        'Incorrect. Properly used, they do not inherently produce errors.'
+        'Incorrect. Properly used, they do not inherently produce errors.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -450,7 +454,7 @@ double multiply(double x, double y) { return x * y; }
       explanations: [
         'Incorrect. @Override is for overriding, not overloading multiple methods.',
         'Correct! It helps catch mistakes like mismatched parameter lists or typos.',
-        'Incorrect. Parameters still must be declared normally.'
+        'Incorrect. Parameters still must be declared normally.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -460,7 +464,7 @@ double multiply(double x, double y) { return x * y; }
 const overloadingOverridingLesson: Record<string, LessonContent> = {
   'method-overloading': methodOverloadingData,
   'method-overriding': methodOverridingData,
-  'usecases': useCasesData,
+  usecases: useCasesData,
   'common-confusions': commonConfusionsData,
 };
 

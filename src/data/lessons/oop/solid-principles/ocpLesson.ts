@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const ocpCurriculum: Curriculum = {
   title: 'OCP Curriculum',
@@ -87,7 +92,8 @@ to maintain clarity and consistent extension points, ensuring they're truly "clo
   ],
   quizzes: [
     {
-      question: 'How does the Open-Closed Principle reduce disruptions in a codebase?',
+      question:
+        'How does the Open-Closed Principle reduce disruptions in a codebase?',
       options: [
         'By making classes impossible to instantiate',
         'By allowing new features through extensions instead of changing tested core classes',
@@ -95,9 +101,9 @@ to maintain clarity and consistent extension points, ensuring they're truly "clo
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Instantiation is unrelated to OCP\'s main idea.',
+        "Incorrect. Instantiation is unrelated to OCP's main idea.",
         'Correct! OCP fosters adding new behavior without editing existing logic.',
-        'Incorrect. Encapsulation is different from OCP\'s extension-based concept.'
+        "Incorrect. Encapsulation is different from OCP's extension-based concept.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -180,17 +186,14 @@ However, inheritance can lead to deeper hierarchies, while composition offers mo
   ],
   quizzes: [
     {
-      question: 'Which design pattern often helps achieve OCP by allowing new behaviors without altering existing classes?',
-      options: [
-        'Singleton',
-        'Strategy',
-        'Spaghetti code approach',
-      ],
+      question:
+        'Which design pattern often helps achieve OCP by allowing new behaviors without altering existing classes?',
+      options: ['Singleton', 'Strategy', 'Spaghetti code approach'],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Singleton limits instantiation but doesn\'t inherently address extension.',
+        "Incorrect. Singleton limits instantiation but doesn't inherently address extension.",
         'Correct! Strategy enables plugging in new algorithms or behaviors easily.',
-        'Incorrect. Spaghetti code is a design anti-pattern.'
+        'Incorrect. Spaghetti code is a design anti-pattern.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -200,8 +203,8 @@ However, inheritance can lead to deeper hierarchies, while composition offers mo
 const ocpLessons: Record<string, LessonContent> = {
   'ocp-definition': ocpDefinitionData,
   'common-approaches': ocpCommonApproachesData,
-}
+};
 export const ocpLessonsTab: LessonsTab = {
   curriculum: ocpCurriculum,
-  lessons: ocpLessons
-}
+  lessons: ocpLessons,
+};

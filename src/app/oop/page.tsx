@@ -52,7 +52,21 @@ const OOPPage: React.FC = () => {
   const router = useRouter();
 
   const navigateToTopic = (topic: string) => {
-    const formattedTopic = topic.toLowerCase().replace(/\s*&\s*|\s+/g, '-');  
+    const topicMapping: Record<string, string> = {
+      "SRP (Single Responsibility Principle)": "srp",
+      "OCP (Open-Closed Principle)": "ocp",
+      "LSP (Liskov Substitution Principle)": "lsp",
+      "ISP (Interface Segregation Principle)": "isp",
+      "DIP (Dependency Inversion Principle)": "dip"
+    };
+  
+    if (topicMapping[topic]) {
+      router.push(`/oop/topics/${topicMapping[topic]}`);
+      return;
+    }
+    const cleanedTopic = topic.replace(/\s*\(.*?\)\s*/g, '').trim();
+    const formattedTopic = cleanedTopic.toLowerCase().replace(/\s*&\s*|\s+/g, '-');
+    
     router.push(`/oop/topics/${formattedTopic}`);
   };
 

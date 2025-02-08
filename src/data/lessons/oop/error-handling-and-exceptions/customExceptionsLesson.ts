@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const customExceptionsCurriculum: Curriculum = {
   title: 'Custom Exceptions Curriculum',
@@ -96,7 +101,8 @@ Descriptive class names clarify whether it's a business logic issue (missing ord
   ],
   quizzes: [
     {
-      question: 'Which is a primary advantage of using custom exceptions in Python?',
+      question:
+        'Which is a primary advantage of using custom exceptions in Python?',
       options: [
         'They prevent all runtime errors automatically',
         'They describe domain-specific errors more accurately than built-in exceptions',
@@ -106,7 +112,7 @@ Descriptive class names clarify whether it's a business logic issue (missing ord
       explanations: [
         'Incorrect. Custom exceptions do not automatically prevent runtime errors.',
         'Correct! Custom exceptions clarify the nature of domain-level issues.',
-        'Incorrect. You must still define and raise them as needed.'
+        'Incorrect. You must still define and raise them as needed.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -143,17 +149,18 @@ Python does not enforce a strict naming scheme, but consistent suffixes like *Er
   ],
   quizzes: [
     {
-      question: 'What is a recommended practice when naming custom exceptions in Python?',
+      question:
+        'What is a recommended practice when naming custom exceptions in Python?',
       options: [
-        'Always end with “Exception” or “Error” to indicate it\'s an exception class',
+        "Always end with “Exception” or “Error” to indicate it's an exception class",
         'Include the entire stack trace in the class name',
         'Use non-descriptive code numbers (e.g., Error42, Error99)',
       ],
       correctAnswer: 0,
       explanations: [
-        'Correct! “PaymentError”, “FileReadException”, etc., clarify the class\'s nature.',
+        "Correct! “PaymentError”, “FileReadException”, etc., clarify the class's nature.",
         'Incorrect. The stack trace is not part of the class name.',
-        'Incorrect. Numeric codes alone are non-descriptive.'
+        'Incorrect. Numeric codes alone are non-descriptive.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -211,7 +218,8 @@ making logs easier to analyze than plain text lines.
   ],
   quizzes: [
     {
-      question: 'Why might you serialize a custom exception to JSON before sending it across a network boundary?',
+      question:
+        'Why might you serialize a custom exception to JSON before sending it across a network boundary?',
       options: [
         'To ensure it can be reconstructed or understood by the receiving service',
         'Because plain text is always forbidden',
@@ -221,7 +229,7 @@ making logs easier to analyze than plain text lines.
       explanations: [
         'Correct! JSON or similar formats let another service parse the error details.',
         'Incorrect. Plain text is not strictly forbidden, but less structured.',
-        'Incorrect. Exceptions can be logged in plain text, but structured data is often more useful.'
+        'Incorrect. Exceptions can be logged in plain text, but structured data is often more useful.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -231,10 +239,10 @@ making logs easier to analyze than plain text lines.
 const customExceptionsLessons: Record<string, LessonContent> = {
   'domain-logic': domainLogicData,
   'naming-conventions': namingConventionsData,
-  'serialization': serializationData
-}
+  serialization: serializationData,
+};
 
 export const customExceptionsLessonsTab: LessonsTab = {
   curriculum: customExceptionsCurriculum,
-  lessons: customExceptionsLessons
-}
+  lessons: customExceptionsLessons,
+};

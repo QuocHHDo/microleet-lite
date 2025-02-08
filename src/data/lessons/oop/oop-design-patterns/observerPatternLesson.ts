@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const observerPatternCurriculum: Curriculum = {
   title: 'Observer Pattern Curriculum',
@@ -116,9 +121,9 @@ Push is simpler for small changes, while pull can be more flexible if observers 
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. That\'s more an MVC concept.',
+        "Incorrect. That's more an MVC concept.",
         'Correct! Observer is about a subject (publisher) and multiple observers (subscribers).',
-        'Incorrect. Producer/consumer can be relevant but is not the classic naming for observer roles.'
+        'Incorrect. Producer/consumer can be relevant but is not the classic naming for observer roles.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -197,9 +202,9 @@ A pull model can be more efficient if observers can selectively fetch only what 
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. That\'s the push model definition.',
+        "Incorrect. That's the push model definition.",
         'Correct! Pull model is where observers query the subject after getting a change notification.',
-        'Incorrect. That\'s unrelated to observer logic.'
+        "Incorrect. That's unrelated to observer logic.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -270,7 +275,8 @@ Each callback is effectively an observer responding to the event.
   ],
   quizzes: [
     {
-      question: 'How does a GUI button and its click event exemplify the observer pattern?',
+      question:
+        'How does a GUI button and its click event exemplify the observer pattern?',
       options: [
         'The button class is the subject, and any onClick callbacks are observers notified upon a click event',
         'All code is placed in a single function',
@@ -279,8 +285,8 @@ Each callback is effectively an observer responding to the event.
       correctAnswer: 0,
       explanations: [
         'Correct! This matches the subject-observer roles perfectly.',
-        'Incorrect. That\'s not related to observer structure.',
-        'Incorrect. Observer pattern does not mandate separate processes.'
+        "Incorrect. That's not related to observer structure.",
+        'Incorrect. Observer pattern does not mandate separate processes.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -349,7 +355,8 @@ so observers aren't overwhelmed, making it a richer model for asynchronous and s
   ],
   quizzes: [
     {
-      question: 'Which feature do reactive streams commonly add on top of the classical observer pattern?',
+      question:
+        'Which feature do reactive streams commonly add on top of the classical observer pattern?',
       options: [
         'No references to observers are allowed',
         'They run only in single-threaded environments',
@@ -359,21 +366,20 @@ so observers aren't overwhelmed, making it a richer model for asynchronous and s
       explanations: [
         'Incorrect. Observers still exist, and references are used to manage them.',
         'Incorrect. Reactive systems are often multi-threaded or asynchronous.',
-        'Correct! Reactive frameworks enhance observer with operators and backpressure support.'
+        'Correct! Reactive frameworks enhance observer with operators and backpressure support.',
       ],
       difficulty: Difficulty.Intermediate,
     },
   ],
 };
 
-
 const observerPatternLessons: Record<string, LessonContent> = {
   'observer-subject': observerSubjectData,
   'push-vs-pull': observerPushPullData,
   'event-listeners': observerEventListenersData,
-  'reactive-streams': observerReactiveStreamsData
-}
+  'reactive-streams': observerReactiveStreamsData,
+};
 export const observerPatternLessonsTab: LessonsTab = {
   curriculum: observerPatternCurriculum,
-  lessons: observerPatternLessons
-}
+  lessons: observerPatternLessons,
+};

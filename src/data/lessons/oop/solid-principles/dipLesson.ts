@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const dipCurriculum: Curriculum = {
   title: 'DIP Curriculum',
@@ -135,7 +140,7 @@ The NotificationService can use it without any code changes, adhering to the ope
       explanations: [
         'Incorrect. This violates the principle, making high-level code tightly coupled.',
         'Correct! Both high-level and low-level modules rely on interfaces/ABCs rather than each other directly.',
-        'Incorrect. DIP does not mandate singletons or global resolutions.'
+        'Incorrect. DIP does not mandate singletons or global resolutions.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -203,7 +208,7 @@ minimizing disruptions. Python\'s import statements and flexible class definitio
       explanations: [
         'Incorrect. DIP does not require final classes.',
         'Correct! Mock or stub classes can fulfill the same ABC, making tests easier.',
-        'Incorrect. DIP doesn\'t dictate external library usage.'
+        "Incorrect. DIP doesn't dictate external library usage.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -283,17 +288,18 @@ service.checkout(50)  # "Paying $50..."
   ],
   quizzes: [
     {
-      question: 'Which of the following is a reason Python developers might not always use a DI container?',
+      question:
+        'Which of the following is a reason Python developers might not always use a DI container?',
       options: [
         'Python forbids importing external libraries',
         'Dependency injection is impossible in Python',
-        'Python\'s dynamic nature and simpler injection patterns often suffice without a formal container',
+        "Python's dynamic nature and simpler injection patterns often suffice without a formal container",
       ],
       correctAnswer: 2,
       explanations: [
         'Incorrect. Python supports many external libraries.',
         'Incorrect. Dependency injection is quite feasible in Python.',
-        'Correct! Python\'s flexibility reduces the necessity for a DI framework.'
+        "Correct! Python's flexibility reduces the necessity for a DI framework.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -302,10 +308,10 @@ service.checkout(50)  # "Paying $50..."
 
 const dipLessons: Record<string, LessonContent> = {
   'dip-definition': dipDefinitionData,
-  'benefits': dipBenefitsData,
-  'frameworks-tools': dipFrameworksToolsData
-}
+  benefits: dipBenefitsData,
+  'frameworks-tools': dipFrameworksToolsData,
+};
 export const dipLessonsTab: LessonsTab = {
   curriculum: dipCurriculum,
-  lessons: dipLessons
-}
+  lessons: dipLessons,
+};

@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const lspCurriculum: Curriculum = {
   title: 'LSP Curriculum',
@@ -51,7 +56,7 @@ The Liskov Substitution Principle (LSP) states: **Subtypes must be substitutable
 Core Idea
 </h3>
 
-If \`B\` is a subclass of \`A\`, then anywhere you use an \`A\`, you should be able to use a \`B\` without unexpected results.
+If B is a subclass of A, then anywhere you use an A, you should be able to use a B without unexpected results.
 
 <h3>
 Implications for Python
@@ -91,7 +96,8 @@ disrupting any function relying on the Bird's 'fly()' behavior.
   ],
   quizzes: [
     {
-      question: 'Which statement best reflects the Liskov Substitution Principle?',
+      question:
+        'Which statement best reflects the Liskov Substitution Principle?',
       options: [
         'Subclasses should override all methods of the superclass',
         'A subclass should be usable anywhere the parent class is expected, without breaking the system',
@@ -99,9 +105,9 @@ disrupting any function relying on the Bird's 'fly()' behavior.
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. LSP doesn\'t demand overriding all methods, just maintaining correct behavior.',
+        "Incorrect. LSP doesn't demand overriding all methods, just maintaining correct behavior.",
         'Correct! This is the essence of LSP: no unexpected side effects when substituting a subclass.',
-        'Incorrect. LSP focuses on behavior, not identical method sets or ignoring logic changes.'
+        'Incorrect. LSP focuses on behavior, not identical method sets or ignoring logic changes.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -178,7 +184,8 @@ The code expects independent changes but gets a shape with the same dimension, y
   ],
   quizzes: [
     {
-      question: 'How does the Square-Rectangle example illustrate a common LSP violation?',
+      question:
+        'How does the Square-Rectangle example illustrate a common LSP violation?',
       options: [
         'Square extends Rectangle but breaks the contract by binding width and height together',
         'Rectangle and Square have the exact same behavior in all cases',
@@ -186,9 +193,9 @@ The code expects independent changes but gets a shape with the same dimension, y
       ],
       correctAnswer: 0,
       explanations: [
-        'Correct! The rectangle\'s contract is that width and height can vary independently, which is violated by Square.',
-        'Incorrect. That\'s the opposite of the problem; they differ significantly.',
-        'Incorrect. Overriding is allowed, but it shouldn\'t break the parent\'s assumptions.'
+        "Correct! The rectangle's contract is that width and height can vary independently, which is violated by Square.",
+        "Incorrect. That's the opposite of the problem; they differ significantly.",
+        "Incorrect. Overriding is allowed, but it shouldn't break the parent's assumptions.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -211,7 +218,7 @@ Don\'t override a method in a way that breaks assumptions. If the parent method 
 Keep Contracts Consistent
 </h3>
 
-Document (or rely on docstrings) to clarify constraints. Subclasses must uphold these constraints—if the parent says a function never raises \`ValueError\`, the subclass shouldn\'t introduce it arbitrarily.
+Document (or rely on docstrings) to clarify constraints. Subclasses must uphold these constraints—if the parent says a function never raises ValueError, the subclass shouldn\'t introduce it arbitrarily.
 
 <h3>
 Composition Over Inheritance
@@ -254,7 +261,8 @@ Thus, you avoid presenting 'Square' as a subtype when it fails to meet that spec
   ],
   quizzes: [
     {
-      question: 'Which of the following steps helps ensure LSP compliance when designing subclasses?',
+      question:
+        'Which of the following steps helps ensure LSP compliance when designing subclasses?',
       options: [
         'Subclasses should catch all exceptions silently',
         'Subclasses should maintain the same method contracts promised by the parent',
@@ -264,20 +272,19 @@ Thus, you avoid presenting 'Square' as a subtype when it fails to meet that spec
       explanations: [
         'Incorrect. Catching exceptions silently could hide errors and break expectations differently.',
         'Correct! Consistent method contracts keep the parent-child relationship valid.',
-        'Incorrect. Overriding is allowed; it just must not violate the contract.'
+        'Incorrect. Overriding is allowed; it just must not violate the contract.',
       ],
       difficulty: Difficulty.Intermediate,
     },
   ],
 };
 
-
 const lspLessons: Record<string, LessonContent> = {
   'lsp-definition': lspDefinitionData,
-  'violations': lspViolationsData,
-  'designing-subclasses': designingSubclassesData
-}
+  violations: lspViolationsData,
+  'designing-subclasses': designingSubclassesData,
+};
 export const lspLessonsTab: LessonsTab = {
   curriculum: lspCurriculum,
-  lessons: lspLessons
-}
+  lessons: lspLessons,
+};

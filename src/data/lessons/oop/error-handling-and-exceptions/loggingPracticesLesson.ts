@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const loggingPracticesCurriculum: Curriculum = {
   title: 'Logging Practices Curriculum',
@@ -21,7 +26,7 @@ export const loggingPracticesCurriculum: Curriculum = {
           id: 'production-readiness',
           title: 'Production Readiness',
           description:
-            'Ensuring logs don\'t expose sensitive data while still being informative.',
+            "Ensuring logs don't expose sensitive data while still being informative.",
           priority: PriorityLevel.Important,
         },
       ],
@@ -111,17 +116,14 @@ This selective visibility streamlines support and speeds up troubleshooting.
   ],
   quizzes: [
     {
-      question: 'Which log level is typically used to report non-critical issues that might need attention, but don’t halt the app?',
-      options: [
-        'DEBUG',
-        'WARN',
-        'ERROR',
-      ],
+      question:
+        "Which log level is typically used to report non-critical issues that might need attention, but don't halt the app?",
+      options: ['DEBUG', 'WARN', 'ERROR'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. DEBUG is more for developmental detail.',
         'Correct! WARN indicates a recoverable or potentially concerning situation.',
-        'Incorrect. ERROR suggests more severe issues preventing normal operation.'
+        'Incorrect. ERROR suggests more severe issues preventing normal operation.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -188,7 +190,8 @@ Redacting or omitting sensitive details in production logs helps maintain compli
   ],
   quizzes: [
     {
-      question: 'What is a key practice for ensuring production logs do not expose sensitive data?',
+      question:
+        'What is a key practice for ensuring production logs do not expose sensitive data?',
       options: [
         'Logging every piece of user input verbatim',
         'Redacting or masking fields like passwords and tokens before output',
@@ -198,7 +201,7 @@ Redacting or omitting sensitive details in production logs helps maintain compli
       explanations: [
         'Incorrect. That would risk leaking personal or confidential data.',
         'Correct! Masking sensitive info helps maintain compliance and security.',
-        'Incorrect. Completely disabling logs can hamper debugging and auditing.'
+        'Incorrect. Completely disabling logs can hamper debugging and auditing.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -254,17 +257,14 @@ logger.info('Hello from Winston');
   ],
   quizzes: [
     {
-      question: 'Which library is commonly used for logging in Python besides the built-in logging module?',
-      options: [
-        'Logback',
-        'Loguru',
-        'SLF4J',
-      ],
+      question:
+        'Which library is commonly used for logging in Python besides the built-in logging module?',
+      options: ['Logback', 'Loguru', 'SLF4J'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Logback is a Java library.',
         'Correct! Loguru is a popular Python logging alternative.',
-        'Incorrect. SLF4J is a Java logging facade.'
+        'Incorrect. SLF4J is a Java logging facade.',
       ],
       difficulty: Difficulty.Beginner,
     },
@@ -274,9 +274,9 @@ logger.info('Hello from Winston');
 const loggingPracticesLessons: Record<string, LessonContent> = {
   'log-levels': logLevelsData,
   'production-readiness': productionReadinessData,
-  'common-libraries': commonLibrariesData
-}
+  'common-libraries': commonLibrariesData,
+};
 export const loggingPracticesLessonsTab: LessonsTab = {
   curriculum: loggingPracticesCurriculum,
-  lessons: loggingPracticesLessons
-}
+  lessons: loggingPracticesLessons,
+};

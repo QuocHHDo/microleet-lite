@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const strategyPatternCurriculum: Curriculum = {
   title: 'Strategy Pattern Curriculum',
@@ -127,7 +132,8 @@ No changes are needed in the context\'s code, just a new strategy assignment.
   ],
   quizzes: [
     {
-      question: 'Why is the Strategy Pattern powerful for runtime algorithm selection?',
+      question:
+        'Why is the Strategy Pattern powerful for runtime algorithm selection?',
       options: [
         'It forces you to compile code multiple times',
         'You can plug in different algorithms without modifying the client or context code',
@@ -135,9 +141,9 @@ No changes are needed in the context\'s code, just a new strategy assignment.
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. Strategy doesn\'t require multiple compilations.',
+        "Incorrect. Strategy doesn't require multiple compilations.",
         'Correct! Strategies can be swapped dynamically via the same interface.',
-        'Incorrect. Strategy relies on polymorphism for different implementations.'
+        'Incorrect. Strategy relies on polymorphism for different implementations.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -222,8 +228,8 @@ The context can simply accept any new strategy, fulfilling the OCP by avoiding c
       correctAnswer: 2,
       explanations: [
         'Incorrect. That describes the Singleton pattern.',
-        'Incorrect. That\'s the Adapter pattern\'s domain.',
-        'Correct! Strategy is about interchangeable algorithms at runtime.'
+        "Incorrect. That's the Adapter pattern's domain.",
+        'Correct! Strategy is about interchangeable algorithms at runtime.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -299,7 +305,8 @@ However, there's no compiler check, so a missing 'login' method in a strategy wi
   ],
   quizzes: [
     {
-      question: 'What does the context class typically do in a Strategy Pattern?',
+      question:
+        'What does the context class typically do in a Strategy Pattern?',
       options: [
         'Directly implements all algorithms itself',
         'Holds a reference to a strategy and delegates work to it',
@@ -309,7 +316,7 @@ However, there's no compiler check, so a missing 'login' method in a strategy wi
       explanations: [
         'Incorrect. The whole point is to defer algorithm implementation to the strategies.',
         'Correct! The context delegates the relevant operation to its current strategy.',
-        'Incorrect. A single constructor or setter can handle switching strategies at runtime.'
+        'Incorrect. A single constructor or setter can handle switching strategies at runtime.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -378,8 +385,8 @@ while Strategy is about runtime swapping of independent classes.
       correctAnswer: 1,
       explanations: [
         'Incorrect. Both can use inheritance or composition in different ways.',
-        'Correct! Strategy typically chooses an algorithm externally; State transitions happen within the object\'s logic.',
-        'Incorrect. They serve related but distinct purposes.'
+        "Correct! Strategy typically chooses an algorithm externally; State transitions happen within the object's logic.",
+        'Incorrect. They serve related but distinct purposes.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -390,12 +397,10 @@ const strategyPatternLessons: Record<string, LessonContent> = {
   'strategy-intro': strategyIntroData,
   'common-use-cases': strategyCommonUseCasesData,
   'strategy-implementation': strategyImplementationData,
-  'comparison-other-patterns': strategyComparisonData
-}
+  'comparison-other-patterns': strategyComparisonData,
+};
 
 export const strategyPatternLessonsTab: LessonsTab = {
   curriculum: strategyPatternCurriculum,
-  lessons: strategyPatternLessons
-}
-
-
+  lessons: strategyPatternLessons,
+};

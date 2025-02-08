@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const polymorphismCurriculum: Curriculum = {
   title: 'Polymorphism Curriculum',
@@ -153,7 +158,8 @@ draw_any_shape(my_circle)   # "Drawing a circle"  (run-time polymorphism)
   ],
   quizzes: [
     {
-      question: 'What is the key difference between compile-time and run-time polymorphism?',
+      question:
+        'What is the key difference between compile-time and run-time polymorphism?',
       options: [
         'Compile-time polymorphism resolves method calls based on signatures at compile time, while run-time polymorphism resolves calls based on the actual object type at execution.',
         'They are the same concept but in different languages.',
@@ -163,22 +169,19 @@ draw_any_shape(my_circle)   # "Drawing a circle"  (run-time polymorphism)
       explanations: [
         'Correct! Compile-time binds the method at compile time, while run-time binds it during execution.',
         'Incorrect. They are related but distinct concepts within OOP.',
-        'Incorrect. Inheritance and global functions are unrelated to this distinction.'
+        'Incorrect. Inheritance and global functions are unrelated to this distinction.',
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'Which mechanism resolves which overridden method to call at runtime in many OOP languages?',
-      options: [
-        'Static binding',
-        'Dynamic dispatch',
-        'Reflection',
-      ],
+      question:
+        'Which mechanism resolves which overridden method to call at runtime in many OOP languages?',
+      options: ['Static binding', 'Dynamic dispatch', 'Reflection'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Static binding is associated with compile-time decisions.',
         'Correct! Dynamic dispatch determines the actual method implementation at runtime.',
-        'Incorrect. Reflection is a separate technique for inspecting code at runtime, not for resolving overridden methods.'
+        'Incorrect. Reflection is a separate technique for inspecting code at runtime, not for resolving overridden methods.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -289,7 +292,7 @@ public void LetAnimalSpeak(Animal animal) {
       explanations: [
         'Incorrect. Polymorphism does not handle or eliminate errors automatically.',
         'Correct! Polymorphism lets different classes conform to a common interface and be used interchangeably.',
-        'Incorrect. Polymorphism does not inherently guarantee better performance in every case.'
+        'Incorrect. Polymorphism does not inherently guarantee better performance in every case.',
       ],
       difficulty: Difficulty.Beginner,
     },
@@ -304,7 +307,7 @@ public void LetAnimalSpeak(Animal animal) {
       explanations: [
         'Incorrect. Single-class solutions often lead to monolithic designs, not real polymorphism.',
         'Incorrect. Reverting to procedural code does not leverage polymorphism at all.',
-        'Correct! A shared interface with overridden methods avoids writing type-specific logic repeatedly.'
+        'Correct! A shared interface with overridden methods avoids writing type-specific logic repeatedly.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -418,7 +421,8 @@ db2.disconnect()
   ],
   quizzes: [
     {
-      question: 'What is the main difference between an interface and an abstract class?',
+      question:
+        'What is the main difference between an interface and an abstract class?',
       options: [
         'An interface can have both abstract and concrete methods, whereas an abstract class cannot have any methods at all',
         'An interface strictly defines method signatures without implementation, while an abstract class can include some default implementations and state',
@@ -428,12 +432,13 @@ db2.disconnect()
       explanations: [
         'Incorrect. Interfaces typically have no concrete methods (though modern languages sometimes allow default methods), while abstract classes can have actual code.',
         'Correct! Interfaces list required methods, abstract classes can offer partial implementations.',
-        'Incorrect. They are distinct concepts, and their specifics differ by language.'
+        'Incorrect. They are distinct concepts, and their specifics differ by language.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'Why might you choose to use an abstract class instead of an interface?',
+      question:
+        'Why might you choose to use an abstract class instead of an interface?',
       options: [
         'You need to provide some shared functionality or fields while still enforcing abstract methods',
         'You want the freedom to skip implementing mandatory methods',
@@ -443,7 +448,7 @@ db2.disconnect()
       explanations: [
         'Correct! Abstract classes allow partial implementations plus mandatory overrides.',
         'Incorrect. Abstract classes still require subclasses to implement abstract methods.',
-        'Incorrect. Not instantiating classes is unrelated to the choice between an interface and an abstract class.'
+        'Incorrect. Not instantiating classes is unrelated to the choice between an interface and an abstract class.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -516,7 +521,8 @@ Here, 'Ostrich' breaks the assumption that all Birds can fly, potentially breaki
   ],
   quizzes: [
     {
-      question: 'What is a potential drawback of creating overly complex polymorphic hierarchies?',
+      question:
+        'What is a potential drawback of creating overly complex polymorphic hierarchies?',
       options: [
         'They always run faster',
         'They make code simpler to read',
@@ -526,7 +532,7 @@ Here, 'Ostrich' breaks the assumption that all Birds can fly, potentially breaki
       explanations: [
         'Incorrect. Complex hierarchies typically do not improve performance.',
         'Incorrect. Having many layers can obscure the logic.',
-        'Correct! Deep or overly abstract hierarchies can complicate maintenance and debugging.'
+        'Correct! Deep or overly abstract hierarchies can complicate maintenance and debugging.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -599,7 +605,8 @@ animal_speak(cat)  # "Meow!"
   ],
   quizzes: [
     {
-      question: 'Which interview question might demonstrate an understanding of polymorphism?',
+      question:
+        'Which interview question might demonstrate an understanding of polymorphism?',
       options: [
         '“How do you configure a CI/CD pipeline?”',
         '“Explain how multiple subclasses can share the same interface but provide different implementations.”',
@@ -609,23 +616,22 @@ animal_speak(cat)  # "Meow!"
       explanations: [
         'Incorrect. CI/CD is not primarily about polymorphism.',
         'Correct! This directly relates to polymorphism principles.',
-        'Incorrect. This focuses on database architecture, not polymorphism.'
+        'Incorrect. This focuses on database architecture, not polymorphism.',
       ],
       difficulty: Difficulty.Intermediate,
     },
   ],
 };
 
-
 const polymorphismLesson: Record<string, LessonContent> = {
   'compiletime-runtime': compileTimeRunTimeData,
   'polymorphism-benefits': polymorphismBenefitsData,
   'interfaces-abstract-classes': interfacesAbstractClassesData,
   'common-pitfalls': commonPitfallsData,
-  'practical-questions': practicalQuestionsData
-}
+  'practical-questions': practicalQuestionsData,
+};
 
 export const polymorphismLessonsTab: LessonsTab = {
   curriculum: polymorphismCurriculum,
-  lessons: polymorphismLesson
-}
+  lessons: polymorphismLesson,
+};

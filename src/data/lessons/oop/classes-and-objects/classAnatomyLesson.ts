@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const classAnatomyCurriculum: Curriculum = {
   title: 'Class Anatomy Curriculum',
@@ -33,7 +38,7 @@ export const classAnatomyCurriculum: Curriculum = {
           id: 'nested-classes',
           title: 'Nested & Inner Classes',
           description:
-            'Scenarios where classes can exist within other classes, and why that\'s useful.',
+            "Scenarios where classes can exist within other classes, and why that's useful.",
           priority: PriorityLevel.Important,
         },
         {
@@ -131,7 +136,8 @@ There's no compiler-level enforcement, making Python more flexible but relying o
   ],
   quizzes: [
     {
-      question: 'Which of the following best describes a class attribute in Python?',
+      question:
+        'Which of the following best describes a class attribute in Python?',
       options: [
         'An attribute defined in __init__ that each instance owns',
         'A variable at the module level, shared across all modules',
@@ -141,12 +147,13 @@ There's no compiler-level enforcement, making Python more flexible but relying o
       explanations: [
         'Incorrect. Attributes defined in __init__ are instance attributes.',
         'Incorrect. That describes a module-level variable, not a class attribute.',
-        'Correct! Class attributes appear in the class definition, not inside methods.'
+        'Correct! Class attributes appear in the class definition, not inside methods.',
       ],
       difficulty: Difficulty.Beginner,
     },
     {
-      question: 'Why might you use a property (@property) in Python rather than directly accessing an attribute?',
+      question:
+        'Why might you use a property (@property) in Python rather than directly accessing an attribute?',
       options: [
         'To rename the attribute throughout the entire codebase automatically',
         'To allow validation or logic upon getting/setting an attribute',
@@ -156,7 +163,7 @@ There's no compiler-level enforcement, making Python more flexible but relying o
       explanations: [
         'Incorrect. A property does not auto-rename attributes.',
         'Correct! Properties let you run code (validation, logging, etc.) upon reading or modifying a value.',
-        'Incorrect. @property is optional and used only when needed.'
+        'Incorrect. @property is optional and used only when needed.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -233,24 +240,22 @@ Python's philosophy is more flexible, relying on developers' discipline rather t
   ],
   quizzes: [
     {
-      question: 'Which Python decorator would you use to define a method that operates on the class rather than a specific instance?',
-      options: [
-        '@staticmethod',
-        '@classmethod',
-        '@abstractmethod',
-      ],
+      question:
+        'Which Python decorator would you use to define a method that operates on the class rather than a specific instance?',
+      options: ['@staticmethod', '@classmethod', '@abstractmethod'],
       correctAnswer: 1,
       explanations: [
         'Incorrect. @staticmethod does not receive a cls or self reference.',
         'Correct! @classmethod methods receive the class as the first parameter, allowing them to modify class attributes.',
-        'Incorrect. @abstractmethod is used in abstract classes, not specifically for class-level operations.'
+        'Incorrect. @abstractmethod is used in abstract classes, not specifically for class-level operations.',
       ],
       difficulty: Difficulty.Intermediate,
     },
     {
-      question: 'What is the purpose of including `self` in an instance method signature?',
+      question:
+        'What is the purpose of including `self` in an instance method signature?',
       options: [
-        'It\'s a keyword in Python that activates the method at runtime',
+        "It's a keyword in Python that activates the method at runtime",
         'It refers to the current instance of the class, allowing access to instance attributes and other methods',
         'It is required for all types of methods, including static',
       ],
@@ -258,7 +263,7 @@ Python's philosophy is more flexible, relying on developers' discipline rather t
       explanations: [
         'Incorrect. `self` is not a Python keyword but a naming convention for the instance reference.',
         'Correct! `self` is how Python passes the current instance to a method.',
-        'Incorrect. Static methods don\'t include `self` at all.'
+        "Incorrect. Static methods don't include `self` at all.",
       ],
       difficulty: Difficulty.Beginner,
     },
@@ -329,17 +334,18 @@ Any reference or data sharing must be explicitly passed, so scoping is more expl
   ],
   quizzes: [
     {
-      question: 'Which of the following best describes a nested class in Python?',
+      question:
+        'Which of the following best describes a nested class in Python?',
       options: [
         'A class defined at the module level but with a special static flag',
-        'A regular class defined within another class\'s code block',
+        "A regular class defined within another class's code block",
         'A global function for scoping logic inside a class',
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Python does not have a “static” class definition like Java does.',
-        'Correct! Python nested classes are just classes inside another class\'s body.',
-        'Incorrect. Functions and classes have different syntaxes, and Python doesn\'t treat them the same as nested classes.'
+        "Correct! Python nested classes are just classes inside another class's body.",
+        "Incorrect. Functions and classes have different syntaxes, and Python doesn't treat them the same as nested classes.",
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -405,7 +411,8 @@ Hence, they act as metadata, informing Python or external tools how to handle th
   ],
   quizzes: [
     {
-      question: 'Which of the following is a common way to add metadata or behavior to a Python class?',
+      question:
+        'Which of the following is a common way to add metadata or behavior to a Python class?',
       options: [
         'Defining a global variable with the same name as the class',
         'Using a decorator (e.g., @dataclass) at class definition time',
@@ -413,9 +420,9 @@ Hence, they act as metadata, informing Python or external tools how to handle th
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. A global variable doesn\'t attach metadata to the class structure.',
+        "Incorrect. A global variable doesn't attach metadata to the class structure.",
         'Correct! Decorators can add or alter functionality and store metadata about the class.',
-        'Incorrect. .pyc files are compiled bytecode; direct modification is not typical or recommended.'
+        'Incorrect. .pyc files are compiled bytecode; direct modification is not typical or recommended.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -427,9 +434,9 @@ const classAnnotationsLesson: Record<string, LessonContent> = {
   'class-methods': classMethodsData,
   'nested-classes': nestedClassesData,
   'class-annotations': classAnnotationsData,
-}
+};
 
 export const classAnnotationsLessonsTab: LessonsTab = {
   curriculum: classAnatomyCurriculum,
-  lessons: classAnnotationsLesson
-}
+  lessons: classAnnotationsLesson,
+};

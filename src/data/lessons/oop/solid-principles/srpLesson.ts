@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const srpCurriculum: Curriculum = {
   title: 'SRP Curriculum',
@@ -105,7 +110,7 @@ Hence, SRP is still a cornerstone of maintainable design in Python and beyond.
       explanations: [
         'Incorrect. Multiple unrelated responsibilities violate SRP.',
         'Correct! SRP is about focusing each class on a single reason to change.',
-        'Incorrect. SRP is unrelated to a requirement for a single base class.'
+        'Incorrect. SRP is unrelated to a requirement for a single base class.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -122,7 +127,7 @@ Classes often accumulate extra tasks over time, leading to violations of SRP.
 Signs of Doing Too Much
 </h3>
 
-- The class name includes “and,” “manager,” or multiple domain concepts (e.g., \`UserOrderManager\`).  
+- The class name includes “and,” “manager,” or multiple domain concepts (e.g., UserOrderManager).  
 - Frequent commits with unrelated changes in the same file.  
 - Large method counts or unclear responsibilities.
 
@@ -174,9 +179,9 @@ Focusing each class on a single area of responsibility streamlines test setups a
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. That’s a single, clear task.',
+        "Incorrect. That's a single, clear task.",
         'Correct! Authentication and notifications are unrelated concerns combined.',
-        'Incorrect. Splitting tasks is usually aligned with SRP.'
+        'Incorrect. Splitting tasks is usually aligned with SRP.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -251,7 +256,8 @@ to the more granular components.
   ],
   quizzes: [
     {
-      question: 'Which step is crucial after refactoring a class into multiple SRP-compliant classes?',
+      question:
+        'Which step is crucial after refactoring a class into multiple SRP-compliant classes?',
       options: [
         'Deleting all unit tests to start fresh',
         'Updating references and thoroughly testing to confirm nothing is broken',
@@ -261,7 +267,7 @@ to the more granular components.
       explanations: [
         'Incorrect. You typically keep existing tests, adapting them as needed.',
         'Correct! Ensuring references are updated and retested is key to a smooth refactoring.',
-        'Incorrect. That would undo the SRP improvements.'
+        'Incorrect. That would undo the SRP improvements.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -270,11 +276,11 @@ to the more granular components.
 
 const srpLessons: Record<string, LessonContent> = {
   'srp-definition': srpDefinitionData,
-  'violations': srpViolationsData,
-  'refactoring-srp': refactoringSrpData
-}
+  violations: srpViolationsData,
+  'refactoring-srp': refactoringSrpData,
+};
 
 export const srpLessonsTab: LessonsTab = {
   curriculum: srpCurriculum,
-  lessons: srpLessons
-}
+  lessons: srpLessons,
+};

@@ -1,16 +1,16 @@
 import React from 'react';
-import { inheritanceLessonsTab } from '@/data/lessons/oop/foundation-of-oop/inheritanceLesson';
 import ModulePage from '@/components/ModulePage';
+import { inheritanceLessonsTab } from '@/data/lessons/oop/foundation-of-oop/inheritanceLesson';
 
-const InheritancePage: React.FC = () => {
+const inheritancePage: React.FC = () => {
   return (
     <ModulePage
       title="Inheritance"
-      description="Master the fundamentals of inheritance"
+      description="Explore how inheritance allows classes to inherit properties and methods from other classes"
       lessonsTab={inheritanceLessonsTab}
       progressKey="Inheritance"
     />
   );
 };
 
-export default InheritancePage;
+export default inheritancePage;

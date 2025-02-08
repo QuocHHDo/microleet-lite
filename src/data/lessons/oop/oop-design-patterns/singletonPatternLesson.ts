@@ -1,5 +1,10 @@
 import { Difficulty } from '@/common/commonConcept';
-import { Curriculum, LessonContent, LessonsTab, PriorityLevel } from '@/common/commonLesson';
+import {
+  Curriculum,
+  LessonContent,
+  LessonsTab,
+  PriorityLevel,
+} from '@/common/commonLesson';
 
 export const singletonPatternCurriculum: Curriculum = {
   title: 'Singleton Pattern Curriculum',
@@ -104,7 +109,8 @@ often eliminating the need for a dedicated singleton class.
   ],
   quizzes: [
     {
-      question: 'Which is a typical implementation approach for a Python singleton?',
+      question:
+        'Which is a typical implementation approach for a Python singleton?',
       options: [
         'Declaring a top-level function in the class',
         'Overriding __new__ or using a metaclass to ensure only one instance',
@@ -112,9 +118,9 @@ often eliminating the need for a dedicated singleton class.
       ],
       correctAnswer: 1,
       explanations: [
-        'Incorrect. A top-level function doesn\'t inherently enforce single instance creation.',
+        "Incorrect. A top-level function doesn't inherently enforce single instance creation.",
         'Correct! Overriding __new__ or using metaclasses are standard ways to do it.',
-        'Incorrect. Python does not have a "singleton" keyword.'
+        'Incorrect. Python does not have a "singleton" keyword.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -173,17 +179,18 @@ potentially saving startup time or resources.
   ],
   quizzes: [
     {
-      question: 'How can you prevent two threads from creating separate singleton instances in Python?',
+      question:
+        'How can you prevent two threads from creating separate singleton instances in Python?',
       options: [
-        'Don\'t use classes',
+        "Don't use classes",
         'Use a lock to synchronize instance creation',
-        'It\'s impossible to have concurrency in Python',
+        "It's impossible to have concurrency in Python",
       ],
       correctAnswer: 1,
       explanations: [
         'Incorrect. Classes can be used with thread safety measures.',
         'Correct! A lock ensures only one thread can create the instance at a time.',
-        'Incorrect. Python can have concurrency via threads, albeit with GIL limitations or multi-process setups.'
+        'Incorrect. Python can have concurrency via threads, albeit with GIL limitations or multi-process setups.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -248,9 +255,9 @@ def teardown_function():
       ],
       correctAnswer: 2,
       explanations: [
-        'Incorrect. Singletons don\'t create test doubles automatically.',
+        "Incorrect. Singletons don't create test doubles automatically.",
         'Incorrect. Singletons are more about shared state, not purely functional code.',
-        'Correct! The shared, global nature complicates test isolation.'
+        'Correct! The shared, global nature complicates test isolation.',
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -260,10 +267,10 @@ def teardown_function():
 const singletonPatternLessons: Record<string, LessonContent> = {
   'singleton-definition': singletonDefinitionData,
   'thread-safety': singletonThreadSafetyData,
-  'testability-issues': singletonTestabilityData
-}
+  'testability-issues': singletonTestabilityData,
+};
 
 export const singletonPatternLessonsTab: LessonsTab = {
   curriculum: singletonPatternCurriculum,
-  lessons: singletonPatternLessons
-}
+  lessons: singletonPatternLessons,
+};
