@@ -1,4 +1,8 @@
-import { CheatSheetItem, createCheatSheet, OperationTypes } from '@/common/commonCheatSheet';
+import {
+  CheatSheetItem,
+  createCheatSheet,
+  OperationTypes,
+} from '@/common/commonCheatSheet';
 
 export const graphCheatSheet: CheatSheetItem[] = [
   // CREATE
@@ -189,7 +193,7 @@ def dijkstra(graph, start):
     'Graph should store neighbors in a dict-like structure, e.g. graph[u] = {v: w, ...}.',
   ),
   createCheatSheet(
-    "Bellman-Ford algorithm for shortest path",
+    'Bellman-Ford algorithm for shortest path',
     `def bellman_ford(graph, start):
     distances = {vertex: float("inf") for vertex in graph}
     distances[start] = 0
@@ -277,7 +281,7 @@ def kruskal(edges, vertices):
             result.append((u, v, w))
             union(parent, rank, x, y)
     return result`,
-    "Constructs the MST of a weighted undirected graph by sorting edges and uniting sets.",
+    'Constructs the MST of a weighted undirected graph by sorting edges and uniting sets.',
     OperationTypes.Utility,
     'O(E log E)',
     'E is the number of edges; sorting dominates the complexity.',
@@ -302,7 +306,7 @@ def prim(graph, start):
                     heapq.heappush(edges, (w, to, nxt))
 
     return mst`,
-    "Builds the MST of a weighted undirected graph by greedily expanding the frontier from a start vertex.",
+    'Builds the MST of a weighted undirected graph by greedily expanding the frontier from a start vertex.',
     OperationTypes.Utility,
     'O((V + E) log V)',
     'Requires adjacency dict: graph[u] = {v: weight, ...}.',

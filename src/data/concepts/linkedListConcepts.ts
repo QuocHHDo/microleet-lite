@@ -35,7 +35,7 @@ export const linkedListConcepts: Concept[] = [
 | **Insertion - In Middle**   | O(n)       | Must traverse to the insertion point.                                         |
 | **Deletion - At Beginning** | O(1)       | Resetting the head pointer is constant time.                                  |
 | **Deletion - At End**       | O(n)       | Requires traversal to find the second-to-last node.                           |
-| **Deletion - In Middle**    | O(n)       | Must traverse to the node’s predecessor.                                      |
+| **Deletion - In Middle**    | O(n)       | Must traverse to the node\'s predecessor.                                      |
 
 **Key Points:**
 - Linked lists excel at insertions/deletions at the head.
@@ -69,7 +69,7 @@ class DoubleNode:
 \`\`\`
 
 **Key Points:**
-- Singly linked lists require less memory but can’t traverse backwards.
+- Singly linked lists require less memory but can\'t traverse backwards.
 - Doubly linked lists allow reverse traversal but use more memory.
 - Circular variants enable continuous traversal of the list.
     `,
@@ -126,7 +126,7 @@ def reverse_linked_list(head):
 \`\`\`
 
 **Key Points:**
-- Reassigns each node’s \`.next\` pointer in a single pass.
+- Reassigns each node\'s \`.next\` pointer in a single pass.
 - \`prev\` points to the new head at completion.
     `,
     Difficulty.Intermediate,
@@ -135,11 +135,11 @@ def reverse_linked_list(head):
     6,
     'How do you detect a loop in a linked list?',
     `
-**Floyd’s Cycle Detection (Tortoise and Hare):**
+**Floyd\'s Cycle Detection (Tortoise and Hare):**
 1. Initialize two pointers: \`slow\` and \`fast\`, both at the head.
 2. Move \`slow\` by one and \`fast\` by two.
 3. If they ever meet, a loop is present.
-4. If \`fast\` or \`fast.next\` becomes null, there’s no loop.
+4. If \`fast\` or \`fast.next\` becomes null, there\'s no loop.
 
 **Example:**
 \`\`\`python
@@ -225,7 +225,7 @@ def remove_duplicates(head):
     `
 **Algorithm:**
 1. Create a dummy node to simplify edge cases.
-2. Compare heads of both lists, attach the smaller one to the \`current\` pointer, and move that list’s pointer forward.
+2. Compare heads of both lists, attach the smaller one to the \`current\` pointer, and move that list\'s pointer forward.
 3. Continue until one list is empty, then attach the remainder of the other list.
 
 **Example:**
@@ -339,7 +339,7 @@ def get_intersection_node(headA, headB):
 
 **Approach (Two-Pass Algorithm):**
 1. **First Pass:** Clone each node and insert it right after the original node.
-2. **Assign Random Pointers:** For each original node’s clone, set \`clone.random = original.random.next\`.
+2. **Assign Random Pointers:** For each original node\'s clone, set \`clone.random = original.random.next\`.
 3. **Separate Lists:** Detach the cloned list from the original list.
 
 **Key Points:**
@@ -386,4 +386,3 @@ def get_intersection_node(headA, headB):
     Difficulty.Advanced,
   ),
 ];
-

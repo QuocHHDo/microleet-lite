@@ -1,4 +1,8 @@
-import { CheatSheetItem, createCheatSheet, OperationTypes } from '@/common/commonCheatSheet';
+import {
+  CheatSheetItem,
+  createCheatSheet,
+  OperationTypes,
+} from '@/common/commonCheatSheet';
 
 export const treeCheatSheet: CheatSheetItem[] = [
   // CREATE
@@ -170,7 +174,7 @@ def level_order(root):
     if not root:
         return 0
     return 1 + max(height(root.left), height(root.right))`,
-    'Returns the tree’s height, measured by the longest root-to-leaf path.',
+    "Returns the tree's height, measured by the longest root-to-leaf path.",
     OperationTypes.Utility,
     'O(n)',
     'N/A',
@@ -235,4 +239,3 @@ def level_order(root):
     'N/A',
   ),
 ];
-

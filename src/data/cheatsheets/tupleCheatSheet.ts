@@ -1,4 +1,8 @@
-import { CheatSheetItem, createCheatSheet, OperationTypes } from '@/common/commonCheatSheet';
+import {
+  CheatSheetItem,
+  createCheatSheet,
+  OperationTypes,
+} from '@/common/commonCheatSheet';
 
 export const tupleCheatSheet: CheatSheetItem[] = [
   // CREATE
@@ -81,7 +85,7 @@ export const tupleCheatSheet: CheatSheetItem[] = [
   createCheatSheet(
     'Sorting a tuple',
     `sorted_list = sorted(my_tuple)`,
-    'Returns a new **list** of the tuple’s elements in ascending order.',
+    "Returns a new **list** of the tuple's elements in ascending order.",
     OperationTypes.Modify,
     'O(n log n)',
     'Sorting large tuples can be memory-intensive.',
@@ -163,4 +167,3 @@ export const tupleCheatSheet: CheatSheetItem[] = [
     'Comparison stops at the first differing element.',
   ),
 ];
-

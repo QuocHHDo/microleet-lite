@@ -25,11 +25,11 @@ import CheatSheet from './CheatSheet';
 interface ModulePageProps {
   title: string;
   description: string;
-  lessonsTab?: LessonsTab;
-  problems: Problem[];
-  cheatSheetItems: CheatSheetItem[];
-  concepts: Concept[];
+  lessonsTab: LessonsTab;
   progressKey: string;
+  problems?: Problem[];
+  cheatSheetItems?: CheatSheetItem[];
+  concepts?: Concept[];
 }
 
 const ModulePage: React.FC<ModulePageProps> = ({
@@ -98,15 +98,21 @@ const ModulePage: React.FC<ModulePageProps> = ({
             <TabsTrigger value="lessons">
               <BookOpen className="mr-2" /> Lessons
             </TabsTrigger>
-            <TabsTrigger value="practice">
-              <Code className="mr-2" /> Practice
-            </TabsTrigger>
-            <TabsTrigger value="concepts">
-              <List className="mr-2" /> Concepts
-            </TabsTrigger>
-            <TabsTrigger value="cheatsheet">
-              <FileText className="mr-2" /> Cheat Sheet
-            </TabsTrigger>
+            {problems && (
+              <TabsTrigger value="practice">
+                <Code className="mr-2" /> Practice
+              </TabsTrigger>
+            )}
+            {concepts && (
+              <TabsTrigger value="concepts">
+                <List className="mr-2" /> Concepts
+              </TabsTrigger>
+            )}
+            {cheatSheetItems && (
+              <TabsTrigger value="cheatsheet">
+                <FileText className="mr-2" /> Cheat Sheet
+              </TabsTrigger>
+            )}
           </TabsList>
 
           {/* Lessons Tab */}
@@ -119,38 +125,44 @@ const ModulePage: React.FC<ModulePageProps> = ({
           </TabsContent>
 
           {/* Practice Tab */}
-          <TabsContent value="practice">
-            <Card className="mt-4">
-              <CardContent className="pt-6">
-                <LeetCodeProblems problems={problems} />
-              </CardContent>
-            </Card>
-          </TabsContent>
+          {problems && (
+            <TabsContent value="practice">
+              <Card className="mt-4">
+                <CardContent className="pt-6">
+                  <LeetCodeProblems problems={problems} />
+                </CardContent>
+              </Card>
+            </TabsContent>
+          )}
 
           {/* Concepts Tab */}
-          <TabsContent value="concepts">
-            <Concepts
-              concepts={concepts}
-              completedConcepts={completedConcepts}
-              expandedConcepts={expandedConcepts}
-              filter={filter}
-              setFilter={setFilter}
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm}
-              toggleConcept={toggleConcept}
-              markAsCompleted={markAsCompleted}
-              darkMode={darkMode}
-            />
-          </TabsContent>
+          {concepts && (
+            <TabsContent value="concepts">
+              <Concepts
+                concepts={concepts}
+                completedConcepts={completedConcepts}
+                expandedConcepts={expandedConcepts}
+                filter={filter}
+                setFilter={setFilter}
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
+                toggleConcept={toggleConcept}
+                markAsCompleted={markAsCompleted}
+                darkMode={darkMode}
+              />
+            </TabsContent>
+          )}
 
           {/* Cheat Sheet Tab */}
-          <TabsContent value="cheatsheet">
-            <Card className="mt-4">
-              <CardContent className="pt-6">
-                <CheatSheet items={cheatSheetItems} />
-              </CardContent>
-            </Card>
-          </TabsContent>
+          {cheatSheetItems && (
+            <TabsContent value="cheatsheet">
+              <Card className="mt-4">
+                <CardContent className="pt-6">
+                  <CheatSheet items={cheatSheetItems} />
+                </CardContent>
+              </Card>
+            </TabsContent>
+          )}
         </Tabs>
       </div>
     </TooltipProvider>

@@ -199,7 +199,7 @@ class MyQueue:
 
 **Key Points:**
 - Average O(1) amortized time for enqueue and dequeue.
-- stackOut only gets reloaded when it’s empty, minimizing data movement.
+- stackOut only gets reloaded when it\'s empty, minimizing data movement.
     `,
     Difficulty.Intermediate,
   ),
@@ -215,7 +215,7 @@ class MyQueue:
 - **popleft():** Remove from the front.
 - **pop():** Remove from the rear.
 
-**Example (Python’s collections.deque):**
+**Example (Python\'s collections.deque):**
 \`\`\`python
 from collections import deque
 
@@ -252,7 +252,7 @@ d.popleft()   # Removes 10
 - **Heaps:** Often implemented using a binary heap for O(log n) insertion and removal of the min/max.
 - **Ordered Structures:** Could use balanced trees or arrays, but each has different trade-offs.
 
-**Example (Python’s heapq for min-priority queue):**
+**Example (Python\'s heapq for min-priority queue):**
 \`\`\`python
 import heapq
 
@@ -265,9 +265,8 @@ print(heapq.heappop(pq))  # (0, 'High priority')
 
 **Key Points:**
 - Priority queues reorder elements based on priority, not arrival time.
-- Used in Dijkstra’s algorithm, CPU scheduling, or any scenario requiring priority-based retrieval.
+- Used in Dijkstra\'s algorithm, CPU scheduling, or any scenario requiring priority-based retrieval.
     `,
     Difficulty.Advanced,
   ),
 ];
-

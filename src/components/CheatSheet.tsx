@@ -149,8 +149,7 @@ const CheatSheet: React.FC<CheatSheetProps> = ({ items }) => {
                   onClick={() => toggleFilterType(type)}
                   className="flex items-center gap-2"
                 >
-                  {getIcon(type)}{' '}
-                  <span className="capitalize">{type}</span>
+                  {getIcon(type)} <span className="capitalize">{type}</span>
                 </Button>
               ))}
             </div>

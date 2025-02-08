@@ -3,7 +3,7 @@ import { setConcepts } from '@/data/concepts/setConcepts';
 import { setProblems } from '@/data/problems/setProblems';
 import { TopicName } from '../interfaces';
 import { setCheatSheet } from '@/data/cheatsheets/setCheatSheet';
-import { setLessonsTab } from '@/data/lessons/setLessons';
+import { setLessonsTab } from '@/data/lessons/leetcode/setLessons';
 
 const SetsPage: React.FC = () => {
   return (

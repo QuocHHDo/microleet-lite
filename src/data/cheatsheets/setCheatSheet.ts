@@ -1,4 +1,8 @@
-import { CheatSheetItem, createCheatSheet, OperationTypes } from '@/common/commonCheatSheet';
+import {
+  CheatSheetItem,
+  createCheatSheet,
+  OperationTypes,
+} from '@/common/commonCheatSheet';
 
 export const setCheatSheet: CheatSheetItem[] = [
   // CREATE
@@ -155,4 +159,3 @@ export const setCheatSheet: CheatSheetItem[] = [
     'Copying a large set can be memory-intensive.',
   ),
 ];
-
