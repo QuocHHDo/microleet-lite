@@ -150,7 +150,7 @@ print(frequency)  # Output: {'apple': 3, 'banana': 2, 'orange': 1}
 
 **Key Points:**
 - Resizing ensures dictionaries remain efficient as elements grow.
-- It can briefly impact performance during the rehash, but it’s essential to maintain fast lookups overall.
+- It can briefly impact performance during the rehash, but it\'s essential to maintain fast lookups overall.
     `,
     Difficulty.Intermediate,
   ),

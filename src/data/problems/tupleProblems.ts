@@ -23,7 +23,7 @@ export const tupleProblems: Problem[] = [
         timeComplexity: 'O(n)',
         spaceComplexity: 'O(1)',
         explanation:
-          'This solution iterates through each tuple, calculates the sum of each tuple’s elements, and keeps track of the maximum sum and corresponding tuple.',
+          'This solution iterates through each tuple, calculates the sum of each tuple\'s elements, and keeps track of the maximum sum and corresponding tuple.',
       },
     ],
     'Calculate the sum of each tuple and track the maximum sum.',
@@ -44,7 +44,7 @@ export const tupleProblems: Problem[] = [
           'This solution uses the built-in sorted function, which sorts the tuples by the first element in each tuple using a lambda function.',
       },
     ],
-    'Use Python’s built-in sorted function with a lambda key to sort by the first element.',
+    'Use Python\'s built-in sorted function with a lambda key to sort by the first element.',
     'https://custom-url.com/sort-tuples-by-first-element',
   ),
   createProblem(
@@ -77,10 +77,10 @@ export const tupleProblems: Problem[] = [
         timeComplexity: 'O(n)',
         spaceComplexity: 'O(n)',
         explanation:
-          'This solution converts the list of tuples into a dictionary by using Python’s built-in dict constructor, which takes a list of key-value pairs.',
+          'This solution converts the list of tuples into a dictionary by using Python\'s built-in dict constructor, which takes a list of key-value pairs.',
       },
     ],
-    'Use Python’s dict constructor to convert the tuples into key-value pairs.',
+    'Use Python\'s dict constructor to convert the tuples into key-value pairs.',
     'https://custom-url.com/tuple-to-dict',
   ),
   createProblem(

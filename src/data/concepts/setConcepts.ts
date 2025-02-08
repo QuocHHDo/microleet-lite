@@ -74,7 +74,7 @@ print(my_set)  # Output: {1, 2, 3, 4, 5}
 - **Unique Elements:** Automatically removes duplicates.
 - **Unordered:** No predictable element order.
 - **Hash Table Based:** Optimized for fast lookups.
-- **No Index Access:** You can’t do something like \`my_set[0]\`.
+- **No Index Access:** You can\'t do something like \`my_set[0]\`.
 
 **Lists:**
 - **Indexed Elements:** Maintains insertion order (in most languages).
@@ -173,7 +173,7 @@ my_frozenset = frozenset(my_set)
 
 **Key Points:**
 - Used in connectivity checks (e.g., checking if two nodes are in the same connected component).
-- Common in Kruskal’s MST algorithm and other partitioning scenarios.
+- Common in Kruskal\'s MST algorithm and other partitioning scenarios.
     `,
     Difficulty.Advanced,
   ),

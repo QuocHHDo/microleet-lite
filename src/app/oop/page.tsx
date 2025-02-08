@@ -52,7 +52,7 @@ const OOPPage: React.FC = () => {
   const router = useRouter();
 
   const navigateToTopic = (topic: string) => {
-    const formattedTopic = topic.toLowerCase().replace(/\s+/g, '-');
+    const formattedTopic = topic.toLowerCase().replace(/\s*&\s*|\s+/g, '-');  
     router.push(`/oop/topics/${formattedTopic}`);
   };
 

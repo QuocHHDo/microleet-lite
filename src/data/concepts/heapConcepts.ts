@@ -5,7 +5,7 @@ export const heapConcepts: Concept[] = [
     1,
     'What is a Heap? How does it differ from other data structures?',
     `
-**Definition:** A heap is a specialized tree-based data structure that satisfies the heap property. In a max-heap, each node’s value is greater than or equal to the values of its children. In a min-heap, each node’s value is less than or equal to the values of its children.
+**Definition:** A heap is a specialized tree-based data structure that satisfies the heap property. In a max-heap, each node\'s value is greater than or equal to the values of its children. In a min-heap, each node\'s value is less than or equal to the values of its children.
 
 **Basic Structure:** Heaps are often represented as complete binary trees and typically implemented using arrays for efficient indexing.
 
@@ -96,11 +96,11 @@ print(heapq.heappop(min_heap))  # Output: 1
     `
 **Common Use Cases:**
 - **Priority Queues:** Retrieve the smallest or largest element quickly.
-- **Dijkstra’s Algorithm:** Manage the next closest vertex in shortest-path problems.
+- **Dijkstra\'s Algorithm:** Manage the next closest vertex in shortest-path problems.
 - **Heap Sort:** Sort an array in O(n log n) by repeatedly extracting the min/max.
 - **Event Scheduling:** Quickly fetch the highest or lowest priority task.
 - **Median Maintenance:** Use two heaps (a max-heap and a min-heap) to maintain the median in O(log n) per insertion.
-- **Prim’s Algorithm:** For finding the minimum spanning tree in weighted graphs.
+- **Prim\'s Algorithm:** For finding the minimum spanning tree in weighted graphs.
 
 **Key Points:**
 - Heaps shine where priority-based insertion and extraction are critical.
@@ -136,14 +136,14 @@ print(heapq.heappop(min_heap))  # Output: 1
 2. **Increase Key:** If a key increases, it may need to bubble down.
 
 **Implementation Details:**
-- **Index Lookup:** You must know the element’s index in the heap array.
+- **Index Lookup:** You must know the element\'s index in the heap array.
 - **Re-heapify:** Perform a “shift up” or “shift down” as needed.
 
 **Complexity:** O(log n) in most implementations.
 
 **Key Points:**
-- Requires direct access to the element’s position to quickly re-heapify.
-- Useful in algorithms like Dijkstra’s when updating distances (priorities).
+- Requires direct access to the element\'s position to quickly re-heapify.
+- Useful in algorithms like Dijkstra\'s when updating distances (priorities).
     `,
     Difficulty.Intermediate,
   ),

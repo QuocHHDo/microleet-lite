@@ -229,13 +229,13 @@ def autocomplete(self, prefix):
     'Deletions and Edge-Case Management in Tries',
     `
 **Deletion Steps (Pseudo-code):**
-1. Traverse down the trie using the string’s characters.
+1. Traverse down the trie using the string\'s characters.
 2. Unmark \`is_end_of_word\` at the final node.
 3. Optionally remove leaf nodes that are no longer needed.
 
 **Edge Cases:**
 - **Partial Overlap:** Some prefix might still be needed for other words.
-- **No Words Left:** If \`is_end_of_word\` is never true in a node’s children, prune them carefully.
+- **No Words Left:** If \`is_end_of_word\` is never true in a node\'s children, prune them carefully.
 - **Empty String:** Handle special case if your trie supports insertion of empty strings.
 
 **Key Points:**

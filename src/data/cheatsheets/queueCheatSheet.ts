@@ -122,7 +122,7 @@ queue = deque()`,
   createCheatSheet(
     'Sorting the queue in descending order',
     'sorted(queue, reverse=True)',
-    'Returns a new list of the queue’s elements in descending order.',
+    'Returns a new list of the queue\'s elements in descending order.',
     OperationTypes.Modify,
     'O(n log n)',
     'Sorting a large queue can be memory-intensive.',

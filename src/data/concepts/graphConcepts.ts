@@ -236,12 +236,12 @@ def has_cycle(graph):
     `
 **Minimum Spanning Tree (MST):** A subset of edges that connects all vertices with the minimum total edge weight (for weighted, undirected graphs).
 
-**Kruskal’s Algorithm:**
+**Kruskal\'s Algorithm:**
 1. Sort edges by weight.
-2. Pick the smallest edge that doesn’t create a cycle (use a Union-Find to check).
+2. Pick the smallest edge that doesn\'t create a cycle (use a Union-Find to check).
 3. Repeat until all vertices are connected.
 
-**Prim’s Algorithm:**
+**Prim\'s Algorithm:**
 1. Start from any vertex, pick the smallest edge connecting to a new vertex.
 2. Keep adding the smallest edge that connects a visited vertex to an unvisited one.
 3. Repeat until all vertices are included.

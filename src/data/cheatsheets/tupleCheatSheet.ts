@@ -85,7 +85,7 @@ export const tupleCheatSheet: CheatSheetItem[] = [
   createCheatSheet(
     'Sorting a tuple',
     `sorted_list = sorted(my_tuple)`,
-    'Returns a new **list** of the tuple’s elements in ascending order.',
+    'Returns a new **list** of the tuple\'s elements in ascending order.',
     OperationTypes.Modify,
     'O(n log n)',
     'Sorting large tuples can be memory-intensive.',
