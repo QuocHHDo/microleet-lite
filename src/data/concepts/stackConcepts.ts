@@ -306,9 +306,8 @@ class MinStack:
 
 **Key Points:**
 - The \`min_stack\` tracks the minimum values historically.
-- When an element is popped from \`main_stack\`, if it matches \`min_stack\`’s top, pop from there too.
+- When an element is popped from \`main_stack\`, if it matches \`min_stack\`\'s top, pop from there too.
     `,
     Difficulty.Advanced,
   ),
 ];
-

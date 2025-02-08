@@ -3,7 +3,7 @@ import { TopicName } from '../interfaces';
 import { trieCheatSheet } from '@/data/cheatsheets/trieCheatSheet';
 import { trieProblems } from '@/data/problems/trieProblems';
 import { trieConcepts } from '@/data/concepts/trieConcepts';
-import { trieLessonsTab } from '@/data/lessons/trieLessons';
+import { trieLessonsTab } from '@/data/lessons/leetcode/trieLessons';
 
 const TriesPage: React.FC = () => {
   return (

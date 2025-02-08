@@ -260,7 +260,7 @@ my_string = "Hello, World!"
 **Concept:** Preprocesses the pattern to build a longest prefix-suffix (LPS) array, enabling O(n + m) time complexity for searching.
 
 **Steps:**
-1. **LPS Array Construction:** For each prefix of the pattern, store the length of the longest proper prefix that’s also a suffix.
+1. **LPS Array Construction:** For each prefix of the pattern, store the length of the longest proper prefix that\'s also a suffix.
 2. **Search Phase:** Use the LPS array to avoid re-checking characters in the text.
 
 **Advantages:**
@@ -274,4 +274,3 @@ my_string = "Hello, World!"
     Difficulty.Advanced,
   ),
 ];
-
