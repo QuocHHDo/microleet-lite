@@ -499,7 +499,10 @@ Access modifiers in Python help define the intended accessibility of class membe
       ],
       correctAnswer: 1,
       explanations: [
-        "Correct! The single underscore is a convention that indicates it's intended for internal or subclass use.",
+        "Incorrect. Public attributes have no access restrictions and are fully accessible.",
+        "Correct! Protected (single underscore) is a convention indicating internal/subclass use.",
+        "Incorrect. Private (double underscores) use name-mangling for class-only access, not subclasses.",
+        "Incorrect. The correct answer is 'Protected (single underscore)'."
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -611,7 +614,9 @@ class Product:
       ],
       correctAnswer: 1,
       explanations: [
-        'Correct! Getters and setters control access to private attributes, ensuring encapsulation and validation.',
+        "Incorrect. Getters/setters control access, not enable direct attribute access.",
+        "Correct! They enforce encapsulation and validate/modify data during access.",
+        "Incorrect. While they add structure, their purpose is control, not complexity."
       ],
       difficulty: Difficulty.Beginner,
     },
@@ -694,7 +699,9 @@ class User:
       ],
       correctAnswer: 1,
       explanations: [
-        'Correct! Over-encapsulation can lead to unnecessary complexity.',
+        "Incorrect. Over-encapsulation often makes code harder to follow, not cleaner.",
+        "Correct! Excessive encapsulation can clutter code and harm readability/maintainability.",
+        "Incorrect. Automatic validation is a benefit, not a downside."
       ],
       difficulty: Difficulty.Intermediate,
     },
@@ -760,22 +767,23 @@ class BankAccount:
       difficulty: Difficulty.Beginner,
     },
   ],
-  quizzes: [
-    {
-      question:
-        'Which of the following is a misconception about encapsulation?',
-      options: [
-        'Encapsulation helps maintain code structure',
-        'Encapsulation replaces the need for security measures like encryption',
-        'Encapsulation allows controlled access to data',
-      ],
-      correctAnswer: 1,
-      explanations: [
-        "Correct! Encapsulation is not an all-in-one security solution. It doesn't replace encryption or security protocols.",
-      ],
-      difficulty: Difficulty.Beginner,
-    },
-  ],
+  quizzes: [  
+    {  
+      question: 'Which of the following is a misconception about encapsulation?',  
+      options: [  
+        'Encapsulation helps maintain code structure',  
+        'Encapsulation replaces the need for security measures like encryption',  
+        'Encapsulation allows controlled access to data',  
+      ],  
+      correctAnswer: 1,  
+      explanations: [  
+        "Incorrect. Encapsulation does help maintain code structure (valid purpose, not a misconception).",  
+        "Correct! Encapsulation isn\'t a security solution; doesn\'t replace encryption/security protocols.",  
+        "Incorrect. Controlled access is a core goal of encapsulation (not a misconception)."  
+      ],  
+      difficulty: Difficulty.Beginner,  
+    },  
+  ],  
 };
 
 const mockQuestionsData: LessonContent = {
@@ -847,21 +855,23 @@ print(employee.salary)
       difficulty: Difficulty.Intermediate,
     },
   ],
-  quizzes: [
-    {
-      question: 'Which of the following best describes encapsulation?',
-      options: [
-        'Hiding implementation details and exposing controlled access',
-        'Allowing direct access to all attributes',
-        'Using global variables for data management',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'Correct! Encapsulation hides implementation details and restricts direct access to data.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
+  quizzes: [  
+    {  
+      question: 'Which of the following best describes encapsulation?',  
+      options: [  
+        'Hiding implementation details and exposing controlled access',  
+        'Allowing direct access to all attributes',  
+        'Using global variables for data management',  
+      ],  
+      correctAnswer: 0,  
+      explanations: [  
+        "Correct! Encapsulation hides implementation details and restricts direct data access.",  
+        "Incorrect. Encapsulation discourages direct access to attributes.",  
+        "Incorrect. Global variables violate encapsulation principles."  
+      ],  
+      difficulty: Difficulty.Intermediate,  
+    },  
+  ],  
 };
 
 const pitfallsPracticesData: LessonContent = {
@@ -936,21 +946,23 @@ By adhering to these practices—avoiding over-encapsulation, maintaining consis
       difficulty: Difficulty.Intermediate,
     },
   ],
-  quizzes: [
-    {
-      question: 'Which of the following is a pitfall of encapsulation?',
-      options: [
-        'Overusing private attributes and trivial getters/setters',
-        'Applying consistent validation',
-        'Providing a minimal public interface',
-      ],
-      correctAnswer: 0,
-      explanations: [
-        'Correct! Over-encapsulation adds unnecessary complexity.',
-      ],
-      difficulty: Difficulty.Intermediate,
-    },
-  ],
+  quizzes: [  
+    {  
+      question: 'Which of the following is a pitfall of encapsulation?',  
+      options: [  
+        'Overusing private attributes and trivial getters/setters',  
+        'Applying consistent validation',  
+        'Providing a minimal public interface',  
+      ],  
+      correctAnswer: 0,  
+      explanations: [  
+        "Correct! Overusing encapsulation (e.g., trivial getters/setters) adds boilerplate without value.",  
+        "Incorrect. Consistent validation is a benefit, not a pitfall.",  
+        "Incorrect. A minimal public interface is a best practice for encapsulation."  
+      ],  
+      difficulty: Difficulty.Intermediate,  
+    },  
+  ],  
 };
 
 const encapsulationLesson: Record<string, LessonContent> = {
