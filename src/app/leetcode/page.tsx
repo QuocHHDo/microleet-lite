@@ -1,29 +1,26 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import '../../styles/globals.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faTree,
-  faPuzzlePiece,
-  faCogs,
-  faChevronDown,
-  faChevronUp,
-  faSearch,
-  faArrowRight,
-  faCubes,
-  faLightbulb,
-  faCalculator,
-  faChartLine,
-} from '@fortawesome/free-solid-svg-icons';
-import { config, dom } from '@fortawesome/fontawesome-svg-core';
+  TreePine,
+  Puzzle,
+  Settings,
+  ChevronDown,
+  ChevronUp,
+  Search,
+  ArrowRight,
+  Boxes,
+  Lightbulb,
+  Calculator,
+  TrendingUp,
+} from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardHeader, CardContent } from '@/components/ui/card';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { LanguageSelector } from '@/components/LanguageSelector';
 import { useRouter } from 'next/navigation';
-
-config.autoAddCss = false;
 
 interface RoadmapSection {
   title: string;
@@ -35,22 +32,10 @@ interface RoadmapSection {
 
 const LeetcodePage: React.FC = () => {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(true);
   const [expandedSections, setExpandedSections] = useState<string[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const [completedItems, setCompletedItems] = useState<Set<string>>(new Set());
-
-  useEffect(() => {
-    const style = document.createElement('style');
-    style.appendChild(document.createTextNode(dom.css()));
-    document.head.appendChild(style);
-    const timer = setTimeout(() => setIsLoading(false), 100);
-    return () => {
-      clearTimeout(timer);
-      document.head.removeChild(style);
-    };
-  }, []);
 
   const toggleSection = (section: string) => {
     setExpandedSections((prev) =>
@@ -68,22 +53,22 @@ const LeetcodePage: React.FC = () => {
   const roadmapSections: RoadmapSection[] = [
     {
       title: '1. Fundamentals of Data Structures',
-      icon: faTree,
+      icon: TreePine,
       description:
         'Master the building blocks of programming and problem-solving',
       items: [
         'Arrays',
         'Strings',
-        'Dictionaries',
-        'Tuples',
-        'Sets',
+        'Hash Maps',
+        'Hash Sets',
         'Linked Lists',
         'Stacks',
         'Queues',
         'Trees',
+        'Heaps / Priority Queues',
         'Tries',
-        'Heaps',
         'Graphs',
+        'Union-Find',
       ],
       progress: 0,
     },
@@ -127,25 +112,15 @@ const LeetcodePage: React.FC = () => {
     //   progress: 0
 
     // },
-    // {
-    //   title: '4. Dynamic Programming',
-    //   icon: faChartLine,
-    //   description: 'Master the art of solving problems through optimal substructure',
-    //   items: [
-    //     '0/1 Knapsack',
-    //     'Unbounded Knapsack',
-    //     'Fibonacci Numbers',
-    //     'Palindromic Sequences',
-    //     'Longest Common Substring',
-    //     'Longest Increasing Subsequence',
-    //     'Matrix Chain Multiplication',
-    //     'Game Theory',
-    //     'Coin Change',
-    //     'Subset Sum',
-    //     'Bitmask DP',
-    //   ],
-    //   progress: 0
-    // },
+    {
+      title: '2. Dynamic Programming',
+      icon: TrendingUp,
+      description: 'Master the art of solving problems through optimal substructure',
+      items: [
+        'Dynamic Programming',
+      ],
+      progress: 0
+    },
     // {
     //   title: '5. System Design Concepts',
     //   icon: faCogs,
@@ -216,30 +191,30 @@ const LeetcodePage: React.FC = () => {
             progress and build your skills systematically.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <div className="relative flex-1 max-w-md w-full">
-              <FontAwesomeIcon
-                icon={faSearch}
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-              />
-              <Input
-                type="text"
-                placeholder="Search topics..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 w-full"
-              />
+          <div className="flex flex-col gap-4 items-center mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
+              <div className="relative flex-1 max-w-md w-full">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                <Input
+                  type="text"
+                  placeholder="Search topics..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-10 w-full"
+                />
+              </div>
+              <Tabs defaultValue="grid" className="w-auto">
+                <TabsList>
+                  <TabsTrigger value="grid" onClick={() => setView('grid')}>
+                    Grid View
+                  </TabsTrigger>
+                  <TabsTrigger value="list" onClick={() => setView('list')}>
+                    List View
+                  </TabsTrigger>
+                </TabsList>
+              </Tabs>
             </div>
-            <Tabs defaultValue="grid" className="w-auto">
-              <TabsList>
-                <TabsTrigger value="grid" onClick={() => setView('grid')}>
-                  Grid View
-                </TabsTrigger>
-                <TabsTrigger value="list" onClick={() => setView('list')}>
-                  List View
-                </TabsTrigger>
-              </TabsList>
-            </Tabs>
+            <LanguageSelector className="mt-2" />
           </div>
         </header>
 
@@ -265,10 +240,7 @@ const LeetcodePage: React.FC = () => {
               >
                 <div className="flex items-center gap-3">
                   <div className="p-2 rounded-full bg-gradient-to-r from-blue-50 to-purple-50">
-                    <FontAwesomeIcon
-                      icon={section.icon}
-                      className="text-blue-600"
-                    />
+                    <section.icon className="text-blue-600 h-5 w-5" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">
@@ -279,14 +251,11 @@ const LeetcodePage: React.FC = () => {
                     </p>
                   </div>
                 </div>
-                <FontAwesomeIcon
-                  icon={
-                    expandedSections.includes(section.title)
-                      ? faChevronUp
-                      : faChevronDown
-                  }
-                  className="text-gray-400"
-                />
+                {expandedSections.includes(section.title) ? (
+                  <ChevronUp className="text-gray-400 h-4 w-4" />
+                ) : (
+                  <ChevronDown className="text-gray-400 h-4 w-4" />
+                )}
               </CardHeader>
 
               <CardContent
@@ -314,10 +283,7 @@ const LeetcodePage: React.FC = () => {
                       onClick={() => navigateToTopic(item)}
                     >
                       <span className="font-medium">{item}</span>
-                      <FontAwesomeIcon
-                        icon={faArrowRight}
-                        className="text-blue-500"
-                      />
+                      <ArrowRight className="text-blue-500 h-4 w-4" />
                     </Button>
                   ))}
                 </div>

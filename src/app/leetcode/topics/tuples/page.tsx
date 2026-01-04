@@ -3,7 +3,7 @@ import { tupleConcepts } from '@/data/concepts/tupleConcepts';
 import { tupleProblems } from '@/data/problems/tupleProblems';
 import { TopicName } from '../interfaces';
 import { tupleCheatSheet } from '@/data/cheatsheets/tupleCheatSheet';
-import { tupleLessonsTab } from '@/data/lessons/leetcode/tupleLessons';
+import { tupleLessonsTab } from '@/data/lessons/dsa/tupleLessons';
 
 const TuplesPage: React.FC = () => {
   return (

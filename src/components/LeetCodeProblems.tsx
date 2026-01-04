@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import { python } from '@codemirror/lang-python';
+import { javascript } from '@codemirror/lang-javascript';
+import { getCodeForLanguage } from '@/common/commonLanguage';
+import { useUserProgress } from '@/hooks/useUserProgress';
 import {
   ChevronRight,
   ChevronDown,
@@ -47,6 +50,10 @@ enum UnderstandingLevel {
 }
 
 const LeetCodeProblems: React.FC<LeetCodeProblemsProps> = ({ problems }) => {
+  const { progress } = useUserProgress();
+  const language = progress.preferences.language || 'python';
+  const languageExtension = language === 'python' ? python() : javascript({ typescript: true });
+
   const [expandedProblem, setExpandedProblem] = useState<string | null>(null);
   const [showSolutionIndex, setShowSolutionIndex] = useState<number | null>(
     null,
@@ -242,8 +249,8 @@ const LeetCodeProblems: React.FC<LeetCodeProblemsProps> = ({ problems }) => {
                         </Select>
                       </div>
                       <CodeMirror
-                        value={problem.solutions[selectedSolutionIndex].code}
-                        extensions={[python()]}
+                        value={getCodeForLanguage(problem.solutions[selectedSolutionIndex].code, language)}
+                        extensions={[languageExtension]}
                         editable={false}
                         className="border rounded-lg overflow-hidden"
                       />

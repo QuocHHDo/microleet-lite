@@ -1,8 +1,10 @@
+import { CodeContent } from './commonLanguage';
+
 export interface Solution {
-  code: string;
+  code: string | CodeContent; // Support both legacy (string) and new (CodeContent) formats
   timeComplexity: string;
   spaceComplexity: string;
-  explanation: string;
+  explanation?: string;
 }
 
 export interface Problem {
@@ -19,8 +21,8 @@ export const createProblem = (
   difficulty: string,
   description: string,
   solutions: Solution[],
-  hint: string,
-  link: string,
+  hint: string = '',
+  link: string = '',
 ): Problem => {
   return {
     title,

@@ -1,4 +1,5 @@
 import { Difficulty } from './commonConcept';
+import { CodeContent } from './commonLanguage';
 
 export enum PriorityLevel {
   Unset = -1,
@@ -10,8 +11,8 @@ export enum PriorityLevel {
 
 export interface Exercise {
   prompt: string;
-  initialCode: string;
-  solution: string;
+  initialCode: string | CodeContent; // Support both legacy and new formats
+  solution: string | CodeContent; // Support both legacy and new formats
   difficulty?: Difficulty;
 }
 export interface Quiz {
@@ -24,7 +25,7 @@ export interface Quiz {
 export interface LessonContent {
   title: string;
   content: string;
-  codeExample?: string;
+  codeExample?: string | CodeContent; // Support both legacy and new formats
   exercises: Exercise[];
   quizzes: Quiz[];
 }

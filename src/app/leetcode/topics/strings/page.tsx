@@ -3,7 +3,7 @@ import { TopicName } from '../interfaces';
 import { stringCheatSheet } from '@/data/cheatsheets/stringCheatSheet';
 import { stringProblems } from '@/data/problems/stringProblems';
 import { stringConcepts } from '@/data/concepts/stringConcepts';
-import { stringLessonsTab } from '@/data/lessons/leetcode/stringLessons';
+import { stringLessonsTab } from '@/data/lessons/dsa/stringLessons';
 
 const StringsPage: React.FC = () => {
   return (

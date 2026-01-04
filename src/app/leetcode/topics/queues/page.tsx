@@ -3,7 +3,7 @@ import { TopicName } from '../interfaces';
 import { queueCheatSheet } from '@/data/cheatsheets/queueCheatSheet';
 import { queueProblems } from '@/data/problems/queueProblems';
 import { queueConcepts } from '@/data/concepts/queueConcepts';
-import { queueLessonsTab } from '@/data/lessons/leetcode/queueLessons';
+import { queueLessonsTab } from '@/data/lessons/dsa/queueLessons';
 
 const QueuesPage: React.FC = () => {
   return (

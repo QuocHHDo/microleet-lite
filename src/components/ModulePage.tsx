@@ -10,6 +10,7 @@ import {
   TooltipTrigger,
   TooltipProvider,
 } from '@/components/ui/tooltip';
+import { LanguageSelector } from '@/components/LanguageSelector';
 import ModuleOverview from '@/components/ModuleOverview';
 import MicroLesson from '@/components/MicroLesson';
 import LeetCodeProblems from '@/components/LeetCodeProblems';
@@ -85,6 +86,7 @@ const ModulePage: React.FC<ModulePageProps> = ({
             </TooltipTrigger>
             <TooltipContent>Your learning points</TooltipContent>
           </Tooltip>
+          <LanguageSelector />
         </div>
 
         <ModuleOverview

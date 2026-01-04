@@ -17,6 +17,7 @@ interface MainContentProps {
   checkSolution: (exerciseIndex: number) => void;
   handleQuizSubmit: (quizIndex: number) => void;
   solutionHeight: string;
+  language?: string;
 }
 
 const MainContent: React.FC<MainContentProps> = ({
@@ -30,6 +31,7 @@ const MainContent: React.FC<MainContentProps> = ({
   checkSolution,
   handleQuizSubmit,
   solutionHeight,
+  language = 'python',
 }) => (
   <div className="col-span-8">
     {!selectedTopicId ? (
@@ -44,10 +46,11 @@ const MainContent: React.FC<MainContentProps> = ({
         <LessonsTab activeTab={activeTab} setActiveTab={setActiveTab} />
         <div className="p-6">
           {activeTab === 'learn' && (
-            <LearnTab selectedLesson={selectedLesson} />
+            <LearnTab key={language} selectedLesson={selectedLesson} />
           )}
           {activeTab === 'exercise' && (
             <ExerciseTab
+              key={language}
               selectedLesson={selectedLesson}
               state={state}
               handleCodeChange={handleCodeChange}

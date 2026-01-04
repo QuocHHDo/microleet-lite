@@ -3,7 +3,7 @@ import { TopicName } from '../interfaces';
 import { treeCheatSheet } from '@/data/cheatsheets/treeCheatSheet';
 import { treeProblems } from '@/data/problems/treeProblems';
 import { treeConcepts } from '@/data/concepts/treeConcepts';
-import { treeLessonsTab } from '@/data/lessons/leetcode/treeLessons';
+import { treeLessonsTab } from '@/data/lessons/dsa/treeLessons';
 
 const TreesPage: React.FC = () => {
   return (
