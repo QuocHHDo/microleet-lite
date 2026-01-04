@@ -3,7 +3,7 @@ import { linkedListConcepts } from '@/data/concepts/linkedListConcepts';
 import { linkedListProblems } from '@/data/problems/linkedListProblems';
 import { TopicName } from '../interfaces';
 import { linkedListCheatSheet } from '@/data/cheatsheets/linkedListCheatSheet';
-import { linkedListLessonsTab } from '@/data/lessons/leetcode/linkedListLessons';
+import { linkedListLessonsTab } from '@/data/lessons/dsa/linkedListLessons';
 
 const LinkedListsPage: React.FC = () => {
   return (

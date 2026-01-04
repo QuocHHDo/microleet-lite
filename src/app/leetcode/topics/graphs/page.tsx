@@ -3,7 +3,7 @@ import { TopicName } from '../interfaces';
 import { graphCheatSheet } from '@/data/cheatsheets/graphCheatSheet';
 import { graphProblems } from '@/data/problems/graphProblems';
 import { graphConcepts } from '@/data/concepts/graphConcepts';
-import { graphLessonsTab } from '@/data/lessons/leetcode/graphLessons';
+import { graphLessonsTab } from '@/data/lessons/dsa/graphLessons';
 
 const GraphsPage: React.FC = () => {
   return (

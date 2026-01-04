@@ -3,20 +3,20 @@ import { dictionaryConcepts } from '@/data/concepts/dictionaryConcepts';
 import { dictionaryProblems } from '@/data/problems/dictionaryProblems';
 import { TopicName } from '../interfaces';
 import { dictionaryCheatSheet } from '@/data/cheatsheets/dictionaryCheatSheet';
-import { dictionaryLessonsTab } from '@/data/lessons/leetcode/dictionaryLessons';
+import { dictionaryLessonsTab } from '@/data/lessons/dsa/dictionaryLessons';
 
-const DictionariesPage: React.FC = () => {
+const HashMapsPage: React.FC = () => {
   return (
     <ModulePage
-      title="Dictionaries"
-      description="Master the fundamentals of dictionaries and their operations"
+      title="Hash Maps"
+      description="Master the fundamentals of hash maps and their operations"
       lessonsTab={dictionaryLessonsTab}
       problems={dictionaryProblems}
       cheatSheetItems={dictionaryCheatSheet}
       concepts={dictionaryConcepts}
-      progressKey={TopicName.Dictionaries}
+      progressKey={TopicName.HashMaps}
     />
   );
 };
 
-export default DictionariesPage;
+export default HashMapsPage;

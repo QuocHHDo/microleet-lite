@@ -271,7 +271,7 @@ Think of an array like a row of mailboxes in an apartment building. Each mailbox
 
 Arrays have several fundamental properties that make them unique among data structures. Let's explore each one:
 
-1. Fixed Size in Memory
+1. {{python:Fixed Size in Memory (Python Lists)}}{{typescript:Fixed Size in Memory (TypeScript Arrays)}}
 \`\`\`python
 # In Python, while lists can grow dynamically, underlying memory blocks are still fixed
 numbers = [0] * 5  # Creates array of 5 zeros
@@ -280,6 +280,16 @@ print(f"Initial size: {len(numbers)} elements")
 # Memory is reallocated when array grows
 numbers.append(6)  # Python handles memory reallocation automatically
 print(f"New size: {len(numbers)} elements")
+\`\`\`
+
+\`\`\`typescript
+// In TypeScript, arrays can grow dynamically
+let numbers: number[] = new Array(5).fill(0);  // Creates array of 5 zeros
+console.log(\`Initial size: \${numbers.length} elements\`);
+
+// Array grows when new elements are added
+numbers.push(6);  // JavaScript handles memory reallocation automatically
+console.log(\`New size: \${numbers.length} elements\`);
 \`\`\`
 
 2. Constant-Time Access
@@ -297,6 +307,21 @@ data = [10, 20, 30, 40, 50]
 demonstrate_instant_access(data, 3)  # Just as fast for any valid index
 \`\`\`
 
+\`\`\`typescript
+function demonstrateInstantAccess(array: number[], index: number): void {
+  /**
+   * Shows how arrays provide O(1) access time regardless of size.
+   * Memory address = base_address + (index * element_size)
+   */
+  const element = array[index];  // Direct computation of memory address
+  console.log(\`Instantly accessed element at index \${index}: \${element}\`);
+}
+
+// Example usage
+const data = [10, 20, 30, 40, 50];
+demonstrateInstantAccess(data, 3);  // Just as fast for any valid index
+\`\`\`
+
 3. Memory Efficiency
 \`\`\`python
 import sys
@@ -306,18 +331,36 @@ def show_memory_usage():
     # Create arrays of different sizes
     small_array = [1, 2, 3, 4, 5]
     large_array = list(range(1000))
-    
+
     # Calculate memory per element
     small_size = sys.getsizeof(small_array) / len(small_array)
     large_size = sys.getsizeof(large_array) / len(large_array)
-    
+
     print(f"Memory per element (small array): {small_size:.2f} bytes")
     print(f"Memory per element (large array): {large_size:.2f} bytes")
 
 show_memory_usage()
 \`\`\`
 
-<h3>Array Implementation in Python</h3>
+\`\`\`typescript
+function showMemoryUsage(): void {
+  /**
+   * Demonstrates array memory efficiency conceptually.
+   * Note: JavaScript doesn't expose memory size directly like Python
+   */
+  // Create arrays of different sizes
+  const smallArray = [1, 2, 3, 4, 5];
+  const largeArray = Array.from({ length: 1000 }, (_, i) => i);
+
+  console.log(\`Small array length: \${smallArray.length} elements\`);
+  console.log(\`Large array length: \${largeArray.length} elements\`);
+  console.log("Arrays store elements contiguously for memory efficiency");
+}
+
+showMemoryUsage();
+\`\`\`
+
+<h3>{{python:Array Implementation in Python}}{{typescript:Array Implementation in TypeScript}}</h3>
 
 Let's create a simplified array implementation to understand how arrays work under the hood:
 
@@ -326,37 +369,86 @@ class SimpleArray:
     def __init__(self, size):
         """
         Initialize fixed-size array.
-        
+
         Args:
             size: Number of elements array can hold
         """
         self.size = size
         self.data = [None] * size  # Preallocate all needed space
-        
+
     def get(self, index):
         """
         Get element at index with bounds checking.
-        
+
         Time Complexity: O(1)
         """
         if 0 <= index < self.size:
             return self.data[index]
         raise IndexError("Array index out of bounds")
-        
+
     def set(self, index, value):
         """
         Set element at index with bounds checking.
-        
+
         Time Complexity: O(1)
         """
         if 0 <= index < self.size:
             self.data[index] = value
         else:
             raise IndexError("Array index out of bounds")
-            
+
     def __len__(self):
         """Get array size."""
         return self.size
+\`\`\`
+
+\`\`\`typescript
+class SimpleArray<T> {
+  private size: number;
+  private data: (T | null)[];
+
+  /**
+   * Initialize fixed-size array.
+   *
+   * @param size - Number of elements array can hold
+   */
+  constructor(size: number) {
+    this.size = size;
+    this.data = new Array(size).fill(null);  // Preallocate all needed space
+  }
+
+  /**
+   * Get element at index with bounds checking.
+   *
+   * Time Complexity: O(1)
+   */
+  get(index: number): T | null {
+    if (index >= 0 && index < this.size) {
+      return this.data[index];
+    }
+    throw new Error("Array index out of bounds");
+  }
+
+  /**
+   * Set element at index with bounds checking.
+   *
+   * Time Complexity: O(1)
+   */
+  set(index: number, value: T): void {
+    if (index >= 0 && index < this.size) {
+      this.data[index] = value;
+    } else {
+      throw new Error("Array index out of bounds");
+    }
+  }
+
+  /**
+   * Get array size.
+   */
+  length(): number {
+    return this.size;
+  }
+}
 \`\`\`
 
 <h3>Memory Management and Performance</h3>
@@ -414,18 +506,36 @@ def demonstrate_array_efficiency():
     """Shows when arrays are most efficient."""
     # Fast random access - Arrays excel here
     numbers = list(range(1000000))
-    
+
     # Quick access time regardless of position
     first = numbers[0]              # Fast
     middle = numbers[500000]        # Just as fast
     last = numbers[999999]          # Still fast
-    
+
     return first, middle, last
+\`\`\`
+
+\`\`\`typescript
+// Example: Choosing between array and linked list
+function demonstrateArrayEfficiency(): [number, number, number] {
+  /**
+   * Shows when arrays are most efficient.
+   */
+  // Fast random access - Arrays excel here
+  const numbers = Array.from({ length: 1000000 }, (_, i) => i);
+
+  // Quick access time regardless of position
+  const first = numbers[0];              // Fast
+  const middle = numbers[500000];        // Just as fast
+  const last = numbers[999999];          // Still fast
+
+  return [first, middle, last];
+}
 \`\`\`
 
 <h3>Understanding Dynamic Arrays</h3>
 
-Python's lists are actually dynamic arrays, which means they can grow and shrink as needed. Let's see how this works:
+{{python:Python's lists are actually dynamic arrays, which means they can grow and shrink as needed. Let's see how this works:}}{{typescript:TypeScript arrays are dynamic arrays, which means they can grow and shrink as needed. Let's see how this works:}}
 
 \`\`\`python
 import sys
@@ -433,91 +543,180 @@ def show_dynamic_growth():
     """Demonstrates how Python lists grow."""
     numbers = []
     sizes = []
-    
+
     for i in range(32):
         sizes.append(sys.getsizeof(numbers))
         numbers.append(i)
-        
+
     print("Size progression:", sizes[::4])
     # Notice how size increases in chunks to amortize growth cost
 show_dynamic_growth()
+\`\`\`
+
+\`\`\`typescript
+function showDynamicGrowth(): void {
+  // Demonstrates how TypeScript/JavaScript arrays grow
+  const numbers: number[] = [];
+  const sizes: number[] = [];
+
+  for (let i = 0; i < 32; i++) {
+    // Note: JavaScript doesn't expose memory size like Python does
+    // This is a conceptual demonstration
+    sizes.push(numbers.length);
+    numbers.push(i);
+  }
+
+  console.log("Growth progression:", sizes.filter((_, i) => i % 4 === 0));
+  // Arrays grow dynamically with automatic memory management
+}
+showDynamicGrowth()
 \`\`\``,
 
   exercises: [
     {
       prompt:
         'Implement a function that efficiently rotates an array by k positions without using extra space. For example, rotating [1,2,3,4,5] by 2 positions should give [4,5,1,2,3].',
-      initialCode: `def rotate_array(array, k):
+      initialCode: {
+        python: `def rotate_array(array, k):
     """
     Rotate array by k positions without using extra space.
-    
+
     Args:
         array: List to rotate
         k: Number of positions to rotate by
     """
     # Your implementation here
     pass`,
-      solution: `def rotate_array(array, k):
+        typescript: `function rotateArray(array: number[], k: number): void {
+  /**
+   * Rotate array by k positions without using extra space.
+   *
+   * @param array - Array to rotate
+   * @param k - Number of positions to rotate by
+   */
+  // Your implementation here
+}`
+      },
+      solution: {
+        python: `def rotate_array(array, k):
     """
     Rotate array by k positions without using extra space.
-    
+
     Args:
         array: List to rotate
         k: Number of positions to rotate by
-        
+
     Time Complexity: O(n)
     Space Complexity: O(1)
     """
     if not array:
         return
-        
+
     # Normalize k to array length
     k = k % len(array)
     if k == 0:
         return
-    
+
     def reverse(start, end):
         """Helper function to reverse portion of array."""
         while start < end:
             array[start], array[end] = array[end], array[start]
             start += 1
             end -= 1
-    
+
     # Example: [1,2,3,4,5] rotate by 2
     # Step 1: Reverse all - [5,4,3,2,1]
     # Step 2: Reverse first k - [4,5,3,2,1]
     # Step 3: Reverse rest - [4,5,1,2,3]
-    
+
     # Reverse entire array
     reverse(0, len(array) - 1)
     # Reverse first k elements
     reverse(0, k - 1)
     # Reverse remaining elements
     reverse(k, len(array) - 1)`,
+        typescript: `function rotateArray(array: number[], k: number): void {
+  /**
+   * Rotate array by k positions without using extra space.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  if (array.length === 0) {
+    return;
+  }
+
+  // Normalize k to array length
+  k = k % array.length;
+  if (k === 0) {
+    return;
+  }
+
+  function reverse(start: number, end: number): void {
+    // Helper function to reverse portion of array
+    while (start < end) {
+      [array[start], array[end]] = [array[end], array[start]];
+      start++;
+      end--;
+    }
+  }
+
+  // Example: [1,2,3,4,5] rotate by 2
+  // Step 1: Reverse all - [5,4,3,2,1]
+  // Step 2: Reverse first k - [4,5,3,2,1]
+  // Step 3: Reverse rest - [4,5,1,2,3]
+
+  // Reverse entire array
+  reverse(0, array.length - 1);
+  // Reverse first k elements
+  reverse(0, k - 1);
+  // Reverse remaining elements
+  reverse(k, array.length - 1);
+}`
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt:
         'Create a fixed-size circular buffer implementation using an array. The buffer should support add and remove operations while maintaining O(1) time complexity.',
-      initialCode: `class CircularBuffer:
+      initialCode: {
+        python: `class CircularBuffer:
     """
     Fixed-size circular buffer implementation.
     """
     def __init__(self, size):
         # Your implementation here
         pass
-        
+
     def add(self, item):
         # Your implementation here
         pass
-        
+
     def remove(self):
         # Your implementation here
         pass`,
-      solution: `class CircularBuffer:
+        typescript: `class CircularBuffer<T> {
+  /**
+   * Fixed-size circular buffer implementation.
+   */
+  constructor(size: number) {
+    // Your implementation here
+  }
+
+  add(item: T): void {
+    // Your implementation here
+  }
+
+  remove(): T {
+    // Your implementation here
+  }
+}`
+      },
+      solution: {
+        python: `class CircularBuffer:
     """
     Fixed-size circular buffer implementation.
-    
+
     Time Complexity:
         - add: O(1)
         - remove: O(1)
@@ -529,33 +728,87 @@ show_dynamic_growth()
         self.head = 0  # Remove from here
         self.tail = 0  # Add here
         self.count = 0
-        
+
     def add(self, item):
         """Add item to buffer."""
         if self.count >= self.size:
             raise BufferError("Buffer is full")
-            
+
         self.buffer[self.tail] = item
         self.tail = (self.tail + 1) % self.size
         self.count += 1
-        
+
     def remove(self):
         """Remove and return oldest item."""
         if self.count <= 0:
             raise BufferError("Buffer is empty")
-            
+
         item = self.buffer[self.head]
         self.head = (self.head + 1) % self.size
         self.count -= 1
         return item
-        
+
     def is_empty(self):
         """Check if buffer is empty."""
         return self.count == 0
-        
+
     def is_full(self):
         """Check if buffer is full."""
         return self.count == self.size`,
+        typescript: `class CircularBuffer<T> {
+  /**
+   * Fixed-size circular buffer implementation.
+   *
+   * Time Complexity:
+   *   - add: O(1)
+   *   - remove: O(1)
+   * Space Complexity: O(n) where n is buffer size
+   */
+  private size: number;
+  private buffer: (T | null)[];
+  private head: number = 0;  // Remove from here
+  private tail: number = 0;  // Add here
+  private count: number = 0;
+
+  constructor(size: number) {
+    this.size = size;
+    this.buffer = new Array(size).fill(null);
+  }
+
+  add(item: T): void {
+    // Add item to buffer
+    if (this.count >= this.size) {
+      throw new Error("Buffer is full");
+    }
+
+    this.buffer[this.tail] = item;
+    this.tail = (this.tail + 1) % this.size;
+    this.count++;
+  }
+
+  remove(): T {
+    // Remove and return oldest item
+    if (this.count <= 0) {
+      throw new Error("Buffer is empty");
+    }
+
+    const item = this.buffer[this.head]!;
+    this.head = (this.head + 1) % this.size;
+    this.count--;
+    return item;
+  }
+
+  isEmpty(): boolean {
+    // Check if buffer is empty
+    return this.count === 0;
+  }
+
+  isFull(): boolean {
+    // Check if buffer is full
+    return this.count === this.size;
+  }
+}`
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -653,27 +906,27 @@ Let's see these complexities in action with practical examples:
 def demonstrate_array_complexities(array):
     """
     Demonstrate different array operation complexities.
-    
+
     Args:
         array: List to perform operations on
-        
+
     This example shows how different operations affect performance
     as the array size grows.
     """
     import time
-    
+
     # O(1) - Constant time access
     start_time = time.time()
     middle_element = array[len(array) // 2]
     access_time = time.time() - start_time
     print(f"Access time (O(1)): {access_time:.8f} seconds")
-    
+
     # O(n) - Linear time insertion at start
     start_time = time.time()
     array.insert(0, 'new_element')
     insert_start_time = time.time() - start_time
     print(f"Insert at start time (O(n)): {insert_start_time:.8f} seconds")
-    
+
     # O(1) - Constant time insertion at end
     start_time = time.time()
     array.append('new_element')
@@ -690,6 +943,46 @@ print("Large Array Performance:")
 demonstrate_array_complexities(large_array.copy())
 \`\`\`
 
+\`\`\`typescript
+function demonstrateArrayComplexities(array: (number | string)[]): void {
+  /**
+   * Demonstrate different array operation complexities.
+   *
+   * @param array - Array to perform operations on
+   *
+   * This example shows how different operations affect performance
+   * as the array size grows.
+   */
+
+  // O(1) - Constant time access
+  let startTime = performance.now();
+  const middleElement = array[Math.floor(array.length / 2)];
+  const accessTime = performance.now() - startTime;
+  console.log(\`Access time (O(1)): \${accessTime.toFixed(8)} milliseconds\`);
+
+  // O(n) - Linear time insertion at start
+  startTime = performance.now();
+  array.unshift('new_element');
+  const insertStartTime = performance.now() - startTime;
+  console.log(\`Insert at start time (O(n)): \${insertStartTime.toFixed(8)} milliseconds\`);
+
+  // O(1) - Constant time insertion at end
+  startTime = performance.now();
+  array.push('new_element');
+  const insertEndTime = performance.now() - startTime;
+  console.log(\`Insert at end time (O(1)): \${insertEndTime.toFixed(8)} milliseconds\`);
+}
+
+// Test with different array sizes
+const smallArray = Array.from({ length: 1000 }, (_, i) => i);
+const largeArray = Array.from({ length: 100000 }, (_, i) => i);
+
+console.log("Small Array Performance:");
+demonstrateArrayComplexities([...smallArray]);
+console.log("Large Array Performance:");
+demonstrateArrayComplexities([...largeArray]);
+\`\`\`
+
 <h3>Understanding Space Complexity</h3>
 
 Space complexity refers to how much memory an array operation needs. Let's explore the memory requirements of different array operations:
@@ -699,39 +992,80 @@ import sys
 def analyze_space_requirements():
     """
     Demonstrate space complexity of different array operations.
-    
+
     This example shows how memory usage changes with different operations.
     """
     import sys
-    
+
     # Base memory for empty list
     empty_list = []
     base_size = sys.getsizeof(empty_list)
     print(f"Empty list size: {base_size} bytes")
-    
+
     # Memory growth with elements
     sizes = []
     numbers = []
     for i in range(10):
         numbers.append(i)
         sizes.append(sys.getsizeof(numbers))
-        
+
     print("Memory growth pattern:")
     for i, size in enumerate(sizes):
         print(f"Size with {i+1} elements: {size} bytes")
-        
+
     # Space complexity of common operations
     original = list(range(5))
     # Slicing creates a new array - O(n) space
     sliced = original[:]
     # List comprehension creates a new array - O(n) space
     doubled = [x * 2 for x in original]
-    
+
     print("Operation space requirements:")
     print(f"Original array: {sys.getsizeof(original)} bytes")
     print(f"Sliced array: {sys.getsizeof(sliced)} bytes")
     print(f"Comprehension result: {sys.getsizeof(doubled)} bytes")
 analyze_space_requirements()
+\`\`\`
+
+\`\`\`typescript
+function analyzeSpaceRequirements(): void {
+  /**
+   * Demonstrate space complexity of different array operations.
+   *
+   * This example shows how memory usage changes with different operations.
+   * Note: JavaScript doesn't provide direct memory size access like Python
+   */
+
+  // Base memory for empty array
+  const emptyArray: number[] = [];
+  console.log(\`Empty array created (conceptual demonstration)\`);
+
+  // Memory growth with elements
+  const sizes: number[] = [];
+  const numbers: number[] = [];
+  for (let i = 0; i < 10; i++) {
+    numbers.push(i);
+    sizes.push(numbers.length);
+  }
+
+  console.log("Memory growth pattern:");
+  sizes.forEach((size, i) => {
+    console.log(\`Size with \${i + 1} elements: \${size} elements\`);
+  });
+
+  // Space complexity of common operations
+  const original = Array.from({ length: 5 }, (_, i) => i);
+  // Slicing creates a new array - O(n) space
+  const sliced = original.slice();
+  // Map creates a new array - O(n) space
+  const doubled = original.map(x => x * 2);
+
+  console.log("Operation space requirements:");
+  console.log(\`Original array: \${original.length} elements\`);
+  console.log(\`Sliced array: \${sliced.length} elements\`);
+  console.log(\`Map result: \${doubled.length} elements\`);
+}
+analyzeSpaceRequirements();
 \`\`\`
 
 <h3>Performance Patterns and Best Practices</h3>
@@ -740,7 +1074,7 @@ Understanding complexity helps us write more efficient code. Here are key patter
 
 <div class="best-practices bg-white p-6 rounded-lg shadow-md my-8">
   <h4 class="text-gray-700 mb-4">Efficient Array Usage Patterns</h4>
-  
+
   <h5 class="font-semibold mb-2">1. When Performance Matters Most</h5>
 
   \`\`\`python
@@ -752,14 +1086,34 @@ Understanding complexity helps us write more efficient code. Here are key patter
       for i in range(n):
           result[i] = i * 2
       return result
-      
+
       # Worse: Grow array incrementally
       # result = []
       # for i in range(n):
       #     result.append(i * 2)
       # return result
   \`\`\`
-  
+
+  \`\`\`typescript
+  // Efficient pattern for building large arrays
+  function efficientArrayBuilding(n: number): number[] {
+    /** Build array efficiently by pre-allocating space. */
+    // Better: Pre-allocate space
+    const result = new Array<number>(n);
+    for (let i = 0; i < n; i++) {
+      result[i] = i * 2;
+    }
+    return result;
+
+    // Worse: Grow array incrementally
+    // const result: number[] = [];
+    // for (let i = 0; i < n; i++) {
+    //   result.push(i * 2);
+    // }
+    // return result;
+  }
+  \`\`\`
+
   <h5 class="font-semibold mt-4 mb-2">2. Memory-Efficient Operations</h5>
 
   \`\`\`python
@@ -771,6 +1125,18 @@ Understanding complexity helps us write more efficient code. Here are key patter
           array[i] = array[i] * 2
       # No extra array created
   \`\`\`
+
+  \`\`\`typescript
+  // Memory-efficient array processing
+  function processLargeArray(array: number[]): void {
+    /** Process array elements without extra space. */
+    for (let i = 0; i < array.length; i++) {
+      // Process in place
+      array[i] = array[i] * 2;
+    }
+    // No extra array created
+  }
+  \`\`\`
 </div>
 
 <h3>Making Complexity Trade-offs</h3>
@@ -781,7 +1147,7 @@ Sometimes we need to balance time and space complexity. Here's a practical examp
 def find_duplicates(array):
     """
     Find duplicate elements in array.
-    
+
     We can trade space for time:
     1. O(n²) time, O(1) space - Check all pairs
     2. O(n) time, O(n) space - Use a hash set
@@ -794,7 +1160,7 @@ def find_duplicates(array):
                 if array[i] == array[j] and array[i] not in duplicates:
                     duplicates.append(array[i])
         return duplicates
-    
+
     # Approach 2: Time O(n), Space O(n)
     def find_duplicates_time_efficient():
         seen = set()
@@ -804,42 +1170,99 @@ def find_duplicates(array):
                 duplicates.append(item)
             seen.add(item)
         return duplicates
-    
+
     print('space_efficient:', find_duplicates_space_efficient())
     print('time_efficient:', find_duplicates_time_efficient())
 find_duplicates([2, 10, 10, 100, 2, 10, 11, 2, 11, 2])
+\`\`\`
+
+\`\`\`typescript
+function findDuplicates(array: number[]): void {
+  /**
+   * Find duplicate elements in array.
+   *
+   * We can trade space for time:
+   * 1. O(n²) time, O(1) space - Check all pairs
+   * 2. O(n) time, O(n) space - Use a hash set
+   */
+  // Approach 1: Time O(n²), Space O(1)
+  function findDuplicatesSpaceEfficient(): number[] {
+    const duplicates: number[] = [];
+    for (let i = 0; i < array.length; i++) {
+      for (let j = i + 1; j < array.length; j++) {
+        if (array[i] === array[j] && !duplicates.includes(array[i])) {
+          duplicates.push(array[i]);
+        }
+      }
+    }
+    return duplicates;
+  }
+
+  // Approach 2: Time O(n), Space O(n)
+  function findDuplicatesTimeEfficient(): number[] {
+    const seen = new Set<number>();
+    const duplicates: number[] = [];
+    for (const item of array) {
+      if (seen.has(item) && !duplicates.includes(item)) {
+        duplicates.push(item);
+      }
+      seen.add(item);
+    }
+    return duplicates;
+  }
+
+  console.log('space_efficient:', findDuplicatesSpaceEfficient());
+  console.log('time_efficient:', findDuplicatesTimeEfficient());
+}
+findDuplicates([2, 10, 10, 100, 2, 10, 11, 2, 11, 2]);
 \`\`\``,
 
   exercises: [
     {
       prompt: `Analyze the time and space complexity of merging two sorted arrays into a single sorted array. Implement the merge function and explain your complexity analysis.`,
-      initialCode: `def merge_sorted_arrays(arr1, arr2):
+      initialCode: {
+        python: `def merge_sorted_arrays(arr1, arr2):
     """
     Merge two sorted arrays into a single sorted array.
-    
+
     Args:
         arr1: First sorted array
         arr2: Second sorted array
     Returns:
         Merged sorted array
-        
+
     Explain the complexity of your solution in comments
     """
     # Your implementation here
     pass`,
-      solution: `def merge_sorted_arrays(arr1, arr2):
+        typescript: `function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+  /**
+   * Merge two sorted arrays into a single sorted array.
+   *
+   * @param arr1 - First sorted array
+   * @param arr2 - Second sorted array
+   * @returns Merged sorted array
+   *
+   * Explain the complexity of your solution in comments
+   */
+  // Your implementation here
+  return [];
+}`,
+      },
+      solution: {
+        python: `def merge_sorted_arrays(arr1, arr2):
     """
     Merge two sorted arrays into a single sorted array.
-    
+
     Args:
         arr1: First sorted array
         arr2: Second sorted array
     Returns:
         Merged sorted array
-        
+
     Time Complexity: O(n + m) where n and m are lengths of input arrays
     - We need to process each element exactly once
-    
+
     Space Complexity: O(n + m)
     - We need to create a new array to store the merged result
     - The size of result is sum of input array lengths
@@ -847,7 +1270,7 @@ find_duplicates([2, 10, 10, 100, 2, 10, 11, 2, 11, 2])
     # Initialize result array and pointers
     result = []
     i = j = 0
-    
+
     # Compare elements from both arrays
     while i < len(arr1) and j < len(arr2):
         if arr1[i] <= arr2[j]:
@@ -856,17 +1279,17 @@ find_duplicates([2, 10, 10, 100, 2, 10, 11, 2, 11, 2])
         else:
             result.append(arr2[j])
             j += 1
-    
+
     # Add remaining elements from arr1, if any
     while i < len(arr1):
         result.append(arr1[i])
         i += 1
-    
+
     # Add remaining elements from arr2, if any
     while j < len(arr2):
         result.append(arr2[j])
         j += 1
-    
+
     return result
 
 # Example usage:
@@ -874,62 +1297,129 @@ arr1 = [1, 3, 5, 7]
 arr2 = [2, 4, 6, 8]
 merged = merge_sorted_arrays(arr1, arr2)
 print(f"Merged array: {merged}")  # [1, 2, 3, 4, 5, 6, 7, 8]`,
+        typescript: `function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+  /**
+   * Merge two sorted arrays into a single sorted array.
+   *
+   * @param arr1 - First sorted array
+   * @param arr2 - Second sorted array
+   * @returns Merged sorted array
+   *
+   * Time Complexity: O(n + m) where n and m are lengths of input arrays
+   * - We need to process each element exactly once
+   *
+   * Space Complexity: O(n + m)
+   * - We need to create a new array to store the merged result
+   * - The size of result is sum of input array lengths
+   */
+  // Initialize result array and pointers
+  const result: number[] = [];
+  let i = 0, j = 0;
+
+  // Compare elements from both arrays
+  while (i < arr1.length && j < arr2.length) {
+    if (arr1[i] <= arr2[j]) {
+      result.push(arr1[i]);
+      i++;
+    } else {
+      result.push(arr2[j]);
+      j++;
+    }
+  }
+
+  // Add remaining elements from arr1, if any
+  while (i < arr1.length) {
+    result.push(arr1[i]);
+    i++;
+  }
+
+  // Add remaining elements from arr2, if any
+  while (j < arr2.length) {
+    result.push(arr2[j]);
+    j++;
+  }
+
+  return result;
+}
+
+// Example usage:
+const arr1 = [1, 3, 5, 7];
+const arr2 = [2, 4, 6, 8];
+const merged = mergeSortedArrays(arr1, arr2);
+console.log(\`Merged array: \${merged}\`);  // [1, 2, 3, 4, 5, 6, 7, 8]`,
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt: `Implement an efficient solution for rotating an array k positions to the right. Analyze both time and space complexity of your solution.`,
-      initialCode: `def rotate_array(array, k):
+      initialCode: {
+        python: `def rotate_array(array, k):
     """
     Rotate array k positions to the right.
-    
+
     Args:
         array: List to rotate
         k: Number of positions to rotate by
     Returns:
         Rotated array
-        
+
     Analyze and explain the complexity of your solution
     """
     # Your implementation here
     pass`,
-      solution: `def rotate_array(array, k):
+        typescript: `function rotateArray(array: number[], k: number): number[] {
+  /**
+   * Rotate array k positions to the right.
+   *
+   * @param array - Array to rotate
+   * @param k - Number of positions to rotate by
+   * @returns Rotated array
+   *
+   * Analyze and explain the complexity of your solution
+   */
+  // Your implementation here
+  return array;
+}`,
+      },
+      solution: {
+        python: `def rotate_array(array, k):
     """
     Rotate array k positions to the right using reversal algorithm.
-    
+
     Args:
         array: List to rotate
         k: Number of positions to rotate by
     Returns:
         Rotated array
-        
+
     Time Complexity: O(n)
     - We perform three reversals, each taking O(n/2) = O(n) time
     - Total time is O(n)
-    
+
     Space Complexity: O(1)
     - We modify the array in place
     - Only use a constant amount of extra space
     """
     if not array or k == 0:
         return array
-        
+
     # Normalize k to array length
     k = k % len(array)
-    
+
     def reverse(start, end):
         """Helper function to reverse array portion."""
         while start < end:
             array[start], array[end] = array[end], array[start]
             start += 1
             end -= 1
-    
+
     # Rotate entire array
     reverse(0, len(array) - 1)
     # Rotate first k elements
     reverse(0, k - 1)
     # Rotate remaining elements
     reverse(k, len(array) - 1)
-    
+
     return array
 
 # Example usage:
@@ -938,6 +1428,55 @@ k = 2
 rotated = rotate_array(arr.copy(), k)
 print(f"Original: {arr}")
 print(f"Rotated {k} positions: {rotated}")  # [4, 5, 1, 2, 3]`,
+        typescript: `function rotateArray(array: number[], k: number): number[] {
+  /**
+   * Rotate array k positions to the right using reversal algorithm.
+   *
+   * @param array - Array to rotate
+   * @param k - Number of positions to rotate by
+   * @returns Rotated array
+   *
+   * Time Complexity: O(n)
+   * - We perform three reversals, each taking O(n/2) = O(n) time
+   * - Total time is O(n)
+   *
+   * Space Complexity: O(1)
+   * - We modify the array in place
+   * - Only use a constant amount of extra space
+   */
+  if (!array || array.length === 0 || k === 0) {
+    return array;
+  }
+
+  // Normalize k to array length
+  k = k % array.length;
+
+  function reverse(start: number, end: number): void {
+    /** Helper function to reverse array portion. */
+    while (start < end) {
+      [array[start], array[end]] = [array[end], array[start]];
+      start++;
+      end--;
+    }
+  }
+
+  // Rotate entire array
+  reverse(0, array.length - 1);
+  // Rotate first k elements
+  reverse(0, k - 1);
+  // Rotate remaining elements
+  reverse(k, array.length - 1);
+
+  return array;
+}
+
+// Example usage:
+const arr = [1, 2, 3, 4, 5];
+const k = 2;
+const rotated = rotateArray([...arr], k);
+console.log(\`Original: \${arr}\`);
+console.log(\`Rotated \${k} positions: \${rotated}\`);  // [4, 5, 1, 2, 3]`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -1015,7 +1554,7 @@ When we create an array in Python (technically called a list), we're asking Pyth
 
 <h3>Basic Initialization Methods</h3>
 
-Let's explore the fundamental ways to create and initialize arrays in Python. Each method has its own use cases and advantages.
+Let's explore the fundamental ways to create and initialize arrays {{python:in Python}}{{typescript:in TypeScript}}. Each method has its own use cases and advantages.
 
 \`\`\`python
 # Method 1: Direct Value Initialization
@@ -1042,6 +1581,31 @@ squares = [x * x for x in range(5)]  # [0, 1, 4, 9, 16]
 print(f"Square numbers: {squares}")
 \`\`\`
 
+\`\`\`typescript
+// Method 1: Direct Value Initialization
+// Best when you know all values upfront
+const grades = [95, 88, 92, 87, 95];
+console.log(\`Initial grades: \${grades}\`);
+
+// Method 2: Empty Array Creation
+// Best when adding elements dynamically
+const students: string[] = [];
+students.push("Alice");
+students.push("Bob");
+console.log(\`Student list: \${students}\`);
+
+// Method 3: Array with Initial Size
+// Best when you know the size but not the values
+// Creates an array of undefined values
+const answers = new Array<number | null>(5).fill(null);  // [null, null, null, null, null]
+console.log(\`Answer template: \${answers}\`);
+
+// Method 4: Array.from or map
+// Best for creating arrays based on computations
+const squares = Array.from({ length: 5 }, (_, x) => x * x);  // [0, 1, 4, 9, 16]
+console.log(\`Square numbers: \${squares}\`);
+\`\`\`
+
 <h3>Advanced Initialization Patterns</h3>
 
 As we work with more complex data, we often need more sophisticated initialization techniques. Let's explore these patterns:
@@ -1049,22 +1613,22 @@ As we work with more complex data, we often need more sophisticated initializati
 \`\`\`python
 def demonstrate_initialization_patterns():
     """Shows various advanced array initialization techniques."""
-    
+
     # Pattern 1: Conditional Initialization
     # Creates list based on conditions
     even_squares = [x * x for x in range(10) if x % 2 == 0]
     print(f"Even squares: {even_squares}")
-    
+
     # Pattern 2: Multi-dimensional Arrays
     # Creates a 3x3 grid
     grid = [[0 for _ in range(3)] for _ in range(3)]
     print(f"Grid:\n{grid[0]}\n{grid[1]}\n{grid[2]}")
-    
+
     # Pattern 3: Initialization from Existing Data
     original = [1, 2, 3, 4, 5]
     doubled = [x * 2 for x in original]
     print(f"Doubled values: {doubled}")
-    
+
     # Pattern 4: Dynamic Size with Generator
     # Memory efficient for large sequences
     large_sequence = list(range(1000))
@@ -1072,6 +1636,39 @@ def demonstrate_initialization_patterns():
 
 # Run demonstrations
 demonstrate_initialization_patterns()
+\`\`\`
+
+\`\`\`typescript
+function demonstrateInitializationPatterns(): void {
+  /** Shows various advanced array initialization techniques. */
+
+  // Pattern 1: Conditional Initialization
+  // Creates array based on conditions
+  const evenSquares = Array.from({ length: 10 }, (_, x) => x)
+    .filter(x => x % 2 === 0)
+    .map(x => x * x);
+  console.log(\`Even squares: \${evenSquares}\`);
+
+  // Pattern 2: Multi-dimensional Arrays
+  // Creates a 3x3 grid
+  const grid = Array.from({ length: 3 }, () =>
+    Array.from({ length: 3 }, () => 0)
+  );
+  console.log(\`Grid:\\\n\${grid[0]}\\\n\${grid[1]}\\\n\${grid[2]}\`);
+
+  // Pattern 3: Initialization from Existing Data
+  const original = [1, 2, 3, 4, 5];
+  const doubled = original.map(x => x * 2);
+  console.log(\`Doubled values: \${doubled}\`);
+
+  // Pattern 4: Dynamic Size with Array.from
+  // Memory efficient for large sequences
+  const largeSequence = Array.from({ length: 1000 }, (_, i) => i);
+  console.log(\`Large sequence size: \${largeSequence.length}\`);
+}
+
+// Run demonstrations
+demonstrateInitializationPatterns();
 \`\`\`
 
 <h3>Common Pitfalls and Best Practices</h3>
@@ -1086,7 +1683,7 @@ def demonstrate_copy_pitfall():
     wrong_grid = [[0] * 3] * 3
     wrong_grid[0][0] = 1  # Changes all rows!
     print(f"Wrong grid:\n{wrong_grid}")
-    
+
     # Right way - creates independent inner lists
     correct_grid = [[0 for _ in range(3)] for _ in range(3)]
     correct_grid[0][0] = 1  # Changes only first row
@@ -1109,6 +1706,40 @@ def initialize_with_defaults():
 # Demonstrate pitfalls
 demonstrate_copy_pitfall()
 print("Initialized student records:", initialize_with_defaults())
+\`\`\`
+
+\`\`\`typescript
+// Pitfall 1: Shallow vs Deep Copying
+function demonstrateCopyPitfall(): void {
+  /** Shows the difference between shallow and deep copying. */
+  // Wrong way - creates references to same inner array
+  const wrongGrid = new Array(3).fill(new Array(3).fill(0));
+  wrongGrid[0][0] = 1;  // Changes all rows!
+  console.log(\`Wrong grid:\\\n\${wrongGrid}\`);
+
+  // Right way - creates independent inner arrays
+  const correctGrid = Array.from({ length: 3 }, () =>
+    Array.from({ length: 3 }, () => 0)
+  );
+  correctGrid[0][0] = 1;  // Changes only first row
+  console.log(\`Correct grid:\\\n\${correctGrid}\`);
+}
+
+// Pitfall 2: Initialize with Default Values
+function initializeWithDefaults(): Array<{ name: string | null; grade: number; attendance: number[] }> {
+  /** Shows proper initialization with default values. */
+  // Student records with default values
+  const students = Array.from({ length: 3 }, () => ({
+    name: null,
+    grade: 0,
+    attendance: [],
+  }));
+  return students;
+}
+
+// Demonstrate pitfalls
+demonstrateCopyPitfall();
+console.log("Initialized student records:", initializeWithDefaults());
 \`\`\`
 
 <h3>Performance Considerations</h3>
@@ -1162,11 +1793,11 @@ Let's look at some real-world scenarios where different initialization methods s
 def create_gradebook(num_students, num_assignments):
     """
     Creates a gradebook with proper initialization.
-    
+
     Args:
         num_students: Number of students
         num_assignments: Number of assignments
-        
+
     Returns:
         Initialized gradebook with default values
     """
@@ -1175,17 +1806,17 @@ def create_gradebook(num_students, num_assignments):
         [-1 for _ in range(num_assignments)]
         for _ in range(num_students)
     ]
-    
+
     return gradebook
 
 def create_seating_chart(rows, seats_per_row):
     """
     Creates a seating chart for a classroom.
-    
+
     Args:
         rows: Number of rows
         seats_per_row: Seats in each row
-        
+
     Returns:
         Seating chart with None for empty seats
     """
@@ -1196,16 +1827,54 @@ gradebook = create_gradebook(3, 4)
 seating = create_seating_chart(5, 6)
 print("Gradebook:", gradebook)
 print("Seating chart:", seating)
+\`\`\`
+
+\`\`\`typescript
+function createGradebook(numStudents: number, numAssignments: number): number[][] {
+  /**
+   * Creates a gradebook with proper initialization.
+   *
+   * @param numStudents - Number of students
+   * @param numAssignments - Number of assignments
+   * @returns Initialized gradebook with default values
+   */
+  // Create 2D array with default grade of -1 (ungraded)
+  const gradebook = Array.from({ length: numStudents }, () =>
+    Array.from({ length: numAssignments }, () => -1)
+  );
+
+  return gradebook;
+}
+
+function createSeatingChart(rows: number, seatsPerRow: number): (string | null)[][] {
+  /**
+   * Creates a seating chart for a classroom.
+   *
+   * @param rows - Number of rows
+   * @param seatsPerRow - Seats in each row
+   * @returns Seating chart with null for empty seats
+   */
+  return Array.from({ length: rows }, () =>
+    Array.from({ length: seatsPerRow }, () => null)
+  );
+}
+
+// Example usage
+const gradebook = createGradebook(3, 4);
+const seating = createSeatingChart(5, 6);
+console.log("Gradebook:", gradebook);
+console.log("Seating chart:", seating);
 \`\`\``,
 
   exercises: [
     {
       prompt:
         "Create a function that initializes a temperature tracking system for a week, with separate arrays for each day's hourly readings. Include proper default values and error handling.",
-      initialCode: `def initialize_temperature_tracker(num_days=7):
+      initialCode: {
+        python: `def initialize_temperature_tracker(num_days=7):
     """
     Initialize a temperature tracking system.
-    
+
     Args:
         num_days: Number of days to track (default 7)
     Returns:
@@ -1213,21 +1882,38 @@ print("Seating chart:", seating)
     """
     # Your implementation here
     pass`,
-      solution: `def initialize_temperature_tracker(num_days=7):
+        typescript: `function initializeTemperatureTracker(numDays: number = 7): Array<{
+  readings: (number | null)[];
+  minTemp: number | null;
+  maxTemp: number | null;
+  avgTemp: number | null;
+}> {
+  /**
+   * Initialize a temperature tracking system.
+   *
+   * @param numDays - Number of days to track (default 7)
+   * @returns Nested array structure for temperature readings
+   */
+  // Your implementation here
+  return [];
+}`,
+      },
+      solution: {
+        python: `def initialize_temperature_tracker(num_days=7):
     """
     Initialize a temperature tracking system.
-    
+
     Args:
         num_days: Number of days to track (default 7)
     Returns:
         Nested array structure for temperature readings
-        
+
     Each day tracks 24 hours of temperatures, initialized to None
     Includes validation and error handling
     """
     if num_days <= 0:
         raise ValueError("Number of days must be positive")
-    
+
     # Initialize 7 days, each with 24 hours of readings
     # Use None as default to indicate no reading taken
     temperature_data = [
@@ -1239,7 +1925,7 @@ print("Seating chart:", seating)
         }
         for _ in range(num_days)
     ]
-    
+
     return temperature_data
 
 # Example usage:
@@ -1249,15 +1935,56 @@ try:
     print("First day structure:", tracker[0])
 except ValueError as e:
     print(f"Error: {e}")`,
+        typescript: `function initializeTemperatureTracker(numDays: number = 7): Array<{
+  readings: (number | null)[];
+  minTemp: number | null;
+  maxTemp: number | null;
+  avgTemp: number | null;
+}> {
+  /**
+   * Initialize a temperature tracking system.
+   *
+   * @param numDays - Number of days to track (default 7)
+   * @returns Nested array structure for temperature readings
+   *
+   * Each day tracks 24 hours of temperatures, initialized to null
+   * Includes validation and error handling
+   */
+  if (numDays <= 0) {
+    throw new Error("Number of days must be positive");
+  }
+
+  // Initialize days, each with 24 hours of readings
+  // Use null as default to indicate no reading taken
+  const temperatureData = Array.from({ length: numDays }, () => ({
+    readings: new Array<number | null>(24).fill(null),  // 24 hours
+    minTemp: null,
+    maxTemp: null,
+    avgTemp: null
+  }));
+
+  return temperatureData;
+}
+
+// Example usage:
+try {
+  const tracker = initializeTemperatureTracker();
+  console.log(\`Initialized \${tracker.length} days of temperature tracking\`);
+  console.log("First day structure:", tracker[0]);
+} catch (error) {
+  console.log(\`Error: \${error}\`);
+}`,
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt:
         'Implement a function that creates a sparse matrix representation using nested arrays. The function should accept dimensions and a list of non-zero values with their positions.',
-      initialCode: `def create_sparse_matrix(rows, cols, values):
+      initialCode: {
+        python: `def create_sparse_matrix(rows, cols, values):
     """
     Create a sparse matrix representation.
-    
+
     Args:
         rows: Number of rows
         cols: Number of columns
@@ -1267,30 +1994,58 @@ except ValueError as e:
     """
     # Your implementation here
     pass`,
-      solution: `def create_sparse_matrix(rows, cols, values):
+        typescript: `function createSparseMatrix(
+  rows: number,
+  cols: number,
+  values: Array<[number, number, number]>
+): {
+  dimensions: [number, number];
+  nonZeroElements: Map<string, number>;
+  numElements: number;
+  getValue: (row: number, col: number) => number;
+} {
+  /**
+   * Create a sparse matrix representation.
+   *
+   * @param rows - Number of rows
+   * @param cols - Number of columns
+   * @param values - Array of tuples [row, col, value] for non-zero elements
+   * @returns Efficient sparse matrix representation
+   */
+  // Your implementation here
+  return {
+    dimensions: [0, 0],
+    nonZeroElements: new Map(),
+    numElements: 0,
+    getValue: () => 0
+  };
+}`,
+      },
+      solution: {
+        python: `def create_sparse_matrix(rows, cols, values):
     """
     Create a sparse matrix representation.
-    
+
     Args:
         rows: Number of rows
         cols: Number of columns
         values: List of tuples (row, col, value) for non-zero elements
     Returns:
         Efficient sparse matrix representation
-    
+
     Uses dictionary for efficient storage of non-zero values
     Includes validation and bounds checking
     """
     if rows <= 0 or cols <= 0:
         raise ValueError("Dimensions must be positive")
-        
+
     # Initialize sparse matrix using dictionary
     matrix = {
         'dimensions': (rows, cols),
         'non_zero_elements': {},
         'num_elements': len(values)
     }
-    
+
     # Add non-zero values
     for row, col, value in values:
         # Validate position
@@ -1298,14 +2053,14 @@ except ValueError as e:
             raise ValueError(f"Position ({row}, {col}) out of bounds")
         if value != 0:  # Only store non-zero values
             matrix['non_zero_elements'][(row, col)] = value
-    
+
     def get_value(row, col):
         """Helper method to get value at position."""
         return matrix['non_zero_elements'].get((row, col), 0)
-    
+
     # Add method to matrix dictionary
     matrix['get_value'] = get_value
-    
+
     return matrix
 
 # Example usage:
@@ -1319,6 +2074,71 @@ try:
     print(f"Value at (0,1): {matrix['get_value'](0, 1)}")
 except ValueError as e:
     print(f"Error: {e}")`,
+        typescript: `function createSparseMatrix(
+  rows: number,
+  cols: number,
+  values: Array<[number, number, number]>
+): {
+  dimensions: [number, number];
+  nonZeroElements: Map<string, number>;
+  numElements: number;
+  getValue: (row: number, col: number) => number;
+} {
+  /**
+   * Create a sparse matrix representation.
+   *
+   * @param rows - Number of rows
+   * @param cols - Number of columns
+   * @param values - Array of tuples [row, col, value] for non-zero elements
+   * @returns Efficient sparse matrix representation
+   *
+   * Uses Map for efficient storage of non-zero values
+   * Includes validation and bounds checking
+   */
+  if (rows <= 0 || cols <= 0) {
+    throw new Error("Dimensions must be positive");
+  }
+
+  // Initialize sparse matrix using Map
+  const nonZeroElements = new Map<string, number>();
+
+  // Add non-zero values
+  for (const [row, col, value] of values) {
+    // Validate position
+    if (!(row >= 0 && row < rows && col >= 0 && col < cols)) {
+      throw new Error(\`Position (\${row}, \${col}) out of bounds\`);
+    }
+    if (value !== 0) {  // Only store non-zero values
+      nonZeroElements.set(\`\${row},\${col}\`, value);
+    }
+  }
+
+  function getValue(row: number, col: number): number {
+    /** Helper method to get value at position. */
+    return nonZeroElements.get(\`\${row},\${col}\`) ?? 0;
+  }
+
+  return {
+    dimensions: [rows, cols],
+    nonZeroElements,
+    numElements: values.length,
+    getValue
+  };
+}
+
+// Example usage:
+try {
+  // Create 3x3 sparse matrix with two non-zero values
+  const values: Array<[number, number, number]> = [[0, 0, 5], [1, 2, 3]];
+  const matrix = createSparseMatrix(3, 3, values);
+  console.log(\`Created \${matrix.dimensions} sparse matrix\`);
+  console.log(\`Non-zero elements: \${Array.from(matrix.nonZeroElements.entries())}\`);
+  console.log(\`Value at (0,0): \${matrix.getValue(0, 0)}\`);
+  console.log(\`Value at (0,1): \${matrix.getValue(0, 1)}\`);
+} catch (error) {
+  console.log(\`Error: \${error}\`);
+}`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -1468,6 +2288,36 @@ for position, grade in enumerate(grades, start=1):
     print(f"Student {position}: {grade}")
 \`\`\`
 
+\`\`\`typescript
+// Student grades example to demonstrate all three methods
+const grades = [95, 87, 92, 88, 95];
+
+// 1. Direct Element Access
+// Perfect for calculating the average
+let total = 0;
+for (const grade of grades) {
+  total += grade;
+}
+const average = total / grades.length;
+console.log(\`Class average: \${average.toFixed(2)}\`);
+
+// 2. Index-Based Access
+// Useful when modifying elements
+// Let's apply a curve: add 2 points to grades below 90
+for (let i = 0; i < grades.length; i++) {
+  if (grades[i] < 90) {
+    grades[i] += 2;
+  }
+}
+
+// 3. Enumerated Access (using forEach with index)
+// Great for reporting with position information
+grades.forEach((grade, index) => {
+  const position = index + 1;
+  console.log(\`Student \${position}: \${grade}\`);
+});
+\`\`\`
+
 <h3>Advanced Traversal Patterns</h3>
 
 As we work with more complex data structures and requirements, we need more sophisticated traversal techniques. Let's explore some advanced patterns with practical examples.
@@ -1496,7 +2346,7 @@ As we work with more complex data structures and requirements, we need more soph
   def find_pair_sum(numbers, target):
       left = 0
       right = len(numbers) - 1
-      
+
       while left < right:
           current_sum = numbers[left] + numbers[right]
           if current_sum == target:
@@ -1505,8 +2355,29 @@ As we work with more complex data structures and requirements, we need more soph
               left += 1
           else:
               right -= 1
-      
+
       return None
+  \`\`\`
+
+  \`\`\`typescript
+  // Two-pointer technique example: Finding pairs that sum to a target
+  function findPairSum(numbers: number[], target: number): [number, number] | null {
+    let left = 0;
+    let right = numbers.length - 1;
+
+    while (left < right) {
+      const currentSum = numbers[left] + numbers[right];
+      if (currentSum === target) {
+        return [numbers[left], numbers[right]];
+      } else if (currentSum < target) {
+        left++;
+      } else {
+        right--;
+      }
+    }
+
+    return null;
+  }
   \`\`\`
 </div>
 
@@ -1521,7 +2392,7 @@ Let's examine how array traversal is used in real-world scenarios:
   class GradeAnalyzer:
       def __init__(self, grades):
           self.grades = grades
-          
+
       def find_top_performers(self, threshold=90):
           """Identifies students scoring above a threshold."""
           return [
@@ -1529,7 +2400,7 @@ Let's examine how array traversal is used in real-world scenarios:
               for i, grade in enumerate(self.grades)
               if grade >= threshold
           ]
-          
+
       def identify_struggling_students(self, threshold=70):
           """Finds students who might need extra help."""
           return [
@@ -1537,7 +2408,7 @@ Let's examine how array traversal is used in real-world scenarios:
               for i, grade in enumerate(self.grades)
               if grade < threshold
           ]
-          
+
       def calculate_statistics(self):
           """Computes basic statistics about the grades."""
           return {
@@ -1546,6 +2417,45 @@ Let's examine how array traversal is used in real-world scenarios:
               'lowest': min(self.grades),
               'passing_rate': sum(1 for g in self.grades if g >= 60) / len(self.grades)
           }
+  \`\`\`
+
+  \`\`\`typescript
+  class GradeAnalyzer {
+    private grades: number[];
+
+    constructor(grades: number[]) {
+      this.grades = grades;
+    }
+
+    findTopPerformers(threshold: number = 90): Array<[number, number]> {
+      /** Identifies students scoring above a threshold. */
+      return this.grades
+        .map((grade, i) => [i + 1, grade] as [number, number])  // Student number and grade
+        .filter(([_, grade]) => grade >= threshold);
+    }
+
+    identifyStrugglingStudents(threshold: number = 70): Array<[number, number]> {
+      /** Finds students who might need extra help. */
+      return this.grades
+        .map((grade, i) => [i + 1, grade] as [number, number])
+        .filter(([_, grade]) => grade < threshold);
+    }
+
+    calculateStatistics(): {
+      average: number;
+      highest: number;
+      lowest: number;
+      passingRate: number;
+    } {
+      /** Computes basic statistics about the grades. */
+      return {
+        average: this.grades.reduce((sum, g) => sum + g, 0) / this.grades.length,
+        highest: Math.max(...this.grades),
+        lowest: Math.min(...this.grades),
+        passingRate: this.grades.filter(g => g >= 60).length / this.grades.length
+      };
+    }
+  }
   \`\`\`
 </div>
 
@@ -1593,10 +2503,11 @@ Understanding the performance implications of different traversal methods helps 
 Example:
 grades = [85, 92, 77, 68, 95]
 Expected output: [(85, 95), (77, 68)]  # Pairs that differ by ~10 points`,
-      initialCode: `def find_grade_pairs(grades):
+      initialCode: {
+        python: `def find_grade_pairs(grades):
     """
     Find pairs of grades that differ by approximately 10 points.
-    
+
     Args:
         grades: List of numerical grades
     Returns:
@@ -1604,28 +2515,65 @@ Expected output: [(85, 95), (77, 68)]  # Pairs that differ by ~10 points`,
     """
     # Your implementation here
     pass`,
-      solution: `def find_grade_pairs(grades):
+        typescript: `function findGradePairs(grades: number[]): Array<[number, number]> {
+  /**
+   * Find pairs of grades that differ by approximately 10 points.
+   *
+   * @param grades - Array of numerical grades
+   * @returns Array of tuples containing grade pairs
+   */
+  // Your implementation here
+  return [];
+}`,
+      },
+      solution: {
+        python: `def find_grade_pairs(grades):
     """
     Find pairs of grades that differ by approximately 10 points.
-    
+
     Args:
         grades: List of numerical grades
     Returns:
         List of tuples containing grade pairs
-    
+
     Time Complexity: O(n^2)
     Space Complexity: O(n) for storing results
     """
     pairs = []
-    
+
     # Compare each grade with all other grades
     for i in range(len(grades)):
         for j in range(i + 1, len(grades)):
             # Check if grades differ by approximately 10 points
             if 8 <= abs(grades[i] - grades[j]) <= 12:
                 pairs.append((grades[i], grades[j]))
-    
+
     return pairs`,
+        typescript: `function findGradePairs(grades: number[]): Array<[number, number]> {
+  /**
+   * Find pairs of grades that differ by approximately 10 points.
+   *
+   * @param grades - Array of numerical grades
+   * @returns Array of tuples containing grade pairs
+   *
+   * Time Complexity: O(n^2)
+   * Space Complexity: O(n) for storing results
+   */
+  const pairs: Array<[number, number]> = [];
+
+  // Compare each grade with all other grades
+  for (let i = 0; i < grades.length; i++) {
+    for (let j = i + 1; j < grades.length; j++) {
+      // Check if grades differ by approximately 10 points
+      if (Math.abs(grades[i] - grades[j]) >= 8 && Math.abs(grades[i] - grades[j]) <= 12) {
+        pairs.push([grades[i], grades[j]]);
+      }
+    }
+  }
+
+  return pairs;
+}`,
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
@@ -1634,10 +2582,11 @@ Expected output: [(85, 95), (77, 68)]  # Pairs that differ by ~10 points`,
 Example:
 grades = [75, 78, 82, 85, 83, 81, 78]
 Expected output: [75, 78, 82, 85]  # Longest improving sequence`,
-      initialCode: `def analyze_grade_trend(grades):
+      initialCode: {
+        python: `def analyze_grade_trend(grades):
     """
     Find the longest sequence of consistently changing grades.
-    
+
     Args:
         grades: List of numerical grades
     Returns:
@@ -1645,31 +2594,43 @@ Expected output: [75, 78, 82, 85]  # Longest improving sequence`,
     """
     # Your implementation here
     pass`,
-      solution: `def analyze_grade_trend(grades):
+        typescript: `function analyzeGradeTrend(grades: number[]): number[] {
+  /**
+   * Find the longest sequence of consistently changing grades.
+   *
+   * @param grades - Array of numerical grades
+   * @returns Array containing the longest sequence
+   */
+  // Your implementation here
+  return [];
+}`,
+      },
+      solution: {
+        python: `def analyze_grade_trend(grades):
     """
     Find the longest sequence of consistently changing grades.
-    
+
     Args:
         grades: List of numerical grades
     Returns:
         List containing the longest sequence
-    
+
     Time Complexity: O(n)
     Space Complexity: O(n) for storing sequences
     """
     if len(grades) < 2:
         return grades
-        
+
     longest_sequence = []
     current_sequence = [grades[0]]
-    
+
     # Determine initial trend
     trend = None
-    
+
     for i in range(1, len(grades)):
         if trend is None:
             trend = grades[i] > grades[i-1]
-            
+
         # Check if current grade follows the trend
         if (trend and grades[i] > grades[i-1]) or \
            (not trend and grades[i] < grades[i-1]):
@@ -1678,16 +2639,65 @@ Expected output: [75, 78, 82, 85]  # Longest improving sequence`,
             # Trend broken, check if this was the longest sequence
             if len(current_sequence) > len(longest_sequence):
                 longest_sequence = current_sequence[:]
-            
+
             # Start new sequence
             current_sequence = [grades[i-1], grades[i]]
             trend = grades[i] > grades[i-1]
-    
+
     # Check final sequence
     if len(current_sequence) > len(longest_sequence):
         longest_sequence = current_sequence
-    
+
     return longest_sequence`,
+        typescript: `function analyzeGradeTrend(grades: number[]): number[] {
+  /**
+   * Find the longest sequence of consistently changing grades.
+   *
+   * @param grades - Array of numerical grades
+   * @returns Array containing the longest sequence
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(n) for storing sequences
+   */
+  if (grades.length < 2) {
+    return grades;
+  }
+
+  let longestSequence: number[] = [];
+  let currentSequence = [grades[0]];
+
+  // Determine initial trend
+  let trend: boolean | null = null;
+
+  for (let i = 1; i < grades.length; i++) {
+    if (trend === null) {
+      trend = grades[i] > grades[i - 1];
+    }
+
+    // Check if current grade follows the trend
+    if ((trend && grades[i] > grades[i - 1]) ||
+        (!trend && grades[i] < grades[i - 1])) {
+      currentSequence.push(grades[i]);
+    } else {
+      // Trend broken, check if this was the longest sequence
+      if (currentSequence.length > longestSequence.length) {
+        longestSequence = [...currentSequence];
+      }
+
+      // Start new sequence
+      currentSequence = [grades[i - 1], grades[i]];
+      trend = grades[i] > grades[i - 1];
+    }
+  }
+
+  // Check final sequence
+  if (currentSequence.length > longestSequence.length) {
+    longestSequence = currentSequence;
+  }
+
+  return longestSequence;
+}`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -1737,7 +2747,7 @@ const arrayMemoryData: LessonContent = {
 
 <h3>Understanding Memory Allocation</h3>
 
-When we create a list in Python, we're actually working with a dynamic array that can grow and shrink as needed. Think of it like planning seating at a restaurant - you want enough tables ready for your guests, but you don't want too many empty tables taking up space.
+When we create {{python:a list in Python}}{{typescript:an array in TypeScript}}, we're actually working with a dynamic array that can grow and shrink as needed. Think of it like planning seating at a restaurant - you want enough tables ready for your guests, but you don't want too many empty tables taking up space.
 
 \`\`\`python
 import sys
@@ -1745,7 +2755,7 @@ import sys
 def demonstrate_memory_allocation():
     """
     Show how Python allocates memory for lists.
-    
+
     This demonstrates Python's over-allocation strategy
     to minimize frequent resizing.
     """
@@ -1753,7 +2763,7 @@ def demonstrate_memory_allocation():
     numbers = []
     initial_size = sys.getsizeof(numbers)
     print(f"Empty list size: {initial_size} bytes")
-    
+
     # Add elements and watch memory growth
     sizes = []
     for i in range(64):  # Add elements one by one
@@ -1762,7 +2772,7 @@ def demonstrate_memory_allocation():
         if not sizes or current_size != sizes[-1]:
             sizes.append(current_size)
             print(f"After adding element {i+1}: {current_size} bytes")
-    
+
     return sizes
 
 # Let's see how memory grows
@@ -1773,6 +2783,44 @@ def explain_growth_pattern(sizes):
     for i in range(1, len(sizes)):
         growth = sizes[i] / sizes[i-1]
         print(f"Growth factor from size {i} to {i+1}: {growth:.2f}x")
+\`\`\`
+
+\`\`\`typescript
+function demonstrateMemoryAllocation(): number[] {
+  /**
+   * Show how JavaScript allocates memory for arrays (conceptual).
+   *
+   * Note: JavaScript doesn't expose memory size like Python,
+   * so we demonstrate the growth pattern conceptually.
+   */
+  // Create an empty array and track its length
+  const numbers: number[] = [];
+  console.log(\`Empty array length: \${numbers.length} elements\`);
+
+  // Add elements and track growth
+  const sizes: number[] = [];
+  for (let i = 0; i < 64; i++) {  // Add elements one by one
+    numbers.push(i);
+    const currentLength = numbers.length;
+    if (sizes.length === 0 || currentLength !== sizes[sizes.length - 1]) {
+      sizes.push(currentLength);
+      console.log(\`After adding element \${i + 1}: \${currentLength} elements\`);
+    }
+  }
+
+  return sizes;
+}
+
+// Let's see how array grows
+const memoryProgression = demonstrateMemoryAllocation();
+
+function explainGrowthPattern(sizes: number[]): void {
+  /** Explain the observed growth pattern. */
+  for (let i = 1; i < sizes.length; i++) {
+    const growth = sizes[i] / sizes[i - 1];
+    console.log(\`Growth factor from size \${i} to \${i + 1}: \${growth.toFixed(2)}x\`);
+  }
+}
 \`\`\`
 
 <div class="visualization-container bg-white p-6 rounded-lg shadow-md my-8">
@@ -1800,44 +2848,85 @@ def explain_growth_pattern(sizes):
 
 <h3>Dynamic Array Resizing</h3>
 
-Let's understand how Python manages list resizing when we need more space:
+Let's understand how {{python:Python manages list}}{{typescript:JavaScript manages array}} resizing when we need more space:
 
 \`\`\`python
 def demonstrate_resizing():
     """
     Show the process of array resizing in detail.
-    
+
     This demonstrates:
     1. When resizing occurs
     2. How much extra space is allocated
     3. The cost of resizing operations
     """
     import time
-    
+
     def measure_append_time(lst):
         """Measure time taken to append an element."""
         start = time.perf_counter()
         lst.append(0)
         return time.perf_counter() - start
-    
+
     numbers = []
     times = []
     sizes = []
-    
+
     # Track append times and sizes
     for i in range(1000):
         times.append(measure_append_time(numbers))
         sizes.append(sys.getsizeof(numbers))
-        
+
         # Print when we observe a resize (size change)
         if len(sizes) > 1 and sizes[-1] != sizes[-2]:
             print(f"Resize at length {i}: {sizes[-2]} -> {sizes[-1]} bytes")
             print(f"Append time: {times[-1]*1e6:.2f} microseconds")
-    
+
     return times, sizes
 
 # See resizing in action
 append_times, memory_sizes = demonstrate_resizing()
+\`\`\`
+
+\`\`\`typescript
+function demonstrateResizing(): { times: number[]; sizes: number[] } {
+  /**
+   * Show the process of array resizing in detail (conceptual).
+   *
+   * This demonstrates:
+   * 1. When resizing occurs
+   * 2. How much extra space is allocated
+   * 3. The cost of resizing operations
+   */
+
+  function measureAppendTime(arr: number[]): number {
+    /** Measure time taken to append an element. */
+    const start = performance.now();
+    arr.push(0);
+    return performance.now() - start;
+  }
+
+  const numbers: number[] = [];
+  const times: number[] = [];
+  const sizes: number[] = [];
+
+  // Track append times and sizes (using length as proxy for size)
+  for (let i = 0; i < 1000; i++) {
+    times.push(measureAppendTime(numbers));
+    sizes.push(numbers.length);
+
+    // Print when we observe a resize (length change)
+    if (sizes.length > 1 && sizes[sizes.length - 1] !== sizes[sizes.length - 2]) {
+      console.log(\`Resize at length \${i}: \${sizes[sizes.length - 2]} -> \${sizes[sizes.length - 1]} elements\`);
+      console.log(\`Append time: \${(times[times.length - 1] * 1000).toFixed(2)} microseconds\`);
+    }
+  }
+
+  return { times, sizes };
+}
+
+// See resizing in action
+const { times: appendTimes, sizes: memorySizes } = demonstrateResizing();
 \`\`\`
 
 <h3>Memory Efficiency Strategies</h3>
@@ -1848,7 +2937,7 @@ Understanding how memory works helps us write more efficient code. Here are some
 def demonstrate_memory_strategies():
     """
     Show different strategies for memory-efficient list operations.
-    
+
     Demonstrates:
     1. Pre-allocation
     2. List comprehension vs. append
@@ -1858,41 +2947,99 @@ def demonstrate_memory_strategies():
     def with_preallocation(n):
         """Create list with pre-allocated space."""
         return [None] * n
-    
+
     def without_preallocation(n):
         """Create list by appending."""
         result = []
         for _ in range(n):
             result.append(None)
         return result
-    
+
     # Compare memory usage
     n = 1000
     preallocated = with_preallocation(n)
     dynamic = without_preallocation(n)
-    
+
     print("Pre-allocated size:", sys.getsizeof(preallocated))
     print("Dynamic growth size:", sys.getsizeof(dynamic))
-    
+
     # Strategy 2: List comprehension efficiency
     def with_comprehension(n):
         return [x * 2 for x in range(n)]
-    
+
     def with_append(n):
         result = []
         for x in range(n):
             result.append(x * 2)
         return result
-    
+
     # Compare approaches
     comp_result = with_comprehension(n)
     append_result = with_append(n)
-    
+
     print("List comprehension size:", sys.getsizeof(comp_result))
     print("Append-based size:", sys.getsizeof(append_result))
 
 # See strategies in action
 demonstrate_memory_strategies()
+\`\`\`
+
+\`\`\`typescript
+function demonstrateMemoryStrategies(): void {
+  /**
+   * Show different strategies for memory-efficient array operations.
+   *
+   * Demonstrates:
+   * 1. Pre-allocation
+   * 2. Array methods vs. push
+   * 3. Memory reuse
+   */
+  // Strategy 1: Pre-allocation
+  function withPreallocation(n: number): (null)[] {
+    /** Create array with pre-allocated space. */
+    return new Array(n).fill(null);
+  }
+
+  function withoutPreallocation(n: number): (null)[] {
+    /** Create array by pushing. */
+    const result: (null)[] = [];
+    for (let i = 0; i < n; i++) {
+      result.push(null);
+    }
+    return result;
+  }
+
+  // Compare length (as proxy for memory usage)
+  const n = 1000;
+  const preallocated = withPreallocation(n);
+  const dynamic = withoutPreallocation(n);
+
+  console.log("Pre-allocated length:", preallocated.length);
+  console.log("Dynamic growth length:", dynamic.length);
+
+  // Strategy 2: Array method efficiency
+  function withArrayFrom(n: number): number[] {
+    return Array.from({ length: n }, (_, x) => x * 2);
+  }
+
+  function withPush(n: number): number[] {
+    const result: number[] = [];
+    for (let x = 0; x < n; x++) {
+      result.push(x * 2);
+    }
+    return result;
+  }
+
+  // Compare approaches
+  const arrayFromResult = withArrayFrom(n);
+  const pushResult = withPush(n);
+
+  console.log("Array.from length:", arrayFromResult.length);
+  console.log("Push-based length:", pushResult.length);
+}
+
+// See strategies in action
+demonstrateMemoryStrategies();
 \`\`\`
 
 <h3>Memory Layout and Access Patterns</h3>
@@ -1903,7 +3050,7 @@ Understanding how arrays are laid out in memory helps us write more efficient co
 def explain_memory_layout():
     """
     Demonstrate how array layout affects performance.
-    
+
     Shows:
     1. Contiguous memory benefits
     2. Cache-friendly access patterns
@@ -1911,12 +3058,12 @@ def explain_memory_layout():
     """
     import numpy as np
     import time
-    
+
     # Create large arrays for demonstration
     n = 1000000
     py_list = list(range(n))
     np_array = np.array(py_list)
-    
+
     def measure_access_patterns(container):
         """Measure different access patterns."""
         # Sequential access
@@ -1924,29 +3071,75 @@ def explain_memory_layout():
         for i in range(len(container)):
             _ = container[i]
         sequential_time = time.perf_counter() - start
-        
+
         # Strided access
         start = time.perf_counter()
         for i in range(0, len(container), 16):
             _ = container[i]
         strided_time = time.perf_counter() - start
-        
+
         return sequential_time, strided_time
-    
+
     # Compare access patterns
     py_seq, py_stride = measure_access_patterns(py_list)
     np_seq, np_stride = measure_access_patterns(np_array)
-    
+
     print("Python List Access Times:")
     print(f"Sequential: {py_seq:.6f}s")
     print(f"Strided: {py_stride:.6f}s")
-    
+
     print("NumPy Array Access Times:")
     print(f"Sequential: {np_seq:.6f}s")
     print(f"Strided: {np_stride:.6f}s")
 
 # See memory layout effects
 explain_memory_layout()
+\`\`\`
+
+\`\`\`typescript
+function explainMemoryLayout(): void {
+  /**
+   * Demonstrate how array layout affects performance.
+   *
+   * Shows:
+   * 1. Contiguous memory benefits
+   * 2. Cache-friendly access patterns
+   * 3. Memory alignment considerations
+   */
+
+  // Create large array for demonstration
+  const n = 1000000;
+  const jsArray = Array.from({ length: n }, (_, i) => i);
+
+  function measureAccessPatterns(container: number[]): { sequential: number; strided: number } {
+    /** Measure different access patterns. */
+    // Sequential access
+    let start = performance.now();
+    for (let i = 0; i < container.length; i++) {
+      const _ = container[i];
+    }
+    const sequentialTime = performance.now() - start;
+
+    // Strided access
+    start = performance.now();
+    for (let i = 0; i < container.length; i += 16) {
+      const _ = container[i];
+    }
+    const stridedTime = performance.now() - start;
+
+    return { sequential: sequentialTime, strided: stridedTime };
+  }
+
+  // Measure access patterns
+  const { sequential: jsSeq, strided: jsStride } = measureAccessPatterns(jsArray);
+
+  console.log("JavaScript Array Access Times:");
+  console.log(\`Sequential: \${(jsSeq / 1000).toFixed(6)}s\`);
+  console.log(\`Strided: \${(jsStride / 1000).toFixed(6)}s\`);
+}
+
+// See memory layout effects
+explainMemoryLayout();
 \`\`\`
 
 <h3>Best Practices for Memory Management</h3>
@@ -1976,55 +3169,78 @@ Here are key principles to remember when working with arrays:
     {
       prompt:
         'Implement a memory-efficient function that reverses a large array in-place, and analyze its memory usage compared to creating a reversed copy.',
-      initialCode: `def memory_efficient_reverse(array):
+      initialCode: {
+        python: `def memory_efficient_reverse(array):
     """
     Reverse array in-place with minimal memory usage.
-    
+
     Args:
         array: List to reverse
     Returns:
         None (array is modified in-place)
-    
+
     Compare memory usage with array[::-1]
     """
     # Your implementation here
     pass`,
-      solution: `def memory_efficient_reverse(array):
+        typescript: `function memoryEfficientReverse(array: number[]): {
+  initialMemory: number;
+  sliceMemory: number;
+  finalMemory: number;
+} {
+  /**
+   * Reverse array in-place with minimal memory usage.
+   *
+   * @param array - Array to reverse
+   * @returns Memory usage analysis object
+   *
+   * Compare memory usage with array.slice().reverse()
+   */
+  // Your implementation here
+  return {
+    initialMemory: 0,
+    sliceMemory: 0,
+    finalMemory: 0
+  };
+}`,
+      },
+      solution: {
+        python: `def memory_efficient_reverse(array):
     """
     Reverse array in-place with minimal memory usage.
-    
+
     Args:
         array: List to reverse
     Returns:
         None (array is modified in-place)
-        
+
     Time Complexity: O(n)
     Space Complexity: O(1)
     """
     import sys
-    
+
     # Measure initial memory
     initial_memory = sys.getsizeof(array)
-    
+
     # Standard slice reverse (creates new array)
     slice_reverse = array[::-1]
     slice_memory = sys.getsizeof(slice_reverse)
-    
+
     # In-place reverse
     left, right = 0, len(array) - 1
     while left < right:
         array[left], array[right] = array[right], array[left]
         left += 1
         right -= 1
-    
+
     # Measure final memory
     final_memory = sys.getsizeof(array)
-    
+
     print("Memory Usage Analysis:")
     print(f"Initial array: {initial_memory} bytes")
     print(f"Slice reverse: {slice_memory} bytes")
     print(f"After in-place: {final_memory} bytes")
-    
+
     return {
         'initial_memory': initial_memory,
         'slice_memory': slice_memory,
@@ -2034,35 +3250,115 @@ Here are key principles to remember when working with arrays:
 # Test the function
 test_array = list(range(1000))
 memory_stats = memory_efficient_reverse(test_array)`,
+        typescript: `function memoryEfficientReverse(array: number[]): {
+  initialMemory: number;
+  sliceMemory: number;
+  finalMemory: number;
+} {
+  /**
+   * Reverse array in-place with minimal memory usage.
+   *
+   * @param array - Array to reverse
+   * @returns Memory usage analysis object
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+
+  // Measure initial length (as proxy for memory)
+  const initialMemory = array.length;
+
+  // Standard slice reverse (creates new array)
+  const sliceReverse = [...array].reverse();
+  const sliceMemory = sliceReverse.length;
+
+  // In-place reverse
+  let left = 0;
+  let right = array.length - 1;
+  while (left < right) {
+    [array[left], array[right]] = [array[right], array[left]];
+    left++;
+    right--;
+  }
+
+  // Measure final length
+  const finalMemory = array.length;
+
+  console.log("Memory Usage Analysis:");
+  console.log(\`Initial array: \${initialMemory} elements\`);
+  console.log(\`Slice reverse: \${sliceMemory} elements\`);
+  console.log(\`After in-place: \${finalMemory} elements\`);
+
+  return {
+    initialMemory,
+    sliceMemory,
+    finalMemory
+  };
+}
+
+// Test the function
+const testArray = Array.from({ length: 1000 }, (_, i) => i);
+const memoryStats = memoryEfficientReverse(testArray);`,
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt:
         'Create a memory-efficient implementation of a ring buffer using a fixed-size array. Include memory usage analysis.',
-      initialCode: `class RingBuffer:
+      initialCode: {
+        python: `class RingBuffer:
     """
     Fixed-size ring buffer implementation.
-    
+
     Analyze and optimize memory usage.
     """
     def __init__(self, size):
         # Your implementation here
         pass
-        
+
     def add(self, item):
         # Your implementation here
         pass
-        
+
     def get(self):
         # Your implementation here
         pass`,
-      solution: `class RingBuffer:
+        typescript: `class RingBuffer<T> {
+  /**
+   * Fixed-size ring buffer implementation.
+   *
+   * Analyze and optimize memory usage.
+   */
+  constructor(size: number) {
+    // Your implementation here
+  }
+
+  add(item: T): void {
+    // Your implementation here
+  }
+
+  get(): T {
+    // Your implementation here
+    throw new Error("Buffer is empty");
+  }
+
+  memoryUsage(): {
+    bufferSize: number;
+    utilization: number;
+  } {
+    // Your implementation here
+    return { bufferSize: 0, utilization: 0 };
+  }
+}`,
+      },
+      solution: {
+        python: `class RingBuffer:
     """
     Fixed-size ring buffer implementation.
-    
+
     Memory-efficient circular buffer using a fixed-size array.
     Tracks memory usage and provides usage statistics.
-    
+
     Time Complexity:
         - add: O(1)
         - get: O(1)
@@ -2074,33 +3370,33 @@ memory_stats = memory_efficient_reverse(test_array)`,
         self.head = 0  # Read position
         self.tail = 0  # Write position
         self.count = 0  # Current number of elements
-        
+
         # Track memory usage
         self.initial_memory = sys.getsizeof(self.buffer)
-        
+
     def add(self, item):
         """Add item to buffer."""
         if self.count >= self.size:
             raise BufferError("Buffer is full")
-            
+
         self.buffer[self.tail] = item
         self.tail = (self.tail + 1) % self.size
         self.count += 1
-        
+
         return sys.getsizeof(self.buffer)
-        
+
     def get(self):
         """Remove and return oldest item."""
         if self.count <= 0:
             raise BufferError("Buffer is empty")
-            
+
         item = self.buffer[self.head]
         self.buffer[self.head] = None  # Allow garbage collection
         self.head = (self.head + 1) % self.size
         self.count -= 1
-        
+
         return item
-    
+
     def memory_usage(self):
         """Analyze current memory usage."""
         return {
@@ -2115,23 +3411,115 @@ def test_ring_buffer():
     """Demonstrate and analyze ring buffer memory usage."""
     buffer = RingBuffer(5)
     print("Initial memory:", buffer.memory_usage())
-    
+
     # Add elements
     for i in range(5):
         buffer.add(i)
         print(f"After adding {i}:", buffer.memory_usage())
-    
+
     # Remove elements
     for _ in range(3):
         item = buffer.get()
         print(f"After removing {item}:", buffer.memory_usage())
-    
+
     # Add more elements
     for i in range(3):
         buffer.add(i + 5)
         print(f"After adding {i+5}:", buffer.memory_usage())
 
 test_ring_buffer()`,
+        typescript: `class RingBuffer<T> {
+  private size: number;
+  private buffer: (T | null)[];
+  private head: number;  // Read position
+  private tail: number;  // Write position
+  private count: number; // Current number of elements
+
+  /**
+   * Fixed-size ring buffer implementation.
+   *
+   * Memory-efficient circular buffer using a fixed-size array.
+   * Tracks memory usage and provides usage statistics.
+   *
+   * Time Complexity:
+   *   - add: O(1)
+   *   - get: O(1)
+   * Space Complexity: O(n) where n is buffer size
+   */
+  constructor(size: number) {
+    this.size = size;
+    this.buffer = new Array(size).fill(null);
+    this.head = 0;
+    this.tail = 0;
+    this.count = 0;
+  }
+
+  add(item: T): number {
+    /** Add item to buffer. */
+    if (this.count >= this.size) {
+      throw new Error("Buffer is full");
+    }
+
+    this.buffer[this.tail] = item;
+    this.tail = (this.tail + 1) % this.size;
+    this.count++;
+
+    return this.buffer.length;
+  }
+
+  get(): T {
+    /** Remove and return oldest item. */
+    if (this.count <= 0) {
+      throw new Error("Buffer is empty");
+    }
+
+    const item = this.buffer[this.head];
+    this.buffer[this.head] = null;  // Allow garbage collection
+    this.head = (this.head + 1) % this.size;
+    this.count--;
+
+    return item!;
+  }
+
+  memoryUsage(): {
+    bufferSize: number;
+    utilization: number;
+  } {
+    /** Analyze current memory usage. */
+    return {
+      bufferSize: this.buffer.length,
+      utilization: this.count / this.size
+    };
+  }
+}
+
+// Test the implementation
+function testRingBuffer(): void {
+  /** Demonstrate and analyze ring buffer memory usage. */
+  const buffer = new RingBuffer<number>(5);
+  console.log("Initial memory:", buffer.memoryUsage());
+
+  // Add elements
+  for (let i = 0; i < 5; i++) {
+    buffer.add(i);
+    console.log(\`After adding \${i}:\`, buffer.memoryUsage());
+  }
+
+  // Remove elements
+  for (let i = 0; i < 3; i++) {
+    const item = buffer.get();
+    console.log(\`After removing \${item}:\`, buffer.memoryUsage());
+  }
+
+  // Add more elements
+  for (let i = 0; i < 3; i++) {
+    buffer.add(i + 5);
+    console.log(\`After adding \${i + 5}:\`, buffer.memoryUsage());
+  }
+}
+
+testRingBuffer();`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -2204,7 +3592,7 @@ When we modify an array by inserting or deleting elements, we often need to shif
 
 <h3>Basic Insertion Operations</h3>
 
-Python provides several ways to insert elements into a list. Let's examine each method and understand when to use them:
+{{python:Python}}{{typescript:JavaScript/TypeScript}} provides several ways to insert elements into {{python:a list}}{{typescript:an array}}. Let's examine each method and understand when to use them:
 
 \`\`\`python
 # Creating a student roster example
@@ -2219,6 +3607,23 @@ students.insert(0, "Frank")         # ["Frank", "Alice", "Bob", "Charlie", "Davi
 # 3. Extend: Adding multiple elements at once
 new_students = ["Grace", "Henry"]
 students.extend(new_students)       # ["Frank", "Alice", "Bob", "Charlie", "David", "Eve", "Grace", "Henry"]
+\`\`\`
+
+\`\`\`typescript
+// Creating a student roster example
+const students = ["Alice", "Bob", "Charlie", "David"];
+
+// 1. Push: Adding to the end (Most Efficient)
+students.push("Eve");                // ["Alice", "Bob", "Charlie", "David", "Eve"]
+
+// 2. Unshift/Splice: Adding at a specific position
+students.unshift("Frank");          // ["Frank", "Alice", "Bob", "Charlie", "David", "Eve"]
+// Or use splice for specific position: students.splice(0, 0, "Frank");
+
+// 3. Concat/Push with spread: Adding multiple elements at once
+const newStudents = ["Grace", "Henry"];
+students.push(...newStudents);      // ["Frank", "Alice", "Bob", "Charlie", "David", "Eve", "Grace", "Henry"]
+// Alternative: students = students.concat(newStudents);
 \`\`\`
 
 <div class="performance-comparison bg-white p-6 rounded-lg shadow-md my-8">
@@ -2278,6 +3683,29 @@ last_student = students.pop()  # Removes and returns "Eve"
 students.clear()              # []
 \`\`\`
 
+\`\`\`typescript
+// Starting with our student roster
+const students = ["Alice", "Bob", "Charlie", "David", "Eve"];
+
+// 1. Remove by value (requires finding index first)
+const charlieIndex = students.indexOf("Charlie");
+if (charlieIndex !== -1) {
+  students.splice(charlieIndex, 1);  // ["Alice", "Bob", "David", "Eve"]
+}
+// Alternative using filter: students = students.filter(s => s !== "Charlie");
+
+// 2. Remove by index
+const removedStudent = students.splice(1, 1)[0];  // Removes and returns "Bob"
+console.log(\`\${removedStudent} has been removed\`);
+
+// 3. Remove last element
+const lastStudent = students.pop();  // Removes and returns "Eve"
+
+// 4. Clear entire array
+students.length = 0;              // []
+// Alternative: students.splice(0, students.length);
+\`\`\`
+
 <div class="visualization-container bg-white p-6 rounded-lg shadow-md my-8">
   <h4 class="text-center text-gray-700 mb-4">Element Shifting During Deletion</h4>
   <div class="flex flex-col space-y-6">
@@ -2311,7 +3739,7 @@ When working with arrays, certain patterns can help us perform modifications mor
 def efficient_batch_update(items, new_items, start_index):
     """
     Demonstrates efficient batch insertion into an array.
-    
+
     Args:
         items: Original list
         new_items: Items to insert
@@ -2319,18 +3747,18 @@ def efficient_batch_update(items, new_items, start_index):
     """
     # Calculate new size needed
     new_size = len(items) + len(new_items)
-    
+
     # Extend list first to avoid multiple resizing operations
     items.extend([None] * len(new_items))
-    
+
     # Shift existing elements to make space
     for i in range(len(items) - len(new_items) - 1, start_index - 1, -1):
         items[i + len(new_items)] = items[i]
-    
+
     # Insert new items
     for i, item in enumerate(new_items):
         items[start_index + i] = item
-    
+
     return items
 
 # Example usage
@@ -2338,6 +3766,41 @@ playlist = ["Song1", "Song2", "Song5", "Song6"]
 new_songs = ["Song3", "Song4"]
 updated_playlist = efficient_batch_update(playlist, new_songs, 2)
 print("Updated playlist:", updated_playlist)
+\`\`\`
+
+\`\`\`typescript
+function efficientBatchUpdate(items: string[], newItems: string[], startIndex: number): string[] {
+  /**
+   * Demonstrates efficient batch insertion into an array.
+   *
+   * @param items - Original array
+   * @param newItems - Items to insert
+   * @param startIndex - Where to begin insertion
+   */
+  // Calculate new size needed
+  const newSize = items.length + newItems.length;
+
+  // Extend array first to avoid multiple resizing operations
+  items.push(...new Array(newItems.length).fill(null));
+
+  // Shift existing elements to make space
+  for (let i = items.length - newItems.length - 1; i >= startIndex; i--) {
+    items[i + newItems.length] = items[i];
+  }
+
+  // Insert new items
+  for (let i = 0; i < newItems.length; i++) {
+    items[startIndex + i] = newItems[i];
+  }
+
+  return items;
+}
+
+// Example usage
+const playlist = ["Song1", "Song2", "Song5", "Song6"];
+const newSongs = ["Song3", "Song4"];
+const updatedPlaylist = efficientBatchUpdate(playlist, newSongs, 2);
+console.log("Updated playlist:", updatedPlaylist);
 \`\`\`
 
 <div class="best-practices bg-gray-50 p-6 rounded-lg my-8">
@@ -2352,7 +3815,7 @@ print("Updated playlist:", updated_playlist)
 
 <h3>Memory Management During Modifications</h3>
 
-Understanding how Python manages memory during list modifications helps us write more efficient code:
+Understanding how {{python:Python}}{{typescript:JavaScript}} manages {{python:list}}{{typescript:array}} memory during modifications helps us write more efficient code:
 
 \`\`\`python
 import sys
@@ -2361,15 +3824,35 @@ def demonstrate_memory_growth():
     """Shows how Python manages list memory during growth."""
     numbers = []
     sizes = []
-    
+
     for i in range(64):
         sizes.append(sys.getsizeof(numbers))
         numbers.append(i)
-        
+
     print("Size progression:", sizes[::8])  # Print every 8th size
     # Notice how size doubles at certain points to accommodate growth
 
 demonstrate_memory_growth()
+\`\`\`
+
+\`\`\`typescript
+function demonstrateMemoryGrowth(): void {
+  /** Shows how JavaScript manages array memory during growth (conceptual). */
+  const numbers: number[] = [];
+  const sizes: number[] = [];
+
+  for (let i = 0; i < 64; i++) {
+    sizes.push(numbers.length);
+    numbers.push(i);
+  }
+
+  // Print every 8th size (using filter to get every 8th element)
+  const progression = sizes.filter((_, index) => index % 8 === 0);
+  console.log("Size progression:", progression);
+  // Notice how array grows to accommodate new elements
+}
+
+demonstrateMemoryGrowth();
 \`\`\`
 
 <div class="visual-explanation bg-white p-6 rounded-lg shadow-md my-8">
@@ -2395,10 +3878,11 @@ demonstrate_memory_growth()
     {
       prompt:
         'Create a function that efficiently inserts multiple elements into a sorted array while maintaining the sort order.',
-      initialCode: `def insert_maintaining_order(sorted_array, new_elements):
+      initialCode: {
+        python: `def insert_maintaining_order(sorted_array, new_elements):
     """
     Insert multiple elements into a sorted array, maintaining order.
-    
+
     Args:
         sorted_array: List of sorted numbers
         new_elements: List of numbers to insert
@@ -2407,16 +3891,29 @@ demonstrate_memory_growth()
     """
     # Your implementation here
     pass`,
-      solution: `def insert_maintaining_order(sorted_array, new_elements):
+        typescript: `function insertMaintainingOrder(sortedArray: number[], newElements: number[]): number[] {
+  /**
+   * Insert multiple elements into a sorted array, maintaining order.
+   *
+   * @param sortedArray - Array of sorted numbers
+   * @param newElements - Array of numbers to insert
+   * @returns Updated sorted array
+   */
+  // Your implementation here
+  return sortedArray;
+}`,
+      },
+      solution: {
+        python: `def insert_maintaining_order(sorted_array, new_elements):
     """
     Insert multiple elements into a sorted array, maintaining order.
-    
+
     Args:
         sorted_array: List of sorted numbers
         new_elements: List of numbers to insert
     Returns:
         Updated sorted array
-        
+
     Time Complexity: O(n * m) where n is len(sorted_array) and m is len(new_elements)
     Space Complexity: O(1) as we modify in-place
     """
@@ -2429,35 +3926,85 @@ demonstrate_memory_growth()
                 insert_position = i + 1
             else:
                 break
-                
+
         # Insert element
         sorted_array.insert(insert_position, element)
-    
+
     return sorted_array`,
+        typescript: `function insertMaintainingOrder(sortedArray: number[], newElements: number[]): number[] {
+  /**
+   * Insert multiple elements into a sorted array, maintaining order.
+   *
+   * @param sortedArray - Array of sorted numbers
+   * @param newElements - Array of numbers to insert
+   * @returns Updated sorted array
+   *
+   * Time Complexity: O(n * m) where n is sortedArray.length and m is newElements.length
+   * Space Complexity: O(1) as we modify in-place
+   */
+  // Process each new element
+  for (const element of newElements) {
+    // Find insertion point
+    let insertPosition = 0;
+    for (let i = 0; i < sortedArray.length; i++) {
+      if (element > sortedArray[i]) {
+        insertPosition = i + 1;
+      } else {
+        break;
+      }
+    }
+
+    // Insert element
+    sortedArray.splice(insertPosition, 0, element);
+  }
+
+  return sortedArray;
+}`,
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt:
         'Implement a circular buffer using a fixed-size array, handling insertions and deletions efficiently.',
-      initialCode: `class CircularBuffer:
+      initialCode: {
+        python: `class CircularBuffer:
     """
     Fixed-size circular buffer implementation.
     """
     def __init__(self, size):
         # Your implementation here
         pass
-        
+
     def insert(self, item):
         # Your implementation here
         pass
-        
+
     def remove(self):
         # Your implementation here
         pass`,
-      solution: `class CircularBuffer:
+        typescript: `class CircularBuffer<T> {
+  /**
+   * Fixed-size circular buffer implementation.
+   */
+  constructor(size: number) {
+    // Your implementation here
+  }
+
+  insert(item: T): void {
+    // Your implementation here
+  }
+
+  remove(): T {
+    // Your implementation here
+    throw new Error("Buffer is empty");
+  }
+}`,
+      },
+      solution: {
+        python: `class CircularBuffer:
     """
     Fixed-size circular buffer implementation.
-    
+
     Time Complexity:
         - insert: O(1)
         - remove: O(1)
@@ -2469,25 +4016,72 @@ demonstrate_memory_growth()
         self.head = 0  # Remove from here
         self.tail = 0  # Insert here
         self.count = 0
-        
+
     def insert(self, item):
         """Insert item into buffer."""
         if self.count >= self.size:
             raise ValueError("Buffer is full")
-            
+
         self.buffer[self.tail] = item
         self.tail = (self.tail + 1) % self.size
         self.count += 1
-        
+
     def remove(self):
         """Remove and return item from buffer."""
         if self.count <= 0:
             raise ValueError("Buffer is empty")
-            
+
         item = self.buffer[self.head]
         self.head = (self.head + 1) % self.size
         self.count -= 1
         return item`,
+        typescript: `class CircularBuffer<T> {
+  private size: number;
+  private buffer: (T | null)[];
+  private head: number;  // Remove from here
+  private tail: number;  // Insert here
+  private count: number;
+
+  /**
+   * Fixed-size circular buffer implementation.
+   *
+   * Time Complexity:
+   *   - insert: O(1)
+   *   - remove: O(1)
+   * Space Complexity: O(n) where n is buffer size
+   */
+  constructor(size: number) {
+    this.size = size;
+    this.buffer = new Array(size).fill(null);
+    this.head = 0;
+    this.tail = 0;
+    this.count = 0;
+  }
+
+  insert(item: T): void {
+    /** Insert item into buffer. */
+    if (this.count >= this.size) {
+      throw new Error("Buffer is full");
+    }
+
+    this.buffer[this.tail] = item;
+    this.tail = (this.tail + 1) % this.size;
+    this.count++;
+  }
+
+  remove(): T {
+    /** Remove and return item from buffer. */
+    if (this.count <= 0) {
+      throw new Error("Buffer is empty");
+    }
+
+    const item = this.buffer[this.head];
+    this.head = (this.head + 1) % this.size;
+    this.count--;
+    return item!;
+  }
+}`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -2584,11 +4178,11 @@ Linear search is like walking down a library shelf and checking each book until 
 def linear_search(array, target):
     """
     Search for an element by checking each item in sequence.
-    
+
     Args:
         array: List of elements to search
         target: Element we're looking for
-        
+
     Returns:
         Index of target if found, -1 otherwise
     """
@@ -2602,6 +4196,31 @@ def linear_search(array, target):
 students = ["Alice", "Bob", "Charlie", "David", "Eve"]
 position = linear_search(students, "Charlie")
 print(f"Found Charlie at position: {position}")  # Output: 2
+\`\`\`
+
+\`\`\`typescript
+// Simple linear search implementation
+function linearSearch(array: string[], target: string): number {
+  /**
+   * Search for an element by checking each item in sequence.
+   *
+   * @param array - Array of elements to search
+   * @param target - Element we're looking for
+   * @returns Index of target if found, -1 otherwise
+   */
+  // Check each element one by one
+  for (let index = 0; index < array.length; index++) {
+    if (array[index] === target) {
+      return index;
+    }
+  }
+  return -1;
+}
+
+// Practical example: Finding a student in class
+const students = ["Alice", "Bob", "Charlie", "David", "Eve"];
+const position = linearSearch(students, "Charlie");
+console.log(\`Found Charlie at position: \${position}\`);  // Output: 2
 \`\`\`
 
 <div class="visualization-container bg-white p-6 rounded-lg shadow-md my-8">
@@ -2626,24 +4245,24 @@ When our array is sorted, we can use binary search, which is like opening a dict
 def binary_search(sorted_array, target):
     """
     Search for an element in a sorted array using binary search.
-    
+
     Args:
         sorted_array: Sorted list of elements
         target: Element we're looking for
-        
+
     Returns:
         Index of target if found, -1 otherwise
-        
+
     Time Complexity: O(log n)
     Space Complexity: O(1)
     """
     left = 0
     right = len(sorted_array) - 1
-    
+
     while left <= right:
         # Find the middle point
         mid = (left + right) // 2
-        
+
         # Check if we found the target
         if sorted_array[mid] == target:
             return mid
@@ -2653,13 +4272,55 @@ def binary_search(sorted_array, target):
         # If target is smaller, ignore right half
         else:
             right = mid - 1
-            
+
     return -1
 
 # Example with sorted scores
 scores = [65, 70, 75, 80, 85, 90, 95]
 position = binary_search(scores, 85)
 print(f"Found score 85 at position: {position}")  # Output: 4
+\`\`\`
+
+\`\`\`typescript
+function binarySearch(sortedArray: number[], target: number): number {
+  /**
+   * Search for an element in a sorted array using binary search.
+   *
+   * @param sortedArray - Sorted array of elements
+   * @param target - Element we're looking for
+   * @returns Index of target if found, -1 otherwise
+   *
+   * Time Complexity: O(log n)
+   * Space Complexity: O(1)
+   */
+  let left = 0;
+  let right = sortedArray.length - 1;
+
+  while (left <= right) {
+    // Find the middle point
+    const mid = Math.floor((left + right) / 2);
+
+    // Check if we found the target
+    if (sortedArray[mid] === target) {
+      return mid;
+    }
+    // If target is greater, ignore left half
+    else if (sortedArray[mid] < target) {
+      left = mid + 1;
+    }
+    // If target is smaller, ignore right half
+    else {
+      right = mid - 1;
+    }
+  }
+
+  return -1;
+}
+
+// Example with sorted scores
+const scores = [65, 70, 75, 80, 85, 90, 95];
+const position = binarySearch(scores, 85);
+console.log(\`Found score 85 at position: \${position}\`);  // Output: 4
 \`\`\`
 
 <div class="visual-comparison bg-white p-6 rounded-lg shadow-md my-8">
@@ -2700,54 +4361,120 @@ For more complex scenarios, we might need more sophisticated searching approache
 def find_closest_value(sorted_array, target):
     """
     Find the value closest to the target in a sorted array.
-    
+
     Args:
         sorted_array: Sorted list of numbers
         target: Value we're trying to get close to
-        
+
     Returns:
         Value in array closest to target
-        
+
     Time Complexity: O(log n)
     Space Complexity: O(1)
     """
     if not sorted_array:
         return None
-        
+
     left = 0
     right = len(sorted_array) - 1
-    
+
     # Handle edge cases
     if target <= sorted_array[left]:
         return sorted_array[left]
     if target >= sorted_array[right]:
         return sorted_array[right]
-    
+
     # Binary search for closest value
     while left <= right:
         mid = (left + right) // 2
-        
+
         if sorted_array[mid] == target:
             return sorted_array[mid]
-            
+
         elif sorted_array[mid] < target:
             if mid + 1 <= right and target < sorted_array[mid + 1]:
                 # Compare which is closer
                 return sorted_array[mid] if (target - sorted_array[mid]) < (sorted_array[mid + 1] - target) else sorted_array[mid + 1]
             left = mid + 1
-            
+
         else:
             if mid - 1 >= left and target > sorted_array[mid - 1]:
                 # Compare which is closer
                 return sorted_array[mid - 1] if (target - sorted_array[mid - 1]) < (sorted_array[mid] - target) else sorted_array[mid]
             right = mid - 1
-    
+
     return sorted_array[mid]
 
 # Example: Finding closest score to a target
 scores = [60, 65, 70, 75, 80, 85, 90]
 closest = find_closest_value(scores, 82)
 print(f"Closest score to 82 is: {closest}")  # Output: 80
+\`\`\`
+
+\`\`\`typescript
+function findClosestValue(sortedArray: number[], target: number): number | null {
+  /**
+   * Find the value closest to the target in a sorted array.
+   *
+   * @param sortedArray - Sorted array of numbers
+   * @param target - Value we're trying to get close to
+   * @returns Value in array closest to target
+   *
+   * Time Complexity: O(log n)
+   * Space Complexity: O(1)
+   */
+  if (sortedArray.length === 0) {
+    return null;
+  }
+
+  let left = 0;
+  let right = sortedArray.length - 1;
+
+  // Handle edge cases
+  if (target <= sortedArray[left]) {
+    return sortedArray[left];
+  }
+  if (target >= sortedArray[right]) {
+    return sortedArray[right];
+  }
+
+  // Binary search for closest value
+  let mid = 0;
+  while (left <= right) {
+    mid = Math.floor((left + right) / 2);
+
+    if (sortedArray[mid] === target) {
+      return sortedArray[mid];
+    }
+
+    else if (sortedArray[mid] < target) {
+      if (mid + 1 <= right && target < sortedArray[mid + 1]) {
+        // Compare which is closer
+        return (target - sortedArray[mid]) < (sortedArray[mid + 1] - target)
+          ? sortedArray[mid]
+          : sortedArray[mid + 1];
+      }
+      left = mid + 1;
+    }
+
+    else {
+      if (mid - 1 >= left && target > sortedArray[mid - 1]) {
+        // Compare which is closer
+        return (target - sortedArray[mid - 1]) < (sortedArray[mid] - target)
+          ? sortedArray[mid - 1]
+          : sortedArray[mid];
+      }
+      right = mid - 1;
+    }
+  }
+
+  return sortedArray[mid];
+}
+
+// Example: Finding closest score to a target
+const scores = [60, 65, 70, 75, 80, 85, 90];
+const closest = findClosestValue(scores, 82);
+console.log(\`Closest score to 82 is: \${closest}\`);  // Output: 80
 \`\`\`
 
 <h3>Best Practices and Performance Considerations</h3>
@@ -2774,10 +4501,11 @@ When implementing search operations, consider these key points:
     {
       prompt:
         'Implement a function that finds all occurrences of a target value in an array, returning their indices.',
-      initialCode: `def find_all_occurrences(array, target):
+      initialCode: {
+        python: `def find_all_occurrences(array, target):
     """
     Find all occurrences of target in array.
-    
+
     Args:
         array: List of elements to search
         target: Element to find
@@ -2786,41 +4514,83 @@ When implementing search operations, consider these key points:
     """
     # Your implementation here
     pass`,
-      solution: `def find_all_occurrences(array, target):
+        typescript: `function findAllOccurrences(array: number[], target: number): number[] {
+  /**
+   * Find all occurrences of target in array.
+   *
+   * @param array - Array of elements to search
+   * @param target - Element to find
+   * @returns Array of indices where target appears
+   */
+  // Your implementation here
+  return [];
+}`,
+      },
+      solution: {
+        python: `def find_all_occurrences(array, target):
     """
     Find all occurrences of target in array.
-    
+
     Args:
         array: List of elements to search
         target: Element to find
     Returns:
         List of indices where target appears
-    
+
     Time Complexity: O(n)
     Space Complexity: O(k) where k is number of occurrences
     """
     indices = []
-    
+
     # Search through array once, recording all matches
     for i, element in enumerate(array):
         if element == target:
             indices.append(i)
-    
+
     return indices
 
 # Example usage:
 test_array = [1, 2, 3, 2, 4, 2, 5]
 result = find_all_occurrences(test_array, 2)
 print(f"Found target at indices: {result}")  # [1, 3, 5]`,
+        typescript: `function findAllOccurrences(array: number[], target: number): number[] {
+  /**
+   * Find all occurrences of target in array.
+   *
+   * @param array - Array of elements to search
+   * @param target - Element to find
+   * @returns Array of indices where target appears
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(k) where k is number of occurrences
+   */
+  const indices: number[] = [];
+
+  // Search through array once, recording all matches
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === target) {
+      indices.push(i);
+    }
+  }
+
+  return indices;
+}
+
+// Example usage:
+const testArray = [1, 2, 3, 2, 4, 2, 5];
+const result = findAllOccurrences(testArray, 2);
+console.log(\`Found target at indices: \${result}\`);  // [1, 3, 5]`,
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt:
         'Create a function that implements interpolation search for a sorted array of numbers.',
-      initialCode: `def interpolation_search(sorted_array, target):
+      initialCode: {
+        python: `def interpolation_search(sorted_array, target):
     """
     Implement interpolation search for faster searching in uniformly distributed sorted arrays.
-    
+
     Args:
         sorted_array: Sorted list of numbers
         target: Number to find
@@ -2829,45 +4599,105 @@ print(f"Found target at indices: {result}")  # [1, 3, 5]`,
     """
     # Your implementation here
     pass`,
-      solution: `def interpolation_search(sorted_array, target):
+        typescript: `function interpolationSearch(sortedArray: number[], target: number): number {
+  /**
+   * Implement interpolation search for faster searching in uniformly distributed sorted arrays.
+   *
+   * @param sortedArray - Sorted array of numbers
+   * @param target - Number to find
+   * @returns Index of target if found, -1 otherwise
+   */
+  // Your implementation here
+  return -1;
+}`,
+      },
+      solution: {
+        python: `def interpolation_search(sorted_array, target):
     """
     Implement interpolation search for faster searching in uniformly distributed sorted arrays.
-    
+
     Args:
         sorted_array: Sorted list of numbers
         target: Number to find
     Returns:
         Index of target if found, -1 otherwise
-    
+
     Time Complexity: O(log(log n)) for uniform distribution
     Space Complexity: O(1)
     """
     left = 0
     right = len(sorted_array) - 1
-    
+
     while left <= right and target >= sorted_array[left] and target <= sorted_array[right]:
         if left == right:
             if sorted_array[left] == target:
                 return left
             return -1
-        
+
         # Estimate position using linear interpolation
         pos = left + ((target - sorted_array[left]) * (right - left)) // (sorted_array[right] - sorted_array[left])
-        
+
         if sorted_array[pos] == target:
             return pos
-            
+
         if sorted_array[pos] < target:
             left = pos + 1
         else:
             right = pos - 1
-    
+
     return -1
 
 # Example usage:
 numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90]
 result = interpolation_search(numbers, 60)
 print(f"Found target at index: {result}")  # 5`,
+        typescript: `function interpolationSearch(sortedArray: number[], target: number): number {
+  /**
+   * Implement interpolation search for faster searching in uniformly distributed sorted arrays.
+   *
+   * @param sortedArray - Sorted array of numbers
+   * @param target - Number to find
+   * @returns Index of target if found, -1 otherwise
+   *
+   * Time Complexity: O(log(log n)) for uniform distribution
+   * Space Complexity: O(1)
+   */
+  let left = 0;
+  let right = sortedArray.length - 1;
+
+  while (left <= right && target >= sortedArray[left] && target <= sortedArray[right]) {
+    if (left === right) {
+      if (sortedArray[left] === target) {
+        return left;
+      }
+      return -1;
+    }
+
+    // Estimate position using linear interpolation
+    const pos = left + Math.floor(
+      ((target - sortedArray[left]) * (right - left)) /
+      (sortedArray[right] - sortedArray[left])
+    );
+
+    if (sortedArray[pos] === target) {
+      return pos;
+    }
+
+    if (sortedArray[pos] < target) {
+      left = pos + 1;
+    } else {
+      right = pos - 1;
+    }
+  }
+
+  return -1;
+}
+
+// Example usage:
+const numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+const result = interpolationSearch(numbers, 60);
+console.log(\`Found target at index: \${result}\`);  // 5`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -2917,7 +4747,7 @@ const arraySlicingData: LessonContent = {
 
 <h3>Understanding Array Slicing</h3>
 
-In Python, array slicing follows the pattern array[start:stop:step]. Let's break this down step by step:
+{{python:In Python, array slicing follows the pattern array[start:stop:step]}}{{typescript:In TypeScript, we use the slice() method: array.slice(start, end)}}. Let's break this down step by step:
 
 \`\`\`python
 # Basic array for our examples
@@ -2932,6 +4762,21 @@ print(f"Original array: {numbers}")
 print(f"First three: {first_three}")
 print(f"Middle three: {middle_three}")
 print(f"Last three: {last_three}")
+\`\`\`
+
+\`\`\`typescript
+// Basic array for our examples
+const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// Basic slicing: array.slice(start, end)
+const firstThree = numbers.slice(0, 3);     // [0, 1, 2]
+const middleThree = numbers.slice(3, 6);    // [3, 4, 5]
+const lastThree = numbers.slice(7, 10);     // [7, 8, 9]
+
+console.log(\`Original array: \${numbers}\`);
+console.log(\`First three: \${firstThree}\`);
+console.log(\`Middle three: \${middleThree}\`);
+console.log(\`Last three: \${lastThree}\`);
 \`\`\`
 
 <div class="visualization-container bg-white p-6 rounded-lg shadow-md my-8">
@@ -2972,24 +4817,24 @@ print(f"Last three: {last_three}")
 
 <h3>Advanced Slicing Techniques</h3>
 
-Python's slicing functionality offers powerful features beyond basic subsetting. Let's explore these advanced techniques:
+{{python:Python's}}{{typescript:TypeScript's}} slicing functionality offers powerful features beyond basic subsetting. Let's explore these advanced techniques:
 
 \`\`\`python
 def demonstrate_advanced_slicing():
     """Shows advanced array slicing techniques."""
     numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-    
+
     # 1. Using negative indices
     last_three = numbers[-3:]      # [7, 8, 9]
     except_last_two = numbers[:-2] # [0, 1, 2, 3, 4, 5, 6, 7]
-    
+
     # 2. Using steps
     every_second = numbers[::2]    # [0, 2, 4, 6, 8]
     every_third = numbers[::3]     # [0, 3, 6, 9]
-    
+
     # 3. Reversing using slices
     reversed_list = numbers[::-1]  # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
-    
+
     return {
         'last_three': last_three,
         'except_last_two': except_last_two,
@@ -3004,28 +4849,82 @@ for name, result in results.items():
     print(f"{name}: {result}")
 \`\`\`
 
+\`\`\`typescript
+function demonstrateAdvancedSlicing(): Record<string, number[]> {
+  /** Shows advanced array slicing techniques. */
+  const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  // 1. Using negative indices
+  const lastThree = numbers.slice(-3);        // [7, 8, 9]
+  const exceptLastTwo = numbers.slice(0, -2); // [0, 1, 2, 3, 4, 5, 6, 7]
+
+  // 2. Using filter with steps
+  const everySecond = numbers.filter((_, i) => i % 2 === 0);  // [0, 2, 4, 6, 8]
+  const everyThird = numbers.filter((_, i) => i % 3 === 0);   // [0, 3, 6, 9]
+
+  // 3. Reversing using methods
+  const reversedList = [...numbers].reverse();  // [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+  return {
+    last_three: lastThree,
+    except_last_two: exceptLastTwo,
+    every_second: everySecond,
+    every_third: everyThird,
+    reversed: reversedList
+  };
+}
+
+// Show the results
+const results = demonstrateAdvancedSlicing();
+for (const [name, result] of Object.entries(results)) {
+  console.log(\`\${name}: \${result}\`);
+}
+\`\`\`
+
 <h3>Understanding Slice Objects</h3>
 
-Python allows us to create slice objects explicitly, which can be useful when we want to reuse the same slice multiple times:
+{{python:Python allows us to create slice objects explicitly}}{{typescript:TypeScript uses method-based slicing}}, which can be useful when we want to reuse the same slice multiple times:
 
 \`\`\`python
 def explore_slice_objects():
     """Demonstrates the use of slice objects."""
     numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-    
+
     # Create a slice object
     first_half = slice(0, 5)
     second_half = slice(5, None)  # None means 'until the end'
-    
+
     # Use the slice objects
     print(f"First half: {numbers[first_half]}")
     print(f"Second half: {numbers[second_half]}")
-    
+
     # Create a more complex slice
     every_second_reversed = slice(None, None, -2)
     print(f"Every second element reversed: {numbers[every_second_reversed]}")
 
 explore_slice_objects()
+\`\`\`
+
+\`\`\`typescript
+function exploreSliceObjects(): void {
+  /** Demonstrates reusable slice operations. */
+  const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  // Create reusable slice functions
+  const firstHalf = (arr: number[]) => arr.slice(0, 5);
+  const secondHalf = (arr: number[]) => arr.slice(5);
+
+  // Use the slice functions
+  console.log(\`First half: \${firstHalf(numbers)}\`);
+  console.log(\`Second half: \${secondHalf(numbers)}\`);
+
+  // Create a more complex slice
+  const everySecondReversed = (arr: number[]) =>
+    arr.filter((_, i) => i % 2 === 0).reverse();
+  console.log(\`Every second element reversed: \${everySecondReversed(numbers)}\`);
+}
+
+exploreSliceObjects();
 \`\`\`
 
 <h3>Practical Applications</h3>
@@ -3036,7 +4935,7 @@ Let's look at some real-world applications of array slicing:
 def analyze_temperature_data(temperatures):
     """
     Analyze temperature readings using slicing.
-    
+
     Args:
         temperatures: List of hourly temperatures
     Returns:
@@ -3047,7 +4946,7 @@ def analyze_temperature_data(temperatures):
     afternoon = temperatures[12:18] # noon to 6 PM
     evening = temperatures[18:24]   # 6 PM to midnight
     night = temperatures[:6]        # midnight to 6 AM
-    
+
     return {
         'morning_avg': sum(morning) / len(morning),
         'afternoon_avg': sum(afternoon) / len(afternoon),
@@ -3065,6 +4964,39 @@ for metric, value in analysis.items():
     print(f"{metric}: {value:.1f}°C")
 \`\`\`
 
+\`\`\`typescript
+function analyzeTemperatureData(temperatures: number[]): Record<string, number> {
+  /**
+   * Analyze temperature readings using slicing.
+   *
+   * @param temperatures - Array of hourly temperatures
+   * @returns Object with various analyses
+   */
+  // Get different parts of the day
+  const morning = temperatures.slice(6, 12);    // 6 AM to noon
+  const afternoon = temperatures.slice(12, 18); // noon to 6 PM
+  const evening = temperatures.slice(18, 24);   // 6 PM to midnight
+  const night = temperatures.slice(0, 6);       // midnight to 6 AM
+
+  return {
+    morning_avg: morning.reduce((a, b) => a + b, 0) / morning.length,
+    afternoon_avg: afternoon.reduce((a, b) => a + b, 0) / afternoon.length,
+    evening_avg: evening.reduce((a, b) => a + b, 0) / evening.length,
+    night_avg: night.reduce((a, b) => a + b, 0) / night.length,
+    daily_high: Math.max(...temperatures),
+    daily_low: Math.min(...temperatures)
+  };
+}
+
+// Example usage
+const hourlyTemps = [15, 14, 14, 13, 13, 15, 16, 18, 21, 23, 24, 25,
+                     26, 27, 28, 27, 26, 25, 23, 22, 20, 18, 17, 16];
+const analysis = analyzeTemperatureData(hourlyTemps);
+for (const [metric, value] of Object.entries(analysis)) {
+  console.log(\`\${metric}: \${value.toFixed(1)}°C\`);
+}
+\`\`\`
+
 <h3>Memory and Performance Considerations</h3>
 
 Understanding how slices affect memory usage is crucial for writing efficient code:
@@ -3073,24 +5005,50 @@ Understanding how slices affect memory usage is crucial for writing efficient co
 def demonstrate_slice_memory():
     """Shows memory behavior of slices."""
     import sys
-    
+
     original = list(range(1000))
     slice_view = original[::2]  # Creates new list
-    
+
     print(f"Original size: {sys.getsizeof(original)} bytes")
     print(f"Slice size: {sys.getsizeof(slice_view)} bytes")
-    
+
     # Memory-efficient alternative using generator
     def efficient_slice(arr, step):
         """Generate elements without creating full slice."""
         for i in range(0, len(arr), step):
             yield arr[i]
-    
+
     # Use generator for memory efficiency
     generator_view = efficient_slice(original, 2)
     print(f"Generator size: {sys.getsizeof(generator_view)} bytes")
 
 demonstrate_slice_memory()
+\`\`\`
+
+\`\`\`typescript
+function demonstrateSliceMemory(): void {
+  /** Shows memory behavior of slices (conceptual). */
+
+  const original = Array.from({ length: 1000 }, (_, i) => i);
+  const sliceView = original.filter((_, i) => i % 2 === 0);  // Creates new array
+
+  console.log(\`Original length: \${original.length} elements\`);
+  console.log(\`Slice length: \${sliceView.length} elements\`);
+
+  // Memory-efficient alternative using generator
+  function* efficientSlice(arr: number[], step: number): Generator<number> {
+    /** Generate elements without creating full slice. */
+    for (let i = 0; i < arr.length; i += step) {
+      yield arr[i];
+    }
+  }
+
+  // Use generator for memory efficiency
+  const generatorView = efficientSlice(original, 2);
+  console.log(\`Generator created (iterates lazily)\`);
+}
+
+demonstrateSliceMemory();
 \`\`\`
 
 <div class="best-practices bg-white p-6 rounded-lg shadow-md my-8">
@@ -3129,10 +5087,11 @@ demonstrate_slice_memory()
     {
       prompt:
         'Create a function that takes a list of daily temperatures and returns the temperature ranges (high-low) for each week using slicing.',
-      initialCode: `def weekly_temperature_ranges(temperatures):
+      initialCode: {
+        python: `def weekly_temperature_ranges(temperatures):
     """
     Calculate temperature ranges for each week.
-    
+
     Args:
         temperatures: List of daily temperatures
     Returns:
@@ -3140,29 +5099,41 @@ demonstrate_slice_memory()
     """
     # Your implementation here
     pass`,
-      solution: `def weekly_temperature_ranges(temperatures):
+        typescript: `function weeklyTemperatureRanges(temperatures: number[]): number[] {
+  /**
+   * Calculate temperature ranges for each week.
+   *
+   * @param temperatures - Array of daily temperatures
+   * @returns Array of weekly temperature ranges
+   */
+  // Your implementation here
+  return [];
+}`,
+      },
+      solution: {
+        python: `def weekly_temperature_ranges(temperatures):
     """
     Calculate temperature ranges for each week.
-    
+
     Args:
         temperatures: List of daily temperatures
     Returns:
         List of weekly temperature ranges
-    
+
     Example:
         temps = [20, 22, 21, 24, 25, 23, 22,  # Week 1
                 19, 18, 20, 21, 20, 19, 18]   # Week 2
         returns [5, 3]  # (25-20), (21-18)
     """
     ranges = []
-    
+
     # Process each week (7 days) of temperatures
     for i in range(0, len(temperatures), 7):
         week_temps = temperatures[i:i+7]
         if week_temps:  # Check if we have data for this week
             temp_range = max(week_temps) - min(week_temps)
             ranges.append(temp_range)
-    
+
     return ranges
 
 # Test the function
@@ -3170,15 +5141,48 @@ test_temps = [20, 22, 21, 24, 25, 23, 22,  # Week 1
               19, 18, 20, 21, 20, 19, 18]   # Week 2
 results = weekly_temperature_ranges(test_temps)
 print(f"Weekly temperature ranges: {results}")`,
+        typescript: `function weeklyTemperatureRanges(temperatures: number[]): number[] {
+  /**
+   * Calculate temperature ranges for each week.
+   *
+   * @param temperatures - Array of daily temperatures
+   * @returns Array of weekly temperature ranges
+   *
+   * Example:
+   *   temps = [20, 22, 21, 24, 25, 23, 22,  // Week 1
+   *            19, 18, 20, 21, 20, 19, 18]   // Week 2
+   *   returns [5, 3]  // (25-20), (21-18)
+   */
+  const ranges: number[] = [];
+
+  // Process each week (7 days) of temperatures
+  for (let i = 0; i < temperatures.length; i += 7) {
+    const weekTemps = temperatures.slice(i, i + 7);
+    if (weekTemps.length > 0) {  // Check if we have data for this week
+      const tempRange = Math.max(...weekTemps) - Math.min(...weekTemps);
+      ranges.push(tempRange);
+    }
+  }
+
+  return ranges;
+}
+
+// Test the function
+const testTemps = [20, 22, 21, 24, 25, 23, 22,  // Week 1
+                   19, 18, 20, 21, 20, 19, 18];  // Week 2
+const results = weeklyTemperatureRanges(testTemps);
+console.log(\`Weekly temperature ranges: \${results}\`);`,
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt:
         'Implement a function that takes a time series of data and returns moving averages using slicing. The function should handle different window sizes and edge cases.',
-      initialCode: `def calculate_moving_average(data, window_size):
+      initialCode: {
+        python: `def calculate_moving_average(data, window_size):
     """
     Calculate moving averages of time series data.
-    
+
     Args:
         data: List of numerical values
         window_size: Size of moving window
@@ -3187,16 +5191,29 @@ print(f"Weekly temperature ranges: {results}")`,
     """
     # Your implementation here
     pass`,
-      solution: `def calculate_moving_average(data, window_size):
+        typescript: `function calculateMovingAverage(data: number[], windowSize: number): number[] {
+  /**
+   * Calculate moving averages of time series data.
+   *
+   * @param data - Array of numerical values
+   * @param windowSize - Size of moving window
+   * @returns Array of moving averages
+   */
+  // Your implementation here
+  return [];
+}`,
+      },
+      solution: {
+        python: `def calculate_moving_average(data, window_size):
     """
     Calculate moving averages of time series data.
-    
+
     Args:
         data: List of numerical values
         window_size: Size of moving window
     Returns:
         List of moving averages
-    
+
     Time Complexity: O(n) where n is len(data)
     Space Complexity: O(n) for the output list
     """
@@ -3204,16 +5221,16 @@ print(f"Weekly temperature ranges: {results}")`,
         raise ValueError("Window size must be positive")
     if window_size > len(data):
         raise ValueError("Window size cannot be larger than data length")
-    
+
     # Initialize result list
     averages = []
-    
+
     # Calculate each window's average
     for i in range(len(data) - window_size + 1):
         window = data[i:i + window_size]
         window_avg = sum(window) / window_size
         averages.append(round(window_avg, 2))
-    
+
     return averages
 
 # Test the function
@@ -3221,6 +5238,43 @@ test_data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 window_size = 3
 results = calculate_moving_average(test_data, window_size)
 print(f"Moving averages (window={window_size}): {results}")`,
+        typescript: `function calculateMovingAverage(data: number[], windowSize: number): number[] {
+  /**
+   * Calculate moving averages of time series data.
+   *
+   * @param data - Array of numerical values
+   * @param windowSize - Size of moving window
+   * @returns Array of moving averages
+   *
+   * Time Complexity: O(n) where n is data.length
+   * Space Complexity: O(n) for the output array
+   */
+  if (windowSize <= 0) {
+    throw new Error("Window size must be positive");
+  }
+  if (windowSize > data.length) {
+    throw new Error("Window size cannot be larger than data length");
+  }
+
+  // Initialize result array
+  const averages: number[] = [];
+
+  // Calculate each window's average
+  for (let i = 0; i <= data.length - windowSize; i++) {
+    const window = data.slice(i, i + windowSize);
+    const windowAvg = window.reduce((a, b) => a + b, 0) / windowSize;
+    averages.push(Number(windowAvg.toFixed(2)));
+  }
+
+  return averages;
+}
+
+// Test the function
+const testData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const windowSize = 3;
+const results = calculateMovingAverage(testData, windowSize);
+console.log(\`Moving averages (window=\${windowSize}): \${results}\`);`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -3275,19 +5329,19 @@ In-place modifications are operations that alter an array's contents using only 
 def demonstrate_in_place_basics(numbers):
     """
     Shows basic in-place array modifications.
-    
+
     Args:
         numbers: List of numbers to modify
-        
+
     The original list is modified directly, using minimal extra space.
     """
     print(f"Original array: {numbers}")
-    
+
     # Example 1: Multiply each element by 2
     for i in range(len(numbers)):
         numbers[i] *= 2
     print(f"After doubling: {numbers}")
-    
+
     # Example 2: Reverse elements
     left = 0
     right = len(numbers) - 1
@@ -3303,6 +5357,40 @@ test_array = [1, 2, 3, 4, 5]
 demonstrate_in_place_basics(test_array)
 \`\`\`
 
+\`\`\`typescript
+function demonstrateInPlaceBasics(numbers: number[]): void {
+  /**
+   * Shows basic in-place array modifications.
+   *
+   * @param numbers - Array of numbers to modify
+   *
+   * The original array is modified directly, using minimal extra space.
+   */
+  console.log(\`Original array: \${numbers}\`);
+
+  // Example 1: Multiply each element by 2
+  for (let i = 0; i < numbers.length; i++) {
+    numbers[i] *= 2;
+  }
+  console.log(\`After doubling: \${numbers}\`);
+
+  // Example 2: Reverse elements
+  let left = 0;
+  let right = numbers.length - 1;
+  while (left < right) {
+    // Swap elements using destructuring
+    [numbers[left], numbers[right]] = [numbers[right], numbers[left]];
+    left++;
+    right--;
+  }
+  console.log(\`After reversing: \${numbers}\`);
+}
+
+// Let's try it
+const testArray = [1, 2, 3, 4, 5];
+demonstrateInPlaceBasics(testArray);
+\`\`\`
+
 <h3>Common In-Place Operations</h3>
 
 Let's explore some fundamental in-place operations that are frequently used in programming:
@@ -3312,47 +5400,47 @@ def remove_duplicates(array):
     """
     Remove duplicates from a sorted array in-place.
     Returns the new length of the array.
-    
+
     Args:
         array: Sorted list to modify
-        
+
     Time Complexity: O(n)
     Space Complexity: O(1)
     """
     if not array:
         return 0
-        
+
     # Use two-pointer technique
     write_pos = 1  # Position to write next unique element
-    
+
     for read_pos in range(1, len(array)):
         # If we find a new element, write it to the array
         if array[read_pos] != array[write_pos - 1]:
             array[write_pos] = array[read_pos]
             write_pos += 1
-            
+
     return write_pos  # Number of unique elements
 
 def move_zeros_to_end(array):
     """
     Move all zeros to the end of the array in-place.
     Maintains relative order of non-zero elements.
-    
+
     Args:
         array: List to modify
-        
+
     Time Complexity: O(n)
     Space Complexity: O(1)
     """
     # Position where we'll write next non-zero element
     write_pos = 0
-    
+
     # Move non-zero elements to the front
     for read_pos in range(len(array)):
         if array[read_pos] != 0:
             array[write_pos] = array[read_pos]
             write_pos += 1
-    
+
     # Fill remaining positions with zeros
     while write_pos < len(array):
         array[write_pos] = 0
@@ -3366,6 +5454,74 @@ print(f"After removing duplicates: {numbers[:new_length]}")
 array_with_zeros = [1, 0, 3, 0, 5, 0, 7]
 move_zeros_to_end(array_with_zeros)
 print(f"After moving zeros: {array_with_zeros}")
+\`\`\`
+
+\`\`\`typescript
+function removeDuplicates(array: number[]): number {
+  /**
+   * Remove duplicates from a sorted array in-place.
+   * Returns the new length of the array.
+   *
+   * @param array - Sorted array to modify
+   * @returns Number of unique elements
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  if (array.length === 0) {
+    return 0;
+  }
+
+  // Use two-pointer technique
+  let writePos = 1;  // Position to write next unique element
+
+  for (let readPos = 1; readPos < array.length; readPos++) {
+    // If we find a new element, write it to the array
+    if (array[readPos] !== array[writePos - 1]) {
+      array[writePos] = array[readPos];
+      writePos++;
+    }
+  }
+
+  return writePos;  // Number of unique elements
+}
+
+function moveZerosToEnd(array: number[]): void {
+  /**
+   * Move all zeros to the end of the array in-place.
+   * Maintains relative order of non-zero elements.
+   *
+   * @param array - Array to modify
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  // Position where we'll write next non-zero element
+  let writePos = 0;
+
+  // Move non-zero elements to the front
+  for (let readPos = 0; readPos < array.length; readPos++) {
+    if (array[readPos] !== 0) {
+      array[writePos] = array[readPos];
+      writePos++;
+    }
+  }
+
+  // Fill remaining positions with zeros
+  while (writePos < array.length) {
+    array[writePos] = 0;
+    writePos++;
+  }
+}
+
+// Example usage
+const numbers = [1, 1, 2, 2, 3, 3, 4];
+const newLength = removeDuplicates(numbers);
+console.log(\`After removing duplicates: \${numbers.slice(0, newLength)}\`);
+
+const arrayWithZeros = [1, 0, 3, 0, 5, 0, 7];
+moveZerosToEnd(arrayWithZeros);
+console.log(\`After moving zeros: \${arrayWithZeros}\`);
 \`\`\`
 
 <div class="visualization-container bg-white p-6 rounded-lg shadow-md my-8">
@@ -3433,6 +5589,50 @@ rotate_array(numbers, 2)
 print(f"After rotation: {numbers}")  # [4, 5, 1, 2, 3]
 \`\`\`
 
+\`\`\`typescript
+function rotateArray(array: number[], k: number): void {
+  /**
+   * Rotate array right by k positions in-place.
+   *
+   * @param array - Array to rotate
+   * @param k - Number of positions to rotate by
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  if (array.length === 0) {
+    return;
+  }
+
+  // Normalize k to array length
+  k = k % array.length;
+  if (k === 0) {
+    return;
+  }
+
+  function reversePortion(start: number, end: number): void {
+    /** Helper function to reverse part of the array. */
+    while (start < end) {
+      [array[start], array[end]] = [array[end], array[start]];
+      start++;
+      end--;
+    }
+  }
+
+  // Reverse the entire array
+  reversePortion(0, array.length - 1);
+  // Reverse first k elements
+  reversePortion(0, k - 1);
+  // Reverse remaining elements
+  reversePortion(k, array.length - 1);
+}
+
+// Example usage
+const numbers = [1, 2, 3, 4, 5];
+rotateArray(numbers, 2);
+console.log(\`After rotation: \${numbers}\`);  // [4, 5, 1, 2, 3]
+\`\`\`
+
 <h3>Memory Considerations and Best Practices</h3>
 
 When modifying arrays in-place, we need to be careful about several things:
@@ -3443,15 +5643,36 @@ def safe_in_place_modification(array):
     """Example of safe in-place modification."""
     if not array:
         return
-        
+
     # Validate array size for operation
     if len(array) < 2:
         return
-        
+
     # Proceed with modification
     for i in range(len(array) - 1):
         if array[i] > array[i + 1]:
             array[i], array[i + 1] = array[i + 1], array[i]
+\`\`\`
+
+\`\`\`typescript
+function safeInPlaceModification(array: number[]): void {
+  /** Example of safe in-place modification. */
+  if (array.length === 0) {
+    return;
+  }
+
+  // Validate array size for operation
+  if (array.length < 2) {
+    return;
+  }
+
+  // Proceed with modification
+  for (let i = 0; i < array.length - 1; i++) {
+    if (array[i] > array[i + 1]) {
+      [array[i], array[i + 1]] = [array[i + 1], array[i]];
+    }
+  }
+}
 \`\`\`
 
 2. Handle Edge Cases:
@@ -3461,17 +5682,40 @@ def handle_edge_cases(array):
     # Check for None
     if array is None:
         raise ValueError("Array cannot be None")
-    
+
     # Check for empty array
     if not array:
         return array
-        
+
     # Check for single element
     if len(array) == 1:
         return array
-        
+
     # Proceed with main logic
     # ... rest of the code
+\`\`\`
+
+\`\`\`typescript
+function handleEdgeCases(array: number[] | null): number[] | undefined {
+  /** Demonstrate proper edge case handling. */
+  // Check for null
+  if (array === null) {
+    throw new Error("Array cannot be null");
+  }
+
+  // Check for empty array
+  if (array.length === 0) {
+    return array;
+  }
+
+  // Check for single element
+  if (array.length === 1) {
+    return array;
+  }
+
+  // Proceed with main logic
+  // ... rest of the code
+}
 \`\`\`
 
 <div class="best-practices bg-white p-6 rounded-lg shadow-md my-8">
@@ -3497,35 +5741,47 @@ def handle_edge_cases(array):
     {
       prompt:
         'Implement a function that rearranges an array in-place so that all even numbers come before odd numbers while maintaining the relative order within each group.',
-      initialCode: `def arrange_even_odd(array):
+      initialCode: {
+        python: `def arrange_even_odd(array):
     """
     Rearrange array so even numbers come before odd numbers.
     Maintain relative order within each group.
-    
+
     Args:
         array: List to modify in-place
     """
     # Your implementation here
     pass`,
-      solution: `def arrange_even_odd(array):
+        typescript: `function arrangeEvenOdd(array: number[]): void {
+  /**
+   * Rearrange array so even numbers come before odd numbers.
+   * Maintain relative order within each group.
+   *
+   * @param array - Array to modify in-place
+   */
+  // Your implementation here
+}`,
+      },
+      solution: {
+        python: `def arrange_even_odd(array):
     """
     Rearrange array so even numbers come before odd numbers.
     Maintain relative order within each group.
-    
+
     Args:
         array: List to modify in-place
-        
+
     Time Complexity: O(n)
     Space Complexity: O(n) - We use extra space for temporary storage
                            but modify the input array in-place
     """
     if not array or len(array) <= 1:
         return
-        
+
     # Store original order of even and odd numbers
     even_numbers = [x for x in array if x % 2 == 0]
     odd_numbers = [x for x in array if x % 2 == 1]
-    
+
     # Copy back to original array
     for i in range(len(even_numbers)):
         array[i] = even_numbers[i]
@@ -3536,39 +5792,83 @@ def handle_edge_cases(array):
 test_array = [3, 2, 7, 6, 8, 1, 5, 4]
 arrange_even_odd(test_array)
 print(f"After arranging: {test_array}")  # [2, 6, 8, 4, 3, 7, 1, 5]`,
+        typescript: `function arrangeEvenOdd(array: number[]): void {
+  /**
+   * Rearrange array so even numbers come before odd numbers.
+   * Maintain relative order within each group.
+   *
+   * @param array - Array to modify in-place
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(n) - We use extra space for temporary storage
+   *                         but modify the input array in-place
+   */
+  if (array.length === 0 || array.length <= 1) {
+    return;
+  }
+
+  // Store original order of even and odd numbers
+  const evenNumbers = array.filter(x => x % 2 === 0);
+  const oddNumbers = array.filter(x => x % 2 === 1);
+
+  // Copy back to original array
+  for (let i = 0; i < evenNumbers.length; i++) {
+    array[i] = evenNumbers[i];
+  }
+  for (let i = 0; i < oddNumbers.length; i++) {
+    array[i + evenNumbers.length] = oddNumbers[i];
+  }
+}
+
+// Test the function
+const testArray = [3, 2, 7, 6, 8, 1, 5, 4];
+arrangeEvenOdd(testArray);
+console.log(\`After arranging: \${testArray}\`);  // [2, 6, 8, 4, 3, 7, 1, 5]`,
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt:
         'Create a function that sorts an array containing only 0s, 1s, and 2s in-place (Dutch National Flag problem).',
-      initialCode: `def sort_colors(array):
+      initialCode: {
+        python: `def sort_colors(array):
     """
     Sort array containing only 0s, 1s, and 2s in-place.
-    
+
     Args:
         array: List containing only 0s, 1s, and 2s
     """
     # Your implementation here
     pass`,
-      solution: `def sort_colors(array):
+        typescript: `function sortColors(array: number[]): void {
+  /**
+   * Sort array containing only 0s, 1s, and 2s in-place.
+   *
+   * @param array - Array containing only 0s, 1s, and 2s
+   */
+  // Your implementation here
+}`,
+      },
+      solution: {
+        python: `def sort_colors(array):
     """
     Sort array containing only 0s, 1s, and 2s in-place.
     Known as Dutch National Flag problem.
-    
+
     Args:
         array: List containing only 0s, 1s, and 2s
-        
+
     Time Complexity: O(n)
     Space Complexity: O(1)
     """
     if not array or len(array) <= 1:
         return
-        
+
     # Initialize pointers
     low = 0  # Position for next 0
     mid = 0  # Current position
     high = len(array) - 1  # Position for next 2
-    
+
     while mid <= high:
         if array[mid] == 0:
             # Swap with low pointer and advance both
@@ -3588,6 +5888,48 @@ print(f"After arranging: {test_array}")  # [2, 6, 8, 4, 3, 7, 1, 5]`,
 test_array = [2, 0, 1, 2, 1, 0, 2, 1, 0]
 sort_colors(test_array)
 print(f"After sorting: {test_array}")  # [0, 0, 0, 1, 1, 1, 2, 2, 2]`,
+        typescript: `function sortColors(array: number[]): void {
+  /**
+   * Sort array containing only 0s, 1s, and 2s in-place.
+   * Known as Dutch National Flag problem.
+   *
+   * @param array - Array containing only 0s, 1s, and 2s
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  if (array.length === 0 || array.length <= 1) {
+    return;
+  }
+
+  // Initialize pointers
+  let low = 0;  // Position for next 0
+  let mid = 0;  // Current position
+  let high = array.length - 1;  // Position for next 2
+
+  while (mid <= high) {
+    if (array[mid] === 0) {
+      // Swap with low pointer and advance both
+      [array[low], array[mid]] = [array[mid], array[low]];
+      low++;
+      mid++;
+    } else if (array[mid] === 1) {
+      // Just advance mid pointer
+      mid++;
+    } else {  // array[mid] === 2
+      // Swap with high pointer and decrement high
+      [array[mid], array[high]] = [array[high], array[mid]];
+      high--;
+      // Don't increment mid as we need to check the swapped element
+    }
+  }
+}
+
+// Test the function
+const testArray = [2, 0, 1, 2, 1, 0, 2, 1, 0];
+sortColors(testArray);
+console.log(\`After sorting: \${testArray}\`);  // [0, 0, 0, 1, 1, 1, 2, 2, 2]`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -3702,6 +6044,69 @@ for step, arrangement in enumerate(sorting_steps, 1):
     print(f"Step {step}: {arrangement}")
 \`\`\`
 
+\`\`\`typescript
+function bubbleSort(array: number[]): number[] {
+  /**
+   * Sort array using bubble sort algorithm.
+   *
+   * @param array - Array of comparable items
+   * @returns Sorted array (modified in-place)
+   *
+   * This is like arranging books on a shelf, repeatedly
+   * comparing adjacent pairs and swapping if needed.
+   */
+  const n = array.length;
+  // We'll need to make multiple passes through the array
+  for (let i = 0; i < n; i++) {
+    // Flag to optimize if array is already sorted
+    let swapped = false;
+
+    // On each pass, compare adjacent elements
+    for (let j = 0; j < n - i - 1; j++) {
+      // If elements are in wrong order, swap them
+      if (array[j] > array[j + 1]) {
+        [array[j], array[j + 1]] = [array[j + 1], array[j]];
+        swapped = true;
+      }
+    }
+
+    // If no swapping occurred, array is sorted
+    if (!swapped) {
+      break;
+    }
+  }
+
+  return array;
+}
+
+// Let's visualize how bubble sort works
+function visualizeBubbleSort(array: number[]): number[][] {
+  /** Show the steps of bubble sort. */
+  const steps: number[][] = [];
+  const n = array.length;
+
+  const arrayCopy = [...array];
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      if (arrayCopy[j] > arrayCopy[j + 1]) {
+        [arrayCopy[j], arrayCopy[j + 1]] = [arrayCopy[j + 1], arrayCopy[j]];
+        steps.push([...arrayCopy]);
+      }
+    }
+  }
+
+  return steps;
+}
+
+// Example usage
+const numbers = [64, 34, 25, 12, 22, 11, 90];
+const sortingSteps = visualizeBubbleSort(numbers);
+sortingSteps.forEach((arrangement, index) => {
+  const step = index + 1;
+  console.log(\`Step \${step}: \${arrangement}\`);
+});
+\`\`\`
+
 <div class="visualization-container bg-white p-6 rounded-lg shadow-md my-8">
   <h4 class="text-center text-gray-700 mb-4">Bubble Sort Process</h4>
   <div class="flex flex-col space-y-4">
@@ -3764,6 +6169,58 @@ def visualize_selection_sort(array):
         steps.append(array_copy.copy())
     
     return steps
+\`\`\`
+
+\`\`\`typescript
+function selectionSort(array: number[]): number[] {
+  /**
+   * Sort array using selection sort algorithm.
+   *
+   * @param array - Array of comparable items
+   * @returns Sorted array (modified in-place)
+   *
+   * This is like picking cards to arrange in order,
+   * always choosing the lowest card to place next.
+   */
+  const n = array.length;
+
+  // Traverse through all array elements
+  for (let i = 0; i < n; i++) {
+    // Find the minimum element in remaining unsorted array
+    let minIdx = i;
+    for (let j = i + 1; j < n; j++) {
+      if (array[j] < array[minIdx]) {
+        minIdx = j;
+      }
+    }
+
+    // Swap the found minimum element with the first element
+    [array[i], array[minIdx]] = [array[minIdx], array[i]];
+  }
+
+  return array;
+}
+
+// Example with step-by-step visualization
+function visualizeSelectionSort(array: number[]): number[][] {
+  /** Show the steps of selection sort. */
+  const steps: number[][] = [];
+  const n = array.length;
+
+  const arrayCopy = [...array];
+  for (let i = 0; i < n; i++) {
+    let minIdx = i;
+    for (let j = i + 1; j < n; j++) {
+      if (arrayCopy[j] < arrayCopy[minIdx]) {
+        minIdx = j;
+      }
+    }
+    [arrayCopy[i], arrayCopy[minIdx]] = [arrayCopy[minIdx], arrayCopy[i]];
+    steps.push([...arrayCopy]);
+  }
+
+  return steps;
+}
 \`\`\`
 
 <h3>Understanding Time Complexity</h3>
@@ -3847,6 +6304,40 @@ print("Reversed array:")
 compare_sorting_algorithms(reversed_array)
 \`\`\`
 
+\`\`\`typescript
+function compareSortingAlgorithms(array: number[]): void {
+  /** Compare performance of different sorting algorithms. */
+
+  function measureTime(func: (arr: number[]) => number[], arr: number[]): number {
+    /** Measure execution time of sorting function. */
+    const startTime = performance.now();
+    func([...arr]);
+    return performance.now() - startTime;
+  }
+
+  // Test with different cases
+  console.log("Original array:", array);
+
+  const bubbleTime = measureTime(bubbleSort, array);
+  const selectionTime = measureTime(selectionSort, array);
+
+  console.log(\`Bubble Sort time: \${bubbleTime.toFixed(6)} milliseconds\`);
+  console.log(\`Selection Sort time: \${selectionTime.toFixed(6)} milliseconds\`);
+}
+
+// Test with different array sizes
+const smallArray = [5, 2, 9, 1, 7, 6, 3];
+const nearlySorted = [1, 2, 4, 3, 5, 6, 7];
+const reversedArray = [7, 6, 5, 4, 3, 2, 1];
+
+console.log("Small random array:");
+compareSortingAlgorithms(smallArray);
+console.log("Nearly sorted array:");
+compareSortingAlgorithms(nearlySorted);
+console.log("Reversed array:");
+compareSortingAlgorithms(reversedArray);
+\`\`\`
+
 <h3>Choosing the Right Sort</h3>
 
 When deciding which sorting algorithm to use, consider:
@@ -3874,10 +6365,11 @@ Remember, these basic sorting algorithms form the foundation for understanding m
     {
       prompt:
         'Modify the bubble sort algorithm to sort in descending order instead of ascending order. Include visualization of the sorting steps.',
-      initialCode: `def bubble_sort_descending(array):
+      initialCode: {
+        python: `def bubble_sort_descending(array):
     """
     Sort array in descending order using bubble sort.
-    
+
     Args:
         array: List of comparable items
     Returns:
@@ -3885,39 +6377,51 @@ Remember, these basic sorting algorithms form the foundation for understanding m
     """
     # Your implementation here
     pass`,
-      solution: `def bubble_sort_descending(array):
+        typescript: `function bubbleSortDescending(array: number[]): number[] {
+  /**
+   * Sort array in descending order using bubble sort.
+   *
+   * @param array - Array of comparable items
+   * @returns Sorted array (modified in-place)
+   */
+  // Your implementation here
+  return array;
+}`,
+      },
+      solution: {
+        python: `def bubble_sort_descending(array):
     """
     Sort array in descending order using bubble sort.
-    
+
     Args:
         array: List of comparable items
     Returns:
         Sorted list (modified in-place)
-        
+
     Time Complexity: O(n²)
     Space Complexity: O(1)
     """
     n = len(array)
     steps = []  # Track sorting steps
-    
+
     for i in range(n):
         swapped = False
-        
+
         for j in range(0, n - i - 1):
             # Change comparison to sort in descending order
             if array[j] < array[j + 1]:
                 array[j], array[j + 1] = array[j + 1], array[j]
                 swapped = True
                 steps.append(array.copy())
-                
+
         if not swapped:
             break
-    
+
     # Print visualization
     print("Sorting steps:")
     for step, arrangement in enumerate(steps, 1):
         print(f"Step {step}: {arrangement}")
-        
+
     return array
 
 # Test the function
@@ -3925,15 +6429,62 @@ numbers = [64, 34, 25, 12, 22, 11, 90]
 print("Original array:", numbers)
 result = bubble_sort_descending(numbers.copy())
 print("Final sorted array:", result)`,
+        typescript: `function bubbleSortDescending(array: number[]): number[] {
+  /**
+   * Sort array in descending order using bubble sort.
+   *
+   * @param array - Array of comparable items
+   * @returns Sorted array (modified in-place)
+   *
+   * Time Complexity: O(n²)
+   * Space Complexity: O(1)
+   */
+  const n = array.length;
+  const steps: number[][] = [];  // Track sorting steps
+
+  for (let i = 0; i < n; i++) {
+    let swapped = false;
+
+    for (let j = 0; j < n - i - 1; j++) {
+      // Change comparison to sort in descending order
+      if (array[j] < array[j + 1]) {
+        [array[j], array[j + 1]] = [array[j + 1], array[j]];
+        swapped = true;
+        steps.push([...array]);
+      }
+    }
+
+    if (!swapped) {
+      break;
+    }
+  }
+
+  // Print visualization
+  console.log("Sorting steps:");
+  steps.forEach((arrangement, index) => {
+    const step = index + 1;
+    console.log(\`Step \${step}: \${arrangement}\`);
+  });
+
+  return array;
+}
+
+// Test the function
+const numbers = [64, 34, 25, 12, 22, 11, 90];
+console.log("Original array:", numbers);
+const result = bubbleSortDescending([...numbers]);
+console.log("Final sorted array:", result);`,
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt:
         'Implement a modified version of selection sort that finds both the minimum and maximum elements in each pass, placing them at both ends of the array.',
-      initialCode: `def optimized_selection_sort(array):
+      initialCode: {
+        python: `def optimized_selection_sort(array):
     """
     Sort array using an optimized selection sort that works from both ends.
-    
+
     Args:
         array: List of comparable items
     Returns:
@@ -3941,48 +6492,60 @@ print("Final sorted array:", result)`,
     """
     # Your implementation here
     pass`,
-      solution: `def optimized_selection_sort(array):
+        typescript: `function optimizedSelectionSort(array: number[]): number[] {
+  /**
+   * Sort array using an optimized selection sort that works from both ends.
+   *
+   * @param array - Array of comparable items
+   * @returns Sorted array (modified in-place)
+   */
+  // Your implementation here
+  return array;
+}`,
+      },
+      solution: {
+        python: `def optimized_selection_sort(array):
     """
     Sort array using an optimized selection sort that works from both ends.
-    
+
     Args:
         array: List of comparable items
     Returns:
         Sorted list (modified in-place)
-        
+
     Time Complexity: O(n²) but with roughly half the comparisons
     Space Complexity: O(1)
     """
     left = 0
     right = len(array) - 1
-    
+
     while left < right:
         min_idx = left
         max_idx = left
-        
+
         # Find both min and max in the unsorted portion
         for i in range(left + 1, right + 1):
             if array[i] < array[min_idx]:
                 min_idx = i
             elif array[i] > array[max_idx]:
                 max_idx = i
-        
+
         # Handle special case where max element is at min_idx
         if max_idx == left:
             max_idx = min_idx
-            
+
         # Place minimum at left
         array[left], array[min_idx] = array[min_idx], array[left]
-        
+
         # Place maximum at right
         array[right], array[max_idx] = array[max_idx], array[right]
-        
+
         left += 1
         right -= 1
-        
+
         # Show current state
         print(f"After placing {array[left-1]} and {array[right+1]}: {array}")
-    
+
     return array
 
 # Test the function
@@ -3990,6 +6553,59 @@ numbers = [64, 34, 25, 12, 22, 11, 90]
 print("Original array:", numbers)
 result = optimized_selection_sort(numbers.copy())
 print("Final sorted array:", result)`,
+        typescript: `function optimizedSelectionSort(array: number[]): number[] {
+  /**
+   * Sort array using an optimized selection sort that works from both ends.
+   *
+   * @param array - Array of comparable items
+   * @returns Sorted array (modified in-place)
+   *
+   * Time Complexity: O(n²) but with roughly half the comparisons
+   * Space Complexity: O(1)
+   */
+  let left = 0;
+  let right = array.length - 1;
+
+  while (left < right) {
+    let minIdx = left;
+    let maxIdx = left;
+
+    // Find both min and max in the unsorted portion
+    for (let i = left + 1; i <= right; i++) {
+      if (array[i] < array[minIdx]) {
+        minIdx = i;
+      } else if (array[i] > array[maxIdx]) {
+        maxIdx = i;
+      }
+    }
+
+    // Handle special case where max element is at minIdx
+    if (maxIdx === left) {
+      maxIdx = minIdx;
+    }
+
+    // Place minimum at left
+    [array[left], array[minIdx]] = [array[minIdx], array[left]];
+
+    // Place maximum at right
+    [array[right], array[maxIdx]] = [array[maxIdx], array[right]];
+
+    left++;
+    right--;
+
+    // Show current state
+    console.log(\`After placing \${array[left-1]} and \${array[right+1]}: \${array}\`);
+  }
+
+  return array;
+}
+
+// Test the function
+const numbers = [64, 34, 25, 12, 22, 11, 90];
+console.log("Original array:", numbers);
+const result = optimizedSelectionSort([...numbers]);
+console.log("Final sorted array:", result);`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -4034,12 +6650,12 @@ print("Final sorted array:", result)`,
 };
 
 const builtInSortingData: LessonContent = {
-  title: "Mastering Python's Built-in Sorting Capabilities",
-  content: `Python provides powerful built-in sorting capabilities that handle most common sorting needs efficiently. Let's explore how to make the most of these tools to write cleaner, faster code.
+  title: "Mastering Built-in Sorting Capabilities",
+  content: `{{python:Python}}{{typescript:TypeScript}} provides powerful built-in sorting capabilities that handle most common sorting needs efficiently. Let's explore how to make the most of these tools to write cleaner, faster code.
 
-<h3>Understanding Python's Basic Sorting Tools</h3>
+<h3>Understanding Basic Sorting Tools</h3>
 
-Python offers two main ways to sort: the sorted() function and the .sort() method. While they both sort elements, they serve different purposes and have different effects on your data.
+{{python:Python offers two main ways to sort: the sorted() function and the .sort() method. While they both sort elements, they serve different purposes and have different effects on your data.}}{{typescript:TypeScript arrays provide the .sort() method that modifies the array in-place, and you can create sorted copies using the spread operator or slice().}}
 
 \`\`\`python
 def demonstrate_basic_sorting():
@@ -4047,12 +6663,12 @@ def demonstrate_basic_sorting():
     # Original list
     numbers = [5, 2, 8, 1, 9, 3]
     print(f"Original list: {numbers}")
-    
+
     # Using sorted() - creates a new list
     sorted_numbers = sorted(numbers)
     print(f"After sorted(): {sorted_numbers}")
     print(f"Original list unchanged: {numbers}")
-    
+
     # Using .sort() - modifies list in-place
     numbers.sort()
     print(f"After .sort(): {numbers}")
@@ -4061,9 +6677,30 @@ def demonstrate_basic_sorting():
 demonstrate_basic_sorting()
 \`\`\`
 
+\`\`\`typescript
+function demonstrateBasicSorting(): void {
+  /** Demonstrate basic sorting operations in TypeScript. */
+  // Original array
+  const numbers = [5, 2, 8, 1, 9, 3];
+  console.log(\`Original array: \${numbers}\`);
+
+  // Using spread and sort() - creates a new array
+  const sortedNumbers = [...numbers].sort((a, b) => a - b);
+  console.log(\`After creating sorted copy: \${sortedNumbers}\`);
+  console.log(\`Original array unchanged: \${numbers}\`);
+
+  // Using .sort() - modifies array in-place
+  numbers.sort((a, b) => a - b);
+  console.log(\`After .sort(): \${numbers}\`);
+}
+
+// Let's see it in action
+demonstrateBasicSorting();
+\`\`\`
+
 <h3>Customizing Sort Order</h3>
 
-Python allows you to customize how elements are sorted using the key parameter. This is incredibly powerful for sorting complex data structures.
+{{python:Python allows you to customize how elements are sorted using the key parameter.}}{{typescript:TypeScript allows you to customize sorting using compare functions.}} This is incredibly powerful for sorting complex data structures.
 
 \`\`\`python
 def demonstrate_custom_sorting():
@@ -4072,12 +6709,12 @@ def demonstrate_custom_sorting():
     numbers = [-4, 1, -2, 3, 0, -5]
     sorted_absolute = sorted(numbers, key=abs)
     print(f"Sorted by absolute value: {sorted_absolute}")
-    
+
     # Sort strings by length
     words = ["python", "is", "awesome", "and", "powerful"]
     sorted_by_length = sorted(words, key=len)
     print(f"Sorted by length: {sorted_by_length}")
-    
+
     # Sort dictionary by value
     scores = {"Alice": 85, "Bob": 92, "Charlie": 78}
     sorted_scores = sorted(scores.items(), key=lambda x: x[1], reverse=True)
@@ -4086,6 +6723,31 @@ def demonstrate_custom_sorting():
         print(f"{name}: {score}")
 
 demonstrate_custom_sorting()
+\`\`\`
+
+\`\`\`typescript
+function demonstrateCustomSorting(): void {
+  /** Show different ways to customize sorting. */
+  // Sort by absolute value
+  const numbers = [-4, 1, -2, 3, 0, -5];
+  const sortedAbsolute = [...numbers].sort((a, b) => Math.abs(a) - Math.abs(b));
+  console.log(\`Sorted by absolute value: \${sortedAbsolute}\`);
+
+  // Sort strings by length
+  const words = ["python", "is", "awesome", "and", "powerful"];
+  const sortedByLength = [...words].sort((a, b) => a.length - b.length);
+  console.log(\`Sorted by length: \${sortedByLength}\`);
+
+  // Sort object entries by value
+  const scores: Record<string, number> = {"Alice": 85, "Bob": 92, "Charlie": 78};
+  const sortedScores = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+  console.log("Sorted scores (highest to lowest):");
+  for (const [name, score] of sortedScores) {
+    console.log(\`\${name}: \${score}\`);
+  }
+}
+
+demonstrateCustomSorting();
 \`\`\`
 
 <h3>Working with Complex Objects</h3>
@@ -4126,9 +6788,49 @@ def demonstrate_object_sorting():
 demonstrate_object_sorting()
 \`\`\`
 
+\`\`\`typescript
+interface Student {
+  name: string;
+  grade: number;
+  birthdate: Date;
+  active: boolean;
+}
+
+function demonstrateObjectSorting(): void {
+  /** Show how to sort complex objects. */
+  const students: Student[] = [
+    { name: "Alice", grade: 92.5, birthdate: new Date(2000, 4, 15), active: true },
+    { name: "Bob", grade: 85.0, birthdate: new Date(2001, 2, 20), active: true },
+    { name: "Charlie", grade: 90.0, birthdate: new Date(2000, 7, 10), active: false },
+  ];
+
+  // Sort by grade
+  const byGrade = [...students].sort((a, b) => b.grade - a.grade);
+  console.log("Sorted by grade (highest first):");
+  for (const student of byGrade) {
+    console.log(\`\${student.name}: \${student.grade}\`);
+  }
+
+  // Sort by multiple criteria
+  const byMultiple = [...students].sort((a, b) => {
+    // First by grade (descending), then by name (ascending)
+    if (b.grade !== a.grade) {
+      return b.grade - a.grade;
+    }
+    return a.name.localeCompare(b.name);
+  });
+  console.log("Sorted by grade (desc) and name (asc):");
+  for (const student of byMultiple) {
+    console.log(\`\${student.name}: \${student.grade}\`);
+  }
+}
+
+demonstrateObjectSorting();
+\`\`\`
+
 <h3>Understanding Sort Stability</h3>
 
-Python's sorting is stable - elements with equal keys maintain their relative order. This is crucial for many applications:
+{{python:Python's}}{{typescript:TypeScript's}} sorting is stable - elements with equal keys maintain their relative order. This is crucial for many applications:
 
 \`\`\`python
 def demonstrate_sort_stability():
@@ -4153,6 +6855,34 @@ def demonstrate_sort_stability():
         print(f"{subject}: {grade}")
 
 demonstrate_sort_stability()
+\`\`\`
+
+\`\`\`typescript
+function demonstrateSortStability(): void {
+  /** Show how sort stability works. */
+  const data: [string, string][] = [
+    ["Math", "A"],
+    ["History", "B"],
+    ["English", "A"],
+    ["Science", "B"]
+  ];
+
+  // Sort first by grade, then by subject
+  // Stability ensures consistent ordering
+  const byGrade = [...data].sort((a, b) => a[1].localeCompare(b[1]));
+  console.log("Sorted by grade:");
+  for (const [subject, grade] of byGrade) {
+    console.log(\`\${subject}: \${grade}\`);
+  }
+
+  const byBoth = [...byGrade].sort((a, b) => a[0].localeCompare(b[0]));
+  console.log("Then sorted by subject (original grade order maintained):");
+  for (const [subject, grade] of byBoth) {
+    console.log(\`\${subject}: \${grade}\`);
+  }
+}
+
+demonstrateSortStability();
 \`\`\`
 
 <h3>Performance and Memory Considerations</h3>
@@ -4198,16 +6928,59 @@ def compare_sorting_approaches():
 compare_sorting_approaches()
 \`\`\`
 
+\`\`\`typescript
+function compareSortingApproaches(): void {
+  /** Compare different sorting approaches for performance. */
+
+  // Generate test data
+  const data = Array.from({ length: 10000 }, () => Math.floor(Math.random() * 1000) + 1);
+
+  function measureTime(func: (data: number[]) => void, arr: number[]): number {
+    const start = performance.now();
+    func(arr);
+    return performance.now() - start;
+  }
+
+  // Test different approaches
+  const times: Record<string, number> = {};
+
+  // Creating sorted copy with spread
+  times['sorted_copy'] = measureTime(
+    (x) => [...x].sort((a, b) => a - b),
+    [...data]
+  );
+
+  // In-place sort
+  times['in_place'] = measureTime(
+    (x) => x.sort((a, b) => a - b),
+    [...data]
+  );
+
+  // Sort with complex key function
+  times['complex_key'] = measureTime(
+    (x) => [...x].sort((a, b) => (a % 10) - (b % 10)),
+    [...data]
+  );
+
+  console.log("Performance Comparison:");
+  for (const [method, timeTaken] of Object.entries(times)) {
+    console.log(\`\${method}: \${timeTaken.toFixed(6)} milliseconds\`);
+  }
+}
+
+compareSortingApproaches();
+\`\`\`
+
 <h3>Best Practices and Tips</h3>
 
-Here are some guidelines for using Python's sorting effectively:
+Here are some guidelines for using {{python:Python's}}{{typescript:TypeScript's}} sorting effectively:
 
 1. Choose the Right Method:
-- Use sorted() when you need to preserve the original data
-- Use .sort() when modifying in-place is acceptable
+- {{python:Use sorted() when you need to preserve the original data}}{{typescript:Use spread operator or slice() to create sorted copies}}
+- {{python:Use .sort() when modifying in-place is acceptable}}{{typescript:Use .sort() when modifying in-place is acceptable}}
 - Consider memory usage for large datasets
 
-2. Optimize Key Functions:
+2. Optimize {{python:Key Functions}}{{typescript:Compare Functions}}:
 \`\`\`python
 # Less efficient - lambda called multiple times
 data.sort(key=lambda x: complex_calculation(x))
@@ -4216,6 +6989,16 @@ data.sort(key=lambda x: complex_calculation(x))
 decorated = [(complex_calculation(x), x) for x in data]
 decorated.sort()
 result = [x for _, x in decorated]
+\`\`\`
+
+\`\`\`typescript
+// Less efficient - function called multiple times
+data.sort((a, b) => complexCalculation(a) - complexCalculation(b));
+
+// More efficient - calculate once
+const decorated = data.map(x => ({ value: x, key: complexCalculation(x) }));
+decorated.sort((a, b) => a.key - b.key);
+const result = decorated.map(x => x.value);
 \`\`\`
 
 3. Handle Special Cases:
@@ -4232,31 +7015,50 @@ sorted_data = sort_with_special_cases(mixed_data)
 print(f"Sorted with Nones at end: {sorted_data}")
 \`\`\`
 
+\`\`\`typescript
+function sortWithSpecialCases(data: (number | null)[]): (number | null)[] {
+  /** Handle null values and special cases. */
+  // Move null values to the end
+  return [...data].sort((a, b) => {
+    if (a === null && b === null) return 0;
+    if (a === null) return 1;
+    if (b === null) return -1;
+    return a - b;
+  });
+}
+
+// Example
+const mixedData = [3, null, 1, 4, null, 2];
+const sortedData = sortWithSpecialCases(mixedData);
+console.log(\`Sorted with nulls at end: \${sortedData}\`);
+\`\`\`
+
 <div class="best-practices bg-white p-6 rounded-lg shadow-md my-8">
   <h4 class="text-gray-700 mb-4">Sorting Best Practices Summary</h4>
-  
+
   1. Memory Usage:
-     - sorted(): O(n) extra space
+     - {{python:sorted()}}{{typescript:Spread/slice}}: O(n) extra space
      - .sort(): O(1) extra space
-  
+
   2. Performance:
      - Simple comparisons: O(n log n)
-     - Complex key functions: Consider preprocessing
-     
+     - Complex {{python:key functions}}{{typescript:compare functions}}: Consider preprocessing
+
   3. Readability:
      - Use named functions for complex sorting logic
      - Document sorting criteria clearly
-     - Consider operator.itemgetter() for simple key functions
+     - {{python:Consider operator.itemgetter() for simple key functions}}{{typescript:Keep compare functions simple and readable}}
 </div>`,
 
   exercises: [
     {
       prompt:
         'Create a function that sorts a list of strings by their last word, ignoring case. For example, ["Hello World", "Nice Day", "Good Morning"] should be sorted based on "World", "Day", and "Morning".',
-      initialCode: `def sort_by_last_word(strings):
+      initialCode: {
+        python: `def sort_by_last_word(strings):
     """
     Sort strings by their last word, case-insensitive.
-    
+
     Args:
         strings: List of strings
     Returns:
@@ -4264,15 +7066,27 @@ print(f"Sorted with Nones at end: {sorted_data}")
     """
     # Your implementation here
     pass`,
-      solution: `def sort_by_last_word(strings):
+        typescript: `function sortByLastWord(strings: string[]): string[] {
+  /**
+   * Sort strings by their last word, case-insensitive.
+   *
+   * @param strings - Array of strings
+   * @returns Sorted array of strings
+   */
+  // Your implementation here
+  return [];
+}`,
+      },
+      solution: {
+        python: `def sort_by_last_word(strings):
     """
     Sort strings by their last word, case-insensitive.
-    
+
     Args:
         strings: List of strings
     Returns:
         Sorted list of strings
-        
+
     Example:
         Input: ["Hello World", "Nice Day", "Good Morning"]
         Output: ["Nice Day", "Good Morning", "Hello World"]
@@ -4280,7 +7094,7 @@ print(f"Sorted with Nones at end: {sorted_data}")
     def get_last_word(s):
         # Split string and get last word in lowercase
         return s.lower().split()[-1]
-    
+
     return sorted(strings, key=get_last_word)
 
 # Test the function
@@ -4288,15 +7102,44 @@ test_strings = ["Hello World", "Nice Day", "Good Morning"]
 sorted_strings = sort_by_last_word(test_strings)
 print(f"Original: {test_strings}")
 print(f"Sorted: {sorted_strings}")`,
+        typescript: `function sortByLastWord(strings: string[]): string[] {
+  /**
+   * Sort strings by their last word, case-insensitive.
+   *
+   * @param strings - Array of strings
+   * @returns Sorted array of strings
+   *
+   * Example:
+   *   Input: ["Hello World", "Nice Day", "Good Morning"]
+   *   Output: ["Nice Day", "Good Morning", "Hello World"]
+   */
+  function getLastWord(s: string): string {
+    // Split string and get last word in lowercase
+    const words = s.toLowerCase().split(/\\s+/);
+    return words[words.length - 1];
+  }
+
+  return [...strings].sort((a, b) => {
+    return getLastWord(a).localeCompare(getLastWord(b));
+  });
+}
+
+// Test the function
+const testStrings = ["Hello World", "Nice Day", "Good Morning"];
+const sortedStrings = sortByLastWord(testStrings);
+console.log(\`Original: \${testStrings}\`);
+console.log(\`Sorted: \${sortedStrings}\`);`,
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt:
         'Implement a function that sorts a list of dictionaries representing students by their average grade, handling missing grades appropriately.',
-      initialCode: `def sort_by_average_grade(students):
+      initialCode: {
+        python: `def sort_by_average_grade(students):
     """
     Sort students by average grade, handling missing grades.
-    
+
     Args:
         students: List of dictionaries with 'name' and 'grades' keys
         'grades' is a list that might contain None values
@@ -4305,16 +7148,33 @@ print(f"Sorted: {sorted_strings}")`,
     """
     # Your implementation here
     pass`,
-      solution: `def sort_by_average_grade(students):
+        typescript: `interface Student {
+  name: string;
+  grades: (number | null)[];
+}
+
+function sortByAverageGrade(students: Student[]): Student[] {
+  /**
+   * Sort students by average grade, handling missing grades.
+   *
+   * @param students - Array of student objects with name and grades
+   * @returns Sorted array of students
+   */
+  // Your implementation here
+  return [];
+}`,
+      },
+      solution: {
+        python: `def sort_by_average_grade(students):
     """
     Sort students by average grade, handling missing grades.
-    
+
     Args:
         students: List of dictionaries with 'name' and 'grades' keys
         'grades' is a list that might contain None values
     Returns:
         Sorted list of students
-        
+
     Example:
         Input: [
             {'name': 'Alice', 'grades': [90, None, 85]},
@@ -4327,7 +7187,7 @@ print(f"Sorted: {sorted_strings}")`,
         if not valid_grades:
             return -1  # Put students with no grades at the end
         return sum(valid_grades) / len(valid_grades)
-    
+
     return sorted(
         students,
         key=lambda s: calculate_average(s['grades']),
@@ -4346,6 +7206,55 @@ for student in sorted_students:
     grades = student['grades']
     avg = sum(g for g in grades if g is not None) / len([g for g in grades if g is not None]) if any(g is not None for g in grades) else 'No grades'
     print(f"{student['name']}: {avg if isinstance(avg, str) else f'{avg:.2f}'}") `,
+        typescript: `interface Student {
+  name: string;
+  grades: (number | null)[];
+}
+
+function sortByAverageGrade(students: Student[]): Student[] {
+  /**
+   * Sort students by average grade, handling missing grades.
+   *
+   * @param students - Array of student objects with name and grades
+   * @returns Sorted array of students
+   *
+   * Example:
+   *   Input: [
+   *     { name: 'Alice', grades: [90, null, 85] },
+   *     { name: 'Bob', grades: [85, 90, 85] }
+   *   ]
+   */
+  function calculateAverage(grades: (number | null)[]): number {
+    // Filter out null values and calculate average
+    const validGrades = grades.filter((g): g is number => g !== null);
+    if (validGrades.length === 0) {
+      return -1;  // Put students with no grades at the end
+    }
+    return validGrades.reduce((sum, g) => sum + g, 0) / validGrades.length;
+  }
+
+  return [...students].sort((a, b) => {
+    // Highest average first
+    return calculateAverage(b.grades) - calculateAverage(a.grades);
+  });
+}
+
+// Test the function
+const testStudents: Student[] = [
+  { name: 'Alice', grades: [90, null, 85] },
+  { name: 'Bob', grades: [85, 90, 85] },
+  { name: 'Charlie', grades: [null, null, null] },
+];
+
+const sortedStudents = sortByAverageGrade(testStudents);
+for (const student of sortedStudents) {
+  const validGrades = student.grades.filter((g): g is number => g !== null);
+  const avg = validGrades.length > 0
+    ? (validGrades.reduce((sum, g) => sum + g, 0) / validGrades.length).toFixed(2)
+    : 'No grades';
+  console.log(\`\${student.name}: \${avg}\`);
+}`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -4389,30 +7298,30 @@ for student in sorted_students:
 };
 
 const customSortingData: LessonContent = {
-  title: 'Mastering Custom Sort Conditions in Python',
-  content: `Let's explore how to implement specific sorting requirements in Python. Understanding custom sorting is like learning to organize your bookshelf exactly the way you want - whether by genre then author, or by size then color. Python gives us powerful tools to define these custom organizations.
+  title: 'Mastering Custom Sort Conditions',
+  content: `Let's explore how to implement specific sorting requirements. Understanding custom sorting is like learning to organize your bookshelf exactly the way you want - whether by genre then author, or by size then color. Both {{python:Python}}{{typescript:TypeScript}} give us powerful tools to define these custom organizations.
 
 <h3>Understanding Custom Sort Keys</h3>
 
-At the heart of custom sorting in Python is the key function. This function transforms each element into a value that Python uses for comparison. Let's start with some fundamental examples:
+{{python:At the heart of custom sorting in Python is the key function. This function transforms each element into a value that Python uses for comparison.}}{{typescript:In TypeScript, we use compare functions that return a number indicating the relative order of two elements.}} Let's start with some fundamental examples:
 
 \`\`\`python
 def demonstrate_basic_key_functions():
     """
     Show how different key functions affect sorting.
-    
+
     This helps understand the relationship between key functions
     and final sort order.
     """
     # Sort strings by length then alphabetically
     words = ["cat", "dog", "elephant", "ant", "bear"]
-    
+
     # The key function can return a tuple for multiple criteria
     sorted_words = sorted(words, key=lambda x: (len(x), x))
     print("Sorted by length then alphabetically:")
     for word in sorted_words:
         print(f"{word} (length: {len(word)})")
-        
+
     # Sort numbers by their distance from 100
     numbers = [50, 150, 75, 125, 95]
     sorted_numbers = sorted(numbers, key=lambda x: abs(x - 100))
@@ -4421,6 +7330,43 @@ def demonstrate_basic_key_functions():
         print(f"{num} (distance: {abs(num - 100)})")
 
 demonstrate_basic_key_functions()
+\`\`\`
+
+\`\`\`typescript
+function demonstrateBasicSortFunctions(): void {
+  /**
+   * Show how different compare functions affect sorting.
+   *
+   * This helps understand the relationship between compare functions
+   * and final sort order.
+   */
+  // Sort strings by length then alphabetically
+  const words = ["cat", "dog", "elephant", "ant", "bear"];
+
+  // The compare function handles multiple criteria
+  const sortedWords = [...words].sort((a, b) => {
+    if (a.length !== b.length) {
+      return a.length - b.length;
+    }
+    return a.localeCompare(b);
+  });
+  console.log("Sorted by length then alphabetically:");
+  for (const word of sortedWords) {
+    console.log(\`\${word} (length: \${word.length})\`);
+  }
+
+  // Sort numbers by their distance from 100
+  const numbers = [50, 150, 75, 125, 95];
+  const sortedNumbers = [...numbers].sort((a, b) => {
+    return Math.abs(a - 100) - Math.abs(b - 100);
+  });
+  console.log("Sorted by distance from 100:");
+  for (const num of sortedNumbers) {
+    console.log(\`\${num} (distance: \${Math.abs(num - 100)})\`);
+  }
+}
+
+demonstrateBasicSortFunctions();
 \`\`\`
 
 <h3>Complex Sorting Requirements</h3>
@@ -4442,7 +7388,7 @@ class Student:
 def demonstrate_complex_sorting():
     """
     Show how to implement complex sorting requirements.
-    
+
     We'll sort students by:
     1. Active students first
     2. Grade (higher first)
@@ -4455,11 +7401,11 @@ def demonstrate_complex_sorting():
         Student("Charlie", 85.0, 92.0, date(2024, 1, 10), False),
         Student("Diana", 92.5, 95.0, date(2024, 1, 20), True)
     ]
-    
+
     def student_sort_key(student):
         """
         Create a tuple of values for sorting.
-        
+
         Using negative values for grade and attendance because:
         1. We want higher values first (descending order)
         2. Tuples sort ascending by default
@@ -4470,9 +7416,9 @@ def demonstrate_complex_sorting():
             -student.attendance,
             student.last_absent     # More recent dates are "greater"
         )
-    
+
     sorted_students = sorted(students, key=student_sort_key)
-    
+
     print("Students sorted by multiple criteria:")
     for student in sorted_students:
         print(f"{student.name}:")
@@ -4485,6 +7431,71 @@ def demonstrate_complex_sorting():
 demonstrate_complex_sorting()
 \`\`\`
 
+\`\`\`typescript
+interface Student {
+  name: string;
+  grade: number;
+  attendance: number;  // percentage
+  lastAbsent: Date;
+  isActive: boolean;
+}
+
+function demonstrateComplexSorting(): void {
+  /**
+   * Show how to implement complex sorting requirements.
+   *
+   * We'll sort students by:
+   * 1. Active students first
+   * 2. Grade (higher first)
+   * 3. Attendance (higher first)
+   * 4. Most recent absence (more recent first)
+   */
+  const students: Student[] = [
+    { name: "Alice", grade: 92.5, attendance: 95.0, lastAbsent: new Date(2024, 0, 15), isActive: true },
+    { name: "Bob", grade: 92.5, attendance: 88.0, lastAbsent: new Date(2024, 1, 1), isActive: true },
+    { name: "Charlie", grade: 85.0, attendance: 92.0, lastAbsent: new Date(2024, 0, 10), isActive: false },
+    { name: "Diana", grade: 92.5, attendance: 95.0, lastAbsent: new Date(2024, 0, 20), isActive: true }
+  ];
+
+  /**
+   * Compare function for sorting students.
+   *
+   * Returns negative if a < b, positive if a > b, 0 if equal
+   */
+  const sortedStudents = [...students].sort((a, b) => {
+    // 1. Active students first (active = true comes before false)
+    if (a.isActive !== b.isActive) {
+      return b.isActive ? 1 : -1;
+    }
+
+    // 2. Higher grade first
+    if (a.grade !== b.grade) {
+      return b.grade - a.grade;
+    }
+
+    // 3. Higher attendance first
+    if (a.attendance !== b.attendance) {
+      return b.attendance - a.attendance;
+    }
+
+    // 4. More recent absence first
+    return b.lastAbsent.getTime() - a.lastAbsent.getTime();
+  });
+
+  console.log("Students sorted by multiple criteria:");
+  for (const student of sortedStudents) {
+    console.log(\`\${student.name}:\`);
+    console.log(\`  Grade: \${student.grade}\`);
+    console.log(\`  Attendance: \${student.attendance}%\`);
+    console.log(\`  Last Absent: \${student.lastAbsent.toDateString()}\`);
+    console.log(\`  Active: \${student.isActive}\`);
+    console.log();
+  }
+}
+
+demonstrateComplexSorting();
+\`\`\`
+
 <h3>Handling Special Cases</h3>
 
 Sometimes we need to handle special cases like missing data or custom comparison logic:
@@ -4493,7 +7504,7 @@ Sometimes we need to handle special cases like missing data or custom comparison
 def sort_with_special_cases():
     """
     Demonstrate handling of special cases in custom sorting.
-    
+
     This shows how to:
     1. Handle None values
     2. Implement custom comparison logic
@@ -4506,11 +7517,11 @@ def sort_with_special_cases():
         {"name": "Charlie", "grade": 85, "extra_credit": False},
         {"name": "Diana", "grade": None, "extra_credit": True}
     ]
-    
+
     def special_sort_key(record):
         """
         Custom key function handling special cases.
-        
+
         Returns tuple with:
         1. Whether grade exists (None values last)
         2. Grade value (if exists)
@@ -4523,9 +7534,9 @@ def sort_with_special_cases():
             record["extra_credit"],
             record["name"]
         )
-    
+
     sorted_records = sorted(records, key=special_sort_key, reverse=True)
-    
+
     print("Records sorted with special cases handled:")
     for record in sorted_records:
         print(f"Name: {record['name']}")
@@ -4534,6 +7545,75 @@ def sort_with_special_cases():
         print()
 
 sort_with_special_cases()
+\`\`\`
+
+\`\`\`typescript
+interface StudentRecord {
+  name: string;
+  grade: number | null;
+  extraCredit: boolean;
+}
+
+function sortWithSpecialCases(): void {
+  /**
+   * Demonstrate handling of special cases in custom sorting.
+   *
+   * This shows how to:
+   * 1. Handle null values
+   * 2. Implement custom comparison logic
+   * 3. Deal with missing or invalid data
+   */
+  // Student records with possible missing grades
+  const records: StudentRecord[] = [
+    { name: "Alice", grade: 85, extraCredit: true },
+    { name: "Bob", grade: null, extraCredit: false },
+    { name: "Charlie", grade: 85, extraCredit: false },
+    { name: "Diana", grade: null, extraCredit: true }
+  ];
+
+  /**
+   * Custom compare function handling special cases.
+   *
+   * Considers:
+   * 1. Whether grade exists (null values last)
+   * 2. Grade value (if exists)
+   * 3. Extra credit status
+   * 4. Name (for stable sorting)
+   */
+  const sortedRecords = [...records].sort((a, b) => {
+    // 1. Records with grades come before those without
+    const aHasGrade = a.grade !== null;
+    const bHasGrade = b.grade !== null;
+    if (aHasGrade !== bHasGrade) {
+      return bHasGrade ? 1 : -1;
+    }
+
+    // 2. If both have grades, compare them (higher first)
+    if (a.grade !== null && b.grade !== null) {
+      if (a.grade !== b.grade) {
+        return b.grade - a.grade;
+      }
+    }
+
+    // 3. Compare extra credit status
+    if (a.extraCredit !== b.extraCredit) {
+      return a.extraCredit ? -1 : 1;
+    }
+
+    // 4. Finally, sort by name alphabetically
+    return a.name.localeCompare(b.name);
+  });
+
+  console.log("Records sorted with special cases handled:");
+  for (const record of sortedRecords) {
+    console.log(\`Name: \${record.name}\`);
+    console.log(\`  Grade: \${record.grade ?? 'Missing'}\`);
+    console.log(\`  Extra Credit: \${record.extraCredit}\`);
+    console.log();
+  }
+}
+
+sortWithSpecialCases();
 \`\`\`
 
 <h3>Advanced Sorting Techniques</h3>
@@ -4554,19 +7634,19 @@ def demonstrate_advanced_techniques():
             self.name = name
             self.price = price
             self.stock = stock
-    
+
     products = [
         Product("Apple", 0.50, 100),
         Product("Banana", 0.30, 150),
         Product("Orange", 0.60, 75)
     ]
-    
+
     # Using attrgetter instead of lambda
     by_price = sorted(products, key=attrgetter('price'))
     print("Sorted by price (using attrgetter):")
     for p in by_price:
         print(f"{p.name}: \${p.price:.2f}")
-    
+
     # Custom comparison function
     def compare_products(a, b):
         """
@@ -4579,10 +7659,10 @@ def demonstrate_advanced_techniques():
             return price_diff
         # If prices are close, compare by stock
         return b.stock - a.stock
-    
+
     # Using cmp_to_key to convert comparison function to key function
     sorted_products = sorted(products, key=cmp_to_key(compare_products))
-    
+
     print("Sorted using custom comparison:")
     for p in sorted_products:
         print(f"{p.name}: \${p.price:.2f} (Stock: {p.stock})")
@@ -4590,23 +7670,74 @@ def demonstrate_advanced_techniques():
 demonstrate_advanced_techniques()
 \`\`\`
 
+\`\`\`typescript
+interface Product {
+  name: string;
+  price: number;
+  stock: number;
+}
+
+function demonstrateAdvancedTechniques(): void {
+  /**
+   * Show advanced sorting techniques and their uses.
+   */
+  const products: Product[] = [
+    { name: "Apple", price: 0.50, stock: 100 },
+    { name: "Banana", price: 0.30, stock: 150 },
+    { name: "Orange", price: 0.60, stock: 75 }
+  ];
+
+  // Sort by single property
+  const byPrice = [...products].sort((a, b) => a.price - b.price);
+  console.log("Sorted by price:");
+  for (const p of byPrice) {
+    console.log(\`\${p.name}: $\${p.price.toFixed(2)}\`);
+  }
+
+  // Custom comparison considering both price and stock
+  function compareProducts(a: Product, b: Product): number {
+    /**
+     * Custom comparison considering both price and stock.
+     * Returns negative if a < b, zero if a == b, positive if a > b.
+     */
+    // First compare by price
+    const priceDiff = a.price - b.price;
+    const epsilon = 0.01;  // Small epsilon for float comparison
+    if (Math.abs(priceDiff) > epsilon) {
+      return priceDiff;
+    }
+    // If prices are close, compare by stock (higher stock first)
+    return b.stock - a.stock;
+  }
+
+  const sortedProducts = [...products].sort(compareProducts);
+
+  console.log("Sorted using custom comparison:");
+  for (const p of sortedProducts) {
+    console.log(\`\${p.name}: $\${p.price.toFixed(2)} (Stock: \${p.stock})\`);
+  }
+}
+
+demonstrateAdvancedTechniques();
+\`\`\`
+
 <h3>Best Practices for Custom Sorting</h3>
 
 Here are some key principles to follow when implementing custom sorting:
 
-1. Make Sort Keys Intuitive: Key functions should return values that naturally sort in the desired order. For example, use negative values for descending order.
+1. Make Sort {{python:Keys}}{{typescript:Functions}} Intuitive: {{python:Key functions should return values that naturally sort in the desired order. For example, use negative values for descending order.}}{{typescript:Compare functions should clearly indicate the ordering relationship. Return negative for a < b, positive for a > b, and 0 for equal elements.}}
 
 2. Handle Edge Cases: Always consider and handle special cases like:
-   - None or missing values
+   - {{python:None}}{{typescript:null or undefined}} or missing values
    - Invalid data
    - Empty strings
    - Extreme values
 
-3. Use Tuples for Multiple Criteria: When sorting by multiple conditions, use tuples to combine them in priority order.
+3. {{python:Use Tuples for Multiple Criteria: When sorting by multiple conditions, use tuples to combine them in priority order.}}{{typescript:Handle Multiple Criteria Clearly: Check conditions in order of priority, returning early when a difference is found.}}
 
 4. Consider Performance: For large datasets:
-   - Use operator.attrgetter or operator.itemgetter instead of lambdas
-   - Minimize computation in key functions
+   - {{python:Use operator.attrgetter or operator.itemgetter instead of lambdas}}{{typescript:Keep compare functions simple and avoid complex computations}}
+   - Minimize computation in {{python:key}}{{typescript:compare}} functions
    - Cache computed values if they're used repeatedly
 
 5. Document Sorting Logic: Clear documentation is crucial for maintaining complex sorting requirements.`,
@@ -4615,10 +7746,11 @@ Here are some key principles to follow when implementing custom sorting:
     {
       prompt:
         'Create a function that sorts a list of strings by the number of vowels they contain, and then alphabetically for strings with the same number of vowels.',
-      initialCode: `def sort_by_vowels(strings):
+      initialCode: {
+        python: `def sort_by_vowels(strings):
     """
     Sort strings by vowel count, then alphabetically.
-    
+
     Args:
         strings: List of strings
     Returns:
@@ -4626,15 +7758,27 @@ Here are some key principles to follow when implementing custom sorting:
     """
     # Your implementation here
     pass`,
-      solution: `def sort_by_vowels(strings):
+        typescript: `function sortByVowels(strings: string[]): string[] {
+  /**
+   * Sort strings by vowel count, then alphabetically.
+   *
+   * @param strings - Array of strings
+   * @returns Sorted array of strings
+   */
+  // Your implementation here
+  return [];
+}`,
+      },
+      solution: {
+        python: `def sort_by_vowels(strings):
     """
     Sort strings by vowel count, then alphabetically.
-    
+
     Args:
         strings: List of strings
     Returns:
         Sorted list of strings
-    
+
     Example:
         Input: ["hello", "world", "python", "code"]
         Output: ["world", "code", "hello", "python"]
@@ -4642,7 +7786,7 @@ Here are some key principles to follow when implementing custom sorting:
     def count_vowels(s):
         """Helper function to count vowels in a string."""
         return sum(1 for char in s.lower() if char in 'aeiou')
-    
+
     # Create a key function that returns a tuple of
     # (vowel count, original string)
     return sorted(strings, key=lambda x: (count_vowels(x), x))
@@ -4653,15 +7797,52 @@ result = sort_by_vowels(test_strings)
 for word in result:
     vowels = sum(1 for char in word.lower() if char in 'aeiou')
     print(f"{word}: {vowels} vowels")`,
+        typescript: `function sortByVowels(strings: string[]): string[] {
+  /**
+   * Sort strings by vowel count, then alphabetically.
+   *
+   * @param strings - Array of strings
+   * @returns Sorted array of strings
+   *
+   * Example:
+   *   Input: ["hello", "world", "python", "code"]
+   *   Output: ["world", "code", "hello", "python"]
+   */
+  function countVowels(s: string): number {
+    /** Helper function to count vowels in a string. */
+    const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+    return s.toLowerCase().split('').filter(char => vowels.has(char)).length;
+  }
+
+  // Sort by vowel count first, then alphabetically
+  return [...strings].sort((a, b) => {
+    const vowelDiff = countVowels(a) - countVowels(b);
+    if (vowelDiff !== 0) {
+      return vowelDiff;
+    }
+    return a.localeCompare(b);
+  });
+}
+
+// Test the function
+const testStrings = ["hello", "world", "python", "code"];
+const result = sortByVowels(testStrings);
+for (const word of result) {
+  const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+  const count = word.toLowerCase().split('').filter(char => vowels.has(char)).length;
+  console.log(\`\${word}: \${count} vowels\`);
+}`,
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt:
         'Implement a custom sorting function for version numbers (e.g., "1.2.3" should come before "1.2.10"). The version numbers can have varying numbers of components.',
-      initialCode: `def sort_versions(versions):
+      initialCode: {
+        python: `def sort_versions(versions):
     """
     Sort version numbers correctly.
-    
+
     Args:
         versions: List of version strings (e.g., ["1.0", "1.2.3", "1.2.10"])
     Returns:
@@ -4669,15 +7850,27 @@ for word in result:
     """
     # Your implementation here
     pass`,
-      solution: `def sort_versions(versions):
+        typescript: `function sortVersions(versions: string[]): string[] {
+  /**
+   * Sort version numbers correctly.
+   *
+   * @param versions - Array of version strings (e.g., ["1.0", "1.2.3", "1.2.10"])
+   * @returns Sorted array of version strings
+   */
+  // Your implementation here
+  return [];
+}`,
+      },
+      solution: {
+        python: `def sort_versions(versions):
     """
     Sort version numbers correctly.
-    
+
     Args:
         versions: List of version strings (e.g., ["1.0", "1.2.3", "1.2.10"])
     Returns:
         Sorted list of version strings
-        
+
     Example:
         Input: ["1.2.10", "1.2.2", "1.10", "1.2"]
         Output: ["1.2", "1.2.2", "1.2.10", "1.10"]
@@ -4692,7 +7885,7 @@ for word in result:
         # Pad with zeros to handle varying lengths
         # Most version numbers won't exceed 100 components
         return components + [0] * (100 - len(components))
-    
+
     return sorted(versions, key=version_key)
 
 # Test the function
@@ -4706,6 +7899,54 @@ for version in sorted_versions:
 edge_cases = ["2", "2.0", "2.0.0", "2.0.0.0"]
 print("Edge cases:")
 print(sort_versions(edge_cases))`,
+        typescript: `function sortVersions(versions: string[]): string[] {
+  /**
+   * Sort version numbers correctly.
+   *
+   * @param versions - Array of version strings (e.g., ["1.0", "1.2.3", "1.2.10"])
+   * @returns Sorted array of version strings
+   *
+   * Example:
+   *   Input: ["1.2.10", "1.2.2", "1.10", "1.2"]
+   *   Output: ["1.2", "1.2.2", "1.2.10", "1.10"]
+   */
+  function compareVersions(a: string, b: string): number {
+    /**
+     * Compare two version strings component by component.
+     */
+    const aParts = a.split('.').map(Number);
+    const bParts = b.split('.').map(Number);
+    const maxLength = Math.max(aParts.length, bParts.length);
+
+    // Compare each component
+    for (let i = 0; i < maxLength; i++) {
+      const aVal = i < aParts.length ? aParts[i] : 0;
+      const bVal = i < bParts.length ? bParts[i] : 0;
+
+      if (aVal !== bVal) {
+        return aVal - bVal;
+      }
+    }
+
+    return 0;
+  }
+
+  return [...versions].sort(compareVersions);
+}
+
+// Test the function
+const testVersions = ["1.2.10", "1.2.2", "1.10", "1.2"];
+const sortedVersions = sortVersions(testVersions);
+console.log("Versions in order:");
+for (const version of sortedVersions) {
+  console.log(version);
+}
+
+// Additional test cases
+const edgeCases = ["2", "2.0", "2.0.0", "2.0.0.0"];
+console.log("Edge cases:");
+console.log(sortVersions(edgeCases));`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -4802,22 +8043,22 @@ One common pattern starts with pointers at opposite ends of the array. This is p
 def find_pair_with_sum(array, target_sum):
     """
     Find a pair of numbers that sum to target_sum.
-    
+
     Args:
         array: Sorted list of numbers
         target_sum: Target sum to find
     Returns:
         Tuple of (left_index, right_index) or None if not found
-        
+
     Time Complexity: O(n)
     Space Complexity: O(1)
     """
     left = 0
     right = len(array) - 1
-    
+
     while left < right:
         current_sum = array[left] + array[right]
-        
+
         if current_sum == target_sum:
             return (left, right)
         elif current_sum < target_sum:
@@ -4826,23 +8067,23 @@ def find_pair_with_sum(array, target_sum):
         else:
             # Need a smaller sum, move right pointer left
             right -= 1
-    
+
     return None  # No pair found
 
 def demonstrate_opposite_ends():
     """Show how opposite ends pattern works step by step."""
     array = [1, 3, 5, 7, 9, 11]
     target = 14
-    
+
     print(f"Finding pair summing to {target} in {array}")
     left = 0
     right = len(array) - 1
-    
+
     while left < right:
         current_sum = array[left] + array[right]
         print(f"Checking values at positions {left} and {right}")
         print(f"{array[left]} + {array[right]} = {current_sum}")
-        
+
         if current_sum == target:
             print("Found pair!")
             break
@@ -4857,6 +8098,71 @@ def demonstrate_opposite_ends():
 demonstrate_opposite_ends()
 \`\`\`
 
+\`\`\`typescript
+function findPairWithSum(array: number[], targetSum: number): [number, number] | null {
+  /**
+   * Find a pair of numbers that sum to targetSum.
+   *
+   * @param array - Sorted list of numbers
+   * @param targetSum - Target sum to find
+   * @returns Tuple of [leftIndex, rightIndex] or null if not found
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  let left = 0;
+  let right = array.length - 1;
+
+  while (left < right) {
+    const currentSum = array[left] + array[right];
+
+    if (currentSum === targetSum) {
+      return [left, right];
+    } else if (currentSum < targetSum) {
+      // Need a larger sum, move left pointer right
+      left++;
+    } else {
+      // Need a smaller sum, move right pointer left
+      right--;
+    }
+  }
+
+  return null;  // No pair found
+}
+
+function demonstrateOppositeEnds(): void {
+  /**
+   * Show how opposite ends pattern works step by step.
+   */
+  const array = [1, 3, 5, 7, 9, 11];
+  const target = 14;
+
+  console.log(\`Finding pair summing to \${target} in \${array}\`);
+  let left = 0;
+  let right = array.length - 1;
+
+  while (left < right) {
+    const currentSum = array[left] + array[right];
+    console.log(\`Checking values at positions \${left} and \${right}\`);
+    console.log(\`\${array[left]} + \${array[right]} = \${currentSum}\`);
+
+    if (currentSum === target) {
+      console.log("Found pair!");
+      break;
+    } else if (currentSum < target) {
+      console.log("Sum too small, moving left pointer right");
+      left++;
+    } else {
+      console.log("Sum too large, moving right pointer left");
+      right--;
+    }
+  }
+}
+
+// Show the process
+demonstrateOppositeEnds();
+\`\`\`
+
 <h3>Pattern 2: Same Direction</h3>
 
 Another common pattern involves two pointers moving in the same direction, often at different speeds:
@@ -4865,40 +8171,40 @@ Another common pattern involves two pointers moving in the same direction, often
 def remove_duplicates(array):
     """
     Remove duplicates from sorted array in-place.
-    
+
     Args:
         array: Sorted list of numbers
     Returns:
         Length of array after removing duplicates
-        
+
     Time Complexity: O(n)
     Space Complexity: O(1)
     """
     if not array:
         return 0
-        
+
     # Position to write next unique element
     write_pos = 1
-    
+
     # Position to read and check elements
     for read_pos in range(1, len(array)):
         if array[read_pos] != array[write_pos - 1]:
             array[write_pos] = array[read_pos]
             write_pos += 1
-    
+
     return write_pos
 
 def demonstrate_same_direction():
     """Show how same direction pattern works step by step."""
     array = [1, 1, 2, 2, 3, 4, 4, 5]
     print(f"Removing duplicates from {array}")
-    
+
     write_pos = 1
-    
+
     for read_pos in range(1, len(array)):
         print(f"Read position: {read_pos}, Write position: {write_pos}")
         print(f"Comparing {array[read_pos]} with previous unique {array[write_pos-1]}")
-        
+
         if array[read_pos] != array[write_pos - 1]:
             array[write_pos] = array[read_pos]
             print(f"Found new unique element, writing {array[read_pos]} at position {write_pos}")
@@ -4908,6 +8214,62 @@ def demonstrate_same_direction():
 
 # Show the process
 demonstrate_same_direction()
+\`\`\`
+
+\`\`\`typescript
+function removeDuplicates(array: number[]): number {
+  /**
+   * Remove duplicates from sorted array in-place.
+   *
+   * @param array - Sorted list of numbers
+   * @returns Length of array after removing duplicates
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  if (!array || array.length === 0) {
+    return 0;
+  }
+
+  // Position to write next unique element
+  let writePos = 1;
+
+  // Position to read and check elements
+  for (let readPos = 1; readPos < array.length; readPos++) {
+    if (array[readPos] !== array[writePos - 1]) {
+      array[writePos] = array[readPos];
+      writePos++;
+    }
+  }
+
+  return writePos;
+}
+
+function demonstrateSameDirection(): void {
+  /**
+   * Show how same direction pattern works step by step.
+   */
+  const array = [1, 1, 2, 2, 3, 4, 4, 5];
+  console.log(\`Removing duplicates from \${array}\`);
+
+  let writePos = 1;
+
+  for (let readPos = 1; readPos < array.length; readPos++) {
+    console.log(\`Read position: \${readPos}, Write position: \${writePos}\`);
+    console.log(\`Comparing \${array[readPos]} with previous unique \${array[writePos-1]}\`);
+
+    if (array[readPos] !== array[writePos - 1]) {
+      array[writePos] = array[readPos];
+      console.log(\`Found new unique element, writing \${array[readPos]} at position \${writePos}\`);
+      writePos++;
+    } else {
+      console.log("Duplicate found, skipping");
+    }
+  }
+}
+
+// Show the process
+demonstrateSameDirection();
 \`\`\`
 
 <h3>When to Use Two Pointers</h3>
@@ -4935,31 +8297,31 @@ Here's an example combining multiple aspects:
 def find_triplet_with_sum(array, target_sum):
     """
     Find three numbers that sum to target_sum.
-    
+
     Args:
         array: Sorted list of numbers
         target_sum: Target sum to find
     Returns:
         Tuple of (i, j, k) indices or None if not found
-        
+
     Uses two-pointer technique with an outer loop.
     """
     # Sort array first if not already sorted
     array.sort()
-    
+
     for i in range(len(array) - 2):
         # Skip duplicates for first number
         if i > 0 and array[i] == array[i-1]:
             continue
-            
+
         # Use two pointers for remaining sum
         left = i + 1
         right = len(array) - 1
         remaining = target_sum - array[i]
-        
+
         while left < right:
             current_sum = array[left] + array[right]
-            
+
             if current_sum == remaining:
                 return (i, left, right)
             elif current_sum < remaining:
@@ -4972,25 +8334,25 @@ def find_triplet_with_sum(array, target_sum):
                 right -= 1
                 while left < right and array[right] == array[right+1]:
                     right -= 1
-    
+
     return None
 
 def demonstrate_triplet_search():
     """Show how triplet search works step by step."""
     array = [1, 2, 2, 3, 4, 4, 5]
     target = 8
-    
+
     print(f"Finding triplet summing to {target} in {array}")
-    
+
     for i in range(len(array) - 2):
         print(f"Fixed first number: {array[i]}")
         left = i + 1
         right = len(array) - 1
-        
+
         while left < right:
             current_sum = array[i] + array[left] + array[right]
             print(f"Testing {array[i]} + {array[left]} + {array[right]} = {current_sum}")
-            
+
             if current_sum == target:
                 print("Found triplet!")
                 break
@@ -5001,16 +8363,100 @@ def demonstrate_triplet_search():
 
 # Show the process
 demonstrate_triplet_search()
+\`\`\`
+
+\`\`\`typescript
+function findTripletWithSum(array: number[], targetSum: number): [number, number, number] | null {
+  /**
+   * Find three numbers that sum to targetSum.
+   *
+   * @param array - Sorted list of numbers
+   * @param targetSum - Target sum to find
+   * @returns Tuple of [i, j, k] indices or null if not found
+   *
+   * Uses two-pointer technique with an outer loop.
+   */
+  // Sort array first if not already sorted
+  array.sort((a, b) => a - b);
+
+  for (let i = 0; i < array.length - 2; i++) {
+    // Skip duplicates for first number
+    if (i > 0 && array[i] === array[i-1]) {
+      continue;
+    }
+
+    // Use two pointers for remaining sum
+    let left = i + 1;
+    let right = array.length - 1;
+    const remaining = targetSum - array[i];
+
+    while (left < right) {
+      const currentSum = array[left] + array[right];
+
+      if (currentSum === remaining) {
+        return [i, left, right];
+      } else if (currentSum < remaining) {
+        // Skip duplicates for second number
+        left++;
+        while (left < right && array[left] === array[left-1]) {
+          left++;
+        }
+      } else {
+        // Skip duplicates for third number
+        right--;
+        while (left < right && array[right] === array[right+1]) {
+          right--;
+        }
+      }
+    }
+  }
+
+  return null;
+}
+
+function demonstrateTripletSearch(): void {
+  /**
+   * Show how triplet search works step by step.
+   */
+  const array = [1, 2, 2, 3, 4, 4, 5];
+  const target = 8;
+
+  console.log(\`Finding triplet summing to \${target} in \${array}\`);
+
+  for (let i = 0; i < array.length - 2; i++) {
+    console.log(\`Fixed first number: \${array[i]}\`);
+    let left = i + 1;
+    let right = array.length - 1;
+
+    while (left < right) {
+      const currentSum = array[i] + array[left] + array[right];
+      console.log(\`Testing \${array[i]} + \${array[left]} + \${array[right]} = \${currentSum}\`);
+
+      if (currentSum === target) {
+        console.log("Found triplet!");
+        break;
+      } else if (currentSum < target) {
+        left++;
+      } else {
+        right--;
+      }
+    }
+  }
+}
+
+// Show the process
+demonstrateTripletSearch();
 \`\`\``,
 
   exercises: [
     {
       prompt:
         'Implement a function that finds the continuous subarray in a sorted array whose sum is closest to a target value.',
-      initialCode: `def find_closest_sum_subarray(array, target):
+      initialCode: {
+        python: `def find_closest_sum_subarray(array, target):
     """
     Find continuous subarray with sum closest to target.
-    
+
     Args:
         array: Sorted list of numbers
         target: Target sum
@@ -5019,36 +8465,49 @@ demonstrate_triplet_search()
     """
     # Your implementation here
     pass`,
-      solution: `def find_closest_sum_subarray(array, target):
+        typescript: `function findClosestSumSubarray(array: number[], target: number): [number, number] | null {
+  /**
+   * Find continuous subarray with sum closest to target.
+   *
+   * @param array - Sorted list of numbers
+   * @param target - Target sum
+   * @returns Tuple of [startIndex, endIndex] of closest subarray
+   */
+  // Your implementation here
+  return null;
+}`
+      },
+      solution: {
+        python: `def find_closest_sum_subarray(array, target):
     """
     Find continuous subarray with sum closest to target.
-    
+
     Args:
         array: Sorted list of numbers
         target: Target sum
     Returns:
         Tuple of (start_index, end_index) of closest subarray
-        
+
     Time Complexity: O(n)
     Space Complexity: O(1)
     """
     if not array:
         return None
-    
+
     start = 0
     end = 0
     current_sum = array[0]
     closest_diff = abs(current_sum - target)
     result = (0, 0)
-    
+
     while end < len(array):
         if current_sum == target:
             return (start, end)
-            
+
         if abs(current_sum - target) < closest_diff:
             closest_diff = abs(current_sum - target)
             result = (start, end)
-        
+
         if current_sum < target and end < len(array) - 1:
             # Expand window
             end += 1
@@ -5061,7 +8520,7 @@ demonstrate_triplet_search()
                 end = start
                 if end < len(array):
                     current_sum = array[end]
-    
+
     return result
 
 # Test the implementation
@@ -5071,7 +8530,7 @@ def test_closest_sum():
         ([2, 4, 6, 8], 15),
         ([1, 3, 5], 7)
     ]
-    
+
     for array, target in test_cases:
         start, end = find_closest_sum_subarray(array, target)
         subarray = array[start:end+1]
@@ -5082,15 +8541,91 @@ def test_closest_sum():
         print(f"Sum: {current_sum}")
 
 test_closest_sum()`,
+        typescript: `function findClosestSumSubarray(array: number[], target: number): [number, number] | null {
+  /**
+   * Find continuous subarray with sum closest to target.
+   *
+   * @param array - Sorted list of numbers
+   * @param target - Target sum
+   * @returns Tuple of [startIndex, endIndex] of closest subarray
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  if (!array || array.length === 0) {
+    return null;
+  }
+
+  let start = 0;
+  let end = 0;
+  let currentSum = array[0];
+  let closestDiff = Math.abs(currentSum - target);
+  let result: [number, number] = [0, 0];
+
+  while (end < array.length) {
+    if (currentSum === target) {
+      return [start, end];
+    }
+
+    if (Math.abs(currentSum - target) < closestDiff) {
+      closestDiff = Math.abs(currentSum - target);
+      result = [start, end];
+    }
+
+    if (currentSum < target && end < array.length - 1) {
+      // Expand window
+      end++;
+      currentSum += array[end];
+    } else {
+      // Shrink window
+      currentSum -= array[start];
+      start++;
+      if (start > end) {
+        end = start;
+        if (end < array.length) {
+          currentSum = array[end];
+        }
+      }
+    }
+  }
+
+  return result;
+}
+
+// Test the implementation
+function testClosestSum(): void {
+  const testCases: [number[], number][] = [
+    [[1, 2, 3, 4, 5], 10],
+    [[2, 4, 6, 8], 15],
+    [[1, 3, 5], 7]
+  ];
+
+  for (const [array, target] of testCases) {
+    const result = findClosestSumSubarray(array, target);
+    if (result) {
+      const [start, end] = result;
+      const subarray = array.slice(start, end + 1);
+      const currentSum = subarray.reduce((a, b) => a + b, 0);
+      console.log(\`Array: \${array}\`);
+      console.log(\`Target: \${target}\`);
+      console.log(\`Found subarray: \${subarray}\`);
+      console.log(\`Sum: \${currentSum}\`);
+    }
+  }
+}
+
+testClosestSum();`
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt:
         'Create a function that finds the smallest subarray containing all elements from a given set of numbers, maintaining relative order.',
-      initialCode: `def find_smallest_subarray_with_elements(array, elements):
+      initialCode: {
+        python: `def find_smallest_subarray_with_elements(array, elements):
     """
     Find smallest subarray containing all given elements.
-    
+
     Args:
         array: List of numbers
         elements: Set of numbers to find
@@ -5099,47 +8634,60 @@ test_closest_sum()`,
     """
     # Your implementation here
     pass`,
-      solution: `def find_smallest_subarray_with_elements(array, elements):
+        typescript: `function findSmallestSubarrayWithElements(array: number[], elements: Set<number>): [number, number] | null {
+  /**
+   * Find smallest subarray containing all given elements.
+   *
+   * @param array - List of numbers
+   * @param elements - Set of numbers to find
+   * @returns Tuple of [startIndex, endIndex] of smallest subarray
+   */
+  // Your implementation here
+  return null;
+}`
+      },
+      solution: {
+        python: `def find_smallest_subarray_with_elements(array, elements):
     """
     Find smallest subarray containing all given elements.
-    
+
     Args:
         array: List of numbers
         elements: Set of numbers to find
     Returns:
         Tuple of (start_index, end_index) of smallest subarray
-        
+
     Time Complexity: O(n)
     Space Complexity: O(k) where k is len(elements)
     """
     if not array or not elements:
         return None
-    
+
     # Convert elements to set for O(1) lookup
     required = set(elements)
     current = {}
     start = 0
     min_length = float('inf')
     result = None
-    
+
     for end, num in enumerate(array):
         # Update current window
         if num in required:
             current[num] = current.get(num, 0) + 1
-        
+
         # Try to minimize window
         while len(current) == len(required):
             if end - start + 1 < min_length:
                 min_length = end - start + 1
                 result = (start, end)
-            
+
             # Remove start element if possible
             if array[start] in current:
                 current[array[start]] -= 1
                 if current[array[start]] == 0:
                     del current[array[start]]
             start += 1
-    
+
     return result
 
 # Test the implementation
@@ -5149,7 +8697,7 @@ def test_smallest_subarray():
         ([5, 1, 3, 2, 3, 4, 5, 6], {3, 5, 6}),
         ([1, 2, 3, 4, 5], {1, 5})
     ]
-    
+
     for array, elements in test_cases:
         result = find_smallest_subarray_with_elements(array, elements)
         if result:
@@ -5161,6 +8709,81 @@ def test_smallest_subarray():
             print(f"Length: {end - start + 1}")
 
 test_smallest_subarray()`,
+        typescript: `function findSmallestSubarrayWithElements(array: number[], elements: Set<number>): [number, number] | null {
+  /**
+   * Find smallest subarray containing all given elements.
+   *
+   * @param array - List of numbers
+   * @param elements - Set of numbers to find
+   * @returns Tuple of [startIndex, endIndex] of smallest subarray
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(k) where k is elements.size
+   */
+  if (!array || array.length === 0 || !elements || elements.size === 0) {
+    return null;
+  }
+
+  // Convert elements to set for O(1) lookup
+  const required = new Set(elements);
+  const current = new Map<number, number>();
+  let start = 0;
+  let minLength = Number.POSITIVE_INFINITY;
+  let result: [number, number] | null = null;
+
+  for (let end = 0; end < array.length; end++) {
+    const num = array[end];
+    // Update current window
+    if (required.has(num)) {
+      current.set(num, (current.get(num) ?? 0) + 1);
+    }
+
+    // Try to minimize window
+    while (current.size === required.size) {
+      if (end - start + 1 < minLength) {
+        minLength = end - start + 1;
+        result = [start, end];
+      }
+
+      // Remove start element if possible
+      if (current.has(array[start])) {
+        const count = current.get(array[start])! - 1;
+        if (count === 0) {
+          current.delete(array[start]);
+        } else {
+          current.set(array[start], count);
+        }
+      }
+      start++;
+    }
+  }
+
+  return result;
+}
+
+// Test the implementation
+function testSmallestSubarray(): void {
+  const testCases: [number[], Set<number>][] = [
+    [[1, 2, 3, 4, 2, 3, 1], new Set([2, 3])],
+    [[5, 1, 3, 2, 3, 4, 5, 6], new Set([3, 5, 6])],
+    [[1, 2, 3, 4, 5], new Set([1, 5])]
+  ];
+
+  for (const [array, elements] of testCases) {
+    const result = findSmallestSubarrayWithElements(array, elements);
+    if (result) {
+      const [start, end] = result;
+      const subarray = array.slice(start, end + 1);
+      console.log(\`Array: \${array}\`);
+      console.log(\`Elements to find: \${Array.from(elements)}\`);
+      console.log(\`Smallest subarray: \${subarray}\`);
+      console.log(\`Length: \${end - start + 1}\`);
+    }
+  }
+}
+
+testSmallestSubarray();`
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -5234,25 +8857,25 @@ Imagine two runners on a track - one moving twice as fast as the other. This pat
 def find_array_middle(array):
     """
     Find middle element using fast/slow pointer technique.
-    
+
     Args:
         array: List of elements
     Returns:
         Middle element of the array
-        
+
     This demonstrates the fast/slow pointer pattern where
     one pointer moves twice as fast as the other.
     """
     # Initialize our two pointers
     slow = fast = 0
-    
+
     # Move fast pointer twice as fast as slow
     while fast < len(array) - 1 and fast + 1 < len(array):
         slow += 1
         fast += 2
         print(f"Slow at index {slow} ({array[slow]})")
         print(f"Fast at index {fast} ({array[fast]})")
-    
+
     return array[slow]
 
 def demonstrate_fast_slow():
@@ -5261,6 +8884,45 @@ def demonstrate_fast_slow():
     print(f"Finding middle of: {array}")
     middle = find_array_middle(array)
     print(f"Middle element: {middle}")
+\`\`\`
+
+\`\`\`typescript
+function findArrayMiddle(array: number[]): number {
+  /**
+   * Find middle element using fast/slow pointer technique.
+   *
+   * @param array - List of elements
+   * @returns Middle element of the array
+   *
+   * This demonstrates the fast/slow pointer pattern where
+   * one pointer moves twice as fast as the other.
+   */
+  // Initialize our two pointers
+  let slow = 0;
+  let fast = 0;
+
+  // Move fast pointer twice as fast as slow
+  while (fast < array.length - 1 && fast + 1 < array.length) {
+    slow += 1;
+    fast += 2;
+    console.log(\`Slow at index \${slow} (\${array[slow]})\`);
+    console.log(\`Fast at index \${fast} (\${array[fast]})\`);
+  }
+
+  return array[slow];
+}
+
+function demonstrateFastSlow(): void {
+  /**
+   * Show how fast/slow pointer pattern works.
+   */
+  const array = [1, 2, 3, 4, 5, 6, 7];
+  console.log(\`Finding middle of: \${array}\`);
+  const middle = findArrayMiddle(array);
+  console.log(\`Middle element: \${middle}\`);
+}
+
+demonstrateFastSlow();
 \`\`\`
 
 <div class="visualization-container bg-white p-6 rounded-lg shadow-md my-8">
@@ -5292,39 +8954,39 @@ This variation keeps one pointer fixed while the other explores ahead, useful fo
 def find_subarray_sum(array, target_sum):
     """
     Find subarray that sums to target using sliding window.
-    
+
     Args:
         array: List of positive numbers
         target_sum: Target sum to find
     Returns:
         Tuple of (start, end) indices or None
-        
+
     This demonstrates anchored start with sliding end pointer.
     """
     start = 0
     end = 0
     current_sum = 0
-    
+
     while end < len(array):
         # Add elements until we reach or exceed target
         while end < len(array) and current_sum < target_sum:
             current_sum += array[end]
             print(f"Added {array[end]}, sum now {current_sum}")
             end += 1
-            
+
         # If we found our target, return the window
         if current_sum == target_sum:
             return (start, end - 1)
-            
+
         # Remove elements from start until we're below target
         while start < end and current_sum > target_sum:
             current_sum -= array[start]
             print(f"Removed {array[start]}, sum now {current_sum}")
             start += 1
-            
+
         if current_sum == target_sum:
             return (start, end - 1)
-    
+
     return None
 
 def demonstrate_sliding_window():
@@ -5338,6 +9000,66 @@ def demonstrate_sliding_window():
         print(f"Found subarray: {array[start:end+1]}")
 \`\`\`
 
+\`\`\`typescript
+function findSubarraySum(array: number[], targetSum: number): [number, number] | null {
+  /**
+   * Find subarray that sums to target using sliding window.
+   *
+   * @param array - List of positive numbers
+   * @param targetSum - Target sum to find
+   * @returns Tuple of [start, end] indices or null
+   *
+   * This demonstrates anchored start with sliding end pointer.
+   */
+  let start = 0;
+  let end = 0;
+  let currentSum = 0;
+
+  while (end < array.length) {
+    // Add elements until we reach or exceed target
+    while (end < array.length && currentSum < targetSum) {
+      currentSum += array[end];
+      console.log(\`Added \${array[end]}, sum now \${currentSum}\`);
+      end++;
+    }
+
+    // If we found our target, return the window
+    if (currentSum === targetSum) {
+      return [start, end - 1];
+    }
+
+    // Remove elements from start until we're below target
+    while (start < end && currentSum > targetSum) {
+      currentSum -= array[start];
+      console.log(\`Removed \${array[start]}, sum now \${currentSum}\`);
+      start++;
+    }
+
+    if (currentSum === targetSum) {
+      return [start, end - 1];
+    }
+  }
+
+  return null;
+}
+
+function demonstrateSlidingWindow(): void {
+  /**
+   * Show how sliding window with anchored start works.
+   */
+  const array = [1, 4, 2, 3, 5, 2];
+  const target = 9;
+  console.log(\`Finding subarray summing to \${target} in \${array}\`);
+  const result = findSubarraySum(array, target);
+  if (result) {
+    const [start, end] = result;
+    console.log(\`Found subarray: \${array.slice(start, end + 1)}\`);
+  }
+}
+
+demonstrateSlidingWindow();
+\`\`\`
+
 <h3>Variation 3: Symmetric Pointers</h3>
 
 This variation maintains symmetry around a center point, useful for palindrome-like problems or finding balanced segments.
@@ -5346,18 +9068,18 @@ This variation maintains symmetry around a center point, useful for palindrome-l
 def find_longest_balanced_segment(array):
     """
     Find longest segment with equal number of positive and negative numbers.
-    
+
     Args:
         array: List of numbers
     Returns:
         Tuple of (start, end) indices of longest balanced segment
-        
+
     This demonstrates symmetric pointer expansion from center.
     """
     def expand_around_center(left, right):
         """Helper to expand window while maintaining balance."""
         pos_count = neg_count = 0
-        
+
         while left >= 0 and right < len(array):
             # Count positives and negatives in current window
             for i in range(left, right + 1):
@@ -5365,7 +9087,7 @@ def find_longest_balanced_segment(array):
                     pos_count += 1
                 elif array[i] < 0:
                     neg_count += 1
-            
+
             # If balanced, try to expand
             if pos_count == neg_count:
                 if left > 0 and right < len(array) - 1:
@@ -5378,12 +9100,12 @@ def find_longest_balanced_segment(array):
                 left += 1
                 right -= 1
                 break
-                
+
         return left, right if pos_count == neg_count else (0, -1)
-    
+
     max_length = 0
     result = (0, -1)
-    
+
     # Try all possible centers
     for i in range(len(array) - 1):
         # Try odd length segments
@@ -5391,13 +9113,13 @@ def find_longest_balanced_segment(array):
         if right - left + 1 > max_length and right >= left:
             max_length = right - left + 1
             result = (left, right)
-            
+
         # Try even length segments
         left, right = expand_around_center(i, i + 1)
         if right - left + 1 > max_length and right >= left:
             max_length = right - left + 1
             result = (left, right)
-    
+
     return result
 
 def demonstrate_symmetric():
@@ -5408,6 +9130,90 @@ def demonstrate_symmetric():
     print(f"Found segment: {array[start:end+1]}")
 \`\`\`
 
+\`\`\`typescript
+function findLongestBalancedSegment(array: number[]): [number, number] {
+  /**
+   * Find longest segment with equal number of positive and negative numbers.
+   *
+   * @param array - List of numbers
+   * @returns Tuple of [start, end] indices of longest balanced segment
+   *
+   * This demonstrates symmetric pointer expansion from center.
+   */
+  function expandAroundCenter(left: number, right: number): [number, number] {
+    /**
+     * Helper to expand window while maintaining balance.
+     */
+    let posCount = 0;
+    let negCount = 0;
+
+    while (left >= 0 && right < array.length) {
+      // Count positives and negatives in current window
+      posCount = 0;
+      negCount = 0;
+      for (let i = left; i <= right; i++) {
+        if (array[i] > 0) {
+          posCount++;
+        } else if (array[i] < 0) {
+          negCount++;
+        }
+      }
+
+      // If balanced, try to expand
+      if (posCount === negCount) {
+        if (left > 0 && right < array.length - 1) {
+          left--;
+          right++;
+        } else {
+          break;
+        }
+      } else {
+        // If unbalanced, retract to last balanced position
+        left++;
+        right--;
+        break;
+      }
+    }
+
+    return posCount === negCount ? [left, right] : [0, -1];
+  }
+
+  let maxLength = 0;
+  let result: [number, number] = [0, -1];
+
+  // Try all possible centers
+  for (let i = 0; i < array.length - 1; i++) {
+    // Try odd length segments
+    let [left, right] = expandAroundCenter(i, i);
+    if (right - left + 1 > maxLength && right >= left) {
+      maxLength = right - left + 1;
+      result = [left, right];
+    }
+
+    // Try even length segments
+    [left, right] = expandAroundCenter(i, i + 1);
+    if (right - left + 1 > maxLength && right >= left) {
+      maxLength = right - left + 1;
+      result = [left, right];
+    }
+  }
+
+  return result;
+}
+
+function demonstrateSymmetric(): void {
+  /**
+   * Show how symmetric pointer expansion works.
+   */
+  const array = [1, -1, 2, -2, 3, -3];
+  console.log(\`Finding balanced segment in: \${array}\`);
+  const [start, end] = findLongestBalancedSegment(array);
+  console.log(\`Found segment: \${array.slice(start, end + 1)}\`);
+}
+
+demonstrateSymmetric();
+\`\`\`
+
 <h3>Variation 4: Multi-Array Two Pointers</h3>
 
 This variation uses two pointers across multiple arrays, useful for merging or finding relationships between arrays.
@@ -5416,22 +9222,22 @@ This variation uses two pointers across multiple arrays, useful for merging or f
 def find_common_elements(arr1, arr2, arr3):
     """
     Find elements common to three sorted arrays.
-    
+
     Args:
         arr1, arr2, arr3: Sorted arrays
     Returns:
         List of common elements
-        
+
     This demonstrates coordinating pointers across multiple arrays.
     """
     # Initialize pointers for each array
     p1 = p2 = p3 = 0
     result = []
-    
+
     while p1 < len(arr1) and p2 < len(arr2) and p3 < len(arr3):
         # Find minimum of current elements
         min_val = min(arr1[p1], arr2[p2], arr3[p3])
-        
+
         # If all match, we found a common element
         if arr1[p1] == arr2[p2] == arr3[p3]:
             result.append(arr1[p1])
@@ -5443,12 +9249,12 @@ def find_common_elements(arr1, arr2, arr3):
             if arr1[p1] == min_val: p1 += 1
             if arr2[p2] == min_val: p2 += 1
             if arr3[p3] == min_val: p3 += 1
-            
+
         print(f"Pointers: {p1}, {p2}, {p3}")
-        print(f"Current elements: {arr1[p1] if p1 < len(arr1) else 'END'}, " 
+        print(f"Current elements: {arr1[p1] if p1 < len(arr1) else 'END'}, "
               f"{arr2[p2] if p2 < len(arr2) else 'END'}, "
               f"{arr3[p3] if p3 < len(arr3) else 'END'}")
-    
+
     return result
 
 def demonstrate_multi_array():
@@ -5462,16 +9268,79 @@ def demonstrate_multi_array():
     print(f"Array 3: {arr3}")
     result = find_common_elements(arr1, arr2, arr3)
     print(f"Common elements: {result}")
+\`\`\`
+
+\`\`\`typescript
+function findCommonElements(arr1: number[], arr2: number[], arr3: number[]): number[] {
+  /**
+   * Find elements common to three sorted arrays.
+   *
+   * @param arr1 - First sorted array
+   * @param arr2 - Second sorted array
+   * @param arr3 - Third sorted array
+   * @returns List of common elements
+   *
+   * This demonstrates coordinating pointers across multiple arrays.
+   */
+  // Initialize pointers for each array
+  let p1 = 0;
+  let p2 = 0;
+  let p3 = 0;
+  const result: number[] = [];
+
+  while (p1 < arr1.length && p2 < arr2.length && p3 < arr3.length) {
+    // Find minimum of current elements
+    const minVal = Math.min(arr1[p1], arr2[p2], arr3[p3]);
+
+    // If all match, we found a common element
+    if (arr1[p1] === arr2[p2] && arr2[p2] === arr3[p3]) {
+      result.push(arr1[p1]);
+      p1++;
+      p2++;
+      p3++;
+    } else {
+      // Move pointers pointing to minimum value
+      if (arr1[p1] === minVal) p1++;
+      if (arr2[p2] === minVal) p2++;
+      if (arr3[p3] === minVal) p3++;
+    }
+
+    console.log(\`Pointers: \${p1}, \${p2}, \${p3}\`);
+    console.log(\`Current elements: \${p1 < arr1.length ? arr1[p1] : 'END'}, \` +
+                \`\${p2 < arr2.length ? arr2[p2] : 'END'}, \` +
+                \`\${p3 < arr3.length ? arr3[p3] : 'END'}\`);
+  }
+
+  return result;
+}
+
+function demonstrateMultiArray(): void {
+  /**
+   * Show how multi-array pointer coordination works.
+   */
+  const arr1 = [1, 2, 3, 4, 5];
+  const arr2 = [2, 3, 5, 7, 8];
+  const arr3 = [1, 3, 5, 6, 9];
+  console.log(\`Finding common elements in:\`);
+  console.log(\`Array 1: \${arr1}\`);
+  console.log(\`Array 2: \${arr2}\`);
+  console.log(\`Array 3: \${arr3}\`);
+  const result = findCommonElements(arr1, arr2, arr3);
+  console.log(\`Common elements: \${result}\`);
+}
+
+demonstrateMultiArray();
 \`\`\``,
 
   exercises: [
     {
       prompt:
         'Implement a function that finds the longest subarray where the difference between maximum and minimum elements is at most k.',
-      initialCode: `def find_bounded_range_subarray(array, k):
+      initialCode: {
+        python: `def find_bounded_range_subarray(array, k):
     """
     Find longest subarray with max-min difference <= k.
-    
+
     Args:
         array: List of numbers
         k: Maximum allowed difference
@@ -5480,32 +9349,45 @@ def demonstrate_multi_array():
     """
     # Your implementation here
     pass`,
-      solution: `def find_bounded_range_subarray(array, k):
+        typescript: `function findBoundedRangeSubarray(array: number[], k: number): [number, number] | null {
+  /**
+   * Find longest subarray with max-min difference <= k.
+   *
+   * @param array - List of numbers
+   * @param k - Maximum allowed difference
+   * @returns Tuple of [start, end] indices of longest valid subarray
+   */
+  // Your implementation here
+  return null;
+}`
+      },
+      solution: {
+        python: `def find_bounded_range_subarray(array, k):
     """
     Find longest subarray with max-min difference <= k.
-    
+
     Args:
         array: List of numbers
         k: Maximum allowed difference
     Returns:
         Tuple of (start, end) indices of longest valid subarray
-        
+
     Time Complexity: O(n)
     Space Complexity: O(1)
     """
     if not array:
         return None
-        
+
     start = 0
     max_length = 0
     result = (0, 0)
     window_min = window_max = array[0]
-    
+
     for end in range(len(array)):
         # Update window bounds
         window_min = min(window_min, array[end])
         window_max = max(window_max, array[end])
-        
+
         # Shrink window if needed
         while window_max - window_min > k:
             start += 1
@@ -5515,12 +9397,12 @@ def demonstrate_multi_array():
                 # Recalculate window bounds
                 window_min = min(array[start:end+1])
                 window_max = max(array[start:end+1])
-        
+
         # Update result if current window is longer
         if end - start + 1 > max_length:
             max_length = end - start + 1
             result = (start, end)
-    
+
     return result
 
 # Test the implementation
@@ -5530,7 +9412,7 @@ def test_bounded_range():
         ([1, 1, 1, 3, 3, 3], 2),
         ([5, 4, 3, 2, 1], 2)
     ]
-    
+
     for array, k in test_cases:
         start, end = find_bounded_range_subarray(array, k)
         subarray = array[start:end+1]
@@ -5541,15 +9423,89 @@ def test_bounded_range():
         print(f"Max-min difference: {diff}")
 
 test_bounded_range()`,
+        typescript: `function findBoundedRangeSubarray(array: number[], k: number): [number, number] | null {
+  /**
+   * Find longest subarray with max-min difference <= k.
+   *
+   * @param array - List of numbers
+   * @param k - Maximum allowed difference
+   * @returns Tuple of [start, end] indices of longest valid subarray
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  if (!array || array.length === 0) {
+    return null;
+  }
+
+  let start = 0;
+  let maxLength = 0;
+  let result: [number, number] = [0, 0];
+  let windowMin = array[0];
+  let windowMax = array[0];
+
+  for (let end = 0; end < array.length; end++) {
+    // Update window bounds
+    windowMin = Math.min(windowMin, array[end]);
+    windowMax = Math.max(windowMax, array[end]);
+
+    // Shrink window if needed
+    while (windowMax - windowMin > k) {
+      start++;
+      if (start > end) {
+        windowMin = windowMax = array[end];
+      } else {
+        // Recalculate window bounds
+        const window = array.slice(start, end + 1);
+        windowMin = Math.min(...window);
+        windowMax = Math.max(...window);
+      }
+    }
+
+    // Update result if current window is longer
+    if (end - start + 1 > maxLength) {
+      maxLength = end - start + 1;
+      result = [start, end];
+    }
+  }
+
+  return result;
+}
+
+// Test the implementation
+function testBoundedRange(): void {
+  const testCases: [number[], number][] = [
+    [[1, 3, 6, 8, 4, 2], 3],
+    [[1, 1, 1, 3, 3, 3], 2],
+    [[5, 4, 3, 2, 1], 2]
+  ];
+
+  for (const [array, k] of testCases) {
+    const result = findBoundedRangeSubarray(array, k);
+    if (result) {
+      const [start, end] = result;
+      const subarray = array.slice(start, end + 1);
+      const diff = Math.max(...subarray) - Math.min(...subarray);
+      console.log(\`Array: \${array}\`);
+      console.log(\`k: \${k}\`);
+      console.log(\`Found subarray: \${subarray}\`);
+      console.log(\`Max-min difference: \${diff}\`);
+    }
+  }
+}
+
+testBoundedRange();`
+      },
       difficulty: Difficulty.Advanced,
     },
     {
       prompt:
         'Create a function that finds three non-overlapping subarrays of size k with maximum sum.',
-      initialCode: `def find_three_max_subarrays(array, k):
+      initialCode: {
+        python: `def find_three_max_subarrays(array, k):
     """
     Find three non-overlapping size-k subarrays with maximum sum.
-    
+
     Args:
         array: List of numbers
         k: Size of each subarray
@@ -5558,32 +9514,45 @@ test_bounded_range()`,
     """
     # Your implementation here
     pass`,
-      solution: `def find_three_max_subarrays(array, k):
+        typescript: `function findThreeMaxSubarrays(array: number[], k: number): number[] | null {
+  /**
+   * Find three non-overlapping size-k subarrays with maximum sum.
+   *
+   * @param array - List of numbers
+   * @param k - Size of each subarray
+   * @returns List of starting indices of the three subarrays
+   */
+  // Your implementation here
+  return null;
+}`
+      },
+      solution: {
+        python: `def find_three_max_subarrays(array, k):
     """
     Find three non-overlapping size-k subarrays with maximum sum.
-    
+
     Args:
         array: List of numbers
         k: Size of each subarray
     Returns:
         List of starting indices of the three subarrays
-        
+
     Time Complexity: O(n)
     Space Complexity: O(n)
     """
     # Get initial window sums
     if len(array) < k * 3:
         return None
-        
+
     # Calculate sum of first window
     window_sum = sum(array[:k])
     window_sums = [window_sum]
-    
+
     # Calculate all window sums
     for i in range(k, len(array)):
         window_sum = window_sum - array[i-k] + array[i]
         window_sums.append(window_sum)
-    
+
     # Find best windows from left and right
     left_best = [0] * len(array)
     curr_best = 0
@@ -5591,27 +9560,27 @@ test_bounded_range()`,
         if window_sums[i] > window_sums[curr_best]:
             curr_best = i
         left_best[i+k] = curr_best
-    
+
     right_best = [0] * len(array)
     curr_best = len(window_sums)-1
     for i in range(len(window_sums)-1, 2*k-1, -1):
         if window_sums[i] >= window_sums[curr_best]:
             curr_best = i
         right_best[i-k] = curr_best
-    
+
     # Find best middle window
     max_sum = float('-inf')
     result = None
-    
+
     for i in range(k, len(array)-k):
         left = left_best[i]
         right = right_best[i]
         total = window_sums[left] + window_sums[i] + window_sums[right]
-        
+
         if total > max_sum:
             max_sum = total
             result = [left, i, right]
-    
+
     return result
 
 # Test the implementation
@@ -5621,7 +9590,7 @@ def test_three_subarrays():
         ([2, 4, 1, 2, 5, 3, 2, 4, 1], 3),
         ([1, 2, 3, 4, 5, 6, 7, 8, 9], 2)
     ]
-    
+
     for array, k in test_cases:
         result = find_three_max_subarrays(array, k)
         if result:
@@ -5636,6 +9605,96 @@ def test_three_subarrays():
             print(f"Total sum: {sum(sums)}")
 
 test_three_subarrays()`,
+        typescript: `function findThreeMaxSubarrays(array: number[], k: number): number[] | null {
+  /**
+   * Find three non-overlapping size-k subarrays with maximum sum.
+   *
+   * @param array - List of numbers
+   * @param k - Size of each subarray
+   * @returns List of starting indices of the three subarrays
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(n)
+   */
+  // Get initial window sums
+  if (array.length < k * 3) {
+    return null;
+  }
+
+  // Calculate sum of first window
+  let windowSum = array.slice(0, k).reduce((a, b) => a + b, 0);
+  const windowSums = [windowSum];
+
+  // Calculate all window sums
+  for (let i = k; i < array.length; i++) {
+    windowSum = windowSum - array[i - k] + array[i];
+    windowSums.push(windowSum);
+  }
+
+  // Find best windows from left and right
+  const leftBest = new Array(array.length).fill(0);
+  let currBest = 0;
+  for (let i = 0; i < windowSums.length - 2 * k; i++) {
+    if (windowSums[i] > windowSums[currBest]) {
+      currBest = i;
+    }
+    leftBest[i + k] = currBest;
+  }
+
+  const rightBest = new Array(array.length).fill(0);
+  currBest = windowSums.length - 1;
+  for (let i = windowSums.length - 1; i >= 2 * k; i--) {
+    if (windowSums[i] >= windowSums[currBest]) {
+      currBest = i;
+    }
+    rightBest[i - k] = currBest;
+  }
+
+  // Find best middle window
+  let maxSum = Number.NEGATIVE_INFINITY;
+  let result: number[] | null = null;
+
+  for (let i = k; i < array.length - k; i++) {
+    const left = leftBest[i];
+    const right = rightBest[i];
+    const total = windowSums[left] + windowSums[i] + windowSums[right];
+
+    if (total > maxSum) {
+      maxSum = total;
+      result = [left, i, right];
+    }
+  }
+
+  return result;
+}
+
+// Test the implementation
+function testThreeSubarrays(): void {
+  const testCases: [number[], number][] = [
+    [[1, 2, 1, 2, 6, 7, 5, 1], 2],
+    [[2, 4, 1, 2, 5, 3, 2, 4, 1], 3],
+    [[1, 2, 3, 4, 5, 6, 7, 8, 9], 2]
+  ];
+
+  for (const [array, k] of testCases) {
+    const result = findThreeMaxSubarrays(array, k);
+    if (result) {
+      const indices = result;
+      const subarrays = indices.map(i => array.slice(i, i + k));
+      const sums = subarrays.map(arr => arr.reduce((a, b) => a + b, 0));
+      console.log(\`Array: \${array}\`);
+      console.log(\`k: \${k}\`);
+      console.log(\`Found subarrays:\`);
+      subarrays.forEach((arr, i) => {
+        console.log(\`  Subarray \${i + 1}: \${arr} (sum: \${sums[i]})\`);
+      });
+      console.log(\`Total sum: \${sums.reduce((a, b) => a + b, 0)}\`);
+    }
+  }
+}
+
+testThreeSubarrays();`
+      },
     },
   ],
   quizzes: [
@@ -5703,53 +9762,103 @@ const arrayPartitioningData: LessonContent = {
   <h3>Basic Partitioning: Understanding the Foundation</h3>
   
   The simplest form of partitioning divides an array into two groups based on a condition. Imagine sorting books into fiction and non-fiction - we'll work from both ends, swapping books until everything is in its right place.
-  
+
   \`\`\`python
   def partition_by_condition(array, condition):
       """
       Partition array based on a condition using two pointers.
-      
+
       Args:
           array: List of elements to partition
           condition: Function that returns True/False for each element
-          
+
       Returns:
           Index where partition occurs
-          
+
       Time Complexity: O(n)
       Space Complexity: O(1)
       """
       left = 0
       right = len(array) - 1
-      
+
       print(f"Initial array: {array}")
-      
+
       while left <= right:
           # Find element on left that doesn't satisfy condition
           while left <= right and condition(array[left]):
               left += 1
               print(f"Left pointer moved to {left}")
-          
+
           # Find element on right that satisfies condition
           while left <= right and not condition(array[right]):
               right -= 1
               print(f"Right pointer moved to {right}")
-          
+
           # Swap elements if pointers haven't crossed
           if left < right:
               array[left], array[right] = array[right], array[left]
               print(f"Swapped elements: {array}")
               left += 1
               right -= 1
-      
+
       return left
-  
+
   # Example usage: Partition even and odd numbers
   def is_even(x): return x % 2 == 0
   numbers = [4, 3, 7, 2, 5, 8, 1, 6]
   partition_point = partition_by_condition(numbers, is_even)
   print(f"Final array: {numbers}")
   print(f"Partition point: {partition_point}")
+  \`\`\`
+
+  \`\`\`typescript
+  function partitionByCondition(array: number[], condition: (x: number) => boolean): number {
+    /**
+     * Partition array based on a condition using two pointers.
+     *
+     * @param array - List of elements to partition
+     * @param condition - Function that returns true/false for each element
+     * @returns Index where partition occurs
+     *
+     * Time Complexity: O(n)
+     * Space Complexity: O(1)
+     */
+    let left = 0;
+    let right = array.length - 1;
+
+    console.log(\`Initial array: \${array}\`);
+
+    while (left <= right) {
+      // Find element on left that doesn't satisfy condition
+      while (left <= right && condition(array[left])) {
+        left++;
+        console.log(\`Left pointer moved to \${left}\`);
+      }
+
+      // Find element on right that satisfies condition
+      while (left <= right && !condition(array[right])) {
+        right--;
+        console.log(\`Right pointer moved to \${right}\`);
+      }
+
+      // Swap elements if pointers haven't crossed
+      if (left < right) {
+        [array[left], array[right]] = [array[right], array[left]];
+        console.log(\`Swapped elements: \${array}\`);
+        left++;
+        right--;
+      }
+    }
+
+    return left;
+  }
+
+  // Example usage: Partition even and odd numbers
+  const isEven = (x: number): boolean => x % 2 === 0;
+  const numbers = [4, 3, 7, 2, 5, 8, 1, 6];
+  const partitionPoint = partitionByCondition(numbers, isEven);
+  console.log(\`Final array: \${numbers}\`);
+  console.log(\`Partition point: \${partitionPoint}\`);
   \`\`\`
   
   <div class="visualization-container bg-white p-6 rounded-lg shadow-md my-8">
@@ -5781,34 +9890,34 @@ const arrayPartitioningData: LessonContent = {
   </div>
   
   <h3>Three-Way Partitioning</h3>
-  
+
   Sometimes we need to partition arrays into three groups. Think of sorting books by size - small, medium, and large. This requires a more sophisticated approach but still uses the power of multiple pointers.
-  
+
   \`\`\`python
   def three_way_partition(array, low_val, high_val):
       """
       Partition array into three sections: < low_val, between, > high_val.
-      
+
       Args:
           array: List of numbers to partition
           low_val: Lower boundary value
           high_val: Upper boundary value
-          
+
       Returns:
           Tuple of (low_idx, high_idx) marking partition boundaries
-          
+
       Time Complexity: O(n)
       Space Complexity: O(1)
       """
       if low_val > high_val:
           raise ValueError("low_val must be <= high_val")
-          
+
       low = 0  # Next position for elements < low_val
       mid = 0  # Current position being examined
       high = len(array) - 1  # Next position for elements > high_val
-      
+
       print(f"Initial array: {array}")
-      
+
       while mid <= high:
           if array[mid] < low_val:
               # Element belongs in low section
@@ -5825,45 +9934,97 @@ const arrayPartitioningData: LessonContent = {
               # Element belongs in middle section
               print(f"Kept {array[mid]} in middle section")
               mid += 1
-      
+
       return low, high
-  
+
   # Example: Partition numbers around 3 and 7
   numbers = [1, 8, 3, 6, 4, 7, 2, 9, 5]
   low, high = three_way_partition(numbers, 3, 7)
   print(f"Final array: {numbers}")
   print(f"Sections: <3: {numbers[:low]}, 3-7: {numbers[low:high+1]}, >7: {numbers[high+1:]}")
   \`\`\`
+
+  \`\`\`typescript
+  function threeWayPartition(array: number[], lowVal: number, highVal: number): [number, number] {
+    /**
+     * Partition array into three sections: < lowVal, between, > highVal.
+     *
+     * @param array - List of numbers to partition
+     * @param lowVal - Lower boundary value
+     * @param highVal - Upper boundary value
+     * @returns Tuple of [lowIdx, highIdx] marking partition boundaries
+     *
+     * Time Complexity: O(n)
+     * Space Complexity: O(1)
+     */
+    if (lowVal > highVal) {
+      throw new Error("lowVal must be <= highVal");
+    }
+
+    let low = 0;  // Next position for elements < lowVal
+    let mid = 0;  // Current position being examined
+    let high = array.length - 1;  // Next position for elements > highVal
+
+    console.log(\`Initial array: \${array}\`);
+
+    while (mid <= high) {
+      if (array[mid] < lowVal) {
+        // Element belongs in low section
+        [array[low], array[mid]] = [array[mid], array[low]];
+        console.log(\`Moved \${array[low]} to low section: \${array}\`);
+        low++;
+        mid++;
+      } else if (array[mid] > highVal) {
+        // Element belongs in high section
+        [array[mid], array[high]] = [array[high], array[mid]];
+        console.log(\`Moved \${array[high]} to high section: \${array}\`);
+        high--;
+      } else {
+        // Element belongs in middle section
+        console.log(\`Kept \${array[mid]} in middle section\`);
+        mid++;
+      }
+    }
+
+    return [low, high];
+  }
+
+  // Example: Partition numbers around 3 and 7
+  const numbers2 = [1, 8, 3, 6, 4, 7, 2, 9, 5];
+  const [low, high] = threeWayPartition(numbers2, 3, 7);
+  console.log(\`Final array: \${numbers2}\`);
+  console.log(\`Sections: <3: \${numbers2.slice(0, low)}, 3-7: \${numbers2.slice(low, high + 1)}, >7: \${numbers2.slice(high + 1)}\`);
+  \`\`\`
   
   <h3>Maintaining Relative Order</h3>
-  
+
   Sometimes we need to partition while keeping the relative order of elements within each group. This is like sorting books by genre while maintaining alphabetical order within each genre.
-  
+
   \`\`\`python
   def partition_maintain_order(array, condition):
       """
       Partition array while maintaining relative order within groups.
-      
+
       Args:
           array: List of elements to partition
           condition: Function that returns True/False for each element
-          
+
       Returns:
           Index where partition occurs
-          
+
       Time Complexity: O(n)
       Space Complexity: O(n)
       """
       # First count elements that satisfy condition
       count = sum(1 for x in array if condition(x))
-      
+
       # Create new array to maintain order
       result = [0] * len(array)
       pos_true = 0
       pos_false = count
-      
+
       print(f"Initial array: {array}")
-      
+
       # Place elements in correct positions
       for x in array:
           if condition(x):
@@ -5874,19 +10035,70 @@ const arrayPartitioningData: LessonContent = {
               result[pos_false] = x
               print(f"Placed {x} at position {pos_false} (false section)")
               pos_false += 1
-      
+
       # Copy back to original array
       for i in range(len(array)):
           array[i] = result[i]
-      
+
       return count
-  
+
   # Example: Partition even/odd numbers maintaining order
   numbers = [4, 3, 7, 2, 5, 8, 1, 6]
   partition_point = partition_maintain_order(numbers, is_even)
   print(f"Final array: {numbers}")
   print(f"Even numbers: {numbers[:partition_point]}")
   print(f"Odd numbers: {numbers[partition_point:]}")
+  \`\`\`
+
+  \`\`\`typescript
+  function partitionMaintainOrder(array: number[], condition: (x: number) => boolean): number {
+    /**
+     * Partition array while maintaining relative order within groups.
+     *
+     * @param array - List of elements to partition
+     * @param condition - Function that returns true/false for each element
+     * @returns Index where partition occurs
+     *
+     * Time Complexity: O(n)
+     * Space Complexity: O(n)
+     */
+    // First count elements that satisfy condition
+    const count = array.filter(x => condition(x)).length;
+
+    // Create new array to maintain order
+    const result = new Array(array.length);
+    let posTrue = 0;
+    let posFalse = count;
+
+    console.log(\`Initial array: \${array}\`);
+
+    // Place elements in correct positions
+    for (const x of array) {
+      if (condition(x)) {
+        result[posTrue] = x;
+        console.log(\`Placed \${x} at position \${posTrue} (true section)\`);
+        posTrue++;
+      } else {
+        result[posFalse] = x;
+        console.log(\`Placed \${x} at position \${posFalse} (false section)\`);
+        posFalse++;
+      }
+    }
+
+    // Copy back to original array
+    for (let i = 0; i < array.length; i++) {
+      array[i] = result[i];
+    }
+
+    return count;
+  }
+
+  // Example: Partition even/odd numbers maintaining order
+  const numbers3 = [4, 3, 7, 2, 5, 8, 1, 6];
+  const partitionPoint2 = partitionMaintainOrder(numbers3, isEven);
+  console.log(\`Final array: \${numbers3}\`);
+  console.log(\`Even numbers: \${numbers3.slice(0, partitionPoint2)}\`);
+  console.log(\`Odd numbers: \${numbers3.slice(partitionPoint2)}\`);
   \`\`\`
   
   <h3>Applications and Variations</h3>
@@ -5946,10 +10158,11 @@ const arrayPartitioningData: LessonContent = {
     {
       prompt:
         'Implement a function that partitions an array around its median value, with all smaller elements before and all larger elements after, while handling duplicates of the median value efficiently.',
-      initialCode: `def partition_around_median(array):
+      initialCode: {
+        python: `def partition_around_median(array):
       """
       Partition array around its median value.
-      
+
       Args:
           array: List of numbers
       Returns:
@@ -5957,29 +10170,41 @@ const arrayPartitioningData: LessonContent = {
       """
       # Your implementation here
       pass`,
-      solution: `def partition_around_median(array):
+        typescript: `function partitionAroundMedian(array: number[]): [number, number] {
+  /**
+   * Partition array around its median value.
+   *
+   * @param array - List of numbers
+   * @returns Tuple of [startIdx, endIdx] of median section
+   */
+  // Your implementation here
+  return [0, 0];
+}`
+      },
+      solution: {
+        python: `def partition_around_median(array):
       """
       Partition array around its median value.
-      
+
       Args:
           array: List of numbers
       Returns:
           Tuple of (start_idx, end_idx) of median section
-          
+
       Time Complexity: O(n)
       Space Complexity: O(1)
       """
       if not array:
           return (0, 0)
-      
+
       # Find median (this could be optimized with selection algorithm)
       median = sorted(array)[len(array) // 2]
-      
+
       # Initialize pointers
       left = 0
       right = len(array) - 1
       i = 0
-      
+
       # Three-way partition
       while i <= right:
           if array[i] < median:
@@ -5991,9 +10216,9 @@ const arrayPartitioningData: LessonContent = {
               right -= 1
           else:
               i += 1
-      
+
       return (left, right)
-  
+
   # Test the implementation
   def test_median_partition():
       test_cases = [
@@ -6001,30 +10226,102 @@ const arrayPartitioningData: LessonContent = {
           [1, 2, 3, 4, 5],
           [3, 3, 3, 3, 3]
       ]
-      
+
       for array in test_cases:
           arr_copy = array.copy()
           start, end = partition_around_median(arr_copy)
           print(f"Original array: {array}")
           print(f"Partitioned array: {arr_copy}")
           print(f"Median section: {arr_copy[start:end+1]}")
-          
+
           # Verify partitioning
           for i in range(start):
               assert arr_copy[i] < arr_copy[start]
           for i in range(end+1, len(arr_copy)):
               assert arr_copy[i] > arr_copy[start]
-  
+
   test_median_partition()`,
+        typescript: `function partitionAroundMedian(array: number[]): [number, number] {
+  /**
+   * Partition array around its median value.
+   *
+   * @param array - List of numbers
+   * @returns Tuple of [startIdx, endIdx] of median section
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  if (!array || array.length === 0) {
+    return [0, 0];
+  }
+
+  // Find median (this could be optimized with selection algorithm)
+  const sorted = [...array].sort((a, b) => a - b);
+  const median = sorted[Math.floor(array.length / 2)];
+
+  // Initialize pointers
+  let left = 0;
+  let right = array.length - 1;
+  let i = 0;
+
+  // Three-way partition
+  while (i <= right) {
+    if (array[i] < median) {
+      [array[left], array[i]] = [array[i], array[left]];
+      left++;
+      i++;
+    } else if (array[i] > median) {
+      [array[right], array[i]] = [array[i], array[right]];
+      right--;
+    } else {
+      i++;
+    }
+  }
+
+  return [left, right];
+}
+
+// Test the implementation
+function testMedianPartition(): void {
+  const testCases = [
+    [1, 4, 3, 4, 2, 4, 5, 4],
+    [1, 2, 3, 4, 5],
+    [3, 3, 3, 3, 3]
+  ];
+
+  for (const array of testCases) {
+    const arrCopy = [...array];
+    const [start, end] = partitionAroundMedian(arrCopy);
+    console.log(\`Original array: \${array}\`);
+    console.log(\`Partitioned array: \${arrCopy}\`);
+    console.log(\`Median section: \${arrCopy.slice(start, end + 1)}\`);
+
+    // Verify partitioning
+    for (let i = 0; i < start; i++) {
+      if (!(arrCopy[i] < arrCopy[start])) {
+        throw new Error("Partition verification failed");
+      }
+    }
+    for (let i = end + 1; i < arrCopy.length; i++) {
+      if (!(arrCopy[i] > arrCopy[start])) {
+        throw new Error("Partition verification failed");
+      }
+    }
+  }
+}
+
+testMedianPartition();`
+      },
       difficulty: Difficulty.Advanced,
     },
     {
       prompt:
         'Create a function that partitions an array such that all elements that are multiples of any prime less than 10 come before the other elements, maintaining relative order within each group.',
-      initialCode: `def partition_prime_multiples(array):
+      initialCode: {
+        python: `def partition_prime_multiples(array):
       """
       Partition array by prime multiples maintaining order.
-      
+
       Args:
           array: List of numbers
       Returns:
@@ -6032,15 +10329,27 @@ const arrayPartitioningData: LessonContent = {
       """
       # Your implementation here
       pass`,
-      solution: `def partition_prime_multiples(array):
+        typescript: `function partitionPrimeMultiples(array: number[]): number {
+  /**
+   * Partition array by prime multiples maintaining order.
+   *
+   * @param array - List of numbers
+   * @returns Index where partition occurs
+   */
+  // Your implementation here
+  return 0;
+}`
+      },
+      solution: {
+        python: `def partition_prime_multiples(array):
       """
       Partition array by prime multiples maintaining order.
-      
+
       Args:
           array: List of numbers
       Returns:
           Index where partition occurs
-          
+
       Time Complexity: O(n)
       Space Complexity: O(n)
       """
@@ -6048,15 +10357,15 @@ const arrayPartitioningData: LessonContent = {
           """Check if number is multiple of 2, 3, 5, or 7."""
           primes = [2, 3, 5, 7]
           return any(n % p == 0 for p in primes)
-      
+
       # Count elements that are prime multiples
       count = sum(1 for x in array if is_prime_multiple(x))
-      
+
       # Create result array
       result = [0] * len(array)
       prime_pos = 0
       other_pos = count
-      
+
       # Place elements while maintaining order
       for x in array:
           if is_prime_multiple(x):
@@ -6065,13 +10374,13 @@ const arrayPartitioningData: LessonContent = {
           else:
               result[other_pos] = x
               other_pos += 1
-      
+
       # Copy back to original array
       for i in range(len(array)):
           array[i] = result[i]
-      
+
       return count
-  
+
   # Test the implementation
   def test_prime_partition():
       test_cases = [
@@ -6079,7 +10388,7 @@ const arrayPartitioningData: LessonContent = {
           [13, 15, 17, 19, 21, 23],
           [2, 3, 5, 7, 11, 13, 17]
       ]
-      
+
       for array in test_cases:
           arr_copy = array.copy()
           partition_idx = partition_prime_multiples(arr_copy)
@@ -6087,8 +10396,73 @@ const arrayPartitioningData: LessonContent = {
           print(f"Partitioned array: {arr_copy}")
           print(f"Prime multiples: {arr_copy[:partition_idx]}")
           print(f"Others: {arr_copy[partition_idx:]}")
-  
+
   test_prime_partition()`,
+        typescript: `function partitionPrimeMultiples(array: number[]): number {
+  /**
+   * Partition array by prime multiples maintaining order.
+   *
+   * @param array - List of numbers
+   * @returns Index where partition occurs
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(n)
+   */
+  function isPrimeMultiple(n: number): boolean {
+    /**
+     * Check if number is multiple of 2, 3, 5, or 7.
+     */
+    const primes = [2, 3, 5, 7];
+    return primes.some(p => n % p === 0);
+  }
+
+  // Count elements that are prime multiples
+  const count = array.filter(x => isPrimeMultiple(x)).length;
+
+  // Create result array
+  const result = new Array(array.length);
+  let primePos = 0;
+  let otherPos = count;
+
+  // Place elements while maintaining order
+  for (const x of array) {
+    if (isPrimeMultiple(x)) {
+      result[primePos] = x;
+      primePos++;
+    } else {
+      result[otherPos] = x;
+      otherPos++;
+    }
+  }
+
+  // Copy back to original array
+  for (let i = 0; i < array.length; i++) {
+    array[i] = result[i];
+  }
+
+  return count;
+}
+
+// Test the implementation
+function testPrimePartition(): void {
+  const testCases = [
+    [1, 4, 6, 7, 8, 9, 10, 11],
+    [13, 15, 17, 19, 21, 23],
+    [2, 3, 5, 7, 11, 13, 17]
+  ];
+
+  for (const array of testCases) {
+    const arrCopy = [...array];
+    const partitionIdx = partitionPrimeMultiples(arrCopy);
+    console.log(\`Original array: \${array}\`);
+    console.log(\`Partitioned array: \${arrCopy}\`);
+    console.log(\`Prime multiples: \${arrCopy.slice(0, partitionIdx)}\`);
+    console.log(\`Others: \${arrCopy.slice(partitionIdx)}\`);
+  }
+}
+
+testPrimePartition();`
+      },
       difficulty: Difficulty.Intermediate,
     },
   ],
@@ -6193,12 +10567,12 @@ Let's implement the algorithm step by step, understanding each part:
 def dutch_flag_partition(array):
     """
     Partition array into three sections (0s, 1s, and 2s).
-    
+
     Args:
         array: List of integers (0s, 1s, and 2s only)
     Returns:
         None (modifies array in-place)
-        
+
     Time Complexity: O(n)
     Space Complexity: O(1)
     """
@@ -6206,7 +10580,7 @@ def dutch_flag_partition(array):
     low = 0        # boundary for 0s (next position to place a 0)
     mid = 0        # current element being examined
     high = len(array) - 1  # boundary for 2s (next position to place a 2)
-    
+
     while mid <= high:
         if array[mid] == 0:
             # Found a 0, move it to the low section
@@ -6230,7 +10604,7 @@ def demonstrate_dutch_flag(array):
     print("Initial array:", array)
     low = mid = 0
     high = len(array) - 1
-    
+
     def print_state():
         """Helper to visualize current state."""
         state = array.copy()
@@ -6241,9 +10615,9 @@ def demonstrate_dutch_flag(array):
         print("  1s:", state[low:mid])
         print("  unknown:", state[mid:high+1])
         print("  2s:", state[high+1:])
-    
+
     print_state()
-    
+
     while mid <= high:
         if array[mid] == 0:
             array[low], array[mid] = array[mid], array[low]
@@ -6267,6 +10641,90 @@ print("Demonstrating Dutch Flag Partition:")
 demonstrate_dutch_flag(test_array)
 \`\`\`
 
+\`\`\`typescript
+function dutchFlagPartition(array: number[]): void {
+  /**
+   * Partition array into three sections (0s, 1s, and 2s).
+   *
+   * @param array - List of integers (0s, 1s, and 2s only)
+   * @returns None (modifies array in-place)
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  // Initialize our three pointers
+  let low = 0;        // boundary for 0s (next position to place a 0)
+  let mid = 0;        // current element being examined
+  let high = array.length - 1;  // boundary for 2s (next position to place a 2)
+
+  while (mid <= high) {
+    if (array[mid] === 0) {
+      // Found a 0, move it to the low section
+      [array[low], array[mid]] = [array[mid], array[low]];
+      low++;
+      mid++;
+    } else if (array[mid] === 1) {
+      // Found a 1, it's already in the middle section
+      mid++;
+    } else {  // array[mid] === 2
+      // Found a 2, move it to the high section
+      [array[mid], array[high]] = [array[high], array[mid]];
+      high--;
+      // Don't increment mid since we need to examine
+      // the newly swapped element
+    }
+  }
+}
+
+function demonstrateDutchFlag(array: number[]): void {
+  /**
+   * Show step-by-step how Dutch Flag partition works.
+   */
+  console.log("Initial array:", array);
+  let low = 0;
+  let mid = 0;
+  let high = array.length - 1;
+
+  function printState(): void {
+    /**Helper to visualize current state.*/
+    const state = [...array];
+    console.log("Current state:", state);
+    console.log(\`Pointers: low=\${low}, mid=\${mid}, high=\${high}\`);
+    console.log("Sections:");
+    console.log("  0s:", state.slice(0, low));
+    console.log("  1s:", state.slice(low, mid));
+    console.log("  unknown:", state.slice(mid, high + 1));
+    console.log("  2s:", state.slice(high + 1));
+  }
+
+  printState();
+
+  while (mid <= high) {
+    if (array[mid] === 0) {
+      [array[low], array[mid]] = [array[mid], array[low]];
+      low++;
+      mid++;
+      console.log("Swapped 0 to low section");
+      printState();
+    } else if (array[mid] === 1) {
+      mid++;
+      console.log("Skipped 1 (already in position)");
+      printState();
+    } else {  // array[mid] === 2
+      [array[mid], array[high]] = [array[high], array[mid]];
+      high--;
+      console.log("Swapped 2 to high section");
+      printState();
+    }
+  }
+}
+
+// Example usage with explanation
+const testArray = [2, 0, 1, 2, 0];
+console.log("Demonstrating Dutch Flag Partition:");
+demonstrateDutchFlag(testArray);
+\`\`\`
+
 <h3>Understanding the Three Pointers</h3>
 
 The algorithm uses three pointers to maintain four regions in the array:
@@ -6286,7 +10744,7 @@ def partition_around_pivot(array, pivot):
     """
     Use Dutch Flag partitioning concept to arrange array around pivot.
     Elements are arranged as: smaller, equal, larger than pivot.
-    
+
     Args:
         array: List of comparable elements
         pivot: Value to partition around
@@ -6296,7 +10754,7 @@ def partition_around_pivot(array, pivot):
     low = 0
     mid = 0
     high = len(array) - 1
-    
+
     while mid <= high:
         if array[mid] < pivot:
             array[low], array[mid] = array[mid], array[low]
@@ -6307,7 +10765,7 @@ def partition_around_pivot(array, pivot):
         else:  # array[mid] > pivot
             array[mid], array[high] = array[high], array[mid]
             high -= 1
-    
+
     return low, mid - 1
 
 def demonstrate_pivot_partition():
@@ -6316,7 +10774,7 @@ def demonstrate_pivot_partition():
     pivot = 5
     print(f"Original array: {array}")
     print(f"Partitioning around {pivot}")
-    
+
     start, end = partition_around_pivot(array, pivot)
     print(f"After partitioning: {array}")
     print(f"Elements < {pivot}: {array[:start]}")
@@ -6325,6 +10783,54 @@ def demonstrate_pivot_partition():
 
 # Demonstrate pivot partitioning
 demonstrate_pivot_partition()
+\`\`\`
+
+\`\`\`typescript
+function partitionAroundPivot(array: number[], pivot: number): [number, number] {
+  /**
+   * Use Dutch Flag partitioning concept to arrange array around pivot.
+   * Elements are arranged as: smaller, equal, larger than pivot.
+   *
+   * @param array - List of comparable elements
+   * @param pivot - Value to partition around
+   * @returns Tuple of [start, end] indices of equal section
+   */
+  let low = 0;
+  let mid = 0;
+  let high = array.length - 1;
+
+  while (mid <= high) {
+    if (array[mid] < pivot) {
+      [array[low], array[mid]] = [array[mid], array[low]];
+      low++;
+      mid++;
+    } else if (array[mid] === pivot) {
+      mid++;
+    } else {  // array[mid] > pivot
+      [array[mid], array[high]] = [array[high], array[mid]];
+      high--;
+    }
+  }
+
+  return [low, mid - 1];
+}
+
+function demonstratePivotPartition(): void {
+  /**Show how to use Dutch Flag for general partitioning.*/
+  const array = [5, 2, 8, 3, 5, 7, 5, 1, 4];
+  const pivot = 5;
+  console.log(\`Original array: \${array}\`);
+  console.log(\`Partitioning around \${pivot}\`);
+
+  const [start, end] = partitionAroundPivot(array, pivot);
+  console.log(\`After partitioning: \${array}\`);
+  console.log(\`Elements < \${pivot}: \${array.slice(0, start)}\`);
+  console.log(\`Elements = \${pivot}: \${array.slice(start, end + 1)}\`);
+  console.log(\`Elements > \${pivot}: \${array.slice(end + 1)}\`);
+}
+
+// Demonstrate pivot partitioning
+demonstratePivotPartition();
 \`\`\`
 
 <h3>Real-World Applications</h3>
@@ -6353,40 +10859,81 @@ def deduplicate_array(array):
     """
     if not array:
         return 0
-        
+
     # First sort the array (assume it's not sorted)
     array.sort()
-    
+
     # Use Dutch Flag concept to group duplicates
     write_pos = 1  # Position to write next unique element
-    
+
     for read_pos in range(1, len(array)):
         if array[read_pos] != array[write_pos - 1]:
             array[write_pos] = array[read_pos]
             write_pos += 1
-    
+
     return write_pos
 
 def demonstrate_deduplication():
     """Show how Dutch Flag concepts help with deduplication."""
     array = [1, 3, 3, 3, 2, 1, 2, 1]
     print(f"Original array: {array}")
-    
+
     unique_count = deduplicate_array(array)
     print(f"After deduplication: {array[:unique_count]}")
     print(f"Number of unique elements: {unique_count}")
 
 # Demonstrate deduplication
 demonstrate_deduplication()
+\`\`\`
+
+\`\`\`typescript
+function deduplicateArray(array: number[]): number {
+  /**
+   * Use Dutch Flag concepts to group duplicate elements.
+   * Returns count of unique elements.
+   */
+  if (!array || array.length === 0) {
+    return 0;
+  }
+
+  // First sort the array (assume it's not sorted)
+  array.sort((a, b) => a - b);
+
+  // Use Dutch Flag concept to group duplicates
+  let writePos = 1;  // Position to write next unique element
+
+  for (let readPos = 1; readPos < array.length; readPos++) {
+    if (array[readPos] !== array[writePos - 1]) {
+      array[writePos] = array[readPos];
+      writePos++;
+    }
+  }
+
+  return writePos;
+}
+
+function demonstrateDeduplication(): void {
+  /**Show how Dutch Flag concepts help with deduplication.*/
+  const array = [1, 3, 3, 3, 2, 1, 2, 1];
+  console.log(\`Original array: \${array}\`);
+
+  const uniqueCount = deduplicateArray(array);
+  console.log(\`After deduplication: \${array.slice(0, uniqueCount)}\`);
+  console.log(\`Number of unique elements: \${uniqueCount}\`);
+}
+
+// Demonstrate deduplication
+demonstrateDeduplication();
 \`\`\``,
   exercises: [
     {
       prompt:
         'Modify the Dutch Flag algorithm to handle four-way partitioning (e.g., elements less than, equal to, greater than, or much greater than a pivot).',
-      initialCode: `def four_way_partition(array, pivot1, pivot2):
+      initialCode: {
+        python: `def four_way_partition(array, pivot1, pivot2):
     """
     Partition array into four sections based on two pivot values.
-    
+
     Args:
         array: List of comparable elements
         pivot1: First pivot value
@@ -6396,29 +10943,43 @@ demonstrate_deduplication()
     """
     # Your implementation here
     pass`,
-      solution: `def four_way_partition(array, pivot1, pivot2):
+        typescript: `function fourWayPartition(array: number[], pivot1: number, pivot2: number): [number, number, number] {
+  /**
+   * Partition array into four sections based on two pivot values.
+   *
+   * @param array - List of comparable elements
+   * @param pivot1 - First pivot value
+   * @param pivot2 - Second pivot value (pivot2 > pivot1)
+   * @returns Tuple of [index1, index2, index3] marking section boundaries
+   */
+  // Your implementation here
+  return [0, 0, 0];
+}`
+      },
+      solution: {
+        python: `def four_way_partition(array, pivot1, pivot2):
     """
     Partition array into four sections based on two pivot values.
-    
+
     Args:
         array: List of comparable elements
         pivot1: First pivot value
         pivot2: Second pivot value (pivot2 > pivot1)
     Returns:
         Tuple of (index1, index2, index3) marking section boundaries
-    
+
     Time Complexity: O(n)
     Space Complexity: O(1)
     """
     if pivot1 >= pivot2:
         raise ValueError("pivot1 must be less than pivot2")
-    
+
     # Initialize pointers
     low = 0       # next position for elements < pivot1
     mid1 = 0      # next position to examine
     mid2 = 0      # boundary for elements = pivot1
     high = len(array) - 1  # next position for elements > pivot2
-    
+
     while mid1 <= high:
         if array[mid1] < pivot1:
             # Move to first section
@@ -6437,7 +10998,7 @@ demonstrate_deduplication()
             # Move to fourth section
             array[mid1], array[high] = array[high], array[mid1]
             high -= 1
-    
+
     return low, mid2, high + 1
 
 def test_four_way_partition():
@@ -6448,15 +11009,15 @@ def test_four_way_partition():
         [1, 1, 1, 2, 2, 3, 3, 3],
         [5, 4, 3, 2, 1],
     ]
-    
+
     for array in arrays:
         print(f"Original array: {array}")
         pivot1, pivot2 = 3, 7
         print(f"Partitioning around {pivot1} and {pivot2}")
-        
+
         arr_copy = array.copy()
         idx1, idx2, idx3 = four_way_partition(arr_copy, pivot1, pivot2)
-        
+
         print(f"After partitioning: {arr_copy}")
         print(f"< {pivot1}: {arr_copy[:idx1]}")
         print(f"= {pivot1}: {arr_copy[idx1:idx2]}")
@@ -6465,15 +11026,91 @@ def test_four_way_partition():
 
 # Run tests
 test_four_way_partition()`,
+        typescript: `function fourWayPartition(array: number[], pivot1: number, pivot2: number): [number, number, number] {
+  /**
+   * Partition array into four sections based on two pivot values.
+   *
+   * @param array - List of comparable elements
+   * @param pivot1 - First pivot value
+   * @param pivot2 - Second pivot value (pivot2 > pivot1)
+   * @returns Tuple of [index1, index2, index3] marking section boundaries
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  if (pivot1 >= pivot2) {
+    throw new Error("pivot1 must be less than pivot2");
+  }
+
+  // Initialize pointers
+  let low = 0;       // next position for elements < pivot1
+  let mid1 = 0;      // next position to examine
+  let mid2 = 0;      // boundary for elements = pivot1
+  let high = array.length - 1;  // next position for elements > pivot2
+
+  while (mid1 <= high) {
+    if (array[mid1] < pivot1) {
+      // Move to first section
+      [array[low], array[mid1]] = [array[mid1], array[low]];
+      low++;
+      mid1++;
+      mid2 = Math.max(mid2, mid1);
+    } else if (array[mid1] === pivot1) {
+      // Move to second section
+      mid1++;
+    } else if (array[mid1] <= pivot2) {
+      // Move to third section
+      mid2 = Math.max(mid2, mid1 + 1);
+      mid1++;
+    } else {
+      // Move to fourth section
+      [array[mid1], array[high]] = [array[high], array[mid1]];
+      high--;
+    }
+  }
+
+  return [low, mid2, high + 1];
+}
+
+function testFourWayPartition(): void {
+  /**Test the four-way partition implementation.*/
+  // Test cases
+  const arrays = [
+    [5, 2, 8, 3, 5, 7, 5, 1, 4, 9, 8, 3],
+    [1, 1, 1, 2, 2, 3, 3, 3],
+    [5, 4, 3, 2, 1],
+  ];
+
+  for (const array of arrays) {
+    console.log(\`Original array: \${array}\`);
+    const pivot1 = 3;
+    const pivot2 = 7;
+    console.log(\`Partitioning around \${pivot1} and \${pivot2}\`);
+
+    const arrCopy = [...array];
+    const [idx1, idx2, idx3] = fourWayPartition(arrCopy, pivot1, pivot2);
+
+    console.log(\`After partitioning: \${arrCopy}\`);
+    console.log(\`< \${pivot1}: \${arrCopy.slice(0, idx1)}\`);
+    console.log(\`= \${pivot1}: \${arrCopy.slice(idx1, idx2)}\`);
+    console.log(\`<= \${pivot2}: \${arrCopy.slice(idx2, idx3)}\`);
+    console.log(\`> \${pivot2}: \${arrCopy.slice(idx3)}\`);
+  }
+}
+
+// Run tests
+testFourWayPartition();`
+      },
       difficulty: Difficulty.Advanced,
     },
     {
       prompt:
         'Implement a variation of the Dutch Flag algorithm that groups elements by their remainder when divided by 3 (0, 1, or 2).',
-      initialCode: `def group_by_remainder(array):
+      initialCode: {
+        python: `def group_by_remainder(array):
     """
     Group array elements by their remainder when divided by 3.
-    
+
     Args:
         array: List of integers
     Returns:
@@ -6481,15 +11118,26 @@ test_four_way_partition()`,
     """
     # Your implementation here
     pass`,
-      solution: `def group_by_remainder(array):
+        typescript: `function groupByRemainder(array: number[]): void {
+  /**
+   * Group array elements by their remainder when divided by 3.
+   *
+   * @param array - List of integers
+   * @returns None (modifies array in-place)
+   */
+  // Your implementation here
+}`
+      },
+      solution: {
+        python: `def group_by_remainder(array):
     """
     Group array elements by their remainder when divided by 3.
-    
+
     Args:
         array: List of integers
     Returns:
         None (modifies array in-place)
-        
+
     Time Complexity: O(n)
     Space Complexity: O(1)
     """
@@ -6497,10 +11145,10 @@ test_four_way_partition()`,
     low = 0   # next position for remainder 0
     mid = 0   # next position to examine
     high = len(array) - 1  # next position for remainder 2
-    
+
     while mid <= high:
         remainder = array[mid] % 3
-        
+
         if remainder == 0:
             # Move to first section (remainder 0)
             array[low], array[mid] = array[mid], array[low]
@@ -6521,32 +11169,32 @@ def test_remainder_grouping():
         [1, 2, 3, 4, 5],
         [0, 0, 0, 1, 1, 2, 2],
     ]
-    
+
     for array in test_cases:
-print(f"Original array: {array}")
+        print(f"Original array: {array}")
         arr_copy = array.copy()
         group_by_remainder(arr_copy)
-        
+
         # Verify and display results
         print("After grouping by remainder:")
         print(f"Array: {arr_copy}")
-        
+
         # Show elements in each group
         remainders = {0: [], 1: [], 2: []}
         for num in arr_copy:
             remainders[num % 3].append(num)
-            
+
         print(f"Remainder 0: {remainders[0]}")
         print(f"Remainder 1: {remainders[1]}")
         print(f"Remainder 2: {remainders[2]}")
-        
+
         # Verify ordering is correct
         is_valid = True
         last_r0 = -1
         first_r1 = len(arr_copy)
         last_r1 = -1
         first_r2 = len(arr_copy)
-        
+
         for i, num in enumerate(arr_copy):
             r = num % 3
             if r == 0:
@@ -6558,12 +11206,105 @@ print(f"Original array: {array}")
             else:  # r == 2
                 if first_r2 == len(arr_copy):
                     first_r2 = i
-                    
+
         is_valid = last_r0 < first_r1 and last_r1 < first_r2
         print(f"Grouping is {'valid' if is_valid else 'invalid'}")
 
 # Run tests
 test_remainder_grouping()`,
+        typescript: `function groupByRemainder(array: number[]): void {
+  /**
+   * Group array elements by their remainder when divided by 3.
+   *
+   * @param array - List of integers
+   * @returns None (modifies array in-place)
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  // Initialize pointers for three sections
+  let low = 0;   // next position for remainder 0
+  let mid = 0;   // next position to examine
+  let high = array.length - 1;  // next position for remainder 2
+
+  while (mid <= high) {
+    const remainder = array[mid] % 3;
+
+    if (remainder === 0) {
+      // Move to first section (remainder 0)
+      [array[low], array[mid]] = [array[mid], array[low]];
+      low++;
+      mid++;
+    } else if (remainder === 1) {
+      // Already in middle section (remainder 1)
+      mid++;
+    } else {  // remainder === 2
+      // Move to last section (remainder 2)
+      [array[mid], array[high]] = [array[high], array[mid]];
+      high--;
+    }
+  }
+}
+
+function testRemainderGrouping(): void {
+  /**Test the remainder grouping implementation.*/
+  const testCases = [
+    [3, 1, 2, 4, 5, 6, 7, 8, 9],
+    [1, 2, 3, 4, 5],
+    [0, 0, 0, 1, 1, 2, 2],
+  ];
+
+  for (const array of testCases) {
+    console.log(\`Original array: \${array}\`);
+    const arrCopy = [...array];
+    groupByRemainder(arrCopy);
+
+    // Verify and display results
+    console.log("After grouping by remainder:");
+    console.log(\`Array: \${arrCopy}\`);
+
+    // Show elements in each group
+    const remainders: { [key: number]: number[] } = { 0: [], 1: [], 2: [] };
+    for (const num of arrCopy) {
+      remainders[num % 3].push(num);
+    }
+
+    console.log(\`Remainder 0: \${remainders[0]}\`);
+    console.log(\`Remainder 1: \${remainders[1]}\`);
+    console.log(\`Remainder 2: \${remainders[2]}\`);
+
+    // Verify ordering is correct
+    let isValid = true;
+    let lastR0 = -1;
+    let firstR1 = arrCopy.length;
+    let lastR1 = -1;
+    let firstR2 = arrCopy.length;
+
+    for (let i = 0; i < arrCopy.length; i++) {
+      const r = arrCopy[i] % 3;
+      if (r === 0) {
+        lastR0 = i;
+      } else if (r === 1) {
+        if (firstR1 === arrCopy.length) {
+          firstR1 = i;
+        }
+        lastR1 = i;
+      } else {  // r === 2
+        if (firstR2 === arrCopy.length) {
+          firstR2 = i;
+        }
+      }
+    }
+
+    isValid = lastR0 < firstR1 && lastR1 < firstR2;
+    console.log(\`Grouping is \${isValid ? 'valid' : 'invalid'}\`);
+  }
+}
+
+// Run tests
+testRemainderGrouping();`
+      },
+      difficulty: Difficulty.Intermediate,
     },
   ],
   quizzes: [
@@ -6621,26 +11362,26 @@ Let's start with a simple example to build our understanding:
 def calculate_first_averages(temperatures, days):
     """
     Calculate moving averages of temperature readings.
-    
+
     Args:
         temperatures: Daily temperature readings
         days: Number of days to average
-        
+
     Returns:
         List of moving averages
-        
+
     This demonstrates the basic sliding window concept using
     a real-world scenario that's easy to visualize.
     """
     if len(temperatures) < days:
         return []
-    
+
     # Calculate first window
     current_sum = sum(temperatures[:days])
     averages = [current_sum / days]
     print(f"Initial window sum: {current_sum}")
     print(f"Initial window average: {current_sum / days:.2f}")
-    
+
     # Slide window forward
     for i in range(days, len(temperatures)):
         # Remove oldest temperature and add newest
@@ -6648,11 +11389,11 @@ def calculate_first_averages(temperatures, days):
         print(f"Removed: {temperatures[i - days]}")
         print(f"Added: {temperatures[i]}")
         print(f"New sum: {current_sum}")
-        
+
         average = current_sum / days
         averages.append(average)
         print(f"New average: {average:.2f}")
-    
+
     return averages
 
 # Example with temperature readings
@@ -6662,6 +11403,49 @@ window_size = 3
 print("Temperature readings:", daily_temps)
 print(f"Window size: {window_size} days")
 averages = calculate_first_averages(daily_temps, window_size)
+\`\`\`
+
+\`\`\`typescript
+function calculateFirstAverages(temperatures: number[], days: number): number[] {
+  /**
+   * Calculate moving averages of temperature readings.
+   *
+   * This demonstrates the basic sliding window concept using
+   * a real-world scenario that's easy to visualize.
+   */
+  if (temperatures.length < days) {
+    return [];
+  }
+
+  // Calculate first window
+  let currentSum = temperatures.slice(0, days).reduce((a, b) => a + b, 0);
+  const averages = [currentSum / days];
+  console.log(\`Initial window sum: \${currentSum}\`);
+  console.log(\`Initial window average: \${(currentSum / days).toFixed(2)}\`);
+
+  // Slide window forward
+  for (let i = days; i < temperatures.length; i++) {
+    // Remove oldest temperature and add newest
+    currentSum = currentSum - temperatures[i - days] + temperatures[i];
+    console.log(\`Removed: \${temperatures[i - days]}\`);
+    console.log(\`Added: \${temperatures[i]}\`);
+    console.log(\`New sum: \${currentSum}\`);
+
+    const average = currentSum / days;
+    averages.push(average);
+    console.log(\`New average: \${average.toFixed(2)}\`);
+  }
+
+  return averages;
+}
+
+// Example with temperature readings
+const dailyTemps = [25, 28, 24, 27, 23, 26, 29];
+const windowSize = 3;
+
+console.log("Temperature readings:", dailyTemps);
+console.log(\`Window size: \${windowSize} days\`);
+const averages = calculateFirstAverages(dailyTemps, windowSize);
 \`\`\`
 
 <div class="visualization-container bg-white p-6 rounded-lg shadow-md my-8">
@@ -6700,46 +11484,46 @@ Let's explore how to implement a sliding window solution step by step. We'll sta
 def find_max_sum_window(array, window_size):
     """
     Find maximum sum of any contiguous subarray of given size.
-    
+
     Args:
         array: List of numbers to analyze
         window_size: Size of sliding window
-        
+
     Returns:
         Tuple of (start_index, max_sum)
-        
+
     This example demonstrates the key steps in implementing
     a sliding window solution.
     """
     if len(array) < window_size:
         return None
-    
+
     # Step 1: Initialize first window
     current_sum = sum(array[:window_size])
     max_sum = current_sum
     max_start = 0
-    
+
     print(f"Initial window: {array[:window_size]}")
     print(f"Initial sum: {current_sum}")
-    
+
     # Step 2: Slide window through array
     for i in range(window_size, len(array)):
         # Remove first element of previous window
         current_sum -= array[i - window_size]
         # Add last element of current window
         current_sum += array[i]
-        
+
         print(f"Window moved:")
         print(f"Removed: {array[i - window_size]}")
         print(f"Added: {array[i]}")
         print(f"Current sum: {current_sum}")
-        
+
         # Update maximum if current window is better
         if current_sum > max_sum:
             max_sum = current_sum
             max_start = i - window_size + 1
             print(f"New maximum found at position {max_start}")
-    
+
     return (max_start, max_sum)
 
 # Example usage
@@ -6753,6 +11537,63 @@ print(f"Window: {numbers[start:start+window_size]}")
 print(f"Maximum sum: {max_sum}")
 \`\`\`
 
+\`\`\`typescript
+function findMaxSumWindow(array: number[], windowSize: number): [number, number] | null {
+  /**
+   * Find maximum sum of any contiguous subarray of given size.
+   *
+   * This example demonstrates the key steps in implementing
+   * a sliding window solution.
+   */
+  if (array.length < windowSize) {
+    return null;
+  }
+
+  // Step 1: Initialize first window
+  let currentSum = array.slice(0, windowSize).reduce((a, b) => a + b, 0);
+  let maxSum = currentSum;
+  let maxStart = 0;
+
+  console.log(\`Initial window: \${array.slice(0, windowSize)}\`);
+  console.log(\`Initial sum: \${currentSum}\`);
+
+  // Step 2: Slide window through array
+  for (let i = windowSize; i < array.length; i++) {
+    // Remove first element of previous window
+    currentSum -= array[i - windowSize];
+    // Add last element of current window
+    currentSum += array[i];
+
+    console.log("Window moved:");
+    console.log(\`Removed: \${array[i - windowSize]}\`);
+    console.log(\`Added: \${array[i]}\`);
+    console.log(\`Current sum: \${currentSum}\`);
+
+    // Update maximum if current window is better
+    if (currentSum > maxSum) {
+      maxSum = currentSum;
+      maxStart = i - windowSize + 1;
+      console.log(\`New maximum found at position \${maxStart}\`);
+    }
+  }
+
+  return [maxStart, maxSum];
+}
+
+// Example usage
+const numbers = [1, 4, 2, 7, 3, 9, 2, 1];
+const windowSize = 3;
+
+console.log(\`Finding maximum sum window of size \${windowSize} in \${numbers}\`);
+const result = findMaxSumWindow(numbers, windowSize);
+if (result) {
+  const [start, maxSum] = result;
+  console.log(\`Best window starts at index \${start}\`);
+  console.log(\`Window: \${numbers.slice(start, start + windowSize)}\`);
+  console.log(\`Maximum sum: \${maxSum}\`);
+}
+\`\`\`
+
 <h3>Understanding Window Efficiency</h3>
 
 The key advantage of the sliding window technique is that it allows us to avoid recalculating values for the entire window each time we move. Let's see why this is significant:
@@ -6761,34 +11602,34 @@ The key advantage of the sliding window technique is that it allows us to avoid 
 def compare_sliding_vs_naive(array, window_size):
     """
     Compare sliding window approach with naive approach.
-    
+
     This demonstrates why sliding window is more efficient
     by counting operations performed.
     """
     # Naive approach - recalculate sum for each window
     naive_operations = 0
     max_sum = float('-inf')
-    
+
     for i in range(len(array) - window_size + 1):
         window_sum = 0
         for j in range(window_size):
             window_sum += array[i + j]
             naive_operations += 1
-            
+
     # Sliding window approach
     sliding_operations = 0
     current_sum = 0
-    
+
     # Initial window
     for i in range(window_size):
         current_sum += array[i]
         sliding_operations += 1
-        
+
     # Slide window
     for i in range(window_size, len(array)):
         current_sum = current_sum - array[i - window_size] + array[i]
         sliding_operations += 2  # One subtraction, one addition
-        
+
     print("Operation Comparison:")
     print(f"Naive approach: {naive_operations} operations")
     print(f"Sliding window: {sliding_operations} operations")
@@ -6800,6 +11641,54 @@ window_size = 100
 compare_sliding_vs_naive(array, window_size)
 \`\`\`
 
+\`\`\`typescript
+function compareSlidingVsNaive(array: number[], windowSize: number): void {
+  /**
+   * Compare sliding window approach with naive approach.
+   *
+   * This demonstrates why sliding window is more efficient
+   * by counting operations performed.
+   */
+  // Naive approach - recalculate sum for each window
+  let naiveOperations = 0;
+  let maxSum = -Infinity;
+
+  for (let i = 0; i < array.length - windowSize + 1; i++) {
+    let windowSum = 0;
+    for (let j = 0; j < windowSize; j++) {
+      windowSum += array[i + j];
+      naiveOperations += 1;
+    }
+  }
+
+  // Sliding window approach
+  let slidingOperations = 0;
+  let currentSum = 0;
+
+  // Initial window
+  for (let i = 0; i < windowSize; i++) {
+    currentSum += array[i];
+    slidingOperations += 1;
+  }
+
+  // Slide window
+  for (let i = windowSize; i < array.length; i++) {
+    currentSum = currentSum - array[i - windowSize] + array[i];
+    slidingOperations += 2;  // One subtraction, one addition
+  }
+
+  console.log("Operation Comparison:");
+  console.log(\`Naive approach: \${naiveOperations} operations\`);
+  console.log(\`Sliding window: \${slidingOperations} operations\`);
+  console.log(\`Improvement: \${(naiveOperations / slidingOperations).toFixed(1)}x fewer operations\`);
+}
+
+// Compare approaches
+const array = Array.from({ length: 1000 }, (_, i) => i);
+const windowSize = 100;
+compareSlidingVsNaive(array, windowSize);
+\`\`\`
+
 <h3>Common Variations</h3>
 
 While our examples used sums, the sliding window technique can be adapted for many other calculations:
@@ -6807,6 +11696,10 @@ While our examples used sums, the sliding window technique can be adapted for ma
 1. Average Values:
 \`\`\`python
 current_avg = current_sum / window_size
+\`\`\`
+
+\`\`\`typescript
+const currentAvg = currentSum / windowSize;
 \`\`\`
 
 2. Minimum/Maximum:
@@ -6817,33 +11710,76 @@ def track_window_max(array, window_size):
     """Track maximum value in sliding window efficiently."""
     if not array or window_size <= 0:
         return []
-        
+
     result = []
     window = deque()  # Store indices
-    
+
     # Process first window
     for i in range(window_size):
         # Remove smaller elements
         while window and array[i] >= array[window[-1]]:
             window.pop()
         window.append(i)
-    
+
     # Process rest of array
     for i in range(window_size, len(array)):
         result.append(array[window[0]])
-        
+
         # Remove elements outside window
         while window and window[0] <= i - window_size:
             window.popleft()
-            
+
         # Remove smaller elements
         while window and array[i] >= array[window[-1]]:
             window.pop()
-            
+
         window.append(i)
-    
+
     result.append(array[window[0]])
     return result
+\`\`\`
+
+\`\`\`typescript
+function trackWindowMax(array: number[], windowSize: number): number[] {
+  /**
+   * Track maximum value in sliding window efficiently.
+   */
+  if (!array || array.length === 0 || windowSize <= 0) {
+    return [];
+  }
+
+  const result: number[] = [];
+  const window: number[] = [];  // Store indices
+
+  // Process first window
+  for (let i = 0; i < windowSize; i++) {
+    // Remove smaller elements
+    while (window.length > 0 && array[i] >= array[window[window.length - 1]]) {
+      window.pop();
+    }
+    window.push(i);
+  }
+
+  // Process rest of array
+  for (let i = windowSize; i < array.length; i++) {
+    result.push(array[window[0]]);
+
+    // Remove elements outside window
+    while (window.length > 0 && window[0] <= i - windowSize) {
+      window.shift();
+    }
+
+    // Remove smaller elements
+    while (window.length > 0 && array[i] >= array[window[window.length - 1]]) {
+      window.pop();
+    }
+
+    window.push(i);
+  }
+
+  result.push(array[window[0]]);
+  return result;
+}
 \`\`\`
 
 3. Counting Elements:
@@ -6854,17 +11790,46 @@ def count_elements_in_window(array, window_size):
     """Track frequency of elements in sliding window."""
     counts = Counter(array[:window_size])
     results = [dict(counts)]
-    
+
     for i in range(window_size, len(array)):
         # Update counts
         counts[array[i - window_size]] -= 1
         if counts[array[i - window_size]] == 0:
             del counts[array[i - window_size]]
-            
+
         counts[array[i]] += 1
         results.append(dict(counts))
-    
+
     return results
+\`\`\`
+
+\`\`\`typescript
+function countElementsInWindow<T>(array: T[], windowSize: number): Map<T, number>[] {
+  /**
+   * Track frequency of elements in sliding window.
+   */
+  const counts = new Map<T, number>();
+
+  // Initialize first window
+  for (let i = 0; i < windowSize; i++) {
+    counts.set(array[i], (counts.get(array[i]) || 0) + 1);
+  }
+  const results = [new Map(counts)];
+
+  for (let i = windowSize; i < array.length; i++) {
+    // Update counts
+    const oldElement = array[i - windowSize];
+    counts.set(oldElement, (counts.get(oldElement) || 0) - 1);
+    if (counts.get(oldElement) === 0) {
+      counts.delete(oldElement);
+    }
+
+    counts.set(array[i], (counts.get(array[i]) || 0) + 1);
+    results.push(new Map(counts));
+  }
+
+  return results;
+}
 \`\`\`
 
 <h3>When to Use Sliding Window</h3>
@@ -6887,10 +11852,11 @@ Some common problem types where sliding window excels:
     {
       prompt:
         'Implement a function that finds the minimum window size needed to contain all unique elements in an array at least once.',
-      initialCode: `def find_minimum_window_size(array):
+      initialCode: {
+        python: `def find_minimum_window_size(array):
     """
     Find smallest window containing all unique elements.
-    
+
     Args:
         array: List of elements
     Returns:
@@ -6898,43 +11864,52 @@ Some common problem types where sliding window excels:
     """
     # Your implementation here
     pass`,
-      solution: `def find_minimum_window_size(array):
+        typescript: `function findMinimumWindowSize(array: any[]): number {
+  /**
+   * Find smallest window containing all unique elements.
+   */
+  // Your implementation here
+  return 0;
+}`,
+      },
+      solution: {
+        python: `def find_minimum_window_size(array):
     """
     Find smallest window containing all unique elements.
-    
+
     Args:
         array: List of elements
     Returns:
         The size of the smallest valid window
-        
+
     Time Complexity: O(n)
     Space Complexity: O(k) where k is number of unique elements
     """
     if not array:
         return 0
-        
+
     # Get required elements
     required = set(array)
-    
+
     # Track current window elements
     window = {}
     start = 0
     min_size = len(array)
-    
+
     for end in range(len(array)):
         # Add new element to window
         window[array[end]] = window.get(array[end], 0) + 1
-        
+
         # Try to minimize window
         while len(window) == len(required):
             min_size = min(min_size, end - start + 1)
-            
+
             # Remove start element
             window[array[start]] -= 1
             if window[array[start]] == 0:
                 del window[array[start]]
             start += 1
-    
+
     return min_size
 
 # Test the implementation
@@ -6944,7 +11919,7 @@ def test_minimum_window():
         ['a', 'b', 'c', 'a', 'b'],
         [1, 1, 1, 2, 2, 3]
     ]
-    
+
     for array in test_cases:
         size = find_minimum_window_size(array)
         print(f"Array: {array}")
@@ -6952,15 +11927,75 @@ def test_minimum_window():
         print(f"Minimum window size: {size}")
 
 test_minimum_window()`,
+        typescript: `function findMinimumWindowSize(array: any[]): number {
+  /**
+   * Find smallest window containing all unique elements.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(k) where k is number of unique elements
+   */
+  if (!array || array.length === 0) {
+    return 0;
+  }
+
+  // Get required elements
+  const required = new Set(array);
+
+  // Track current window elements
+  const window = new Map<any, number>();
+  let start = 0;
+  let minSize = array.length;
+
+  for (let end = 0; end < array.length; end++) {
+    // Add new element to window
+    window.set(array[end], (window.get(array[end]) || 0) + 1);
+
+    // Try to minimize window
+    while (window.size === required.size) {
+      minSize = Math.min(minSize, end - start + 1);
+
+      // Remove start element
+      const count = (window.get(array[start]) || 0) - 1;
+      if (count === 0) {
+        window.delete(array[start]);
+      } else {
+        window.set(array[start], count);
+      }
+      start += 1;
+    }
+  }
+
+  return minSize;
+}
+
+// Test the implementation
+function testMinimumWindow(): void {
+  const testCases = [
+    [1, 2, 1, 3, 2, 1],
+    ['a', 'b', 'c', 'a', 'b'],
+    [1, 1, 1, 2, 2, 3]
+  ];
+
+  for (const array of testCases) {
+    const size = findMinimumWindowSize(array);
+    console.log(\`Array: \${array}\`);
+    console.log(\`Unique elements: \${new Set(array).size}\`);
+    console.log(\`Minimum window size: \${size}\`);
+  }
+}
+
+testMinimumWindow();`,
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt:
         'Create a function that finds the longest window where the average is greater than a given value.',
-      initialCode: `def find_longest_good_average_window(array, min_avg):
+      initialCode: {
+        python: `def find_longest_good_average_window(array, min_avg):
     """
     Find longest window with average > min_avg.
-    
+
     Args:
         array: List of numbers
         min_avg: Minimum required average
@@ -6969,44 +12004,53 @@ test_minimum_window()`,
     """
     # Your implementation here
     pass`,
-      solution: `def find_longest_good_average_window(array, min_avg):
+        typescript: `function findLongestGoodAverageWindow(array: number[], minAvg: number): [number, number] {
+  /**
+   * Find longest window with average > minAvg.
+   */
+  // Your implementation here
+  return [0, 0];
+}`,
+      },
+      solution: {
+        python: `def find_longest_good_average_window(array, min_avg):
     """
     Find longest window with average > min_avg.
-    
+
     Args:
         array: List of numbers
         min_avg: Minimum required average
     Returns:
         Tuple of (start_index, length) of longest valid window
-        
+
     Time Complexity: O(n)
     Space Complexity: O(1)
     """
     if not array:
         return (0, 0)
-        
+
     # Convert problem to sum by multiplying min_avg
     # Window sum > min_avg * window_size
     # sum - min_avg * size > 0
     adjusted = [x - min_avg for x in array]
-    
+
     current_sum = 0
     max_length = 0
     max_start = 0
     start = 0
-    
+
     for end in range(len(array)):
         current_sum += adjusted[end]
-        
+
         # If current window is valid, try extending it
         while start <= end and current_sum <= 0:
             current_sum -= adjusted[start]
             start += 1
-            
+
         if end - start + 1 > max_length:
             max_length = end - start + 1
             max_start = start
-    
+
     return (max_start, max_length)
 
 # Test the implementation
@@ -7016,7 +12060,7 @@ def test_average_window():
         ([5, 2, 1, 4, 3, 7, 2], 3.0),
         ([1, 2, 3, 4, 5], 3.0)
     ]
-    
+
     for array, min_avg in test_cases:
         start, length = find_longest_good_average_window(array, min_avg)
         window = array[start:start+length]
@@ -7032,6 +12076,72 @@ def test_average_window():
             print(f"with minimum average: {min_avg}")
 
 test_average_window()`,
+        typescript: `function findLongestGoodAverageWindow(array: number[], minAvg: number): [number, number] {
+  /**
+   * Find longest window with average > minAvg.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  if (!array || array.length === 0) {
+    return [0, 0];
+  }
+
+  // Convert problem to sum by multiplying minAvg
+  // Window sum > minAvg * window_size
+  // sum - minAvg * size > 0
+  const adjusted = array.map(x => x - minAvg);
+
+  let currentSum = 0;
+  let maxLength = 0;
+  let maxStart = 0;
+  let start = 0;
+
+  for (let end = 0; end < array.length; end++) {
+    currentSum += adjusted[end];
+
+    // If current window is valid, try extending it
+    while (start <= end && currentSum <= 0) {
+      currentSum -= adjusted[start];
+      start += 1;
+    }
+
+    if (end - start + 1 > maxLength) {
+      maxLength = end - start + 1;
+      maxStart = start;
+    }
+  }
+
+  return [maxStart, maxLength];
+}
+
+// Test the implementation
+function testAverageWindow(): void {
+  const testCases: [number[], number][] = [
+    [[1, 3, 2, 4, 3, 2, 5, 1], 2.5],
+    [[5, 2, 1, 4, 3, 7, 2], 3.0],
+    [[1, 2, 3, 4, 5], 3.0]
+  ];
+
+  for (const [array, minAvg] of testCases) {
+    const [start, length] = findLongestGoodAverageWindow(array, minAvg);
+    const window = array.slice(start, start + length);
+    if (length > 0) {
+      const avg = window.reduce((a, b) => a + b, 0) / length;
+      console.log(\`Array: \${array}\`);
+      console.log(\`Minimum required average: \${minAvg}\`);
+      console.log(\`Found window: \${window}\`);
+      console.log(\`Window average: \${avg.toFixed(2)}\`);
+      console.log(\`Window length: \${length}\`);
+    } else {
+      console.log(\`No valid window found for array: \${array}\`);
+      console.log(\`with minimum average: \${minAvg}\`);
+    }
+  }
+}
+
+testAverageWindow();`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -7105,40 +12215,40 @@ Fixed-size windows are like looking at data through a frame of consistent size. 
 def calculate_moving_average(array, window_size):
     """
     Calculate moving average using fixed-size window.
-    
+
     Args:
         array: List of numbers to analyze
         window_size: Size of sliding window
-        
+
     Returns:
         List of moving averages
-        
+
     Think of this like calculating average temperature for each
     consecutive 7-day period in weather data.
     """
     if window_size > len(array):
         raise ValueError("Window size cannot exceed array length")
-    
+
     # First window calculation
     current_sum = sum(array[:window_size])
     averages = [current_sum / window_size]
-    
+
     # Slide window and update running sum
     for i in range(window_size, len(array)):
         # Remove leftmost element and add new element
         current_sum = current_sum - array[i - window_size] + array[i]
         averages.append(current_sum / window_size)
-        
+
     return averages
 
 def explain_fixed_window():
     """Show how fixed window moves through data."""
     temperatures = [20, 22, 24, 23, 25, 21, 20, 19, 21]
     window_size = 3
-    
+
     print(f"Analyzing temperatures: {temperatures}")
     print(f"Window size: {window_size}")
-    
+
     # Show window movement
     for i in range(len(temperatures) - window_size + 1):
         window = temperatures[i:i + window_size]
@@ -7148,6 +12258,55 @@ def explain_fixed_window():
 
 # Demonstrate fixed window movement
 explain_fixed_window()
+\`\`\`
+
+\`\`\`typescript
+function calculateMovingAverage(array: number[], windowSize: number): number[] {
+  /**
+   * Calculate moving average using fixed-size window.
+   *
+   * Think of this like calculating average temperature for each
+   * consecutive 7-day period in weather data.
+   */
+  if (windowSize > array.length) {
+    throw new Error("Window size cannot exceed array length");
+  }
+
+  // First window calculation
+  let currentSum = array.slice(0, windowSize).reduce((a, b) => a + b, 0);
+  const averages = [currentSum / windowSize];
+
+  // Slide window and update running sum
+  for (let i = windowSize; i < array.length; i++) {
+    // Remove leftmost element and add new element
+    currentSum = currentSum - array[i - windowSize] + array[i];
+    averages.push(currentSum / windowSize);
+  }
+
+  return averages;
+}
+
+function explainFixedWindow(): void {
+  /**
+   * Show how fixed window moves through data.
+   */
+  const temperatures = [20, 22, 24, 23, 25, 21, 20, 19, 21];
+  const windowSize = 3;
+
+  console.log(\`Analyzing temperatures: \${temperatures}\`);
+  console.log(\`Window size: \${windowSize}\`);
+
+  // Show window movement
+  for (let i = 0; i < temperatures.length - windowSize + 1; i++) {
+    const window = temperatures.slice(i, i + windowSize);
+    const avg = window.reduce((a, b) => a + b, 0) / windowSize;
+    console.log(\`Window: \${window}\`);
+    console.log(\`Average: \${avg.toFixed(1)}\`);
+  }
+}
+
+// Demonstrate fixed window movement
+explainFixedWindow();
 \`\`\`
 
 <div class="visualization-container bg-white p-6 rounded-lg shadow-md my-8">
@@ -7175,14 +12334,14 @@ Dynamic windows can grow and shrink based on certain conditions. This is like ha
 def find_smallest_subarray_sum(array, target_sum):
     """
     Find smallest subarray with sum >= target_sum.
-    
+
     Args:
         array: List of positive numbers
         target_sum: Target sum to achieve
-        
+
     Returns:
         Tuple of (start_index, end_index) of smallest valid subarray
-        
+
     This demonstrates a dynamic window that shrinks whenever possible
     while maintaining the sum condition.
     """
@@ -7190,24 +12349,24 @@ def find_smallest_subarray_sum(array, target_sum):
     min_length = float('inf')
     current_sum = 0
     result = None
-    
+
     print(f"Looking for sum >= {target_sum} in {array}")
-    
+
     for end in range(len(array)):
         current_sum += array[end]
         print(f"Added {array[end]}, sum is now {current_sum}")
-        
+
         # Try to minimize window while maintaining sum
         while current_sum >= target_sum and start <= end:
             if end - start + 1 < min_length:
                 min_length = end - start + 1
                 result = (start, end)
                 print(f"Found new smallest window: {array[start:end+1]}")
-            
+
             current_sum -= array[start]
             start += 1
             print(f"Removed {array[start-1]}, sum is now {current_sum}")
-    
+
     return result
 
 def demonstrate_dynamic_window():
@@ -7215,7 +12374,7 @@ def demonstrate_dynamic_window():
     numbers = [2, 3, 1, 2, 4, 3]
     target = 7
     result = find_smallest_subarray_sum(numbers, target)
-    
+
     if result:
         start, end = result
         print(f"Smallest subarray with sum >= {target}:")
@@ -7223,6 +12382,61 @@ def demonstrate_dynamic_window():
         print(f"Sum: {sum(numbers[start:end+1])}")
 
 demonstrate_dynamic_window()
+\`\`\`
+
+\`\`\`typescript
+function findSmallestSubarraySum(array: number[], targetSum: number): [number, number] | null {
+  /**
+   * Find smallest subarray with sum >= targetSum.
+   *
+   * This demonstrates a dynamic window that shrinks whenever possible
+   * while maintaining the sum condition.
+   */
+  let start = 0;
+  let minLength = Infinity;
+  let currentSum = 0;
+  let result: [number, number] | null = null;
+
+  console.log(\`Looking for sum >= \${targetSum} in \${array}\`);
+
+  for (let end = 0; end < array.length; end++) {
+    currentSum += array[end];
+    console.log(\`Added \${array[end]}, sum is now \${currentSum}\`);
+
+    // Try to minimize window while maintaining sum
+    while (currentSum >= targetSum && start <= end) {
+      if (end - start + 1 < minLength) {
+        minLength = end - start + 1;
+        result = [start, end];
+        console.log(\`Found new smallest window: \${array.slice(start, end + 1)}\`);
+      }
+
+      currentSum -= array[start];
+      start += 1;
+      console.log(\`Removed \${array[start - 1]}, sum is now \${currentSum}\`);
+    }
+  }
+
+  return result;
+}
+
+function demonstrateDynamicWindow(): void {
+  /**
+   * Show how dynamic window adjusts based on conditions.
+   */
+  const numbers = [2, 3, 1, 2, 4, 3];
+  const target = 7;
+  const result = findSmallestSubarraySum(numbers, target);
+
+  if (result) {
+    const [start, end] = result;
+    console.log(\`Smallest subarray with sum >= \${target}:\`);
+    console.log(\`Window: \${numbers.slice(start, end + 1)}\`);
+    console.log(\`Sum: \${numbers.slice(start, end + 1).reduce((a, b) => a + b, 0)}\`);
+  }
+}
+
+demonstrateDynamicWindow();
 \`\`\`
 
 <h3>Combining Fixed and Dynamic Windows</h3>
@@ -7300,6 +12514,80 @@ def demonstrate_combined_windows():
 demonstrate_combined_windows()
 \`\`\`
 
+\`\`\`typescript
+function findLongestNiceSubarray(array: number[], minSize: number, maxDiff: number): [number, number] | null {
+  /**
+   * Find longest subarray where max-min difference <= maxDiff
+   * and size >= minSize.
+   *
+   * This combines fixed minimum size with dynamic growth based
+   * on element differences.
+   */
+  if (array.length < minSize) {
+    return null;
+  }
+
+  let start = 0;
+  let maxLength = minSize - 1;
+  let result: [number, number] | null = null;
+
+  for (let end = minSize - 1; end < array.length; end++) {
+    let window = array.slice(start, end + 1);
+    let windowDiff = Math.max(...window) - Math.min(...window);
+
+    console.log(\`Checking window: \${window}\`);
+    console.log(\`Difference: \${windowDiff}\`);
+
+    if (windowDiff <= maxDiff) {
+      if (end - start + 1 > maxLength) {
+        maxLength = end - start + 1;
+        result = [start, end];
+        console.log("Found new longest valid window");
+      }
+    } else {
+      // Try to shrink window while maintaining minSize
+      while (start <= end - minSize + 1) {
+        start += 1;
+        window = array.slice(start, end + 1);
+        windowDiff = Math.max(...window) - Math.min(...window);
+        console.log(\`Shrunk to window: \${window}\`);
+
+        if (windowDiff <= maxDiff) {
+          break;
+        }
+      }
+    }
+  }
+
+  return result;
+}
+
+function demonstrateCombinedWindows(): void {
+  /**
+   * Show how fixed and dynamic window constraints work together.
+   */
+  const numbers = [1, 3, 2, 4, 6, 5, 7, 8];
+  const minSize = 3;
+  const maxDiff = 3;
+
+  console.log(\`Finding longest nice subarray in \${numbers}\`);
+  console.log(\`Minimum size: \${minSize}\`);
+  console.log(\`Maximum difference allowed: \${maxDiff}\`);
+
+  const result = findLongestNiceSubarray(numbers, minSize, maxDiff);
+
+  if (result) {
+    const [start, end] = result;
+    const window = numbers.slice(start, end + 1);
+    console.log(\`Longest valid window: \${window}\`);
+    console.log(\`Size: \${end - start + 1}\`);
+    console.log(\`Difference: \${Math.max(...window) - Math.min(...window)}\`);
+  }
+}
+
+demonstrateCombinedWindows();
+\`\`\`
+
 <h3>Advanced Window Techniques</h3>
 
 For more complex scenarios, we might need to maintain additional data structures within our window:
@@ -7365,16 +12653,83 @@ def demonstrate_advanced_window():
     print(f"Distinct elements: {count}")
 
 demonstrate_advanced_window()
+\`\`\`
+
+\`\`\`typescript
+function findDistinctWindow<T>(array: T[], k: number): [number, number] {
+  /**
+   * Find window of size k with maximum distinct elements.
+   *
+   * This demonstrates using auxiliary data structures
+   * with window traversal.
+   */
+  // Track element frequencies in current window
+  const frequencies = new Map<T, number>();
+  let maxDistinct = 0;
+  let result: [number, number] = [0, 0];
+
+  // First window
+  for (let i = 0; i < k; i++) {
+    frequencies.set(array[i], (frequencies.get(array[i]) || 0) + 1);
+  }
+  let distinctCount = frequencies.size;
+
+  if (distinctCount > maxDistinct) {
+    maxDistinct = distinctCount;
+    result = [0, distinctCount];
+  }
+
+  // Slide window
+  for (let i = k; i < array.length; i++) {
+    // Remove leftmost element
+    const leftElement = array[i - k];
+    const leftCount = (frequencies.get(leftElement) || 0) - 1;
+    if (leftCount === 0) {
+      frequencies.delete(leftElement);
+    } else {
+      frequencies.set(leftElement, leftCount);
+    }
+
+    // Add new element
+    frequencies.set(array[i], (frequencies.get(array[i]) || 0) + 1);
+
+    distinctCount = frequencies.size;
+    if (distinctCount > maxDistinct) {
+      maxDistinct = distinctCount;
+      result = [i - k + 1, distinctCount];
+    }
+  }
+
+  return result;
+}
+
+function demonstrateAdvancedWindow(): void {
+  /**
+   * Show advanced window technique with frequency tracking.
+   */
+  const elements = ['a', 'b', 'a', 'c', 'b', 'd', 'e'];
+  const windowSize = 3;
+
+  const [start, count] = findDistinctWindow(elements, windowSize);
+  const window = elements.slice(start, start + windowSize);
+
+  console.log(\`Array: \${elements}\`);
+  console.log(\`Best window of size \${windowSize}: \${window}\`);
+  console.log(\`Distinct elements: \${count}\`);
+}
+
+demonstrateAdvancedWindow();
 \`\`\``,
 
   exercises: [
     {
       prompt:
         'Implement a function that finds the minimum window size needed to include at least one occurrence of each unique element in the array.',
-      initialCode: `def find_minimum_window_all_elements(array):
+      initialCode: {
+        python: `def find_minimum_window_all_elements(array):
     """
     Find smallest window containing all unique elements.
-    
+
     Args:
         array: List of elements
     Returns:
@@ -7382,47 +12737,56 @@ demonstrate_advanced_window()
     """
     # Your implementation here
     pass`,
-      solution: `def find_minimum_window_all_elements(array):
+        typescript: `function findMinimumWindowAllElements(array: any[]): [number, number] | null {
+  /**
+   * Find smallest window containing all unique elements.
+   */
+  // Your implementation here
+  return null;
+}`,
+      },
+      solution: {
+        python: `def find_minimum_window_all_elements(array):
     """
     Find smallest window containing all unique elements.
-    
+
     Args:
         array: List of elements
     Returns:
         Tuple of (start_index, end_index) of smallest valid window
-        
+
     Time Complexity: O(n)
     Space Complexity: O(k) where k is number of unique elements
     """
     if not array:
         return None
-        
+
     # Get set of unique elements needed
     unique_elements = set(array)
-    
+
     # Track frequencies in current window
     frequencies = {}
     start = 0
     min_length = float('inf')
     result = None
-    
+
     for end in range(len(array)):
         # Add new element to window
         frequencies[array[end]] = frequencies.get(array[end], 0) + 1
-        
+
         # Try to minimize window
         while len(frequencies) == len(unique_elements):
             # Found a valid window, try to minimize
             if end - start + 1 < min_length:
                 min_length = end - start + 1
                 result = (start, end)
-            
+
             # Remove start element
             frequencies[array[start]] -= 1
             if frequencies[array[start]] == 0:
                 del frequencies[array[start]]
             start += 1
-    
+
     return result
 
 # Test the implementation
@@ -7432,7 +12796,7 @@ def test_minimum_window():
         ['a', 'b', 'c', 'a', 'b', 'c'],
         [1, 1, 1, 2, 2, 3]
     ]
-    
+
     for array in test_cases:
         start, end = find_minimum_window_all_elements(array)
         window = array[start:end+1]
@@ -7442,15 +12806,85 @@ def test_minimum_window():
         print(f"Unique elements needed: {set(array)}")
 
 test_minimum_window()`,
+        typescript: `function findMinimumWindowAllElements(array: any[]): [number, number] | null {
+  /**
+   * Find smallest window containing all unique elements.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(k) where k is number of unique elements
+   */
+  if (!array || array.length === 0) {
+    return null;
+  }
+
+  // Get set of unique elements needed
+  const uniqueElements = new Set(array);
+
+  // Track frequencies in current window
+  const frequencies = new Map<any, number>();
+  let start = 0;
+  let minLength = Infinity;
+  let result: [number, number] | null = null;
+
+  for (let end = 0; end < array.length; end++) {
+    // Add new element to window
+    frequencies.set(array[end], (frequencies.get(array[end]) || 0) + 1);
+
+    // Try to minimize window
+    while (frequencies.size === uniqueElements.size) {
+      // Found a valid window, try to minimize
+      if (end - start + 1 < minLength) {
+        minLength = end - start + 1;
+        result = [start, end];
+      }
+
+      // Remove start element
+      const count = (frequencies.get(array[start]) || 0) - 1;
+      if (count === 0) {
+        frequencies.delete(array[start]);
+      } else {
+        frequencies.set(array[start], count);
+      }
+      start += 1;
+    }
+  }
+
+  return result;
+}
+
+// Test the implementation
+function testMinimumWindow(): void {
+  const testCases = [
+    [1, 2, 1, 3, 2, 1, 4],
+    ['a', 'b', 'c', 'a', 'b', 'c'],
+    [1, 1, 1, 2, 2, 3]
+  ];
+
+  for (const array of testCases) {
+    const result = findMinimumWindowAllElements(array);
+    if (result) {
+      const [start, end] = result;
+      const window = array.slice(start, end + 1);
+      console.log(\`Array: \${array}\`);
+      console.log(\`Minimum window: \${window}\`);
+      console.log(\`Window size: \${end - start + 1}\`);
+      console.log(\`Unique elements needed: \${new Set(array).size}\`);
+    }
+  }
+}
+
+testMinimumWindow();`,
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt:
         'Create a function that finds the window with the most balanced ratio of positive to negative numbers (closest to 1:1), with a minimum window size requirement.',
-      initialCode: `def find_balanced_window(array, min_size):
+      initialCode: {
+        python: `def find_balanced_window(array, min_size):
     """
     Find window with most balanced positive/negative ratio.
-    
+
     Args:
         array: List of numbers
         min_size: Minimum window size required
@@ -7459,7 +12893,16 @@ test_minimum_window()`,
     """
     # Your implementation here
     pass`,
-      solution: `def find_balanced_window(array, min_size):
+        typescript: `function findBalancedWindow(array: number[], minSize: number): [number, number] | null {
+  /**
+   * Find window with most balanced positive/negative ratio.
+   */
+  // Your implementation here
+  return null;
+}`,
+      },
+      solution: {
+        python: `def find_balanced_window(array, min_size):
     """
     Find window with most balanced positive/negative ratio.
     
@@ -7546,6 +12989,104 @@ def test_balanced_window():
             print(f"Ratio: {pos/neg:.2f}:1")
 
 test_balanced_window()`,
+        typescript: `function findBalancedWindow(array: number[], minSize: number): [number, number] | null {
+  /**
+   * Find window with most balanced positive/negative ratio.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  function calculateRatio(pos: number, neg: number): number {
+    /**
+     * Helper to calculate how close ratio is to 1:1.
+     */
+    if (pos === 0 || neg === 0) {
+      return Infinity;
+    }
+    const ratio = pos / neg;
+    return Math.abs(ratio - 1);
+  }
+
+  if (array.length < minSize) {
+    return null;
+  }
+
+  // Count initial window
+  let posCount = array.slice(0, minSize).filter(x => x > 0).length;
+  let negCount = array.slice(0, minSize).filter(x => x < 0).length;
+  let bestRatio = calculateRatio(posCount, negCount);
+  let result: [number, number] = [0, minSize - 1];
+
+  // Try all possible windows
+  let start = 0;
+  for (let end = minSize; end < array.length; end++) {
+    // Add new element
+    if (array[end] > 0) {
+      posCount += 1;
+    } else if (array[end] < 0) {
+      negCount += 1;
+    }
+
+    // Try removing elements to find better ratio
+    while (start <= end - minSize + 1) {
+      const ratio = calculateRatio(posCount, negCount);
+      if (ratio < bestRatio) {
+        bestRatio = ratio;
+        result = [start, end];
+      }
+
+      // Try removing start element
+      if (array[start] > 0) {
+        posCount -= 1;
+      } else if (array[start] < 0) {
+        negCount -= 1;
+      }
+      start += 1;
+      // Check if removing improved ratio
+      const newRatio = calculateRatio(posCount, negCount);
+      if (newRatio > ratio) {
+        // Restore element if ratio got worse
+        if (array[start - 1] > 0) {
+          posCount += 1;
+        } else if (array[start - 1] < 0) {
+          negCount += 1;
+        }
+        start -= 1;
+        break;
+      }
+    }
+  }
+
+  return result;
+}
+
+// Test the implementation
+function testBalancedWindow(): void {
+  const testCases: [number[], number][] = [
+    [[1, -1, 2, -2, 3, -3, 4], 3],
+    [[1, 2, -2, -1, 3, -2, -3], 4],
+    [[-1, -2, 1, 2, -3, 3, -4], 2]
+  ];
+
+  for (const [array, minSize] of testCases) {
+    const result = findBalancedWindow(array, minSize);
+    if (result) {
+      const [start, end] = result;
+      const window = array.slice(start, end + 1);
+      const pos = window.filter(x => x > 0).length;
+      const neg = window.filter(x => x < 0).length;
+
+      console.log(\`Array: \${array}\`);
+      console.log(\`Minimum size: \${minSize}\`);
+      console.log(\`Most balanced window: \${window}\`);
+      console.log(\`Positives: \${pos}, Negatives: \${neg}\`);
+      console.log(\`Ratio: \${(pos / neg).toFixed(2)}:1\`);
+    }
+  }
+}
+
+testBalancedWindow();`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -7619,23 +13160,23 @@ A prefix sum array stores the cumulative sum of elements up to each position. Th
 def build_prefix_sums(array):
     """
     Create prefix sum array from input array.
-    
+
     Args:
         array: List of numbers
     Returns:
         List of cumulative sums
-    
+
     Think of this like keeping a running total as you
     walk through a store adding items to your cart.
     """
     # Initialize first element
     prefix = [array[0]]
-    
+
     # Build running totals
     for i in range(1, len(array)):
         prefix.append(prefix[i-1] + array[i])
         print(f"After adding {array[i]}, running total is {prefix[i]}")
-    
+
     return prefix
 
 def explain_prefix_construction():
@@ -7643,11 +13184,46 @@ def explain_prefix_construction():
     array = [3, 1, 4, 1, 5]
     print(f"Original array: {array}")
     print("Building prefix sums:")
-    
+
     prefix = build_prefix_sums(array)
-    
+
     print("Final prefix array:", prefix)
     print("Each position shows total sum up to that point")
+\`\`\`
+
+\`\`\`typescript
+function buildPrefixSums(array: number[]): number[] {
+  /**
+   * Create prefix sum array from input array.
+   *
+   * Think of this like keeping a running total as you
+   * walk through a store adding items to your cart.
+   */
+  // Initialize first element
+  const prefix = [array[0]];
+
+  // Build running totals
+  for (let i = 1; i < array.length; i++) {
+    prefix.push(prefix[i - 1] + array[i]);
+    console.log(\`After adding \${array[i]}, running total is \${prefix[i]}\`);
+  }
+
+  return prefix;
+}
+
+function explainPrefixConstruction(): void {
+  /**
+   * Show step-by-step how prefix sums are built.
+   */
+  const array = [3, 1, 4, 1, 5];
+  console.log(\`Original array: \${array}\`);
+  console.log("Building prefix sums:");
+
+  const prefix = buildPrefixSums(array);
+
+  console.log("Final prefix array:", prefix);
+  console.log("Each position shows total sum up to that point");
+}
 \`\`\`
 
 <div class="visualization-container bg-white p-6 rounded-lg shadow-md my-8">
@@ -7686,31 +13262,31 @@ The real power of prefix sums comes when we need to find sums of subarrays. Inst
 def range_sum(prefix_sums, start, end):
     """
     Get sum of elements from start to end inclusive.
-    
+
     Args:
         prefix_sums: List of cumulative sums
         start: Starting index
         end: Ending index (inclusive)
     Returns:
         Sum of elements in range
-        
+
     The intuition is that we can get any range sum by
     subtracting the cumulative sum before our range
     from the cumulative sum at the end of our range.
     """
     if start == 0:
         return prefix_sums[end]
-    
+
     return prefix_sums[end] - prefix_sums[start - 1]
 
 def demonstrate_range_queries():
     """Show how to use prefix sums for efficient range queries."""
     array = [3, 1, 4, 1, 5, 9, 2, 6]
     prefix = build_prefix_sums(array)
-    
+
     print(f"Array: {array}")
     print(f"Prefix sums: {prefix}")
-    
+
     # Try different ranges
     ranges = [(0, 2), (1, 4), (3, 6)]
     for start, end in ranges:
@@ -7718,6 +13294,43 @@ def demonstrate_range_queries():
         subarray = array[start:end+1]
         print(f"Sum from index {start} to {end}: {total}")
         print(f"Elements summed: {subarray}")
+\`\`\`
+
+\`\`\`typescript
+function rangeSum(prefixSums: number[], start: number, end: number): number {
+  /**
+   * Get sum of elements from start to end inclusive.
+   *
+   * The intuition is that we can get any range sum by
+   * subtracting the cumulative sum before our range
+   * from the cumulative sum at the end of our range.
+   */
+  if (start === 0) {
+    return prefixSums[end];
+  }
+
+  return prefixSums[end] - prefixSums[start - 1];
+}
+
+function demonstrateRangeQueries(): void {
+  /**
+   * Show how to use prefix sums for efficient range queries.
+   */
+  const array = [3, 1, 4, 1, 5, 9, 2, 6];
+  const prefix = buildPrefixSums(array);
+
+  console.log(\`Array: \${array}\`);
+  console.log(\`Prefix sums: \${prefix}\`);
+
+  // Try different ranges
+  const ranges: [number, number][] = [[0, 2], [1, 4], [3, 6]];
+  for (const [start, end] of ranges) {
+    const total = rangeSum(prefix, start, end);
+    const subarray = array.slice(start, end + 1);
+    console.log(\`Sum from index \${start} to \${end}: \${total}\`);
+    console.log(\`Elements summed: \${subarray}\`);
+  }
+}
 \`\`\`
 
 <h3>Handling Updates</h3>
@@ -7728,20 +13341,20 @@ When array elements can change, we need to efficiently update our prefix sums:
 def update_value(array, prefix_sums, index, new_value):
     """
     Update a value and maintain prefix sums.
-    
+
     Args:
         array: Original array
         prefix_sums: Prefix sums array
         index: Position to update
         new_value: New value to set
-        
+
     Think of this like adjusting your monthly budget -
     a change in one month affects all future totals.
     """
     # Calculate the difference
     difference = new_value - array[index]
     array[index] = new_value
-    
+
     # Update all sums that include this position
     for i in range(index, len(prefix_sums)):
         prefix_sums[i] += difference
@@ -7751,15 +13364,52 @@ def demonstrate_updates():
     """Show how updates affect prefix sums."""
     array = [3, 1, 4, 1, 5]
     prefix = build_prefix_sums(array)
-    
+
     print(f"Original array: {array}")
     print(f"Original prefix sums: {prefix}")
-    
+
     # Update a value
     update_value(array, prefix, 2, 6)  # Change 4 to 6
-    
+
     print(f"Updated array: {array}")
     print(f"Updated prefix sums: {prefix}")
+\`\`\`
+
+\`\`\`typescript
+function updateValue(array: number[], prefixSums: number[], index: number, newValue: number): void {
+  /**
+   * Update a value and maintain prefix sums.
+   *
+   * Think of this like adjusting your monthly budget -
+   * a change in one month affects all future totals.
+   */
+  // Calculate the difference
+  const difference = newValue - array[index];
+  array[index] = newValue;
+
+  // Update all sums that include this position
+  for (let i = index; i < prefixSums.length; i++) {
+    prefixSums[i] += difference;
+    console.log(\`Updated prefix sum at position \${i} to \${prefixSums[i]}\`);
+  }
+}
+
+function demonstrateUpdates(): void {
+  /**
+   * Show how updates affect prefix sums.
+   */
+  const array = [3, 1, 4, 1, 5];
+  const prefix = buildPrefixSums(array);
+
+  console.log(\`Original array: \${array}\`);
+  console.log(\`Original prefix sums: \${prefix}\`);
+
+  // Update a value
+  updateValue(array, prefix, 2, 6);  // Change 4 to 6
+
+  console.log(\`Updated array: \${array}\`);
+  console.log(\`Updated prefix sums: \${prefix}\`);
+}
 \`\`\`
 
 <h3>Common Variations and Applications</h3>
@@ -7774,6 +13424,19 @@ def build_prefix_products(array):
     for i in range(1, len(array)):
         prefix.append(prefix[i-1] * array[i])
     return prefix
+\`\`\`
+
+\`\`\`typescript
+function buildPrefixProducts(array: number[]): number[] {
+  /**
+   * Calculate running product at each position.
+   */
+  const prefix = [array[0]];
+  for (let i = 1; i < array.length; i++) {
+    prefix.push(prefix[i - 1] * array[i]);
+  }
+  return prefix;
+}
 \`\`\`
 
 2. 2D Prefix Sums:
@@ -7821,15 +13484,76 @@ def build_2d_prefix_sums(matrix):
 def get_rectangle_sum(prefix, r1, c1, r2, c2):
     """Get sum of rectangular region using 2D prefix sums."""
     total = prefix[r2][c2]
-    
+
     if r1 > 0:
         total -= prefix[r1-1][c2]
     if c1 > 0:
         total -= prefix[r2][c1-1]
     if r1 > 0 and c1 > 0:
         total += prefix[r1-1][c1-1]
-        
+
     return total
+\`\`\`
+
+\`\`\`typescript
+function build2dPrefixSums(matrix: number[][]): number[][] {
+  /**
+   * Build 2D prefix sums for rectangular region queries.
+   *
+   * This allows O(1) sum queries for any rectangular region.
+   */
+  if (!matrix || matrix.length === 0 || matrix[0].length === 0) {
+    return [];
+  }
+
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+  const prefix: number[][] = Array.from({ length: rows }, () => Array(cols).fill(0));
+
+  // Fill first cell
+  prefix[0][0] = matrix[0][0];
+
+  // Fill first row
+  for (let j = 1; j < cols; j++) {
+    prefix[0][j] = prefix[0][j - 1] + matrix[0][j];
+  }
+
+  // Fill first column
+  for (let i = 1; i < rows; i++) {
+    prefix[i][0] = prefix[i - 1][0] + matrix[i][0];
+  }
+
+  // Fill rest using inclusion-exclusion
+  for (let i = 1; i < rows; i++) {
+    for (let j = 1; j < cols; j++) {
+      prefix[i][j] = prefix[i - 1][j] +
+                     prefix[i][j - 1] -
+                     prefix[i - 1][j - 1] +
+                     matrix[i][j];
+    }
+  }
+
+  return prefix;
+}
+
+function getRectangleSum(prefix: number[][], r1: number, c1: number, r2: number, c2: number): number {
+  /**
+   * Get sum of rectangular region using 2D prefix sums.
+   */
+  let total = prefix[r2][c2];
+
+  if (r1 > 0) {
+    total -= prefix[r1 - 1][c2];
+  }
+  if (c1 > 0) {
+    total -= prefix[r2][c1 - 1];
+  }
+  if (r1 > 0 && c1 > 0) {
+    total += prefix[r1 - 1][c1 - 1];
+  }
+
+  return total;
+}
 \`\`\`
 
 <h3>Key Applications</h3>
@@ -7854,10 +13578,11 @@ Some specific examples:
     {
       prompt:
         'Implement a function that finds the number of subarrays having a sum equal to a target value using prefix sums.',
-      initialCode: `def count_subarrays_with_sum(array, target):
+      initialCode: {
+        python: `def count_subarrays_with_sum(array, target):
     """
     Count subarrays with sum equal to target.
-    
+
     Args:
         array: List of numbers
         target: Target sum to find
@@ -7866,7 +13591,16 @@ Some specific examples:
     """
     # Your implementation here
     pass`,
-      solution: `def count_subarrays_with_sum(array, target):
+        typescript: `function countSubarraysWithSum(array: number[], target: number): number {
+  /**
+   * Count subarrays with sum equal to target.
+   */
+  // Your implementation here
+  return 0;
+}`,
+      },
+      solution: {
+        python: `def count_subarrays_with_sum(array, target):
     """
     Count subarrays with sum equal to target.
     
@@ -7928,15 +13662,83 @@ def test_subarray_counting():
         assert count == verify(array, target), "Implementation incorrect!"
 
 test_subarray_counting()`,
+        typescript: `function countSubarraysWithSum(array: number[], target: number): number {
+  /**
+   * Count subarrays with sum equal to target.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(n)
+   *
+   * Uses the fact that if prefix_sum[j] - prefix_sum[i] = target,
+   * then the subarray from i+1 to j sums to target.
+   */
+  // Track frequency of each prefix sum
+  let prefixSum = 0;
+  const sumCount = new Map<number, number>();
+  sumCount.set(0, 1);  // Empty array has sum 0
+  let count = 0;
+
+  for (const num of array) {
+    prefixSum += num;
+
+    // If we've seen prefixSum - target before,
+    // we've found subarrays summing to target
+    if (sumCount.has(prefixSum - target)) {
+      count += sumCount.get(prefixSum - target)!;
+    }
+
+    // Update frequency of current prefix sum
+    sumCount.set(prefixSum, (sumCount.get(prefixSum) || 0) + 1);
+  }
+
+  return count;
+}
+
+// Test the implementation
+function testSubarrayCounting(): void {
+  const testCases: [number[], number][] = [
+    [[1, 1, 1], 2],
+    [[3, 4, 7, 2, -3, 1, 4, 2], 7],
+    [[1, -1, 1, -1], 0]
+  ];
+
+  for (const [array, target] of testCases) {
+    const count = countSubarraysWithSum(array, target);
+    console.log(\`Array: \${array}\`);
+    console.log(\`Target sum: \${target}\`);
+    console.log(\`Number of subarrays: \${count}\`);
+
+    // Verify with slow method
+    function verify(arr: number[], tgt: number): number {
+      let cnt = 0;
+      for (let i = 0; i < arr.length; i++) {
+        let total = 0;
+        for (let j = i; j < arr.length; j++) {
+          total += arr[j];
+          if (total === tgt) {
+            cnt += 1;
+          }
+        }
+      }
+      return cnt;
+    }
+
+    console.assert(count === verify(array, target), "Implementation incorrect!");
+  }
+}
+
+testSubarrayCounting();`,
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt:
         'Create a function that uses prefix sums to find the shortest subarray with a sum greater than or equal to a target value.',
-      initialCode: `def shortest_subarray_with_sum(array, target):
+      initialCode: {
+        python: `def shortest_subarray_with_sum(array, target):
     """
     Find shortest subarray with sum >= target.
-    
+
     Args:
         array: List of numbers
         target: Minimum sum required
@@ -7945,7 +13747,16 @@ test_subarray_counting()`,
     """
     # Your implementation here
     pass`,
-      solution: `def shortest_subarray_with_sum(array, target):
+        typescript: `function shortestSubarrayWithSum(array: number[], target: number): [number, number] | null {
+  /**
+   * Find shortest subarray with sum >= target.
+   */
+  // Your implementation here
+  return null;
+}`,
+      },
+      solution: {
+        python: `def shortest_subarray_with_sum(array, target):
     """
     Find shortest subarray with sum >= target.
     
@@ -8002,10 +13813,75 @@ def test_shortest_subarray():
             print(f"Shortest subarray: {subarray}")
             print(f"Sum: {sum(subarray)}")
             print(f"Length: {end - start + 1}")
-else:
+        else:
             print(f"No subarray found with sum >= {target}")
 
 test_shortest_subarray()`,
+        typescript: `function shortestSubarrayWithSum(array: number[], target: number): [number, number] | null {
+  /**
+   * Find shortest subarray with sum >= target.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   *
+   * Uses prefix sums with two pointers to find minimum window.
+   */
+  const prefix = buildPrefixSums(array);
+  let start = 0;
+  let minLength = Infinity;
+  let result: [number, number] | null = null;
+
+  for (let end = 0; end < array.length; end++) {
+    // Get current window sum
+    let currentSum = prefix[end];
+    if (start > 0) {
+      currentSum -= prefix[start - 1];
+    }
+
+    // Try to minimize window while maintaining sum
+    while (start <= end && currentSum >= target) {
+      if (end - start + 1 < minLength) {
+        minLength = end - start + 1;
+        result = [start, end];
+      }
+
+      // Try removing start element
+      if (start < end) {
+        currentSum -= array[start];
+      }
+      start += 1;
+    }
+  }
+
+  return result;
+}
+
+// Test the implementation
+function testShortestSubarray(): void {
+  const testCases: [number[], number][] = [
+    [[1, 4, 2, 3, 5, 2], 9],
+    [[2, 3, 1, 1, 4, 3], 7],
+    [[1, 1, 1, 1, 1], 3]
+  ];
+
+  for (const [array, target] of testCases) {
+    const result = shortestSubarrayWithSum(array, target);
+    if (result) {
+      const [start, end] = result;
+      const subarray = array.slice(start, end + 1);
+      console.log(\`Array: \${array}\`);
+      console.log(\`Target sum: \${target}\`);
+      console.log(\`Shortest subarray: \${subarray}\`);
+      console.log(\`Sum: \${subarray.reduce((a, b) => a + b, 0)}\`);
+      console.log(\`Length: \${end - start + 1}\`);
+    } else {
+      console.log(\`No subarray found with sum >= \${target}\`);
+    }
+  }
+}
+
+testShortestSubarray();`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -8115,6 +13991,54 @@ def demonstrate_range_queries():
         print(f"Average: {avg:.1f}°F")
 
 demonstrate_range_queries()
+\`\`\`
+
+\`\`\`typescript
+function demonstrateRangeQueries(): void {
+  /**
+   * Show basic range query operations using simple examples.
+   *
+   * This helps build intuition about what range queries are
+   * and why we need efficient solutions for them.
+   */
+  // Example: Daily temperatures for a week
+  const temperatures = [75, 82, 78, 88, 84, 79, 86];
+  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  console.log("Daily temperatures:", temperatures);
+
+  // Inefficient way: Calculate each range by summing
+  function getRangeSumNaive(start: number, end: number): number {
+    return temperatures.slice(start, end + 1).reduce((a, b) => a + b, 0);
+  }
+
+  // Better way: Use prefix sums
+  const prefix = [temperatures[0]];
+  for (const t of temperatures.slice(1)) {
+    prefix.push(prefix[prefix.length - 1] + t);
+  }
+
+  function getRangeSumEfficient(start: number, end: number): number {
+    if (start === 0) {
+      return prefix[end];
+    }
+    return prefix[end] - prefix[start - 1];
+  }
+
+  // Compare approaches
+  const testRanges: [number, number][] = [[1, 3], [2, 5], [0, 6]];
+  for (const [start, end] of testRanges) {
+    const rangeDays = days.slice(start, end + 1);
+    console.log(\`Calculating average for \${rangeDays}\`);
+
+    const total = getRangeSumEfficient(start, end);
+    const avg = total / (end - start + 1);
+    console.log(\`Total: \${total}°F\`);
+    console.log(\`Average: \${avg.toFixed(1)}°F\`);
+  }
+}
+
+demonstrateRangeQueries();
 \`\`\`
 
 <div class="visualization-container bg-white p-6 rounded-lg shadow-md my-8">
@@ -8254,6 +14178,154 @@ def demonstrate_advanced_queries():
 demonstrate_advanced_queries()
 \`\`\`
 
+\`\`\`typescript
+class RangeQueryProcessor {
+  /**
+   * Handles various types of range queries efficiently.
+   *
+   * This class demonstrates different range query operations
+   * and their implementations using prefix-based techniques.
+   */
+  private array: number[];
+  private n: number;
+  private prefixSum: number[];
+  private prefixSquareSum: number[];
+  private minValues: number[][];
+
+  constructor(array: number[]) {
+    this.array = array;
+    this.n = array.length;
+
+    // Build different prefix arrays for different queries
+    this.prefixSum = this._buildPrefixSums();
+    this.prefixSquareSum = this._buildPrefixSquareSums();
+    this.minValues = this._buildSparseTable();
+  }
+
+  private _buildPrefixSums(): number[] {
+    /**
+     * Build prefix sums for range sum queries.
+     */
+    const prefix = [this.array[0]];
+    for (let i = 1; i < this.n; i++) {
+      prefix.push(prefix[prefix.length - 1] + this.array[i]);
+    }
+    return prefix;
+  }
+
+  private _buildPrefixSquareSums(): number[] {
+    /**
+     * Build prefix sums of squares for variance queries.
+     */
+    const prefix = [this.array[0] ** 2];
+    for (let i = 1; i < this.n; i++) {
+      prefix.push(prefix[prefix.length - 1] + this.array[i] ** 2);
+    }
+    return prefix;
+  }
+
+  private _buildSparseTable(): number[][] {
+    /**
+     * Build sparse table for range minimum queries.
+     */
+    const logN = Math.floor(Math.log2(this.n)) + 1;
+    const table: number[][] = Array.from({ length: this.n }, () => Array(logN).fill(0));
+
+    // Fill base case
+    for (let i = 0; i < this.n; i++) {
+      table[i][0] = this.array[i];
+    }
+
+    // Fill rest of table
+    for (let j = 1; j < logN; j++) {
+      for (let i = 0; i < this.n - (1 << j) + 1; i++) {
+        table[i][j] = Math.min(
+          table[i][j - 1],
+          table[i + (1 << (j - 1))][j - 1]
+        );
+      }
+    }
+
+    return table;
+  }
+
+  getRangeSum(start: number, end: number): number {
+    /**
+     * Get sum of elements from start to end inclusive.
+     */
+    if (start === 0) {
+      return this.prefixSum[end];
+    }
+    return this.prefixSum[end] - this.prefixSum[start - 1];
+  }
+
+  getRangeAverage(start: number, end: number): number {
+    /**
+     * Get average of elements from start to end inclusive.
+     */
+    const rangeSum = this.getRangeSum(start, end);
+    return rangeSum / (end - start + 1);
+  }
+
+  getRangeVariance(start: number, end: number): number {
+    /**
+     * Get variance of elements from start to end inclusive.
+     *
+     * Uses the formula: Var = E(X²) - (E(X))²
+     */
+    const n = end - start + 1;
+
+    // Get sum of squares
+    let squareSum = this.prefixSquareSum[end];
+    if (start > 0) {
+      squareSum -= this.prefixSquareSum[start - 1];
+    }
+
+    // Get regular sum
+    const rangeSum = this.getRangeSum(start, end);
+
+    // Calculate variance
+    const mean = rangeSum / n;
+    return (squareSum / n) - (mean ** 2);
+  }
+
+  getRangeMinimum(start: number, end: number): number {
+    /**
+     * Get minimum element from start to end inclusive.
+     *
+     * Uses sparse table for O(1) range minimum queries.
+     */
+    const length = end - start + 1;
+    const k = Math.floor(Math.log2(length));
+    return Math.min(
+      this.minValues[start][k],
+      this.minValues[end - (1 << k) + 1][k]
+    );
+  }
+}
+
+function demonstrateAdvancedQueries(): void {
+  /**
+   * Show different types of range queries in action.
+   */
+  const data = [4, 2, 7, 1, 8, 3, 6];
+  const processor = new RangeQueryProcessor(data);
+
+  // Test different query types
+  const ranges: [number, number][] = [[1, 3], [2, 5], [0, 6]];
+
+  for (const [start, end] of ranges) {
+    console.log(\`Range [\${start}:\${end}] = \${data.slice(start, end + 1)}\`);
+    console.log(\`Sum: \${processor.getRangeSum(start, end)}\`);
+    console.log(\`Average: \${processor.getRangeAverage(start, end).toFixed(2)}\`);
+    console.log(\`Variance: \${processor.getRangeVariance(start, end).toFixed(2)}\`);
+    console.log(\`Minimum: \${processor.getRangeMinimum(start, end)}\`);
+  }
+}
+
+demonstrateAdvancedQueries();
+\`\`\`
+
 <h3>Specialized Range Query Problems</h3>
 
 Let's look at some common variations of range query problems and their solutions:
@@ -8318,6 +14390,85 @@ def demonstrate_range_updates():
 demonstrate_range_updates()
 \`\`\`
 
+\`\`\`typescript
+class RangeUpdateArray {
+  /**
+   * Supports efficient range updates using difference array.
+   *
+   * Instead of updating each element in a range, we use a
+   * difference array to track changes and reconstruct values.
+   */
+  private array: number[];
+  private n: number;
+  private diff: number[];
+
+  constructor(array: number[]) {
+    this.array = array;
+    this.n = array.length;
+
+    // Build difference array
+    this.diff = [array[0]];
+    for (let i = 1; i < this.n; i++) {
+      this.diff.push(array[i] - array[i - 1]);
+    }
+  }
+
+  updateRange(start: number, end: number, value: number): void {
+    /**
+     * Add value to all elements from start to end inclusive.
+     */
+    this.diff[start] += value;
+    if (end + 1 < this.n) {
+      this.diff[end + 1] -= value;
+    }
+  }
+
+  getValue(index: number): number {
+    /**
+     * Get value at index after all updates.
+     */
+    return this.diff.slice(0, index + 1).reduce((a, b) => a + b, 0);
+  }
+
+  getFinalArray(): number[] {
+    /**
+     * Reconstruct final array after all updates.
+     */
+    const result = [this.diff[0]];
+    for (let i = 1; i < this.n; i++) {
+      result.push(result[result.length - 1] + this.diff[i]);
+    }
+    return result;
+  }
+}
+
+// Example usage
+function demonstrateRangeUpdates(): void {
+  /**
+   * Show how to handle range updates efficiently.
+   */
+  const array = [1, 3, 5, 7, 9];
+  const updater = new RangeUpdateArray(array);
+
+  console.log("Original array:", array);
+
+  // Perform some range updates
+  const updates: [number, number, number][] = [
+    [1, 3, 2],  // Add 2 to elements at positions 1-3
+    [0, 2, -1], // Subtract 1 from elements at positions 0-2
+    [2, 4, 3]   // Add 3 to elements at positions 2-4
+  ];
+
+  for (const [start, end, value] of updates) {
+    updater.updateRange(start, end, value);
+    console.log(\`After adding \${value} to range [\${start}:\${end}]:\`);
+    console.log(updater.getFinalArray());
+  }
+}
+
+demonstrateRangeUpdates();
+\`\`\`
+
 2. Intersection Queries:
 Finding intersections between ranges:
 
@@ -8370,6 +14521,67 @@ def demonstrate_intersections():
 demonstrate_intersections()
 \`\`\`
 
+\`\`\`typescript
+function findRangeIntersections(ranges: [number, number][]): [number, number][] {
+  /**
+   * Find all intersecting ranges in a list of ranges.
+   *
+   * Uses sweep line technique combined with prefix sums
+   * to efficiently find overlapping ranges.
+   */
+  // Create events for range starts and ends
+  const events: [number, number, number][] = [];
+  for (let i = 0; i < ranges.length; i++) {
+    const [start, end] = ranges[i];
+    events.push([start, 1, i]);  // 1 for start event
+    events.push([end, -1, i]);   // -1 for end event
+  }
+
+  events.sort((a, b) => a[0] - b[0]);  // Sort by position
+
+  const activeRanges = new Set<number>();
+  const intersections = new Set<string>();
+  let count = 0;
+
+  for (const [pos, eventType, rangeIdx] of events) {
+    if (eventType === 1) {  // Range start
+      if (activeRanges.size > 0) {  // If any ranges already active
+        for (const activeIdx of activeRanges) {
+          const pair = [Math.min(rangeIdx, activeIdx), Math.max(rangeIdx, activeIdx)];
+          intersections.add(pair.join(','));
+        }
+      }
+      activeRanges.add(rangeIdx);
+      count += 1;
+    } else {  // Range end
+      activeRanges.delete(rangeIdx);
+      count -= 1;
+    }
+  }
+
+  return Array.from(intersections).map(s => s.split(',').map(Number) as [number, number]);
+}
+
+// Example usage
+function demonstrateIntersections(): void {
+  /**
+   * Show how to find intersecting ranges.
+   */
+  const ranges: [number, number][] = [
+    [1, 4], [2, 6], [3, 5], [7, 9]
+  ];
+
+  console.log("Ranges:", ranges);
+  const intersections = findRangeIntersections(ranges);
+  console.log("Intersecting pairs:");
+  for (const [i, j] of intersections) {
+    console.log(\`Range \${ranges[i]} intersects with \${ranges[j]}\`);
+  }
+}
+
+demonstrateIntersections();
+\`\`\`
+
 <h3>Common Range Query Problems</h3>
 
 Here are some typical problems solved using range query techniques:
@@ -8392,10 +14604,11 @@ The key to solving these problems efficiently is choosing the right preprocessin
     {
       prompt:
         'Create a function that finds the subarray with the smallest average value. The subarray must have a minimum length k.',
-      initialCode: `def find_minimum_average_subarray(array, k):
+      initialCode: {
+        python: `def find_minimum_average_subarray(array, k):
     """
     Find subarray of length >= k with minimum average.
-    
+
     Args:
         array: List of numbers
         k: Minimum subarray length
@@ -8404,7 +14617,16 @@ The key to solving these problems efficiently is choosing the right preprocessin
     """
     # Your implementation here
     pass`,
-      solution: `def find_minimum_average_subarray(array, k):
+        typescript: `function findMinimumAverageSubarray(array: number[], k: number): [number, number] | null {
+  /**
+   * Find subarray of length >= k with minimum average.
+   */
+  // Your implementation here
+  return null;
+}`,
+      },
+      solution: {
+        python: `def find_minimum_average_subarray(array, k):
     """
     Find subarray of length >= k with minimum average.
     
@@ -8484,6 +14706,97 @@ def test_minimum_average():
             assert abs(verify(array, k) - average) < 1e-10
 
 test_minimum_average()`,
+        typescript: `function findMinimumAverageSubarray(array: number[], k: number): [number, number] | null {
+  /**
+   * Find subarray of length >= k with minimum average.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(n)
+   *
+   * Uses prefix sums to efficiently calculate averages
+   * of different length subarrays.
+   */
+  if (!array || array.length < k) {
+    return null;
+  }
+
+  // Build prefix sums
+  const prefix = [0];  // Start with 0 for easier computation
+  for (const num of array) {
+    prefix.push(prefix[prefix.length - 1] + num);
+  }
+
+  function getRangeAverage(start: number, length: number): number {
+    /**
+     * Get average of subarray starting at start with given length.
+     */
+    const end = start + length - 1;
+    if (end >= array.length) {
+      return Infinity;
+    }
+    return (prefix[end + 1] - prefix[start]) / length;
+  }
+
+  // Find best subarray
+  let minAvg = Infinity;
+  let result: [number, number] | null = null;
+
+  // Try all possible start positions
+  for (let start = 0; start < array.length; start++) {
+    // Try different lengths starting from k
+    let length = k;
+    while (start + length <= array.length) {
+      const avg = getRangeAverage(start, length);
+      if (avg < minAvg) {
+        minAvg = avg;
+        result = [start, length];
+      }
+      length += 1;
+    }
+  }
+
+  return result;
+}
+
+// Test the implementation
+function testMinimumAverage(): void {
+  const testCases: [number[], number][] = [
+    [[1, 3, 2, 4, 5, 7, 2, 1], 3],
+    [[1, 1, 1, 1, 2, 2, 2, 2], 2],
+    [[4, 2, 6, 2, 3, 1, 5, 4], 4]
+  ];
+
+  for (const [array, k] of testCases) {
+    const result = findMinimumAverageSubarray(array, k);
+    if (result) {
+      const [start, length] = result;
+      const subarray = array.slice(start, start + length);
+      const average = subarray.reduce((a, b) => a + b, 0) / length;
+      console.log(\`Array: \${array}\`);
+      console.log(\`Minimum length (k): \${k}\`);
+      console.log(\`Found subarray: \${subarray}\`);
+      console.log(\`Length: \${length}\`);
+      console.log(\`Average: \${average.toFixed(2)}\`);
+
+      // Verify this is indeed the minimum
+      function verify(arr: number[], k: number): number {
+        let minAvg = Infinity;
+        for (let i = 0; i < arr.length; i++) {
+          for (let l = k; l <= arr.length - i; l++) {
+            const currAvg = arr.slice(i, i + l).reduce((a, b) => a + b, 0) / l;
+            minAvg = Math.min(minAvg, currAvg);
+          }
+        }
+        return minAvg;
+      }
+
+      console.assert(Math.abs(verify(array, k) - average) < 1e-10);
+    }
+  }
+}
+
+testMinimumAverage();`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -8630,6 +14943,66 @@ print(f"Maximum Sum: {result['max_sum']}")
 print(f"Subarray: {result['subarray']}")
 \`\`\`
 
+\`\`\`typescript
+interface KadaneResult {
+  maxSum: number;
+  startIndex: number;
+  endIndex: number;
+  subarray: number[];
+}
+
+function kadanesAlgorithm(array: number[]): KadaneResult {
+  /**
+   * Find maximum subarray sum using Kadane's Algorithm.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  // Initialize our variables
+  let maxEndingHere = array[0];
+  let maxSoFar = array[0];
+
+  // Track the start and end of current and maximum subarrays
+  let start = 0;
+  let end = 0;
+  let maxStart = 0;
+  let maxEnd = 0;
+
+  // Process rest of the array
+  for (let i = 1; i < array.length; i++) {
+    // Decision: start new subarray or extend existing one?
+    if (maxEndingHere + array[i] > array[i]) {
+      maxEndingHere = maxEndingHere + array[i];
+      end = i;
+    } else {
+      maxEndingHere = array[i];
+      start = i;
+      end = i;
+    }
+
+    // Update global maximum if necessary
+    if (maxEndingHere > maxSoFar) {
+      maxSoFar = maxEndingHere;
+      maxStart = start;
+      maxEnd = end;
+    }
+  }
+
+  return {
+    maxSum: maxSoFar,
+    startIndex: maxStart,
+    endIndex: maxEnd,
+    subarray: array.slice(maxStart, maxEnd + 1)
+  };
+}
+
+// Example usage
+const array = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+const result = kadanesAlgorithm(array);
+console.log(\`Maximum Sum: \${result.maxSum}\`);
+console.log(\`Subarray: \${result.subarray}\`);
+\`\`\`
+
 <h3>Understanding How It Works</h3>
 
 Let's break down the algorithm step by step:
@@ -8661,6 +15034,40 @@ def demonstrate_kadane_steps(array):
 # Let's see it in action
 test_array = [-2, 1, -3, 4, -1, 2]
 demonstrate_kadane_steps(test_array)
+\`\`\`
+
+\`\`\`typescript
+function demonstrateKadaneSteps(array: number[]): void {
+  /**
+   * Show how Kadane's Algorithm processes each element.
+   */
+  let maxEndingHere = array[0];
+  let maxSoFar = array[0];
+
+  console.log(\`Initial element: \${array[0]}\`);
+  console.log(\`max_ending_here = max_so_far = \${array[0]}\`);
+  console.log("Processing remaining elements:");
+
+  for (let i = 1; i < array.length; i++) {
+    // Store old value for comparison
+    const oldMax = maxEndingHere;
+
+    // Make our decision
+    maxEndingHere = Math.max(array[i], maxEndingHere + array[i]);
+    maxSoFar = Math.max(maxSoFar, maxEndingHere);
+
+    // Show the decision process
+    console.log(\`Element: \${array[i]}\`);
+    console.log(\`Previous max_ending_here: \${oldMax}\`);
+    console.log(\`Choice: max(\${array[i]}, \${oldMax} + \${array[i]})\`);
+    console.log(\`New max_ending_here: \${maxEndingHere}\`);
+    console.log(\`max_so_far: \${maxSoFar}\`);
+  }
+}
+
+// Let's see it in action
+const testArray = [-2, 1, -3, 4, -1, 2];
+demonstrateKadaneSteps(testArray);
 \`\`\`
 
 <h3>Variations and Extensions</h3>
@@ -8695,6 +15102,29 @@ def max_circular_subarray_sum(array):
     return max(max_normal, max_wrapped)
 \`\`\`
 
+\`\`\`typescript
+function maxCircularSubarraySum(array: number[]): number {
+  /**
+   * Find maximum subarray sum in a circular array.
+   *
+   * This handles cases where the maximum subarray wraps
+   * around the end of the array.
+   */
+  // Case 1: Maximum subarray does not wrap around
+  const maxNormal = kadanesAlgorithm(array).maxSum;
+
+  // Case 2: Maximum subarray wraps around
+  // This is equal to total sum minus minimum subarray sum
+  const arrSum = array.reduce((a, b) => a + b, 0);
+  // Invert array signs and find maximum subarray
+  const inverted = array.map(x => -x);
+  const maxInverted = kadanesAlgorithm(inverted).maxSum;
+  const maxWrapped = arrSum + maxInverted;  // Adding because array was inverted
+
+  return Math.max(maxNormal, maxWrapped);
+}
+\`\`\`
+
 2. Finding Maximum Product Subarray:
 \`\`\`python
 def max_product_subarray(array):
@@ -8724,6 +15154,34 @@ def max_product_subarray(array):
     return max_so_far
 \`\`\`
 
+\`\`\`typescript
+function maxProductSubarray(array: number[]): number {
+  /**
+   * Find maximum product of any contiguous subarray.
+   *
+   * This handles multiplication where we need to track
+   * both maximum and minimum (for negative numbers).
+   */
+  if (!array || array.length === 0) {
+    return 0;
+  }
+
+  let maxSoFar = array[0];
+  let maxEndingHere = array[0];
+  let minEndingHere = array[0];
+
+  for (let i = 1; i < array.length; i++) {
+    const curr = array[i];
+    const tempMax = Math.max(curr, maxEndingHere * curr, minEndingHere * curr);
+    minEndingHere = Math.min(curr, maxEndingHere * curr, minEndingHere * curr);
+    maxEndingHere = tempMax;
+    maxSoFar = Math.max(maxSoFar, maxEndingHere);
+  }
+
+  return maxSoFar;
+}
+\`\`\`
+
 <h3>Handling Edge Cases</h3>
 
 When implementing Kadane's Algorithm, we need to consider several edge cases:
@@ -8751,6 +15209,32 @@ result = kadane_with_edge_cases(negative_array)
 print(f"Maximum sum in all negative array: {result}")  # Should return -1
 \`\`\`
 
+\`\`\`typescript
+function kadaneWithEdgeCases(array: number[]): number {
+  /**
+   * Kadane's Algorithm handling all edge cases.
+   */
+  if (!array || array.length === 0) {
+    return 0;
+  }
+
+  let maxEndingHere = array[0];
+  let maxSoFar = array[0];
+
+  for (const num of array.slice(1)) {
+    maxEndingHere = Math.max(num, maxEndingHere + num);
+    maxSoFar = Math.max(maxSoFar, maxEndingHere);
+  }
+
+  return maxSoFar;
+}
+
+// Test with all negative numbers
+const negativeArray = [-2, -3, -1, -5];
+const result = kadaneWithEdgeCases(negativeArray);
+console.log(\`Maximum sum in all negative array: \${result}\`);  // Should return -1
+\`\`\`
+
 2. Empty Array and Single Element:
 \`\`\`python
 def safe_kadane(array):
@@ -8761,18 +15245,35 @@ def safe_kadane(array):
         raise ValueError("Array cannot be empty")
     if len(array) == 1:
         return array[0]
-        
+
     return kadane_with_edge_cases(array)
+\`\`\`
+
+\`\`\`typescript
+function safeKadane(array: number[]): number {
+  /**
+   * Safe implementation handling empty and single-element arrays.
+   */
+  if (!array || array.length === 0) {
+    throw new Error("Array cannot be empty");
+  }
+  if (array.length === 1) {
+    return array[0];
+  }
+
+  return kadaneWithEdgeCases(array);
+}
 \`\`\``,
 
   exercises: [
     {
       prompt:
         'Implement a function that finds both the maximum sum subarray and the second maximum sum subarray (non-overlapping with the first).',
-      initialCode: `def find_two_max_subarrays(array):
+      initialCode: {
+        python: `def find_two_max_subarrays(array):
     """
     Find two non-overlapping subarrays with maximum sums.
-    
+
     Args:
         array: List of numbers
     Returns:
@@ -8780,7 +15281,16 @@ def safe_kadane(array):
     """
     # Your implementation here
     pass`,
-      solution: `def find_two_max_subarrays(array):
+        typescript: `function findTwoMaxSubarrays(array: number[]): number {
+  /**
+   * Find two non-overlapping subarrays with maximum sums.
+   */
+  // Your implementation here
+  return 0;
+}`,
+      },
+      solution: {
+        python: `def find_two_max_subarrays(array):
     """
     Find two non-overlapping subarrays with maximum sums.
     
@@ -8828,15 +15338,67 @@ def safe_kadane(array):
 test_array = [3, -4, 2, -1, -2, 6, -3, 2]
 result = find_two_max_subarrays(test_array)
 print(f"Maximum sum of two non-overlapping subarrays: {result}")`,
+        typescript: `function findTwoMaxSubarrays(array: number[]): number {
+  /**
+   * Find two non-overlapping subarrays with maximum sums.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(n)
+   */
+  const n = array.length;
+  if (n < 2) {
+    throw new Error("Array must have at least 2 elements");
+  }
+
+  // Forward maximum sums
+  const forwardMax: number[] = new Array(n);
+  let currMax = array[0];
+  let maxSoFar = array[0];
+  forwardMax[0] = maxSoFar;
+
+  for (let i = 1; i < n; i++) {
+    currMax = Math.max(array[i], currMax + array[i]);
+    maxSoFar = Math.max(maxSoFar, currMax);
+    forwardMax[i] = maxSoFar;
+  }
+
+  // Backward maximum sums
+  const backwardMax: number[] = new Array(n);
+  currMax = array[n - 1];
+  maxSoFar = array[n - 1];
+  backwardMax[n - 1] = maxSoFar;
+
+  for (let i = n - 2; i >= 0; i--) {
+    currMax = Math.max(array[i], currMax + array[i]);
+    maxSoFar = Math.max(maxSoFar, currMax);
+    backwardMax[i] = maxSoFar;
+  }
+
+  // Find best split point
+  let bestCombined = -Infinity;
+  for (let i = 0; i < n - 1; i++) {
+    const combined = forwardMax[i] + backwardMax[i + 1];
+    bestCombined = Math.max(bestCombined, combined);
+  }
+
+  return bestCombined;
+}
+
+// Test the function
+const testArray = [3, -4, 2, -1, -2, 6, -3, 2];
+const result = findTwoMaxSubarrays(testArray);
+console.log(\`Maximum sum of two non-overlapping subarrays: \${result}\`);`,
+      },
       difficulty: Difficulty.Advanced,
     },
     {
       prompt:
         "Implement Kadane's Algorithm to find the maximum sum subarray where the subarray must be at least k elements long.",
-      initialCode: `def kadane_with_minimum_length(array, k):
+      initialCode: {
+        python: `def kadane_with_minimum_length(array, k):
     """
     Find maximum subarray sum where subarray length >= k.
-    
+
     Args:
         array: List of numbers
         k: Minimum subarray length
@@ -8845,7 +15407,16 @@ print(f"Maximum sum of two non-overlapping subarrays: {result}")`,
     """
     # Your implementation here
     pass`,
-      solution: `def kadane_with_minimum_length(array, k):
+        typescript: `function kadaneWithMinimumLength(array: number[], k: number): number {
+  /**
+   * Find maximum subarray sum where subarray length >= k.
+   */
+  // Your implementation here
+  return 0;
+}`,
+      },
+      solution: {
+        python: `def kadane_with_minimum_length(array, k):
     """
     Find maximum subarray sum where subarray length >= k.
     
@@ -8884,6 +15455,44 @@ test_array = [1, -2, 3, 4, -5, 6, 7, -8]
 k = 3
 result = kadane_with_minimum_length(test_array, k)
 print(f"Maximum sum with minimum length {k}: {result}")`,
+        typescript: `function kadaneWithMinimumLength(array: number[], k: number): number {
+  /**
+   * Find maximum subarray sum where subarray length >= k.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  if (array.length < k) {
+    throw new Error("Array length must be >= k");
+  }
+
+  // First compute sum of first k elements
+  let currSum = array.slice(0, k).reduce((a, b) => a + b, 0);
+  let maxSum = currSum;
+
+  // Slide window of size k and track maximum
+  for (let i = k; i < array.length; i++) {
+    // Add next element and remove first element of previous window
+    currSum = currSum + array[i] - array[i - k];
+    maxSum = Math.max(maxSum, currSum);
+
+    // Try to extend current window
+    let extendSum = currSum;
+    for (let j = i - k; j >= 0; j--) {
+      extendSum += array[j];
+      maxSum = Math.max(maxSum, extendSum);
+    }
+  }
+
+  return maxSum;
+}
+
+// Test the function
+const testArray = [1, -2, 3, 4, -5, 6, 7, -8];
+const k = 3;
+const result = kadaneWithMinimumLength(testArray, k);
+console.log(\`Maximum sum with minimum length \${k}: \${result}\`);`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -9018,6 +15627,60 @@ prices = [7, 1, 5, 3, 6, 4]
 explain_single_transaction(prices)
 \`\`\`
 
+\`\`\`typescript
+function maxProfitSingleTransaction(prices: number[]): number {
+  /**
+   * Find maximum profit with a single transaction.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  if (!prices || prices.length === 0) {
+    return 0;
+  }
+
+  let minPrice = Infinity;  // Track lowest price seen
+  let maxProfit = 0;        // Track maximum profit possible
+
+  for (const price of prices) {
+    // Update lowest price seen so far
+    minPrice = Math.min(minPrice, price);
+    // See if we can get better profit by selling at current price
+    const currentProfit = price - minPrice;
+    maxProfit = Math.max(maxProfit, currentProfit);
+  }
+
+  return maxProfit;
+}
+
+// Example with step-by-step explanation
+function explainSingleTransaction(prices: number[]): void {
+  /**
+   * Show how the algorithm makes decisions.
+   */
+  let minPrice = Infinity;
+  let maxProfit = 0;
+
+  console.log("Day by day analysis:");
+  for (let i = 0; i < prices.length; i++) {
+    const price = prices[i];
+    const oldMin = minPrice;
+    minPrice = Math.min(minPrice, price);
+    const currentProfit = price - minPrice;
+    maxProfit = Math.max(maxProfit, currentProfit);
+
+    console.log(\`Day \${i + 1}: Price = \${price}\`);
+    console.log(\`Minimum price so far: \${minPrice}\`);
+    console.log(\`Potential profit if selling today: \${currentProfit}\`);
+    console.log(\`Maximum profit so far: \${maxProfit}\`);
+  }
+}
+
+// Test the explanation
+const prices = [7, 1, 5, 3, 6, 4];
+explainSingleTransaction(prices);
+\`\`\`
+
 <h3>Multiple Transactions: When We Can Buy and Sell Multiple Times</h3>
 
 Now let's consider when we can make multiple transactions, but we must sell before buying again.
@@ -9080,6 +15743,69 @@ prices = [7, 1, 5, 3, 6, 4]
 transactions = explain_multiple_transactions(prices)
 \`\`\`
 
+\`\`\`typescript
+function maxProfitMultipleTransactions(prices: number[]): number {
+  /**
+   * Find maximum profit with unlimited transactions.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  let totalProfit = 0;
+
+  // We can simply collect all positive price differences
+  for (let i = 1; i < prices.length; i++) {
+    if (prices[i] > prices[i - 1]) {
+      const profit = prices[i] - prices[i - 1];
+      totalProfit += profit;
+    }
+  }
+
+  return totalProfit;
+}
+
+function explainMultipleTransactions(prices: number[]): [number, number, number][] {
+  /**
+   * Explain the decision process for multiple transactions.
+   */
+  let totalProfit = 0;
+  const transactions: [number, number, number][] = [];
+
+  let buyPrice: number | null = null;
+  for (let i = 0; i < prices.length - 1; i++) {
+    // If we haven't bought and tomorrow's price is higher
+    if (buyPrice === null && prices[i + 1] > prices[i]) {
+      buyPrice = prices[i];
+      console.log(\`Buying at price: \${buyPrice}\`);
+    }
+
+    // If we've bought and tomorrow's price is lower
+    else if (buyPrice !== null && prices[i + 1] < prices[i]) {
+      const profit = prices[i] - buyPrice;
+      totalProfit += profit;
+      transactions.push([buyPrice, prices[i], profit]);
+      buyPrice = null;
+      console.log(\`Selling at price: \${prices[i]}, Profit: \${profit}\`);
+    }
+  }
+
+  // Handle last day
+  if (buyPrice !== null && prices[prices.length - 1] > buyPrice) {
+    const profit = prices[prices.length - 1] - buyPrice;
+    totalProfit += profit;
+    transactions.push([buyPrice, prices[prices.length - 1], profit]);
+    console.log(\`Selling at last price: \${prices[prices.length - 1]}, Profit: \${profit}\`);
+  }
+
+  console.log(\`Total profit: \${totalProfit}\`);
+  return transactions;
+}
+
+// Test multiple transactions
+const prices2 = [7, 1, 5, 3, 6, 4];
+const transactions = explainMultipleTransactions(prices2);
+\`\`\`
+
 <h3>K Transactions: Limited Number of Trades</h3>
 
 The most complex case is when we're limited to k transactions. This requires dynamic programming.
@@ -9130,6 +15856,54 @@ k = 2
 results = explain_k_transactions(prices, k)
 \`\`\`
 
+\`\`\`typescript
+function maxProfitKTransactions(prices: number[], k: number): number {
+  /**
+   * Find maximum profit with k transactions allowed.
+   *
+   * Time Complexity: O(n*k)
+   * Space Complexity: O(k)
+   */
+  if (!prices || prices.length === 0 || k === 0) {
+    return 0;
+  }
+
+  // dp[i][j] represents max profit using at most i transactions up to day j
+  const n = prices.length;
+  const dp: number[][] = Array.from({ length: k + 1 }, () => Array(n).fill(0));
+
+  for (let i = 1; i <= k; i++) {
+    let localMax = -Infinity;
+    for (let j = 1; j < n; j++) {
+      // localMax tracks the maximum profit we could have
+      // if we sold the stock on day j using i transactions
+      localMax = Math.max(localMax, dp[i - 1][j - 1] - prices[j - 1]);
+      dp[i][j] = Math.max(dp[i][j - 1], localMax + prices[j]);
+    }
+  }
+
+  return dp[k][n - 1];
+}
+
+function explainKTransactions(prices: number[], k: number): [number, number][] {
+  /**
+   * Show how profits build up with each additional transaction.
+   */
+  const results: [number, number][] = [];
+  for (let i = 1; i <= k; i++) {
+    const profit = maxProfitKTransactions(prices, i);
+    results.push([i, profit]);
+    console.log(\`With \${i} transaction(s): Maximum profit = \${profit}\`);
+  }
+  return results;
+}
+
+// Test k transactions
+const prices3 = [3, 2, 6, 5, 0, 3];
+const k = 2;
+const results = explainKTransactions(prices3, k);
+\`\`\`
+
 <h3>Advanced Considerations</h3>
 
 When solving stock problems, consider these important aspects:
@@ -9156,6 +15930,24 @@ def max_profit_with_fee(prices, fee):
     return cash
 \`\`\`
 
+\`\`\`typescript
+function maxProfitWithFee(prices: number[], fee: number): number {
+  /**
+   * Find maximum profit with transaction fee.
+   */
+  let cash = 0;  // Maximum profit if we have no stock
+  let hold = -prices[0];  // Maximum profit if we hold stock
+
+  for (let i = 1; i < prices.length; i++) {
+    const price = prices[i];
+    cash = Math.max(cash, hold + price - fee);  // Sell stock
+    hold = Math.max(hold, cash - price);        // Buy stock
+  }
+
+  return cash;
+}
+\`\`\`
+
 2. Cooldown Period:
 \`\`\`python
 def max_profit_with_cooldown(prices):
@@ -9164,19 +15956,44 @@ def max_profit_with_cooldown(prices):
     """
     if not prices:
         return 0
-        
+
     buy = float('-inf')  # Max profit if we have stock
     sell = 0            # Max profit if we don't have stock
     prev_sell = 0      # Max profit from 2 days ago
-    
+
     for price in prices:
         new_buy = max(buy, prev_sell - price)
         new_sell = max(sell, buy + price)
         buy = new_buy
         prev_sell = sell
         sell = new_sell
-    
+
     return sell
+\`\`\`
+
+\`\`\`typescript
+function maxProfitWithCooldown(prices: number[]): number {
+  /**
+   * Find maximum profit with 1-day cooldown between trades.
+   */
+  if (!prices || prices.length === 0) {
+    return 0;
+  }
+
+  let buy = -Infinity;  // Max profit if we have stock
+  let sell = 0;         // Max profit if we don't have stock
+  let prevSell = 0;     // Max profit from 2 days ago
+
+  for (const price of prices) {
+    const newBuy = Math.max(buy, prevSell - price);
+    const newSell = Math.max(sell, buy + price);
+    buy = newBuy;
+    prevSell = sell;
+    sell = newSell;
+  }
+
+  return sell;
+}
 \`\`\`
 
 These variations test our understanding of both the problem space and algorithm design principles. The key is recognizing the patterns in each variant and adapting our solution accordingly.`,
@@ -9185,10 +16002,11 @@ These variations test our understanding of both the problem space and algorithm 
     {
       prompt:
         'Implement a function that finds the maximum profit possible when you must buy and sell in pairs and can hold at most two stocks at any time.',
-      initialCode: `def max_profit_two_stocks(prices):
+      initialCode: {
+        python: `def max_profit_two_stocks(prices):
     """
     Find maximum profit when holding at most two stocks.
-    
+
     Args:
         prices: List of daily stock prices
     Returns:
@@ -9196,34 +16014,43 @@ These variations test our understanding of both the problem space and algorithm 
     """
     # Your implementation here
     pass`,
-      solution: `def max_profit_two_stocks(prices):
+        typescript: `function maxProfitTwoStocks(prices: number[]): number {
+  /**
+   * Find maximum profit when holding at most two stocks.
+   */
+  // Your implementation here
+  return 0;
+}`,
+      },
+      solution: {
+        python: `def max_profit_two_stocks(prices):
     """
     Find maximum profit when holding at most two stocks.
-    
+
     Args:
         prices: List of daily stock prices
     Returns:
         Maximum profit possible
-        
+
     Time Complexity: O(n)
     Space Complexity: O(1)
     """
     if not prices:
         return 0
-    
+
     # Initialize states
     buy1 = float('-inf')  # Maximum profit after buying first stock
     sell1 = 0            # Maximum profit after selling first stock
     buy2 = float('-inf')  # Maximum profit after buying second stock
     sell2 = 0            # Maximum profit after selling second stock
-    
+
     for price in prices:
         # Update each state based on current price
         buy1 = max(buy1, -price)         # Buy first stock
         sell1 = max(sell1, buy1 + price) # Sell first stock
         buy2 = max(buy2, sell1 - price)  # Buy second stock
         sell2 = max(sell2, buy2 + price) # Sell second stock
-    
+
     return sell2
 
 # Test the function
@@ -9238,15 +16065,15 @@ def explain_two_stocks(prices):
     s1 = 0
     b2 = float('-inf')
     s2 = 0
-    
+
     for i, price in enumerate(prices):
         old_b1, old_s1, old_b2, old_s2 = b1, s1, b2, s2
-        
+
         b1 = max(old_b1, -price)
         s1 = max(old_s1, old_b1 + price)
         b2 = max(old_b2, old_s1 - price)
         s2 = max(old_s2, old_b2 + price)
-        
+
         print(f"Day {i+1}, Price: {price}")
         print(f"After first buy: {b1}")
         print(f"After first sell: {s1}")
@@ -9255,15 +16082,79 @@ def explain_two_stocks(prices):
 
 # Run explanation
 explain_two_stocks([3, 3, 5, 0, 0, 3, 1, 4])`,
+        typescript: `function maxProfitTwoStocks(prices: number[]): number {
+  /**
+   * Find maximum profit when holding at most two stocks.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  if (!prices || prices.length === 0) {
+    return 0;
+  }
+
+  // Initialize states
+  let buy1 = -Infinity;  // Maximum profit after buying first stock
+  let sell1 = 0;         // Maximum profit after selling first stock
+  let buy2 = -Infinity;  // Maximum profit after buying second stock
+  let sell2 = 0;         // Maximum profit after selling second stock
+
+  for (const price of prices) {
+    // Update each state based on current price
+    buy1 = Math.max(buy1, -price);          // Buy first stock
+    sell1 = Math.max(sell1, buy1 + price);  // Sell first stock
+    buy2 = Math.max(buy2, sell1 - price);   // Buy second stock
+    sell2 = Math.max(sell2, buy2 + price);  // Sell second stock
+  }
+
+  return sell2;
+}
+
+// Test the function
+const testPrices = [3, 3, 5, 0, 0, 3, 1, 4];
+const profit = maxProfitTwoStocks(testPrices);
+console.log(\`Maximum profit: \${profit}\`);
+
+// Add detailed explanation of the process
+function explainTwoStocks(prices: number[]): void {
+  /**
+   * Explain the state transitions for two stocks.
+   */
+  let b1 = -Infinity;
+  let s1 = 0;
+  let b2 = -Infinity;
+  let s2 = 0;
+
+  for (let i = 0; i < prices.length; i++) {
+    const price = prices[i];
+    const oldB1 = b1, oldS1 = s1, oldB2 = b2, oldS2 = s2;
+
+    b1 = Math.max(oldB1, -price);
+    s1 = Math.max(oldS1, oldB1 + price);
+    b2 = Math.max(oldB2, oldS1 - price);
+    s2 = Math.max(oldS2, oldB2 + price);
+
+    console.log(\`Day \${i + 1}, Price: \${price}\`);
+    console.log(\`After first buy: \${b1}\`);
+    console.log(\`After first sell: \${s1}\`);
+    console.log(\`After second buy: \${b2}\`);
+    console.log(\`After second sell: \${s2}\`);
+  }
+}
+
+// Run explanation
+explainTwoStocks([3, 3, 5, 0, 0, 3, 1, 4]);`,
+      },
       difficulty: Difficulty.Advanced,
     },
     {
       prompt:
         'Create a function that finds the best days to buy and sell when you can make at most k transactions and have a transaction fee.',
-      initialCode: `def max_profit_k_with_fee(prices, k, fee):
+      initialCode: {
+        python: `def max_profit_k_with_fee(prices, k, fee):
     """
     Find maximum profit with k transactions and fee.
-    
+
     Args:
         prices: List of daily stock prices
         k: Maximum number of transactions
@@ -9273,32 +16164,41 @@ explain_two_stocks([3, 3, 5, 0, 0, 3, 1, 4])`,
     """
     # Your implementation here
     pass`,
-      solution: `def max_profit_k_with_fee(prices, k, fee):
+        typescript: `function maxProfitKWithFee(prices: number[], k: number, fee: number): number {
+  /**
+   * Find maximum profit with k transactions and fee.
+   */
+  // Your implementation here
+  return 0;
+}`,
+      },
+      solution: {
+        python: `def max_profit_k_with_fee(prices, k, fee):
     """
     Find maximum profit with k transactions and fee.
-    
+
     Args:
         prices: List of daily stock prices
         k: Maximum number of transactions
         fee: Transaction fee per trade
     Returns:
         Maximum profit possible and list of transactions
-        
+
     Time Complexity: O(n*k)
     Space Complexity: O(k)
     """
     if not prices or k == 0:
         return 0, []
-    
+
     n = len(prices)
     # dp[i][j][0] = max profit with i transactions up to day j without stock
     # dp[i][j][1] = max profit with i transactions up to day j with stock
     dp = [[[float('-inf')] * 2 for _ in range(n)] for _ in range(k + 1)]
-    
+
     # Initialize base cases
     for j in range(n):
         dp[0][j][0] = 0
-    
+
     # Fill the dp table
     transactions = []
     for i in range(1, k + 1):
@@ -9307,18 +16207,18 @@ explain_two_stocks([3, 3, 5, 0, 0, 3, 1, 4])`,
             # Don't have stock
             dp[i][j][0] = max(dp[i][j-1][0],            # Do nothing
                             dp[i][j-1][1] + prices[j] - fee)  # Sell
-            
+
             # Have stock
             dp[i][j][1] = max(dp[i][j-1][1],            # Do nothing
                             dp[i-1][j-1][0] - prices[j])  # Buy
-    
+
     # Reconstruct transactions
     profit = dp[k][n-1][0]
     pos = k
     has_stock = False
     j = n - 1
     buy_price = 0
-    
+
     while pos > 0 and j > 0:
         if not has_stock:
             if dp[pos][j][0] == dp[pos][j-1][1] + prices[j] - fee:
@@ -9330,7 +16230,7 @@ explain_two_stocks([3, 3, 5, 0, 0, 3, 1, 4])`,
                 buy_price = prices[j]
                 has_stock = False
         j -= 1
-    
+
     return profit, sorted(transactions)
 
 # Test the function
@@ -9342,6 +16242,85 @@ print(f"Maximum profit: {profit}")
 print("Transactions:")
 for buy, sell in transactions:
     print(f"Buy at {buy}, Sell at {sell}, Profit: {sell - buy - fee}")`,
+        typescript: `function maxProfitKWithFee(prices: number[], k: number, fee: number): [number, [number, number][]] {
+  /**
+   * Find maximum profit with k transactions and fee.
+   *
+   * Time Complexity: O(n*k)
+   * Space Complexity: O(k)
+   */
+  if (!prices || prices.length === 0 || k === 0) {
+    return [0, []];
+  }
+
+  const n = prices.length;
+  // dp[i][j][0] = max profit with i transactions up to day j without stock
+  // dp[i][j][1] = max profit with i transactions up to day j with stock
+  const dp: number[][][] = Array.from({ length: k + 1 }, () =>
+    Array.from({ length: n }, () => [-Infinity, -Infinity])
+  );
+
+  // Initialize base cases
+  for (let j = 0; j < n; j++) {
+    dp[0][j][0] = 0;
+  }
+
+  // Fill the dp table
+  const transactions: [number, number][] = [];
+  for (let i = 1; i <= k; i++) {
+    dp[i][0][1] = -prices[0];
+    for (let j = 1; j < n; j++) {
+      // Don't have stock
+      dp[i][j][0] = Math.max(
+        dp[i][j - 1][0],                        // Do nothing
+        dp[i][j - 1][1] + prices[j] - fee       // Sell
+      );
+
+      // Have stock
+      dp[i][j][1] = Math.max(
+        dp[i][j - 1][1],                        // Do nothing
+        dp[i - 1][j - 1][0] - prices[j]         // Buy
+      );
+    }
+  }
+
+  // Reconstruct transactions
+  const profit = dp[k][n - 1][0];
+  let pos = k;
+  let hasStock = false;
+  let j = n - 1;
+  let buyPrice = 0;
+
+  while (pos > 0 && j > 0) {
+    if (!hasStock) {
+      if (dp[pos][j][0] === dp[pos][j - 1][1] + prices[j] - fee) {
+        transactions.push([buyPrice, prices[j]]);
+        hasStock = true;
+        pos -= 1;
+      }
+    } else {
+      if (dp[pos][j][1] === dp[pos - 1][j - 1][0] - prices[j]) {
+        buyPrice = prices[j];
+        hasStock = false;
+      }
+    }
+    j -= 1;
+  }
+
+  return [profit, transactions.sort((a, b) => a[0] - b[0])];
+}
+
+// Test the function
+const testPrices2 = [10, 20, 30, 0, 40, 50];
+const k2 = 2;
+const fee2 = 1;
+const [profit2, transactions2] = maxProfitKWithFee(testPrices2, k2, fee2);
+console.log(\`Maximum profit: \${profit2}\`);
+console.log("Transactions:");
+for (const [buy, sell] of transactions2) {
+  console.log(\`Buy at \${buy}, Sell at \${sell}, Profit: \${sell - buy - fee2}\`);
+}`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -9478,6 +16457,56 @@ k = 4
 explain_sliding_window(nums, k)
 \`\`\`
 
+\`\`\`typescript
+function slidingWindowExample(array: number[], k: number): number {
+  /**
+   * Find maximum sum of any contiguous subarray of size k.
+   *
+   * This demonstrates the basic sliding window technique.
+   */
+  if (!array || array.length === 0 || k > array.length) {
+    return 0;
+  }
+
+  // Initialize first window
+  let windowSum = array.slice(0, k).reduce((a, b) => a + b, 0);
+  let maxSum = windowSum;
+
+  // Slide window forward
+  for (let i = k; i < array.length; i++) {
+    // Add new element and remove first element of previous window
+    windowSum = windowSum + array[i] - array[i - k];
+    maxSum = Math.max(maxSum, windowSum);
+  }
+
+  return maxSum;
+}
+
+function explainSlidingWindow(array: number[], k: number): void {
+  /**
+   * Show how sliding window moves through array.
+   */
+  if (!array || array.length === 0 || k > array.length) {
+    return;
+  }
+
+  let windowSum = array.slice(0, k).reduce((a, b) => a + b, 0);
+  console.log(\`Initial window: \${array.slice(0, k)}, Sum: \${windowSum}\`);
+
+  for (let i = k; i < array.length; i++) {
+    const oldSum = windowSum;
+    windowSum = windowSum + array[i] - array[i - k];
+    console.log(\`Remove \${array[i - k]}, Add \${array[i]}\`);
+    console.log(\`New window: \${array.slice(i - k + 1, i + 1)}, Sum: \${windowSum}\`);
+  }
+}
+
+// Example usage
+const nums = [1, 4, 2, 10, 2, 3, 1, 0, 20];
+const k = 4;
+explainSlidingWindow(nums, k);
+\`\`\`
+
 <h4>2. Prefix Sum Technique</h4>
 
 Prefix sums are powerful for quickly computing sums of arbitrary subarrays and solving problems involving cumulative values.
@@ -9515,6 +16544,45 @@ def prefix_sum_example(array):
 # Example usage
 numbers = [1, 2, 3, 4, 5]
 prefix_sum_example(numbers)
+\`\`\`
+
+\`\`\`typescript
+function prefixSumExample(array: number[]): void {
+  /**
+   * Demonstrate prefix sum technique for efficient subarray sum queries.
+   *
+   * This shows how to use prefix sums for O(1) subarray sum queries.
+   */
+  // Calculate prefix sums
+  const prefixSums = [0];  // Include 0 for easier calculation
+  let currentSum = 0;
+  for (const num of array) {
+    currentSum += num;
+    prefixSums.push(currentSum);
+  }
+
+  function getSubarraySum(start: number, end: number): number {
+    /**
+     * Get sum of subarray from start to end (inclusive).
+     */
+    return prefixSums[end + 1] - prefixSums[start];
+  }
+
+  // Demonstrate usage
+  console.log("Array:", array);
+  console.log("Prefix sums:", prefixSums);
+
+  // Example queries
+  for (let start = 0; start < array.length; start++) {
+    for (let end = start; end < array.length; end++) {
+      console.log(\`Sum of subarray [\${start}:\${end + 1}]: \${getSubarraySum(start, end)}\`);
+    }
+  }
+}
+
+// Example usage
+const numbers = [1, 2, 3, 4, 5];
+prefixSumExample(numbers);
 \`\`\`
 
 <h4>3. Kadane's Algorithm Pattern</h4>
@@ -9578,6 +16646,74 @@ def explain_kadane_pattern(array):
 # Example usage
 array = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 explain_kadane_pattern(array)
+\`\`\`
+
+\`\`\`typescript
+function kadanePatternExample(array: number[]): [number, number, number] {
+  /**
+   * Find maximum sum subarray using Kadane's pattern.
+   *
+   * Returns: Tuple of (max_sum, start_index, end_index)
+   */
+  let maxSoFar = -Infinity;
+  let maxEndingHere = 0;
+  let start = 0;
+  let end = 0;
+  let tempStart = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    const num = array[i];
+    if (maxEndingHere <= 0) {
+      maxEndingHere = num;
+      tempStart = i;
+    } else {
+      maxEndingHere += num;
+    }
+
+    if (maxEndingHere > maxSoFar) {
+      maxSoFar = maxEndingHere;
+      start = tempStart;
+      end = i;
+    }
+  }
+
+  return [maxSoFar, start, end];
+}
+
+function explainKadanePattern(array: number[]): void {
+  /**
+   * Show how Kadane's pattern makes decisions.
+   */
+  let maxSoFar = -Infinity;
+  let maxEndingHere = 0;
+
+  console.log("Processing array:", array);
+  for (let i = 0; i < array.length; i++) {
+    const num = array[i];
+    const oldMax = maxEndingHere;
+
+    if (maxEndingHere <= 0) {
+      maxEndingHere = num;
+      console.log(\`Resetting at position \${i}\`);
+    } else {
+      maxEndingHere += num;
+      console.log(\`Extending at position \${i}\`);
+    }
+
+    console.log(\`Number: \${num}\`);
+    console.log(\`Previous max_ending_here: \${oldMax}\`);
+    console.log(\`New max_ending_here: \${maxEndingHere}\`);
+
+    if (maxEndingHere > maxSoFar) {
+      maxSoFar = maxEndingHere;
+      console.log(\`New maximum found: \${maxSoFar}\`);
+    }
+  }
+}
+
+// Example usage
+const array = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+explainKadanePattern(array);
 \`\`\`
 
 <h4>4. Two-Pointer Technique</h4>
@@ -9648,6 +16784,81 @@ target = 33
 explain_two_pointer(array, target)
 \`\`\`
 
+\`\`\`typescript
+function twoPointerExample(array: number[], targetSum: number): [number, number] | null {
+  /**
+   * Find subarray with given sum using two pointers.
+   *
+   * Args:
+   *   array: Input array of numbers (assumed positive)
+   *   targetSum: Target sum to find
+   * Returns:
+   *   Tuple of (start_index, end_index) or null if not found
+   */
+  let currentSum = array[0];
+  let start = 0;
+  let end = 0;
+
+  while (end < array.length) {
+    if (currentSum === targetSum) {
+      return [start, end];
+    }
+
+    if (currentSum < targetSum && end < array.length - 1) {
+      end += 1;
+      currentSum += array[end];
+    } else {
+      currentSum -= array[start];
+      start += 1;
+    }
+
+    if (start > end) {
+      end = start;
+      currentSum = start < array.length ? array[start] : 0;
+    }
+  }
+
+  return null;
+}
+
+function explainTwoPointer(array: number[], targetSum: number): void {
+  /**
+   * Show how two-pointer technique moves through array.
+   */
+  let currentSum = array[0];
+  let start = 0;
+  let end = 0;
+
+  console.log(\`Looking for sum: \${targetSum}\`);
+  console.log(\`Initial window: [\${start}:\${end + 1}], Sum: \${currentSum}\`);
+
+  while (end < array.length) {
+    console.log(\`Current window: \${array.slice(start, end + 1)}\`);
+    console.log(\`Current sum: \${currentSum}\`);
+
+    if (currentSum === targetSum) {
+      console.log("Found target sum!");
+      return;
+    }
+
+    if (currentSum < targetSum && end < array.length - 1) {
+      end += 1;
+      currentSum += array[end];
+      console.log(\`Expanding window right: [\${start}:\${end + 1}]\`);
+    } else {
+      currentSum -= array[start];
+      start += 1;
+      console.log(\`Shrinking window left: [\${start}:\${end + 1}]\`);
+    }
+  }
+}
+
+// Example usage
+const array2 = [1, 4, 20, 3, 10, 5];
+const target = 33;
+explainTwoPointer(array2, target);
+\`\`\`
+
 <h3>Combining Techniques</h3>
 
 Many complex subarray problems require combining these basic patterns. Here's an example that combines prefix sums with two pointers:
@@ -9692,16 +16903,67 @@ result = find_longest_subarray_with_sum(array, target)
 if result:
     start, end = result
     print(f"Longest subarray with sum {target}: {array[start:end+1]}")
+\`\`\`
+
+\`\`\`typescript
+function findLongestSubarrayWithSum(array: number[], targetSum: number): [number, number] | null {
+  /**
+   * Find longest subarray with given sum using prefix sums and two pointers.
+   *
+   * Args:
+   *   array: Input array of numbers
+   *   targetSum: Target sum to find
+   * Returns:
+   *   Tuple of (start_index, end_index) for longest such subarray
+   */
+  // Calculate prefix sums
+  const prefixSums = new Map<number, number>();
+  prefixSums.set(0, -1);  // Sum -> earliest index mapping
+  let currentSum = 0;
+  let maxLength = 0;
+  let result: [number, number] | null = null;
+
+  for (let i = 0; i < array.length; i++) {
+    const num = array[i];
+    currentSum += num;
+
+    // Look for subarray with target sum ending at current position
+    if (prefixSums.has(currentSum - targetSum)) {
+      const start = prefixSums.get(currentSum - targetSum)! + 1;
+      if (i - start + 1 > maxLength) {
+        maxLength = i - start + 1;
+        result = [start, i];
+      }
+    }
+
+    // Store earliest occurrence of current sum
+    if (!prefixSums.has(currentSum)) {
+      prefixSums.set(currentSum, i);
+    }
+  }
+
+  return result;
+}
+
+// Example usage
+const array3 = [1, -1, 5, -2, 3];
+const target3 = 3;
+const result3 = findLongestSubarrayWithSum(array3, target3);
+if (result3) {
+  const [start, end] = result3;
+  console.log(\`Longest subarray with sum \${target3}: \${array3.slice(start, end + 1)}\`);
+}
 \`\`\``,
 
   exercises: [
     {
       prompt:
         'Implement a function that finds the shortest subarray whose sum is at least k.',
-      initialCode: `def shortest_subarray_with_sum_at_least_k(array, k):
+      initialCode: {
+        python: `def shortest_subarray_with_sum_at_least_k(array, k):
     """
     Find shortest subarray with sum >= k.
-    
+
     Args:
         array: List of numbers
         k: Target minimum sum
@@ -9710,36 +16972,45 @@ if result:
     """
     # Your implementation here
     pass`,
-      solution: `def shortest_subarray_with_sum_at_least_k(array, k):
+        typescript: `function shortestSubarrayWithSumAtLeastK(array: number[], k: number): number {
+  /**
+   * Find shortest subarray with sum >= k.
+   */
+  // Your implementation here
+  return -1;
+}`,
+      },
+      solution: {
+        python: `def shortest_subarray_with_sum_at_least_k(array, k):
     """
     Find shortest subarray with sum >= k.
-    
+
     Args:
         array: List of numbers
         k: Target minimum sum
     Returns:
         Length of shortest such subarray, or -1 if none exists
-        
+
     Time Complexity: O(n)
     Space Complexity: O(1)
     """
     if not array:
         return -1
-        
+
     n = len(array)
     current_sum = 0
     min_length = float('inf')
     start = 0
-    
+
     for end in range(n):
         current_sum += array[end]
-        
+
         # Try to minimize window size while maintaining sum >= k
         while current_sum >= k and start <= end:
             min_length = min(min_length, end - start + 1)
             current_sum -= array[start]
             start += 1
-    
+
     return min_length if min_length != float('inf') else -1
 
     # Test function
@@ -9747,15 +17018,52 @@ if result:
     k = 7
     result = shortest_subarray_with_sum_at_least_k(test_array, k)
     print(f"Length of shortest subarray with sum >= {k}: {result}")`,
+        typescript: `function shortestSubarrayWithSumAtLeastK(array: number[], k: number): number {
+  /**
+   * Find shortest subarray with sum >= k.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  if (!array || array.length === 0) {
+    return -1;
+  }
+
+  const n = array.length;
+  let currentSum = 0;
+  let minLength = Infinity;
+  let start = 0;
+
+  for (let end = 0; end < n; end++) {
+    currentSum += array[end];
+
+    // Try to minimize window size while maintaining sum >= k
+    while (currentSum >= k && start <= end) {
+      minLength = Math.min(minLength, end - start + 1);
+      currentSum -= array[start];
+      start += 1;
+    }
+  }
+
+  return minLength !== Infinity ? minLength : -1;
+}
+
+// Test function
+const testArray = [2, 3, 1, 2, 4, 3];
+const kVal = 7;
+const result = shortestSubarrayWithSumAtLeastK(testArray, kVal);
+console.log(\`Length of shortest subarray with sum >= \${kVal}: \${result}\`);`,
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt:
         'Create a function that finds all subarrays with a given XOR value.',
-      initialCode: `def count_subarrays_with_xor(array, target_xor):
+      initialCode: {
+        python: `def count_subarrays_with_xor(array, target_xor):
         """
         Count subarrays with given XOR value.
-        
+
         Args:
             array: List of numbers
             target_xor: Target XOR value
@@ -9764,39 +17072,48 @@ if result:
         """
         # Your implementation here
         pass`,
-      solution: `def count_subarrays_with_xor(array, target_xor):
+        typescript: `function countSubarraysWithXor(array: number[], targetXor: number): number {
+  /**
+   * Count subarrays with given XOR value.
+   */
+  // Your implementation here
+  return 0;
+}`,
+      },
+      solution: {
+        python: `def count_subarrays_with_xor(array, target_xor):
         """
         Count subarrays with given XOR value.
-        
+
         Args:
             array: List of numbers
             target_xor: Target XOR value
         Returns:
             Number of subarrays with given XOR
-            
+
         Time Complexity: O(n)
         Space Complexity: O(n)
-        
+
         Uses prefix XOR technique similar to prefix sums.
         """
         count = 0
         current_xor = 0
         # Map to store frequency of prefix XORs
         xor_count = {0: 1}  # Empty subarray has XOR of 0
-        
+
         for num in array:
             # Update current XOR
             current_xor ^= num
-            
+
             # If current_xor ^ target_xor exists in map,
             # all subarrays ending at current position with
             # those prefixes will have XOR = target_xor
             needed_xor = current_xor ^ target_xor
             count += xor_count.get(needed_xor, 0)
-            
+
             # Update prefix XOR frequency
             xor_count[current_xor] = xor_count.get(current_xor, 0) + 1
-        
+
         return count
 
     # Test function
@@ -9810,12 +17127,12 @@ if result:
         print(f"Finding subarrays with XOR = {target_xor}")
         current_xor = 0
         xor_count = {0: 1}
-        
+
         for i, num in enumerate(array):
             old_xor = current_xor
             current_xor ^= num
             needed_xor = current_xor ^ target_xor
-            
+
             print(f"Position {i}, Number: {num}")
             print(f"Previous XOR: {old_xor}")
             print(f"Current XOR: {current_xor}")
@@ -9824,6 +17141,71 @@ if result:
 
     # Run explanation
     explain_xor_solution(test_array, target_xor)`,
+        typescript: `function countSubarraysWithXor(array: number[], targetXor: number): number {
+  /**
+   * Count subarrays with given XOR value.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(n)
+   *
+   * Uses prefix XOR technique similar to prefix sums.
+   */
+  let count = 0;
+  let currentXor = 0;
+  // Map to store frequency of prefix XORs
+  const xorCount = new Map<number, number>();
+  xorCount.set(0, 1);  // Empty subarray has XOR of 0
+
+  for (const num of array) {
+    // Update current XOR
+    currentXor ^= num;
+
+    // If current_xor ^ target_xor exists in map,
+    // all subarrays ending at current position with
+    // those prefixes will have XOR = target_xor
+    const neededXor = currentXor ^ targetXor;
+    count += xorCount.get(neededXor) || 0;
+
+    // Update prefix XOR frequency
+    xorCount.set(currentXor, (xorCount.get(currentXor) || 0) + 1);
+  }
+
+  return count;
+}
+
+// Test function
+const testArray2 = [4, 2, 2, 6, 4];
+const targetXor = 6;
+const result2 = countSubarraysWithXor(testArray2, targetXor);
+console.log(\`Number of subarrays with XOR \${targetXor}: \${result2}\`);
+
+function explainXorSolution(array: number[], targetXor: number): void {
+  /**
+   * Explain how the XOR solution works step by step.
+   */
+  console.log(\`Finding subarrays with XOR = \${targetXor}\`);
+  let currentXor = 0;
+  const xorCount = new Map<number, number>();
+  xorCount.set(0, 1);
+
+  for (let i = 0; i < array.length; i++) {
+    const num = array[i];
+    const oldXor = currentXor;
+    currentXor ^= num;
+    const neededXor = currentXor ^ targetXor;
+
+    console.log(\`Position \${i}, Number: \${num}\`);
+    console.log(\`Previous XOR: \${oldXor}\`);
+    console.log(\`Current XOR: \${currentXor}\`);
+    console.log(\`Need to find prefixes with XOR: \${neededXor}\`);
+    console.log(\`Current prefix XORs: \${JSON.stringify(Object.fromEntries(xorCount))}\`);
+  }
+}
+
+// Run explanation
+explainXorSolution(testArray2, targetXor);`,
+      },
+      difficulty: Difficulty.Advanced,
     },
   ],
 
@@ -9946,6 +17328,61 @@ rotate_left_extra_space(arr2, 2)
 print(f"After rotating 2 positions left: {arr2}")
 \`\`\`
 
+\`\`\`typescript
+function rotateRightExtraSpace(arr: number[], k: number): number[] {
+  /**
+   * Rotate array right by k positions using extra space.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(n)
+   */
+  const n = arr.length;
+  // Handle k > n case
+  k = k % n;
+
+  // Create temporary array
+  const temp = [...arr.slice(-k), ...arr.slice(0, -k)];
+
+  // Copy back to original array
+  for (let i = 0; i < n; i++) {
+    arr[i] = temp[i];
+  }
+
+  return arr;
+}
+
+function rotateLeftExtraSpace(arr: number[], k: number): number[] {
+  /**
+   * Rotate array left by k positions using extra space.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(n)
+   */
+  const n = arr.length;
+  // Handle k > n case
+  k = k % n;
+
+  // Create temporary array
+  const temp = [...arr.slice(k), ...arr.slice(0, k)];
+
+  // Copy back to original array
+  for (let i = 0; i < n; i++) {
+    arr[i] = temp[i];
+  }
+
+  return arr;
+}
+
+// Example usage
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [...arr1];
+console.log(\`Original array: \${arr1}\`);
+rotateRightExtraSpace(arr1, 2);
+console.log(\`After rotating 2 positions right: \${arr1}\`);
+rotateLeftExtraSpace(arr2, 2);
+console.log(\`After rotating 2 positions left: \${arr2}\`);
+\`\`\`
+
 <h3>Optimized Approach: Reversal Algorithm</h3>
 
 The reversal algorithm can be adapted for both left and right rotations:
@@ -10018,6 +17455,72 @@ rotate_left_reversal(arr2, 2)
 print(f"After rotating 2 positions left: {arr2}")
 \`\`\`
 
+\`\`\`typescript
+function reverseArray(arr: number[], start: number, end: number): void {
+  /**
+   * Helper function to reverse array segment.
+   */
+  while (start < end) {
+    [arr[start], arr[end]] = [arr[end], arr[start]];
+    start += 1;
+    end -= 1;
+  }
+}
+
+function rotateRightReversal(arr: number[], k: number): number[] {
+  /**
+   * Rotate array right by k positions using reversal algorithm.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  const n = arr.length;
+  k = k % n;  // Handle k > n case
+
+  // For right rotation:
+  // 1. Reverse entire array
+  // 2. Reverse first k elements
+  // 3. Reverse remaining elements
+
+  reverseArray(arr, 0, n - 1);
+  reverseArray(arr, 0, k - 1);
+  reverseArray(arr, k, n - 1);
+
+  return arr;
+}
+
+function rotateLeftReversal(arr: number[], k: number): number[] {
+  /**
+   * Rotate array left by k positions using reversal algorithm.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  const n = arr.length;
+  k = k % n;  // Handle k > n case
+
+  // For left rotation:
+  // 1. Reverse first k elements
+  // 2. Reverse remaining elements
+  // 3. Reverse entire array
+
+  reverseArray(arr, 0, k - 1);
+  reverseArray(arr, k, n - 1);
+  reverseArray(arr, 0, n - 1);
+
+  return arr;
+}
+
+// Example usage
+const arr3 = [1, 2, 3, 4, 5];
+const arr4 = [...arr3];
+console.log(\`Original array: \${arr3}\`);
+rotateRightReversal(arr3, 2);
+console.log(\`After rotating 2 positions right: \${arr3}\`);
+rotateLeftReversal(arr4, 2);
+console.log(\`After rotating 2 positions left: \${arr4}\`);
+\`\`\`
+
 <h3>Advanced Implementation: Block Rotation</h3>
 
 The block rotation method can also be adapted for left rotations:
@@ -10088,6 +17591,74 @@ rotate_left_block(arr2, 3)
 print(f"After rotating 3 positions left: {arr2}")
 \`\`\`
 
+\`\`\`typescript
+function gcd(a: number, b: number): number {
+  /**
+   * Helper function to find Greatest Common Divisor.
+   */
+  while (b) {
+    [a, b] = [b, a % b];
+  }
+  return a;
+}
+
+function rotateRightBlock(arr: number[], k: number): number[] {
+  /**
+   * Rotate array right by k positions using block rotation.
+   * Optimized for cache performance on large arrays.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  const n = arr.length;
+  k = k % n;
+  if (k === 0) {
+    return arr;
+  }
+
+  const blockSize = gcd(n, k);
+
+  for (let start = 0; start < blockSize; start++) {
+    let current = start;
+    const temp = arr[start];
+
+    while (true) {
+      const nextPos = (current + k) % n;
+      if (nextPos === start) {
+        arr[current] = temp;
+        break;
+      }
+
+      arr[current] = arr[nextPos];
+      current = nextPos;
+    }
+  }
+
+  return arr;
+}
+
+function rotateLeftBlock(arr: number[], k: number): number[] {
+  /**
+   * Rotate array left by k positions using block rotation.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  const n = arr.length;
+  // Convert left rotation by k into right rotation by n-k
+  return rotateRightBlock(arr, n - k);
+}
+
+// Example usage
+const arr5 = [1, 2, 3, 4, 5, 6, 7, 8];
+const arr6 = [...arr5];
+console.log(\`Original array: \${arr5}\`);
+rotateRightBlock(arr5, 3);
+console.log(\`After rotating 3 positions right: \${arr5}\`);
+rotateLeftBlock(arr6, 3);
+console.log(\`After rotating 3 positions left: \${arr6}\`);
+\`\`\`
+
 <h3>Understanding the Relationship Between Left and Right Rotations</h3>
 
 A key insight that emerges from these implementations is the relationship between left and right rotations:
@@ -10123,87 +17694,178 @@ Each approach has its tradeoffs:
     {
       prompt:
         'Implement a function to rotate an array left by k positions using the reversal method.',
-      initialCode: `def rotate_array_left(arr, k):
+      initialCode: {
+        python: `def rotate_array_left(arr, k):
     """
     Rotate array left by k positions using the reversal method.
-    
+
     Args:
         arr: Input array
         k: Number of positions to rotate left
     Returns:
         Rotated array
-        
+
     Example:
         Input: arr = [1, 2, 3, 4, 5], k = 2
         Output: [3, 4, 5, 1, 2]
     """
     # Your implementation here
     pass`,
-      solution: `def rotate_array_left(arr, k):
+        typescript: `function rotateArrayLeft(arr: number[], k: number): number[] {
+  /**
+   * Rotate array left by k positions using the reversal method.
+   *
+   * Example:
+   *   Input: arr = [1, 2, 3, 4, 5], k = 2
+   *   Output: [3, 4, 5, 1, 2]
+   */
+  // Your implementation here
+  return arr;
+}`,
+      },
+      solution: {
+        python: `def rotate_array_left(arr, k):
     """
     Rotate array left by k positions using the reversal method.
-    
+
     Args:
         arr: Input array
         k: Number of positions to rotate left
     Returns:
         Rotated array
-        
+
     Time Complexity: O(n)
     Space Complexity: O(1)
     """
     n = len(arr)
     k = k % n  # Handle k > n case
-    
-    # For left rotation, we can use right rotation algorithm
-    # with k = n - k
-    return rotate_array_reversal(arr, n - k)`,
+
+    def reverse(start, end):
+        while start < end:
+            arr[start], arr[end] = arr[end], arr[start]
+            start += 1
+            end -= 1
+
+    # For left rotation:
+    # 1. Reverse first k elements
+    # 2. Reverse remaining elements
+    # 3. Reverse entire array
+    reverse(0, k - 1)
+    reverse(k, n - 1)
+    reverse(0, n - 1)
+
+    return arr`,
+        typescript: `function rotateArrayLeft(arr: number[], k: number): number[] {
+  /**
+   * Rotate array left by k positions using the reversal method.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  const n = arr.length;
+  k = k % n;  // Handle k > n case
+
+  function reverse(start: number, end: number): void {
+    while (start < end) {
+      [arr[start], arr[end]] = [arr[end], arr[start]];
+      start += 1;
+      end -= 1;
+    }
+  }
+
+  // For left rotation:
+  // 1. Reverse first k elements
+  // 2. Reverse remaining elements
+  // 3. Reverse entire array
+  reverse(0, k - 1);
+  reverse(k, n - 1);
+  reverse(0, n - 1);
+
+  return arr;
+}`,
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt:
         'Implement a function that determines if one array is a rotation of another array.',
-      initialCode: `def is_rotation(arr1, arr2):
+      initialCode: {
+        python: `def is_rotation(arr1, arr2):
     """
     Check if arr2 is a rotation of arr1.
-    
+
     Args:
         arr1: First array
         arr2: Second array
     Returns:
         Boolean indicating if arr2 is a rotation of arr1
-        
+
     Example:
         Input: arr1 = [1, 2, 3, 4, 5], arr2 = [3, 4, 5, 1, 2]
         Output: True
     """
     # Your implementation here
     pass`,
-      solution: `def is_rotation(arr1, arr2):
+        typescript: `function isRotation(arr1: number[], arr2: number[]): boolean {
+  /**
+   * Check if arr2 is a rotation of arr1.
+   *
+   * Example:
+   *   Input: arr1 = [1, 2, 3, 4, 5], arr2 = [3, 4, 5, 1, 2]
+   *   Output: true
+   */
+  // Your implementation here
+  return false;
+}`,
+      },
+      solution: {
+        python: `def is_rotation(arr1, arr2):
     """
     Check if arr2 is a rotation of arr1.
-    
+
     Args:
         arr1: First array
         arr2: Second array
     Returns:
         Boolean indicating if arr2 is a rotation of arr1
-        
+
     Time Complexity: O(n)
     Space Complexity: O(n)
     """
     if len(arr1) != len(arr2):
         return False
-        
+
     # Concatenate arr1 with itself
     # Any rotation of arr1 will be a subarray of this concatenation
     temp = arr1 + arr1
-    
+
     # Convert arrays to strings for easier substring check
     s1 = ''.join(map(str, temp))
     s2 = ''.join(map(str, arr2))
-    
+
     return s2 in s1`,
+        typescript: `function isRotation(arr1: number[], arr2: number[]): boolean {
+  /**
+   * Check if arr2 is a rotation of arr1.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(n)
+   */
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+
+  // Concatenate arr1 with itself
+  // Any rotation of arr1 will be a subarray of this concatenation
+  const temp = [...arr1, ...arr1];
+
+  // Convert arrays to strings for easier substring check
+  const s1 = temp.join(',');
+  const s2 = arr2.join(',');
+
+  return s1.includes(s2);
+}`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -10317,6 +17979,47 @@ result = boyer_moore_majority(nums)
 print(f"Majority Element: {result}")  # Output: 2
 \`\`\`
 
+\`\`\`typescript
+function boyerMooreMajority(nums: number[]): number {
+  /**
+   * Find majority element using Boyer-Moore Voting Algorithm.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(1)
+   */
+  let candidate = nums[0];  // Initial candidate
+  let count = 1;            // Initialize count
+
+  // Phase 1: Finding candidate
+  for (let i = 1; i < nums.length; i++) {
+    const num = nums[i];
+    if (count === 0) {
+      // Previous pairs cancelled out - start fresh with current number
+      candidate = num;
+      count = 1;
+    } else if (num === candidate) {
+      // Found another occurrence of current candidate
+      count += 1;
+    } else {
+      // Found different number - cancel out one occurrence
+      count -= 1;
+    }
+  }
+
+  // Phase 2: Verification (optional if majority element is guaranteed)
+  const actualCount = nums.filter(num => num === candidate).length;
+  if (actualCount > Math.floor(nums.length / 2)) {
+    return candidate;
+  }
+  throw new Error("No majority element exists");
+}
+
+// Example usage
+const nums = [2, 2, 1, 2, 1, 2, 2];
+const result = boyerMooreMajority(nums);
+console.log(\`Majority Element: \${result}\`);  // Output: 2
+\`\`\`
+
 <h3>Understanding How It Works</h3>
 
 Let's break down the algorithm with a visualization:
@@ -10352,6 +18055,45 @@ def demonstrate_voting_process(nums):
 # Let's see it in action
 test_array = [2, 2, 1, 2, 1, 2, 2]
 demonstrate_voting_process(test_array)
+\`\`\`
+
+\`\`\`typescript
+function demonstrateVotingProcess(nums: number[]): void {
+  /**
+   * Show how Boyer-Moore processes each element.
+   */
+  let candidate = nums[0];
+  let count = 1;
+
+  console.log(\`Initial candidate: \${candidate}, count: \${count}\`);
+  console.log("\\nVoting process:");
+
+  for (let i = 1; i < nums.length; i++) {
+    const num = nums[i];
+    // Store old values for visualization
+    const oldCandidate = candidate;
+    const oldCount = count;
+
+    // Apply voting rules
+    if (count === 0) {
+      candidate = num;
+      count = 1;
+    } else if (num === candidate) {
+      count += 1;
+    } else {
+      count -= 1;
+    }
+
+    // Show the decision process
+    console.log(\`\\nElement: \${num}\`);
+    console.log(\`Previous state: candidate = \${oldCandidate}, count = \${oldCount}\`);
+    console.log(\`New state: candidate = \${candidate}, count = \${count}\`);
+  }
+}
+
+// Let's see it in action
+const testArray = [2, 2, 1, 2, 1, 2, 2];
+demonstrateVotingProcess(testArray);
 \`\`\`
 
 <h3>Variations and Extensions</h3>
@@ -10407,6 +18149,59 @@ def find_elements_above_third(nums):
     return result
 \`\`\`
 
+\`\`\`typescript
+function findElementsAboveThird(nums: number[]): number[] {
+  /**
+   * Find all elements that appear more than n/3 times.
+   * Note: There can be at most two such elements.
+   *
+   * This uses a modified Boyer-Moore algorithm with two counters.
+   */
+  if (!nums || nums.length === 0) {
+    return [];
+  }
+
+  // Initialize two candidates
+  let candidate1: number | null = null;
+  let candidate2: number | null = null;
+  let count1 = 0;
+  let count2 = 0;
+
+  // Phase 1: Find candidates
+  for (const num of nums) {
+    if (num === candidate1) {
+      count1 += 1;
+    } else if (num === candidate2) {
+      count2 += 1;
+    } else if (count1 === 0) {
+      candidate1 = num;
+      count1 = 1;
+    } else if (count2 === 0) {
+      candidate2 = num;
+      count2 = 1;
+    } else {
+      count1 -= 1;
+      count2 -= 1;
+    }
+  }
+
+  // Phase 2: Count actual frequencies
+  const threshold = Math.floor(nums.length / 3);
+  const actualCount1 = nums.filter(num => num === candidate1).length;
+  const actualCount2 = nums.filter(num => num === candidate2).length;
+
+  const result: number[] = [];
+  if (actualCount1 > threshold) {
+    result.push(candidate1!);
+  }
+  if (actualCount2 > threshold && candidate2 !== candidate1) {
+    result.push(candidate2!);
+  }
+
+  return result;
+}
+\`\`\`
+
 2. Finding Majority Element in Binary Array with Minimum Flips:
 \`\`\`python
 def minimum_flips_to_majority(nums):
@@ -10431,6 +18226,26 @@ def minimum_flips_to_majority(nums):
     return required_ones - current_ones
 \`\`\`
 
+\`\`\`typescript
+function minimumFlipsToMajority(nums: number[]): number {
+  /**
+   * Find minimum number of flips to make a binary array
+   * have a majority of 1s.
+   *
+   * This combines majority element concepts with optimization.
+   */
+  const n = nums.length;
+  const requiredOnes = Math.floor(n / 2) + 1;
+  const currentOnes = nums.reduce((sum, num) => sum + num, 0);
+
+  if (currentOnes >= requiredOnes) {
+    return 0;
+  }
+
+  return requiredOnes - currentOnes;
+}
+\`\`\`
+
 <h3>Common Pitfalls and Edge Cases</h3>
 
 1. Empty Arrays:
@@ -10443,8 +18258,24 @@ def safe_majority_element(nums):
         raise ValueError("Array cannot be empty")
     if len(nums) == 1:
         return nums[0]
-        
+
     return boyer_moore_majority(nums)
+\`\`\`
+
+\`\`\`typescript
+function safeMajorityElement(nums: number[]): number {
+  /**
+   * Safe implementation handling edge cases.
+   */
+  if (!nums || nums.length === 0) {
+    throw new Error("Array cannot be empty");
+  }
+  if (nums.length === 1) {
+    return nums[0];
+  }
+
+  return boyerMooreMajority(nums);
+}
 \`\`\`
 
 2. Verifying Majority Element Exists:
@@ -10455,58 +18286,89 @@ def verify_majority_exists(nums):
     """
     if not nums:
         return False
-        
+
     candidate = boyer_moore_majority(nums)
     count = sum(1 for num in nums if num == candidate)
-    
+
     return count > len(nums) // 2
+\`\`\`
+
+\`\`\`typescript
+function verifyMajorityExists(nums: number[]): boolean {
+  /**
+   * Check if majority element exists before finding it.
+   */
+  if (!nums || nums.length === 0) {
+    return false;
+  }
+
+  try {
+    const candidate = boyerMooreMajority(nums);
+    const count = nums.filter(num => num === candidate).length;
+    return count > Math.floor(nums.length / 2);
+  } catch {
+    return false;
+  }
+}
 \`\`\``,
 
   exercises: [
     {
       prompt:
         'Implement a function that finds the majority element in a sorted array in O(log n) time.',
-      initialCode: `def majority_element_sorted(nums):
+      initialCode: {
+        python: `def majority_element_sorted(nums):
     """
     Find majority element in a sorted array.
-    
+
     Args:
         nums: Sorted list of numbers
     Returns:
         The majority element
-        
+
     Must run in O(log n) time
     """
     # Your implementation here
     pass`,
-      solution: `def majority_element_sorted(nums):
+        typescript: `function majorityElementSorted(nums: number[]): number {
+  /**
+   * Find majority element in a sorted array.
+   *
+   * Must run in O(log n) time
+   */
+  // Your implementation here
+  return 0;
+}`,
+      },
+      solution: {
+        python: `def majority_element_sorted(nums):
     """
     Find majority element in a sorted array.
-    
+
     Args:
         nums: Sorted list of numbers
     Returns:
         The majority element
-        
+
     Time Complexity: O(log n)
     Space Complexity: O(1)
     """
     if not nums:
         raise ValueError("Array cannot be empty")
-    
+
     n = len(nums)
     # In a sorted array, majority element will always be at middle index
     # This is because it appears more than n/2 times
     middle = n // 2
-    
+
     # The element at middle index is our candidate
     candidate = nums[middle]
-    
+
     # Optional: Verify it's actually majority (can be skipped if guaranteed)
     # Binary search for first and last occurrence
     left = binary_search_first(nums, candidate)
     right = binary_search_last(nums, candidate)
-    
+
     if right - left + 1 > n // 2:
         return candidate
     raise ValueError("No majority element exists")
@@ -10532,15 +18394,80 @@ def binary_search_last(nums, target):
         else:
             left = mid
     return left`,
+        typescript: `function majorityElementSorted(nums: number[]): number {
+  /**
+   * Find majority element in a sorted array.
+   *
+   * Time Complexity: O(log n)
+   * Space Complexity: O(1)
+   */
+  if (!nums || nums.length === 0) {
+    throw new Error("Array cannot be empty");
+  }
+
+  const n = nums.length;
+  // In a sorted array, majority element will always be at middle index
+  // This is because it appears more than n/2 times
+  const middle = Math.floor(n / 2);
+
+  // The element at middle index is our candidate
+  const candidate = nums[middle];
+
+  // Optional: Verify it's actually majority (can be skipped if guaranteed)
+  // Binary search for first and last occurrence
+  const left = binarySearchFirst(nums, candidate);
+  const right = binarySearchLast(nums, candidate);
+
+  if (right - left + 1 > Math.floor(n / 2)) {
+    return candidate;
+  }
+  throw new Error("No majority element exists");
+}
+
+function binarySearchFirst(nums: number[], target: number): number {
+  /**
+   * Find first occurrence of target in sorted array.
+   */
+  let left = 0;
+  let right = nums.length - 1;
+  while (left < right) {
+    const mid = Math.floor((left + right) / 2);
+    if (nums[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid;
+    }
+  }
+  return left;
+}
+
+function binarySearchLast(nums: number[], target: number): number {
+  /**
+   * Find last occurrence of target in sorted array.
+   */
+  let left = 0;
+  let right = nums.length - 1;
+  while (left < right) {
+    const mid = Math.floor((left + right + 1) / 2);
+    if (nums[mid] > target) {
+      right = mid - 1;
+    } else {
+      left = mid;
+    }
+  }
+  return left;
+}`,
+      },
       difficulty: Difficulty.Advanced,
     },
     {
       prompt:
         'Implement a function that finds all elements appearing more than n/k times for any given k.',
-      initialCode: `def find_elements_above_k_fraction(nums, k):
+      initialCode: {
+        python: `def find_elements_above_k_fraction(nums, k):
     """
     Find all elements appearing more than n/k times.
-    
+
     Args:
         nums: List of numbers
         k: Integer threshold denominator
@@ -10549,25 +18476,34 @@ def binary_search_last(nums, target):
     """
     # Your implementation here
     pass`,
-      solution: `def find_elements_above_k_fraction(nums, k):
+        typescript: `function findElementsAboveKFraction(nums: number[], k: number): number[] {
+  /**
+   * Find all elements appearing more than n/k times.
+   */
+  // Your implementation here
+  return [];
+}`,
+      },
+      solution: {
+        python: `def find_elements_above_k_fraction(nums, k):
     """
     Find all elements appearing more than n/k times.
-    
+
     Args:
         nums: List of numbers
         k: Integer threshold denominator
     Returns:
         List of elements appearing more than n/k times
-        
+
     Time Complexity: O(nk)
     Space Complexity: O(k)
     """
     if not nums or k < 1:
         return []
-    
+
     # Initialize k-1 counters for candidates
     candidates = {}  # element -> count
-    
+
     # Phase 1: Find candidates using modified Boyer-Moore
     for num in nums:
         if num in candidates:
@@ -10583,17 +18519,17 @@ def binary_search_last(nums, target):
                     remove_keys.append(cand)
             for key in remove_keys:
                 del candidates[key]
-    
+
     # Phase 2: Count actual frequencies
     threshold = len(nums) // k
     result = []
-    
+
     # Reset counters for verification
     for cand in candidates:
         count = sum(1 for num in nums if num == cand)
         if count > threshold:
             result.append(cand)
-    
+
     return result
 
 # Test the function
@@ -10601,6 +18537,64 @@ test_array = [1, 1, 1, 2, 2, 3, 4]
 k = 3
 result = find_elements_above_k_fraction(test_array, k)
 print(f"Elements appearing more than n/{k} times: {result}")`,
+        typescript: `function findElementsAboveKFraction(nums: number[], k: number): number[] {
+  /**
+   * Find all elements appearing more than n/k times.
+   *
+   * Time Complexity: O(nk)
+   * Space Complexity: O(k)
+   */
+  if (!nums || nums.length === 0 || k < 1) {
+    return [];
+  }
+
+  // Initialize k-1 counters for candidates
+  const candidates = new Map<number, number>();  // element -> count
+
+  // Phase 1: Find candidates using modified Boyer-Moore
+  for (const num of nums) {
+    if (candidates.has(num)) {
+      candidates.set(num, candidates.get(num)! + 1);
+    } else if (candidates.size < k - 1) {
+      candidates.set(num, 1);
+    } else {
+      // Decrement all counters
+      const removeKeys: number[] = [];
+      for (const [cand, count] of candidates.entries()) {
+        const newCount = count - 1;
+        if (newCount === 0) {
+          removeKeys.push(cand);
+        } else {
+          candidates.set(cand, newCount);
+        }
+      }
+      for (const key of removeKeys) {
+        candidates.delete(key);
+      }
+    }
+  }
+
+  // Phase 2: Count actual frequencies
+  const threshold = Math.floor(nums.length / k);
+  const result: number[] = [];
+
+  // Reset counters for verification
+  for (const cand of candidates.keys()) {
+    const count = nums.filter(num => num === cand).length;
+    if (count > threshold) {
+      result.push(cand);
+    }
+  }
+
+  return result;
+}
+
+// Test the function
+const testArray3 = [1, 1, 1, 2, 2, 3, 4];
+const k3 = 3;
+const result3 = findElementsAboveKFraction(testArray3, k3);
+console.log(\`Elements appearing more than n/\${k3} times: \${result3}\`);`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -10733,6 +18727,66 @@ result = spiral_traverse(matrix)
 print(f"Spiral order: {result}")
 \`\`\`
 
+\`\`\`typescript
+function spiralTraverse(matrix: number[][]): number[] {
+  /**
+   * Traverse matrix in spiral order (clockwise from outer elements to center).
+   *
+   * Time Complexity: O(m*n)
+   * Space Complexity: O(1) excluding output array
+   */
+  if (!matrix || matrix.length === 0 || matrix[0].length === 0) {
+    return [];
+  }
+
+  const result: number[] = [];
+  let top = 0, bottom = matrix.length - 1;
+  let left = 0, right = matrix[0].length - 1;
+
+  while (top <= bottom && left <= right) {
+    // Traverse right
+    for (let j = left; j <= right; j++) {
+      result.push(matrix[top][j]);
+    }
+    top += 1;
+
+    // Traverse down
+    for (let i = top; i <= bottom; i++) {
+      result.push(matrix[i][right]);
+    }
+    right -= 1;
+
+    if (top <= bottom) {
+      // Traverse left
+      for (let j = right; j >= left; j--) {
+        result.push(matrix[bottom][j]);
+      }
+      bottom -= 1;
+    }
+
+    if (left <= right) {
+      // Traverse up
+      for (let i = bottom; i >= top; i--) {
+        result.push(matrix[i][left]);
+      }
+      left += 1;
+    }
+  }
+
+  return result;
+}
+
+// Example usage
+const matrix = [
+  [1,  2,  3,  4],
+  [12, 13, 14, 5],
+  [11, 16, 15, 6],
+  [10, 9,  8,  7]
+];
+const result = spiralTraverse(matrix);
+console.log(\`Spiral order: \${result}\`);
+\`\`\`
+
 2. Diagonal Traversal:
 \`\`\`python
 def diagonal_traverse(matrix):
@@ -10802,6 +18856,79 @@ for row in matrix:
 
 result = diagonal_traverse(matrix)
 print("Diagonal traversal:", result)
+\`\`\`
+
+\`\`\`typescript
+function diagonalTraverse(matrix: number[][]): number[] {
+  /**
+   * Traverse matrix diagonally from top-left to bottom-right.
+   *
+   * Time Complexity: O(m*n)
+   * Space Complexity: O(1) excluding output array
+   */
+  if (!matrix || matrix.length === 0 || matrix[0].length === 0) {
+    return [];
+  }
+
+  const m = matrix.length;
+  const n = matrix[0].length;
+  const result: number[] = [];
+  let goingUp = true;
+
+  // Start position
+  let row = 0, col = 0;
+
+  while (result.length < m * n) {
+    result.push(matrix[row][col]);
+
+    if (goingUp) {
+      if (col === n - 1) {
+        // Reached right boundary, go down
+        row += 1;
+        goingUp = false;
+      } else if (row === 0) {
+        // Reached top boundary, go right
+        col += 1;
+        goingUp = false;
+      } else {
+        // Continue going up diagonally
+        row -= 1;
+        col += 1;
+      }
+    } else {
+      if (row === m - 1) {
+        // Reached bottom boundary, go right
+        col += 1;
+        goingUp = true;
+      } else if (col === 0) {
+        // Reached left boundary, go down
+        row += 1;
+        goingUp = true;
+      } else {
+        // Continue going down diagonally
+        row += 1;
+        col -= 1;
+      }
+    }
+  }
+
+  return result;
+}
+
+// Example usage
+const matrix2 = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+
+console.log("Matrix:");
+for (const row of matrix2) {
+  console.log(row);
+}
+
+const result2 = diagonalTraverse(matrix2);
+console.log("Diagonal traversal:", result2);
 \`\`\`
 
 3. ZigZag Traversal:
@@ -10875,6 +19002,79 @@ result = zigzag_traverse(matrix)
 print("Zigzag traversal:", result)
 \`\`\`
 
+\`\`\`typescript
+function zigzagTraverse(matrix: number[][]): number[] {
+  /**
+   * Traverse matrix in zigzag order.
+   *
+   * Time Complexity: O(m*n)
+   * Space Complexity: O(1) excluding output array
+   */
+  if (!matrix || matrix.length === 0 || matrix[0].length === 0) {
+    return [];
+  }
+
+  const m = matrix.length;
+  const n = matrix[0].length;
+  const result: number[] = [];
+  let row = 0, col = 0;
+
+  // Direction flags
+  let goingDown = true;
+
+  while (result.length < m * n) {
+    result.push(matrix[row][col]);
+
+    if (goingDown) {
+      if (row === m - 1) {
+        // Reached bottom, move right and switch direction
+        col += 1;
+        goingDown = false;
+      } else if (col === 0) {
+        // Reached left boundary, move down
+        row += 1;
+        goingDown = false;
+      } else {
+        // Continue going down diagonally
+        row += 1;
+        col -= 1;
+      }
+    } else {
+      if (col === n - 1) {
+        // Reached right boundary, move down
+        row += 1;
+        goingDown = true;
+      } else if (row === 0) {
+        // Reached top boundary, move right
+        col += 1;
+        goingDown = true;
+      } else {
+        // Continue going up diagonally
+        row -= 1;
+        col += 1;
+      }
+    }
+  }
+
+  return result;
+}
+
+// Example usage
+const matrix3 = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+
+console.log("Matrix:");
+for (const row of matrix3) {
+  console.log(row);
+}
+
+const result3 = zigzagTraverse(matrix3);
+console.log("Zigzag traversal:", result3);
+\`\`\`
+
 <h3>Advanced Patterns and Applications</h3>
 
 1. Layer-by-Layer Processing:
@@ -10931,6 +19131,62 @@ for row in matrix:
     print(row)
 \`\`\`
 
+\`\`\`typescript
+function rotateMatrix(matrix: number[][]): void {
+  /**
+   * Rotate matrix 90 degrees clockwise in-place.
+   *
+   * Time Complexity: O(n²)
+   * Space Complexity: O(1)
+   */
+  const n = matrix.length;
+
+  // Process each layer
+  for (let layer = 0; layer < Math.floor(n / 2); layer++) {
+    const first = layer;
+    const last = n - 1 - layer;
+
+    for (let i = first; i < last; i++) {
+      const offset = i - first;
+
+      // Save top
+      const top = matrix[first][i];
+
+      // Move left to top
+      matrix[first][i] = matrix[last - offset][first];
+
+      // Move bottom to left
+      matrix[last - offset][first] = matrix[last][last - offset];
+
+      // Move right to bottom
+      matrix[last][last - offset] = matrix[i][last];
+
+      // Move top to right
+      matrix[i][last] = top;
+    }
+  }
+}
+
+// Example usage
+const matrix4 = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+
+console.log("Original matrix:");
+for (const row of matrix4) {
+  console.log(row);
+}
+
+rotateMatrix(matrix4);
+
+console.log("Matrix after 90-degree rotation:");
+for (const row of matrix4) {
+  console.log(row);
+}
+\`\`\`
+
 2. Boundary Traversal:
 \`\`\`python
 def boundary_traverse(matrix):
@@ -10985,6 +19241,61 @@ result = boundary_traverse(matrix)
 print("Boundary elements:", result)
 \`\`\`
 
+\`\`\`typescript
+function boundaryTraverse(matrix: number[][]): number[] {
+  /**
+   * Traverse only the boundary elements of the matrix.
+   *
+   * Time Complexity: O(m+n)
+   * Space Complexity: O(1) excluding output array
+   */
+  if (!matrix || matrix.length === 0 || matrix[0].length === 0) {
+    return [];
+  }
+
+  const m = matrix.length;
+  const n = matrix[0].length;
+  const result: number[] = [];
+
+  // Handle single row or column
+  if (m === 1) {
+    return matrix[0];
+  }
+  if (n === 1) {
+    return matrix.map(row => row[0]);
+  }
+
+  // Top row
+  result.push(...matrix[0]);
+
+  // Right column (except first and last elements)
+  for (let i = 1; i < m - 1; i++) {
+    result.push(matrix[i][n - 1]);
+  }
+
+  // Bottom row (in reverse)
+  result.push(...matrix[m - 1].slice().reverse());
+
+  // Left column (except first and last elements)
+  for (let i = m - 2; i > 0; i--) {
+    result.push(matrix[i][0]);
+  }
+
+  return result;
+}
+
+// Example usage
+const matrix5 = [
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9, 10, 11, 12],
+  [13, 14, 15, 16]
+];
+
+const result5 = boundaryTraverse(matrix5);
+console.log("Boundary elements:", result5);
+\`\`\`
+
 <h3>Common Techniques and Tips</h3>
 
 When working with matrix traversal problems, keep these techniques in mind:
@@ -11033,6 +19344,62 @@ matrix = [
 # Start exploration from the middle of the matrix
 result = explore_from_point(matrix, 1, 1)
 print("Explored elements:", result)
+\`\`\`
+
+\`\`\`typescript
+// Common direction arrays for 4-directional movement
+const directions: [number, number][] = [
+  [-1, 0],  // up
+  [0, 1],   // right
+  [1, 0],   // down
+  [0, -1]   // left
+];
+
+function isValid(row: number, col: number, matrix: number[][]): boolean {
+  /**
+   * Check if position is within matrix bounds.
+   */
+  return row >= 0 && row < matrix.length && col >= 0 && col < matrix[0].length;
+}
+
+function exploreFromPoint(matrix: number[][], startRow: number, startCol: number): number[] {
+  /**
+   * Explore matrix from a starting point.
+   */
+  const m = matrix.length;
+  const n = matrix[0].length;
+  const visited = new Set<string>();
+  const result: number[] = [];
+
+  function dfs(row: number, col: number): void {
+    const key = \`\${row},\${col}\`;
+    if (!isValid(row, col, matrix) || visited.has(key)) {
+      return;
+    }
+
+    visited.add(key);
+    result.push(matrix[row][col]);
+
+    // Try all four directions
+    for (const [dx, dy] of directions) {
+      dfs(row + dx, col + dy);
+    }
+  }
+
+  dfs(startRow, startCol);
+  return result;
+}
+
+// Example usage
+const matrix6 = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+
+// Start exploration from the middle of the matrix
+const result6 = exploreFromPoint(matrix6, 1, 1);
+console.log("Explored elements:", result6);
 \`\`\`
 
 2. Visited Matrix: Track visited positions when needed
@@ -11087,16 +19454,76 @@ result = flood_fill(matrix, 0, 0, 2)
 for row in result:
     print(row)
 
+\`\`\`
+
+\`\`\`typescript
+function floodFill(matrix: number[][], sr: number, sc: number, newColor: number): number[][] {
+  /**
+   * Fill connected region with new color.
+   */
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+  const oldColor = matrix[sr][sc];
+
+  if (oldColor === newColor) {
+    return matrix;
+  }
+
+  function isValidFill(row: number, col: number): boolean {
+    /**
+     * Check if the position is within bounds.
+     */
+    return row >= 0 && row < rows && col >= 0 && col < cols;
+  }
+
+  // Directions for moving up, down, left, and right
+  const directionsFlood: [number, number][] = [[0, 1], [1, 0], [0, -1], [-1, 0]];
+
+  function fill(row: number, col: number): void {
+    /**
+     * Recursive function to apply flood fill.
+     */
+    if (!isValidFill(row, col) || matrix[row][col] !== oldColor) {
+      return;
+    }
+
+    // Fill the current cell with the new color
+    matrix[row][col] = newColor;
+
+    // Recurse for all 4 neighbors
+    for (const [dx, dy] of directionsFlood) {
+      fill(row + dx, col + dy);
+    }
+  }
+
+  // Start the flood fill from the given starting position
+  fill(sr, sc);
+  return matrix;
+}
+
+// Example usage
+const matrix7 = [
+  [1, 1, 0, 0],
+  [1, 1, 0, 0],
+  [0, 0, 1, 1],
+  [0, 0, 1, 1]
+];
+
+const result7 = floodFill(matrix7, 0, 0, 2);
+for (const row of result7) {
+  console.log(row);
+}
 \`\`\``,
 
   exercises: [
     {
       prompt:
         'Implement a function that returns all elements of a matrix in alternating diagonal order.',
-      initialCode: `def alternating_diagonal_traverse(matrix):
+      initialCode: {
+        python: `def alternating_diagonal_traverse(matrix):
     """
     Traverse matrix diagonally, alternating direction for each diagonal.
-    
+
     Args:
         matrix: 2D list of elements
     Returns:
@@ -11104,44 +19531,53 @@ for row in result:
     """
     # Your implementation here
     pass`,
-      solution: `def alternating_diagonal_traverse(matrix):
+        typescript: `function alternatingDiagonalTraverse(matrix: number[][]): number[] {
+  /**
+   * Traverse matrix diagonally, alternating direction for each diagonal.
+   */
+  // Your implementation here
+  return [];
+}`,
+      },
+      solution: {
+        python: `def alternating_diagonal_traverse(matrix):
     """
     Traverse matrix diagonally, alternating direction for each diagonal.
-    
+
     Args:
         matrix: 2D list of elements
     Returns:
         List of elements in alternating diagonal order
-        
+
     Time Complexity: O(m*n)
     Space Complexity: O(min(m,n)) for diagonal storage
     """
     if not matrix or not matrix[0]:
         return []
-        
+
     m, n = len(matrix), len(matrix[0])
     result = []
-    
+
     # Process all diagonals starting from first row
     for d in range(m + n - 1):
         temp = []
-        
+
         # Find row and column for current diagonal
         row = 0 if d < n else d - n + 1
         col = d if d < n else n - 1
-        
+
         # Collect elements in current diagonal
         while row < m and col >= 0:
             temp.append(matrix[row][col])
             row += 1
             col -= 1
-        
+
         # Add elements in alternate order
         if d % 2 == 0:
             result.extend(temp)
         else:
             result.extend(temp[::-1])
-    
+
     return result
 
 # Test the function
@@ -11152,58 +19588,109 @@ test_matrix = [
 ]
 result = alternating_diagonal_traverse(test_matrix)
 print(f"Alternating diagonal order: {result}")`,
+        typescript: `function alternatingDiagonalTraverse(matrix: number[][]): number[] {
+  /**
+   * Traverse matrix diagonally, alternating direction for each diagonal.
+   *
+   * Time Complexity: O(m*n)
+   * Space Complexity: O(min(m,n)) for diagonal storage
+   */
+  if (!matrix || matrix.length === 0 || matrix[0].length === 0) {
+    return [];
+  }
+
+  const m = matrix.length;
+  const n = matrix[0].length;
+  const result: number[] = [];
+
+  // Process all diagonals starting from first row
+  for (let d = 0; d < m + n - 1; d++) {
+    const temp: number[] = [];
+
+    // Find row and column for current diagonal
+    let row = d < n ? 0 : d - n + 1;
+    let col = d < n ? d : n - 1;
+
+    // Collect elements in current diagonal
+    while (row < m && col >= 0) {
+      temp.push(matrix[row][col]);
+      row += 1;
+      col -= 1;
+    }
+
+    // Add elements in alternate order
+    if (d % 2 === 0) {
+      result.push(...temp);
+    } else {
+      result.push(...temp.reverse());
+    }
+  }
+
+  return result;
+}
+
+// Test the function
+const testMatrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+const resultTest = alternatingDiagonalTraverse(testMatrix);
+console.log(\`Alternating diagonal order: \${resultTest}\`);`,
+      },
       difficulty: Difficulty.Advanced,
     },
     {
       prompt:
         'Implement a function that traverses a matrix in a spiral pattern but only visits elements that satisfy a given condition.',
-      initialCode: `def conditional_spiral_traverse(matrix, condition):
+      initialCode: {
+        python: `def conditional_spiral_traverse(matrix, condition):
     """
     Traverse matrix in spiral order, including only elements that satisfy condition.
-    
+
     Args:
         matrix: 2D list of elements
         condition: Function that takes element and returns boolean
     Returns:
         List of elements in spiral order that satisfy condition
-        
+
     Time Complexity: O(m*n)
     Space Complexity: O(1) excluding output array
     """
     if not matrix or not matrix[0]:
         return []
-        
+
     result = []
     top, bottom = 0, len(matrix) - 1
     left, right = 0, len(matrix[0]) - 1
-    
+
     while top <= bottom and left <= right:
         # Traverse right, checking condition
         for j in range(left, right + 1):
             if condition(matrix[top][j]):
                 result.append(matrix[top][j])
         top += 1
-        
+
         # Traverse down, checking condition
         for i in range(top, bottom + 1):
             if condition(matrix[i][right]):
                 result.append(matrix[i][right])
         right -= 1
-        
+
         if top <= bottom:
             # Traverse left, checking condition
             for j in range(right, left - 1, -1):
                 if condition(matrix[bottom][j]):
                     result.append(matrix[bottom][j])
             bottom -= 1
-        
+
         if left <= right:
             # Traverse up, checking condition
             for i in range(bottom, top - 1, -1):
                 if condition(matrix[i][left]):
                     result.append(matrix[i][left])
             left += 1
-    
+
     return result
 
 # Test the function
@@ -11215,8 +19702,79 @@ test_matrix = [
 # Example condition: only include even numbers
 result = conditional_spiral_traverse(test_matrix, lambda x: x % 2 == 0)
 print(f"Spiral order of even numbers: {result}")`,
+        typescript: `function conditionalSpiralTraverse(matrix: number[][], condition: (x: number) => boolean): number[] {
+  /**
+   * Traverse matrix in spiral order, including only elements that satisfy condition.
+   *
+   * @param matrix - 2D array of numbers
+   * @param condition - Function that takes element and returns boolean
+   * @returns Array of elements in spiral order that satisfy condition
+   *
+   * Time Complexity: O(m*n)
+   * Space Complexity: O(1) excluding output array
+   */
+  if (!matrix || matrix.length === 0 || matrix[0].length === 0) {
+    return [];
+  }
+
+  const result: number[] = [];
+  let top = 0, bottom = matrix.length - 1;
+  let left = 0, right = matrix[0].length - 1;
+
+  while (top <= bottom && left <= right) {
+    // Traverse right, checking condition
+    for (let j = left; j <= right; j++) {
+      if (condition(matrix[top][j])) {
+        result.push(matrix[top][j]);
+      }
+    }
+    top += 1;
+
+    // Traverse down, checking condition
+    for (let i = top; i <= bottom; i++) {
+      if (condition(matrix[i][right])) {
+        result.push(matrix[i][right]);
+      }
+    }
+    right -= 1;
+
+    if (top <= bottom) {
+      // Traverse left, checking condition
+      for (let j = right; j >= left; j--) {
+        if (condition(matrix[bottom][j])) {
+          result.push(matrix[bottom][j]);
+        }
+      }
+      bottom -= 1;
+    }
+
+    if (left <= right) {
+      // Traverse up, checking condition
+      for (let i = bottom; i >= top; i--) {
+        if (condition(matrix[i][left])) {
+          result.push(matrix[i][left]);
+        }
+      }
+      left += 1;
+    }
+  }
+
+  return result;
+}
+
+// Test the function
+const testMatrix: number[][] = [
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9, 10, 11, 12]
+];
+// Example condition: only include even numbers
+const result = conditionalSpiralTraverse(testMatrix, (x: number) => x % 2 === 0);
+console.log(\`Spiral order of even numbers: \${result}\`);`,
+      },
       difficulty: Difficulty.Advanced,
-      solution: `def conditional_spiral_traverse(matrix, condition):
+      solution: {
+        python: `def conditional_spiral_traverse(matrix, condition):
     """
     Traverse matrix in spiral order, only including elements that satisfy the given condition.
     
@@ -11292,6 +19850,95 @@ def demonstrate():
     print("Numbers greater than 5 in spiral order:", greater_than_five)
 
 demonstrate()`,
+        typescript: `function conditionalSpiralTraverse(matrix: number[][], condition: (x: number) => boolean): number[] {
+  /**
+   * Traverse matrix in spiral order, only including elements that satisfy the given condition.
+   *
+   * @param matrix - 2D array of numbers
+   * @param condition - Function that takes an element and returns boolean
+   *
+   * @returns Array of elements in spiral order that meet the condition
+   *
+   * @example
+   * matrix = [[1,2,3],
+   *          [4,5,6],
+   *          [7,8,9]]
+   * condition = (x: number) => x % 2 === 0  // Only even numbers
+   * Result: [2, 6, 8, 4]
+   *
+   * Time Complexity: O(m * n) where m and n are matrix dimensions
+   * Space Complexity: O(1) excluding the result array
+   */
+  if (!matrix || matrix.length === 0 || matrix[0].length === 0) {
+    return [];
+  }
+
+  // Initialize our boundaries
+  let top = 0, bottom = matrix.length - 1;
+  let left = 0, right = matrix[0].length - 1;
+  const result: number[] = [];
+
+  while (top <= bottom && left <= right) {
+    // Traverse right
+    for (let j = left; j <= right; j++) {
+      if (condition(matrix[top][j])) {
+        result.push(matrix[top][j]);
+      }
+    }
+    top += 1;
+
+    // Traverse down
+    for (let i = top; i <= bottom; i++) {
+      if (condition(matrix[i][right])) {
+        result.push(matrix[i][right]);
+      }
+    }
+    right -= 1;
+
+    // Traverse left, if there are still rows to traverse
+    if (top <= bottom) {
+      for (let j = right; j >= left; j--) {
+        if (condition(matrix[bottom][j])) {
+          result.push(matrix[bottom][j]);
+        }
+      }
+      bottom -= 1;
+    }
+
+    // Traverse up, if there are still columns to traverse
+    if (left <= right) {
+      for (let i = bottom; i >= top; i--) {
+        if (condition(matrix[i][left])) {
+          result.push(matrix[i][left]);
+        }
+      }
+      left += 1;
+    }
+  }
+
+  return result;
+}
+
+// Example usage to demonstrate the function
+function demonstrate(): void {
+  // Example matrix
+  const matrix: number[][] = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+  ];
+
+  // Example condition: only include even numbers
+  const evenNumbers = conditionalSpiralTraverse(matrix, (x: number) => x % 2 === 0);
+  console.log("Even numbers in spiral order:", evenNumbers);
+
+  // Example condition: only include numbers greater than 5
+  const greaterThanFive = conditionalSpiralTraverse(matrix, (x: number) => x > 5);
+  console.log("Numbers greater than 5 in spiral order:", greaterThanFive);
+}
+
+demonstrate();`,
+      },
     },
   ],
   quizzes: [
@@ -11369,27 +20016,27 @@ Let's start with transposition, one of the most fundamental matrix transformatio
 def transpose_matrix(matrix):
     """
     Transpose a matrix by flipping it over its main diagonal.
-    
+
     Args:
         matrix: 2D list representing the input matrix
     Returns:
         New matrix with rows and columns swapped
-        
+
     Time Complexity: O(m * n) where m and n are the dimensions
     Space Complexity: O(m * n) for the new matrix
     """
     if not matrix or not matrix[0]:
         return []
-        
+
     rows, cols = len(matrix), len(matrix[0])
     # Create a new matrix with swapped dimensions
     result = [[0 for _ in range(rows)] for _ in range(cols)]
-    
+
     # The key insight: element at [i][j] moves to [j][i]
     for i in range(rows):
         for j in range(cols):
             result[j][i] = matrix[i][j]
-            
+
     return result
 
 # Let's see how elements move during transposition
@@ -11398,7 +20045,7 @@ def visualize_transposition(matrix):
     print("Original Matrix:")
     for row in matrix:
         print(row)
-    
+
     transposed = transpose_matrix(matrix)
     print("Transposed Matrix:")
     for row in transposed:
@@ -11413,6 +20060,62 @@ test_matrix = [
 visualize_transposition(test_matrix)
 \`\`\`
 
+\`\`\`typescript
+function transposeMatrix(matrix: number[][]): number[][] {
+  /**
+   * Transpose a matrix by flipping it over its main diagonal.
+   *
+   * @param matrix - 2D array representing the input matrix
+   * @returns New matrix with rows and columns swapped
+   *
+   * Time Complexity: O(m * n) where m and n are the dimensions
+   * Space Complexity: O(m * n) for the new matrix
+   */
+  if (!matrix || matrix.length === 0 || matrix[0].length === 0) {
+    return [];
+  }
+
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+  // Create a new matrix with swapped dimensions
+  const result: number[][] = Array.from({ length: cols }, () => new Array(rows).fill(0));
+
+  // The key insight: element at [i][j] moves to [j][i]
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      result[j][i] = matrix[i][j];
+    }
+  }
+
+  return result;
+}
+
+// Let's see how elements move during transposition
+function visualizeTransposition(matrix: number[][]): void {
+  /**
+   * Helper function to show the movement of elements.
+   */
+  console.log("Original Matrix:");
+  for (const row of matrix) {
+    console.log(row);
+  }
+
+  const transposed = transposeMatrix(matrix);
+  console.log("Transposed Matrix:");
+  for (const row of transposed) {
+    console.log(row);
+  }
+}
+
+// Example usage
+const testMatrix: number[][] = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+visualizeTransposition(testMatrix);
+\`\`\`
+
 <h3>2. Matrix Rotation</h3>
 
 Rotation is a more complex transformation that can be approached in several ways. Let's implement both 90-degree clockwise and counter-clockwise rotations, understanding how elements move in each case.
@@ -11421,25 +20124,25 @@ Rotation is a more complex transformation that can be approached in several ways
 def rotate_matrix_90_clockwise(matrix):
     """
     Rotate a matrix 90 degrees clockwise in-place.
-    
+
     Args:
         matrix: Square 2D list (modified in-place)
-    
+
     Time Complexity: O(n²) where n is the matrix dimension
     Space Complexity: O(1) as we modify in-place
-    
+
     The transformation follows these steps:
     1. Transpose the matrix (flip over main diagonal)
     2. Reverse each row
     """
     n = len(matrix)
-    
+
     # Step 1: Transpose
     for i in range(n):
         for j in range(i, n):
             # Swap elements across diagonal
             matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
-    
+
     # Step 2: Reverse each row
     for i in range(n):
         left, right = 0, n - 1
@@ -11447,30 +20150,30 @@ def rotate_matrix_90_clockwise(matrix):
             matrix[i][left], matrix[i][right] = matrix[i][right], matrix[i][left]
             left += 1
             right -= 1
-    
+
     return matrix
 
 def rotate_matrix_90_counterclockwise(matrix):
     """
     Rotate a matrix 90 degrees counter-clockwise in-place.
-    
+
     Args:
         matrix: Square 2D list (modified in-place)
-    
+
     Time Complexity: O(n²)
     Space Complexity: O(1)
-    
+
     The transformation follows these steps:
     1. Transpose the matrix
     2. Reverse each column
     """
     n = len(matrix)
-    
+
     # Step 1: Transpose
     for i in range(n):
         for j in range(i, n):
             matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
-    
+
     # Step 2: Reverse each column
     for j in range(n):
         top, bottom = 0, n - 1
@@ -11478,7 +20181,7 @@ def rotate_matrix_90_counterclockwise(matrix):
             matrix[top][j], matrix[bottom][j] = matrix[bottom][j], matrix[top][j]
             top += 1
             bottom -= 1
-    
+
     return matrix
 # Example usage for rotate_matrix_90_clockwise
 matrix = [
@@ -11494,6 +20197,92 @@ for row in matrix:
 
 \`\`\`
 
+\`\`\`typescript
+function rotateMatrix90Clockwise(matrix: number[][]): number[][] {
+  /**
+   * Rotate a matrix 90 degrees clockwise in-place.
+   *
+   * @param matrix - Square 2D array (modified in-place)
+   *
+   * Time Complexity: O(n²) where n is the matrix dimension
+   * Space Complexity: O(1) as we modify in-place
+   *
+   * The transformation follows these steps:
+   * 1. Transpose the matrix (flip over main diagonal)
+   * 2. Reverse each row
+   */
+  const n = matrix.length;
+
+  // Step 1: Transpose
+  for (let i = 0; i < n; i++) {
+    for (let j = i; j < n; j++) {
+      // Swap elements across diagonal
+      [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
+    }
+  }
+
+  // Step 2: Reverse each row
+  for (let i = 0; i < n; i++) {
+    let left = 0, right = n - 1;
+    while (left < right) {
+      [matrix[i][left], matrix[i][right]] = [matrix[i][right], matrix[i][left]];
+      left += 1;
+      right -= 1;
+    }
+  }
+
+  return matrix;
+}
+
+function rotateMatrix90Counterclockwise(matrix: number[][]): number[][] {
+  /**
+   * Rotate a matrix 90 degrees counter-clockwise in-place.
+   *
+   * @param matrix - Square 2D array (modified in-place)
+   *
+   * Time Complexity: O(n²)
+   * Space Complexity: O(1)
+   *
+   * The transformation follows these steps:
+   * 1. Transpose the matrix
+   * 2. Reverse each column
+   */
+  const n = matrix.length;
+
+  // Step 1: Transpose
+  for (let i = 0; i < n; i++) {
+    for (let j = i; j < n; j++) {
+      [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
+    }
+  }
+
+  // Step 2: Reverse each column
+  for (let j = 0; j < n; j++) {
+    let top = 0, bottom = n - 1;
+    while (top < bottom) {
+      [matrix[top][j], matrix[bottom][j]] = [matrix[bottom][j], matrix[top][j]];
+      top += 1;
+      bottom -= 1;
+    }
+  }
+
+  return matrix;
+}
+
+// Example usage for rotateMatrix90Clockwise
+const matrix: number[][] = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+rotateMatrix90Clockwise(matrix);
+
+console.log("Matrix after 90-degree clockwise rotation:");
+for (const row of matrix) {
+  console.log(row);
+}
+\`\`\`
+
 <h3>3. Matrix Reflection</h3>
 
 Reflection involves flipping the matrix either horizontally or vertically, creating a mirror image of the original matrix.
@@ -11502,35 +20291,35 @@ Reflection involves flipping the matrix either horizontally or vertically, creat
 def reflect_horizontal(matrix):
     """
     Reflect matrix horizontally (flip over horizontal middle line).
-    
+
     Args:
         matrix: 2D list to be reflected
     Returns:
         Matrix reflected horizontally
-        
+
     Time Complexity: O(m * n)
     Space Complexity: O(1) as we modify in-place
     """
     rows = len(matrix)
     top, bottom = 0, rows - 1
-    
+
     while top < bottom:
         # Swap entire rows
         matrix[top], matrix[bottom] = matrix[bottom], matrix[top]
         top += 1
         bottom -= 1
-    
+
     return matrix
 
 def reflect_vertical(matrix):
     """
     Reflect matrix vertically (flip over vertical middle line).
-    
+
     Args:
         matrix: 2D list to be reflected
     Returns:
         Matrix reflected vertically
-        
+
     Time Complexity: O(m * n)
     Space Complexity: O(1) as we modify in-place
     """
@@ -11541,7 +20330,7 @@ def reflect_vertical(matrix):
             row[left], row[right] = row[right], row[left]
             left += 1
             right -= 1
-    
+
     return matrix
 # Example usage for reflect_horizontal
 matrix = [
@@ -11556,6 +20345,67 @@ for row in matrix:
     print(row)
 \`\`\`
 
+\`\`\`typescript
+function reflectHorizontal(matrix: number[][]): number[][] {
+  /**
+   * Reflect matrix horizontally (flip over horizontal middle line).
+   *
+   * @param matrix - 2D array to be reflected
+   * @returns Matrix reflected horizontally
+   *
+   * Time Complexity: O(m * n)
+   * Space Complexity: O(1) as we modify in-place
+   */
+  const rows = matrix.length;
+  let top = 0, bottom = rows - 1;
+
+  while (top < bottom) {
+    // Swap entire rows
+    [matrix[top], matrix[bottom]] = [matrix[bottom], matrix[top]];
+    top += 1;
+    bottom -= 1;
+  }
+
+  return matrix;
+}
+
+function reflectVertical(matrix: number[][]): number[][] {
+  /**
+   * Reflect matrix vertically (flip over vertical middle line).
+   *
+   * @param matrix - 2D array to be reflected
+   * @returns Matrix reflected vertically
+   *
+   * Time Complexity: O(m * n)
+   * Space Complexity: O(1) as we modify in-place
+   */
+  for (const row of matrix) {
+    let left = 0, right = row.length - 1;
+    while (left < right) {
+      // Swap elements within each row
+      [row[left], row[right]] = [row[right], row[left]];
+      left += 1;
+      right -= 1;
+    }
+  }
+
+  return matrix;
+}
+
+// Example usage for reflectHorizontal
+const matrix: number[][] = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+reflectHorizontal(matrix);
+
+console.log("Matrix after horizontal reflection:");
+for (const row of matrix) {
+  console.log(row);
+}
+\`\`\`
+
 <h3>4. Advanced Transformations</h3>
 
 Now let's look at some more complex transformations that combine basic operations or apply specific patterns.
@@ -11564,73 +20414,73 @@ Now let's look at some more complex transformations that combine basic operation
 def rotate_layer(matrix, layer):
     """
     Rotate a specific layer of the matrix clockwise.
-    
+
     Args:
         matrix: 2D list to be modified
         layer: Layer number from outside (0) to inside
-        
+
     Time Complexity: O(n) where n is the matrix dimension
     Space Complexity: O(1)
     """
     n = len(matrix)
     first, last = layer, n - 1 - layer
-    
+
     for i in range(first, last):
         offset = i - first
         top = matrix[first][i]
-        
+
         # Move left to top
         matrix[first][i] = matrix[last-offset][first]
-        
+
         # Move bottom to left
         matrix[last-offset][first] = matrix[last][last-offset]
-        
+
         # Move right to bottom
         matrix[last][last-offset] = matrix[i][last]
-        
+
         # Move top to right
         matrix[i][last] = top
 
 def scale_matrix(matrix, factor):
     """
     Scale all elements in the matrix by a given factor.
-    
+
     Args:
         matrix: 2D list to be scaled
         factor: Number to multiply each element by
-        
+
     Time Complexity: O(m * n)
     Space Complexity: O(1)
     """
     rows, cols = len(matrix), len(matrix[0])
-    
+
     for i in range(rows):
         for j in range(cols):
             matrix[i][j] *= factor
-    
+
     return matrix
 
 def apply_kernel(matrix, kernel):
     """
     Apply a convolution kernel to the matrix (used in image processing).
-    
+
     Args:
         matrix: 2D list representing the input matrix
         kernel: 2D list representing the convolution kernel
-        
+
     Time Complexity: O((m * n) * (k * k)) where k is kernel size
     Space Complexity: O(m * n) for the result matrix
     """
     rows, cols = len(matrix), len(matrix[0])
     k_rows, k_cols = len(kernel), len(kernel[0])
-    
+
     # Calculate padding needed
     pad_r = k_rows // 2
     pad_c = k_cols // 2
-    
+
     # Create result matrix
     result = [[0 for _ in range(cols)] for _ in range(rows)]
-    
+
     # Apply convolution
     for i in range(rows):
         for j in range(cols):
@@ -11640,7 +20490,7 @@ def apply_kernel(matrix, kernel):
                     if 0 <= i + ki < rows and 0 <= j + kj < cols:
                         sum_val += matrix[i + ki][j + kj] * kernel[ki + pad_r][kj + pad_c]
             result[i][j] = sum_val
-    
+
     return result
 # Example usage for rotate_layer
 matrix = [
@@ -11656,6 +20506,116 @@ for row in matrix:
     print(row)
 \`\`\`
 
+\`\`\`typescript
+function rotateLayer(matrix: number[][], layer: number): void {
+  /**
+   * Rotate a specific layer of the matrix clockwise.
+   *
+   * @param matrix - 2D array to be modified
+   * @param layer - Layer number from outside (0) to inside
+   *
+   * Time Complexity: O(n) where n is the matrix dimension
+   * Space Complexity: O(1)
+   */
+  const n = matrix.length;
+  const first = layer;
+  const last = n - 1 - layer;
+
+  for (let i = first; i < last; i++) {
+    const offset = i - first;
+    const top = matrix[first][i];
+
+    // Move left to top
+    matrix[first][i] = matrix[last - offset][first];
+
+    // Move bottom to left
+    matrix[last - offset][first] = matrix[last][last - offset];
+
+    // Move right to bottom
+    matrix[last][last - offset] = matrix[i][last];
+
+    // Move top to right
+    matrix[i][last] = top;
+  }
+}
+
+function scaleMatrix(matrix: number[][], factor: number): number[][] {
+  /**
+   * Scale all elements in the matrix by a given factor.
+   *
+   * @param matrix - 2D array to be scaled
+   * @param factor - Number to multiply each element by
+   *
+   * Time Complexity: O(m * n)
+   * Space Complexity: O(1)
+   */
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      matrix[i][j] *= factor;
+    }
+  }
+
+  return matrix;
+}
+
+function applyKernel(matrix: number[][], kernel: number[][]): number[][] {
+  /**
+   * Apply a convolution kernel to the matrix (used in image processing).
+   *
+   * @param matrix - 2D array representing the input matrix
+   * @param kernel - 2D array representing the convolution kernel
+   *
+   * Time Complexity: O((m * n) * (k * k)) where k is kernel size
+   * Space Complexity: O(m * n) for the result matrix
+   */
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+  const kRows = kernel.length;
+  const kCols = kernel[0].length;
+
+  // Calculate padding needed
+  const padR = Math.floor(kRows / 2);
+  const padC = Math.floor(kCols / 2);
+
+  // Create result matrix
+  const result: number[][] = Array.from({ length: rows }, () => new Array(cols).fill(0));
+
+  // Apply convolution
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      let sumVal = 0;
+      for (let ki = -padR; ki <= padR; ki++) {
+        for (let kj = -padC; kj <= padC; kj++) {
+          if (i + ki >= 0 && i + ki < rows && j + kj >= 0 && j + kj < cols) {
+            sumVal += matrix[i + ki][j + kj] * kernel[ki + padR][kj + padC];
+          }
+        }
+      }
+      result[i][j] = sumVal;
+    }
+  }
+
+  return result;
+}
+
+// Example usage for rotateLayer
+const matrix: number[][] = [
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9, 10, 11, 12],
+  [13, 14, 15, 16]
+];
+rotateLayer(matrix, 0);
+
+console.log("Matrix after rotating outer layer:");
+for (const row of matrix) {
+  console.log(row);
+}
+\`\`\`
+
 <h3>Understanding Matrix Transformations Through Examples</h3>
 
 Let's explore how these transformations affect a simple matrix:
@@ -11668,26 +20628,26 @@ def demonstrate_transformations():
         [4, 5, 6],
         [7, 8, 9]
     ]
-    
+
     print("Original Matrix:")
     for row in matrix:
         print(row)
-    
+
     # Make a copy for each transformation
     rotated = [row[:] for row in matrix]
     reflected_h = [row[:] for row in matrix]
     reflected_v = [row[:] for row in matrix]
-    
+
     print("After 90° Clockwise Rotation:")
     rotate_matrix_90_clockwise(rotated)
     for row in rotated:
         print(row)
-        
+
     print("After Horizontal Reflection:")
     reflect_horizontal(reflected_h)
     for row in reflected_h:
         print(row)
-        
+
     print("After Vertical Reflection:")
     reflect_vertical(reflected_v)
     for row in reflected_v:
@@ -11695,16 +20655,61 @@ def demonstrate_transformations():
 
 # Run the demonstration
 demonstrate_transformations()
+\`\`\`
+
+\`\`\`typescript
+function demonstrateTransformations(): void {
+  /**
+   * Show the effects of different transformations on a sample matrix.
+   */
+  const matrix: number[][] = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+  ];
+
+  console.log("Original Matrix:");
+  for (const row of matrix) {
+    console.log(row);
+  }
+
+  // Make a copy for each transformation
+  const rotated = matrix.map(row => [...row]);
+  const reflectedH = matrix.map(row => [...row]);
+  const reflectedV = matrix.map(row => [...row]);
+
+  console.log("After 90° Clockwise Rotation:");
+  rotateMatrix90Clockwise(rotated);
+  for (const row of rotated) {
+    console.log(row);
+  }
+
+  console.log("After Horizontal Reflection:");
+  reflectHorizontal(reflectedH);
+  for (const row of reflectedH) {
+    console.log(row);
+  }
+
+  console.log("After Vertical Reflection:");
+  reflectVertical(reflectedV);
+  for (const row of reflectedV) {
+    console.log(row);
+  }
+}
+
+// Run the demonstration
+demonstrateTransformations();
 \`\`\``,
 
   exercises: [
     {
       prompt:
         'Implement a function that rotates a matrix by any multiple of 90 degrees.',
-      initialCode: `def rotate_matrix_by_degrees(matrix, degrees):
+      initialCode: {
+        python: `def rotate_matrix_by_degrees(matrix, degrees):
     """
     Rotate a matrix by specified degrees (must be multiple of 90).
-    
+
     Args:
         matrix: Square 2D list
         degrees: Rotation angle in degrees (must be multiple of 90)
@@ -11713,7 +20718,20 @@ demonstrate_transformations()
     """
     # Your implementation here
     pass`,
-      solution: `def rotate_matrix_by_degrees(matrix, degrees):
+        typescript: `function rotateMatrixByDegrees(matrix: number[][], degrees: number): number[][] {
+  /**
+   * Rotate a matrix by specified degrees (must be multiple of 90).
+   *
+   * @param matrix - Square 2D array
+   * @param degrees - Rotation angle in degrees (must be multiple of 90)
+   * @returns Rotated matrix
+   */
+  // Your implementation here
+  return matrix;
+}`,
+      },
+      solution: {
+        python: `def rotate_matrix_by_degrees(matrix, degrees):
     """
     Rotate a matrix by specified degrees (must be multiple of 90).
     
@@ -11752,15 +20770,58 @@ result = rotate_matrix_by_degrees([row[:] for row in test_matrix], degrees)
 print(f"Matrix rotated by {degrees} degrees:")
 for row in result:
     print(row)`,
+        typescript: `function rotateMatrixByDegrees(matrix: number[][], degrees: number): number[][] {
+  /**
+   * Rotate a matrix by specified degrees (must be multiple of 90).
+   *
+   * @param matrix - Square 2D array
+   * @param degrees - Rotation angle in degrees (must be multiple of 90)
+   * @returns Rotated matrix
+   *
+   * Time Complexity: O(n² * k) where k is number of 90° rotations
+   * Space Complexity: O(1) as we modify in-place
+   */
+  if (!matrix || matrix.length === 0 || degrees % 90 !== 0) {
+    throw new Error("Invalid input: degrees must be multiple of 90");
+  }
+
+  // Normalize degrees to 0-360 range
+  const normalizedDegrees = degrees % 360;
+
+  // Calculate number of 90° rotations needed
+  const rotations = Math.floor(normalizedDegrees / 90) % 4;
+
+  // Apply rotations
+  for (let i = 0; i < rotations; i++) {
+    rotateMatrix90Clockwise(matrix);
+  }
+
+  return matrix;
+}
+
+// Test the function
+const testMatrix: number[][] = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+const degrees = 270;
+const result = rotateMatrixByDegrees(testMatrix.map(row => [...row]), degrees);
+console.log(\`Matrix rotated by \${degrees} degrees:\`);
+for (const row of result) {
+  console.log(row);
+}`,
+      },
       difficulty: Difficulty.Advanced,
     },
     {
       prompt:
         'Implement a function that performs a diagonal flip followed by a rotation.',
-      initialCode: `def diagonal_flip_and_rotate(matrix, clockwise=True):
+      initialCode: {
+        python: `def diagonal_flip_and_rotate(matrix, clockwise=True):
     """
     Flip matrix over its main diagonal and then rotate.
-    
+
     Args:
         matrix: Square 2D list
         clockwise: If True, rotate clockwise; otherwise counter-clockwise
@@ -11769,7 +20830,20 @@ for row in result:
     """
     # Your implementation here
     pass`,
-      solution: `def diagonal_flip_and_rotate(matrix, clockwise=True):
+        typescript: `function diagonalFlipAndRotate(matrix: number[][], clockwise: boolean = true): number[][] {
+  /**
+   * Flip matrix over its main diagonal and then rotate.
+   *
+   * @param matrix - Square 2D array
+   * @param clockwise - If true, rotate clockwise; otherwise counter-clockwise
+   * @returns Transformed matrix
+   */
+  // Your implementation here
+  return matrix;
+}`,
+      },
+      solution: {
+        python: `def diagonal_flip_and_rotate(matrix, clockwise=True):
     """
     Flip matrix over its main diagonal and then rotate.
     
@@ -11826,6 +20900,73 @@ result = diagonal_flip_and_rotate([row[:] for row in test_matrix], clockwise=Tru
 print("After diagonal flip and clockwise rotation:")
 for row in result:
     print(row)`,
+        typescript: `function diagonalFlipAndRotate(matrix: number[][], clockwise: boolean = true): number[][] {
+  /**
+   * Flip matrix over its main diagonal and then rotate.
+   *
+   * @param matrix - Square 2D array
+   * @param clockwise - If true, rotate clockwise; otherwise counter-clockwise
+   * @returns Transformed matrix
+   *
+   * Time Complexity: O(n²)
+   * Space Complexity: O(1)
+   */
+  if (!matrix || matrix.length === 0 || matrix.length !== matrix[0].length) {
+    throw new Error("Matrix must be square");
+  }
+
+  const n = matrix.length;
+
+  // Step 1: Flip over main diagonal (transpose)
+  for (let i = 0; i < n; i++) {
+    for (let j = i; j < n; j++) {
+      [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
+    }
+  }
+
+  // Step 2: Rotate in specified direction
+  if (clockwise) {
+    // For clockwise: reverse rows
+    for (let i = 0; i < n; i++) {
+      let left = 0, right = n - 1;
+      while (left < right) {
+        [matrix[i][left], matrix[i][right]] = [matrix[i][right], matrix[i][left]];
+        left += 1;
+        right -= 1;
+      }
+    }
+  } else {
+    // For counter-clockwise: reverse columns
+    for (let j = 0; j < n; j++) {
+      let top = 0, bottom = n - 1;
+      while (top < bottom) {
+        [matrix[top][j], matrix[bottom][j]] = [matrix[bottom][j], matrix[top][j]];
+        top += 1;
+        bottom -= 1;
+      }
+    }
+  }
+
+  return matrix;
+}
+
+// Test the function
+const testMatrix: number[][] = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+console.log("Original Matrix:");
+for (const row of testMatrix) {
+  console.log(row);
+}
+
+const result = diagonalFlipAndRotate(testMatrix.map(row => [...row]), true);
+console.log("After diagonal flip and clockwise rotation:");
+for (const row of result) {
+  console.log(row);
+}`,
+      },
       difficulty: Difficulty.Advanced,
     },
   ],

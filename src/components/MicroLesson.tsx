@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useReducer } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { LessonContent, LessonsTab, Section } from '@/common/commonLesson';
+import { getCodeForLanguage } from '@/common/commonLanguage';
+import { useUserProgress } from '@/hooks/useUserProgress';
 import Header from './CurriculumHeader';
 import LessonsSidebar from './LessonsSidebar';
 import MainContent from './MainContent';
@@ -17,6 +19,9 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
   isCompleted,
 }) => {
   const { curriculum, lessons } = (lessonsTab || {}) as LessonsTab;
+  const { progress } = useUserProgress();
+  const language = progress.preferences.language || 'python';
+
   const [expandedSections, setExpandedSections] = useState<
     Record<string, boolean>
   >({});
@@ -36,7 +41,7 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
 
   const initialState = {
     userCode:
-      selectedLesson?.exercises?.map((exercise) => exercise.initialCode) || [],
+      selectedLesson?.exercises?.map((exercise) => getCodeForLanguage(exercise.initialCode, language)) || [],
     quizAnswers: new Array(selectedLesson?.quizzes?.length || 0).fill(null),
     showSolution: new Array(selectedLesson?.exercises?.length || 0).fill(false),
     isAnswerCorrect: new Array(selectedLesson?.quizzes?.length || 0).fill(null),
@@ -77,14 +82,22 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
 
   useEffect(() => {
     if (selectedLesson?.exercises) {
+      // Reset exercises when language changes
+      const newCode = selectedLesson.exercises.map(
+        (exercise) => getCodeForLanguage(exercise.initialCode, language)
+      );
       dispatch({
         type: 'SET_USER_CODE',
-        payload: selectedLesson.exercises.map(
-          (exercise) => exercise.initialCode,
-        ),
+        payload: newCode,
+      });
+
+      // Also reset show solution state when language changes
+      dispatch({
+        type: 'SET_SHOW_SOLUTION',
+        payload: new Array(selectedLesson.exercises.length).fill(false),
       });
     }
-  }, [selectedLesson]);
+  }, [selectedLesson, language]);
 
   const toggleSection = (sectionId: number) => {
     setExpandedSections((prev) => ({
@@ -100,7 +113,7 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
       dispatch({
         type: 'SET_USER_CODE',
         payload:
-          lesson.exercises?.map((exercise) => exercise.initialCode) || [],
+          lesson.exercises?.map((exercise) => getCodeForLanguage(exercise.initialCode, language)) || [],
       });
       dispatch({
         type: 'SET_QUIZ_ANSWERS',
@@ -227,6 +240,7 @@ const MicroLesson: React.FC<MicroLessonProps> = ({
             checkSolution={checkSolution}
             handleQuizSubmit={handleQuizSubmit}
             solutionHeight={solutionHeight}
+            language={language}
           />
         </div>
       </CardContent>

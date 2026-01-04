@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import {
-  FaPlus,
-  FaMinus,
-  FaArrowUp,
-  FaArrowDown,
-  FaInfoCircle,
-  FaSearch,
-  FaClock,
-  FaCogs,
-  FaPencilAlt,
-  FaExclamationTriangle,
-  FaCode,
-  FaLightbulb,
-  FaCopy,
-  FaCheck,
-  FaRoute,
-} from 'react-icons/fa';
+  Plus,
+  Minus,
+  ArrowUp,
+  ArrowDown,
+  Info,
+  Search,
+  Clock,
+  Settings,
+  Pencil,
+  AlertTriangle,
+  Code,
+  Lightbulb,
+  Copy,
+  Check,
+  Route,
+} from 'lucide-react';
 import {
   Tooltip,
   TooltipContent,
@@ -61,33 +61,33 @@ const CheatSheet: React.FC<CheatSheetProps> = ({ items }) => {
   const getIcon = (type: OperationTypes) => {
     const icons = {
       [OperationTypes.Create]: (
-        <FaPencilAlt className="text-green-500" aria-label="Create" />
+        <Pencil className="text-green-500 h-4 w-4" aria-label="Create" />
       ),
       [OperationTypes.Add]: (
-        <FaPlus className="text-green-500" aria-label="Add" />
+        <Plus className="text-green-500 h-4 w-4" aria-label="Add" />
       ),
       [OperationTypes.Remove]: (
-        <FaMinus className="text-red-500" aria-label="Remove" />
+        <Minus className="text-red-500 h-4 w-4" aria-label="Remove" />
       ),
       [OperationTypes.Access]: (
-        <FaArrowUp className="text-blue-500" aria-label="Access" />
+        <ArrowUp className="text-blue-500 h-4 w-4" aria-label="Access" />
       ),
       [OperationTypes.Modify]: (
-        <FaArrowDown className="text-yellow-500" aria-label="Modify" />
+        <ArrowDown className="text-yellow-500 h-4 w-4" aria-label="Modify" />
       ),
       [OperationTypes.Search]: (
-        <FaSearch className="text-purple-500" aria-label="Search" />
+        <Search className="text-purple-500 h-4 w-4" aria-label="Search" />
       ),
       [OperationTypes.Utility]: (
-        <FaCogs className="text-gray-500" aria-label="Utility" />
+        <Settings className="text-gray-500 h-4 w-4" aria-label="Utility" />
       ),
       [OperationTypes.Traversal]: (
-        <FaRoute className="text-teal-500" aria-label="Traversal" />
+        <Route className="text-teal-500 h-4 w-4" aria-label="Traversal" />
       ),
     };
     return (
       icons[type as keyof typeof icons] || (
-        <FaInfoCircle className="text-gray-500" aria-label="Info" />
+        <Info className="text-gray-500 h-4 w-4" aria-label="Info" />
       )
     );
   };
@@ -163,7 +163,7 @@ const CheatSheet: React.FC<CheatSheetProps> = ({ items }) => {
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-10 text-lg"
           />
-          <FaSearch className="absolute top-3 left-3 text-gray-400 text-xl" />
+          <Search className="absolute top-3 left-3 text-gray-400 h-5 w-5" />
         </div>
 
         <div className="mb-4 flex justify-between items-center">
@@ -201,7 +201,7 @@ const CheatSheet: React.FC<CheatSheetProps> = ({ items }) => {
                     <div className="flex flex-col gap-6">
                       <div className="w-full">
                         <h4 className="text-xl font-semibold mb-2 flex items-center gap-2">
-                          <FaCode className="text-blue-500" />
+                          <Code className="text-blue-500 h-5 w-5" />
                           Code
                         </h4>
                         <div className="relative">
@@ -215,16 +215,16 @@ const CheatSheet: React.FC<CheatSheetProps> = ({ items }) => {
                             onClick={() => copyToClipboard(item.code, index)}
                           >
                             {copiedIndex === index ? (
-                              <FaCheck className="text-green-500" />
+                              <Check className="text-green-500 h-4 w-4" />
                             ) : (
-                              <FaCopy />
+                              <Copy className="h-4 w-4" />
                             )}
                           </Button>
                         </div>
                       </div>
                       <div className="w-full">
                         <h4 className="text-xl font-semibold mb-2 flex items-center gap-2">
-                          <FaLightbulb className="text-yellow-500" />
+                          <Lightbulb className="text-yellow-500 h-5 w-5" />
                           Explanation
                         </h4>
                         <p className="text-gray-700 dark:text-gray-300 mb-4 text-lg">
@@ -233,7 +233,7 @@ const CheatSheet: React.FC<CheatSheetProps> = ({ items }) => {
                         {item.timeComplexity && (
                           <div className="mb-4">
                             <Badge variant="secondary" className="text-lg">
-                              <FaClock className="mr-2" />
+                              <Clock className="mr-2 h-4 w-4" />
                               {item.timeComplexity}
                             </Badge>
                           </div>
@@ -241,7 +241,7 @@ const CheatSheet: React.FC<CheatSheetProps> = ({ items }) => {
                         {item.edgeCase && (
                           <Alert>
                             <AlertTitle className="flex items-center gap-2 text-lg">
-                              <FaExclamationTriangle className="text-yellow-500" />
+                              <AlertTriangle className="text-yellow-500 h-5 w-5" />
                               Edge Case
                             </AlertTitle>
                             <AlertDescription className="text-lg">

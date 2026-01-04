@@ -1,23 +1,19 @@
 'use client';
 import React, { useEffect } from 'react';
 import '../../styles/globals.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faCode,
-  faCogs,
-  faLayerGroup,
-  faChessKnight,
-  faShieldAlt,
-  faArrowRight,
-  faCheckCircle,
-} from '@fortawesome/free-solid-svg-icons';
-import { config, dom } from '@fortawesome/fontawesome-svg-core';
+  Code,
+  Settings,
+  Layers,
+  Crown,
+  Shield,
+  ArrowRight,
+  CheckCircle,
+} from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Progress } from '@/components/ui/progress';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardContent } from '@/components/ui/card';
-
-config.autoAddCss = false;
 
 const CustomFontLoader = () => {
   useEffect(() => {
@@ -27,13 +23,8 @@ const CustomFontLoader = () => {
     link.rel = 'stylesheet';
     document.head.appendChild(link);
 
-    const style = document.createElement('style');
-    style.appendChild(document.createTextNode(dom.css()));
-    document.head.appendChild(style);
-
     return () => {
       document.head.removeChild(link);
-      document.head.removeChild(style);
     };
   }, []);
 
@@ -73,7 +64,7 @@ const OOPPage: React.FC = () => {
   const oopModules: OOPModule[] = [
     {
       title: '1. Foundations of OOP',
-      icon: faCode,
+      icon: Code,
       description:
         'Master core principles such as Encapsulation, Abstraction, Inheritance, and Polymorphism.',
       items: [
@@ -87,7 +78,7 @@ const OOPPage: React.FC = () => {
     },
     {
       title: '2. Classes & Objects',
-      icon: faCogs,
+      icon: Settings,
       description:
         'Understand how classes and objects interact, focusing on best practices and lifecycle management.',
       items: [
@@ -101,7 +92,7 @@ const OOPPage: React.FC = () => {
     },
     {
       title: '3. Interfaces & Abstract Classes',
-      icon: faLayerGroup,
+      icon: Layers,
       description:
         'Explore advanced OOP concepts that improve flexibility and robustness in design.',
       items: [
@@ -114,7 +105,7 @@ const OOPPage: React.FC = () => {
     },
     {
       title: '4. SOLID Principles',
-      icon: faLayerGroup,
+      icon: Layers,
       description:
         'Learn the five SOLID principles that help create scalable and maintainable applications.',
       items: [
@@ -128,7 +119,7 @@ const OOPPage: React.FC = () => {
     },
     {
       title: '5. OOP Design Patterns',
-      icon: faChessKnight,
+      icon: Crown,
       description:
         'Discover common patterns for solving design challenges in object-oriented programming.',
       items: [
@@ -145,7 +136,7 @@ const OOPPage: React.FC = () => {
     },
     {
       title: '6. Error Handling & Exceptions',
-      icon: faShieldAlt,
+      icon: Shield,
       description:
         'Learn how to handle errors effectively to build reliable and maintainable applications.',
       items: [
@@ -187,10 +178,7 @@ const OOPPage: React.FC = () => {
               <CardHeader className="p-6 border-b border-gray-200">
                 <div className="flex items-center gap-5">
                   <div className="p-4 rounded-full bg-gradient-to-r from-purple-50 to-indigo-50 shadow-sm">
-                    <FontAwesomeIcon
-                      icon={module.icon}
-                      className="text-purple-600 text-3xl"
-                    />
+                    <module.icon className="text-purple-600 h-8 w-8" />
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold text-gray-900">
@@ -218,10 +206,7 @@ const OOPPage: React.FC = () => {
                       onClick={() => navigateToTopic(item)}
                     >
                       <span>{item}</span>
-                      <FontAwesomeIcon
-                        icon={faArrowRight}
-                        className="text-purple-500"
-                      />
+                      <ArrowRight className="text-purple-500 h-4 w-4" />
                     </Button>
                   ))}
                 </div>
@@ -229,9 +214,8 @@ const OOPPage: React.FC = () => {
                 <div className="flex justify-end mt-4">
                   <span className="text-sm text-gray-600 font-medium">
                     {module.progress}% Completed
-                    <FontAwesomeIcon
-                      icon={faCheckCircle}
-                      className={`ml-2 ${
+                    <CheckCircle
+                      className={`ml-2 h-4 w-4 inline ${
                         module.progress === 100
                           ? 'text-green-500'
                           : 'text-gray-400'

@@ -2,8 +2,11 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import CodeMirror from '@uiw/react-codemirror';
 import { python } from '@codemirror/lang-python';
+import { javascript } from '@codemirror/lang-javascript';
 import { LessonContent } from '@/common/commonLesson';
 import { Difficulty } from '@/common/commonConcept';
+import { getCodeForLanguage } from '@/common/commonLanguage';
+import { useUserProgress } from '@/hooks/useUserProgress';
 import DifficultyBadge from './DifficultyBadge';
 
 interface ExerciseTabProps {
@@ -20,7 +23,12 @@ const ExerciseTab: React.FC<ExerciseTabProps> = ({
   handleCodeChange,
   checkSolution,
   solutionHeight,
-}) => (
+}) => {
+  const { progress } = useUserProgress();
+  const language = progress.preferences.language || 'python';
+  const languageExtension = language === 'python' ? python() : javascript({ typescript: true });
+
+  return (
   <div className="space-y-8">
     {selectedLesson?.exercises?.map((exercise, index) => (
       <div key={index} className="rounded-lg border p-6 bg-white shadow-sm">
@@ -40,7 +48,7 @@ const ExerciseTab: React.FC<ExerciseTabProps> = ({
           <CodeMirror
             value={state.userCode[index]}
             theme="light"
-            extensions={[python()]}
+            extensions={[languageExtension]}
             onChange={(value) => handleCodeChange(index, value)}
           />
         </div>
@@ -59,10 +67,10 @@ const ExerciseTab: React.FC<ExerciseTabProps> = ({
             <h4 className="font-semibold text-gray-900">Solution</h4>
             <div className="rounded-md overflow-hidden border">
               <CodeMirror
-                value={exercise.solution}
+                value={getCodeForLanguage(exercise.solution, language)}
                 height={solutionHeight}
                 theme="light"
-                extensions={[python()]}
+                extensions={[languageExtension]}
                 readOnly
                 className="transition-all duration-300 ease-in-out"
               />
@@ -72,6 +80,7 @@ const ExerciseTab: React.FC<ExerciseTabProps> = ({
       </div>
     ))}
   </div>
-);
+  );
+};
 
 export default ExerciseTab;

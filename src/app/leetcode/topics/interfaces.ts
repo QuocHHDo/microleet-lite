@@ -7,9 +7,8 @@ export interface CodeBlockProps extends React.HTMLAttributes<HTMLElement> {
 export enum TopicName {
   Arrays = 'arrays',
   Strings = 'strings',
-  Dictionaries = 'dictionaries',
-  Tuples = 'duples',
-  Set = 'sets',
+  HashMaps = 'hash-maps',
+  HashSets = 'hash-sets',
   LinkedLists = 'linkedLists',
   Stacks = 'stacks',
   Queues = 'queues',
@@ -17,4 +16,6 @@ export enum TopicName {
   Trees = 'trees',
   Tries = 'tries',
   Graphs = 'graphs',
+  UnionFind = 'union-find',
+  DynamicProgramming = 'dynamic-programming',
 }

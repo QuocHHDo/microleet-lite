@@ -8,17 +8,6 @@ import { materialOceanic } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react';
 
-declare global {
-  interface Window {
-    pyodide: any;
-    loadPyodide: (config?: {
-      indexURL?: string;
-      stdout?: (stdout: string) => void;
-      stderr?: (stderr: string) => void;
-    }) => Promise<any>;
-  }
-}
-
 interface SVGRendererProps {
   children: string | ReactNode;
 }
@@ -37,10 +26,128 @@ const customStyle = {
     fontSize: '14px',
     lineHeight: 1.5,
     background: '#1E1E1E',
+    color: '#D4D4D4', // Default text color
   },
+  'pre[class*="language-"]': {
+    ...materialOceanic['pre[class*="language-"]'],
+    background: '#1E1E1E',
+  },
+  // VS Code Dark+ theme colors
   comment: {
     color: '#6A9955',
     fontStyle: 'italic',
+  },
+  prolog: {
+    color: '#6A9955',
+  },
+  doctype: {
+    color: '#6A9955',
+  },
+  cdata: {
+    color: '#6A9955',
+  },
+  punctuation: {
+    color: '#D4D4D4',
+  },
+  property: {
+    color: '#9CDCFE',
+  },
+  tag: {
+    color: '#569CD6',
+  },
+  boolean: {
+    color: '#569CD6',
+  },
+  number: {
+    color: '#B5CEA8',
+  },
+  constant: {
+    color: '#4FC1FF',
+  },
+  symbol: {
+    color: '#4FC1FF',
+  },
+  deleted: {
+    color: '#F44747',
+  },
+  selector: {
+    color: '#D7BA7D',
+  },
+  'attr-name': {
+    color: '#9CDCFE',
+  },
+  string: {
+    color: '#CE9178',
+  },
+  char: {
+    color: '#CE9178',
+  },
+  builtin: {
+    color: '#4EC9B0',
+  },
+  inserted: {
+    color: '#B5CEA8',
+  },
+  operator: {
+    color: '#D4D4D4',
+  },
+  entity: {
+    color: '#4EC9B0',
+  },
+  url: {
+    color: '#3794FF',
+  },
+  variable: {
+    color: '#9CDCFE',
+  },
+  'attr-value': {
+    color: '#CE9178',
+  },
+  keyword: {
+    color: '#569CD6',
+  },
+  'control-flow': {
+    color: '#C586C0',
+  },
+  function: {
+    color: '#DCDCAA',
+  },
+  'function-variable': {
+    color: '#DCDCAA',
+  },
+  'class-name': {
+    color: '#4EC9B0',
+  },
+  regex: {
+    color: '#D16969',
+  },
+  important: {
+    color: '#569CD6',
+    fontWeight: 'bold',
+  },
+  bold: {
+    fontWeight: 'bold',
+  },
+  italic: {
+    fontStyle: 'italic',
+  },
+  'template-string': {
+    color: '#CE9178',
+  },
+  'template-punctuation': {
+    color: '#569CD6',
+  },
+  'method': {
+    color: '#DCDCAA',
+  },
+  'parameter': {
+    color: '#9CDCFE',
+  },
+  'type-annotation': {
+    color: '#4EC9B0',
+  },
+  'decorator': {
+    color: '#DCDCAA',
   },
 };
 
@@ -55,74 +162,84 @@ const CodeBlock = ({
   const [isLoading, setIsLoading] = useState(false);
   const [isPyodideReady, setIsPyodideReady] = useState(false);
 
-  useEffect(() => {
-    const loadPyodide = async () => {
-      if (language === 'python' && !window.pyodide) {
-        try {
-          setIsLoading(true);
-          // Check if script is already loaded
-          let script = document.querySelector(
-            'script[src*="pyodide.js"]',
-          ) as HTMLScriptElement | null;
+  // Lazy load Pyodide only when user clicks "Run Code"
+  const loadPyodideIfNeeded = async () => {
+    if (window.pyodide) {
+      setIsPyodideReady(true);
+      return;
+    }
 
-          if (!script) {
-            script = document.createElement('script') as HTMLScriptElement;
-            script.src =
-              'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js';
-            script.async = true;
-            document.body.appendChild(script);
+    try {
+      setIsLoading(true);
+      // Check if script is already loaded
+      let script = document.querySelector(
+        'script[src*="pyodide.js"]',
+      ) as HTMLScriptElement | null;
 
-            // Wait for script to load
-            await new Promise<void>((resolve, reject) => {
-              if (script) {
-                script.onload = () => resolve();
-                script.onerror = () =>
-                  reject(new Error('Failed to load Pyodide'));
-              }
-            });
+      if (!script) {
+        script = document.createElement('script') as HTMLScriptElement;
+        script.src =
+          'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js';
+        script.async = true;
+        document.body.appendChild(script);
+
+        // Wait for script to load
+        await new Promise<void>((resolve, reject) => {
+          if (script) {
+            script.onload = () => resolve();
+            script.onerror = () =>
+              reject(new Error('Failed to load Pyodide'));
           }
-
-          // Wait for window.loadPyodide to be available
-          while (!window.loadPyodide) {
-            await new Promise((resolve) => setTimeout(resolve, 100));
-          }
-
-          window.pyodide = await window.loadPyodide({
-            indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/',
-          });
-
-          setIsPyodideReady(true);
-        } catch (error) {
-          console.error('Failed to load Pyodide:', error);
-          setOutput(
-            'Failed to load Python environment. Please refresh and try again.',
-          );
-        } finally {
-          setIsLoading(false);
-        }
-      } else if (language === 'python' && window.pyodide) {
-        setIsPyodideReady(true);
+        });
       }
-    };
 
-    loadPyodide();
-  }, [language]);
+      // Wait for window.loadPyodide to be available
+      while (!window.loadPyodide) {
+        await new Promise((resolve) => setTimeout(resolve, 100));
+      }
+
+      window.pyodide = await window.loadPyodide({
+        indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/',
+      });
+
+      setIsPyodideReady(true);
+    } catch (error) {
+      console.error('Failed to load Pyodide:', error);
+      setOutput(
+        'Failed to load Python environment. Please refresh and try again.',
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const runCode = async () => {
-    if (!window.pyodide || !isPyodideReady) return;
+    // Load Pyodide on first run
+    if (!isPyodideReady) {
+      await loadPyodideIfNeeded();
+      if (!window.pyodide) return;
+    }
 
     setIsLoading(true);
     setOutput('');
 
     try {
-      // Capture stdout
-      window.pyodide.setStdout({
-        batched: (output: string) => {
-          setOutput((prev) => prev + output + '\n');
-        },
-      });
+      const pyodide = window.pyodide;
+      if (!pyodide) {
+        setOutput('Python environment not loaded');
+        return;
+      }
 
-      const result = await window.pyodide.runPythonAsync(children);
+      // Capture stdout
+      if (pyodide.setStdout) {
+        pyodide.setStdout({
+          batched: (output: string) => {
+            setOutput((prev) => prev + output + '\n');
+          },
+        });
+      }
+
+      const result = await pyodide.runPythonAsync(children);
       if (result !== undefined && result !== null) {
         setOutput((prev) => prev + String(result));
       }
@@ -140,17 +257,13 @@ const CodeBlock = ({
           <span className="text-sm text-gray-400">Python</span>
           <Button
             onClick={runCode}
-            disabled={!isPyodideReady || isLoading}
+            disabled={isLoading}
             variant="ghost"
             size="sm"
             className="flex items-center gap-2 text-gray-400 hover:text-white"
           >
             {isLoading && <Loader2 className="h-3 w-3 animate-spin" />}
-            {!isPyodideReady && !isLoading
-              ? 'Loading Python...'
-              : isLoading
-                ? 'Running...'
-                : 'Run Code'}
+            {isLoading ? 'Running...' : 'Run Code'}
           </Button>
         </div>
       )}
@@ -182,13 +295,23 @@ const CodeBlock = ({
   );
 };
 
-export const renderContent = (content: string | React.ReactNode) => {
+export const renderContent = (content: string | React.ReactNode, selectedLanguage?: string) => {
   if (typeof content !== 'string') {
     return content;
   }
 
+  // Parse language-specific text markers: {{python:text}} and {{typescript:text}}
+  const parseLanguageMarkers = (text: string, language: string = 'python'): string => {
+    return text.replace(/\{\{(python|typescript):(.*?)\}\}/g, (match, lang, content) => {
+      return lang === language ? content : '';
+    });
+  };
+
+  // Apply language markers before processing
+  const processedContent = selectedLanguage ? parseLanguageMarkers(content, selectedLanguage) : content;
+
   const processContent = () => {
-    const segments = content.split(/(<Visualization.*?>)/g);
+    const segments = processedContent.split(/(<Visualization.*?>)/g);
 
     return segments.map((segment, index) => {
       const match = segment.match(
@@ -209,6 +332,11 @@ export const renderContent = (content: string | React.ReactNode) => {
               code({ inline, className, children, ...props }: CodeProps) {
                 const match = /language-(\w+)/.exec(className || '');
                 const language = match ? match[1] : 'python';
+
+                // Filter code blocks based on selected language
+                if (!inline && selectedLanguage && language !== selectedLanguage) {
+                  return null;  // Hide code blocks that don't match selected language
+                }
 
                 return !inline ? (
                   <CodeBlock language={language}>
@@ -237,10 +365,35 @@ export const renderContent = (content: string | React.ReactNode) => {
                   {children}
                 </h4>
               ),
-              p: ({ children }) => (
-                <p className="mb-4 text-gray-700 leading-relaxed text-base">
+              p: ({ children }) => {
+                // Check if children contains block-level elements (like code blocks)
+                const hasBlockChild = React.Children.toArray(children).some(
+                  (child: any) => {
+                    // Check if child is a CodeBlock or has props indicating it's a block element
+                    return child?.type?.name === 'CodeBlock' ||
+                           (child?.props?.className?.includes('language-'));
+                  }
+                );
+
+                // If it contains block elements, use div instead of p to avoid hydration errors
+                if (hasBlockChild) {
+                  return (
+                    <div className="mb-4 text-gray-700 leading-relaxed text-base">
+                      {children}
+                    </div>
+                  );
+                }
+
+                return (
+                  <p className="mb-4 text-gray-700 leading-relaxed text-base">
+                    {children}
+                  </p>
+                );
+              },
+              pre: ({ children }) => (
+                <div className="my-4">
                   {children}
-                </p>
+                </div>
               ),
               div: ({ children, className }) => {
                 if (className === 'visualization') {
