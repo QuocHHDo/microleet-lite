@@ -10,6 +10,11 @@ export enum OperationTypes {
   Search = 'search',
   Utility = 'utility',
   Traversal = 'traversal',
+  Pattern = 'pattern',
+  Template = 'template',
+  Optimization = 'optimization',
+  StateTransition = 'stateTransition',
+  BaseCase = 'baseCase',
 }
 export interface CheatSheetItem {
   label: string;
