@@ -308,7 +308,22 @@ export const renderContent = (content: string | React.ReactNode, selectedLanguag
   };
 
   // Apply language markers before processing
-  const processedContent = selectedLanguage ? parseLanguageMarkers(content, selectedLanguage) : content;
+  let processedContent = selectedLanguage ? parseLanguageMarkers(content, selectedLanguage) : content;
+
+  // Detect if content has markdown code blocks (triple backticks)
+  const hasMarkdownCodeBlocks = /```[\s\S]*?```/.test(processedContent);
+
+  // Use direct HTML rendering ONLY for content with HTML tags AND no markdown code blocks
+  // This bypasses ReactMarkdown+rehype-raw which has parsing issues for pure HTML
+  // HTML content is styled via .lesson-content class in globals.css
+  if (/<[a-z][\s\S]*>/i.test(processedContent) && !hasMarkdownCodeBlocks) {
+    return (
+      <div
+        className="prose max-w-none lesson-content"
+        dangerouslySetInnerHTML={{ __html: processedContent }}
+      />
+    );
+  }
 
   const processContent = () => {
     const segments = processedContent.split(/(<Visualization.*?>)/g);
@@ -390,19 +405,17 @@ export const renderContent = (content: string | React.ReactNode, selectedLanguag
                   </p>
                 );
               },
-              pre: ({ children }) => (
-                <div className="my-4">
+              pre: ({ children, className, ...props }) => (
+                <pre className={className} {...props}>
                   {children}
-                </div>
+                </pre>
               ),
-              div: ({ children, className }) => {
+              div: ({ children, className, ...props }) => {
                 if (className === 'visualization') {
                   return <SVGRenderer>{children}</SVGRenderer>;
                 }
                 return (
-                  <div
-                    className={`${className} my-4 text-base leading-relaxed`}
-                  >
+                  <div className={className} {...props}>
                     {children}
                   </div>
                 );
@@ -412,8 +425,49 @@ export const renderContent = (content: string | React.ReactNode, selectedLanguag
                   {children}
                 </ul>
               ),
+              ol: ({ children }) => (
+                <ol className="list-decimal pl-6 mb-4 text-gray-700">
+                  {children}
+                </ol>
+              ),
               li: ({ children }) => (
                 <li className="mb-2 text-base">{children}</li>
+              ),
+              table: ({ children }) => (
+                <table className="min-w-full border-collapse border border-gray-300 my-4">
+                  {children}
+                </table>
+              ),
+              thead: ({ children }) => (
+                <thead className="bg-gray-100">{children}</thead>
+              ),
+              tbody: ({ children }) => <tbody>{children}</tbody>,
+              tr: ({ children }) => <tr>{children}</tr>,
+              th: ({ children }) => (
+                <th className="border border-gray-300 px-4 py-2 text-left font-semibold">
+                  {children}
+                </th>
+              ),
+              td: ({ children }) => (
+                <td className="border border-gray-300 px-4 py-2">
+                  {children}
+                </td>
+              ),
+              strong: ({ children }) => (
+                <strong className="font-semibold">{children}</strong>
+              ),
+              em: ({ children }) => <em>{children}</em>,
+              span: ({ children, className, ...props }) => (
+                <span className={className} {...props}>
+                  {children}
+                </span>
+              ),
+              br: () => <br />,
+              hr: () => <hr className="my-4 border-gray-300" />,
+              blockquote: ({ children }) => (
+                <blockquote className="border-l-4 border-gray-300 pl-4 my-4 italic">
+                  {children}
+                </blockquote>
               ),
             }}
           >

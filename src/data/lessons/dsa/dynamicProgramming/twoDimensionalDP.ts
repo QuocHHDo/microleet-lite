@@ -7,10 +7,7 @@ import { Difficulty } from '@/common/commonConcept';
 
 const gridPathData: LessonContent = {
   title: 'Grid Path Problems',
-  content: `<div>
-<h1>Grid Path Problems in 2D Dynamic Programming</h1>
-
-<p>Grid path problems are the gateway to 2D dynamic programming. They extend 1D sequential DP into a 2D grid where we navigate from one corner to another, making decisions at each cell. These problems beautifully demonstrate how DP tables mirror the problem structure.</p>
+  content: `Grid path problems are the gateway to 2D dynamic programming. They extend 1D sequential DP into a 2D grid where we navigate from one corner to another, making decisions at each cell. These problems beautifully demonstrate how DP tables mirror the problem structure.
 
 <h2>The Classic Problem: Unique Paths</h2>
 
@@ -18,15 +15,19 @@ const gridPathData: LessonContent = {
   <p><strong>Problem (LeetCode 62):</strong> A robot is located at the top-left corner of an m × n grid. The robot can only move either down or right at any point in time. How many possible unique paths are there to reach the bottom-right corner?</p>
 </div>
 
-<p><strong>Example:</strong></p>
-<pre>
-Input: m = 3, n = 2
-Output: 3
-Explanation: From top-left to bottom-right:
-1. Right → Right → Down
-2. Right → Down → Right
-3. Down → Right → Right
-</pre>
+<div class="example-box">
+  <h3>Example:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> m = 3, n = 2</p>
+    <p><strong>Output:</strong> 3</p>
+    <p><strong>Explanation:</strong> From top-left to bottom-right, there are 3 paths:</p>
+    <ul class="ml-4 mt-2">
+      <li>1. Right → Right → Down</li>
+      <li>2. Right → Down → Right</li>
+      <li>3. Down → Right → Right</li>
+    </ul>
+  </div>
+</div>
 
 <h2>Why This is 2D DP</h2>
 
@@ -199,8 +200,6 @@ To reach (i,j): came from (i-1,j) or (i,j-1)
 
 <div class="bg-yellow-50 p-4 rounded-lg my-4">
   <strong>Pro Tip:</strong> Grid DP problems often have elegant combinatorial solutions too (like Unique Paths = C(m+n-2, m-1)), but DP is more general and handles obstacles and costs naturally.
-</div>
-
 </div>`,
   codeExample: `# ============================================================================
 # GRID PATH PROBLEMS: Complete Implementation Guide
@@ -823,10 +822,7 @@ def min_path_sum_inplace(grid):
 
 const longestCommonSubsequenceData: LessonContent = {
   title: 'Longest Common Subsequence (LCS)',
-  content: `<div>
-<h1>Longest Common Subsequence: The Classic String DP Problem</h1>
-
-<p>The Longest Common Subsequence (LCS) problem is one of the most fundamental 2D DP problems. It's the foundation for understanding diff algorithms (like git diff), DNA sequence alignment, and many real-world text comparison tools.</p>
+  content: `The Longest Common Subsequence (LCS) problem is one of the most fundamental 2D DP problems. It's the foundation for understanding diff algorithms (like git diff), DNA sequence alignment, and many real-world text comparison tools.
 
 <h2>Problem Definition</h2>
 
@@ -836,23 +832,28 @@ const longestCommonSubsequenceData: LessonContent = {
   <p><strong>Note:</strong> A subsequence is a sequence that appears in the same relative order, but not necessarily contiguous. For example, "ace" is a subsequence of "abcde".</p>
 </div>
 
-<p><strong>Examples:</strong></p>
-<pre>
-Example 1:
-Input: text1 = "abcde", text2 = "ace"
-Output: 3
-Explanation: The longest common subsequence is "ace" with length 3.
+<div class="example-box">
+  <h3>Example 1:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> text1 = "abcde", text2 = "ace"</p>
+    <p><strong>Output:</strong> 3</p>
+    <p><strong>Explanation:</strong> The longest common subsequence is "ace" with length 3</p>
+  </div>
 
-Example 2:
-Input: text1 = "abc", text2 = "abc"
-Output: 3
-Explanation: The longest common subsequence is "abc" with length 3.
+  <h3>Example 2:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> text1 = "abc", text2 = "abc"</p>
+    <p><strong>Output:</strong> 3</p>
+    <p><strong>Explanation:</strong> The longest common subsequence is "abc" with length 3</p>
+  </div>
 
-Example 3:
-Input: text1 = "abc", text2 = "def"
-Output: 0
-Explanation: There is no common subsequence.
-</pre>
+  <h3>Example 3:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> text1 = "abc", text2 = "def"</p>
+    <p><strong>Output:</strong> 0</p>
+    <p><strong>Explanation:</strong> There is no common subsequence</p>
+  </div>
+</div>
 
 <h2>Why Is This 2D DP?</h2>
 
@@ -1161,9 +1162,7 @@ print(shortest_common_supersequence_length("AGGTAB", "GXTXAYB"))
       <td class="border p-3">O(min(m, n))</td>
     </tr>
   </tbody>
-</table>
-
-</div>`,
+</table>`,
   codeExample: `# Complete LCS implementation with all variations
 
 def longest_common_subsequence(text1: str, text2: str) -> int:
@@ -1519,10 +1518,7 @@ print(longest_common_substring("ABCDE", "BCDEF"))  # 4`,
 
 const editDistanceData: LessonContent = {
   title: 'Edit Distance (Levenshtein Distance)',
-  content: `<div>
-<h1>Edit Distance: Transforming One String Into Another</h1>
-
-<p>Edit Distance, also known as Levenshtein Distance, is a fundamental algorithm in computer science that measures the minimum number of single-character edits needed to transform one string into another. It's used in spell checkers, DNA sequence alignment, plagiarism detection, and more.</p>
+  content: `Edit Distance, also known as Levenshtein Distance, is a fundamental algorithm in computer science that measures the minimum number of single-character edits needed to transform one string into another. It's used in spell checkers, DNA sequence alignment, plagiarism detection, and more.
 
 <h2>Problem Definition</h2>
 
@@ -1537,26 +1533,33 @@ const editDistanceData: LessonContent = {
   </ul>
 </div>
 
-<p><strong>Examples:</strong></p>
-<pre>
-Example 1:
-Input: word1 = "horse", word2 = "ros"
-Output: 3
-Explanation:
-horse -> rorse (replace 'h' with 'r')
-rorse -> rose (remove 'r')
-rose -> ros (remove 'e')
+<div class="example-box">
+  <h3>Example 1:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> word1 = "horse", word2 = "ros"</p>
+    <p><strong>Output:</strong> 3</p>
+    <p><strong>Explanation:</strong> Transform "horse" to "ros" in 3 operations:</p>
+    <ul class="ml-4 mt-2">
+      <li>1. horse → rorse (replace 'h' with 'r')</li>
+      <li>2. rorse → rose (remove 'r')</li>
+      <li>3. rose → ros (remove 'e')</li>
+    </ul>
+  </div>
 
-Example 2:
-Input: word1 = "intention", word2 = "execution"
-Output: 5
-Explanation:
-intention -> inention (remove 't')
-inention -> enention (replace 'i' with 'e')
-enention -> exention (replace 'n' with 'x')
-exention -> exection (replace 'n' with 'c')
-exection -> execution (insert 'u')
-</pre>
+  <h3>Example 2:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> word1 = "intention", word2 = "execution"</p>
+    <p><strong>Output:</strong> 5</p>
+    <p><strong>Explanation:</strong> Transform "intention" to "execution" in 5 operations:</p>
+    <ul class="ml-4 mt-2">
+      <li>1. intention → inention (remove 't')</li>
+      <li>2. inention → enention (replace 'i' with 'e')</li>
+      <li>3. enention → exention (replace 'n' with 'x')</li>
+      <li>4. exention → exection (replace 'n' with 'c')</li>
+      <li>5. exection → execution (insert 'u')</li>
+    </ul>
+  </div>
+</div>
 
 <h2>Why This is 2D DP</h2>
 
@@ -1958,9 +1961,7 @@ def is_one_edit_distance(s: str, t: str) -> bool:
       <td class="border p-3">O(min(m, n))</td>
     </tr>
   </tbody>
-</table>
-
-</div>`,
+</table>`,
   codeExample: `# Complete Edit Distance implementation
 
 def min_distance(word1: str, word2: str) -> int:

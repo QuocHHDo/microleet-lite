@@ -7,10 +7,7 @@ import { Difficulty } from '@/common/commonConcept';
 
 const palindromicSubstringsData: LessonContent = {
   title: 'Palindromic Substrings',
-  content: `<div>
-<h1>Palindromic Substrings: Counting and Finding</h1>
-
-<p>Palindrome problems are classic string DP challenges. The key insight: a string is a palindrome if its first and last characters match AND the inner substring is a palindrome.</p>
+  content: `Palindrome problems are classic string DP challenges. The key insight: a string is a palindrome if its first and last characters match AND the inner substring is a palindrome.
 
 <h2>Key Pattern</h2>
 
@@ -76,9 +73,7 @@ def count_substrings_optimized(s: str) -> int:
         total += expand(i, i + 1)
 
     return total
-\`\`\`
-
-</div>`,
+\`\`\``,
   codeExample: `def count_substrings(s):
     """Count palindromic substrings - DP approach."""
     n = len(s)
@@ -263,20 +258,25 @@ def count_substrings_optimized(s: str) -> int:
 
 const longestPalindromicSubsequenceData: LessonContent = {
   title: 'Longest Palindromic Subsequence',
-  content: `<div>
-<h1>Longest Palindromic Subsequence (LPS)</h1>
-
-<p>Find the longest subsequence that is a palindrome. This is different from longest palindromic substring (which must be contiguous).</p>
+  content: `Find the longest subsequence that is a palindrome. This is different from longest palindromic substring (which must be contiguous).
 
 <h2>Problem (LeetCode 516)</h2>
 
-<pre>
-Input: "bbbab"
-Output: 4 (subsequence "bbbb")
+<div class="example-box">
+  <h3>Example 1:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> s = "bbbab"</p>
+    <p><strong>Output:</strong> 4</p>
+    <p><strong>Explanation:</strong> Longest palindromic subsequence is "bbbb"</p>
+  </div>
 
-Input: "cbbd"
-Output: 2 (subsequence "bb")
-</pre>
+  <h3>Example 2:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> s = "cbbd"</p>
+    <p><strong>Output:</strong> 2</p>
+    <p><strong>Explanation:</strong> Longest palindromic subsequence is "bb"</p>
+  </div>
+</div>
 
 <h2>Key Insight</h2>
 
@@ -322,9 +322,7 @@ def longest_palindrome_subseq(s: str) -> int:
 def min_insertions_for_palindrome(s):
     """Minimum insertions = length - LPS."""
     return len(s) - longest_palindrome_subseq(s)
-\`\`\`
-
-</div>`,
+\`\`\``,
   codeExample: `def longest_palindrome_subseq(s):
     """Longest palindromic subsequence."""
     n = len(s)
@@ -487,26 +485,32 @@ def min_insertions_for_palindrome(s):
 
 const wordBreakData: LessonContent = {
   title: 'Word Break',
-  content: `<div>
-<h1>Word Break: Segment String into Dictionary Words</h1>
-
-<p>Given a string and a dictionary, can we segment the string into space-separated dictionary words?</p>
+  content: `Given a string and a dictionary, can we segment the string into space-separated dictionary words?
 
 <h2>Problem (LeetCode 139)</h2>
 
-<pre>
-s = "leetcode"
-wordDict = ["leet", "code"]
-Output: true (can be segmented as "leet code")
+<div class="example-box">
+  <h3>Example 1:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> s = "leetcode", wordDict = ["leet", "code"]</p>
+    <p><strong>Output:</strong> true</p>
+    <p><strong>Explanation:</strong> Can be segmented as "leet code"</p>
+  </div>
 
-s = "applepenapple"
-wordDict = ["apple", "pen"]
-Output: true (can be segmented as "apple pen apple")
+  <h3>Example 2:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> s = "applepenapple", wordDict = ["apple", "pen"]</p>
+    <p><strong>Output:</strong> true</p>
+    <p><strong>Explanation:</strong> Can be segmented as "apple pen apple"</p>
+  </div>
 
-s = "catsandog"
-wordDict = ["cats", "dog", "sand", "and", "cat"]
-Output: false
-</pre>
+  <h3>Example 3:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]</p>
+    <p><strong>Output:</strong> false</p>
+    <p><strong>Explanation:</strong> Cannot be segmented into dictionary words</p>
+  </div>
+</div>
 
 <h2>DP Solution</h2>
 
@@ -564,9 +568,7 @@ def word_break_ii(s: str, wordDict: list[str]) -> list[str]:
         return results
 
     return [' '.join(words) for words in backtrack(0)]
-\`\`\`
-
-</div>`,
+\`\`\``,
   codeExample: `def word_break(s, wordDict):
     """Word Break - DP solution."""
     n = len(s)
@@ -725,20 +727,25 @@ def word_break_ii(s: str, wordDict: list[str]) -> list[str]:
 
 const longestIncreasingSubsequenceData: LessonContent = {
   title: 'Longest Increasing Subsequence (LIS)',
-  content: `<div>
-<h1>Longest Increasing Subsequence: A Classic DP Problem</h1>
-
-<p>Find the length of the longest strictly increasing subsequence in an array. This is one of the most important DP patterns for coding interviews.</p>
+  content: `Find the length of the longest strictly increasing subsequence in an array. This is one of the most important DP patterns for coding interviews.
 
 <h2>Problem (LeetCode 300)</h2>
 
-<pre>
-Input: nums = [10,9,2,5,3,7,101,18]
-Output: 4 (subsequence [2,3,7,101])
+<div class="example-box">
+  <h3>Example 1:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> nums = [10, 9, 2, 5, 3, 7, 101, 18]</p>
+    <p><strong>Output:</strong> 4</p>
+    <p><strong>Explanation:</strong> Longest increasing subsequence is [2, 3, 7, 101]</p>
+  </div>
 
-Input: nums = [0,1,0,3,2,3]
-Output: 4 (subsequence [0,1,2,3])
-</pre>
+  <h3>Example 2:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> nums = [0, 1, 0, 3, 2, 3]</p>
+    <p><strong>Output:</strong> 4</p>
+    <p><strong>Explanation:</strong> Longest increasing subsequence is [0, 1, 2, 3]</p>
+  </div>
+</div>
 
 <h2>Solution 1: O(n²) Dynamic Programming</h2>
 
@@ -873,9 +880,7 @@ def find_LIS(nums: list[int]) -> list[int]:
         idx = parent[idx]
 
     return lis[::-1]
-\`\`\`
-
-</div>`,
+\`\`\``,
   codeExample: `# Longest Increasing Subsequence - O(n²) solution
 
 def length_of_LIS(nums):

@@ -7,10 +7,7 @@ import { Difficulty } from '@/common/commonConcept';
 
 const fibonacciPatternData: LessonContent = {
   title: 'Fibonacci and Basic Sequences',
-  content: `<div>
-<h1>Fibonacci and Basic Sequences in Dynamic Programming</h1>
-
-<p>The Fibonacci sequence is the quintessential introduction to 1D Dynamic Programming. While it may seem simple, it demonstrates all the core concepts of DP and serves as a foundation for recognizing similar patterns in more complex problems.</p>
+  content: `The Fibonacci sequence is the quintessential introduction to 1D Dynamic Programming. While it may seem simple, it demonstrates all the core concepts of DP and serves as a foundation for recognizing similar patterns in more complex problems.
 
 <h2>The Classic Fibonacci Problem</h2>
 
@@ -154,8 +151,6 @@ Notice: F(3) computed 2 times, F(2) computed 3 times!
 
 <div class="bg-yellow-50 p-4 rounded-lg my-4">
   <strong>Pro Tip:</strong> Many interview problems are disguised Fibonacci! Look for the "sum of previous two states" pattern.
-</div>
-
 </div>`,
   codeExample: `# ============================================================================
 # FIBONACCI PATTERN: Complete Implementation Guide
@@ -794,10 +789,7 @@ def climb_stairs_variable_verbose(n):
 
 const climbingStairsPatternData: LessonContent = {
   title: 'Climbing Stairs Pattern',
-  content: `<div>
-<h1>The Climbing Stairs Pattern in Dynamic Programming</h1>
-
-<p>The "Climbing Stairs" problem is one of the most fundamental patterns in dynamic programming. It appears frequently in coding interviews and serves as a template for recognizing similar problems in different disguises.</p>
+  content: `The "Climbing Stairs" problem is one of the most fundamental patterns in dynamic programming. It appears frequently in coding interviews and serves as a template for recognizing similar problems in different disguises.
 
 <h2>The Classic Problem</h2>
 
@@ -805,15 +797,19 @@ const climbingStairsPatternData: LessonContent = {
   <p><strong>Problem Statement:</strong> You are climbing a staircase with <code>n</code> steps. Each time you can climb 1 or 2 steps. In how many distinct ways can you climb to the top?</p>
 </div>
 
-<p><strong>Example:</strong></p>
-<pre>
-Input: n = 3
-Output: 3
-Explanation: There are three ways to climb to step 3:
-1. 1 step + 1 step + 1 step
-2. 1 step + 2 steps
-3. 2 steps + 1 step
-</pre>
+<div class="example-box">
+  <h3>Example:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> n = 3</p>
+    <p><strong>Output:</strong> 3</p>
+    <p><strong>Explanation:</strong> There are three ways to climb to step 3:</p>
+    <ul class="ml-4 mt-2">
+      <li>1. 1 step + 1 step + 1 step</li>
+      <li>2. 1 step + 2 steps</li>
+      <li>3. 2 steps + 1 step</li>
+    </ul>
+  </div>
+</div>
 
 <h2>Why This is Actually Fibonacci</h2>
 
@@ -1005,8 +1001,6 @@ Sequence: 1, 1, 2, 3, 5, 8, 13, 21, ...
 
 <div class="bg-yellow-50 p-4 rounded-lg my-4">
   <strong>Interview Tip:</strong> Always start with the recursive solution to show understanding, then optimize to tabulation, then space-optimize if asked. This demonstrates progressive optimization thinking.
-</div>
-
 </div>`,
   codeExample: `# ============================================================================
 # CLIMBING STAIRS PATTERN: Complete Implementation Guide
@@ -1672,10 +1666,7 @@ def climb_stairs_three_steps_table(n):
 
 const houseRobberPatternData: LessonContent = {
   title: 'House Robber Pattern',
-  content: `<div>
-<h1>The House Robber Pattern in Dynamic Programming</h1>
-
-<p>The House Robber problem introduces a critical DP pattern: <strong>optimization with constraints</strong>. Unlike simple counting problems, here we maximize value while respecting the constraint that we cannot select adjacent elements.</p>
+  content: `The House Robber problem introduces a critical DP pattern: **optimization with constraints**. Unlike simple counting problems, here we maximize value while respecting the constraint that we cannot select adjacent elements.
 
 <h2>The Classic Problem</h2>
 
@@ -1683,13 +1674,15 @@ const houseRobberPatternData: LessonContent = {
   <p><strong>Problem Statement:</strong> You are a professional robber planning to rob houses along a street. Each house has a certain amount of money. Adjacent houses have security systems that will alert police if two adjacent houses are robbed on the same night. Given an array representing the amount of money in each house, determine the maximum amount of money you can rob without alerting the police.</p>
 </div>
 
-<p><strong>Example:</strong></p>
-<pre>
-Input: nums = [2, 7, 9, 3, 1]
-Output: 12
-Explanation: Rob house 0 (money = 2), house 2 (money = 9), and house 4 (money = 1).
-Total = 2 + 9 + 1 = 12.
-</pre>
+<div class="example-box">
+  <h3>Example:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> nums = [2, 7, 9, 3, 1]</p>
+    <p><strong>Output:</strong> 12</p>
+    <p><strong>Explanation:</strong> Rob house 0 (money = 2), house 2 (money = 9), and house 4 (money = 1).</p>
+    <p class="mt-2">Total = 2 + 9 + 1 = 12</p>
+  </div>
+</div>
 
 <h2>Pattern Recognition</h2>
 
@@ -1925,8 +1918,6 @@ Answer: 12 (rob houses 0, 2, 4)
     <li>Write the recurrence with "take" vs "skip" logic</li>
     <li>Implement with tabulation first, then optimize space</li>
   </ol>
-</div>
-
 </div>`,
   codeExample: `# ============================================================================
 # HOUSE ROBBER PATTERN: Complete Implementation Guide
@@ -2640,10 +2631,7 @@ def delete_and_earn_clear(nums):
 
 const minCostClimbingData: LessonContent = {
   title: 'Min Cost Path Problems',
-  content: `<div>
-<h1>Min Cost Path Problems in Dynamic Programming</h1>
-
-<p>Min Cost Path is a fundamental DP pattern where we find the minimum (or maximum) cost to reach a destination. This pattern extends the Climbing Stairs concept by adding weights/costs to decisions, transforming counting problems into optimization problems.</p>
+  content: `Min Cost Path is a fundamental DP pattern where we find the minimum (or maximum) cost to reach a destination. This pattern extends the Climbing Stairs concept by adding weights/costs to decisions, transforming counting problems into optimization problems.
 
 <h2>The Core Pattern</h2>
 
@@ -2663,16 +2651,22 @@ const minCostClimbingData: LessonContent = {
   <p><strong>Problem:</strong> You are given an array cost where cost[i] is the cost of stepping on the i-th stair. You can start from step 0 or step 1. Find the minimum cost to reach the top (beyond the last step).</p>
 </div>
 
-<p><strong>Example:</strong></p>
-<pre>
-Input: cost = [10, 15, 20]
-Output: 15
-Explanation: Start at index 1 (cost 15), step directly to top. Total = 15.
+<div class="example-box">
+  <h3>Example 1:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> cost = [10, 15, 20]</p>
+    <p><strong>Output:</strong> 15</p>
+    <p><strong>Explanation:</strong> Start at index 1 (cost 15), step directly to top. Total = 15</p>
+  </div>
 
-Input: cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
-Output: 6
-Explanation: Start at 0, go to 2, 3, 4, 6, 7, 9, then top. Total = 1+1+1+1+1+1 = 6.
-</pre>
+  <h3>Example 2:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]</p>
+    <p><strong>Output:</strong> 6</p>
+    <p><strong>Explanation:</strong> Start at 0, go to steps 2, 3, 4, 6, 7, 9, then top.</p>
+    <p class="mt-2">Total = 1 + 1 + 1 + 1 + 1 + 1 = 6</p>
+  </div>
+</div>
 
 <h2>DP Framework</h2>
 
@@ -2840,8 +2834,6 @@ Explanation: Start at 0, go to 2, 3, 4, 6, 7, 9, then top. Total = 1+1+1+1+1+1 =
 
 <div class="bg-blue-50 p-4 rounded-lg my-4">
   <strong>Pro Tip:</strong> The key insight in min cost path problems is recognizing that to optimally reach position i, you must have optimally reached one of its predecessor positions. This is optimal substructure!
-</div>
-
 </div>`,
   codeExample: `# ============================================================================
 # MIN COST PATH PROBLEMS: Complete Implementation Guide
@@ -3522,10 +3514,7 @@ def num_squares_with_path(n):
 
 const decodeWaysData: LessonContent = {
   title: 'Decode Ways Pattern',
-  content: `<div>
-<h1>The Decode Ways Pattern in Dynamic Programming</h1>
-
-<p>The Decode Ways problem is a fascinating variation of the Fibonacci pattern where we count possibilities with conditional transitions. Unlike simple Fibonacci, the transitions depend on the values of elements, introducing validation logic into the recurrence relation.</p>
+  content: `The Decode Ways problem is a fascinating variation of the Fibonacci pattern where we count possibilities with conditional transitions. Unlike simple Fibonacci, the transitions depend on the values of elements, introducing validation logic into the recurrence relation.
 
 <h2>The Classic Problem (LeetCode 91)</h2>
 
@@ -3533,23 +3522,33 @@ const decodeWaysData: LessonContent = {
   <p><strong>Problem:</strong> A message containing letters from A-Z can be encoded using 'A' = 1, 'B' = 2, ..., 'Z' = 26. Given a string of digits, count the number of ways it can be decoded.</p>
 </div>
 
-<p><strong>Examples:</strong></p>
-<pre>
-Input: "12"
-Output: 2
-Explanation: "12" can be decoded as "AB" (1 2) or "L" (12)
+<div class="example-box">
+  <h3>Example 1:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> s = "12"</p>
+    <p><strong>Output:</strong> 2</p>
+    <p><strong>Explanation:</strong> "12" can be decoded as "AB" (1 2) or "L" (12)</p>
+  </div>
 
-Input: "226"
-Output: 3
-Explanation: "226" can be decoded as:
-  - "BZ" (2 26)
-  - "VF" (22 6)
-  - "BBF" (2 2 6)
+  <h3>Example 2:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> s = "226"</p>
+    <p><strong>Output:</strong> 3</p>
+    <p><strong>Explanation:</strong> "226" can be decoded as:</p>
+    <ul class="ml-4 mt-2">
+      <li>• "BZ" (2 26)</li>
+      <li>• "VF" (22 6)</li>
+      <li>• "BBF" (2 2 6)</li>
+    </ul>
+  </div>
 
-Input: "06"
-Output: 0
-Explanation: "06" cannot be decoded (no letter has code "06")
-</pre>
+  <h3>Example 3:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> s = "06"</p>
+    <p><strong>Output:</strong> 0</p>
+    <p><strong>Explanation:</strong> "06" cannot be decoded (no letter has code "06")</p>
+  </div>
+</div>
 
 <h2>Why This is "Fibonacci with Conditions"</h2>
 
@@ -3732,8 +3731,6 @@ Conditions for validity:
 
 <div class="bg-blue-50 p-4 rounded-lg my-4">
   <strong>Pro Tip:</strong> This pattern appears whenever you're counting paths/ways and the validity of each step depends on looking at the actual values, not just structure. Think "Fibonacci + validation rules".
-</div>
-
 </div>`,
   codeExample: `# ============================================================================
 # DECODE WAYS PATTERN: Complete Implementation Guide

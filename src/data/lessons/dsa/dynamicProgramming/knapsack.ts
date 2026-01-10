@@ -7,10 +7,7 @@ import { Difficulty } from '@/common/commonConcept';
 
 const zeroOneKnapsackData: LessonContent = {
   title: '0/1 Knapsack: The Foundation',
-  content: `<div>
-<h1>0/1 Knapsack: The Classic Optimization Problem</h1>
-
-<p>The 0/1 Knapsack problem is one of the most fundamental optimization problems in computer science. It forms the foundation for understanding a whole category of DP problems involving resource allocation and decision-making.</p>
+  content: `The 0/1 Knapsack problem is one of the most fundamental optimization problems in computer science. It forms the foundation for understanding a whole category of DP problems involving resource allocation and decision-making.
 
 <h2>Problem Definition</h2>
 
@@ -144,8 +141,6 @@ def knapsack_with_items(weights, values, W):
     <li><strong>Space Optimization:</strong> Iterate backwards when using 1D array</li>
     <li><strong>Pattern:</strong> Many problems reduce to 0/1 Knapsack (Subset Sum, Partition, Target Sum)</li>
   </ul>
-</div>
-
 </div>`,
   codeExample: `# 0/1 Knapsack - Complete Implementation
 
@@ -223,10 +218,7 @@ print(knapsack_01(weights, values, W))  # 9`,
 
 const unboundedKnapsackData: LessonContent = {
   title: 'Unbounded Knapsack: Unlimited Supply',
-  content: `<div>
-<h1>Unbounded Knapsack: Items with Unlimited Supply</h1>
-
-<p>Unlike 0/1 Knapsack where each item can be taken at most once, Unbounded Knapsack allows taking each item unlimited times. This changes our DP approach!</p>
+  content: `Unlike 0/1 Knapsack where each item can be taken at most once, Unbounded Knapsack allows taking each item unlimited times. This changes our DP approach!
 
 <h2>Problem Definition</h2>
 
@@ -274,9 +266,7 @@ def unbounded_knapsack(weights, values, W):
                 dp[w] = max(dp[w], dp[w - weights[i]] + values[i])
 
     return dp[W]
-\`\`\`
-
-</div>`,
+\`\`\``,
   codeExample: `def unbounded_knapsack(weights, values, W):
     """Unbounded Knapsack - O(n*W) time, O(W) space."""
     dp = [0] * (W + 1)
@@ -358,10 +348,7 @@ def unbounded_knapsack(weights, values, W):
 
 const subsetSumData: LessonContent = {
   title: 'Subset Sum Problem',
-  content: `<div>
-<h1>Subset Sum: A Special Case of Knapsack</h1>
-
-<p>Subset Sum is a classic NP-complete problem that asks: given a set of numbers, can we find a subset that sums to a target?</p>
+  content: `Subset Sum is a classic NP-complete problem that asks: given a set of numbers, can we find a subset that sums to a target?
 
 <h2>Problem Definition</h2>
 
@@ -417,8 +404,7 @@ def count_subsets_with_sum(nums, target):
 
     return dp[target]
 \`\`\`
-
-</div>`,
+`,
   codeExample: `def subset_sum(nums, target):
     """Check if subset with target sum exists."""
     dp = [False] * (target + 1)
@@ -509,10 +495,7 @@ def count_subsets_with_sum(nums, target):
 
 const partitionEqualSubsetData: LessonContent = {
   title: 'Partition Equal Subset Sum',
-  content: `<div>
-<h1>Partition Equal Subset Sum</h1>
-
-<p>Can we partition an array into two subsets with equal sum? This is a direct application of Subset Sum!</p>
+  content: `Can we partition an array into two subsets with equal sum? This is a direct application of Subset Sum!
 
 <h2>Problem (LeetCode 416)</h2>
 
@@ -548,7 +531,7 @@ def can_partition(nums):
     return dp[target]
 \`\`\`
 
-</div>`,
+`,
   codeExample: `def can_partition(nums):
     """Partition into equal sum subsets."""
     total = sum(nums)
@@ -641,23 +624,32 @@ def can_partition(nums):
 
 const coinChangeData: LessonContent = {
   title: 'Coin Change: Unbounded Knapsack Variant',
-  content: `<div>
-<h1>Coin Change: Making Change with Minimum Coins</h1>
-
-<p>Given coins of different denominations and a total amount, find the fewest number of coins needed to make up that amount. This is a classic unbounded knapsack problem.</p>
+  content: `Given coins of different denominations and a total amount, find the fewest number of coins needed to make up that amount. This is a classic unbounded knapsack problem.
 
 <h2>Problem (LeetCode 322)</h2>
 
-<pre>
-Input: coins = [1,2,5], amount = 11
-Output: 3 (11 = 5 + 5 + 1)
+<div class="example-box">
+  <h3>Example 1:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> coins = [1, 2, 5], amount = 11</p>
+    <p><strong>Output:</strong> 3</p>
+    <p><strong>Explanation:</strong> 11 = 5 + 5 + 1 (3 coins)</p>
+  </div>
 
-Input: coins = [2], amount = 3
-Output: -1 (impossible to make)
+  <h3>Example 2:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> coins = [2], amount = 3</p>
+    <p><strong>Output:</strong> -1</p>
+    <p><strong>Explanation:</strong> Impossible to make amount 3 with only coin value 2</p>
+  </div>
 
-Input: coins = [1], amount = 0
-Output: 0
-</pre>
+  <h3>Example 3:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> coins = [1], amount = 0</p>
+    <p><strong>Output:</strong> 0</p>
+    <p><strong>Explanation:</strong> No coins needed to make amount 0</p>
+  </div>
+</div>
 
 <h2>DP Solution - Minimum Coins</h2>
 
@@ -768,9 +760,7 @@ Final: dp[5] = 1
   <li><strong>LeetCode 518:</strong> Coin Change II (count ways)</li>
   <li><strong>LeetCode 377:</strong> Combination Sum IV (permutations)</li>
   <li><strong>LeetCode 983:</strong> Minimum Cost For Tickets</li>
-</ul>
-
-</div>`,
+</ul>`,
   codeExample: `# Coin Change - Minimum coins needed
 
 def coin_change(coins, amount):
