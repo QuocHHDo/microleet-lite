@@ -1,5 +1,6 @@
 import { LessonContent } from '@/common/commonLesson';
 import { Difficulty } from '@/common/commonConcept';
+import { CodeContent } from '@/common/commonLanguage';
 
 
 // SECTION 1: DYNAMIC PROGRAMMING FUNDAMENTALS
@@ -195,7 +196,8 @@ Remember: **DP is not magic—it's careful bookkeeping.** Every DP problem follo
 4. Build up from smaller to larger problems
 
 Let's begin your journey to mastering this essential technique!`,
-  codeExample: `# Three Approaches to Fibonacci - See the Evolution
+  codeExample: {
+    python: `# Three Approaches to Fibonacci - See the Evolution
 
 # ========================================
 # APPROACH 1: Naive Recursion (SLOW)
@@ -327,10 +329,153 @@ print("\\nComputing fib(30):")
 compare_approaches(30)
 print("\\nComputing fib(40):")
 compare_approaches(40)`,
+    typescript: `// Three Approaches to Fibonacci - See the Evolution
+
+// ========================================
+// APPROACH 1: Naive Recursion (SLOW)
+// ========================================
+function fibonacciRecursive(n: number): number {
+    /**
+     * Time: O(2^n) - Exponential!
+     * Space: O(n) - Recursion stack
+     *
+     * This recalculates the same values many times.
+     */
+    if (n <= 1) {
+        return n;
+    }
+    return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
+}
+
+
+// ========================================
+// APPROACH 2: Memoization (Top-Down DP)
+// ========================================
+function fibonacciMemo(n: number, memo: Map<number, number> = new Map()): number {
+    /**
+     * Time: O(n) - Each subproblem solved once
+     * Space: O(n) - Memo map + recursion stack
+     *
+     * Cache results to avoid recalculation.
+     */
+    if (memo.has(n)) {
+        return memo.get(n)!;
+    }
+
+    if (n <= 1) {
+        return n;
+    }
+
+    const result = fibonacciMemo(n - 1, memo) + fibonacciMemo(n - 2, memo);
+    memo.set(n, result);
+    return result;
+}
+
+
+// ========================================
+// APPROACH 3: Tabulation (Bottom-Up DP)
+// ========================================
+function fibonacciDp(n: number): number {
+    /**
+     * Time: O(n) - Single pass through array
+     * Space: O(n) - DP array
+     *
+     * Build from base cases up to final answer.
+     */
+    if (n <= 1) {
+        return n;
+    }
+
+    // Create table to store solutions
+    const dp: number[] = Array(n + 1).fill(0);
+    dp[0] = 0;
+    dp[1] = 1;
+
+    // Fill table bottom-up
+    for (let i = 2; i <= n; i++) {
+        dp[i] = dp[i - 1] + dp[i - 2];
+    }
+
+    return dp[n];
+}
+
+
+// ========================================
+// APPROACH 4: Space-Optimized DP
+// ========================================
+function fibonacciOptimized(n: number): number {
+    /**
+     * Time: O(n) - Single pass
+     * Space: O(1) - Only two variables!
+     *
+     * We only need the last two values.
+     */
+    if (n <= 1) {
+        return n;
+    }
+
+    let prev2 = 0;  // fib(0)
+    let prev1 = 1;  // fib(1)
+
+    for (let i = 2; i <= n; i++) {
+        const current = prev1 + prev2;
+        prev2 = prev1;
+        prev1 = current;
+    }
+
+    return prev1;
+}
+
+
+// ========================================
+// Performance Comparison
+// ========================================
+function compareApproaches(n: number): void {
+    /** Compare the performance of different approaches. */
+
+    // Approach 1: Too slow for large n, skip if n > 35
+    if (n <= 35) {
+        const start1 = performance.now();
+        const result1 = fibonacciRecursive(n);
+        const time1 = (performance.now() - start1) / 1000;
+        console.log(\`Recursive: fib(\${n}) = \${result1}, Time: \${time1.toFixed(6)}s\`);
+    } else {
+        console.log(\`Recursive: Skipped (too slow for n=\${n})\`);
+    }
+
+    // Approach 2: Memoization
+    const start2 = performance.now();
+    const result2 = fibonacciMemo(n);
+    const time2 = (performance.now() - start2) / 1000;
+    console.log(\`Memoization: fib(\${n}) = \${result2}, Time: \${time2.toFixed(6)}s\`);
+
+    // Approach 3: Tabulation
+    const start3 = performance.now();
+    const result3 = fibonacciDp(n);
+    const time3 = (performance.now() - start3) / 1000;
+    console.log(\`Tabulation: fib(\${n}) = \${result3}, Time: \${time3.toFixed(6)}s\`);
+
+    // Approach 4: Optimized
+    const start4 = performance.now();
+    const result4 = fibonacciOptimized(n);
+    const time4 = (performance.now() - start4) / 1000;
+    console.log(\`Optimized: fib(\${n}) = \${result4}, Time: \${time4.toFixed(6)}s\`);
+}
+
+
+// Test with different values
+console.log("Computing fib(20):");
+compareApproaches(20);
+console.log("\\nComputing fib(30):");
+compareApproaches(30);
+console.log("\\nComputing fib(40):");
+compareApproaches(40);`
+  },
   exercises: [
     {
       prompt: 'Implement a function that calculates the nth Tribonacci number (sum of previous 3 numbers instead of 2). Use dynamic programming with O(n) time and O(1) space.',
-      initialCode: `def tribonacci(n):
+      initialCode: {
+        python: `def tribonacci(n):
     """
     Calculate the nth Tribonacci number.
     T(n) = T(n-1) + T(n-2) + T(n-3)
@@ -343,7 +488,21 @@ compare_approaches(40)`,
     """
     # Your code here
     pass`,
-      solution: `def tribonacci(n):
+        typescript: `function tribonacci(n: number): number {
+    /**
+     * Calculate the nth Tribonacci number.
+     * T(n) = T(n-1) + T(n-2) + T(n-3)
+     * T(0) = 0, T(1) = 1, T(2) = 1
+     *
+     * @param n - The position in the Tribonacci sequence
+     * @returns The nth Tribonacci number
+     */
+    // Your code here
+    return 0;
+}`
+      },
+      solution: {
+        python: `def tribonacci(n):
     """
     Calculate the nth Tribonacci number.
     Time: O(n), Space: O(1)
@@ -363,11 +522,37 @@ compare_approaches(40)`,
         t2 = current
 
     return t2`,
+        typescript: `function tribonacci(n: number): number {
+    /**
+     * Calculate the nth Tribonacci number.
+     * Time: O(n), Space: O(1)
+     */
+    if (n === 0) {
+        return 0;
+    }
+    if (n <= 2) {
+        return 1;
+    }
+
+    // Only need last 3 values
+    let t0 = 0, t1 = 1, t2 = 1;
+
+    for (let i = 3; i <= n; i++) {
+        const current = t0 + t1 + t2;
+        t0 = t1;
+        t1 = t2;
+        t2 = current;
+    }
+
+    return t2;
+}`
+      },
       difficulty: Difficulty.Beginner,
     },
     {
       prompt: 'Write a function to count the number of ways to climb n stairs if you can take 1, 2, or 3 steps at a time. Use dynamic programming.',
-      initialCode: `def count_ways_to_climb(n):
+      initialCode: {
+        python: `def count_ways_to_climb(n):
     """
     Count ways to climb n stairs taking 1, 2, or 3 steps at a time.
 
@@ -378,7 +563,19 @@ compare_approaches(40)`,
     """
     # Your code here
     pass`,
-      solution: `def count_ways_to_climb(n):
+        typescript: `function countWaysToClimb(n: number): number {
+    /**
+     * Count ways to climb n stairs taking 1, 2, or 3 steps at a time.
+     *
+     * @param n - Number of stairs
+     * @returns Number of distinct ways to climb the stairs
+     */
+    // Your code here
+    return 0;
+}`
+      },
+      solution: {
+        python: `def count_ways_to_climb(n):
     """
     Count ways to climb n stairs.
     Time: O(n), Space: O(n)
@@ -399,6 +596,33 @@ compare_approaches(40)`,
         dp[i] = dp[i-1] + dp[i-2] + dp[i-3]
 
     return dp[n]`,
+        typescript: `function countWaysToClimb(n: number): number {
+    /**
+     * Count ways to climb n stairs.
+     * Time: O(n), Space: O(n)
+     */
+    if (n === 0) {
+        return 1;
+    }
+    if (n === 1) {
+        return 1;
+    }
+    if (n === 2) {
+        return 2;
+    }
+
+    const dp: number[] = Array(n + 1).fill(0);
+    dp[0] = 1;  // One way to stay at ground
+    dp[1] = 1;  // One way: 1 step
+    dp[2] = 2;  // Two ways: 1+1 or 2
+
+    for (let i = 3; i <= n; i++) {
+        dp[i] = dp[i-1] + dp[i-2] + dp[i-3];
+    }
+
+    return dp[n];
+}`
+      },
       difficulty: Difficulty.Beginner,
     },
   ],

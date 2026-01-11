@@ -1,5 +1,6 @@
 import { LessonContent } from '@/common/commonLesson';
 import { Difficulty } from '@/common/commonConcept';
+import { CodeContent } from '@/common/commonLanguage';
 
 
 // SECTION 6: ADVANCED DP PATTERNS
@@ -125,7 +126,8 @@ def min_cost_assignment(cost):
 </table>
 
 </div>`,
-  codeExample: `# Bitmask DP - Assignment Problem
+  codeExample: {
+    python: `# Bitmask DP - Assignment Problem
 
 def min_cost_assignment(cost):
     """
@@ -154,10 +156,46 @@ def min_cost_assignment(cost):
 # Example
 cost = [[9, 2, 7], [6, 4, 3], [5, 8, 1]]
 print(min_cost_assignment(cost))  # 13 (person 0->task 1, person 1->task 2, person 2->task 0)`,
+    typescript: `// Bitmask DP - Assignment Problem
+
+function minCostAssignment(cost: number[][]): number {
+    /**
+     * Assign n tasks to n people with minimum cost.
+     * dp[mask] = min cost for tasks in mask
+     */
+    const n = cost.length;
+    const dp: number[] = Array(1 << n).fill(Infinity);
+    dp[0] = 0;
+
+    for (let mask = 0; mask < (1 << n); mask++) {
+        const person = mask.toString(2).split('1').length - 1;
+        if (person >= n) {
+            continue;
+        }
+
+        for (let task = 0; task < n; task++) {
+            if (!(mask & (1 << task))) {
+                const newMask = mask | (1 << task);
+                dp[newMask] = Math.min(
+                    dp[newMask],
+                    dp[mask] + cost[person][task]
+                );
+            }
+        }
+    }
+
+    return dp[(1 << n) - 1];
+}
+
+// Example
+const cost = [[9, 2, 7], [6, 4, 3], [5, 8, 1]];
+console.log(minCostAssignment(cost));  // 13 (person 0->task 1, person 1->task 2, person 2->task 0)`
+  },
   exercises: [
     {
       prompt: 'Implement the Assignment Problem using bitmask DP to minimize total cost.',
-      initialCode: `def min_cost_assignment(cost):
+      initialCode: {
+        python: `def min_cost_assignment(cost):
     """
     Assign n tasks to n people with minimum cost.
     cost[i][j] = cost for person i to do task j
@@ -169,7 +207,20 @@ print(min_cost_assignment(cost))  # 13 (person 0->task 1, person 1->task 2, pers
     """
     # Your code here
     pass`,
-      solution: `def min_cost_assignment(cost):
+        typescript: `function minCostAssignment(cost: number[][]): number {
+    /**
+     * Assign n tasks to n people with minimum cost.
+     * cost[i][j] = cost for person i to do task j
+     *
+     * @param cost - 2D array of costs
+     * @returns Minimum total cost
+     */
+    // Your code here
+    return 0;
+}`
+      },
+      solution: {
+        python: `def min_cost_assignment(cost):
     """Assignment Problem using bitmask DP."""
     n = len(cost)
     dp = [float('inf')] * (1 << n)
@@ -186,6 +237,29 @@ print(min_cost_assignment(cost))  # 13 (person 0->task 1, person 1->task 2, pers
                 dp[new_mask] = min(dp[new_mask], dp[mask] + cost[person][task])
 
     return dp[(1 << n) - 1]`,
+        typescript: `function minCostAssignment(cost: number[][]): number {
+    /** Assignment Problem using bitmask DP. */
+    const n = cost.length;
+    const dp: number[] = Array(1 << n).fill(Infinity);
+    dp[0] = 0;
+
+    for (let mask = 0; mask < (1 << n); mask++) {
+        const person = mask.toString(2).split('1').length - 1;
+        if (person >= n) {
+            continue;
+        }
+
+        for (let task = 0; task < n; task++) {
+            if (!(mask & (1 << task))) {
+                const newMask = mask | (1 << task);
+                dp[newMask] = Math.min(dp[newMask], dp[mask] + cost[person][task]);
+            }
+        }
+    }
+
+    return dp[(1 << n) - 1];
+}`
+      },
       difficulty: Difficulty.Advanced,
     },
     {

@@ -1,5 +1,6 @@
 import { LessonContent } from '@/common/commonLesson';
 import { Difficulty } from '@/common/commonConcept';
+import { CodeContent } from '@/common/commonLanguage';
 
 
 // SECTION 3: 2D DYNAMIC PROGRAMMING
@@ -201,7 +202,8 @@ To reach (i,j): came from (i-1,j) or (i,j-1)
 <div class="bg-yellow-50 p-4 rounded-lg my-4">
   <strong>Pro Tip:</strong> Grid DP problems often have elegant combinatorial solutions too (like Unique Paths = C(m+n-2, m-1)), but DP is more general and handles obstacles and costs naturally.
 </div>`,
-  codeExample: `# ============================================================================
+  codeExample: {
+    python: `# ============================================================================
 # GRID PATH PROBLEMS: Complete Implementation Guide
 # ============================================================================
 
@@ -541,10 +543,409 @@ if __name__ == "__main__":
     print("Grid (1 = obstacle):")
     print_grid(obstacle_grid)
     print(f"\\nUnique paths: {result}")`,
+    typescript: `// ============================================================================
+// GRID PATH PROBLEMS: Complete Implementation Guide
+// ============================================================================
+
+// PROBLEM 1: Unique Paths - LeetCode 62
+// ============================================================================
+
+function uniquePaths2D(m: number, n: number): number {
+    /**
+     * Count unique paths in m × n grid (only move right or down).
+     *
+     * State: dp[i][j] = paths to reach (i, j)
+     * Base: dp[0][j] = 1, dp[i][0] = 1 (only one way along edges)
+     * Transition: dp[i][j] = dp[i-1][j] + dp[i][j-1]
+     *
+     * Time: O(m*n), Space: O(m*n)
+     */
+    // Create DP table
+    const dp: number[][] = Array.from({ length: m }, () => Array(n).fill(0));
+
+    // Base cases: first row and column
+    for (let i = 0; i < m; i++) {
+        dp[i][0] = 1;
+    }
+    for (let j = 0; j < n; j++) {
+        dp[0][j] = 1;
+    }
+
+    // Fill table
+    for (let i = 1; i < m; i++) {
+        for (let j = 1; j < n; j++) {
+            dp[i][j] = dp[i-1][j] + dp[i][j-1];
+        }
+    }
+
+    return dp[m-1][n-1];
+}
+
+
+function uniquePathsOptimized(m: number, n: number): number {
+    /**
+     * Space-optimized version using single array.
+     *
+     * Observation: dp[i][j] only needs current and previous row.
+     * We can reuse array by updating in-place.
+     *
+     * Time: O(m*n), Space: O(n)
+     */
+    // Single row array
+    const dp: number[] = Array(n).fill(1);  // First row all 1s
+
+    // Process each row
+    for (let i = 1; i < m; i++) {
+        for (let j = 1; j < n; j++) {
+            // dp[j] currently holds previous row value (dp[i-1][j])
+            // dp[j-1] already updated to current row value (dp[i][j-1])
+            dp[j] = dp[j] + dp[j-1];
+        }
+    }
+
+    return dp[n-1];
+}
+
+
+// ============================================================================
+// PROBLEM 2: Unique Paths II - With Obstacles - LeetCode 63
+// ============================================================================
+
+function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
+    /**
+     * Count paths in grid with obstacles.
+     * obstacleGrid[i][j] = 1 means obstacle.
+     *
+     * State: dp[i][j] = paths to (i,j), or 0 if obstacle
+     * Transition: if not obstacle, dp[i][j] = dp[i-1][j] + dp[i][j-1]
+     *
+     * Time: O(m*n), Space: O(n)
+     */
+    if (!obstacleGrid || obstacleGrid[0][0] === 1) {
+        return 0;
+    }
+
+    const m: number = obstacleGrid.length;
+    const n: number = obstacleGrid[0].length;
+
+    // Space-optimized: single row
+    const dp: number[] = Array(n).fill(0);
+    dp[0] = 1;
+
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (obstacleGrid[i][j] === 1) {
+                dp[j] = 0;  // Obstacle blocks all paths
+            } else if (j > 0) {
+                dp[j] += dp[j-1];
+            }
+        }
+    }
+
+    return dp[n-1];
+}
+
+
+function uniquePathsWithObstacles2D(obstacleGrid: number[][]): number {
+    /**
+     * Same problem with 2D DP table for clarity.
+     */
+    if (!obstacleGrid || obstacleGrid[0][0] === 1) {
+        return 0;
+    }
+
+    const m: number = obstacleGrid.length;
+    const n: number = obstacleGrid[0].length;
+    const dp: number[][] = Array.from({ length: m }, () => Array(n).fill(0));
+
+    // Base case: start cell
+    dp[0][0] = 1;
+
+    // First column
+    for (let i = 1; i < m; i++) {
+        if (obstacleGrid[i][0] === 0) {
+            dp[i][0] = dp[i-1][0];
+        }
+    }
+
+    // First row
+    for (let j = 1; j < n; j++) {
+        if (obstacleGrid[0][j] === 0) {
+            dp[0][j] = dp[0][j-1];
+        }
+    }
+
+    // Fill rest
+    for (let i = 1; i < m; i++) {
+        for (let j = 1; j < n; j++) {
+            if (obstacleGrid[i][j] === 0) {
+                dp[i][j] = dp[i-1][j] + dp[i][j-1];
+            }
+        }
+    }
+
+    return dp[m-1][n-1];
+}
+
+
+// ============================================================================
+// PROBLEM 3: Minimum Path Sum - LeetCode 64
+// ============================================================================
+
+function minPathSum(grid: number[][]): number {
+    /**
+     * Find minimum sum path from top-left to bottom-right.
+     *
+     * State: dp[i][j] = minimum sum to reach (i, j)
+     * Base: dp[0][0] = grid[0][0]
+     * Transition: dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])
+     *
+     * Time: O(m*n), Space: O(n)
+     */
+    if (!grid || grid.length === 0) {
+        return 0;
+    }
+
+    const m: number = grid.length;
+    const n: number = grid[0].length;
+
+    // Space-optimized: single row
+    let prev: number[] = Array(n).fill(0);
+    prev[0] = grid[0][0];
+
+    // Initialize first row
+    for (let j = 1; j < n; j++) {
+        prev[j] = prev[j-1] + grid[0][j];
+    }
+
+    // Process remaining rows
+    for (let i = 1; i < m; i++) {
+        const curr: number[] = Array(n).fill(0);
+        curr[0] = prev[0] + grid[i][0];
+
+        for (let j = 1; j < n; j++) {
+            curr[j] = grid[i][j] + Math.min(prev[j], curr[j-1]);
+        }
+
+        prev = curr;
+    }
+
+    return prev[n-1];
+}
+
+
+// ============================================================================
+// PROBLEM 4: Maximum Path Sum (Variant)
+// ============================================================================
+
+function maxPathSum(grid: number[][]): number {
+    /**
+     * Find maximum sum path from top-left to bottom-right.
+     *
+     * Same structure as min path sum, but use max instead.
+     *
+     * Time: O(m*n), Space: O(n)
+     */
+    if (!grid || grid.length === 0) {
+        return 0;
+    }
+
+    const m: number = grid.length;
+    const n: number = grid[0].length;
+    let prev: number[] = Array(n).fill(0);
+    prev[0] = grid[0][0];
+
+    for (let j = 1; j < n; j++) {
+        prev[j] = prev[j-1] + grid[0][j];
+    }
+
+    for (let i = 1; i < m; i++) {
+        const curr: number[] = Array(n).fill(0);
+        curr[0] = prev[0] + grid[i][0];
+
+        for (let j = 1; j < n; j++) {
+            curr[j] = grid[i][j] + Math.max(prev[j], curr[j-1]);
+        }
+
+        prev = curr;
+    }
+
+    return prev[n-1];
+}
+
+
+// ============================================================================
+// PROBLEM 5: Dungeon Game - LeetCode 174 (Reverse DP)
+// ============================================================================
+
+function calculateMinimumHP(dungeon: number[][]): number {
+    /**
+     * Find minimum initial health needed to reach bottom-right.
+     * Cells can have positive (health) or negative (damage) values.
+     *
+     * Key insight: Work backwards from end!
+     *
+     * State: dp[i][j] = minimum health needed to reach end from (i,j)
+     * Base: dp[m-1][n-1] = max(1, 1 - dungeon[m-1][n-1])
+     * Transition: dp[i][j] = max(1, min(dp[i+1][j], dp[i][j+1]) - dungeon[i][j])
+     *
+     * Time: O(m*n), Space: O(n)
+     */
+    if (!dungeon || dungeon.length === 0) {
+        return 0;
+    }
+
+    const m: number = dungeon.length;
+    const n: number = dungeon[0].length;
+
+    // Work backwards: start from bottom-right
+    const dp: number[][] = Array.from({ length: m }, () => Array(n).fill(0));
+
+    // Base case: end cell
+    dp[m-1][n-1] = Math.max(1, 1 - dungeon[m-1][n-1]);
+
+    // Last column (can only go up)
+    for (let i = m-2; i >= 0; i--) {
+        dp[i][n-1] = Math.max(1, dp[i+1][n-1] - dungeon[i][n-1]);
+    }
+
+    // Last row (can only go left)
+    for (let j = n-2; j >= 0; j--) {
+        dp[m-1][j] = Math.max(1, dp[m-1][j+1] - dungeon[m-1][j]);
+    }
+
+    // Fill rest (working backwards)
+    for (let i = m-2; i >= 0; i--) {
+        for (let j = n-2; j >= 0; j--) {
+            const minHealthOnExit: number = Math.min(dp[i+1][j], dp[i][j+1]);
+            dp[i][j] = Math.max(1, minHealthOnExit - dungeon[i][j]);
+        }
+    }
+
+    return dp[0][0];
+}
+
+
+// ============================================================================
+// VISUALIZATION HELPERS
+// ============================================================================
+
+function visualizeUniquePaths(m: number, n: number): number {
+    /**
+     * Show DP table construction for unique paths.
+     */
+    const dp: number[][] = Array.from({ length: m }, () => Array(n).fill(0));
+
+    // Initialize
+    for (let i = 0; i < m; i++) {
+        dp[i][0] = 1;
+    }
+    for (let j = 0; j < n; j++) {
+        dp[0][j] = 1;
+    }
+
+    console.log(\`Unique Paths: \${m} × \${n} grid\\n\`);
+    console.log("=".repeat(60));
+    console.log("Initial state (base cases):");
+    printGrid(dp);
+
+    // Fill table with visualization
+    for (let i = 1; i < m; i++) {
+        for (let j = 1; j < n; j++) {
+            dp[i][j] = dp[i-1][j] + dp[i][j-1];
+        }
+    }
+
+    console.log("\\nFinal DP table:");
+    printGrid(dp);
+    console.log("=".repeat(60));
+    console.log(\`\\nAnswer: \${dp[m-1][n-1]} unique paths\`);
+
+    return dp[m-1][n-1];
+}
+
+
+function printGrid(grid: number[][]): void {
+    // Pretty print 2D grid
+    for (const row of grid) {
+        console.log("  " + row.map(val => val.toString().padStart(4)).join(""));
+    }
+}
+
+
+function visualizeMinPathSum(grid: number[][]): number {
+    /**
+     * Show DP table for minimum path sum.
+     */
+    const m: number = grid.length;
+    const n: number = grid[0].length;
+    const dp: number[][] = Array.from({ length: m }, () => Array(n).fill(0));
+
+    console.log("Minimum Path Sum:\\n");
+    console.log("Input grid:");
+    printGrid(grid);
+
+    // Build DP table
+    dp[0][0] = grid[0][0];
+
+    for (let j = 1; j < n; j++) {
+        dp[0][j] = dp[0][j-1] + grid[0][j];
+    }
+
+    for (let i = 1; i < m; i++) {
+        dp[i][0] = dp[i-1][0] + grid[i][0];
+    }
+
+    for (let i = 1; i < m; i++) {
+        for (let j = 1; j < n; j++) {
+            dp[i][j] = grid[i][j] + Math.min(dp[i-1][j], dp[i][j-1]);
+        }
+    }
+
+    console.log("\\nDP table (minimum sums):");
+    printGrid(dp);
+    console.log(\`\\nMinimum path sum: \${dp[m-1][n-1]}\`);
+
+    return dp[m-1][n-1];
+}
+
+
+// ============================================================================
+// TESTING
+// ============================================================================
+
+if (typeof require !== 'undefined' && require.main === module) {
+    console.log("GRID PATH PROBLEMS DEMONSTRATIONS\\n");
+
+    // Test 1: Unique Paths
+    console.log("1. UNIQUE PATHS (3×3 grid):");
+    visualizeUniquePaths(3, 3);
+
+    console.log("\\n\\n2. MINIMUM PATH SUM:");
+    const grid: number[][] = [
+        [1, 3, 1],
+        [1, 5, 1],
+        [4, 2, 1]
+    ];
+    visualizeMinPathSum(grid);
+
+    console.log("\\n\\n3. UNIQUE PATHS WITH OBSTACLES:");
+    const obstacleGrid: number[][] = [
+        [0, 0, 0],
+        [0, 1, 0],
+        [0, 0, 0]
+    ];
+    const result: number = uniquePathsWithObstacles(obstacleGrid);
+    console.log("Grid (1 = obstacle):");
+    printGrid(obstacleGrid);
+    console.log(\`\\nUnique paths: \${result}\`);
+}`
+  },
   exercises: [
     {
       prompt: 'Implement Unique Paths using space-optimized DP (O(n) space). Count the number of unique paths in an m×n grid moving only right or down.',
-      initialCode: `def unique_paths(m, n):
+      initialCode: {
+        python: `def unique_paths(m, n):
     """
     Count unique paths from top-left to bottom-right.
     Can only move right or down.
@@ -566,7 +967,29 @@ if __name__ == "__main__":
     """
     # Your code here
     pass`,
-      solution: `def unique_paths(m, n):
+        typescript: `function uniquePaths(m: number, n: number): number {
+    /**
+     * Count unique paths from top-left to bottom-right.
+     * Can only move right or down.
+     *
+     * State: dp[i][j] = number of paths to reach (i, j)
+     * Base: dp[0][j] = 1, dp[i][0] = 1
+     * Transition: dp[i][j] = dp[i-1][j] + dp[i][j-1]
+     *
+     * @param m - Number of rows
+     * @param n - Number of columns
+     * @returns Number of unique paths
+     *
+     * @example
+     * uniquePaths(3, 2) // returns 3
+     * uniquePaths(3, 7) // returns 28
+     */
+    // Your code here
+    return 0;
+}`
+      },
+      solution: {
+        python: `def unique_paths(m, n):
     """
     Unique Paths with space optimization.
     Time: O(m*n), Space: O(n)
@@ -599,6 +1022,48 @@ def unique_paths_2d(m, n):
             dp[i][j] = dp[i-1][j] + dp[i][j-1]
 
     return dp[m-1][n-1]`,
+        typescript: `function uniquePaths(m: number, n: number): number {
+    /**
+     * Unique Paths with space optimization.
+     * Time: O(m*n), Space: O(n)
+     */
+    // Use single array
+    const dp: number[] = Array(n).fill(1);  // First row all 1s
+
+    // Process each subsequent row
+    for (let i = 1; i < m; i++) {
+        for (let j = 1; j < n; j++) {
+            // dp[j] = paths from above (previous row)
+            // dp[j-1] = paths from left (current row)
+            dp[j] = dp[j] + dp[j-1];
+        }
+    }
+
+    return dp[n-1];
+}
+
+// With 2D table for understanding
+function uniquePaths2D(m: number, n: number): number {
+    const dp: number[][] = Array.from({ length: m }, () => Array(n).fill(0));
+
+    // Base cases
+    for (let i = 0; i < m; i++) {
+        dp[i][0] = 1;
+    }
+    for (let j = 0; j < n; j++) {
+        dp[0][j] = 1;
+    }
+
+    // Fill table
+    for (let i = 1; i < m; i++) {
+        for (let j = 1; j < n; j++) {
+            dp[i][j] = dp[i-1][j] + dp[i][j-1];
+        }
+    }
+
+    return dp[m-1][n-1];
+}`
+      },
       difficulty: Difficulty.Intermediate,
     },
     {

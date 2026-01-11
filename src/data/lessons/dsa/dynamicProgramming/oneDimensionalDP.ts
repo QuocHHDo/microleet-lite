@@ -1,5 +1,6 @@
 import { LessonContent } from '@/common/commonLesson';
 import { Difficulty } from '@/common/commonConcept';
+import { CodeContent } from '@/common/commonLanguage';
 
 
 // SECTION 2: 1D DYNAMIC PROGRAMMING
@@ -152,7 +153,8 @@ Notice: F(3) computed 2 times, F(2) computed 3 times!
 <div class="bg-yellow-50 p-4 rounded-lg my-4">
   <strong>Pro Tip:</strong> Many interview problems are disguised Fibonacci! Look for the "sum of previous two states" pattern.
 </div>`,
-  codeExample: `# ============================================================================
+  codeExample: {
+    python: `# ============================================================================
 # FIBONACCI PATTERN: Complete Implementation Guide
 # ============================================================================
 
@@ -511,10 +513,414 @@ if __name__ == "__main__":
     print(f"Min cost [10,15,20] = {min_cost_climbing_stairs([10, 15, 20])}")
     print(f"Rob [2,7,9,3,1] = {rob_houses([2, 7, 9, 3, 1])}")
     print(f"Decode '226' = {num_decodings('226')} ways")`,
+    typescript: `// ============================================================================
+// FIBONACCI PATTERN: Complete Implementation Guide
+// ============================================================================
+
+// Approach 1: Naive Recursion (DO NOT USE IN PRODUCTION)
+// Time: O(2^n), Space: O(n)
+function fibRecursive(n: number): number {
+    /**
+     * Direct mathematical implementation.
+     * Demonstrates the problem that DP solves.
+     */
+    if (n <= 1) {
+        return n;
+    }
+    return fibRecursive(n - 1) + fibRecursive(n - 2);
+}
+
+
+// Approach 2: Memoization (Top-Down DP)
+// Time: O(n), Space: O(n)
+function fibMemo(n: number, memo: Map<number, number> = new Map()): number {
+    /**
+     * Top-down DP with memoization.
+     * Uses recursion with caching.
+     */
+    // Check cache first
+    if (memo.has(n)) {
+        return memo.get(n)!;
+    }
+
+    // Base cases
+    if (n <= 1) {
+        return n;
+    }
+
+    // Recursive computation with caching
+    const result = fibMemo(n - 1, memo) + fibMemo(n - 2, memo);
+    memo.set(n, result);
+    return result;
+}
+
+
+// Approach 3: Tabulation (Bottom-Up DP)
+// Time: O(n), Space: O(n)
+function fibTabulation(n: number): number {
+    /**
+     * Bottom-up DP using table.
+     * Iterative approach building from base cases.
+     */
+    if (n <= 1) {
+        return n;
+    }
+
+    // Create DP table
+    const dp: number[] = Array(n + 1).fill(0);
+
+    // Base cases
+    dp[0] = 0;
+    dp[1] = 1;
+
+    // Fill table bottom-up
+    for (let i = 2; i <= n; i++) {
+        dp[i] = dp[i - 1] + dp[i - 2];
+    }
+
+    return dp[n];
+}
+
+
+// Approach 4: Space Optimized
+// Time: O(n), Space: O(1)
+function fibOptimized(n: number): number {
+    /**
+     * Space-optimized DP.
+     * Only keep track of last two values.
+     */
+    if (n <= 1) {
+        return n;
+    }
+
+    // Only need previous two values
+    let prev2 = 0;  // F(0)
+    let prev1 = 1;  // F(1)
+
+    for (let i = 2; i <= n; i++) {
+        const current = prev1 + prev2;
+        prev2 = prev1;
+        prev1 = current;
+    }
+
+    return prev1;
+}
+
+
+// ============================================================================
+// VARIATION 1: Tribonacci Sequence
+// ============================================================================
+
+function tribonacci(n: number): number {
+    /**
+     * T(n) = T(n-1) + T(n-2) + T(n-3)
+     * Base: T(0) = 0, T(1) = 1, T(2) = 1
+     *
+     * Example: 0, 1, 1, 2, 4, 7, 13, 24, ...
+     */
+    if (n === 0) {
+        return 0;
+    }
+    if (n <= 2) {
+        return 1;
+    }
+
+    // Keep track of last three values
+    let t0 = 0, t1 = 1, t2 = 1;
+
+    for (let i = 3; i <= n; i++) {
+        const current = t0 + t1 + t2;
+        t0 = t1;
+        t1 = t2;
+        t2 = current;
+    }
+
+    return t2;
+}
+
+
+// ============================================================================
+// VARIATION 2: N-th Tribonacci with DP Table
+// ============================================================================
+
+function tribonacciTable(n: number): number {
+    /**
+     * Tribonacci using tabulation for clarity.
+     * Shows the DP pattern more explicitly.
+     */
+    if (n === 0) {
+        return 0;
+    }
+    if (n <= 2) {
+        return 1;
+    }
+
+    const dp: number[] = Array(n + 1).fill(0);
+    dp[0] = 0;
+    dp[1] = 1;
+    dp[2] = 1;
+
+    for (let i = 3; i <= n; i++) {
+        dp[i] = dp[i-1] + dp[i-2] + dp[i-3];
+    }
+
+    return dp[n];
+}
+
+
+// ============================================================================
+// VARIATION 3: Climbing Stairs (Fibonacci in Disguise)
+// ============================================================================
+
+function climbStairs(n: number): number {
+    /**
+     * You're climbing a staircase with n steps.
+     * Each time you can climb 1 or 2 steps.
+     * How many distinct ways can you reach the top?
+     *
+     * State: dp[i] = number of ways to reach step i
+     * Base: dp[0] = 1, dp[1] = 1
+     * Transition: dp[i] = dp[i-1] + dp[i-2]
+     *
+     * This is Fibonacci!
+     * - From step i-1, take 1 step to reach i
+     * - From step i-2, take 2 steps to reach i
+     */
+    if (n <= 1) {
+        return 1;
+    }
+
+    let prev2 = 1;  // ways to reach step 0
+    let prev1 = 1;  // ways to reach step 1
+
+    for (let i = 2; i <= n; i++) {
+        const current = prev1 + prev2;
+        prev2 = prev1;
+        prev1 = current;
+    }
+
+    return prev1;
+}
+
+
+// ============================================================================
+// VARIATION 4: Min Cost Climbing Stairs
+// ============================================================================
+
+function minCostClimbingStairs(cost: number[]): number {
+    /**
+     * cost[i] is the cost of stepping on i-th stair.
+     * You can start from step 0 or step 1.
+     * Find minimum cost to reach the top (beyond last step).
+     *
+     * State: dp[i] = minimum cost to reach step i
+     * Base: dp[0] = cost[0], dp[1] = cost[1]
+     * Transition: dp[i] = cost[i] + min(dp[i-1], dp[i-2])
+     * Answer: min(dp[n-1], dp[n-2]) to reach beyond
+     */
+    const n = cost.length;
+    if (n <= 1) {
+        return 0;
+    }
+
+    // Space optimized version
+    let prev2 = cost[0];
+    let prev1 = cost[1];
+
+    for (let i = 2; i < n; i++) {
+        const current = cost[i] + Math.min(prev1, prev2);
+        prev2 = prev1;
+        prev1 = current;
+    }
+
+    // Can reach top from either last or second-to-last step
+    return Math.min(prev1, prev2);
+}
+
+
+// ============================================================================
+// VARIATION 5: House Robber (Similar Pattern)
+// ============================================================================
+
+function robHouses(nums: number[]): number {
+    /**
+     * Rob houses to maximize money without robbing adjacent houses.
+     *
+     * State: dp[i] = max money robbing houses 0..i
+     * Base: dp[0] = nums[0]
+     * Transition: dp[i] = max(nums[i] + dp[i-2], dp[i-1])
+     *                     rob i + best up to i-2, or skip i
+     */
+    if (nums.length === 0) {
+        return 0;
+    }
+    if (nums.length === 1) {
+        return nums[0];
+    }
+
+    let prev2 = nums[0];
+    let prev1 = Math.max(nums[0], nums[1]);
+
+    for (let i = 2; i < nums.length; i++) {
+        const current = Math.max(nums[i] + prev2, prev1);
+        prev2 = prev1;
+        prev1 = current;
+    }
+
+    return prev1;
+}
+
+
+// ============================================================================
+// VARIATION 6: Decode Ways (More Complex Fibonacci)
+// ============================================================================
+
+function numDecodings(s: string): number {
+    /**
+     * 'A' -> 1, 'B' -> 2, ..., 'Z' -> 26
+     * Count ways to decode string s.
+     *
+     * Example: "12" -> 2 ways ("AB" or "L")
+     *
+     * State: dp[i] = ways to decode s[0:i]
+     * Transition: Consider single digit s[i-1] and two digits s[i-2:i]
+     */
+    if (!s || s[0] === '0') {
+        return 0;
+    }
+
+    const n = s.length;
+
+    // dp[i] represents ways to decode s[0:i]
+    let prev2 = 1;  // dp[0] - empty string
+    let prev1 = 1;  // dp[1] - first character
+
+    for (let i = 2; i <= n; i++) {
+        let current = 0;
+
+        // Single digit decode
+        if (s[i-1] !== '0') {
+            current += prev1;
+        }
+
+        // Two digit decode
+        const twoDigit = parseInt(s.slice(i-2, i));
+        if (twoDigit >= 10 && twoDigit <= 26) {
+            current += prev2;
+        }
+
+        prev2 = prev1;
+        prev1 = current;
+    }
+
+    return prev1;
+}
+
+
+// ============================================================================
+// VISUALIZATION HELPER
+// ============================================================================
+
+function visualizeFibonacciComputation(n: number): number[] {
+    /**
+     * Show step-by-step computation of Fibonacci.
+     * Demonstrates the DP table building process.
+     */
+    if (n < 0) {
+        return [];
+    }
+
+    console.log(\`Computing Fibonacci(\${n}) using Tabulation:\\n\`);
+    console.log("=".repeat(60));
+
+    if (n === 0) {
+        console.log("Base case: F(0) = 0");
+        return [0];
+    }
+
+    if (n === 1) {
+        console.log("Base case: F(0) = 0");
+        console.log("Base case: F(1) = 1");
+        return [0, 1];
+    }
+
+    const dp: number[] = Array(n + 1).fill(0);
+    dp[0] = 0;
+    dp[1] = 1;
+
+    console.log("Initial: dp[0] = 0 (base case)");
+    console.log("Initial: dp[1] = 1 (base case)\\n");
+
+    for (let i = 2; i <= n; i++) {
+        dp[i] = dp[i-1] + dp[i-2];
+        console.log(\`Step \${i-1}: dp[\${i}] = dp[\${i-1}] + dp[\${i-2}] = \${dp[i-1]} + \${dp[i-2]} = \${dp[i]}\`);
+    }
+
+    console.log("=".repeat(60));
+    console.log(\`\\nFinal answer: F(\${n}) = \${dp[n]}\`);
+    console.log(\`\\nComplete sequence: \${dp}\`);
+
+    return dp;
+}
+
+
+// ============================================================================
+// TESTING AND COMPARISON
+// ============================================================================
+
+function compareApproaches(n: number): void {
+    /**
+     * Compare different Fibonacci implementations.
+     * Shows time complexity differences.
+     */
+    const methods: [string, (n: number) => number][] = [
+        ["Tabulation", fibTabulation],
+        ["Memoization", fibMemo],
+        ["Space Optimized", fibOptimized],
+    ];
+
+    // Only test recursive for small n
+    if (n <= 30) {
+        methods.unshift(["Naive Recursion", fibRecursive]);
+    }
+
+    console.log(\`Computing Fibonacci(\${n}):\\n\`);
+    console.log("-".repeat(60));
+
+    for (const [name, func] of methods) {
+        const start = performance.now();
+        const result = func(n);
+        const elapsed = (performance.now() - start) / 1000;
+        console.log(\`\${name.padEnd(20)} | Result: \${result.toString().padEnd(15)} | Time: \${elapsed.toFixed(6)}s\`);
+    }
+
+    console.log("-".repeat(60));
+}
+
+
+// Example usage
+if (typeof require !== 'undefined' && require.main === module) {
+    // Visualize computation
+    visualizeFibonacciComputation(10);
+
+    console.log("\\n\\n");
+
+    // Compare approaches
+    compareApproaches(35);
+
+    console.log("\\n\\nVariation Examples:");
+    console.log(\`Tribonacci(10) = \${tribonacci(10)}\`);
+    console.log(\`Climb 5 stairs = \${climbStairs(5)} ways\`);
+    console.log(\`Min cost [10,15,20] = \${minCostClimbingStairs([10, 15, 20])}\`);
+    console.log(\`Rob [2,7,9,3,1] = \${robHouses([2, 7, 9, 3, 1])}\`);
+    console.log(\`Decode '226' = \${numDecodings('226')} ways\`);
+}`
+  },
   exercises: [
     {
       prompt: 'Implement the N-th Fibonacci number using bottom-up DP with O(n) time and O(1) space. Your solution should only use two variables to track previous values.',
-      initialCode: `def fib(n):
+      initialCode: {
+        python: `def fib(n):
     """
     Calculate the n-th Fibonacci number.
 
@@ -538,7 +944,28 @@ if __name__ == "__main__":
     """
     # Your code here
     pass`,
-      solution: `def fib(n):
+        typescript: `function fib(n: number): number {
+    /**
+     * Calculate the n-th Fibonacci number.
+     *
+     * F(0) = 0
+     * F(1) = 1
+     * F(n) = F(n-1) + F(n-2) for n >= 2
+     *
+     * Use space-optimized approach with only two variables.
+     *
+     * Examples:
+     *   fib(0) -> 0
+     *   fib(1) -> 1
+     *   fib(5) -> 5
+     *   fib(10) -> 55
+     */
+    // Your code here
+    return 0;
+}`
+      },
+      solution: {
+        python: `def fib(n):
     """
     Space-optimized Fibonacci using two variables.
     Time: O(n), Space: O(1)
@@ -569,11 +996,50 @@ def fib_pythonic(n):
         a, b = b, a + b
 
     return b`,
+        typescript: `function fib(n: number): number {
+    /**
+     * Space-optimized Fibonacci using two variables.
+     * Time: O(n), Space: O(1)
+     */
+    // Handle base cases
+    if (n <= 1) {
+        return n;
+    }
+
+    // Initialize first two Fibonacci numbers
+    let prev2 = 0;  // F(0)
+    let prev1 = 1;  // F(1)
+
+    // Compute from F(2) to F(n)
+    for (let i = 2; i <= n; i++) {
+        const current = prev1 + prev2;  // F(i) = F(i-1) + F(i-2)
+        prev2 = prev1;                  // Update for next iteration
+        prev1 = current;
+    }
+
+    return prev1;
+}
+
+// Alternative: Using destructuring (more concise)
+function fibConcise(n: number): number {
+    if (n <= 1) {
+        return n;
+    }
+
+    let [a, b] = [0, 1];
+    for (let i = 2; i <= n; i++) {
+        [a, b] = [b, a + b];
+    }
+
+    return b;
+}`
+      },
       difficulty: Difficulty.Beginner,
     },
     {
       prompt: 'Implement the Tribonacci sequence where T(n) = T(n-1) + T(n-2) + T(n-3), with T(0) = 0, T(1) = 1, T(2) = 1. Use space optimization.',
-      initialCode: `def tribonacci(n):
+      initialCode: {
+        python: `def tribonacci(n):
     """
     Calculate the n-th Tribonacci number.
 
@@ -595,7 +1061,26 @@ def fib_pythonic(n):
     """
     # Your code here
     pass`,
-      solution: `def tribonacci(n):
+        typescript: `function tribonacci(n: number): number {
+    /**
+     * Calculate the n-th Tribonacci number.
+     *
+     * T(0) = 0
+     * T(1) = 1
+     * T(2) = 1
+     * T(n) = T(n-1) + T(n-2) + T(n-3) for n >= 3
+     *
+     * Examples:
+     *   tribonacci(0) -> 0
+     *   tribonacci(4) -> 4
+     *   tribonacci(25) -> 1389537
+     */
+    // Your code here
+    return 0;
+}`
+      },
+      solution: {
+        python: `def tribonacci(n):
     """
     Space-optimized Tribonacci.
     Time: O(n), Space: O(1)
@@ -631,11 +1116,61 @@ def tribonacci_with_table(n):
         dp[i] = dp[i-1] + dp[i-2] + dp[i-3]
 
     return dp[n]`,
+        typescript: `function tribonacci(n: number): number {
+    /**
+     * Space-optimized Tribonacci.
+     * Time: O(n), Space: O(1)
+     */
+    // Handle base cases
+    if (n === 0) {
+        return 0;
+    }
+    if (n <= 2) {
+        return 1;
+    }
+
+    // Track last three values
+    let t0 = 0, t1 = 1, t2 = 1;
+
+    // Compute from T(3) to T(n)
+    for (let i = 3; i <= n; i++) {
+        const current = t0 + t1 + t2;
+        t0 = t1;
+        t1 = t2;
+        t2 = current;
+    }
+
+    return t2;
+}
+
+// With tabulation (if you want to see all values)
+function tribonacciWithTable(n: number): number {
+    /** Shows all intermediate values. */
+    if (n === 0) {
+        return 0;
+    }
+    if (n <= 2) {
+        return 1;
+    }
+
+    const dp: number[] = Array(n + 1).fill(0);
+    dp[0] = 0;
+    dp[1] = 1;
+    dp[2] = 1;
+
+    for (let i = 3; i <= n; i++) {
+        dp[i] = dp[i-1] + dp[i-2] + dp[i-3];
+    }
+
+    return dp[n];
+}`
+      },
       difficulty: Difficulty.Beginner,
     },
     {
       prompt: 'Solve the "Climbing Stairs with Variable Steps" problem: You can climb 1, 2, or 3 steps at a time. Count the number of ways to reach step n.',
-      initialCode: `def climb_stairs_variable(n):
+      initialCode: {
+        python: `def climb_stairs_variable(n):
     """
     Count ways to climb n stairs when you can take 1, 2, or 3 steps.
 
@@ -659,7 +1194,28 @@ def tribonacci_with_table(n):
     """
     # Your code here
     pass`,
-      solution: `def climb_stairs_variable(n):
+        typescript: `function climbStairsVariable(n: number): number {
+    /**
+     * Count ways to climb n stairs when you can take 1, 2, or 3 steps.
+     *
+     * State: dp[i] = number of ways to reach step i
+     * You can reach step i from:
+     *   - step i-1 (take 1 step)
+     *   - step i-2 (take 2 steps)
+     *   - step i-3 (take 3 steps)
+     *
+     * Examples:
+     *   climbStairsVariable(3) -> 4
+     *   // Ways: 1+1+1, 1+2, 2+1, 3
+     *
+     *   climbStairsVariable(4) -> 7
+     */
+    // Your code here
+    return 0;
+}`
+      },
+      solution: {
+        python: `def climb_stairs_variable(n):
     """
     Climbing stairs with 1, 2, or 3 steps.
     This follows the Tribonacci pattern!
@@ -710,6 +1266,70 @@ def climb_stairs_variable_verbose(n):
         print(f"dp[{i}] = dp[{i-1}] + dp[{i-2}] + dp[{i-3}] = {dp[i-1]} + {dp[i-2]} + {dp[i-3]} = {dp[i]}")
 
     return dp[n]`,
+        typescript: `function climbStairsVariable(n: number): number {
+    /**
+     * Climbing stairs with 1, 2, or 3 steps.
+     * This follows the Tribonacci pattern!
+     *
+     * Time: O(n), Space: O(1)
+     */
+    if (n === 0) {
+        return 1;  // One way to stay at ground (do nothing)
+    }
+    if (n === 1) {
+        return 1;  // One way: take 1 step
+    }
+    if (n === 2) {
+        return 2;  // Two ways: 1+1 or 2
+    }
+
+    // Track last three values
+    // dp[i-3], dp[i-2], dp[i-1]
+    let prev3 = 1;  // dp[0]
+    let prev2 = 1;  // dp[1]
+    let prev1 = 2;  // dp[2]
+
+    for (let i = 3; i <= n; i++) {
+        const current = prev1 + prev2 + prev3;
+        prev3 = prev2;
+        prev2 = prev1;
+        prev1 = current;
+    }
+
+    return prev1;
+}
+
+// With detailed table for understanding
+function climbStairsVariableVerbose(n: number): number {
+    /** Shows the DP table construction. */
+    if (n === 0) {
+        return 1;
+    }
+    if (n === 1) {
+        return 1;
+    }
+    if (n === 2) {
+        return 2;
+    }
+
+    const dp: number[] = Array(n + 1).fill(0);
+    dp[0] = 1;
+    dp[1] = 1;
+    dp[2] = 2;
+
+    console.log(\`Computing ways to climb \${n} stairs:\\n\`);
+    console.log(\`dp[0] = \${dp[0]} (base case)\`);
+    console.log(\`dp[1] = \${dp[1]} (base case)\`);
+    console.log(\`dp[2] = \${dp[2]} (base case)\\n\`);
+
+    for (let i = 3; i <= n; i++) {
+        dp[i] = dp[i-1] + dp[i-2] + dp[i-3];
+        console.log(\`dp[\${i}] = dp[\${i-1}] + dp[\${i-2}] + dp[\${i-3}] = \${dp[i-1]} + \${dp[i-2]} + \${dp[i-3]} = \${dp[i]}\`);
+    }
+
+    return dp[n];
+}`
+      },
       difficulty: Difficulty.Intermediate,
     },
   ],
