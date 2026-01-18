@@ -159,7 +159,7 @@ To reach (i,j): came from (i-1,j) or (i,j-1)
 
 <h2>Problem-Solving Template</h2>
 
-<pre class="bg-gray-100 p-4 rounded">
+\`\`\`python
 # Grid DP Pattern Recognition:
 # - 2D grid structure ✓
 # - Navigate from start to end ✓
@@ -187,7 +187,37 @@ To reach (i,j): came from (i-1,j) or (i,j-1)
 
 # Step 7: Optimize space
 # If dp[i][j] only needs previous row, use O(n) space
-</pre>
+\`\`\`
+
+\`\`\`typescript
+// Grid DP Pattern Recognition:
+// - 2D grid structure ✓
+// - Navigate from start to end ✓
+// - Limited movement options ✓
+// - Count paths OR optimize cost ✓
+
+// Step 1: Define state
+// dp[i][j] = [what does reaching (i,j) represent?]
+
+// Step 2: Identify base cases
+// Usually first row and/or first column
+// dp[0][0] = starting value
+
+// Step 3: Determine valid movements
+// Can move: right, down, diagonal, etc.
+
+// Step 4: Write transition
+// dp[i][j] = f(dp[reachable previous cells])
+
+// Step 5: Choose computation order
+// Usually: top-to-bottom, left-to-right
+
+// Step 6: Handle edge cases
+// Obstacles, boundaries, special cells
+
+// Step 7: Optimize space
+// If dp[i][j] only needs previous row, use O(n) space
+\`\`\`
 
 <h2>Debugging Grid DP</h2>
 
@@ -1292,7 +1322,7 @@ const longestCommonSubsequenceData: LessonContent = {
 <h2>Problem Definition</h2>
 
 <div class="bg-blue-50 p-4 rounded-lg my-4">
-  <p><strong>Problem:</strong> Given two strings \\\`text1\\\` and \\\`text2\\\`, return the length of their longest common subsequence. If there is no common subsequence, return 0.</p>
+  <p><strong>Problem:</strong> Given two strings \`text1\` and \`text2\`, return the length of their longest common subsequence. If there is no common subsequence, return 0.</p>
 
   <p><strong>Note:</strong> A subsequence is a sequence that appears in the same relative order, but not necessarily contiguous. For example, "ace" is a subsequence of "abcde".</p>
 </div>
@@ -1345,7 +1375,7 @@ Decision at each position:
 
 <p>Let's think recursively first. At any position i in text1 and j in text2:</p>
 
-\\\`\\\`\\\`python
+\`\`\`python
 def lcs_recursive(text1, text2, i, j):
     # Base case: reached end of either string
     if i == 0 or j == 0:
@@ -1360,7 +1390,26 @@ def lcs_recursive(text1, text2, i, j):
         skip_text1 = lcs_recursive(text1, text2, i-1, j)
         skip_text2 = lcs_recursive(text1, text2, i, j-1)
         return max(skip_text1, skip_text2)
-\\\`\\\`\\\`
+\`\`\`
+
+\`\`\`typescript
+function lcsRecursive(text1: string, text2: string, i: number, j: number): number {
+    // Base case: reached end of either string
+    if (i === 0 || j === 0) {
+        return 0;
+    }
+
+    // Case 1: Characters match
+    if (text1[i - 1] === text2[j - 1]) {
+        return 1 + lcsRecursive(text1, text2, i - 1, j - 1);
+    }
+
+    // Case 2: Characters don't match - try both options
+    const skipText1 = lcsRecursive(text1, text2, i - 1, j);
+    const skipText2 = lcsRecursive(text1, text2, i, j - 1);
+    return Math.max(skipText1, skipText2);
+}
+\`\`\`
 
 <p><strong>Why this is inefficient:</strong> For text1="ABC" and text2="AC", we compute lcs("AB", "A") multiple times. This exponential overlap screams DP!</p>
 
@@ -1370,18 +1419,24 @@ def lcs_recursive(text1, text2, i, j):
 
 <div class="bg-green-50 p-4 rounded-lg my-4">
   <p><strong>State Definition:</strong></p>
-  <p>\\\`dp[i][j]\\\` = length of LCS of \\\`text1[0...i-1]\\\` and \\\`text2[0...j-1]\\\`</p>
+  <p>\`dp[i][j]\` = length of LCS of \`text1[0...i-1]\` and \`text2[0...j-1]\`</p>
 
-  <p><strong>Why i-1 and j-1?</strong> We use 1-indexed DP table for cleaner base cases. \\\`dp[0][j]\\\` and \\\`dp[i][0]\\\` represent empty string scenarios.</p>
+  <p><strong>Why i-1 and j-1?</strong> We use 1-indexed DP table for cleaner base cases. \`dp[0][j]\` and \`dp[i][0]\` represent empty string scenarios.</p>
 </div>
 
 <h3>Step 2: Base Cases</h3>
 
-\\\`\\\`\\\`python
+\`\`\`python
 # If either string is empty, LCS is 0
-dp[0][j] = 0 for all j  # text1 is empty
-dp[i][0] = 0 for all i  # text2 is empty
-\\\`\\\`\\\`
+dp[0][j] = 0  # for all j - text1 is empty
+dp[i][0] = 0  # for all i - text2 is empty
+\`\`\`
+
+\`\`\`typescript
+// If either string is empty, LCS is 0
+dp[0][j] = 0;  // for all j - text1 is empty
+dp[i][0] = 0;  // for all i - text2 is empty
+\`\`\`
 
 <h3>Step 3: State Transition</h3>
 
@@ -1420,7 +1475,7 @@ LCS: "ACE"
 
 <h2>Complete Implementation</h2>
 
-\\\`\\\`\\\`python
+\`\`\`python
 def longest_common_subsequence(text1: str, text2: str) -> int:
     """
     Find the length of the longest common subsequence.
@@ -1449,13 +1504,49 @@ def longest_common_subsequence(text1: str, text2: str) -> int:
 print(longest_common_subsequence("abcde", "ace"))  # Output: 3
 print(longest_common_subsequence("abc", "abc"))    # Output: 3
 print(longest_common_subsequence("abc", "def"))    # Output: 0
-\\\`\\\`\\\`
+\`\`\`
+
+\`\`\`typescript
+function longestCommonSubsequence(text1: string, text2: string): number {
+    /**
+     * Find the length of the longest common subsequence.
+     *
+     * Time: O(m * n) where m = text1.length, n = text2.length
+     * Space: O(m * n) for the DP table
+     */
+    const m = text1.length;
+    const n = text2.length;
+
+    // Create DP table with extra row/column for empty string
+    const dp: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+
+    // Fill the table
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (text1[i - 1] === text2[j - 1]) {
+                // Characters match - extend previous LCS
+                dp[i][j] = 1 + dp[i - 1][j - 1];
+            } else {
+                // Take best result from skipping either character
+                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+            }
+        }
+    }
+
+    return dp[m][n];
+}
+
+// Example usage
+console.log(longestCommonSubsequence("abcde", "ace"));  // Output: 3
+console.log(longestCommonSubsequence("abc", "abc"));    // Output: 3
+console.log(longestCommonSubsequence("abc", "def"));    // Output: 0
+\`\`\`
 
 <h2>Printing the Actual LCS</h2>
 
 <p>To reconstruct the actual subsequence (not just its length), we backtrack through the DP table:</p>
 
-\\\`\\\`\\\`python
+\`\`\`python
 def find_lcs_string(text1: str, text2: str) -> str:
     """
     Find the actual longest common subsequence string.
@@ -1493,13 +1584,61 @@ def find_lcs_string(text1: str, text2: str) -> str:
 
 # Example
 print(find_lcs_string("ABCDE", "ACE"))  # Output: "ACE"
-\\\`\\\`\\\`
+\`\`\`
+
+\`\`\`typescript
+function findLcsString(text1: string, text2: string): string {
+    /**
+     * Find the actual longest common subsequence string.
+     */
+    const m = text1.length;
+    const n = text2.length;
+    const dp: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+
+    // Build DP table
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (text1[i - 1] === text2[j - 1]) {
+                dp[i][j] = 1 + dp[i - 1][j - 1];
+            } else {
+                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+            }
+        }
+    }
+
+    // Backtrack to find the LCS
+    const lcs: string[] = [];
+    let i = m;
+    let j = n;
+
+    while (i > 0 && j > 0) {
+        if (text1[i - 1] === text2[j - 1]) {
+            // This character is part of LCS
+            lcs.push(text1[i - 1]);
+            i--;
+            j--;
+        } else if (dp[i - 1][j] > dp[i][j - 1]) {
+            // Came from top (skipped text1[i-1])
+            i--;
+        } else {
+            // Came from left (skipped text2[j-1])
+            j--;
+        }
+    }
+
+    // Reverse since we built backwards
+    return lcs.reverse().join('');
+}
+
+// Example
+console.log(findLcsString("ABCDE", "ACE"));  // Output: "ACE"
+\`\`\`
 
 <h2>Space Optimization</h2>
 
 <p>Since each row only depends on the previous row, we can optimize space to O(n):</p>
 
-\\\`\\\`\\\`python
+\`\`\`python
 def lcs_space_optimized(text1: str, text2: str) -> int:
     """
     Space-optimized LCS using only two rows.
@@ -1524,7 +1663,39 @@ def lcs_space_optimized(text1: str, text2: str) -> int:
         prev, curr = curr, prev
 
     return prev[n]
-\\\`\\\`\\\`
+\`\`\`
+
+\`\`\`typescript
+function lcsSpaceOptimized(text1: string, text2: string): number {
+    /**
+     * Space-optimized LCS using only two rows.
+     *
+     * Time: O(m * n)
+     * Space: O(n)
+     */
+    const m = text1.length;
+    const n = text2.length;
+
+    // Two rows: previous and current
+    let prev: number[] = Array(n + 1).fill(0);
+    let curr: number[] = Array(n + 1).fill(0);
+
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (text1[i - 1] === text2[j - 1]) {
+                curr[j] = 1 + prev[j - 1];
+            } else {
+                curr[j] = Math.max(prev[j], curr[j - 1]);
+            }
+        }
+
+        // Swap rows
+        [prev, curr] = [curr, prev];
+    }
+
+    return prev[n];
+}
+\`\`\`
 
 <h2>Common Variations</h2>
 
@@ -1532,7 +1703,7 @@ def lcs_space_optimized(text1: str, text2: str) -> int:
 
 <p>Different from subsequence - characters must be consecutive:</p>
 
-\\\`\\\`\\\`python
+\`\`\`python
 def longest_common_substring(text1: str, text2: str) -> int:
     """
     Find length of longest common SUBSTRING (must be contiguous).
@@ -1555,13 +1726,43 @@ def longest_common_substring(text1: str, text2: str) -> int:
 
 print(longest_common_substring("ABCDE", "ACE"))   # 1 (just "A" or "C" or "E")
 print(longest_common_substring("ABCDE", "BCDEF")) # 4 ("BCDE")
-\\\`\\\`\\\`
+\`\`\`
+
+\`\`\`typescript
+function longestCommonSubstring(text1: string, text2: string): number {
+    /**
+     * Find length of longest common SUBSTRING (must be contiguous).
+     */
+    const m = text1.length;
+    const n = text2.length;
+    const dp: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    let maxLength = 0;
+
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (text1[i - 1] === text2[j - 1]) {
+                // Extend the current substring
+                dp[i][j] = 1 + dp[i - 1][j - 1];
+                maxLength = Math.max(maxLength, dp[i][j]);
+            } else {
+                // Reset to 0 - substring must be contiguous!
+                dp[i][j] = 0;
+            }
+        }
+    }
+
+    return maxLength;
+}
+
+console.log(longestCommonSubstring("ABCDE", "ACE"));   // 1 (just "A" or "C" or "E")
+console.log(longestCommonSubstring("ABCDE", "BCDEF")); // 4 ("BCDE")
+\`\`\`
 
 <h3>2. Shortest Common Supersequence</h3>
 
 <p>Find the shortest string that has both text1 and text2 as subsequences:</p>
 
-\\\`\\\`\\\`python
+\`\`\`python
 def shortest_common_supersequence_length(text1: str, text2: str) -> int:
     """
     The shortest supersequence includes all chars from both strings,
@@ -1575,7 +1776,24 @@ def shortest_common_supersequence_length(text1: str, text2: str) -> int:
 print(shortest_common_supersequence_length("AGGTAB", "GXTXAYB"))
 # LCS = "GTAB" (length 4)
 # Result: 6 + 7 - 4 = 9
-\\\`\\\`\\\`
+\`\`\`
+
+\`\`\`typescript
+function shortestCommonSupersequenceLength(text1: string, text2: string): number {
+    /**
+     * The shortest supersequence includes all chars from both strings,
+     * with LCS chars appearing only once.
+     *
+     * Formula: text1.length + text2.length - LCS_length
+     */
+    const lcsLen = longestCommonSubsequence(text1, text2);
+    return text1.length + text2.length - lcsLen;
+}
+
+console.log(shortestCommonSupersequenceLength("AGGTAB", "GXTXAYB"));
+// LCS = "GTAB" (length 4)
+// Result: 6 + 7 - 4 = 9
+\`\`\`
 
 <h2>Real-World Applications</h2>
 
@@ -2068,6 +2286,30 @@ def edit_distance_recursive(word1, word2, i, j):
     return min(insert, delete, replace)
 \`\`\`
 
+\`\`\`typescript
+function editDistanceRecursive(word1: string, word2: string, i: number, j: number): number {
+    // Base cases
+    if (i === 0) {
+        return j;  // Insert j characters
+    }
+    if (j === 0) {
+        return i;  // Delete i characters
+    }
+
+    // Characters match - no edit needed
+    if (word1[i - 1] === word2[j - 1]) {
+        return editDistanceRecursive(word1, word2, i - 1, j - 1);
+    }
+
+    // Characters differ - try all 3 operations
+    const insert = editDistanceRecursive(word1, word2, i, j - 1) + 1;
+    const del = editDistanceRecursive(word1, word2, i - 1, j) + 1;
+    const replace = editDistanceRecursive(word1, word2, i - 1, j - 1) + 1;
+
+    return Math.min(insert, del, replace);
+}
+\`\`\`
+
 <p><strong>Why DP?</strong> For "abc" -> "def", we compute the same subproblems multiple times. This exponential redundancy makes DP necessary!</p>
 
 <h2>The 2D DP Solution</h2>
@@ -2076,19 +2318,27 @@ def edit_distance_recursive(word1, word2, i, j):
 
 <div class="bg-green-50 p-4 rounded-lg my-4">
   <p><strong>State Definition:</strong></p>
-  <p>\`dp[i][j]\` = minimum edits to convert \`word1[0...i-1]\` to \`word2[0...j-1]\`</p>
+  <p><code>dp[i][j]</code> = minimum edits to convert <code>word1[0...i-1]</code> to <code>word2[0...j-1]</code></p>
 
-  <p><strong>Why 1-indexed?</strong> \`dp[0][j]\` represents converting empty string to \`word2[0...j-1]\` (j insertions), and \`dp[i][0]\` represents converting \`word1[0...i-1]\` to empty string (i deletions).</p>
+  <p><strong>Why 1-indexed?</strong> <code>dp[0][j]</code> represents converting empty string to <code>word2[0...j-1]</code> (j insertions), and <code>dp[i][0]</code> represents converting <code>word1[0...i-1]</code> to empty string (i deletions).</p>
 </div>
 
 <h3>Step 2: Base Cases</h3>
 
 \`\`\`python
 # Converting empty string to word2[0...j-1] requires j insertions
-dp[0][j] = j for all j
+dp[0][j] = j  # for all j
 
 # Converting word1[0...i-1] to empty string requires i deletions
-dp[i][0] = i for all i
+dp[i][0] = i  # for all i
+\`\`\`
+
+\`\`\`typescript
+// Converting empty string to word2[0...j-1] requires j insertions
+dp[0][j] = j;  // for all j
+
+// Converting word1[0...i-1] to empty string requires i deletions
+dp[i][0] = i;  // for all i
 \`\`\`
 
 <h3>Step 3: State Transition</h3>
@@ -2176,6 +2426,53 @@ print(min_distance("horse", "ros"))        # 3
 print(min_distance("intention", "execution"))  # 5
 \`\`\`
 
+\`\`\`typescript
+function minDistance(word1: string, word2: string): number {
+    /**
+     * Find minimum edit distance between two words.
+     *
+     * Time: O(m * n) where m = word1.length, n = word2.length
+     * Space: O(m * n) for the DP table
+     */
+    const m = word1.length;
+    const n = word2.length;
+
+    // Create DP table
+    const dp: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+
+    // Base cases
+    for (let i = 0; i <= m; i++) {
+        dp[i][0] = i;  // Delete all characters from word1
+    }
+    for (let j = 0; j <= n; j++) {
+        dp[0][j] = j;  // Insert all characters from word2
+    }
+
+    // Fill table
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (word1[i - 1] === word2[j - 1]) {
+                // Characters match - no edit
+                dp[i][j] = dp[i - 1][j - 1];
+            } else {
+                // Take minimum of insert, delete, replace
+                dp[i][j] = 1 + Math.min(
+                    dp[i][j - 1],      // Insert
+                    dp[i - 1][j],      // Delete
+                    dp[i - 1][j - 1]   // Replace
+                );
+            }
+        }
+    }
+
+    return dp[m][n];
+}
+
+// Examples
+console.log(minDistance("horse", "ros"));        // 3
+console.log(minDistance("intention", "execution"));  // 5
+\`\`\`
+
 <h2>Understanding Each Operation</h2>
 
 <table class="w-full border-collapse my-4">
@@ -2189,18 +2486,18 @@ print(min_distance("intention", "execution"))  # 5
   <tbody>
     <tr>
       <td class="border p-3"><strong>Insert</strong></td>
-      <td class="border p-3">\`dp[i][j-1] + 1\`</td>
-      <td class="border p-3">We already converted \`word1[0...i-1]\` to \`word2[0...j-2]\`. Now insert \`word2[j-1]\`</td>
+      <td class="border p-3"><code>dp[i][j-1] + 1</code></td>
+      <td class="border p-3">We already converted <code>word1[0...i-1]</code> to <code>word2[0...j-2]</code>. Now insert <code>word2[j-1]</code></td>
     </tr>
     <tr class="bg-gray-50">
       <td class="border p-3"><strong>Delete</strong></td>
-      <td class="border p-3">\`dp[i-1][j] + 1\`</td>
-      <td class="border p-3">Delete \`word1[i-1]\`, then convert \`word1[0...i-2]\` to \`word2[0...j-1]\`</td>
+      <td class="border p-3"><code>dp[i-1][j] + 1</code></td>
+      <td class="border p-3">Delete <code>word1[i-1]</code>, then convert <code>word1[0...i-2]</code> to <code>word2[0...j-1]</code></td>
     </tr>
     <tr>
       <td class="border p-3"><strong>Replace</strong></td>
-      <td class="border p-3">\`dp[i-1][j-1] + 1\`</td>
-      <td class="border p-3">Replace \`word1[i-1]\` with \`word2[j-1]\`, then both strings aligned by one char</td>
+      <td class="border p-3"><code>dp[i-1][j-1] + 1</code></td>
+      <td class="border p-3">Replace <code>word1[i-1]</code> with <code>word2[j-1]</code>, then both strings aligned by one char</td>
     </tr>
   </tbody>
 </table>
@@ -2240,6 +2537,44 @@ def min_distance_optimized(word1: str, word2: str) -> int:
         prev, curr = curr, prev
 
     return prev[n]
+\`\`\`
+
+\`\`\`typescript
+function minDistanceOptimized(word1: string, word2: string): number {
+    /**
+     * Space-optimized edit distance using rolling arrays.
+     *
+     * Time: O(m * n)
+     * Space: O(n)
+     */
+    const m = word1.length;
+    const n = word2.length;
+
+    // Use two arrays: previous and current row
+    let prev: number[] = Array.from({ length: n + 1 }, (_, i) => i);  // Base case: dp[0][j] = j
+    let curr: number[] = new Array(n + 1).fill(0);
+
+    for (let i = 1; i <= m; i++) {
+        curr[0] = i;  // Base case: dp[i][0] = i
+
+        for (let j = 1; j <= n; j++) {
+            if (word1[i - 1] === word2[j - 1]) {
+                curr[j] = prev[j - 1];
+            } else {
+                curr[j] = 1 + Math.min(
+                    curr[j - 1],    // Insert
+                    prev[j],        // Delete
+                    prev[j - 1]     // Replace
+                );
+            }
+        }
+
+        // Swap arrays
+        [prev, curr] = [curr, prev];
+    }
+
+    return prev[n];
+}
 \`\`\`
 
 <h2>Reconstructing the Edit Sequence</h2>
@@ -2303,6 +2638,73 @@ for op in ops:
     print(f"  {op}")
 \`\`\`
 
+\`\`\`typescript
+function minDistanceWithPath(word1: string, word2: string): [number, string[]] {
+    /**
+     * Find edit distance and the actual sequence of operations.
+     */
+    const m = word1.length;
+    const n = word2.length;
+    const dp: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+
+    // Build DP table
+    for (let i = 0; i <= m; i++) {
+        dp[i][0] = i;
+    }
+    for (let j = 0; j <= n; j++) {
+        dp[0][j] = j;
+    }
+
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (word1[i - 1] === word2[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1];
+            } else {
+                dp[i][j] = 1 + Math.min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]);
+            }
+        }
+    }
+
+    // Backtrack to find operations
+    const operations: string[] = [];
+    let i = m;
+    let j = n;
+
+    while (i > 0 || j > 0) {
+        if (i === 0) {
+            operations.push(\`Insert '\${word2[j - 1]}'\`);
+            j--;
+        } else if (j === 0) {
+            operations.push(\`Delete '\${word1[i - 1]}'\`);
+            i--;
+        } else if (word1[i - 1] === word2[j - 1]) {
+            i--;
+            j--;
+        } else {
+            // Find which operation was used
+            if (dp[i][j] === dp[i - 1][j - 1] + 1) {
+                operations.push(\`Replace '\${word1[i - 1]}' with '\${word2[j - 1]}'\`);
+                i--;
+                j--;
+            } else if (dp[i][j] === dp[i - 1][j] + 1) {
+                operations.push(\`Delete '\${word1[i - 1]}'\`);
+                i--;
+            } else {
+                operations.push(\`Insert '\${word2[j - 1]}'\`);
+                j--;
+            }
+        }
+    }
+
+    return [dp[m][n], operations.reverse()];
+}
+
+// Example
+const [distance, ops] = minDistanceWithPath("horse", "ros");
+console.log(\`Distance: \${distance}\`);
+ops.forEach(op => console.log(\`  \${op}\`));
+\`\`\`
+
 <h2>Variations and Applications</h2>
 
 <h3>1. Weighted Edit Distance</h3>
@@ -2334,6 +2736,46 @@ def weighted_edit_distance(word1, word2, insert_cost=1, delete_cost=1, replace_c
                 )
 
     return dp[m][n]
+\`\`\`
+
+\`\`\`typescript
+function weightedEditDistance(
+    word1: string,
+    word2: string,
+    insertCost: number = 1,
+    deleteCost: number = 1,
+    replaceCost: number = 1
+): number {
+    /**
+     * Edit distance with different costs for different operations.
+     */
+    const m = word1.length;
+    const n = word2.length;
+    const dp: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+
+    for (let i = 0; i <= m; i++) {
+        dp[i][0] = i * deleteCost;
+    }
+    for (let j = 0; j <= n; j++) {
+        dp[0][j] = j * insertCost;
+    }
+
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (word1[i - 1] === word2[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1];
+            } else {
+                dp[i][j] = Math.min(
+                    dp[i][j - 1] + insertCost,
+                    dp[i - 1][j] + deleteCost,
+                    dp[i - 1][j - 1] + replaceCost
+                );
+            }
+        }
+    }
+
+    return dp[m][n];
+}
 \`\`\`
 
 <h3>2. One Edit Distance (LeetCode 161)</h3>
@@ -2368,6 +2810,44 @@ def is_one_edit_distance(s: str, t: str) -> bool:
 
     # All chars matched - valid if lengths differ by 1 (one insert/delete)
     return m + 1 == n
+\`\`\`
+
+\`\`\`typescript
+function isOneEditDistance(s: string, t: string): boolean {
+    /**
+     * Check if strings are exactly one edit apart.
+     * Optimized: O(n) time, O(1) space.
+     */
+    let m = s.length;
+    let n = t.length;
+
+    // Must differ by at most 1 in length
+    if (Math.abs(m - n) > 1) {
+        return false;
+    }
+
+    // Ensure s is the shorter string
+    if (m > n) {
+        [s, t] = [t, s];
+        [m, n] = [n, m];
+    }
+
+    for (let i = 0; i < m; i++) {
+        if (s[i] !== t[i]) {
+            // If same length, rest must match (replace)
+            if (m === n) {
+                return s.slice(i + 1) === t.slice(i + 1);
+            }
+            // If different length, rest of s must match rest of t (insert/delete)
+            else {
+                return s.slice(i) === t.slice(i + 1);
+            }
+        }
+    }
+
+    // All chars matched - valid if lengths differ by 1 (one insert/delete)
+    return m + 1 === n;
+}
 \`\`\`
 
 <h2>Real-World Applications</h2>
@@ -2427,7 +2907,8 @@ def is_one_edit_distance(s: str, t: str) -> bool:
     </tr>
   </tbody>
 </table>`,
-  codeExample: `# Complete Edit Distance implementation
+  codeExample: {
+    python: `# Complete Edit Distance implementation
 
 def min_distance(word1: str, word2: str) -> int:
     """
@@ -2584,6 +3065,194 @@ if __name__ == "__main__":
     print(is_one_edit_distance("ab", "acb"))      # True
     print(is_one_edit_distance("cab", "ad"))      # False
     print(is_one_edit_distance("1203", "1213"))   # True`,
+    typescript: `// Complete Edit Distance implementation
+
+function minDistance(word1: string, word2: string): number {
+  /**
+   * Classic Edit Distance (Levenshtein Distance).
+   * Find minimum number of operations to convert word1 to word2.
+   *
+   * Operations: Insert, Delete, Replace
+   *
+   * Time: O(m * n)
+   * Space: O(m * n)
+   */
+  const m = word1.length;
+  const n = word2.length;
+  const dp: number[][] = Array(m + 1)
+    .fill(0)
+    .map(() => Array(n + 1).fill(0));
+
+  // Base cases
+  for (let i = 0; i <= m; i++) {
+    dp[i][0] = i;
+  }
+  for (let j = 0; j <= n; j++) {
+    dp[0][j] = j;
+  }
+
+  // Fill table
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      if (word1[i - 1] === word2[j - 1]) {
+        dp[i][j] = dp[i - 1][j - 1];
+      } else {
+        dp[i][j] =
+          1 +
+          Math.min(
+            dp[i][j - 1], // Insert
+            dp[i - 1][j], // Delete
+            dp[i - 1][j - 1] // Replace
+          );
+      }
+    }
+  }
+
+  return dp[m][n];
+}
+
+function minDistanceOptimized(word1: string, word2: string): number {
+  /**
+   * Space-optimized version using rolling arrays.
+   *
+   * Time: O(m * n)
+   * Space: O(n)
+   */
+  const m = word1.length;
+  const n = word2.length;
+  let prev: number[] = Array.from({ length: n + 1 }, (_, i) => i);
+  let curr: number[] = Array(n + 1).fill(0);
+
+  for (let i = 1; i <= m; i++) {
+    curr[0] = i;
+    for (let j = 1; j <= n; j++) {
+      if (word1[i - 1] === word2[j - 1]) {
+        curr[j] = prev[j - 1];
+      } else {
+        curr[j] = 1 + Math.min(curr[j - 1], prev[j], prev[j - 1]);
+      }
+    }
+    [prev, curr] = [curr, prev];
+  }
+
+  return prev[n];
+}
+
+function minDistanceWithOperations(
+  word1: string,
+  word2: string
+): [number, string[]] {
+  /**
+   * Find edit distance and the actual sequence of operations.
+   */
+  const m = word1.length;
+  const n = word2.length;
+  const dp: number[][] = Array(m + 1)
+    .fill(0)
+    .map(() => Array(n + 1).fill(0));
+
+  // Build DP table
+  for (let i = 0; i <= m; i++) {
+    dp[i][0] = i;
+  }
+  for (let j = 0; j <= n; j++) {
+    dp[0][j] = j;
+  }
+
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      if (word1[i - 1] === word2[j - 1]) {
+        dp[i][j] = dp[i - 1][j - 1];
+      } else {
+        dp[i][j] =
+          1 + Math.min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]);
+      }
+    }
+  }
+
+  // Backtrack to find operations
+  const operations: string[] = [];
+  let i = m;
+  let j = n;
+
+  while (i > 0 || j > 0) {
+    if (i === 0) {
+      operations.push(\`Insert '\${word2[j - 1]}'\`);
+      j--;
+    } else if (j === 0) {
+      operations.push(\`Delete '\${word1[i - 1]}'\`);
+      i--;
+    } else if (word1[i - 1] === word2[j - 1]) {
+      i--;
+      j--;
+    } else {
+      if (dp[i][j] === dp[i - 1][j - 1] + 1) {
+        operations.push(\`Replace '\${word1[i - 1]}' -> '\${word2[j - 1]}'\`);
+        i--;
+        j--;
+      } else if (dp[i][j] === dp[i - 1][j] + 1) {
+        operations.push(\`Delete '\${word1[i - 1]}'\`);
+        i--;
+      } else {
+        operations.push(\`Insert '\${word2[j - 1]}'\`);
+        j--;
+      }
+    }
+  }
+
+  return [dp[m][n], operations.reverse()];
+}
+
+function isOneEditDistance(s: string, t: string): boolean {
+  /**
+   * Check if two strings are exactly one edit apart.
+   * Optimized: O(n) time, O(1) space.
+   */
+  let m = s.length;
+  let n = t.length;
+
+  if (Math.abs(m - n) > 1) {
+    return false;
+  }
+
+  if (m > n) {
+    [s, t] = [t, s];
+    [m, n] = [n, m];
+  }
+
+  for (let i = 0; i < m; i++) {
+    if (s[i] !== t[i]) {
+      if (m === n) {
+        return s.substring(i + 1) === t.substring(i + 1);
+      } else {
+        return s.substring(i) === t.substring(i + 1);
+      }
+    }
+  }
+
+  return m + 1 === n;
+}
+
+// Example usage and tests
+console.log("Edit Distance Tests:");
+console.log(minDistance("horse", "ros")); // 3
+console.log(minDistance("intention", "execution")); // 5
+console.log(minDistance("", "abc")); // 3
+console.log(minDistance("abc", "")); // 3
+
+console.log("\\nSpace-Optimized:");
+console.log(minDistanceOptimized("horse", "ros")); // 3
+
+console.log("\\nWith Operations:");
+const [dist, ops] = minDistanceWithOperations("horse", "ros");
+console.log(\`Distance: \${dist}\`);
+ops.forEach((op) => console.log(\`  \${op}\`));
+
+console.log("\\nOne Edit Distance:");
+console.log(isOneEditDistance("ab", "acb")); // true
+console.log(isOneEditDistance("cab", "ad")); // false
+console.log(isOneEditDistance("1203", "1213")); // true`,
+  },
   exercises: [
     {
       prompt: 'Implement the edit distance algorithm. Return the minimum number of operations.',

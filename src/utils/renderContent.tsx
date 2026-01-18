@@ -310,13 +310,121 @@ export const renderContent = (content: string | React.ReactNode, selectedLanguag
   // Apply language markers before processing
   let processedContent = selectedLanguage ? parseLanguageMarkers(content, selectedLanguage) : content;
 
-  // Detect if content has markdown code blocks (triple backticks)
+  // Check if content has HTML tags
+  const hasHtmlTags = /<[a-z][\s\S]*>/i.test(processedContent);
+
+  // Check if content has markdown code blocks (triple backticks)
   const hasMarkdownCodeBlocks = /```[\s\S]*?```/.test(processedContent);
 
-  // Use direct HTML rendering ONLY for content with HTML tags AND no markdown code blocks
+  // For content with BOTH HTML and markdown code blocks, use a hybrid approach:
+  // Split by code blocks, render HTML with dangerouslySetInnerHTML, render code blocks with CodeBlock
+  // This fixes the issue where ReactMarkdown+rehype-raw fails to parse mixed content
+  if (hasHtmlTags && hasMarkdownCodeBlocks) {
+    // Split content by code blocks while preserving the code blocks
+    const codeBlockRegex = /```(\w+)?\n([\s\S]*?)```/g;
+    const parts: { type: 'html' | 'code'; content: string; language?: string }[] = [];
+    let lastIndex = 0;
+    let match;
+
+    while ((match = codeBlockRegex.exec(processedContent)) !== null) {
+      // Add HTML content before this code block
+      if (match.index > lastIndex) {
+        parts.push({
+          type: 'html',
+          content: processedContent.slice(lastIndex, match.index),
+        });
+      }
+
+      const language = match[1] || 'python';
+      const code = match[2];
+
+      // Filter code blocks based on selected language
+      if (!selectedLanguage || language === selectedLanguage) {
+        parts.push({
+          type: 'code',
+          content: code.replace(/\n$/, ''),
+          language,
+        });
+      }
+
+      lastIndex = match.index + match[0].length;
+    }
+
+    // Add remaining HTML content after last code block
+    if (lastIndex < processedContent.length) {
+      parts.push({
+        type: 'html',
+        content: processedContent.slice(lastIndex),
+      });
+    }
+
+    return (
+      <div className="prose max-w-none lesson-content">
+        {parts.map((part, index) => {
+          if (part.type === 'html') {
+            // Convert markdown syntax to HTML for mixed content
+            let processedHtml = part.content
+              // Convert inline backticks to <code> tags
+              .replace(
+                /`([^`]+)`/g,
+                '<code class="bg-gray-100 px-1.5 py-0.5 text-sm rounded font-mono">$1</code>'
+              )
+              // Convert bold markdown (**text**) to <strong> tags
+              .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+              // Convert italic markdown (*text*) to <em> tags (but not inside **)
+              .replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, '<em>$1</em>')
+              // Convert markdown numbered lists to HTML <ol><li> tags
+              .replace(
+                /(?:^|\n)((?:\d+\.\s+.+(?:\n|$))+)/g,
+                (match, listContent) => {
+                  const items = listContent
+                    .split(/\n/)
+                    .filter((line: string) => line.trim())
+                    .map((line: string) => {
+                      const itemContent = line.replace(/^\d+\.\s+/, '');
+                      return `<li class="mb-2">${itemContent}</li>`;
+                    })
+                    .join('');
+                  return `<ol class="list-decimal pl-6 mb-4 text-gray-700">${items}</ol>`;
+                }
+              )
+              // Convert markdown bullet lists to HTML <ul><li> tags
+              .replace(
+                /(?:^|\n)((?:[-*]\s+.+(?:\n|$))+)/g,
+                (match, listContent) => {
+                  const items = listContent
+                    .split(/\n/)
+                    .filter((line: string) => line.trim())
+                    .map((line: string) => {
+                      const itemContent = line.replace(/^[-*]\s+/, '');
+                      return `<li class="mb-2">${itemContent}</li>`;
+                    })
+                    .join('');
+                  return `<ul class="list-disc pl-6 mb-4 text-gray-700">${items}</ul>`;
+                }
+              );
+            return (
+              <div
+                key={`html-${index}`}
+                dangerouslySetInnerHTML={{ __html: processedHtml }}
+              />
+            );
+          } else {
+            return (
+              <CodeBlock key={`code-${index}`} language={part.language || 'python'}>
+                {part.content}
+              </CodeBlock>
+            );
+          }
+        })}
+      </div>
+    );
+  }
+
+  // Use direct HTML rendering for content with HTML tags but no markdown code blocks
   // This bypasses ReactMarkdown+rehype-raw which has parsing issues for pure HTML
   // HTML content is styled via .lesson-content class in globals.css
-  if (/<[a-z][\s\S]*>/i.test(processedContent) && !hasMarkdownCodeBlocks) {
+  if (hasHtmlTags && !hasMarkdownCodeBlocks) {
     return (
       <div
         className="prose max-w-none lesson-content"
