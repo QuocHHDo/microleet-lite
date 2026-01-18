@@ -1,5 +1,6 @@
 import { LessonContent } from '@/common/commonLesson';
 import { Difficulty } from '@/common/commonConcept';
+import { CodeContent } from '@/common/commonLanguage';
 
 
 // SECTION 4: KNAPSACK PATTERNS
@@ -7,10 +8,7 @@ import { Difficulty } from '@/common/commonConcept';
 
 const zeroOneKnapsackData: LessonContent = {
   title: '0/1 Knapsack: The Foundation',
-  content: `<div>
-<h1>0/1 Knapsack: The Classic Optimization Problem</h1>
-
-<p>The 0/1 Knapsack problem is one of the most fundamental optimization problems in computer science. It forms the foundation for understanding a whole category of DP problems involving resource allocation and decision-making.</p>
+  content: `The 0/1 Knapsack problem is one of the most fundamental optimization problems in computer science. It forms the foundation for understanding a whole category of DP problems involving resource allocation and decision-making.
 
 <h2>Problem Definition</h2>
 
@@ -21,7 +19,8 @@ const zeroOneKnapsackData: LessonContent = {
 </div>
 
 <p><strong>Example:</strong></p>
-<pre>
+<div class="bg-gray-50 p-4 rounded-lg my-4">
+<pre class="text-gray-800">
 Items:     weights = [1, 3, 4, 5]
            values  = [1, 4, 5, 7]
 Capacity:  W = 7
@@ -29,12 +28,14 @@ Capacity:  W = 7
 Output: 9
 Explanation: Take items with weights 3 and 4 (values 4 + 5 = 9)
 </pre>
+</div>
 
 <h2>The Greedy Approach Fails!</h2>
 
 <p>You might think: "Just take items with highest value-to-weight ratio!" But this greedy approach doesn't work:</p>
 
-<pre>
+<div class="bg-gray-50 p-4 rounded-lg my-4">
+<pre class="text-gray-800">
 weights = [10, 20, 30]
 values  = [60, 100, 120]
 W = 50
@@ -42,6 +43,7 @@ W = 50
 Greedy (by value/weight ratio): Take item 1 (ratio 6) and item 2 (ratio 5) = 60 + 100 = 160 ✗ (total weight = 30, can add item 3!)
 Optimal DP: Take item 2 and item 3 = 100 + 120 = 220 ✓
 </pre>
+</div>
 
 <h2>DP State Definition</h2>
 
@@ -53,12 +55,12 @@ Optimal DP: Take item 2 and item 3 = 100 + 120 = 220 ✓
 
 <h2>The Recurrence Relation</h2>
 
-\`\`\`python
+<pre class="bg-gray-100 p-4 rounded my-4 overflow-x-auto">
 dp[i][w] = max(
     dp[i-1][w],                    # Don't take item i
     dp[i-1][w - weight[i]] + value[i]  # Take item i (if it fits)
 )
-\`\`\`
+</pre>
 
 <h2>Complete Implementation</h2>
 
@@ -88,6 +90,36 @@ def knapsack_01(weights, values, W):
     return dp[n][W]
 \`\`\`
 
+\`\`\`typescript
+function knapsack01(weights: number[], values: number[], W: number): number {
+    /**
+     * 0/1 Knapsack - each item taken at most once.
+     *
+     * Time: O(n * W)
+     * Space: O(n * W)
+     */
+    const n = weights.length;
+    const dp: number[][] = Array.from({ length: n + 1 }, () => Array(W + 1).fill(0));
+
+    for (let i = 1; i <= n; i++) {
+        for (let w = 0; w <= W; w++) {
+            // Option 1: Don't take item i-1
+            dp[i][w] = dp[i - 1][w];
+
+            // Option 2: Take item i-1 (if it fits)
+            if (weights[i - 1] <= w) {
+                dp[i][w] = Math.max(
+                    dp[i][w],
+                    dp[i - 1][w - weights[i - 1]] + values[i - 1]
+                );
+            }
+        }
+    }
+
+    return dp[n][W];
+}
+\`\`\`
+
 <h2>Space Optimization: O(W)</h2>
 
 \`\`\`python
@@ -105,6 +137,25 @@ def knapsack_01_optimized(weights, values, W):
             dp[w] = max(dp[w], dp[w - weights[i]] + values[i])
 
     return dp[W]
+\`\`\`
+
+\`\`\`typescript
+function knapsack01Optimized(weights: number[], values: number[], W: number): number {
+    /**
+     * Space-optimized: O(W) space using 1D array.
+     * IMPORTANT: Iterate backwards to avoid using updated values!
+     */
+    const dp: number[] = Array(W + 1).fill(0);
+
+    for (let i = 0; i < weights.length; i++) {
+        // MUST iterate backwards!
+        for (let w = W; w >= weights[i]; w--) {
+            dp[w] = Math.max(dp[w], dp[w - weights[i]] + values[i]);
+        }
+    }
+
+    return dp[W];
+}
 \`\`\`
 
 <h2>Finding Which Items to Take</h2>
@@ -135,6 +186,38 @@ def knapsack_with_items(weights, values, W):
     return dp[n][W], items[::-1]
 \`\`\`
 
+\`\`\`typescript
+function knapsackWithItems(weights: number[], values: number[], W: number): [number, number[]] {
+    /**
+     * Return max value AND which items to take.
+     */
+    const n = weights.length;
+    const dp: number[][] = Array.from({ length: n + 1 }, () => Array(W + 1).fill(0));
+
+    // Build DP table
+    for (let i = 1; i <= n; i++) {
+        for (let w = 0; w <= W; w++) {
+            dp[i][w] = dp[i - 1][w];
+            if (weights[i - 1] <= w) {
+                dp[i][w] = Math.max(dp[i][w], dp[i - 1][w - weights[i - 1]] + values[i - 1]);
+            }
+        }
+    }
+
+    // Backtrack to find items
+    const items: number[] = [];
+    let w = W;
+    for (let i = n; i > 0; i--) {
+        if (dp[i][w] !== dp[i - 1][w]) {
+            items.push(i - 1);
+            w -= weights[i - 1];
+        }
+    }
+
+    return [dp[n][W], items.reverse()];
+}
+\`\`\`
+
 <h2>Key Insights</h2>
 
 <div class="bg-purple-50 p-4 rounded-lg my-4">
@@ -144,10 +227,9 @@ def knapsack_with_items(weights, values, W):
     <li><strong>Space Optimization:</strong> Iterate backwards when using 1D array</li>
     <li><strong>Pattern:</strong> Many problems reduce to 0/1 Knapsack (Subset Sum, Partition, Target Sum)</li>
   </ul>
-</div>
-
 </div>`,
-  codeExample: `# 0/1 Knapsack - Complete Implementation
+  codeExample: {
+    python: `# 0/1 Knapsack - Complete Implementation
 
 def knapsack_01(weights, values, W):
     """Classic 0/1 Knapsack with 2D DP."""
@@ -177,16 +259,64 @@ weights = [1, 3, 4, 5]
 values = [1, 4, 5, 7]
 W = 7
 print(knapsack_01(weights, values, W))  # 9`,
+    typescript: `// 0/1 Knapsack - Complete Implementation
+
+function knapsack01(weights: number[], values: number[], W: number): number {
+    /** Classic 0/1 Knapsack with 2D DP. */
+    const n = weights.length;
+    const dp: number[][] = Array.from({ length: n + 1 }, () => Array(W + 1).fill(0));
+
+    for (let i = 1; i <= n; i++) {
+        for (let w = 0; w <= W; w++) {
+            dp[i][w] = dp[i-1][w];
+            if (weights[i-1] <= w) {
+                dp[i][w] = Math.max(dp[i][w], dp[i-1][w - weights[i-1]] + values[i-1]);
+            }
+        }
+    }
+
+    return dp[n][W];
+}
+
+
+function knapsack01Optimized(weights: number[], values: number[], W: number): number {
+    /** Space-optimized O(W) version. */
+    const dp: number[] = Array(W + 1).fill(0);
+    for (let i = 0; i < weights.length; i++) {
+        for (let w = W; w >= weights[i]; w--) {
+            dp[w] = Math.max(dp[w], dp[w - weights[i]] + values[i]);
+        }
+    }
+    return dp[W];
+}
+
+
+// Test
+const weights = [1, 3, 4, 5];
+const values = [1, 4, 5, 7];
+const W = 7;
+console.log(knapsack01(weights, values, W));  // 9`
+  },
   exercises: [
     {
       prompt: 'Implement 0/1 Knapsack using 2D DP.',
-      initialCode: `def knapsack_01(weights, values, W):
+      initialCode: {
+        python: `def knapsack_01(weights, values, W):
     """
     0/1 Knapsack - return maximum value.
     """
     # Your code here
     pass`,
-      solution: `def knapsack_01(weights, values, W):
+        typescript: `function knapsack01(weights: number[], values: number[], W: number): number {
+    /**
+     * 0/1 Knapsack - return maximum value.
+     */
+    // Your code here
+    return 0;
+}`
+      },
+      solution: {
+        python: `def knapsack_01(weights, values, W):
     n = len(weights)
     dp = [[0] * (W + 1) for _ in range(n + 1)]
 
@@ -197,6 +327,22 @@ print(knapsack_01(weights, values, W))  # 9`,
                 dp[i][w] = max(dp[i][w], dp[i-1][w - weights[i-1]] + values[i-1])
 
     return dp[n][W]`,
+        typescript: `function knapsack01(weights: number[], values: number[], W: number): number {
+    const n = weights.length;
+    const dp: number[][] = Array.from({ length: n + 1 }, () => Array(W + 1).fill(0));
+
+    for (let i = 1; i <= n; i++) {
+        for (let w = 0; w <= W; w++) {
+            dp[i][w] = dp[i-1][w];
+            if (weights[i-1] <= w) {
+                dp[i][w] = Math.max(dp[i][w], dp[i-1][w - weights[i-1]] + values[i-1]);
+            }
+        }
+    }
+
+    return dp[n][W];
+}`
+      },
       difficulty: Difficulty.Intermediate,
     },
   ],
@@ -223,10 +369,7 @@ print(knapsack_01(weights, values, W))  # 9`,
 
 const unboundedKnapsackData: LessonContent = {
   title: 'Unbounded Knapsack: Unlimited Supply',
-  content: `<div>
-<h1>Unbounded Knapsack: Items with Unlimited Supply</h1>
-
-<p>Unlike 0/1 Knapsack where each item can be taken at most once, Unbounded Knapsack allows taking each item unlimited times. This changes our DP approach!</p>
+  content: `Unlike 0/1 Knapsack where each item can be taken at most once, Unbounded Knapsack allows taking each item unlimited times. This changes our DP approach!
 
 <h2>Problem Definition</h2>
 
@@ -276,8 +419,27 @@ def unbounded_knapsack(weights, values, W):
     return dp[W]
 \`\`\`
 
-</div>`,
-  codeExample: `def unbounded_knapsack(weights, values, W):
+\`\`\`typescript
+function unboundedKnapsack(weights: number[], values: number[], W: number): number {
+    /**
+     * Unbounded Knapsack - unlimited items.
+     */
+    const n = weights.length;
+    const dp: number[] = Array(W + 1).fill(0);
+
+    for (let w = 0; w <= W; w++) {
+        for (let i = 0; i < n; i++) {
+            if (weights[i] <= w) {
+                dp[w] = Math.max(dp[w], dp[w - weights[i]] + values[i]);
+            }
+        }
+    }
+
+    return dp[W];
+}
+\`\`\``,
+  codeExample: {
+    python: `def unbounded_knapsack(weights, values, W):
     """Unbounded Knapsack - O(n*W) time, O(W) space."""
     dp = [0] * (W + 1)
     for w in range(W + 1):
@@ -285,19 +447,51 @@ def unbounded_knapsack(weights, values, W):
             if weights[i] <= w:
                 dp[w] = max(dp[w], dp[w - weights[i]] + values[i])
     return dp[W]`,
+    typescript: `function unboundedKnapsack(weights: number[], values: number[], W: number): number {
+    /** Unbounded Knapsack - O(n*W) time, O(W) space. */
+    const dp: number[] = Array(W + 1).fill(0);
+    for (let w = 0; w <= W; w++) {
+        for (let i = 0; i < weights.length; i++) {
+            if (weights[i] <= w) {
+                dp[w] = Math.max(dp[w], dp[w - weights[i]] + values[i]);
+            }
+        }
+    }
+    return dp[W];
+}`
+  },
   exercises: [
     {
       prompt: 'Implement Unbounded Knapsack.',
-      initialCode: `def unbounded_knapsack(weights, values, W):
+      initialCode: {
+        python: `def unbounded_knapsack(weights, values, W):
     # Your code here
     pass`,
-      solution: `def unbounded_knapsack(weights, values, W):
+        typescript: `function unboundedKnapsack(weights: number[], values: number[], W: number): number {
+    // Your code here
+    return 0;
+}`
+      },
+      solution: {
+        python: `def unbounded_knapsack(weights, values, W):
     dp = [0] * (W + 1)
     for w in range(W + 1):
         for i in range(len(weights)):
             if weights[i] <= w:
                 dp[w] = max(dp[w], dp[w - weights[i]] + values[i])
     return dp[W]`,
+        typescript: `function unboundedKnapsack(weights: number[], values: number[], W: number): number {
+    const dp: number[] = Array(W + 1).fill(0);
+    for (let w = 0; w <= W; w++) {
+        for (let i = 0; i < weights.length; i++) {
+            if (weights[i] <= w) {
+                dp[w] = Math.max(dp[w], dp[w - weights[i]] + values[i]);
+            }
+        }
+    }
+    return dp[W];
+}`
+      },
       difficulty: Difficulty.Intermediate,
     },
   ],
@@ -358,10 +552,7 @@ def unbounded_knapsack(weights, values, W):
 
 const subsetSumData: LessonContent = {
   title: 'Subset Sum Problem',
-  content: `<div>
-<h1>Subset Sum: A Special Case of Knapsack</h1>
-
-<p>Subset Sum is a classic NP-complete problem that asks: given a set of numbers, can we find a subset that sums to a target?</p>
+  content: `Subset Sum is a classic NP-complete problem that asks: given a set of numbers, can we find a subset that sums to a target?
 
 <h2>Problem Definition</h2>
 
@@ -370,13 +561,15 @@ const subsetSumData: LessonContent = {
 </div>
 
 <p><strong>Example:</strong></p>
-<pre>
+<div class="bg-gray-50 p-4 rounded-lg my-4">
+<pre class="text-gray-800">
 nums = [3, 34, 4, 12, 5, 2], target = 9
 Output: True (subset [4, 5] sums to 9)
 
 nums = [3, 34, 4, 12, 5, 2], target = 30
 Output: False
 </pre>
+</div>
 
 <h2>DP State</h2>
 
@@ -401,6 +594,26 @@ def subset_sum(nums, target):
     return dp[target]
 \`\`\`
 
+\`\`\`typescript
+function subsetSum(nums: number[], target: number): boolean {
+    /**
+     * Check if subset with target sum exists.
+     * Time: O(n * target), Space: O(target)
+     */
+    const dp: boolean[] = Array(target + 1).fill(false);
+    dp[0] = true;  // Empty subset has sum 0
+
+    for (const num of nums) {
+        // Iterate backwards (0/1 knapsack pattern)
+        for (let s = target; s >= num; s--) {
+            dp[s] = dp[s] || dp[s - num];
+        }
+    }
+
+    return dp[target];
+}
+\`\`\`
+
 <h2>Count Subsets with Given Sum</h2>
 
 \`\`\`python
@@ -418,8 +631,26 @@ def count_subsets_with_sum(nums, target):
     return dp[target]
 \`\`\`
 
-</div>`,
-  codeExample: `def subset_sum(nums, target):
+\`\`\`typescript
+function countSubsetsWithSum(nums: number[], target: number): number {
+    /**
+     * Count number of subsets that sum to target.
+     */
+    const dp: number[] = Array(target + 1).fill(0);
+    dp[0] = 1;  // One way to make 0: empty subset
+
+    for (const num of nums) {
+        for (let s = target; s >= num; s--) {
+            dp[s] += dp[s - num];
+        }
+    }
+
+    return dp[target];
+}
+\`\`\`
+`,
+  codeExample: {
+    python: `def subset_sum(nums, target):
     """Check if subset with target sum exists."""
     dp = [False] * (target + 1)
     dp[0] = True
@@ -436,19 +667,61 @@ def count_subsets_with_sum(nums, target):
         for s in range(target, num - 1, -1):
             dp[s] += dp[s - num]
     return dp[target]`,
+    typescript: `function subsetSum(nums: number[], target: number): boolean {
+    /** Check if subset with target sum exists. */
+    const dp: boolean[] = Array(target + 1).fill(false);
+    dp[0] = true;
+    for (const num of nums) {
+        for (let s = target; s >= num; s--) {
+            dp[s] = dp[s] || dp[s - num];
+        }
+    }
+    return dp[target];
+}
+
+function countSubsetsWithSum(nums: number[], target: number): number {
+    /** Count subsets with target sum. */
+    const dp: number[] = Array(target + 1).fill(0);
+    dp[0] = 1;
+    for (const num of nums) {
+        for (let s = target; s >= num; s--) {
+            dp[s] += dp[s - num];
+        }
+    }
+    return dp[target];
+}`
+  },
   exercises: [
     {
       prompt: 'Implement Subset Sum.',
-      initialCode: `def subset_sum(nums, target):
+      initialCode: {
+        python: `def subset_sum(nums, target):
     # Your code here
     pass`,
-      solution: `def subset_sum(nums, target):
+        typescript: `function subsetSum(nums: number[], target: number): boolean {
+    // Your code here
+    return false;
+}`
+      },
+      solution: {
+        python: `def subset_sum(nums, target):
     dp = [False] * (target + 1)
     dp[0] = True
     for num in nums:
         for s in range(target, num - 1, -1):
             dp[s] = dp[s] or dp[s - num]
     return dp[target]`,
+        typescript: `function subsetSum(nums: number[], target: number): boolean {
+    const dp: boolean[] = Array(target + 1).fill(false);
+    dp[0] = true;
+    for (const num of nums) {
+        for (let s = target; s >= num; s--) {
+            dp[s] = dp[s] || dp[s - num];
+        }
+    }
+    return dp[target];
+}`
+      },
       difficulty: Difficulty.Intermediate,
     },
   ],
@@ -509,10 +782,7 @@ def count_subsets_with_sum(nums, target):
 
 const partitionEqualSubsetData: LessonContent = {
   title: 'Partition Equal Subset Sum',
-  content: `<div>
-<h1>Partition Equal Subset Sum</h1>
-
-<p>Can we partition an array into two subsets with equal sum? This is a direct application of Subset Sum!</p>
+  content: `Can we partition an array into two subsets with equal sum? This is a direct application of Subset Sum!
 
 <h2>Problem (LeetCode 416)</h2>
 
@@ -548,8 +818,37 @@ def can_partition(nums):
     return dp[target]
 \`\`\`
 
-</div>`,
-  codeExample: `def can_partition(nums):
+\`\`\`typescript
+function canPartition(nums: number[]): boolean {
+    /**
+     * Partition into two equal sum subsets.
+     */
+    const total = nums.reduce((sum, num) => sum + num, 0);
+
+    // If odd sum, can't partition equally
+    if (total % 2 !== 0) {
+        return false;
+    }
+
+    const target = total / 2;
+
+    // Now it's subset sum problem!
+    const dp: boolean[] = Array(target + 1).fill(false);
+    dp[0] = true;
+
+    for (const num of nums) {
+        for (let s = target; s >= num; s--) {
+            dp[s] = dp[s] || dp[s - num];
+        }
+    }
+
+    return dp[target];
+}
+\`\`\`
+
+`,
+  codeExample: {
+    python: `def can_partition(nums):
     """Partition into equal sum subsets."""
     total = sum(nums)
     if total % 2 != 0:
@@ -564,13 +863,40 @@ def can_partition(nums):
             dp[s] = dp[s] or dp[s - num]
 
     return dp[target]`,
+    typescript: `function canPartition(nums: number[]): boolean {
+    /** Partition into equal sum subsets. */
+    const total = nums.reduce((sum, num) => sum + num, 0);
+    if (total % 2 !== 0) {
+        return false;
+    }
+
+    const target = total / 2;
+    const dp: boolean[] = Array(target + 1).fill(false);
+    dp[0] = true;
+
+    for (const num of nums) {
+        for (let s = target; s >= num; s--) {
+            dp[s] = dp[s] || dp[s - num];
+        }
+    }
+
+    return dp[target];
+}`
+  },
   exercises: [
     {
       prompt: 'Implement Partition Equal Subset Sum.',
-      initialCode: `def can_partition(nums):
+      initialCode: {
+        python: `def can_partition(nums):
     # Your code here
     pass`,
-      solution: `def can_partition(nums):
+        typescript: `function canPartition(nums: number[]): boolean {
+    // Your code here
+    return false;
+}`
+      },
+      solution: {
+        python: `def can_partition(nums):
     total = sum(nums)
     if total % 2 != 0:
         return False
@@ -581,6 +907,22 @@ def can_partition(nums):
         for s in range(target, num - 1, -1):
             dp[s] = dp[s] or dp[s - num]
     return dp[target]`,
+        typescript: `function canPartition(nums: number[]): boolean {
+    const total = nums.reduce((sum, num) => sum + num, 0);
+    if (total % 2 !== 0) {
+        return false;
+    }
+    const target = total / 2;
+    const dp: boolean[] = Array(target + 1).fill(false);
+    dp[0] = true;
+    for (const num of nums) {
+        for (let s = target; s >= num; s--) {
+            dp[s] = dp[s] || dp[s - num];
+        }
+    }
+    return dp[target];
+}`
+      },
       difficulty: Difficulty.Intermediate,
     },
   ],
@@ -641,23 +983,32 @@ def can_partition(nums):
 
 const coinChangeData: LessonContent = {
   title: 'Coin Change: Unbounded Knapsack Variant',
-  content: `<div>
-<h1>Coin Change: Making Change with Minimum Coins</h1>
-
-<p>Given coins of different denominations and a total amount, find the fewest number of coins needed to make up that amount. This is a classic unbounded knapsack problem.</p>
+  content: `Given coins of different denominations and a total amount, find the fewest number of coins needed to make up that amount. This is a classic unbounded knapsack problem.
 
 <h2>Problem (LeetCode 322)</h2>
 
-<pre>
-Input: coins = [1,2,5], amount = 11
-Output: 3 (11 = 5 + 5 + 1)
+<div class="example-box">
+  <h3>Example 1:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> coins = [1, 2, 5], amount = 11</p>
+    <p><strong>Output:</strong> 3</p>
+    <p><strong>Explanation:</strong> 11 = 5 + 5 + 1 (3 coins)</p>
+  </div>
 
-Input: coins = [2], amount = 3
-Output: -1 (impossible to make)
+  <h3>Example 2:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> coins = [2], amount = 3</p>
+    <p><strong>Output:</strong> -1</p>
+    <p><strong>Explanation:</strong> Impossible to make amount 3 with only coin value 2</p>
+  </div>
 
-Input: coins = [1], amount = 0
-Output: 0
-</pre>
+  <h3>Example 3:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> coins = [1], amount = 0</p>
+    <p><strong>Output:</strong> 0</p>
+    <p><strong>Explanation:</strong> No coins needed to make amount 0</p>
+  </div>
+</div>
 
 <h2>DP Solution - Minimum Coins</h2>
 
@@ -683,6 +1034,30 @@ def coin_change(coins: list[int], amount: int) -> int:
     return dp[amount] if dp[amount] != float('inf') else -1
 \`\`\`
 
+\`\`\`typescript
+function coinChange(coins: number[], amount: number): number {
+    /**
+     * Find minimum coins to make amount.
+     * dp[i] = min coins needed for amount i
+     *
+     * Time: O(amount * len(coins))
+     * Space: O(amount)
+     */
+    const dp: number[] = Array(amount + 1).fill(Infinity);
+    dp[0] = 0;  // 0 coins needed for amount 0
+
+    for (let i = 1; i <= amount; i++) {
+        for (const coin of coins) {
+            if (coin <= i) {
+                dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+            }
+        }
+    }
+
+    return dp[amount] !== Infinity ? dp[amount] : -1;
+}
+\`\`\`
+
 <h2>Coin Change II: Count Number of Ways</h2>
 
 <p>Count the number of combinations that make up an amount (LeetCode 518):</p>
@@ -705,6 +1080,29 @@ def coin_change_2(amount: int, coins: list[int]) -> int:
             dp[i] += dp[i - coin]
 
     return dp[amount]
+\`\`\`
+
+\`\`\`typescript
+function coinChange2(amount: number, coins: number[]): number {
+    /**
+     * Count number of ways to make amount.
+     * dp[i] = number of ways to make amount i
+     *
+     * Time: O(amount * len(coins))
+     * Space: O(amount)
+     */
+    const dp: number[] = Array(amount + 1).fill(0);
+    dp[0] = 1;  // One way to make 0: use no coins
+
+    // Important: iterate coins first to avoid counting permutations
+    for (const coin of coins) {
+        for (let i = coin; i <= amount; i++) {
+            dp[i] += dp[i - coin];
+        }
+    }
+
+    return dp[amount];
+}
 \`\`\`
 
 <h2>Key Difference: Combinations vs Permutations</h2>
@@ -735,7 +1133,8 @@ def coin_change_2(amount: int, coins: list[int]) -> int:
 
 <p>For coins = [1, 2, 5] and amount = 5:</p>
 
-<pre>
+<div class="bg-gray-50 p-4 rounded-lg my-4">
+<pre class="text-gray-800">
 dp[0] = 0
 
 For coin = 1:
@@ -756,6 +1155,7 @@ For coin = 5:
 
 Final: dp[5] = 1
 </pre>
+</div>
 
 <h2>Space Optimization</h2>
 
@@ -768,10 +1168,9 @@ Final: dp[5] = 1
   <li><strong>LeetCode 518:</strong> Coin Change II (count ways)</li>
   <li><strong>LeetCode 377:</strong> Combination Sum IV (permutations)</li>
   <li><strong>LeetCode 983:</strong> Minimum Cost For Tickets</li>
-</ul>
-
-</div>`,
-  codeExample: `# Coin Change - Minimum coins needed
+</ul>`,
+  codeExample: {
+    python: `# Coin Change - Minimum coins needed
 
 def coin_change(coins, amount):
     """
@@ -807,6 +1206,50 @@ def coin_change_2(amount, coins):
     return dp[amount]
 
 print(coin_change_2(5, [1, 2, 5]))  # 4 ways`,
+    typescript: `// Coin Change - Minimum coins needed
+
+function coinChange(coins: number[], amount: number): number {
+    /**
+     * Find minimum coins to make amount.
+     * dp[i] = min coins for amount i
+     */
+    const dp: number[] = Array(amount + 1).fill(Infinity);
+    dp[0] = 0;
+
+    for (let i = 1; i <= amount; i++) {
+        for (const coin of coins) {
+            if (coin <= i) {
+                dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+            }
+        }
+    }
+
+    return dp[amount] !== Infinity ? dp[amount] : -1;
+}
+
+// Example
+const coins = [1, 2, 5];
+const amount = 11;
+console.log(coinChange(coins, amount));  // 3 (5+5+1)
+
+// Coin Change II - Count ways
+function coinChange2(amount: number, coins: number[]): number {
+    /** Count number of ways to make amount. */
+    const dp: number[] = Array(amount + 1).fill(0);
+    dp[0] = 1;
+
+    // Coins first to avoid permutations
+    for (const coin of coins) {
+        for (let i = coin; i <= amount; i++) {
+            dp[i] += dp[i - coin];
+        }
+    }
+
+    return dp[amount];
+}
+
+console.log(coinChange2(5, [1, 2, 5]));  // 4 ways`
+  },
   exercises: [],
   quizzes: [
     {

@@ -302,3 +302,102 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Lesson content styling for HTML-rendered lessons */
+.lesson-content {
+  line-height: 1.75;
+}
+
+.lesson-content h2 {
+  @apply text-xl font-semibold mt-8 mb-4;
+}
+
+.lesson-content h3 {
+  @apply text-lg font-semibold mt-6 mb-3;
+}
+
+.lesson-content h4 {
+  @apply text-base font-semibold mt-4 mb-2;
+}
+
+.lesson-content p {
+  @apply mb-4 text-gray-700 leading-relaxed text-base;
+}
+
+.lesson-content ul {
+  @apply list-disc pl-6 mb-4 text-gray-700;
+}
+
+.lesson-content ol {
+  @apply list-decimal pl-6 mb-4 text-gray-700;
+}
+
+.lesson-content li {
+  @apply mb-2 text-base;
+}
+
+.lesson-content table {
+  @apply min-w-full border-collapse border border-gray-300 my-4;
+}
+
+.lesson-content thead {
+  @apply bg-gray-100;
+}
+
+.lesson-content th {
+  @apply border border-gray-300 px-4 py-2 text-left font-semibold;
+}
+
+.lesson-content td {
+  @apply border border-gray-300 px-4 py-2;
+}
+
+.lesson-content strong {
+  @apply font-semibold;
+}
+
+.lesson-content code {
+  @apply bg-gray-100 px-1.5 py-0.5 text-sm rounded font-mono;
+}
+
+.lesson-content pre {
+  background-color: #f9fafb;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+  color: #1f2937;
+}
+
+.lesson-content .visualization {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.lesson-content .visualization pre {
+  background-color: #f9fafb;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  color: #1f2937;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875rem;
+}
+
+/* Colored info boxes */
+.lesson-content .bg-blue-50,
+.lesson-content .bg-green-50,
+.lesson-content .bg-yellow-50,
+.lesson-content .bg-gray-50 {
+  color: #1f2937;
+}
+
+.lesson-content .example-box,
+.lesson-content .pattern-box {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: white;
+}

@@ -308,7 +308,130 @@ export const renderContent = (content: string | React.ReactNode, selectedLanguag
   };
 
   // Apply language markers before processing
-  const processedContent = selectedLanguage ? parseLanguageMarkers(content, selectedLanguage) : content;
+  let processedContent = selectedLanguage ? parseLanguageMarkers(content, selectedLanguage) : content;
+
+  // Check if content has HTML tags
+  const hasHtmlTags = /<[a-z][\s\S]*>/i.test(processedContent);
+
+  // Check if content has markdown code blocks (triple backticks)
+  const hasMarkdownCodeBlocks = /```[\s\S]*?```/.test(processedContent);
+
+  // For content with BOTH HTML and markdown code blocks, use a hybrid approach:
+  // Split by code blocks, render HTML with dangerouslySetInnerHTML, render code blocks with CodeBlock
+  // This fixes the issue where ReactMarkdown+rehype-raw fails to parse mixed content
+  if (hasHtmlTags && hasMarkdownCodeBlocks) {
+    // Split content by code blocks while preserving the code blocks
+    const codeBlockRegex = /```(\w+)?\n([\s\S]*?)```/g;
+    const parts: { type: 'html' | 'code'; content: string; language?: string }[] = [];
+    let lastIndex = 0;
+    let match;
+
+    while ((match = codeBlockRegex.exec(processedContent)) !== null) {
+      // Add HTML content before this code block
+      if (match.index > lastIndex) {
+        parts.push({
+          type: 'html',
+          content: processedContent.slice(lastIndex, match.index),
+        });
+      }
+
+      const language = match[1] || 'python';
+      const code = match[2];
+
+      // Filter code blocks based on selected language
+      if (!selectedLanguage || language === selectedLanguage) {
+        parts.push({
+          type: 'code',
+          content: code.replace(/\n$/, ''),
+          language,
+        });
+      }
+
+      lastIndex = match.index + match[0].length;
+    }
+
+    // Add remaining HTML content after last code block
+    if (lastIndex < processedContent.length) {
+      parts.push({
+        type: 'html',
+        content: processedContent.slice(lastIndex),
+      });
+    }
+
+    return (
+      <div className="prose max-w-none lesson-content">
+        {parts.map((part, index) => {
+          if (part.type === 'html') {
+            // Convert markdown syntax to HTML for mixed content
+            let processedHtml = part.content
+              // Convert inline backticks to <code> tags
+              .replace(
+                /`([^`]+)`/g,
+                '<code class="bg-gray-100 px-1.5 py-0.5 text-sm rounded font-mono">$1</code>'
+              )
+              // Convert bold markdown (**text**) to <strong> tags
+              .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+              // Convert italic markdown (*text*) to <em> tags (but not inside **)
+              .replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, '<em>$1</em>')
+              // Convert markdown numbered lists to HTML <ol><li> tags
+              .replace(
+                /(?:^|\n)((?:\d+\.\s+.+(?:\n|$))+)/g,
+                (match, listContent) => {
+                  const items = listContent
+                    .split(/\n/)
+                    .filter((line: string) => line.trim())
+                    .map((line: string) => {
+                      const itemContent = line.replace(/^\d+\.\s+/, '');
+                      return `<li class="mb-2">${itemContent}</li>`;
+                    })
+                    .join('');
+                  return `<ol class="list-decimal pl-6 mb-4 text-gray-700">${items}</ol>`;
+                }
+              )
+              // Convert markdown bullet lists to HTML <ul><li> tags
+              .replace(
+                /(?:^|\n)((?:[-*]\s+.+(?:\n|$))+)/g,
+                (match, listContent) => {
+                  const items = listContent
+                    .split(/\n/)
+                    .filter((line: string) => line.trim())
+                    .map((line: string) => {
+                      const itemContent = line.replace(/^[-*]\s+/, '');
+                      return `<li class="mb-2">${itemContent}</li>`;
+                    })
+                    .join('');
+                  return `<ul class="list-disc pl-6 mb-4 text-gray-700">${items}</ul>`;
+                }
+              );
+            return (
+              <div
+                key={`html-${index}`}
+                dangerouslySetInnerHTML={{ __html: processedHtml }}
+              />
+            );
+          } else {
+            return (
+              <CodeBlock key={`code-${index}`} language={part.language || 'python'}>
+                {part.content}
+              </CodeBlock>
+            );
+          }
+        })}
+      </div>
+    );
+  }
+
+  // Use direct HTML rendering for content with HTML tags but no markdown code blocks
+  // This bypasses ReactMarkdown+rehype-raw which has parsing issues for pure HTML
+  // HTML content is styled via .lesson-content class in globals.css
+  if (hasHtmlTags && !hasMarkdownCodeBlocks) {
+    return (
+      <div
+        className="prose max-w-none lesson-content"
+        dangerouslySetInnerHTML={{ __html: processedContent }}
+      />
+    );
+  }
 
   const processContent = () => {
     const segments = processedContent.split(/(<Visualization.*?>)/g);
@@ -390,19 +513,17 @@ export const renderContent = (content: string | React.ReactNode, selectedLanguag
                   </p>
                 );
               },
-              pre: ({ children }) => (
-                <div className="my-4">
+              pre: ({ children, className, ...props }) => (
+                <pre className={className} {...props}>
                   {children}
-                </div>
+                </pre>
               ),
-              div: ({ children, className }) => {
+              div: ({ children, className, ...props }) => {
                 if (className === 'visualization') {
                   return <SVGRenderer>{children}</SVGRenderer>;
                 }
                 return (
-                  <div
-                    className={`${className} my-4 text-base leading-relaxed`}
-                  >
+                  <div className={className} {...props}>
                     {children}
                   </div>
                 );
@@ -412,8 +533,49 @@ export const renderContent = (content: string | React.ReactNode, selectedLanguag
                   {children}
                 </ul>
               ),
+              ol: ({ children }) => (
+                <ol className="list-decimal pl-6 mb-4 text-gray-700">
+                  {children}
+                </ol>
+              ),
               li: ({ children }) => (
                 <li className="mb-2 text-base">{children}</li>
+              ),
+              table: ({ children }) => (
+                <table className="min-w-full border-collapse border border-gray-300 my-4">
+                  {children}
+                </table>
+              ),
+              thead: ({ children }) => (
+                <thead className="bg-gray-100">{children}</thead>
+              ),
+              tbody: ({ children }) => <tbody>{children}</tbody>,
+              tr: ({ children }) => <tr>{children}</tr>,
+              th: ({ children }) => (
+                <th className="border border-gray-300 px-4 py-2 text-left font-semibold">
+                  {children}
+                </th>
+              ),
+              td: ({ children }) => (
+                <td className="border border-gray-300 px-4 py-2">
+                  {children}
+                </td>
+              ),
+              strong: ({ children }) => (
+                <strong className="font-semibold">{children}</strong>
+              ),
+              em: ({ children }) => <em>{children}</em>,
+              span: ({ children, className, ...props }) => (
+                <span className={className} {...props}>
+                  {children}
+                </span>
+              ),
+              br: () => <br />,
+              hr: () => <hr className="my-4 border-gray-300" />,
+              blockquote: ({ children }) => (
+                <blockquote className="border-l-4 border-gray-300 pl-4 my-4 italic">
+                  {children}
+                </blockquote>
               ),
             }}
           >

@@ -1,5 +1,6 @@
 import { LessonContent } from '@/common/commonLesson';
 import { Difficulty } from '@/common/commonConcept';
+import { CodeContent } from '@/common/commonLanguage';
 
 
 // SECTION 3: 2D DYNAMIC PROGRAMMING
@@ -7,10 +8,7 @@ import { Difficulty } from '@/common/commonConcept';
 
 const gridPathData: LessonContent = {
   title: 'Grid Path Problems',
-  content: `<div>
-<h1>Grid Path Problems in 2D Dynamic Programming</h1>
-
-<p>Grid path problems are the gateway to 2D dynamic programming. They extend 1D sequential DP into a 2D grid where we navigate from one corner to another, making decisions at each cell. These problems beautifully demonstrate how DP tables mirror the problem structure.</p>
+  content: `Grid path problems are the gateway to 2D dynamic programming. They extend 1D sequential DP into a 2D grid where we navigate from one corner to another, making decisions at each cell. These problems beautifully demonstrate how DP tables mirror the problem structure.
 
 <h2>The Classic Problem: Unique Paths</h2>
 
@@ -18,15 +16,19 @@ const gridPathData: LessonContent = {
   <p><strong>Problem (LeetCode 62):</strong> A robot is located at the top-left corner of an m × n grid. The robot can only move either down or right at any point in time. How many possible unique paths are there to reach the bottom-right corner?</p>
 </div>
 
-<p><strong>Example:</strong></p>
-<pre>
-Input: m = 3, n = 2
-Output: 3
-Explanation: From top-left to bottom-right:
-1. Right → Right → Down
-2. Right → Down → Right
-3. Down → Right → Right
-</pre>
+<div class="example-box">
+  <h3>Example:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> m = 3, n = 2</p>
+    <p><strong>Output:</strong> 3</p>
+    <p><strong>Explanation:</strong> From top-left to bottom-right, there are 3 paths:</p>
+    <ul class="ml-4 mt-2">
+      <li>1. Right → Right → Down</li>
+      <li>2. Right → Down → Right</li>
+      <li>3. Down → Right → Right</li>
+    </ul>
+  </div>
+</div>
 
 <h2>Why This is 2D DP</h2>
 
@@ -157,7 +159,7 @@ To reach (i,j): came from (i-1,j) or (i,j-1)
 
 <h2>Problem-Solving Template</h2>
 
-<pre class="bg-gray-100 p-4 rounded">
+\`\`\`python
 # Grid DP Pattern Recognition:
 # - 2D grid structure ✓
 # - Navigate from start to end ✓
@@ -185,7 +187,37 @@ To reach (i,j): came from (i-1,j) or (i,j-1)
 
 # Step 7: Optimize space
 # If dp[i][j] only needs previous row, use O(n) space
-</pre>
+\`\`\`
+
+\`\`\`typescript
+// Grid DP Pattern Recognition:
+// - 2D grid structure ✓
+// - Navigate from start to end ✓
+// - Limited movement options ✓
+// - Count paths OR optimize cost ✓
+
+// Step 1: Define state
+// dp[i][j] = [what does reaching (i,j) represent?]
+
+// Step 2: Identify base cases
+// Usually first row and/or first column
+// dp[0][0] = starting value
+
+// Step 3: Determine valid movements
+// Can move: right, down, diagonal, etc.
+
+// Step 4: Write transition
+// dp[i][j] = f(dp[reachable previous cells])
+
+// Step 5: Choose computation order
+// Usually: top-to-bottom, left-to-right
+
+// Step 6: Handle edge cases
+// Obstacles, boundaries, special cells
+
+// Step 7: Optimize space
+// If dp[i][j] only needs previous row, use O(n) space
+\`\`\`
 
 <h2>Debugging Grid DP</h2>
 
@@ -199,10 +231,9 @@ To reach (i,j): came from (i-1,j) or (i,j-1)
 
 <div class="bg-yellow-50 p-4 rounded-lg my-4">
   <strong>Pro Tip:</strong> Grid DP problems often have elegant combinatorial solutions too (like Unique Paths = C(m+n-2, m-1)), but DP is more general and handles obstacles and costs naturally.
-</div>
-
 </div>`,
-  codeExample: `# ============================================================================
+  codeExample: {
+    python: `# ============================================================================
 # GRID PATH PROBLEMS: Complete Implementation Guide
 # ============================================================================
 
@@ -542,10 +573,409 @@ if __name__ == "__main__":
     print("Grid (1 = obstacle):")
     print_grid(obstacle_grid)
     print(f"\\nUnique paths: {result}")`,
+    typescript: `// ============================================================================
+// GRID PATH PROBLEMS: Complete Implementation Guide
+// ============================================================================
+
+// PROBLEM 1: Unique Paths - LeetCode 62
+// ============================================================================
+
+function uniquePaths2D(m: number, n: number): number {
+    /**
+     * Count unique paths in m × n grid (only move right or down).
+     *
+     * State: dp[i][j] = paths to reach (i, j)
+     * Base: dp[0][j] = 1, dp[i][0] = 1 (only one way along edges)
+     * Transition: dp[i][j] = dp[i-1][j] + dp[i][j-1]
+     *
+     * Time: O(m*n), Space: O(m*n)
+     */
+    // Create DP table
+    const dp: number[][] = Array.from({ length: m }, () => Array(n).fill(0));
+
+    // Base cases: first row and column
+    for (let i = 0; i < m; i++) {
+        dp[i][0] = 1;
+    }
+    for (let j = 0; j < n; j++) {
+        dp[0][j] = 1;
+    }
+
+    // Fill table
+    for (let i = 1; i < m; i++) {
+        for (let j = 1; j < n; j++) {
+            dp[i][j] = dp[i-1][j] + dp[i][j-1];
+        }
+    }
+
+    return dp[m-1][n-1];
+}
+
+
+function uniquePathsOptimized(m: number, n: number): number {
+    /**
+     * Space-optimized version using single array.
+     *
+     * Observation: dp[i][j] only needs current and previous row.
+     * We can reuse array by updating in-place.
+     *
+     * Time: O(m*n), Space: O(n)
+     */
+    // Single row array
+    const dp: number[] = Array(n).fill(1);  // First row all 1s
+
+    // Process each row
+    for (let i = 1; i < m; i++) {
+        for (let j = 1; j < n; j++) {
+            // dp[j] currently holds previous row value (dp[i-1][j])
+            // dp[j-1] already updated to current row value (dp[i][j-1])
+            dp[j] = dp[j] + dp[j-1];
+        }
+    }
+
+    return dp[n-1];
+}
+
+
+// ============================================================================
+// PROBLEM 2: Unique Paths II - With Obstacles - LeetCode 63
+// ============================================================================
+
+function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
+    /**
+     * Count paths in grid with obstacles.
+     * obstacleGrid[i][j] = 1 means obstacle.
+     *
+     * State: dp[i][j] = paths to (i,j), or 0 if obstacle
+     * Transition: if not obstacle, dp[i][j] = dp[i-1][j] + dp[i][j-1]
+     *
+     * Time: O(m*n), Space: O(n)
+     */
+    if (!obstacleGrid || obstacleGrid[0][0] === 1) {
+        return 0;
+    }
+
+    const m: number = obstacleGrid.length;
+    const n: number = obstacleGrid[0].length;
+
+    // Space-optimized: single row
+    const dp: number[] = Array(n).fill(0);
+    dp[0] = 1;
+
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (obstacleGrid[i][j] === 1) {
+                dp[j] = 0;  // Obstacle blocks all paths
+            } else if (j > 0) {
+                dp[j] += dp[j-1];
+            }
+        }
+    }
+
+    return dp[n-1];
+}
+
+
+function uniquePathsWithObstacles2D(obstacleGrid: number[][]): number {
+    /**
+     * Same problem with 2D DP table for clarity.
+     */
+    if (!obstacleGrid || obstacleGrid[0][0] === 1) {
+        return 0;
+    }
+
+    const m: number = obstacleGrid.length;
+    const n: number = obstacleGrid[0].length;
+    const dp: number[][] = Array.from({ length: m }, () => Array(n).fill(0));
+
+    // Base case: start cell
+    dp[0][0] = 1;
+
+    // First column
+    for (let i = 1; i < m; i++) {
+        if (obstacleGrid[i][0] === 0) {
+            dp[i][0] = dp[i-1][0];
+        }
+    }
+
+    // First row
+    for (let j = 1; j < n; j++) {
+        if (obstacleGrid[0][j] === 0) {
+            dp[0][j] = dp[0][j-1];
+        }
+    }
+
+    // Fill rest
+    for (let i = 1; i < m; i++) {
+        for (let j = 1; j < n; j++) {
+            if (obstacleGrid[i][j] === 0) {
+                dp[i][j] = dp[i-1][j] + dp[i][j-1];
+            }
+        }
+    }
+
+    return dp[m-1][n-1];
+}
+
+
+// ============================================================================
+// PROBLEM 3: Minimum Path Sum - LeetCode 64
+// ============================================================================
+
+function minPathSum(grid: number[][]): number {
+    /**
+     * Find minimum sum path from top-left to bottom-right.
+     *
+     * State: dp[i][j] = minimum sum to reach (i, j)
+     * Base: dp[0][0] = grid[0][0]
+     * Transition: dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])
+     *
+     * Time: O(m*n), Space: O(n)
+     */
+    if (!grid || grid.length === 0) {
+        return 0;
+    }
+
+    const m: number = grid.length;
+    const n: number = grid[0].length;
+
+    // Space-optimized: single row
+    let prev: number[] = Array(n).fill(0);
+    prev[0] = grid[0][0];
+
+    // Initialize first row
+    for (let j = 1; j < n; j++) {
+        prev[j] = prev[j-1] + grid[0][j];
+    }
+
+    // Process remaining rows
+    for (let i = 1; i < m; i++) {
+        const curr: number[] = Array(n).fill(0);
+        curr[0] = prev[0] + grid[i][0];
+
+        for (let j = 1; j < n; j++) {
+            curr[j] = grid[i][j] + Math.min(prev[j], curr[j-1]);
+        }
+
+        prev = curr;
+    }
+
+    return prev[n-1];
+}
+
+
+// ============================================================================
+// PROBLEM 4: Maximum Path Sum (Variant)
+// ============================================================================
+
+function maxPathSum(grid: number[][]): number {
+    /**
+     * Find maximum sum path from top-left to bottom-right.
+     *
+     * Same structure as min path sum, but use max instead.
+     *
+     * Time: O(m*n), Space: O(n)
+     */
+    if (!grid || grid.length === 0) {
+        return 0;
+    }
+
+    const m: number = grid.length;
+    const n: number = grid[0].length;
+    let prev: number[] = Array(n).fill(0);
+    prev[0] = grid[0][0];
+
+    for (let j = 1; j < n; j++) {
+        prev[j] = prev[j-1] + grid[0][j];
+    }
+
+    for (let i = 1; i < m; i++) {
+        const curr: number[] = Array(n).fill(0);
+        curr[0] = prev[0] + grid[i][0];
+
+        for (let j = 1; j < n; j++) {
+            curr[j] = grid[i][j] + Math.max(prev[j], curr[j-1]);
+        }
+
+        prev = curr;
+    }
+
+    return prev[n-1];
+}
+
+
+// ============================================================================
+// PROBLEM 5: Dungeon Game - LeetCode 174 (Reverse DP)
+// ============================================================================
+
+function calculateMinimumHP(dungeon: number[][]): number {
+    /**
+     * Find minimum initial health needed to reach bottom-right.
+     * Cells can have positive (health) or negative (damage) values.
+     *
+     * Key insight: Work backwards from end!
+     *
+     * State: dp[i][j] = minimum health needed to reach end from (i,j)
+     * Base: dp[m-1][n-1] = max(1, 1 - dungeon[m-1][n-1])
+     * Transition: dp[i][j] = max(1, min(dp[i+1][j], dp[i][j+1]) - dungeon[i][j])
+     *
+     * Time: O(m*n), Space: O(n)
+     */
+    if (!dungeon || dungeon.length === 0) {
+        return 0;
+    }
+
+    const m: number = dungeon.length;
+    const n: number = dungeon[0].length;
+
+    // Work backwards: start from bottom-right
+    const dp: number[][] = Array.from({ length: m }, () => Array(n).fill(0));
+
+    // Base case: end cell
+    dp[m-1][n-1] = Math.max(1, 1 - dungeon[m-1][n-1]);
+
+    // Last column (can only go up)
+    for (let i = m-2; i >= 0; i--) {
+        dp[i][n-1] = Math.max(1, dp[i+1][n-1] - dungeon[i][n-1]);
+    }
+
+    // Last row (can only go left)
+    for (let j = n-2; j >= 0; j--) {
+        dp[m-1][j] = Math.max(1, dp[m-1][j+1] - dungeon[m-1][j]);
+    }
+
+    // Fill rest (working backwards)
+    for (let i = m-2; i >= 0; i--) {
+        for (let j = n-2; j >= 0; j--) {
+            const minHealthOnExit: number = Math.min(dp[i+1][j], dp[i][j+1]);
+            dp[i][j] = Math.max(1, minHealthOnExit - dungeon[i][j]);
+        }
+    }
+
+    return dp[0][0];
+}
+
+
+// ============================================================================
+// VISUALIZATION HELPERS
+// ============================================================================
+
+function visualizeUniquePaths(m: number, n: number): number {
+    /**
+     * Show DP table construction for unique paths.
+     */
+    const dp: number[][] = Array.from({ length: m }, () => Array(n).fill(0));
+
+    // Initialize
+    for (let i = 0; i < m; i++) {
+        dp[i][0] = 1;
+    }
+    for (let j = 0; j < n; j++) {
+        dp[0][j] = 1;
+    }
+
+    console.log(\`Unique Paths: \${m} × \${n} grid\\n\`);
+    console.log("=".repeat(60));
+    console.log("Initial state (base cases):");
+    printGrid(dp);
+
+    // Fill table with visualization
+    for (let i = 1; i < m; i++) {
+        for (let j = 1; j < n; j++) {
+            dp[i][j] = dp[i-1][j] + dp[i][j-1];
+        }
+    }
+
+    console.log("\\nFinal DP table:");
+    printGrid(dp);
+    console.log("=".repeat(60));
+    console.log(\`\\nAnswer: \${dp[m-1][n-1]} unique paths\`);
+
+    return dp[m-1][n-1];
+}
+
+
+function printGrid(grid: number[][]): void {
+    // Pretty print 2D grid
+    for (const row of grid) {
+        console.log("  " + row.map(val => val.toString().padStart(4)).join(""));
+    }
+}
+
+
+function visualizeMinPathSum(grid: number[][]): number {
+    /**
+     * Show DP table for minimum path sum.
+     */
+    const m: number = grid.length;
+    const n: number = grid[0].length;
+    const dp: number[][] = Array.from({ length: m }, () => Array(n).fill(0));
+
+    console.log("Minimum Path Sum:\\n");
+    console.log("Input grid:");
+    printGrid(grid);
+
+    // Build DP table
+    dp[0][0] = grid[0][0];
+
+    for (let j = 1; j < n; j++) {
+        dp[0][j] = dp[0][j-1] + grid[0][j];
+    }
+
+    for (let i = 1; i < m; i++) {
+        dp[i][0] = dp[i-1][0] + grid[i][0];
+    }
+
+    for (let i = 1; i < m; i++) {
+        for (let j = 1; j < n; j++) {
+            dp[i][j] = grid[i][j] + Math.min(dp[i-1][j], dp[i][j-1]);
+        }
+    }
+
+    console.log("\\nDP table (minimum sums):");
+    printGrid(dp);
+    console.log(\`\\nMinimum path sum: \${dp[m-1][n-1]}\`);
+
+    return dp[m-1][n-1];
+}
+
+
+// ============================================================================
+// TESTING
+// ============================================================================
+
+if (typeof require !== 'undefined' && require.main === module) {
+    console.log("GRID PATH PROBLEMS DEMONSTRATIONS\\n");
+
+    // Test 1: Unique Paths
+    console.log("1. UNIQUE PATHS (3×3 grid):");
+    visualizeUniquePaths(3, 3);
+
+    console.log("\\n\\n2. MINIMUM PATH SUM:");
+    const grid: number[][] = [
+        [1, 3, 1],
+        [1, 5, 1],
+        [4, 2, 1]
+    ];
+    visualizeMinPathSum(grid);
+
+    console.log("\\n\\n3. UNIQUE PATHS WITH OBSTACLES:");
+    const obstacleGrid: number[][] = [
+        [0, 0, 0],
+        [0, 1, 0],
+        [0, 0, 0]
+    ];
+    const result: number = uniquePathsWithObstacles(obstacleGrid);
+    console.log("Grid (1 = obstacle):");
+    printGrid(obstacleGrid);
+    console.log(\`\\nUnique paths: \${result}\`);
+}`
+  },
   exercises: [
     {
       prompt: 'Implement Unique Paths using space-optimized DP (O(n) space). Count the number of unique paths in an m×n grid moving only right or down.',
-      initialCode: `def unique_paths(m, n):
+      initialCode: {
+        python: `def unique_paths(m, n):
     """
     Count unique paths from top-left to bottom-right.
     Can only move right or down.
@@ -567,7 +997,29 @@ if __name__ == "__main__":
     """
     # Your code here
     pass`,
-      solution: `def unique_paths(m, n):
+        typescript: `function uniquePaths(m: number, n: number): number {
+    /**
+     * Count unique paths from top-left to bottom-right.
+     * Can only move right or down.
+     *
+     * State: dp[i][j] = number of paths to reach (i, j)
+     * Base: dp[0][j] = 1, dp[i][0] = 1
+     * Transition: dp[i][j] = dp[i-1][j] + dp[i][j-1]
+     *
+     * @param m - Number of rows
+     * @param n - Number of columns
+     * @returns Number of unique paths
+     *
+     * @example
+     * uniquePaths(3, 2) // returns 3
+     * uniquePaths(3, 7) // returns 28
+     */
+    // Your code here
+    return 0;
+}`
+      },
+      solution: {
+        python: `def unique_paths(m, n):
     """
     Unique Paths with space optimization.
     Time: O(m*n), Space: O(n)
@@ -600,6 +1052,48 @@ def unique_paths_2d(m, n):
             dp[i][j] = dp[i-1][j] + dp[i][j-1]
 
     return dp[m-1][n-1]`,
+        typescript: `function uniquePaths(m: number, n: number): number {
+    /**
+     * Unique Paths with space optimization.
+     * Time: O(m*n), Space: O(n)
+     */
+    // Use single array
+    const dp: number[] = Array(n).fill(1);  // First row all 1s
+
+    // Process each subsequent row
+    for (let i = 1; i < m; i++) {
+        for (let j = 1; j < n; j++) {
+            // dp[j] = paths from above (previous row)
+            // dp[j-1] = paths from left (current row)
+            dp[j] = dp[j] + dp[j-1];
+        }
+    }
+
+    return dp[n-1];
+}
+
+// With 2D table for understanding
+function uniquePaths2D(m: number, n: number): number {
+    const dp: number[][] = Array.from({ length: m }, () => Array(n).fill(0));
+
+    // Base cases
+    for (let i = 0; i < m; i++) {
+        dp[i][0] = 1;
+    }
+    for (let j = 0; j < n; j++) {
+        dp[0][j] = 1;
+    }
+
+    // Fill table
+    for (let i = 1; i < m; i++) {
+        for (let j = 1; j < n; j++) {
+            dp[i][j] = dp[i-1][j] + dp[i][j-1];
+        }
+    }
+
+    return dp[m-1][n-1];
+}`
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
@@ -823,36 +1317,38 @@ def min_path_sum_inplace(grid):
 
 const longestCommonSubsequenceData: LessonContent = {
   title: 'Longest Common Subsequence (LCS)',
-  content: `<div>
-<h1>Longest Common Subsequence: The Classic String DP Problem</h1>
-
-<p>The Longest Common Subsequence (LCS) problem is one of the most fundamental 2D DP problems. It's the foundation for understanding diff algorithms (like git diff), DNA sequence alignment, and many real-world text comparison tools.</p>
+  content: `The Longest Common Subsequence (LCS) problem is one of the most fundamental 2D DP problems. It's the foundation for understanding diff algorithms (like git diff), DNA sequence alignment, and many real-world text comparison tools.
 
 <h2>Problem Definition</h2>
 
 <div class="bg-blue-50 p-4 rounded-lg my-4">
-  <p><strong>Problem:</strong> Given two strings \\\`text1\\\` and \\\`text2\\\`, return the length of their longest common subsequence. If there is no common subsequence, return 0.</p>
+  <p><strong>Problem:</strong> Given two strings \`text1\` and \`text2\`, return the length of their longest common subsequence. If there is no common subsequence, return 0.</p>
 
   <p><strong>Note:</strong> A subsequence is a sequence that appears in the same relative order, but not necessarily contiguous. For example, "ace" is a subsequence of "abcde".</p>
 </div>
 
-<p><strong>Examples:</strong></p>
-<pre>
-Example 1:
-Input: text1 = "abcde", text2 = "ace"
-Output: 3
-Explanation: The longest common subsequence is "ace" with length 3.
+<div class="example-box">
+  <h3>Example 1:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> text1 = "abcde", text2 = "ace"</p>
+    <p><strong>Output:</strong> 3</p>
+    <p><strong>Explanation:</strong> The longest common subsequence is "ace" with length 3</p>
+  </div>
 
-Example 2:
-Input: text1 = "abc", text2 = "abc"
-Output: 3
-Explanation: The longest common subsequence is "abc" with length 3.
+  <h3>Example 2:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> text1 = "abc", text2 = "abc"</p>
+    <p><strong>Output:</strong> 3</p>
+    <p><strong>Explanation:</strong> The longest common subsequence is "abc" with length 3</p>
+  </div>
 
-Example 3:
-Input: text1 = "abc", text2 = "def"
-Output: 0
-Explanation: There is no common subsequence.
-</pre>
+  <h3>Example 3:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> text1 = "abc", text2 = "def"</p>
+    <p><strong>Output:</strong> 0</p>
+    <p><strong>Explanation:</strong> There is no common subsequence</p>
+  </div>
+</div>
 
 <h2>Why Is This 2D DP?</h2>
 
@@ -879,7 +1375,7 @@ Decision at each position:
 
 <p>Let's think recursively first. At any position i in text1 and j in text2:</p>
 
-\\\`\\\`\\\`python
+\`\`\`python
 def lcs_recursive(text1, text2, i, j):
     # Base case: reached end of either string
     if i == 0 or j == 0:
@@ -894,7 +1390,26 @@ def lcs_recursive(text1, text2, i, j):
         skip_text1 = lcs_recursive(text1, text2, i-1, j)
         skip_text2 = lcs_recursive(text1, text2, i, j-1)
         return max(skip_text1, skip_text2)
-\\\`\\\`\\\`
+\`\`\`
+
+\`\`\`typescript
+function lcsRecursive(text1: string, text2: string, i: number, j: number): number {
+    // Base case: reached end of either string
+    if (i === 0 || j === 0) {
+        return 0;
+    }
+
+    // Case 1: Characters match
+    if (text1[i - 1] === text2[j - 1]) {
+        return 1 + lcsRecursive(text1, text2, i - 1, j - 1);
+    }
+
+    // Case 2: Characters don't match - try both options
+    const skipText1 = lcsRecursive(text1, text2, i - 1, j);
+    const skipText2 = lcsRecursive(text1, text2, i, j - 1);
+    return Math.max(skipText1, skipText2);
+}
+\`\`\`
 
 <p><strong>Why this is inefficient:</strong> For text1="ABC" and text2="AC", we compute lcs("AB", "A") multiple times. This exponential overlap screams DP!</p>
 
@@ -904,18 +1419,24 @@ def lcs_recursive(text1, text2, i, j):
 
 <div class="bg-green-50 p-4 rounded-lg my-4">
   <p><strong>State Definition:</strong></p>
-  <p>\\\`dp[i][j]\\\` = length of LCS of \\\`text1[0...i-1]\\\` and \\\`text2[0...j-1]\\\`</p>
+  <p>\`dp[i][j]\` = length of LCS of \`text1[0...i-1]\` and \`text2[0...j-1]\`</p>
 
-  <p><strong>Why i-1 and j-1?</strong> We use 1-indexed DP table for cleaner base cases. \\\`dp[0][j]\\\` and \\\`dp[i][0]\\\` represent empty string scenarios.</p>
+  <p><strong>Why i-1 and j-1?</strong> We use 1-indexed DP table for cleaner base cases. \`dp[0][j]\` and \`dp[i][0]\` represent empty string scenarios.</p>
 </div>
 
 <h3>Step 2: Base Cases</h3>
 
-\\\`\\\`\\\`python
+\`\`\`python
 # If either string is empty, LCS is 0
-dp[0][j] = 0 for all j  # text1 is empty
-dp[i][0] = 0 for all i  # text2 is empty
-\\\`\\\`\\\`
+dp[0][j] = 0  # for all j - text1 is empty
+dp[i][0] = 0  # for all i - text2 is empty
+\`\`\`
+
+\`\`\`typescript
+// If either string is empty, LCS is 0
+dp[0][j] = 0;  // for all j - text1 is empty
+dp[i][0] = 0;  // for all i - text2 is empty
+\`\`\`
 
 <h3>Step 3: State Transition</h3>
 
@@ -954,7 +1475,7 @@ LCS: "ACE"
 
 <h2>Complete Implementation</h2>
 
-\\\`\\\`\\\`python
+\`\`\`python
 def longest_common_subsequence(text1: str, text2: str) -> int:
     """
     Find the length of the longest common subsequence.
@@ -983,13 +1504,49 @@ def longest_common_subsequence(text1: str, text2: str) -> int:
 print(longest_common_subsequence("abcde", "ace"))  # Output: 3
 print(longest_common_subsequence("abc", "abc"))    # Output: 3
 print(longest_common_subsequence("abc", "def"))    # Output: 0
-\\\`\\\`\\\`
+\`\`\`
+
+\`\`\`typescript
+function longestCommonSubsequence(text1: string, text2: string): number {
+    /**
+     * Find the length of the longest common subsequence.
+     *
+     * Time: O(m * n) where m = text1.length, n = text2.length
+     * Space: O(m * n) for the DP table
+     */
+    const m = text1.length;
+    const n = text2.length;
+
+    // Create DP table with extra row/column for empty string
+    const dp: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+
+    // Fill the table
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (text1[i - 1] === text2[j - 1]) {
+                // Characters match - extend previous LCS
+                dp[i][j] = 1 + dp[i - 1][j - 1];
+            } else {
+                // Take best result from skipping either character
+                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+            }
+        }
+    }
+
+    return dp[m][n];
+}
+
+// Example usage
+console.log(longestCommonSubsequence("abcde", "ace"));  // Output: 3
+console.log(longestCommonSubsequence("abc", "abc"));    // Output: 3
+console.log(longestCommonSubsequence("abc", "def"));    // Output: 0
+\`\`\`
 
 <h2>Printing the Actual LCS</h2>
 
 <p>To reconstruct the actual subsequence (not just its length), we backtrack through the DP table:</p>
 
-\\\`\\\`\\\`python
+\`\`\`python
 def find_lcs_string(text1: str, text2: str) -> str:
     """
     Find the actual longest common subsequence string.
@@ -1027,13 +1584,61 @@ def find_lcs_string(text1: str, text2: str) -> str:
 
 # Example
 print(find_lcs_string("ABCDE", "ACE"))  # Output: "ACE"
-\\\`\\\`\\\`
+\`\`\`
+
+\`\`\`typescript
+function findLcsString(text1: string, text2: string): string {
+    /**
+     * Find the actual longest common subsequence string.
+     */
+    const m = text1.length;
+    const n = text2.length;
+    const dp: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+
+    // Build DP table
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (text1[i - 1] === text2[j - 1]) {
+                dp[i][j] = 1 + dp[i - 1][j - 1];
+            } else {
+                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+            }
+        }
+    }
+
+    // Backtrack to find the LCS
+    const lcs: string[] = [];
+    let i = m;
+    let j = n;
+
+    while (i > 0 && j > 0) {
+        if (text1[i - 1] === text2[j - 1]) {
+            // This character is part of LCS
+            lcs.push(text1[i - 1]);
+            i--;
+            j--;
+        } else if (dp[i - 1][j] > dp[i][j - 1]) {
+            // Came from top (skipped text1[i-1])
+            i--;
+        } else {
+            // Came from left (skipped text2[j-1])
+            j--;
+        }
+    }
+
+    // Reverse since we built backwards
+    return lcs.reverse().join('');
+}
+
+// Example
+console.log(findLcsString("ABCDE", "ACE"));  // Output: "ACE"
+\`\`\`
 
 <h2>Space Optimization</h2>
 
 <p>Since each row only depends on the previous row, we can optimize space to O(n):</p>
 
-\\\`\\\`\\\`python
+\`\`\`python
 def lcs_space_optimized(text1: str, text2: str) -> int:
     """
     Space-optimized LCS using only two rows.
@@ -1058,7 +1663,39 @@ def lcs_space_optimized(text1: str, text2: str) -> int:
         prev, curr = curr, prev
 
     return prev[n]
-\\\`\\\`\\\`
+\`\`\`
+
+\`\`\`typescript
+function lcsSpaceOptimized(text1: string, text2: string): number {
+    /**
+     * Space-optimized LCS using only two rows.
+     *
+     * Time: O(m * n)
+     * Space: O(n)
+     */
+    const m = text1.length;
+    const n = text2.length;
+
+    // Two rows: previous and current
+    let prev: number[] = Array(n + 1).fill(0);
+    let curr: number[] = Array(n + 1).fill(0);
+
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (text1[i - 1] === text2[j - 1]) {
+                curr[j] = 1 + prev[j - 1];
+            } else {
+                curr[j] = Math.max(prev[j], curr[j - 1]);
+            }
+        }
+
+        // Swap rows
+        [prev, curr] = [curr, prev];
+    }
+
+    return prev[n];
+}
+\`\`\`
 
 <h2>Common Variations</h2>
 
@@ -1066,7 +1703,7 @@ def lcs_space_optimized(text1: str, text2: str) -> int:
 
 <p>Different from subsequence - characters must be consecutive:</p>
 
-\\\`\\\`\\\`python
+\`\`\`python
 def longest_common_substring(text1: str, text2: str) -> int:
     """
     Find length of longest common SUBSTRING (must be contiguous).
@@ -1089,13 +1726,43 @@ def longest_common_substring(text1: str, text2: str) -> int:
 
 print(longest_common_substring("ABCDE", "ACE"))   # 1 (just "A" or "C" or "E")
 print(longest_common_substring("ABCDE", "BCDEF")) # 4 ("BCDE")
-\\\`\\\`\\\`
+\`\`\`
+
+\`\`\`typescript
+function longestCommonSubstring(text1: string, text2: string): number {
+    /**
+     * Find length of longest common SUBSTRING (must be contiguous).
+     */
+    const m = text1.length;
+    const n = text2.length;
+    const dp: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    let maxLength = 0;
+
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (text1[i - 1] === text2[j - 1]) {
+                // Extend the current substring
+                dp[i][j] = 1 + dp[i - 1][j - 1];
+                maxLength = Math.max(maxLength, dp[i][j]);
+            } else {
+                // Reset to 0 - substring must be contiguous!
+                dp[i][j] = 0;
+            }
+        }
+    }
+
+    return maxLength;
+}
+
+console.log(longestCommonSubstring("ABCDE", "ACE"));   // 1 (just "A" or "C" or "E")
+console.log(longestCommonSubstring("ABCDE", "BCDEF")); // 4 ("BCDE")
+\`\`\`
 
 <h3>2. Shortest Common Supersequence</h3>
 
 <p>Find the shortest string that has both text1 and text2 as subsequences:</p>
 
-\\\`\\\`\\\`python
+\`\`\`python
 def shortest_common_supersequence_length(text1: str, text2: str) -> int:
     """
     The shortest supersequence includes all chars from both strings,
@@ -1109,7 +1776,24 @@ def shortest_common_supersequence_length(text1: str, text2: str) -> int:
 print(shortest_common_supersequence_length("AGGTAB", "GXTXAYB"))
 # LCS = "GTAB" (length 4)
 # Result: 6 + 7 - 4 = 9
-\\\`\\\`\\\`
+\`\`\`
+
+\`\`\`typescript
+function shortestCommonSupersequenceLength(text1: string, text2: string): number {
+    /**
+     * The shortest supersequence includes all chars from both strings,
+     * with LCS chars appearing only once.
+     *
+     * Formula: text1.length + text2.length - LCS_length
+     */
+    const lcsLen = longestCommonSubsequence(text1, text2);
+    return text1.length + text2.length - lcsLen;
+}
+
+console.log(shortestCommonSupersequenceLength("AGGTAB", "GXTXAYB"));
+// LCS = "GTAB" (length 4)
+// Result: 6 + 7 - 4 = 9
+\`\`\`
 
 <h2>Real-World Applications</h2>
 
@@ -1161,9 +1845,7 @@ print(shortest_common_supersequence_length("AGGTAB", "GXTXAYB"))
       <td class="border p-3">O(min(m, n))</td>
     </tr>
   </tbody>
-</table>
-
-</div>`,
+</table>`,
   codeExample: `# Complete LCS implementation with all variations
 
 def longest_common_subsequence(text1: str, text2: str) -> int:
@@ -1519,10 +2201,7 @@ print(longest_common_substring("ABCDE", "BCDEF"))  # 4`,
 
 const editDistanceData: LessonContent = {
   title: 'Edit Distance (Levenshtein Distance)',
-  content: `<div>
-<h1>Edit Distance: Transforming One String Into Another</h1>
-
-<p>Edit Distance, also known as Levenshtein Distance, is a fundamental algorithm in computer science that measures the minimum number of single-character edits needed to transform one string into another. It's used in spell checkers, DNA sequence alignment, plagiarism detection, and more.</p>
+  content: `Edit Distance, also known as Levenshtein Distance, is a fundamental algorithm in computer science that measures the minimum number of single-character edits needed to transform one string into another. It's used in spell checkers, DNA sequence alignment, plagiarism detection, and more.
 
 <h2>Problem Definition</h2>
 
@@ -1537,26 +2216,33 @@ const editDistanceData: LessonContent = {
   </ul>
 </div>
 
-<p><strong>Examples:</strong></p>
-<pre>
-Example 1:
-Input: word1 = "horse", word2 = "ros"
-Output: 3
-Explanation:
-horse -> rorse (replace 'h' with 'r')
-rorse -> rose (remove 'r')
-rose -> ros (remove 'e')
+<div class="example-box">
+  <h3>Example 1:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> word1 = "horse", word2 = "ros"</p>
+    <p><strong>Output:</strong> 3</p>
+    <p><strong>Explanation:</strong> Transform "horse" to "ros" in 3 operations:</p>
+    <ul class="ml-4 mt-2">
+      <li>1. horse → rorse (replace 'h' with 'r')</li>
+      <li>2. rorse → rose (remove 'r')</li>
+      <li>3. rose → ros (remove 'e')</li>
+    </ul>
+  </div>
 
-Example 2:
-Input: word1 = "intention", word2 = "execution"
-Output: 5
-Explanation:
-intention -> inention (remove 't')
-inention -> enention (replace 'i' with 'e')
-enention -> exention (replace 'n' with 'x')
-exention -> exection (replace 'n' with 'c')
-exection -> execution (insert 'u')
-</pre>
+  <h3>Example 2:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> word1 = "intention", word2 = "execution"</p>
+    <p><strong>Output:</strong> 5</p>
+    <p><strong>Explanation:</strong> Transform "intention" to "execution" in 5 operations:</p>
+    <ul class="ml-4 mt-2">
+      <li>1. intention → inention (remove 't')</li>
+      <li>2. inention → enention (replace 'i' with 'e')</li>
+      <li>3. enention → exention (replace 'n' with 'x')</li>
+      <li>4. exention → exection (replace 'n' with 'c')</li>
+      <li>5. exection → execution (insert 'u')</li>
+    </ul>
+  </div>
+</div>
 
 <h2>Why This is 2D DP</h2>
 
@@ -1600,6 +2286,30 @@ def edit_distance_recursive(word1, word2, i, j):
     return min(insert, delete, replace)
 \`\`\`
 
+\`\`\`typescript
+function editDistanceRecursive(word1: string, word2: string, i: number, j: number): number {
+    // Base cases
+    if (i === 0) {
+        return j;  // Insert j characters
+    }
+    if (j === 0) {
+        return i;  // Delete i characters
+    }
+
+    // Characters match - no edit needed
+    if (word1[i - 1] === word2[j - 1]) {
+        return editDistanceRecursive(word1, word2, i - 1, j - 1);
+    }
+
+    // Characters differ - try all 3 operations
+    const insert = editDistanceRecursive(word1, word2, i, j - 1) + 1;
+    const del = editDistanceRecursive(word1, word2, i - 1, j) + 1;
+    const replace = editDistanceRecursive(word1, word2, i - 1, j - 1) + 1;
+
+    return Math.min(insert, del, replace);
+}
+\`\`\`
+
 <p><strong>Why DP?</strong> For "abc" -> "def", we compute the same subproblems multiple times. This exponential redundancy makes DP necessary!</p>
 
 <h2>The 2D DP Solution</h2>
@@ -1608,19 +2318,27 @@ def edit_distance_recursive(word1, word2, i, j):
 
 <div class="bg-green-50 p-4 rounded-lg my-4">
   <p><strong>State Definition:</strong></p>
-  <p>\`dp[i][j]\` = minimum edits to convert \`word1[0...i-1]\` to \`word2[0...j-1]\`</p>
+  <p><code>dp[i][j]</code> = minimum edits to convert <code>word1[0...i-1]</code> to <code>word2[0...j-1]</code></p>
 
-  <p><strong>Why 1-indexed?</strong> \`dp[0][j]\` represents converting empty string to \`word2[0...j-1]\` (j insertions), and \`dp[i][0]\` represents converting \`word1[0...i-1]\` to empty string (i deletions).</p>
+  <p><strong>Why 1-indexed?</strong> <code>dp[0][j]</code> represents converting empty string to <code>word2[0...j-1]</code> (j insertions), and <code>dp[i][0]</code> represents converting <code>word1[0...i-1]</code> to empty string (i deletions).</p>
 </div>
 
 <h3>Step 2: Base Cases</h3>
 
 \`\`\`python
 # Converting empty string to word2[0...j-1] requires j insertions
-dp[0][j] = j for all j
+dp[0][j] = j  # for all j
 
 # Converting word1[0...i-1] to empty string requires i deletions
-dp[i][0] = i for all i
+dp[i][0] = i  # for all i
+\`\`\`
+
+\`\`\`typescript
+// Converting empty string to word2[0...j-1] requires j insertions
+dp[0][j] = j;  // for all j
+
+// Converting word1[0...i-1] to empty string requires i deletions
+dp[i][0] = i;  // for all i
 \`\`\`
 
 <h3>Step 3: State Transition</h3>
@@ -1708,6 +2426,53 @@ print(min_distance("horse", "ros"))        # 3
 print(min_distance("intention", "execution"))  # 5
 \`\`\`
 
+\`\`\`typescript
+function minDistance(word1: string, word2: string): number {
+    /**
+     * Find minimum edit distance between two words.
+     *
+     * Time: O(m * n) where m = word1.length, n = word2.length
+     * Space: O(m * n) for the DP table
+     */
+    const m = word1.length;
+    const n = word2.length;
+
+    // Create DP table
+    const dp: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+
+    // Base cases
+    for (let i = 0; i <= m; i++) {
+        dp[i][0] = i;  // Delete all characters from word1
+    }
+    for (let j = 0; j <= n; j++) {
+        dp[0][j] = j;  // Insert all characters from word2
+    }
+
+    // Fill table
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (word1[i - 1] === word2[j - 1]) {
+                // Characters match - no edit
+                dp[i][j] = dp[i - 1][j - 1];
+            } else {
+                // Take minimum of insert, delete, replace
+                dp[i][j] = 1 + Math.min(
+                    dp[i][j - 1],      // Insert
+                    dp[i - 1][j],      // Delete
+                    dp[i - 1][j - 1]   // Replace
+                );
+            }
+        }
+    }
+
+    return dp[m][n];
+}
+
+// Examples
+console.log(minDistance("horse", "ros"));        // 3
+console.log(minDistance("intention", "execution"));  // 5
+\`\`\`
+
 <h2>Understanding Each Operation</h2>
 
 <table class="w-full border-collapse my-4">
@@ -1721,18 +2486,18 @@ print(min_distance("intention", "execution"))  # 5
   <tbody>
     <tr>
       <td class="border p-3"><strong>Insert</strong></td>
-      <td class="border p-3">\`dp[i][j-1] + 1\`</td>
-      <td class="border p-3">We already converted \`word1[0...i-1]\` to \`word2[0...j-2]\`. Now insert \`word2[j-1]\`</td>
+      <td class="border p-3"><code>dp[i][j-1] + 1</code></td>
+      <td class="border p-3">We already converted <code>word1[0...i-1]</code> to <code>word2[0...j-2]</code>. Now insert <code>word2[j-1]</code></td>
     </tr>
     <tr class="bg-gray-50">
       <td class="border p-3"><strong>Delete</strong></td>
-      <td class="border p-3">\`dp[i-1][j] + 1\`</td>
-      <td class="border p-3">Delete \`word1[i-1]\`, then convert \`word1[0...i-2]\` to \`word2[0...j-1]\`</td>
+      <td class="border p-3"><code>dp[i-1][j] + 1</code></td>
+      <td class="border p-3">Delete <code>word1[i-1]</code>, then convert <code>word1[0...i-2]</code> to <code>word2[0...j-1]</code></td>
     </tr>
     <tr>
       <td class="border p-3"><strong>Replace</strong></td>
-      <td class="border p-3">\`dp[i-1][j-1] + 1\`</td>
-      <td class="border p-3">Replace \`word1[i-1]\` with \`word2[j-1]\`, then both strings aligned by one char</td>
+      <td class="border p-3"><code>dp[i-1][j-1] + 1</code></td>
+      <td class="border p-3">Replace <code>word1[i-1]</code> with <code>word2[j-1]</code>, then both strings aligned by one char</td>
     </tr>
   </tbody>
 </table>
@@ -1772,6 +2537,44 @@ def min_distance_optimized(word1: str, word2: str) -> int:
         prev, curr = curr, prev
 
     return prev[n]
+\`\`\`
+
+\`\`\`typescript
+function minDistanceOptimized(word1: string, word2: string): number {
+    /**
+     * Space-optimized edit distance using rolling arrays.
+     *
+     * Time: O(m * n)
+     * Space: O(n)
+     */
+    const m = word1.length;
+    const n = word2.length;
+
+    // Use two arrays: previous and current row
+    let prev: number[] = Array.from({ length: n + 1 }, (_, i) => i);  // Base case: dp[0][j] = j
+    let curr: number[] = new Array(n + 1).fill(0);
+
+    for (let i = 1; i <= m; i++) {
+        curr[0] = i;  // Base case: dp[i][0] = i
+
+        for (let j = 1; j <= n; j++) {
+            if (word1[i - 1] === word2[j - 1]) {
+                curr[j] = prev[j - 1];
+            } else {
+                curr[j] = 1 + Math.min(
+                    curr[j - 1],    // Insert
+                    prev[j],        // Delete
+                    prev[j - 1]     // Replace
+                );
+            }
+        }
+
+        // Swap arrays
+        [prev, curr] = [curr, prev];
+    }
+
+    return prev[n];
+}
 \`\`\`
 
 <h2>Reconstructing the Edit Sequence</h2>
@@ -1835,6 +2638,73 @@ for op in ops:
     print(f"  {op}")
 \`\`\`
 
+\`\`\`typescript
+function minDistanceWithPath(word1: string, word2: string): [number, string[]] {
+    /**
+     * Find edit distance and the actual sequence of operations.
+     */
+    const m = word1.length;
+    const n = word2.length;
+    const dp: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+
+    // Build DP table
+    for (let i = 0; i <= m; i++) {
+        dp[i][0] = i;
+    }
+    for (let j = 0; j <= n; j++) {
+        dp[0][j] = j;
+    }
+
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (word1[i - 1] === word2[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1];
+            } else {
+                dp[i][j] = 1 + Math.min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]);
+            }
+        }
+    }
+
+    // Backtrack to find operations
+    const operations: string[] = [];
+    let i = m;
+    let j = n;
+
+    while (i > 0 || j > 0) {
+        if (i === 0) {
+            operations.push(\`Insert '\${word2[j - 1]}'\`);
+            j--;
+        } else if (j === 0) {
+            operations.push(\`Delete '\${word1[i - 1]}'\`);
+            i--;
+        } else if (word1[i - 1] === word2[j - 1]) {
+            i--;
+            j--;
+        } else {
+            // Find which operation was used
+            if (dp[i][j] === dp[i - 1][j - 1] + 1) {
+                operations.push(\`Replace '\${word1[i - 1]}' with '\${word2[j - 1]}'\`);
+                i--;
+                j--;
+            } else if (dp[i][j] === dp[i - 1][j] + 1) {
+                operations.push(\`Delete '\${word1[i - 1]}'\`);
+                i--;
+            } else {
+                operations.push(\`Insert '\${word2[j - 1]}'\`);
+                j--;
+            }
+        }
+    }
+
+    return [dp[m][n], operations.reverse()];
+}
+
+// Example
+const [distance, ops] = minDistanceWithPath("horse", "ros");
+console.log(\`Distance: \${distance}\`);
+ops.forEach(op => console.log(\`  \${op}\`));
+\`\`\`
+
 <h2>Variations and Applications</h2>
 
 <h3>1. Weighted Edit Distance</h3>
@@ -1866,6 +2736,46 @@ def weighted_edit_distance(word1, word2, insert_cost=1, delete_cost=1, replace_c
                 )
 
     return dp[m][n]
+\`\`\`
+
+\`\`\`typescript
+function weightedEditDistance(
+    word1: string,
+    word2: string,
+    insertCost: number = 1,
+    deleteCost: number = 1,
+    replaceCost: number = 1
+): number {
+    /**
+     * Edit distance with different costs for different operations.
+     */
+    const m = word1.length;
+    const n = word2.length;
+    const dp: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+
+    for (let i = 0; i <= m; i++) {
+        dp[i][0] = i * deleteCost;
+    }
+    for (let j = 0; j <= n; j++) {
+        dp[0][j] = j * insertCost;
+    }
+
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (word1[i - 1] === word2[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1];
+            } else {
+                dp[i][j] = Math.min(
+                    dp[i][j - 1] + insertCost,
+                    dp[i - 1][j] + deleteCost,
+                    dp[i - 1][j - 1] + replaceCost
+                );
+            }
+        }
+    }
+
+    return dp[m][n];
+}
 \`\`\`
 
 <h3>2. One Edit Distance (LeetCode 161)</h3>
@@ -1900,6 +2810,44 @@ def is_one_edit_distance(s: str, t: str) -> bool:
 
     # All chars matched - valid if lengths differ by 1 (one insert/delete)
     return m + 1 == n
+\`\`\`
+
+\`\`\`typescript
+function isOneEditDistance(s: string, t: string): boolean {
+    /**
+     * Check if strings are exactly one edit apart.
+     * Optimized: O(n) time, O(1) space.
+     */
+    let m = s.length;
+    let n = t.length;
+
+    // Must differ by at most 1 in length
+    if (Math.abs(m - n) > 1) {
+        return false;
+    }
+
+    // Ensure s is the shorter string
+    if (m > n) {
+        [s, t] = [t, s];
+        [m, n] = [n, m];
+    }
+
+    for (let i = 0; i < m; i++) {
+        if (s[i] !== t[i]) {
+            // If same length, rest must match (replace)
+            if (m === n) {
+                return s.slice(i + 1) === t.slice(i + 1);
+            }
+            // If different length, rest of s must match rest of t (insert/delete)
+            else {
+                return s.slice(i) === t.slice(i + 1);
+            }
+        }
+    }
+
+    // All chars matched - valid if lengths differ by 1 (one insert/delete)
+    return m + 1 === n;
+}
 \`\`\`
 
 <h2>Real-World Applications</h2>
@@ -1958,10 +2906,9 @@ def is_one_edit_distance(s: str, t: str) -> bool:
       <td class="border p-3">O(min(m, n))</td>
     </tr>
   </tbody>
-</table>
-
-</div>`,
-  codeExample: `# Complete Edit Distance implementation
+</table>`,
+  codeExample: {
+    python: `# Complete Edit Distance implementation
 
 def min_distance(word1: str, word2: str) -> int:
     """
@@ -2118,6 +3065,194 @@ if __name__ == "__main__":
     print(is_one_edit_distance("ab", "acb"))      # True
     print(is_one_edit_distance("cab", "ad"))      # False
     print(is_one_edit_distance("1203", "1213"))   # True`,
+    typescript: `// Complete Edit Distance implementation
+
+function minDistance(word1: string, word2: string): number {
+  /**
+   * Classic Edit Distance (Levenshtein Distance).
+   * Find minimum number of operations to convert word1 to word2.
+   *
+   * Operations: Insert, Delete, Replace
+   *
+   * Time: O(m * n)
+   * Space: O(m * n)
+   */
+  const m = word1.length;
+  const n = word2.length;
+  const dp: number[][] = Array(m + 1)
+    .fill(0)
+    .map(() => Array(n + 1).fill(0));
+
+  // Base cases
+  for (let i = 0; i <= m; i++) {
+    dp[i][0] = i;
+  }
+  for (let j = 0; j <= n; j++) {
+    dp[0][j] = j;
+  }
+
+  // Fill table
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      if (word1[i - 1] === word2[j - 1]) {
+        dp[i][j] = dp[i - 1][j - 1];
+      } else {
+        dp[i][j] =
+          1 +
+          Math.min(
+            dp[i][j - 1], // Insert
+            dp[i - 1][j], // Delete
+            dp[i - 1][j - 1] // Replace
+          );
+      }
+    }
+  }
+
+  return dp[m][n];
+}
+
+function minDistanceOptimized(word1: string, word2: string): number {
+  /**
+   * Space-optimized version using rolling arrays.
+   *
+   * Time: O(m * n)
+   * Space: O(n)
+   */
+  const m = word1.length;
+  const n = word2.length;
+  let prev: number[] = Array.from({ length: n + 1 }, (_, i) => i);
+  let curr: number[] = Array(n + 1).fill(0);
+
+  for (let i = 1; i <= m; i++) {
+    curr[0] = i;
+    for (let j = 1; j <= n; j++) {
+      if (word1[i - 1] === word2[j - 1]) {
+        curr[j] = prev[j - 1];
+      } else {
+        curr[j] = 1 + Math.min(curr[j - 1], prev[j], prev[j - 1]);
+      }
+    }
+    [prev, curr] = [curr, prev];
+  }
+
+  return prev[n];
+}
+
+function minDistanceWithOperations(
+  word1: string,
+  word2: string
+): [number, string[]] {
+  /**
+   * Find edit distance and the actual sequence of operations.
+   */
+  const m = word1.length;
+  const n = word2.length;
+  const dp: number[][] = Array(m + 1)
+    .fill(0)
+    .map(() => Array(n + 1).fill(0));
+
+  // Build DP table
+  for (let i = 0; i <= m; i++) {
+    dp[i][0] = i;
+  }
+  for (let j = 0; j <= n; j++) {
+    dp[0][j] = j;
+  }
+
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      if (word1[i - 1] === word2[j - 1]) {
+        dp[i][j] = dp[i - 1][j - 1];
+      } else {
+        dp[i][j] =
+          1 + Math.min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]);
+      }
+    }
+  }
+
+  // Backtrack to find operations
+  const operations: string[] = [];
+  let i = m;
+  let j = n;
+
+  while (i > 0 || j > 0) {
+    if (i === 0) {
+      operations.push(\`Insert '\${word2[j - 1]}'\`);
+      j--;
+    } else if (j === 0) {
+      operations.push(\`Delete '\${word1[i - 1]}'\`);
+      i--;
+    } else if (word1[i - 1] === word2[j - 1]) {
+      i--;
+      j--;
+    } else {
+      if (dp[i][j] === dp[i - 1][j - 1] + 1) {
+        operations.push(\`Replace '\${word1[i - 1]}' -> '\${word2[j - 1]}'\`);
+        i--;
+        j--;
+      } else if (dp[i][j] === dp[i - 1][j] + 1) {
+        operations.push(\`Delete '\${word1[i - 1]}'\`);
+        i--;
+      } else {
+        operations.push(\`Insert '\${word2[j - 1]}'\`);
+        j--;
+      }
+    }
+  }
+
+  return [dp[m][n], operations.reverse()];
+}
+
+function isOneEditDistance(s: string, t: string): boolean {
+  /**
+   * Check if two strings are exactly one edit apart.
+   * Optimized: O(n) time, O(1) space.
+   */
+  let m = s.length;
+  let n = t.length;
+
+  if (Math.abs(m - n) > 1) {
+    return false;
+  }
+
+  if (m > n) {
+    [s, t] = [t, s];
+    [m, n] = [n, m];
+  }
+
+  for (let i = 0; i < m; i++) {
+    if (s[i] !== t[i]) {
+      if (m === n) {
+        return s.substring(i + 1) === t.substring(i + 1);
+      } else {
+        return s.substring(i) === t.substring(i + 1);
+      }
+    }
+  }
+
+  return m + 1 === n;
+}
+
+// Example usage and tests
+console.log("Edit Distance Tests:");
+console.log(minDistance("horse", "ros")); // 3
+console.log(minDistance("intention", "execution")); // 5
+console.log(minDistance("", "abc")); // 3
+console.log(minDistance("abc", "")); // 3
+
+console.log("\\nSpace-Optimized:");
+console.log(minDistanceOptimized("horse", "ros")); // 3
+
+console.log("\\nWith Operations:");
+const [dist, ops] = minDistanceWithOperations("horse", "ros");
+console.log(\`Distance: \${dist}\`);
+ops.forEach((op) => console.log(\`  \${op}\`));
+
+console.log("\\nOne Edit Distance:");
+console.log(isOneEditDistance("ab", "acb")); // true
+console.log(isOneEditDistance("cab", "ad")); // false
+console.log(isOneEditDistance("1203", "1213")); // true`,
+  },
   exercises: [
     {
       prompt: 'Implement the edit distance algorithm. Return the minimum number of operations.',
