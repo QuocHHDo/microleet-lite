@@ -1,5 +1,6 @@
 import { LessonContent } from '@/common/commonLesson';
 import { Difficulty } from '@/common/commonConcept';
+import { CodeContent } from '@/common/commonLanguage';
 
 
 // SECTION 1: DYNAMIC PROGRAMMING FUNDAMENTALS
@@ -195,7 +196,8 @@ Remember: **DP is not magic—it's careful bookkeeping.** Every DP problem follo
 4. Build up from smaller to larger problems
 
 Let's begin your journey to mastering this essential technique!`,
-  codeExample: `# Three Approaches to Fibonacci - See the Evolution
+  codeExample: {
+    python: `# Three Approaches to Fibonacci - See the Evolution
 
 # ========================================
 # APPROACH 1: Naive Recursion (SLOW)
@@ -327,10 +329,153 @@ print("\\nComputing fib(30):")
 compare_approaches(30)
 print("\\nComputing fib(40):")
 compare_approaches(40)`,
+    typescript: `// Three Approaches to Fibonacci - See the Evolution
+
+// ========================================
+// APPROACH 1: Naive Recursion (SLOW)
+// ========================================
+function fibonacciRecursive(n: number): number {
+    /**
+     * Time: O(2^n) - Exponential!
+     * Space: O(n) - Recursion stack
+     *
+     * This recalculates the same values many times.
+     */
+    if (n <= 1) {
+        return n;
+    }
+    return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
+}
+
+
+// ========================================
+// APPROACH 2: Memoization (Top-Down DP)
+// ========================================
+function fibonacciMemo(n: number, memo: Map<number, number> = new Map()): number {
+    /**
+     * Time: O(n) - Each subproblem solved once
+     * Space: O(n) - Memo map + recursion stack
+     *
+     * Cache results to avoid recalculation.
+     */
+    if (memo.has(n)) {
+        return memo.get(n)!;
+    }
+
+    if (n <= 1) {
+        return n;
+    }
+
+    const result = fibonacciMemo(n - 1, memo) + fibonacciMemo(n - 2, memo);
+    memo.set(n, result);
+    return result;
+}
+
+
+// ========================================
+// APPROACH 3: Tabulation (Bottom-Up DP)
+// ========================================
+function fibonacciDp(n: number): number {
+    /**
+     * Time: O(n) - Single pass through array
+     * Space: O(n) - DP array
+     *
+     * Build from base cases up to final answer.
+     */
+    if (n <= 1) {
+        return n;
+    }
+
+    // Create table to store solutions
+    const dp: number[] = Array(n + 1).fill(0);
+    dp[0] = 0;
+    dp[1] = 1;
+
+    // Fill table bottom-up
+    for (let i = 2; i <= n; i++) {
+        dp[i] = dp[i - 1] + dp[i - 2];
+    }
+
+    return dp[n];
+}
+
+
+// ========================================
+// APPROACH 4: Space-Optimized DP
+// ========================================
+function fibonacciOptimized(n: number): number {
+    /**
+     * Time: O(n) - Single pass
+     * Space: O(1) - Only two variables!
+     *
+     * We only need the last two values.
+     */
+    if (n <= 1) {
+        return n;
+    }
+
+    let prev2 = 0;  // fib(0)
+    let prev1 = 1;  // fib(1)
+
+    for (let i = 2; i <= n; i++) {
+        const current = prev1 + prev2;
+        prev2 = prev1;
+        prev1 = current;
+    }
+
+    return prev1;
+}
+
+
+// ========================================
+// Performance Comparison
+// ========================================
+function compareApproaches(n: number): void {
+    /** Compare the performance of different approaches. */
+
+    // Approach 1: Too slow for large n, skip if n > 35
+    if (n <= 35) {
+        const start1 = performance.now();
+        const result1 = fibonacciRecursive(n);
+        const time1 = (performance.now() - start1) / 1000;
+        console.log(\`Recursive: fib(\${n}) = \${result1}, Time: \${time1.toFixed(6)}s\`);
+    } else {
+        console.log(\`Recursive: Skipped (too slow for n=\${n})\`);
+    }
+
+    // Approach 2: Memoization
+    const start2 = performance.now();
+    const result2 = fibonacciMemo(n);
+    const time2 = (performance.now() - start2) / 1000;
+    console.log(\`Memoization: fib(\${n}) = \${result2}, Time: \${time2.toFixed(6)}s\`);
+
+    // Approach 3: Tabulation
+    const start3 = performance.now();
+    const result3 = fibonacciDp(n);
+    const time3 = (performance.now() - start3) / 1000;
+    console.log(\`Tabulation: fib(\${n}) = \${result3}, Time: \${time3.toFixed(6)}s\`);
+
+    // Approach 4: Optimized
+    const start4 = performance.now();
+    const result4 = fibonacciOptimized(n);
+    const time4 = (performance.now() - start4) / 1000;
+    console.log(\`Optimized: fib(\${n}) = \${result4}, Time: \${time4.toFixed(6)}s\`);
+}
+
+
+// Test with different values
+console.log("Computing fib(20):");
+compareApproaches(20);
+console.log("\\nComputing fib(30):");
+compareApproaches(30);
+console.log("\\nComputing fib(40):");
+compareApproaches(40);`
+  },
   exercises: [
     {
       prompt: 'Implement a function that calculates the nth Tribonacci number (sum of previous 3 numbers instead of 2). Use dynamic programming with O(n) time and O(1) space.',
-      initialCode: `def tribonacci(n):
+      initialCode: {
+        python: `def tribonacci(n):
     """
     Calculate the nth Tribonacci number.
     T(n) = T(n-1) + T(n-2) + T(n-3)
@@ -343,7 +488,21 @@ compare_approaches(40)`,
     """
     # Your code here
     pass`,
-      solution: `def tribonacci(n):
+        typescript: `function tribonacci(n: number): number {
+    /**
+     * Calculate the nth Tribonacci number.
+     * T(n) = T(n-1) + T(n-2) + T(n-3)
+     * T(0) = 0, T(1) = 1, T(2) = 1
+     *
+     * @param n - The position in the Tribonacci sequence
+     * @returns The nth Tribonacci number
+     */
+    // Your code here
+    return 0;
+}`
+      },
+      solution: {
+        python: `def tribonacci(n):
     """
     Calculate the nth Tribonacci number.
     Time: O(n), Space: O(1)
@@ -363,11 +522,37 @@ compare_approaches(40)`,
         t2 = current
 
     return t2`,
+        typescript: `function tribonacci(n: number): number {
+    /**
+     * Calculate the nth Tribonacci number.
+     * Time: O(n), Space: O(1)
+     */
+    if (n === 0) {
+        return 0;
+    }
+    if (n <= 2) {
+        return 1;
+    }
+
+    // Only need last 3 values
+    let t0 = 0, t1 = 1, t2 = 1;
+
+    for (let i = 3; i <= n; i++) {
+        const current = t0 + t1 + t2;
+        t0 = t1;
+        t1 = t2;
+        t2 = current;
+    }
+
+    return t2;
+}`
+      },
       difficulty: Difficulty.Beginner,
     },
     {
       prompt: 'Write a function to count the number of ways to climb n stairs if you can take 1, 2, or 3 steps at a time. Use dynamic programming.',
-      initialCode: `def count_ways_to_climb(n):
+      initialCode: {
+        python: `def count_ways_to_climb(n):
     """
     Count ways to climb n stairs taking 1, 2, or 3 steps at a time.
 
@@ -378,7 +563,19 @@ compare_approaches(40)`,
     """
     # Your code here
     pass`,
-      solution: `def count_ways_to_climb(n):
+        typescript: `function countWaysToClimb(n: number): number {
+    /**
+     * Count ways to climb n stairs taking 1, 2, or 3 steps at a time.
+     *
+     * @param n - Number of stairs
+     * @returns Number of distinct ways to climb the stairs
+     */
+    // Your code here
+    return 0;
+}`
+      },
+      solution: {
+        python: `def count_ways_to_climb(n):
     """
     Count ways to climb n stairs.
     Time: O(n), Space: O(n)
@@ -399,6 +596,33 @@ compare_approaches(40)`,
         dp[i] = dp[i-1] + dp[i-2] + dp[i-3]
 
     return dp[n]`,
+        typescript: `function countWaysToClimb(n: number): number {
+    /**
+     * Count ways to climb n stairs.
+     * Time: O(n), Space: O(n)
+     */
+    if (n === 0) {
+        return 1;
+    }
+    if (n === 1) {
+        return 1;
+    }
+    if (n === 2) {
+        return 2;
+    }
+
+    const dp: number[] = Array(n + 1).fill(0);
+    dp[0] = 1;  // One way to stay at ground
+    dp[1] = 1;  // One way: 1 step
+    dp[2] = 2;  // Two ways: 1+1 or 2
+
+    for (let i = 3; i <= n; i++) {
+        dp[i] = dp[i-1] + dp[i-2] + dp[i-3];
+    }
+
+    return dp[n];
+}`
+      },
       difficulty: Difficulty.Beginner,
     },
   ],
@@ -688,7 +912,8 @@ def fib_optimized(n):
 - Iteration order is clear
 
 **Pro Tip:** In interviews, start with memoization (faster to code), then optimize to tabulation if asked!`,
-  codeExample: `# Complete Comparison: Fibonacci with Both Approaches
+  codeExample: {
+    python: `# Complete Comparison: Fibonacci with Both Approaches
 
 # ============================================
 # MEMOIZATION (TOP-DOWN)
@@ -895,6 +1120,231 @@ def problem_tabulation(n):
 
 # Run demo
 demo_comparison()`,
+    typescript: `// Complete Comparison: Fibonacci with Both Approaches
+
+// ============================================
+// MEMOIZATION (TOP-DOWN)
+// ============================================
+
+function fibonacciMemoization(n: number, memo: Map<number, number> = new Map()): number {
+    /**
+     * Top-down DP using memoization.
+     *
+     * Time: O(n) - each number calculated once
+     * Space: O(n) - memo map + recursion stack
+     */
+    // Return cached result if available
+    if (memo.has(n)) {
+        return memo.get(n)!;
+    }
+
+    // Base cases
+    if (n <= 1) {
+        return n;
+    }
+
+    // Recursive calls with memoization
+    const result = fibonacciMemoization(n - 1, memo) +
+                   fibonacciMemoization(n - 2, memo);
+    memo.set(n, result);
+
+    return result;
+}
+
+
+// ============================================
+// TABULATION (BOTTOM-UP)
+// ============================================
+
+function fibonacciTabulation(n: number): number {
+    /**
+     * Bottom-up DP using tabulation.
+     *
+     * Time: O(n) - single pass
+     * Space: O(n) - dp array
+     */
+    // Handle base cases
+    if (n <= 1) {
+        return n;
+    }
+
+    // Create DP table
+    const dp: number[] = Array(n + 1).fill(0);
+
+    // Initialize base cases
+    dp[0] = 0;
+    dp[1] = 1;
+
+    // Fill table from bottom to top
+    for (let i = 2; i <= n; i++) {
+        dp[i] = dp[i - 1] + dp[i - 2];
+    }
+
+    return dp[n];
+}
+
+
+// ============================================
+// SPACE-OPTIMIZED TABULATION
+// ============================================
+
+function fibonacciOptimized(n: number): number {
+    /**
+     * Space-optimized bottom-up DP.
+     *
+     * Time: O(n)
+     * Space: O(1) - only two variables!
+     */
+    if (n <= 1) {
+        return n;
+    }
+
+    // Only store last two values
+    let prev2 = 0;  // fib(i-2)
+    let prev1 = 1;  // fib(i-1)
+
+    for (let i = 2; i <= n; i++) {
+        const current = prev1 + prev2;
+        prev2 = prev1;
+        prev1 = current;
+    }
+
+    return prev1;
+}
+
+
+// ============================================
+// COMPARISON: Climbing Stairs Problem
+// ============================================
+
+// Problem: Count ways to climb n stairs (1 or 2 steps at a time)
+
+function climbStairsMemo(n: number, memo: Map<number, number> = new Map()): number {
+    /** Memoization approach for climbing stairs. */
+    if (memo.has(n)) {
+        return memo.get(n)!;
+    }
+
+    if (n <= 2) {
+        return n;
+    }
+
+    const result = climbStairsMemo(n - 1, memo) +
+                   climbStairsMemo(n - 2, memo);
+    memo.set(n, result);
+    return result;
+}
+
+
+function climbStairsTab(n: number): number {
+    /** Tabulation approach for climbing stairs. */
+    if (n <= 2) {
+        return n;
+    }
+
+    const dp: number[] = Array(n + 1).fill(0);
+    dp[1] = 1;
+    dp[2] = 2;
+
+    for (let i = 3; i <= n; i++) {
+        dp[i] = dp[i - 1] + dp[i - 2];
+    }
+
+    return dp[n];
+}
+
+
+function climbStairsOptimized(n: number): number {
+    /** Space-optimized climbing stairs. */
+    if (n <= 2) {
+        return n;
+    }
+
+    let prev2 = 1;  // ways to climb 1 stair
+    let prev1 = 2;  // ways to climb 2 stairs
+
+    for (let i = 3; i <= n; i++) {
+        const current = prev1 + prev2;
+        prev2 = prev1;
+        prev1 = current;
+    }
+
+    return prev1;
+}
+
+
+// ============================================
+// DEMO: Compare All Approaches
+// ============================================
+
+function demoComparison(): void {
+    /** Demonstrate all approaches. */
+    const n = 10;
+
+    console.log(\`Computing Fibonacci(\${n}):\`);
+    console.log(\`Memoization: \${fibonacciMemoization(n)}\`);
+    console.log(\`Tabulation: \${fibonacciTabulation(n)}\`);
+    console.log(\`Optimized: \${fibonacciOptimized(n)}\`);
+
+    console.log(\`\\nClimbing \${n} stairs:\`);
+    console.log(\`Memoization: \${climbStairsMemo(n)}\`);
+    console.log(\`Tabulation: \${climbStairsTab(n)}\`);
+    console.log(\`Optimized: \${climbStairsOptimized(n)}\`);
+}
+
+
+// ============================================
+// CONVERSION EXAMPLE
+// ============================================
+
+function problemMemoization(n: number, memo: Map<number, number> = new Map()): number {
+    /** Template for memoization approach. */
+    // Check cache
+    if (memo.has(n)) {
+        return memo.get(n)!;
+    }
+
+    // Base case(s)
+    if (n === 0) {
+        return baseValue;
+    }
+
+    // Recursive relation with memoization
+    const result = someFunction(
+        problemMemoization(n - 1, memo),
+        problemMemoization(n - 2, memo)
+    );
+    memo.set(n, result);
+
+    return result;
+}
+
+
+function problemTabulation(n: number): number {
+    /** Template for tabulation approach. */
+    // Handle base cases
+    if (n === 0) {
+        return baseValue;
+    }
+
+    // Create DP table
+    const dp: number[] = Array(n + 1).fill(0);
+
+    // Initialize base cases
+    dp[0] = baseValue;
+
+    // Fill table iteratively
+    for (let i = 1; i <= n; i++) {
+        dp[i] = someFunction(dp[i - 1], dp[i - 2]);
+    }
+
+    return dp[n];
+}
+
+
+// Run demo
+demoComparison();`
+  },
   exercises: [
     {
       prompt: 'Implement the "House Robber" problem using both memoization and tabulation. You cannot rob two adjacent houses. Return the maximum amount you can rob.',
@@ -1240,7 +1690,8 @@ The more problems you solve, the faster you'll recognize patterns. Start with:
 4. **Recognize patterns** across different problems
 
 Remember: Every DP expert started where you are. Pattern recognition is a skill that develops with practice!`,
-  codeExample: `# Pattern Recognition Practice: Identifying DP Problems
+  codeExample: {
+    python: `# Pattern Recognition Practice: Identifying DP Problems
 
 # ============================================
 # EXAMPLE 1: Classic DP - Climbing Stairs
@@ -1545,6 +1996,360 @@ if __name__ == "__main__":
         print(f"Use DP: {should_use}")
         for reason in reasons:
             print(f"  {reason}")`,
+    typescript: `// Pattern Recognition Practice: Identifying DP Problems
+
+// ============================================
+// EXAMPLE 1: Classic DP - Climbing Stairs
+// ============================================
+
+function isDpProblem1(): (n: number) => number {
+    /**
+     * Problem: You can climb 1 or 2 steps at a time.
+     * How many ways to climb n stairs?
+     *
+     * DP Recognition:
+     * ✓ Counting problem ("how many ways")
+     * ✓ Overlapping subproblems (ways to reach step i used multiple times)
+     * ✓ Optimal substructure (ways[i] = ways[i-1] + ways[i-2])
+     * ✓ Recursive relation exists
+     *
+     * Conclusion: DEFINITELY DP!
+     */
+    function countWays(n: number): number {
+        if (n <= 2) {
+            return n;
+        }
+
+        const dp: number[] = Array(n + 1).fill(0);
+        dp[1] = 1;
+        dp[2] = 2;
+
+        for (let i = 3; i <= n; i++) {
+            dp[i] = dp[i-1] + dp[i-2];
+        }
+
+        return dp[n];
+    }
+
+    return countWays;
+}
+
+
+// ============================================
+// EXAMPLE 2: DP Recognition - Coin Change
+// ============================================
+
+function isDpProblem2(): (coins: number[], amount: number) => number {
+    /**
+     * Problem: Given coin denominations and a target amount,
+     * find the minimum number of coins needed.
+     *
+     * DP Recognition:
+     * ✓ Optimization problem ("minimum number")
+     * ✓ Overlapping subproblems (same amounts calculated multiple times)
+     * ✓ Optimal substructure (min coins for n uses min coins for n-coin)
+     * ✓ Decision at each step (use this coin or not)
+     *
+     * Conclusion: DEFINITELY DP!
+     */
+    function coinChange(coins: number[], amount: number): number {
+        // dp[i] = minimum coins needed for amount i
+        const dp: number[] = Array(amount + 1).fill(Infinity);
+        dp[0] = 0;  // Base case: 0 coins for amount 0
+
+        for (let i = 1; i <= amount; i++) {
+            for (const coin of coins) {
+                if (coin <= i) {
+                    dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+                }
+            }
+        }
+
+        return dp[amount] !== Infinity ? dp[amount] : -1;
+    }
+
+    return coinChange;
+}
+
+
+// ============================================
+// EXAMPLE 3: NOT DP - Two Sum
+// ============================================
+
+function isDpProblem3(): (nums: number[], target: number) => number[] {
+    /**
+     * Problem: Find two numbers in array that sum to target.
+     *
+     * DP Recognition:
+     * ✗ No optimization (just find ANY pair)
+     * ✗ No overlapping subproblems
+     * ✗ No recursive structure
+     * ✗ Simple hash map solution exists
+     *
+     * Conclusion: NOT DP - Use hash map!
+     */
+    function twoSum(nums: number[], target: number): number[] {
+        const seen = new Map<number, number>();
+        for (let i = 0; i < nums.length; i++) {
+            const complement = target - nums[i];
+            if (seen.has(complement)) {
+                return [seen.get(complement)!, i];
+            }
+            seen.set(nums[i], i);
+        }
+        return [];
+    }
+
+    return twoSum;
+}
+
+
+// ============================================
+// EXAMPLE 4: DP Recognition - House Robber
+// ============================================
+
+function isDpProblem4(): (houses: number[]) => number {
+    /**
+     * Problem: Rob houses for maximum money,
+     * but can't rob two adjacent houses.
+     *
+     * DP Recognition:
+     * ✓ Optimization ("maximum money")
+     * ✓ Decision at each step (rob or skip)
+     * ✓ Overlapping subproblems (max money up to house i)
+     * ✓ Current decision affects future options
+     * ✓ Optimal substructure
+     *
+     * Conclusion: DEFINITELY DP!
+     */
+    function rob(houses: number[]): number {
+        if (houses.length === 0) {
+            return 0;
+        }
+        if (houses.length === 1) {
+            return houses[0];
+        }
+
+        // dp[i] = max money robbing up to house i
+        const dp: number[] = Array(houses.length).fill(0);
+        dp[0] = houses[0];
+        dp[1] = Math.max(houses[0], houses[1]);
+
+        for (let i = 2; i < houses.length; i++) {
+            // Either rob current house + max from i-2,
+            // or skip current and take max from i-1
+            dp[i] = Math.max(houses[i] + dp[i-2], dp[i-1]);
+        }
+
+        return dp[dp.length - 1];
+    }
+
+    return rob;
+}
+
+
+// ============================================
+// EXAMPLE 5: NOT DP - Find Maximum in Array
+// ============================================
+
+function isDpProblem5(): (arr: number[]) => number | null {
+    /**
+     * Problem: Find the maximum element in an array.
+     *
+     * DP Recognition:
+     * ✗ No overlapping subproblems
+     * ✗ Simple one-pass solution
+     * ✗ No recursive structure needed
+     * ✗ No optimization over subproblems
+     *
+     * Conclusion: NOT DP - Simple iteration!
+     */
+    function findMax(arr: number[]): number | null {
+        if (arr.length === 0) {
+            return null;
+        }
+        return Math.max(...arr);  // Or simple loop
+    }
+
+    return findMax;
+}
+
+
+// ============================================
+// EXAMPLE 6: DP Recognition - Longest Increasing Subsequence
+// ============================================
+
+function isDpProblem6(): (nums: number[]) => number {
+    /**
+     * Problem: Find the length of longest increasing subsequence.
+     *
+     * DP Recognition:
+     * ✓ Optimization ("longest")
+     * ✓ Subsequence problem (choose/not choose)
+     * ✓ Overlapping subproblems (LIS ending at i)
+     * ✓ Optimal substructure
+     * ✓ Current choice affects future choices
+     *
+     * Conclusion: DEFINITELY DP!
+     */
+    function lengthOfLis(nums: number[]): number {
+        if (nums.length === 0) {
+            return 0;
+        }
+
+        // dp[i] = length of LIS ending at index i
+        const dp: number[] = Array(nums.length).fill(1);
+
+        for (let i = 1; i < nums.length; i++) {
+            for (let j = 0; j < i; j++) {
+                if (nums[j] < nums[i]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
+            }
+        }
+
+        return Math.max(...dp);
+    }
+
+    return lengthOfLis;
+}
+
+
+// ============================================
+// Recognition Quiz
+// ============================================
+
+interface Problem {
+    problem: string;
+    is_dp: boolean;
+    reason: string;
+}
+
+function dpRecognitionQuiz(): Problem[] {
+    /**
+     * Practice identifying DP problems.
+     */
+
+    const problems: Problem[] = [
+        {
+            problem: "Find minimum cost to climb stairs with cost array",
+            is_dp: true,
+            reason: "Optimization + overlapping subproblems + decisions"
+        },
+        {
+            problem: "Check if array is sorted",
+            is_dp: false,
+            reason: "Simple one-pass check, no optimization"
+        },
+        {
+            problem: "Count number of ways to decode a string",
+            is_dp: true,
+            reason: "Counting + overlapping subproblems + recursive structure"
+        },
+        {
+            problem: "Find median of array",
+            is_dp: false,
+            reason: "Sorting or quickselect, not DP"
+        },
+        {
+            problem: "Minimum path sum in grid",
+            is_dp: true,
+            reason: "Optimization + overlapping subproblems in 2D"
+        },
+        {
+            problem: "Binary search in sorted array",
+            is_dp: false,
+            reason: "Divide & conquer with independent subproblems"
+        },
+    ];
+
+    console.log("DP Recognition Quiz:");
+    console.log("=".repeat(50));
+
+    problems.forEach((p, i) => {
+        console.log(\`\\n\${i + 1}. \${p.problem}\`);
+        console.log(\`   Is this DP? \${p.is_dp}\`);
+        console.log(\`   Reason: \${p.reason}\`);
+    });
+
+    return problems;
+}
+
+
+// ============================================
+// The DP Recognition Checklist Function
+// ============================================
+
+function shouldUseDp(problemDescription: string): [boolean, string[]] {
+    /**
+     * A function to help you decide if a problem needs DP.
+     *
+     * Returns: [should_use_dp, reasons]
+     */
+    const reasons: string[] = [];
+    let score = 0;
+
+    // Check for optimization keywords
+    const optimizationKeywords = ['maximum', 'minimum', 'longest', 'shortest',
+                                   'largest', 'smallest', 'optimize'];
+    if (optimizationKeywords.some(keyword =>
+        problemDescription.toLowerCase().includes(keyword))) {
+        reasons.push("✓ Contains optimization keywords");
+        score += 1;
+    }
+
+    // Check for counting keywords
+    const countingKeywords = ['count', 'number of ways', 'how many'];
+    if (countingKeywords.some(keyword =>
+        problemDescription.toLowerCase().includes(keyword))) {
+        reasons.push("✓ Asks for counting/ways");
+        score += 1;
+    }
+
+    // Check for possibility keywords
+    const possibilityKeywords = ['possible', 'can you', 'is it possible'];
+    if (possibilityKeywords.some(keyword =>
+        problemDescription.toLowerCase().includes(keyword))) {
+        reasons.push("✓ Asks about possibility");
+        score += 1;
+    }
+
+    // Check for sequence/array keywords
+    if (['array', 'sequence', 'string'].some(word =>
+        problemDescription.toLowerCase().includes(word))) {
+        reasons.push("✓ Involves sequences/arrays");
+        score += 0.5;
+    }
+
+    const shouldUse = score >= 1.5;
+
+    if (!shouldUse) {
+        reasons.push("✗ No strong DP signals detected");
+    }
+
+    return [shouldUse, reasons];
+}
+
+
+// Test the recognition function
+if (typeof require !== 'undefined' && require.main === module) {
+    const testProblems = [
+        "Find the maximum sum of non-adjacent elements in an array",
+        "Sort an array in ascending order",
+        "Count the number of ways to climb n stairs",
+        "Find if a number exists in a sorted array",
+    ];
+
+    for (const problem of testProblems) {
+        const [shouldUse, reasons] = shouldUseDp(problem);
+        console.log(\`\\nProblem: \${problem}\`);
+        console.log(\`Use DP: \${shouldUse}\`);
+        for (const reason of reasons) {
+            console.log(\`  \${reason}\`);
+        }
+    }
+}`
+  },
   exercises: [
     {
       prompt: 'For each of the following problems, determine if Dynamic Programming should be used and explain why or why not:\\n\\n1. Find the kth largest element in an unsorted array\\n2. Given coins of different denominations, count how many ways to make change for amount n\\n3. Merge two sorted arrays into one sorted array\\n4. Find the longest palindromic substring in a string',
@@ -1933,7 +2738,8 @@ Before finalizing your state, verify:
 - [ ] Can I identify which state gives the final answer?
 
 Mastering state definition is like learning to see the matrix in DP problems. Once you see it, everything becomes clearer!`,
-  codeExample: `# State Definition and Transition Examples
+  codeExample: {
+    python: `# State Definition and Transition Examples
 
 # ============================================
 # EXAMPLE 1: Simple 1D State - Fibonacci
@@ -2192,6 +2998,299 @@ def visualize_transitions():
 # Test visualization
 visualizer = visualize_transitions()
 visualizer(5)`,
+    typescript: `// State Definition and Transition Examples
+
+// ============================================
+// EXAMPLE 1: Simple 1D State - Fibonacci
+// ============================================
+
+function fibonacciStateAnalysis(): (n: number) => number {
+    /**
+     * State: dp[i] = ith Fibonacci number
+     * Transition: dp[i] = dp[i-1] + dp[i-2]
+     * Base: dp[0] = 0, dp[1] = 1
+     * Answer: dp[n]
+     */
+    function fib(n: number): number {
+        if (n <= 1) {
+            return n;
+        }
+
+        // State array
+        const dp: number[] = Array(n + 1).fill(0);
+
+        // Base cases
+        dp[0] = 0;
+        dp[1] = 1;
+
+        // Transition equation
+        for (let i = 2; i <= n; i++) {
+            dp[i] = dp[i-1] + dp[i-2];
+        }
+
+        return dp[n];
+    }
+
+    return fib;
+}
+
+
+// ============================================
+// EXAMPLE 2: 1D with Choice - House Robber
+// ============================================
+
+function houseRobberStateAnalysis(): (nums: number[]) => number {
+    /**
+     * State: dp[i] = max money robbing houses 0..i
+     * Choice: Rob house i OR skip it
+     * Transition: dp[i] = max(nums[i] + dp[i-2], dp[i-1])
+     * Base: dp[0] = nums[0], dp[1] = max(nums[0], nums[1])
+     * Answer: dp[n-1]
+     */
+    function rob(nums: number[]): number {
+        if (nums.length === 0) {
+            return 0;
+        }
+        if (nums.length === 1) {
+            return nums[0];
+        }
+
+        const n = nums.length;
+        const dp: number[] = Array(n).fill(0);
+
+        // Base cases
+        dp[0] = nums[0];
+        dp[1] = Math.max(nums[0], nums[1]);
+
+        // Transition: choose to rob current or not
+        for (let i = 2; i < n; i++) {
+            // max(rob current + best from i-2, skip current)
+            dp[i] = Math.max(nums[i] + dp[i-2], dp[i-1]);
+        }
+
+        return dp[n-1];
+    }
+
+    return rob;
+}
+
+
+// ============================================
+// EXAMPLE 3: 1D with Multiple Steps - Climbing Stairs
+// ============================================
+
+function climbingStairsStateAnalysis(): (n: number) => number {
+    /**
+     * State: dp[i] = number of ways to reach step i
+     * Choice: Come from step i-1 or i-2
+     * Transition: dp[i] = dp[i-1] + dp[i-2]
+     * Base: dp[0] = 1, dp[1] = 1
+     * Answer: dp[n]
+     */
+    function climbStairs(n: number): number {
+        if (n <= 1) {
+            return 1;
+        }
+
+        const dp: number[] = Array(n + 1).fill(0);
+
+        // Base cases
+        dp[0] = 1;  // One way to stay at ground
+        dp[1] = 1;  // One way to reach first step
+
+        // Transition: sum of ways from previous steps
+        for (let i = 2; i <= n; i++) {
+            dp[i] = dp[i-1] + dp[i-2];
+        }
+
+        return dp[n];
+    }
+
+    return climbStairs;
+}
+
+
+// ============================================
+// EXAMPLE 4: 1D with Cost - Min Cost Climbing
+// ============================================
+
+function minCostClimbingStateAnalysis(): (cost: number[]) => number {
+    /**
+     * State: dp[i] = minimum cost to reach step i
+     * Choice: Come from step i-1 or i-2
+     * Transition: dp[i] = cost[i] + min(dp[i-1], dp[i-2])
+     * Base: dp[0] = cost[0], dp[1] = cost[1]
+     * Answer: min(dp[n-1], dp[n-2])
+     */
+    function minCostClimbingStairs(cost: number[]): number {
+        const n = cost.length;
+        if (n <= 1) {
+            return 0;
+        }
+
+        const dp: number[] = Array(n).fill(0);
+
+        // Base cases
+        dp[0] = cost[0];
+        dp[1] = cost[1];
+
+        // Transition: current cost + min of previous steps
+        for (let i = 2; i < n; i++) {
+            dp[i] = cost[i] + Math.min(dp[i-1], dp[i-2]);
+        }
+
+        // Can start from top step or second-to-top
+        return Math.min(dp[n-1], dp[n-2]);
+    }
+
+    return minCostClimbingStairs;
+}
+
+
+// ============================================
+// EXAMPLE 5: 2D State - Unique Paths
+// ============================================
+
+function uniquePathsStateAnalysis(): (m: number, n: number) => number {
+    /**
+     * State: dp[i][j] = number of paths to cell (i,j)
+     * Choice: Come from top cell or left cell
+     * Transition: dp[i][j] = dp[i-1][j] + dp[i][j-1]
+     * Base: dp[0][j] = 1 (first row), dp[i][0] = 1 (first col)
+     * Answer: dp[m-1][n-1]
+     */
+    function uniquePaths(m: number, n: number): number {
+        // Create 2D state array
+        const dp: number[][] = Array(m).fill(0).map(() => Array(n).fill(0));
+
+        // Base cases: first row and column
+        for (let i = 0; i < m; i++) {
+            dp[i][0] = 1;
+        }
+        for (let j = 0; j < n; j++) {
+            dp[0][j] = 1;
+        }
+
+        // Transition: sum paths from top and left
+        for (let i = 1; i < m; i++) {
+            for (let j = 1; j < n; j++) {
+                dp[i][j] = dp[i-1][j] + dp[i][j-1];
+            }
+        }
+
+        return dp[m-1][n-1];
+    }
+
+    return uniquePaths;
+}
+
+
+// ============================================
+// EXAMPLE 6: 1D with Min - Coin Change
+// ============================================
+
+function coinChangeStateAnalysis(): (coins: number[], amount: number) => number {
+    /**
+     * State: dp[i] = minimum coins needed for amount i
+     * Choice: Use each coin or not
+     * Transition: dp[i] = min(dp[i-coin] + 1) for all coins
+     * Base: dp[0] = 0
+     * Answer: dp[amount]
+     */
+    function coinChange(coins: number[], amount: number): number {
+        // State array: infinity for impossible amounts
+        const dp: number[] = Array(amount + 1).fill(Infinity);
+
+        // Base case
+        dp[0] = 0;
+
+        // Transition: try each coin
+        for (let i = 1; i <= amount; i++) {
+            for (const coin of coins) {
+                if (coin <= i) {
+                    // Use this coin: 1 coin + min for remaining amount
+                    dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+                }
+            }
+        }
+
+        return dp[amount] !== Infinity ? dp[amount] : -1;
+    }
+
+    return coinChange;
+}
+
+
+// ============================================
+// TEMPLATE: State Definition Framework
+// ============================================
+
+function dpTemplate(): (inputData: any) => any {
+    /**
+     * Universal DP template with state definition.
+     */
+
+    function solveDpProblem(inputData: any): any {
+        // STEP 1: Define state
+        // dp[...] = what does this state represent?
+
+        // STEP 2: Initialize state array
+        // Create array/table for storing states
+
+        // STEP 3: Base cases
+        // What are the simplest cases you know?
+
+        // STEP 4: State transition
+        // How to compute current state from previous states?
+
+        // STEP 5: Iteration order
+        // In what order should we fill the table?
+
+        // STEP 6: Return answer
+        // Which state contains our final answer?
+
+        return null;
+    }
+
+    return solveDpProblem;
+}
+
+
+// ============================================
+// STATE TRANSITION VISUALIZATION
+// ============================================
+
+function visualizeTransitions(): (n: number) => number {
+    /**
+     * Visualize how states transition in climbing stairs.
+     */
+    function climbStairsVisual(n: number): number {
+        const dp: number[] = Array(n + 1).fill(0);
+        dp[0] = 1;
+        dp[1] = 1;
+
+        console.log("State Transitions for Climbing Stairs:");
+        console.log("=".repeat(50));
+        console.log(\`dp[0] = 1 (base case)\`);
+        console.log(\`dp[1] = 1 (base case)\`);
+
+        for (let i = 2; i <= n; i++) {
+            dp[i] = dp[i-1] + dp[i-2];
+            console.log(\`dp[\${i}] = dp[\${i-1}] + dp[\${i-2}] = \${dp[i-1]} + \${dp[i-2]} = \${dp[i]}\`);
+        }
+
+        console.log(\`\\nFinal answer: \${dp[n]} ways to climb \${n} stairs\`);
+        return dp[n];
+    }
+
+    return climbStairsVisual;
+}
+
+
+// Test visualization
+const visualizer = visualizeTransitions();
+visualizer(5);`
+  },
   exercises: [
     {
       prompt: 'Define the state and transition equation for the following problem: "You have n dice each with k faces. Find the number of ways to roll exactly target sum."\\n\\nDefine: 1) State, 2) Base case, 3) Transition equation, 4) Final answer location.',

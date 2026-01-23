@@ -1,5 +1,6 @@
 import { LessonContent } from '@/common/commonLesson';
 import { Difficulty } from '@/common/commonConcept';
+import { CodeContent } from '@/common/commonLanguage';
 
 
 // SECTION 5: STRING DP PATTERNS
@@ -7,10 +8,7 @@ import { Difficulty } from '@/common/commonConcept';
 
 const palindromicSubstringsData: LessonContent = {
   title: 'Palindromic Substrings',
-  content: `<div>
-<h1>Palindromic Substrings: Counting and Finding</h1>
-
-<p>Palindrome problems are classic string DP challenges. The key insight: a string is a palindrome if its first and last characters match AND the inner substring is a palindrome.</p>
+  content: `Palindrome problems are classic string DP challenges. The key insight: a string is a palindrome if its first and last characters match AND the inner substring is a palindrome.
 
 <h2>Key Pattern</h2>
 
@@ -50,6 +48,45 @@ def count_substrings(s: str) -> int:
     return count
 \`\`\`
 
+\`\`\`typescript
+function countSubstrings(s: string): number {
+    /**
+     * Count all palindromic substrings.
+     * Time: O(n²), Space: O(n²)
+     */
+    const n = s.length;
+    const dp: boolean[][] = Array.from({ length: n }, () => Array(n).fill(false));
+    let count = 0;
+
+    // Every single character is a palindrome
+    for (let i = 0; i < n; i++) {
+        dp[i][i] = true;
+        count++;
+    }
+
+    // Check length 2
+    for (let i = 0; i < n - 1; i++) {
+        if (s[i] === s[i + 1]) {
+            dp[i][i + 1] = true;
+            count++;
+        }
+    }
+
+    // Check length 3 and above
+    for (let length = 3; length <= n; length++) {
+        for (let i = 0; i <= n - length; i++) {
+            const j = i + length - 1;
+            if (s[i] === s[j] && dp[i + 1][j - 1]) {
+                dp[i][j] = true;
+                count++;
+            }
+        }
+    }
+
+    return count;
+}
+\`\`\`
+
 <h2>Expand Around Center Approach</h2>
 
 <p>More space-efficient O(1) space solution:</p>
@@ -78,8 +115,35 @@ def count_substrings_optimized(s: str) -> int:
     return total
 \`\`\`
 
-</div>`,
-  codeExample: `def count_substrings(s):
+\`\`\`typescript
+function countSubstringsOptimized(s: string): number {
+    /**
+     * Expand around each center.
+     * Time: O(n²), Space: O(1)
+     */
+    function expand(left: number, right: number): number {
+        let count = 0;
+        while (left >= 0 && right < s.length && s[left] === s[right]) {
+            count++;
+            left--;
+            right++;
+        }
+        return count;
+    }
+
+    let total = 0;
+    for (let i = 0; i < s.length; i++) {
+        // Odd length palindromes (center at i)
+        total += expand(i, i);
+        // Even length palindromes (center between i and i+1)
+        total += expand(i, i + 1);
+    }
+
+    return total;
+}
+\`\`\``,
+  codeExample: {
+    python: `def count_substrings(s):
     """Count palindromic substrings - DP approach."""
     n = len(s)
     dp = [[False] * n for _ in range(n)]
@@ -102,10 +166,42 @@ def count_substrings_optimized(s: str) -> int:
                 count += 1
 
     return count`,
+    typescript: `function countSubstrings(s: string): number {
+    // Count palindromic substrings - DP approach
+    const n: number = s.length;
+    const dp: boolean[][] = Array.from({ length: n }, () => Array(n).fill(false));
+    let count: number = 0;
+
+    for (let i = 0; i < n; i++) {
+        dp[i][i] = true;
+        count += 1;
+    }
+
+    for (let i = 0; i < n - 1; i++) {
+        if (s[i] === s[i + 1]) {
+            dp[i][i + 1] = true;
+            count += 1;
+        }
+    }
+
+    for (let length = 3; length <= n; length++) {
+        for (let i = 0; i < n - length + 1; i++) {
+            const j: number = i + length - 1;
+            if (s[i] === s[j] && dp[i + 1][j - 1]) {
+                dp[i][j] = true;
+                count += 1;
+            }
+        }
+    }
+
+    return count;
+}`
+  },
   exercises: [
     {
       prompt: 'Implement a function that counts all palindromic substrings in a given string using the DP approach.',
-      initialCode: `def count_palindromic_substrings(s):
+      initialCode: {
+        python: `def count_palindromic_substrings(s):
     """
     Count all palindromic substrings in string s.
 
@@ -116,7 +212,19 @@ def count_substrings_optimized(s: str) -> int:
     """
     # Your code here
     pass`,
-      solution: `def count_palindromic_substrings(s):
+        typescript: `function countPalindromicSubstrings(s: string): number {
+    /**
+     * Count all palindromic substrings in string s.
+     *
+     * @param s - Input string
+     * @returns Number of palindromic substrings
+     */
+    // Your code here
+    return 0;
+}`
+      },
+      solution: {
+        python: `def count_palindromic_substrings(s):
     """Count palindromic substrings using DP."""
     if not s:
         return 0
@@ -145,11 +253,50 @@ def count_substrings_optimized(s: str) -> int:
                 count += 1
 
     return count`,
+        typescript: `function countPalindromicSubstrings(s: string): number {
+    // Count palindromic substrings using DP
+    if (!s) {
+        return 0;
+    }
+
+    const n: number = s.length;
+    const dp: boolean[][] = Array.from({ length: n }, () => Array(n).fill(false));
+    let count: number = 0;
+
+    // Single characters
+    for (let i = 0; i < n; i++) {
+        dp[i][i] = true;
+        count += 1;
+    }
+
+    // Length 2
+    for (let i = 0; i < n - 1; i++) {
+        if (s[i] === s[i + 1]) {
+            dp[i][i + 1] = true;
+            count += 1;
+        }
+    }
+
+    // Length 3+
+    for (let length = 3; length <= n; length++) {
+        for (let i = 0; i < n - length + 1; i++) {
+            const j: number = i + length - 1;
+            if (s[i] === s[j] && dp[i + 1][j - 1]) {
+                dp[i][j] = true;
+                count += 1;
+            }
+        }
+    }
+
+    return count;
+}`
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt: 'Find the longest palindromic substring in a string using the expand-around-center approach.',
-      initialCode: `def longest_palindrome(s):
+      initialCode: {
+        python: `def longest_palindrome(s):
     """
     Find the longest palindromic substring.
 
@@ -160,7 +307,19 @@ def count_substrings_optimized(s: str) -> int:
     """
     # Your code here
     pass`,
-      solution: `def longest_palindrome(s):
+        typescript: `function longestPalindrome(s: string): string {
+    /**
+     * Find the longest palindromic substring.
+     *
+     * @param s - Input string
+     * @returns The longest palindromic substring
+     */
+    // Your code here
+    return "";
+}`
+      },
+      solution: {
+        python: `def longest_palindrome(s):
     """Find longest palindromic substring."""
     if not s:
         return ""
@@ -186,6 +345,43 @@ def count_substrings_optimized(s: str) -> int:
             start, end = l2, r2
 
     return s[start:end + 1]`,
+        typescript: `function longestPalindrome(s: string): string {
+    // Find longest palindromic substring
+    if (!s) {
+        return "";
+    }
+
+    function expand(left: number, right: number): [number, number] {
+        while (left >= 0 && right < s.length && s[left] === s[right]) {
+            left -= 1;
+            right += 1;
+        }
+        return [left + 1, right - 1];
+    }
+
+    let start: number = 0;
+    let end: number = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        // Odd length
+        const [l1, r1] = expand(i, i);
+        // Even length
+        const [l2, r2] = expand(i, i + 1);
+
+        // Update if we found longer
+        if (r1 - l1 > end - start) {
+            start = l1;
+            end = r1;
+        }
+        if (r2 - l2 > end - start) {
+            start = l2;
+            end = r2;
+        }
+    }
+
+    return s.slice(start, end + 1);
+}`
+      },
       difficulty: Difficulty.Intermediate,
     },
   ],
@@ -263,20 +459,25 @@ def count_substrings_optimized(s: str) -> int:
 
 const longestPalindromicSubsequenceData: LessonContent = {
   title: 'Longest Palindromic Subsequence',
-  content: `<div>
-<h1>Longest Palindromic Subsequence (LPS)</h1>
-
-<p>Find the longest subsequence that is a palindrome. This is different from longest palindromic substring (which must be contiguous).</p>
+  content: `Find the longest subsequence that is a palindrome. This is different from longest palindromic substring (which must be contiguous).
 
 <h2>Problem (LeetCode 516)</h2>
 
-<pre>
-Input: "bbbab"
-Output: 4 (subsequence "bbbb")
+<div class="example-box">
+  <h3>Example 1:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> s = "bbbab"</p>
+    <p><strong>Output:</strong> 4</p>
+    <p><strong>Explanation:</strong> Longest palindromic subsequence is "bbbb"</p>
+  </div>
 
-Input: "cbbd"
-Output: 2 (subsequence "bb")
-</pre>
+  <h3>Example 2:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> s = "cbbd"</p>
+    <p><strong>Output:</strong> 2</p>
+    <p><strong>Explanation:</strong> Longest palindromic subsequence is "bb"</p>
+  </div>
+</div>
 
 <h2>Key Insight</h2>
 
@@ -314,6 +515,41 @@ def longest_palindrome_subseq(s: str) -> int:
     return dp[0][n - 1]
 \`\`\`
 
+\`\`\`typescript
+function longestPalindromeSubseq(s: string): number {
+    /**
+     * Longest palindromic subsequence.
+     * dp[i][j] = LPS length in s[i...j]
+     *
+     * Time: O(n²), Space: O(n²)
+     */
+    const n = s.length;
+    const dp: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+
+    // Base case: single character
+    for (let i = 0; i < n; i++) {
+        dp[i][i] = 1;
+    }
+
+    // Fill table
+    for (let length = 2; length <= n; length++) {
+        for (let i = 0; i <= n - length; i++) {
+            const j = i + length - 1;
+
+            if (s[i] === s[j]) {
+                // Characters match - add 2 to inner LPS
+                dp[i][j] = dp[i + 1][j - 1] + 2;
+            } else {
+                // Take max of skipping either end
+                dp[i][j] = Math.max(dp[i + 1][j], dp[i][j - 1]);
+            }
+        }
+    }
+
+    return dp[0][n - 1];
+}
+\`\`\`
+
 <h2>Minimum Insertions to Make Palindrome</h2>
 
 <p>Related problem: Minimum insertions to make string a palindrome = n - LPS</p>
@@ -324,8 +560,14 @@ def min_insertions_for_palindrome(s):
     return len(s) - longest_palindrome_subseq(s)
 \`\`\`
 
-</div>`,
-  codeExample: `def longest_palindrome_subseq(s):
+\`\`\`typescript
+function minInsertionsForPalindrome(s: string): number {
+    /** Minimum insertions = length - LPS. */
+    return s.length - longestPalindromeSubseq(s);
+}
+\`\`\``,
+  codeExample: {
+    python: `def longest_palindrome_subseq(s):
     """Longest palindromic subsequence."""
     n = len(s)
     dp = [[0] * n for _ in range(n)]
@@ -342,10 +584,34 @@ def min_insertions_for_palindrome(s):
                 dp[i][j] = max(dp[i + 1][j], dp[i][j - 1])
 
     return dp[0][n - 1]`,
+    typescript: `function longestPalindromeSubseq(s: string): number {
+    // Longest palindromic subsequence
+    const n: number = s.length;
+    const dp: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+
+    for (let i = 0; i < n; i++) {
+        dp[i][i] = 1;
+    }
+
+    for (let length = 2; length <= n; length++) {
+        for (let i = 0; i < n - length + 1; i++) {
+            const j: number = i + length - 1;
+            if (s[i] === s[j]) {
+                dp[i][j] = dp[i + 1][j - 1] + 2;
+            } else {
+                dp[i][j] = Math.max(dp[i + 1][j], dp[i][j - 1]);
+            }
+        }
+    }
+
+    return dp[0][n - 1];
+}`
+  },
   exercises: [
     {
       prompt: 'Implement a function to find the length of the longest palindromic subsequence in a string.',
-      initialCode: `def longest_palindrome_subseq(s):
+      initialCode: {
+        python: `def longest_palindrome_subseq(s):
     """
     Find length of longest palindromic subsequence.
 
@@ -356,7 +622,19 @@ def min_insertions_for_palindrome(s):
     """
     # Your code here
     pass`,
-      solution: `def longest_palindrome_subseq(s):
+        typescript: `function longestPalindromeSubseq(s: string): number {
+    /**
+     * Find length of longest palindromic subsequence.
+     *
+     * @param s - Input string
+     * @returns Length of LPS
+     */
+    // Your code here
+    return 0;
+}`
+      },
+      solution: {
+        python: `def longest_palindrome_subseq(s):
     """Find LPS length using DP."""
     n = len(s)
     dp = [[0] * n for _ in range(n)]
@@ -375,11 +653,37 @@ def min_insertions_for_palindrome(s):
                 dp[i][j] = max(dp[i + 1][j], dp[i][j - 1])
 
     return dp[0][n - 1]`,
+        typescript: `function longestPalindromeSubseq(s: string): number {
+    // Find LPS length using DP
+    const n: number = s.length;
+    const dp: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+
+    // Base case: single character
+    for (let i = 0; i < n; i++) {
+        dp[i][i] = 1;
+    }
+
+    // Fill table
+    for (let length = 2; length <= n; length++) {
+        for (let i = 0; i < n - length + 1; i++) {
+            const j: number = i + length - 1;
+            if (s[i] === s[j]) {
+                dp[i][j] = dp[i + 1][j - 1] + 2;
+            } else {
+                dp[i][j] = Math.max(dp[i + 1][j], dp[i][j - 1]);
+            }
+        }
+    }
+
+    return dp[0][n - 1];
+}`
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt: 'Find the minimum number of insertions needed to make a string a palindrome.',
-      initialCode: `def min_insertions_palindrome(s):
+      initialCode: {
+        python: `def min_insertions_palindrome(s):
     """
     Minimum insertions to make string palindrome.
 
@@ -390,7 +694,19 @@ def min_insertions_for_palindrome(s):
     """
     # Your code here
     pass`,
-      solution: `def min_insertions_palindrome(s):
+        typescript: `function minInsertionsPalindrome(s: string): number {
+    /**
+     * Minimum insertions to make string palindrome.
+     *
+     * @param s - Input string
+     * @returns Minimum number of insertions needed
+     */
+    // Your code here
+    return 0;
+}`
+      },
+      solution: {
+        python: `def min_insertions_palindrome(s):
     """Minimum insertions = n - LPS."""
     def lps(s):
         n = len(s)
@@ -410,6 +726,33 @@ def min_insertions_for_palindrome(s):
         return dp[0][n - 1]
 
     return len(s) - lps(s)`,
+        typescript: `function minInsertionsPalindrome(s: string): number {
+    // Minimum insertions = n - LPS
+    function lps(s: string): number {
+        const n: number = s.length;
+        const dp: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+
+        for (let i = 0; i < n; i++) {
+            dp[i][i] = 1;
+        }
+
+        for (let length = 2; length <= n; length++) {
+            for (let i = 0; i < n - length + 1; i++) {
+                const j: number = i + length - 1;
+                if (s[i] === s[j]) {
+                    dp[i][j] = dp[i + 1][j - 1] + 2;
+                } else {
+                    dp[i][j] = Math.max(dp[i + 1][j], dp[i][j - 1]);
+                }
+            }
+        }
+
+        return dp[0][n - 1];
+    }
+
+    return s.length - lps(s);
+}`
+      },
       difficulty: Difficulty.Intermediate,
     },
   ],
@@ -487,26 +830,32 @@ def min_insertions_for_palindrome(s):
 
 const wordBreakData: LessonContent = {
   title: 'Word Break',
-  content: `<div>
-<h1>Word Break: Segment String into Dictionary Words</h1>
-
-<p>Given a string and a dictionary, can we segment the string into space-separated dictionary words?</p>
+  content: `Given a string and a dictionary, can we segment the string into space-separated dictionary words?
 
 <h2>Problem (LeetCode 139)</h2>
 
-<pre>
-s = "leetcode"
-wordDict = ["leet", "code"]
-Output: true (can be segmented as "leet code")
+<div class="example-box">
+  <h3>Example 1:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> s = "leetcode", wordDict = ["leet", "code"]</p>
+    <p><strong>Output:</strong> true</p>
+    <p><strong>Explanation:</strong> Can be segmented as "leet code"</p>
+  </div>
 
-s = "applepenapple"
-wordDict = ["apple", "pen"]
-Output: true (can be segmented as "apple pen apple")
+  <h3>Example 2:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> s = "applepenapple", wordDict = ["apple", "pen"]</p>
+    <p><strong>Output:</strong> true</p>
+    <p><strong>Explanation:</strong> Can be segmented as "apple pen apple"</p>
+  </div>
 
-s = "catsandog"
-wordDict = ["cats", "dog", "sand", "and", "cat"]
-Output: false
-</pre>
+  <h3>Example 3:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]</p>
+    <p><strong>Output:</strong> false</p>
+    <p><strong>Explanation:</strong> Cannot be segmented into dictionary words</p>
+  </div>
+</div>
 
 <h2>DP Solution</h2>
 
@@ -533,6 +882,35 @@ def word_break(s: str, wordDict: list[str]) -> bool:
                 break
 
     return dp[n]
+\`\`\`
+
+\`\`\`typescript
+function wordBreak(s: string, wordDict: string[]): boolean {
+    /**
+     * Check if string can be segmented into dictionary words.
+     * dp[i] = True if s[0...i-1] can be segmented
+     *
+     * Time: O(n² * m) where m = avg word length
+     * Space: O(n)
+     */
+    const n = s.length;
+    const wordSet = new Set(wordDict);
+    const dp: boolean[] = Array(n + 1).fill(false);
+    dp[0] = true;  // Empty string
+
+    for (let i = 1; i <= n; i++) {
+        for (let j = 0; j < i; j++) {
+            // Check if s[0...j-1] can be segmented
+            // AND s[j...i-1] is in dictionary
+            if (dp[j] && wordSet.has(s.slice(j, i))) {
+                dp[i] = true;
+                break;
+            }
+        }
+    }
+
+    return dp[n];
+}
 \`\`\`
 
 <h2>Word Break II: Return All Segmentations</h2>
@@ -566,8 +944,43 @@ def word_break_ii(s: str, wordDict: list[str]) -> list[str]:
     return [' '.join(words) for words in backtrack(0)]
 \`\`\`
 
-</div>`,
-  codeExample: `def word_break(s, wordDict):
+\`\`\`typescript
+function wordBreakII(s: string, wordDict: string[]): string[] {
+    /**
+     * Return all possible segmentations.
+     * Uses memoization for efficiency.
+     */
+    const wordSet = new Set(wordDict);
+    const memo = new Map<number, string[][]>();
+
+    function backtrack(start: number): string[][] {
+        if (memo.has(start)) {
+            return memo.get(start)!;
+        }
+
+        if (start === s.length) {
+            return [[]];
+        }
+
+        const results: string[][] = [];
+        for (let end = start + 1; end <= s.length; end++) {
+            const word = s.slice(start, end);
+            if (wordSet.has(word)) {
+                for (const rest of backtrack(end)) {
+                    results.push([word, ...rest]);
+                }
+            }
+        }
+
+        memo.set(start, results);
+        return results;
+    }
+
+    return backtrack(0).map(words => words.join(' '));
+}
+\`\`\``,
+  codeExample: {
+    python: `def word_break(s, wordDict):
     """Word Break - DP solution."""
     n = len(s)
     word_set = set(wordDict)
@@ -581,10 +994,30 @@ def word_break_ii(s: str, wordDict: list[str]) -> list[str]:
                 break
 
     return dp[n]`,
+    typescript: `function wordBreak(s: string, wordDict: string[]): boolean {
+    // Word Break - DP solution
+    const n: number = s.length;
+    const wordSet = new Set<string>(wordDict);
+    const dp: boolean[] = Array(n + 1).fill(false);
+    dp[0] = true;
+
+    for (let i = 1; i <= n; i++) {
+        for (let j = 0; j < i; j++) {
+            if (dp[j] && wordSet.has(s.slice(j, i))) {
+                dp[i] = true;
+                break;
+            }
+        }
+    }
+
+    return dp[n];
+}`
+  },
   exercises: [
     {
       prompt: 'Implement Word Break: determine if a string can be segmented into dictionary words.',
-      initialCode: `def word_break(s, word_dict):
+      initialCode: {
+        python: `def word_break(s, word_dict):
     """
     Check if string can be segmented into dictionary words.
 
@@ -596,7 +1029,20 @@ def word_break_ii(s: str, wordDict: list[str]) -> list[str]:
     """
     # Your code here
     pass`,
-      solution: `def word_break(s, word_dict):
+        typescript: `function wordBreak(s: string, wordDict: string[]): boolean {
+    /**
+     * Check if string can be segmented into dictionary words.
+     *
+     * @param s - Input string
+     * @param wordDict - List of dictionary words
+     * @returns True if can be segmented, False otherwise
+     */
+    // Your code here
+    return false;
+}`
+      },
+      solution: {
+        python: `def word_break(s, word_dict):
     """Word Break using DP."""
     n = len(s)
     word_set = set(word_dict)
@@ -610,11 +1056,31 @@ def word_break_ii(s: str, wordDict: list[str]) -> list[str]:
                 break
 
     return dp[n]`,
+        typescript: `function wordBreak(s: string, wordDict: string[]): boolean {
+    // Word Break using DP
+    const n: number = s.length;
+    const wordSet = new Set<string>(wordDict);
+    const dp: boolean[] = Array(n + 1).fill(false);
+    dp[0] = true;
+
+    for (let i = 1; i <= n; i++) {
+        for (let j = 0; j < i; j++) {
+            if (dp[j] && wordSet.has(s.slice(j, i))) {
+                dp[i] = true;
+                break;
+            }
+        }
+    }
+
+    return dp[n];
+}`
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt: 'Implement Word Break II: return all possible ways to segment the string.',
-      initialCode: `def word_break_ii(s, word_dict):
+      initialCode: {
+        python: `def word_break_ii(s, word_dict):
     """
     Return all possible segmentations.
 
@@ -626,7 +1092,20 @@ def word_break_ii(s: str, wordDict: list[str]) -> list[str]:
     """
     # Your code here
     pass`,
-      solution: `def word_break_ii(s, word_dict):
+        typescript: `function wordBreakII(s: string, wordDict: string[]): string[] {
+    /**
+     * Return all possible segmentations.
+     *
+     * @param s - Input string
+     * @param wordDict - List of dictionary words
+     * @returns List of all possible segmentations
+     */
+    // Your code here
+    return [];
+}`
+      },
+      solution: {
+        python: `def word_break_ii(s, word_dict):
     """Word Break II with backtracking and memoization."""
     word_set = set(word_dict)
     memo = {}
@@ -648,6 +1127,36 @@ def word_break_ii(s: str, wordDict: list[str]) -> list[str]:
         return results
 
     return [' '.join(words) for words in backtrack(0)]`,
+        typescript: `function wordBreakII(s: string, wordDict: string[]): string[] {
+    // Word Break II with backtracking and memoization
+    const wordSet = new Set<string>(wordDict);
+    const memo = new Map<number, string[][]>();
+
+    function backtrack(start: number): string[][] {
+        if (memo.has(start)) {
+            return memo.get(start)!;
+        }
+        if (start === s.length) {
+            return [[]];
+        }
+
+        const results: string[][] = [];
+        for (let end = start + 1; end <= s.length; end++) {
+            const word: string = s.slice(start, end);
+            if (wordSet.has(word)) {
+                for (const rest of backtrack(end)) {
+                    results.push([word, ...rest]);
+                }
+            }
+        }
+
+        memo.set(start, results);
+        return results;
+    }
+
+    return backtrack(0).map(words => words.join(' '));
+}`
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
@@ -725,20 +1234,25 @@ def word_break_ii(s: str, wordDict: list[str]) -> list[str]:
 
 const longestIncreasingSubsequenceData: LessonContent = {
   title: 'Longest Increasing Subsequence (LIS)',
-  content: `<div>
-<h1>Longest Increasing Subsequence: A Classic DP Problem</h1>
-
-<p>Find the length of the longest strictly increasing subsequence in an array. This is one of the most important DP patterns for coding interviews.</p>
+  content: `Find the length of the longest strictly increasing subsequence in an array. This is one of the most important DP patterns for coding interviews.
 
 <h2>Problem (LeetCode 300)</h2>
 
-<pre>
-Input: nums = [10,9,2,5,3,7,101,18]
-Output: 4 (subsequence [2,3,7,101])
+<div class="example-box">
+  <h3>Example 1:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> nums = [10, 9, 2, 5, 3, 7, 101, 18]</p>
+    <p><strong>Output:</strong> 4</p>
+    <p><strong>Explanation:</strong> Longest increasing subsequence is [2, 3, 7, 101]</p>
+  </div>
 
-Input: nums = [0,1,0,3,2,3]
-Output: 4 (subsequence [0,1,2,3])
-</pre>
+  <h3>Example 2:</h3>
+  <div class="bg-gray-50 p-3 rounded my-2">
+    <p><strong>Input:</strong> nums = [0, 1, 0, 3, 2, 3]</p>
+    <p><strong>Output:</strong> 4</p>
+    <p><strong>Explanation:</strong> Longest increasing subsequence is [0, 1, 2, 3]</p>
+  </div>
+</div>
 
 <h2>Solution 1: O(n²) Dynamic Programming</h2>
 
@@ -765,6 +1279,34 @@ def length_of_LIS(nums: list[int]) -> int:
                 dp[i] = max(dp[i], dp[j] + 1)
 
     return max(dp)
+\`\`\`
+
+\`\`\`typescript
+function lengthOfLIS(nums: number[]): number {
+    /**
+     * Find longest increasing subsequence length.
+     * dp[i] = longest LIS ending at nums[i]
+     *
+     * Time: O(n²), Space: O(n)
+     */
+    if (!nums || nums.length === 0) {
+        return 0;
+    }
+
+    const n = nums.length;
+    const dp: number[] = Array(n).fill(1);  // Each element is an LIS of length 1
+
+    for (let i = 1; i < n; i++) {
+        for (let j = 0; j < i; j++) {
+            // If nums[j] < nums[i], we can extend LIS ending at j
+            if (nums[j] < nums[i]) {
+                dp[i] = Math.max(dp[i], dp[j] + 1);
+            }
+        }
+    }
+
+    return Math.max(...dp);
+}
 \`\`\`
 
 <h2>Solution 2: O(n log n) with Binary Search</h2>
@@ -800,9 +1342,53 @@ def length_of_LIS_optimized(nums: list[int]) -> int:
     return len(tails)
 \`\`\`
 
+\`\`\`typescript
+function lengthOfLISOptimized(nums: number[]): number {
+    /**
+     * Optimized LIS using binary search.
+     * tails[i] = smallest tail element of all LIS of length i+1
+     *
+     * Time: O(n log n), Space: O(n)
+     */
+    if (!nums || nums.length === 0) {
+        return 0;
+    }
+
+    const tails: number[] = [];
+
+    function bisectLeft(arr: number[], target: number): number {
+        let left = 0, right = arr.length;
+        while (left < right) {
+            const mid = Math.floor((left + right) / 2);
+            if (arr[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        return left;
+    }
+
+    for (const num of nums) {
+        // Find position where num should be inserted
+        const pos = bisectLeft(tails, num);
+
+        if (pos === tails.length) {
+            // num is larger than all tails, extend LIS
+            tails.push(num);
+        } else {
+            // Replace to keep tails[pos] as small as possible
+            tails[pos] = num;
+        }
+    }
+
+    return tails.length;
+}
+\`\`\`
+
 <h2>Why Binary Search Works</h2>
 
-<p>The <code>tails</code> array maintains the smallest possible tail for each LIS length:</p>
+<p>The <strong>tails</strong> array maintains the smallest possible tail for each LIS length:</p>
 
 <ul>
   <li><strong>tails[0]</strong> = smallest tail of all LIS of length 1</li>
@@ -875,8 +1461,45 @@ def find_LIS(nums: list[int]) -> list[int]:
     return lis[::-1]
 \`\`\`
 
-</div>`,
-  codeExample: `# Longest Increasing Subsequence - O(n²) solution
+\`\`\`typescript
+function findLIS(nums: number[]): number[] {
+    /**
+     * Return the actual LIS (not just length).
+     */
+    if (!nums || nums.length === 0) {
+        return [];
+    }
+
+    const n = nums.length;
+    const dp: number[] = Array(n).fill(1);
+    const parent: number[] = Array(n).fill(-1);
+
+    for (let i = 1; i < n; i++) {
+        for (let j = 0; j < i; j++) {
+            if (nums[j] < nums[i] && dp[j] + 1 > dp[i]) {
+                dp[i] = dp[j] + 1;
+                parent[i] = j;
+            }
+        }
+    }
+
+    // Find max length and its ending index
+    const maxLen = Math.max(...dp);
+    let maxIdx = dp.indexOf(maxLen);
+
+    // Reconstruct LIS
+    const lis: number[] = [];
+    let idx = maxIdx;
+    while (idx !== -1) {
+        lis.push(nums[idx]);
+        idx = parent[idx];
+    }
+
+    return lis.reverse();
+}
+\`\`\``,
+  codeExample: {
+    python: `# Longest Increasing Subsequence - O(n²) solution
 
 def length_of_LIS(nums):
     """
@@ -915,10 +1538,71 @@ def length_of_LIS_fast(nums):
     return len(tails)
 
 print(length_of_LIS_fast(nums))  # 4`,
+    typescript: `// Longest Increasing Subsequence - O(n²) solution
+
+function lengthOfLIS(nums: number[]): number {
+    /**
+     * Find LIS length using DP.
+     * dp[i] = longest LIS ending at nums[i]
+     */
+    if (!nums || nums.length === 0) {
+        return 0;
+    }
+
+    const n: number = nums.length;
+    const dp: number[] = Array(n).fill(1);
+
+    for (let i = 1; i < n; i++) {
+        for (let j = 0; j < i; j++) {
+            if (nums[j] < nums[i]) {
+                dp[i] = Math.max(dp[i], dp[j] + 1);
+            }
+        }
+    }
+
+    return Math.max(...dp);
+}
+
+// Example
+const nums: number[] = [10, 9, 2, 5, 3, 7, 101, 18];
+console.log(lengthOfLIS(nums));  // 4 (subsequence [2,3,7,101])
+
+// O(n log n) solution
+function binarySearch(arr: number[], target: number): number {
+    let left = 0;
+    let right = arr.length;
+    while (left < right) {
+        const mid = Math.floor((left + right) / 2);
+        if (arr[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
+    }
+    return left;
+}
+
+function lengthOfLISFast(nums: number[]): number {
+    // Optimized LIS using binary search
+    const tails: number[] = [];
+    for (const num of nums) {
+        const pos: number = binarySearch(tails, num);
+        if (pos === tails.length) {
+            tails.push(num);
+        } else {
+            tails[pos] = num;
+        }
+    }
+    return tails.length;
+}
+
+console.log(lengthOfLISFast(nums));  // 4`
+  },
   exercises: [
     {
       prompt: 'Implement LIS using the O(n²) DP approach.',
-      initialCode: `def length_of_LIS(nums):
+      initialCode: {
+        python: `def length_of_LIS(nums):
     """
     Find length of longest increasing subsequence.
 
@@ -929,7 +1613,19 @@ print(length_of_LIS_fast(nums))  # 4`,
     """
     # Your code here
     pass`,
-      solution: `def length_of_LIS(nums):
+        typescript: `function lengthOfLIS(nums: number[]): number {
+    /**
+     * Find length of longest increasing subsequence.
+     *
+     * @param nums - List of integers
+     * @returns Length of LIS
+     */
+    // Your code here
+    return 0;
+}`
+      },
+      solution: {
+        python: `def length_of_LIS(nums):
     """LIS using O(n²) DP."""
     if not nums:
         return 0
@@ -943,11 +1639,32 @@ print(length_of_LIS_fast(nums))  # 4`,
                 dp[i] = max(dp[i], dp[j] + 1)
 
     return max(dp)`,
+        typescript: `function lengthOfLIS(nums: number[]): number {
+    // LIS using O(n²) DP
+    if (!nums || nums.length === 0) {
+        return 0;
+    }
+
+    const n: number = nums.length;
+    const dp: number[] = Array(n).fill(1);
+
+    for (let i = 1; i < n; i++) {
+        for (let j = 0; j < i; j++) {
+            if (nums[j] < nums[i]) {
+                dp[i] = Math.max(dp[i], dp[j] + 1);
+            }
+        }
+    }
+
+    return Math.max(...dp);
+}`
+      },
       difficulty: Difficulty.Intermediate,
     },
     {
       prompt: 'Implement LIS using the O(n log n) approach with binary search.',
-      initialCode: `def length_of_LIS_optimized(nums):
+      initialCode: {
+        python: `def length_of_LIS_optimized(nums):
     """
     Find LIS length using binary search.
 
@@ -958,7 +1675,19 @@ print(length_of_LIS_fast(nums))  # 4`,
     """
     # Your code here
     pass`,
-      solution: `from bisect import bisect_left
+        typescript: `function lengthOfLISOptimized(nums: number[]): number {
+    /**
+     * Find LIS length using binary search.
+     *
+     * @param nums - List of integers
+     * @returns Length of LIS
+     */
+    // Your code here
+    return 0;
+}`
+      },
+      solution: {
+        python: `from bisect import bisect_left
 
 def length_of_LIS_optimized(nums):
     """LIS using O(n log n) with binary search."""
@@ -975,11 +1704,46 @@ def length_of_LIS_optimized(nums):
             tails[pos] = num
 
     return len(tails)`,
+        typescript: `function lengthOfLISOptimized(nums: number[]): number {
+    // LIS using O(n log n) with binary search
+    if (!nums || nums.length === 0) {
+        return 0;
+    }
+
+    function binarySearch(arr: number[], target: number): number {
+        let left = 0;
+        let right = arr.length;
+        while (left < right) {
+            const mid = Math.floor((left + right) / 2);
+            if (arr[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        return left;
+    }
+
+    const tails: number[] = [];
+
+    for (const num of nums) {
+        const pos: number = binarySearch(tails, num);
+        if (pos === tails.length) {
+            tails.push(num);
+        } else {
+            tails[pos] = num;
+        }
+    }
+
+    return tails.length;
+}`
+      },
       difficulty: Difficulty.Advanced,
     },
     {
       prompt: 'Find the actual longest increasing subsequence (not just its length).',
-      initialCode: `def find_LIS(nums):
+      initialCode: {
+        python: `def find_LIS(nums):
     """
     Return the actual LIS.
 
@@ -990,7 +1754,19 @@ def length_of_LIS_optimized(nums):
     """
     # Your code here
     pass`,
-      solution: `def find_LIS(nums):
+        typescript: `function findLIS(nums: number[]): number[] {
+    /**
+     * Return the actual LIS.
+     *
+     * @param nums - List of integers
+     * @returns The LIS as a list
+     */
+    // Your code here
+    return [];
+}`
+      },
+      solution: {
+        python: `def find_LIS(nums):
     """Return actual LIS using parent tracking."""
     if not nums:
         return []
@@ -1017,6 +1793,40 @@ def length_of_LIS_optimized(nums):
         idx = parent[idx]
 
     return lis[::-1]`,
+        typescript: `function findLIS(nums: number[]): number[] {
+    // Return actual LIS using parent tracking
+    if (!nums || nums.length === 0) {
+        return [];
+    }
+
+    const n: number = nums.length;
+    const dp: number[] = Array(n).fill(1);
+    const parent: number[] = Array(n).fill(-1);
+
+    for (let i = 1; i < n; i++) {
+        for (let j = 0; j < i; j++) {
+            if (nums[j] < nums[i] && dp[j] + 1 > dp[i]) {
+                dp[i] = dp[j] + 1;
+                parent[i] = j;
+            }
+        }
+    }
+
+    // Find max length and its ending index
+    const maxLen: number = Math.max(...dp);
+    let maxIdx: number = dp.indexOf(maxLen);
+
+    // Reconstruct LIS
+    const lis: number[] = [];
+    let idx: number = maxIdx;
+    while (idx !== -1) {
+        lis.push(nums[idx]);
+        idx = parent[idx];
+    }
+
+    return lis.reverse();
+}`
+      },
       difficulty: Difficulty.Advanced,
     },
   ],
