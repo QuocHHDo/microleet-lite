@@ -1,3 +1,4 @@
+import React from 'react';
 import ModulePage from '@/components/ModulePage';
 import { TopicName } from '../interfaces';
 import { dynamicProgrammingLessonsTab } from '@/data/lessons/dsa/dynamicProgramming';
