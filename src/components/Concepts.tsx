@@ -7,7 +7,7 @@ import { Search, ChevronDown, ChevronUp, CheckCircle } from 'lucide-react';
 import { filterConcepts } from '@/utils/filterConcepts';
 import useDebounce from '../hooks/useDebounce';
 import { Concept, Difficulty } from '@/common/commonConcept';
-import { renderContent } from '@/utils/renderContent';
+import LazyContent from '@/components/LazyContent';
 import DifficultyBadge from './DifficultyBadge';
 
 interface ConceptsTabProps {
@@ -106,7 +106,7 @@ const Concepts: React.FC<ConceptsTabProps> = ({
             </CardHeader>
             {expandedConcepts[concept.id] && (
               <CardContent className="p-4">
-                {renderContent(concept.description)}
+                <LazyContent content={concept.description} />
                 <div className="mt-4">
                   <Button
                     variant={
