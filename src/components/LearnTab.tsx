@@ -1,7 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { LessonContent } from '@/common/commonLesson';
-import { renderContent } from '@/utils/renderContent';
-import { python } from '@codemirror/lang-python';
+import LazyContent from '@/components/LazyContent';
 import { getCodeForLanguage } from '@/common/commonLanguage';
 import { useUserProgress } from '@/hooks/useUserProgress';
 
@@ -27,7 +26,7 @@ const LearnTab: React.FC<LearnTabProps> = ({ selectedLesson }) => {
     <div>
       <h3 className="text-2xl font-semibold mb-6">{selectedLesson?.title}</h3>
       <div className="prose prose-lg max-w-none">
-        {renderContent(selectedLesson?.content, language)}
+        <LazyContent content={selectedLesson?.content} language={language} />
       </div>
     </div>
 
@@ -36,7 +35,7 @@ const LearnTab: React.FC<LearnTabProps> = ({ selectedLesson }) => {
       <div className="mt-8">
         <h4 className="text-xl font-semibold mb-4">Code Example</h4>
         <div className="rounded-lg overflow-hidden border border-gray-200 p-4">
-          {renderContent(`\`\`\`${codeLanguage}\n${codeExample}\n\`\`\``, codeLanguage)}
+          <LazyContent content={`\`\`\`${codeLanguage}\n${codeExample}\n\`\`\``} language={codeLanguage} />
         </div>
       </div>
     )}
