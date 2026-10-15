@@ -188,6 +188,7 @@ for (const fruit of fruits) {
                 <CodeExecutor
                   initialCode={language === 'python' ? sumCodePython : sumCodeTypeScript}
                   testCases={sumTestCases}
+                  entryPoint="sum_numbers"
                   language={language}
                 />
               </CardContent>
@@ -206,6 +207,7 @@ for (const fruit of fruits) {
                 <CodeExecutor
                   initialCode={language === 'python' ? fibCodePython : fibCodeTypeScript}
                   testCases={fibTestCases}
+                  entryPoint="fibonacci"
                   language={language}
                 />
               </CardContent>
