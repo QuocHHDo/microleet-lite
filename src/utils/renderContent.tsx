@@ -7,6 +7,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialOceanic } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react';
+import { pythonRuntime } from '@/utils/pythonRunner';
 
 interface SVGRendererProps {
   children: string | ReactNode;
@@ -160,91 +161,15 @@ const CodeBlock = ({
 }) => {
   const [output, setOutput] = useState<string>('');
   const [isLoading, setIsLoading] = useState(false);
-  const [isPyodideReady, setIsPyodideReady] = useState(false);
 
-  // Lazy load Pyodide only when user clicks "Run Code"
-  const loadPyodideIfNeeded = async () => {
-    if (window.pyodide) {
-      setIsPyodideReady(true);
-      return;
-    }
-
-    try {
-      setIsLoading(true);
-      // Check if script is already loaded
-      let script = document.querySelector(
-        'script[src*="pyodide.js"]',
-      ) as HTMLScriptElement | null;
-
-      if (!script) {
-        script = document.createElement('script') as HTMLScriptElement;
-        script.src =
-          'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js';
-        script.async = true;
-        document.body.appendChild(script);
-
-        // Wait for script to load
-        await new Promise<void>((resolve, reject) => {
-          if (script) {
-            script.onload = () => resolve();
-            script.onerror = () =>
-              reject(new Error('Failed to load Pyodide'));
-          }
-        });
-      }
-
-      // Wait for window.loadPyodide to be available
-      while (!window.loadPyodide) {
-        await new Promise((resolve) => setTimeout(resolve, 100));
-      }
-
-      window.pyodide = await window.loadPyodide({
-        indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/',
-      });
-
-      setIsPyodideReady(true);
-    } catch (error) {
-      console.error('Failed to load Pyodide:', error);
-      setOutput(
-        'Failed to load Python environment. Please refresh and try again.',
-      );
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
+  // Python runs in a shared Web Worker (loaded on first click) with a timeout, so a runaway
+  // loop in a lesson example can't freeze the page.
   const runCode = async () => {
-    // Load Pyodide on first run
-    if (!isPyodideReady) {
-      await loadPyodideIfNeeded();
-      if (!window.pyodide) return;
-    }
-
     setIsLoading(true);
     setOutput('');
-
     try {
-      const pyodide = window.pyodide;
-      if (!pyodide) {
-        setOutput('Python environment not loaded');
-        return;
-      }
-
-      // Capture stdout
-      if (pyodide.setStdout) {
-        pyodide.setStdout({
-          batched: (output: string) => {
-            setOutput((prev) => prev + output + '\n');
-          },
-        });
-      }
-
-      const result = await pyodide.runPythonAsync(children);
-      if (result !== undefined && result !== null) {
-        setOutput((prev) => prev + String(result));
-      }
-    } catch (error: any) {
-      setOutput(error.message);
+      const result = await pythonRuntime.run(children, { echo: true });
+      setOutput([result.output, result.error].filter(Boolean).join('\n') || '(No output)');
     } finally {
       setIsLoading(false);
     }

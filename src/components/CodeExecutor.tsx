@@ -10,13 +10,15 @@ import CodeMirror from '@uiw/react-codemirror';
 import { python } from '@codemirror/lang-python';
 import { javascript } from '@codemirror/lang-javascript';
 import { Language } from '@/common/commonLanguage';
-import { transform } from 'sucrase';
+import { runJs, runJsTests } from '@/utils/jsRunner';
 
 interface CodeExecutorProps {
   initialCode?: string;
   readOnly?: boolean;
   showEditor?: boolean;
   testCases?: Array<{ input: any[]; expectedOutput: any; description?: string }>;
+  /** Name of the function the test cases call. Inferred from the code if omitted. */
+  entryPoint?: string;
   onSuccess?: () => void;
   language?: Language;
 }
@@ -26,6 +28,7 @@ export default function CodeExecutor({
   readOnly = false,
   showEditor = true,
   testCases,
+  entryPoint,
   onSuccess,
   language = 'python',
 }: CodeExecutorProps) {
@@ -40,115 +43,7 @@ export default function CodeExecutor({
   const [executionTime, setExecutionTime] = useState<number | null>(null);
   const [testResults, setTestResults] = useState<any>(null);
 
-  const isReady = language === 'python' ? pyodideReady : true; // TypeScript is always ready
-
-  // TypeScript/JavaScript execution helpers
-  const runTypeScriptCode = async (code: string): Promise<{ output: string; error: string | null; executionTime: number }> => {
-    const startTime = performance.now();
-    let output = '';
-    let error: string | null = null;
-
-    try {
-      // Transpile TypeScript to JavaScript
-      const { code: jsCode } = transform(code, {
-        transforms: ['typescript'],
-      });
-
-      // Capture console.log output
-      const logs: string[] = [];
-      const originalLog = console.log;
-      console.log = (...args: any[]) => {
-        logs.push(args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' '));
-      };
-
-      // Execute the code
-      try {
-        // eslint-disable-next-line no-eval
-        eval(jsCode);
-        output = logs.join('\n');
-      } finally {
-        console.log = originalLog;
-      }
-    } catch (err) {
-      error = err instanceof Error ? err.message : String(err);
-    }
-
-    const executionTime = performance.now() - startTime;
-    return { output, error, executionTime };
-  };
-
-  const runTypeScriptWithTests = async (
-    code: string,
-    testCases: Array<{ input: any[]; expectedOutput: any; description?: string }>
-  ): Promise<{ passed: number; total: number; results: any[]; executionTime: number }> => {
-    const startTime = performance.now();
-    const results: any[] = [];
-
-    try {
-      // Transpile TypeScript to JavaScript
-      const { code: jsCode } = transform(code, {
-        transforms: ['typescript'],
-      });
-
-      // Extract the function name from code (assumes format: function name(...) or const name = ...)
-      const functionMatch = code.match(/(?:function|const|let|var)\s+(\w+)/);
-      const functionName = functionMatch ? functionMatch[1] : null;
-
-      if (!functionName) {
-        throw new Error('Could not find function name in code');
-      }
-
-      // Execute the code to define the function
-      // eslint-disable-next-line no-eval
-      eval(jsCode);
-
-      // Run each test case
-      for (const testCase of testCases) {
-        try {
-          // eslint-disable-next-line no-eval
-          const actual = eval(`${functionName}(...${JSON.stringify(testCase.input)})`);
-          const passed = JSON.stringify(actual) === JSON.stringify(testCase.expectedOutput);
-
-          results.push({
-            passed,
-            input: testCase.input,
-            expected: testCase.expectedOutput,
-            actual,
-            error: null,
-          });
-        } catch (err) {
-          results.push({
-            passed: false,
-            input: testCase.input,
-            expected: testCase.expectedOutput,
-            actual: null,
-            error: err instanceof Error ? err.message : String(err),
-          });
-        }
-      }
-    } catch (err) {
-      // If transpilation or function extraction fails, mark all tests as failed
-      for (const testCase of testCases) {
-        results.push({
-          passed: false,
-          input: testCase.input,
-          expected: testCase.expectedOutput,
-          actual: null,
-          error: err instanceof Error ? err.message : String(err),
-        });
-      }
-    }
-
-    const executionTime = performance.now() - startTime;
-    const passed = results.filter(r => r.passed).length;
-
-    return {
-      passed,
-      total: results.length,
-      results,
-      executionTime,
-    };
-  };
+  const isReady = language === 'python' ? pyodideReady : true; // JS/TS runs in a worker, always ready
 
   const handleRun = async () => {
     if (!isReady) return;
@@ -163,8 +58,8 @@ export default function CodeExecutor({
       if (testCases && testCases.length > 0) {
         // Run with test cases
         const results = language === 'python'
-          ? await runPythonWithTests(code, testCases)
-          : await runTypeScriptWithTests(code, testCases);
+          ? await runPythonWithTests(code, testCases, entryPoint)
+          : await runJsTests(code, testCases, { entryPoint });
 
         setTestResults(results);
         setExecutionTime(results.executionTime);
@@ -176,7 +71,7 @@ export default function CodeExecutor({
         // Run code normally
         const result = language === 'python'
           ? await runPythonCode(code)
-          : await runTypeScriptCode(code);
+          : await runJs(code);
 
         setOutput(result.output);
         setError(result.error);
