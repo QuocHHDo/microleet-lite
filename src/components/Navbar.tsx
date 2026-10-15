@@ -23,6 +23,18 @@ export default function Navbar() {
           <Link href="/">Home</Link>
         </li>
         <li>
+          <Link href="/drills/pattern-spotting">🎯 Patterns</Link>
+        </li>
+        <li>
+          <Link href="/drills/edge-cases">🧪 Edge Cases</Link>
+        </li>
+        <li>
+          <Link href="/drills/mock-round">⏱️ Mock Round</Link>
+        </li>
+        <li>
+          <Link href="/review">🔁 Review</Link>
+        </li>
+        <li>
           <Link href="/leetcode">LeetCode</Link>
         </li>
         <li>
